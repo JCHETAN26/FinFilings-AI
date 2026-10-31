@@ -1,0 +1,187 @@
+FinFilings AI - Phase 1 benchmark output (raw)
+================================================
+Captured 2026-10-30 from the final tree. go1.27.1 linux/amd64, GOAMD64=v1,
+AMD Ryzen 7 5800H (16 logical CPUs, GOMAXPROCS=16). Index files in the
+default os.TempDir(). Machine was not isolated (desktop, normal background
+load); expect a few percent run-to-run noise.
+
+CAVEATS
+- SearchFixtures*, IngestFixtures, and PostingIter use SYNTHETIC TEST
+  FIXTURES / synthetic posting lists. They are not SEC/EDGAR corpus numbers
+  and are not production latency.
+- BitPackMatched: "dispatch" = packBits/unpackBits (SSE2 for widths 8 and 16
+  on this build; scalar for 12), "scalar" = packBitsScalar/unpackBitsScalar,
+  on the IDENTICAL 128-value input. Width 12 is a control with no SIMD kernel.
+- PFOREncode/PFORDecode inputs choose widths 0, 6, 4 (reported in the
+  "width" metric and asserted non-SIMD), so they measure the scalar path.
+  PFORDecodeWidth/w8 and /w16 go through the SSE2 kernels; /w12 is scalar.
+- MB/s is computed from b.SetBytes over uncompressed uint32 values (512 B per
+  128-value block), not from compressed bytes.
+
+$ go test -run '^$' -bench . -benchmem -benchtime 1s -count 5 ./pkg/index/
+goos: linux
+goarch: amd64
+pkg: github.com/JCHETAN26/FinFillings-AI/pkg/index
+cpu: AMD Ryzen 7 5800H with Radeon Graphics
+BenchmarkDeltaRoundtrip-16            	 9292916	       128.5 ns/op	3983.76 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDeltaRoundtrip-16            	 9339255	       131.7 ns/op	3887.56 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDeltaRoundtrip-16            	 8465982	       130.5 ns/op	3923.29 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDeltaRoundtrip-16            	 9360950	       128.6 ns/op	3982.42 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDeltaRoundtrip-16            	 9356788	       128.8 ns/op	3976.09 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/dense-16          	 6966027	       171.8 ns/op	2980.87 MB/s	         0.1875 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/dense-16          	 6998523	       171.7 ns/op	2982.14 MB/s	         0.1875 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/dense-16          	 6994803	       172.1 ns/op	2974.51 MB/s	         0.1875 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/dense-16          	 6911088	       171.9 ns/op	2978.43 MB/s	         0.1875 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/dense-16          	 6952581	       173.6 ns/op	2949.13 MB/s	         0.1875 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/small-16          	 3757144	       321.0 ns/op	1594.84 MB/s	         6.188 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/small-16          	 3333435	       345.9 ns/op	1480.16 MB/s	         6.188 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/small-16          	 3730890	       326.4 ns/op	1568.52 MB/s	         6.188 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/small-16          	 3581360	       339.6 ns/op	1507.44 MB/s	         6.188 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/small-16          	 3550767	       327.7 ns/op	1562.40 MB/s	         6.188 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/exceptions-16     	 2013756	       595.5 ns/op	 859.83 MB/s	         6.000 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/exceptions-16     	 2011128	       596.9 ns/op	 857.79 MB/s	         6.000 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/exceptions-16     	 2010462	       596.7 ns/op	 858.10 MB/s	         6.000 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/exceptions-16     	 2018832	       594.7 ns/op	 860.97 MB/s	         6.000 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFOREncode/exceptions-16     	 2012746	       594.9 ns/op	 860.62 MB/s	         6.000 bits/int	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/dense-16          	100000000	        10.00 ns/op	51194.81 MB/s	         0 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/dense-16          	120754478	         9.924 ns/op	51590.82 MB/s	         0 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/dense-16          	100000000	        10.03 ns/op	51056.30 MB/s	         0 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/dense-16          	120548871	         9.949 ns/op	51463.08 MB/s	         0 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/dense-16          	121729153	         9.853 ns/op	51963.96 MB/s	         0 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/small-16          	 8230040	       146.4 ns/op	3497.63 MB/s	         6.000 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/small-16          	 7947339	       147.2 ns/op	3477.81 MB/s	         6.000 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/small-16          	 8229079	       151.4 ns/op	3382.33 MB/s	         6.000 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/small-16          	 7777886	       154.1 ns/op	3321.79 MB/s	         6.000 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/small-16          	 7952202	       148.4 ns/op	3449.11 MB/s	         6.000 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/exceptions-16     	 7500900	       168.0 ns/op	3047.24 MB/s	         4.000 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/exceptions-16     	 7488993	       161.2 ns/op	3176.08 MB/s	         4.000 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/exceptions-16     	 7380554	       162.0 ns/op	3159.98 MB/s	         4.000 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/exceptions-16     	 7463971	       161.3 ns/op	3173.41 MB/s	         4.000 width	       0 B/op	       0 allocs/op
+BenchmarkPFORDecode/exceptions-16     	 7450132	       161.8 ns/op	3164.66 MB/s	         4.000 width	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/dispatch-16         	78502629	        15.62 ns/op	32783.97 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/dispatch-16         	77330523	        15.65 ns/op	32712.29 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/dispatch-16         	77286859	        15.61 ns/op	32801.27 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/dispatch-16         	76417690	        15.66 ns/op	32701.08 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/dispatch-16         	76834726	        15.77 ns/op	32460.35 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/dispatch-16       	80302917	        14.87 ns/op	34425.32 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/dispatch-16       	81740722	        14.88 ns/op	34411.55 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/dispatch-16       	79563978	        15.10 ns/op	33917.39 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/dispatch-16       	79162935	        14.89 ns/op	34378.82 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/dispatch-16       	81937566	        14.56 ns/op	35168.64 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/scalar-16           	 7492112	       157.7 ns/op	3247.36 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/scalar-16           	 7760972	       155.9 ns/op	3284.17 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/scalar-16           	 7569838	       159.1 ns/op	3217.74 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/scalar-16           	 7593854	       157.7 ns/op	3246.26 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w8/scalar-16           	 7413698	       163.1 ns/op	3140.07 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/scalar-16         	 7751144	       153.8 ns/op	3329.75 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/scalar-16         	 7703848	       154.2 ns/op	3320.44 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/scalar-16         	 7779475	       153.9 ns/op	3326.98 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/scalar-16         	 7749224	       154.5 ns/op	3314.12 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w8/scalar-16         	 7750747	       154.4 ns/op	3315.16 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/dispatch-16        	 7265614	       169.0 ns/op	3029.57 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/dispatch-16        	 6716269	       176.5 ns/op	2900.75 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/dispatch-16        	 6876807	       170.8 ns/op	2997.17 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/dispatch-16        	 7152656	       171.0 ns/op	2994.16 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/dispatch-16        	 6590868	       173.9 ns/op	2944.48 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/dispatch-16      	 5768451	       204.2 ns/op	2506.80 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/dispatch-16      	 5999479	       205.0 ns/op	2497.30 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/dispatch-16      	 5823372	       202.8 ns/op	2524.36 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/dispatch-16      	 6001011	       202.1 ns/op	2532.84 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/dispatch-16      	 5729200	       207.2 ns/op	2471.04 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/scalar-16          	 6338132	       189.7 ns/op	2699.59 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/scalar-16          	 6476864	       184.5 ns/op	2774.60 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/scalar-16          	 6525100	       184.6 ns/op	2774.00 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/scalar-16          	 6175700	       195.7 ns/op	2616.23 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w12/scalar-16          	 6396765	       188.0 ns/op	2723.72 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/scalar-16        	 5961720	       206.6 ns/op	2478.09 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/scalar-16        	 5765522	       208.2 ns/op	2459.47 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/scalar-16        	 6069741	       197.2 ns/op	2596.22 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/scalar-16        	 5763552	       204.6 ns/op	2502.99 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w12/scalar-16        	 5943520	       199.0 ns/op	2573.04 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/dispatch-16        	69590200	        17.67 ns/op	28981.60 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/dispatch-16        	68027931	        17.69 ns/op	28947.83 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/dispatch-16        	68060673	        18.01 ns/op	28430.51 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/dispatch-16        	67261557	        17.82 ns/op	28728.88 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/dispatch-16        	67943416	        17.69 ns/op	28944.82 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/dispatch-16      	80645127	        14.87 ns/op	34438.62 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/dispatch-16      	80515502	        14.80 ns/op	34605.24 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/dispatch-16      	81181362	        14.81 ns/op	34573.92 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/dispatch-16      	81320977	        14.82 ns/op	34556.24 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/dispatch-16      	81071296	        14.97 ns/op	34195.20 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/scalar-16          	 5307660	       226.5 ns/op	2260.55 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/scalar-16          	 5331650	       222.0 ns/op	2306.82 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/scalar-16          	 5124367	       224.7 ns/op	2278.47 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/scalar-16          	 5509400	       217.6 ns/op	2352.59 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/pack/w16/scalar-16          	 5461657	       218.3 ns/op	2345.84 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/scalar-16        	 5250830	       229.3 ns/op	2232.96 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/scalar-16        	 5277589	       230.2 ns/op	2223.92 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/scalar-16        	 5227671	       229.9 ns/op	2226.82 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/scalar-16        	 5234478	       229.6 ns/op	2229.60 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBitPackMatched/unpack/w16/scalar-16        	 5173837	       229.8 ns/op	2228.43 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w8-16                      	71287815	        16.92 ns/op	30265.20 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w8-16                      	70254176	        17.66 ns/op	28997.60 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w8-16                      	67195072	        17.08 ns/op	29977.22 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w8-16                      	70282831	        17.31 ns/op	29582.22 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w8-16                      	70252407	        17.78 ns/op	28800.13 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w12-16                     	 5593550	       211.0 ns/op	2426.68 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w12-16                     	 5836468	       207.0 ns/op	2472.83 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w12-16                     	 5860238	       205.7 ns/op	2489.24 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w12-16                     	 5765275	       207.9 ns/op	2463.13 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w12-16                     	 5849649	       205.1 ns/op	2495.77 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w16-16                     	68555508	        17.91 ns/op	28585.09 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w16-16                     	65826722	        18.09 ns/op	28302.95 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w16-16                     	69194718	        17.47 ns/op	29308.80 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w16-16                     	69583372	        17.07 ns/op	29986.52 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPFORDecodeWidth/w16-16                     	71218294	        17.12 ns/op	29901.63 MB/s	       0 B/op	       0 allocs/op
+BenchmarkPostingIter-16                             	    3931	    304975 ns/op	2623.16 MB/s	         5.375 bits/posting	       0 B/op	       0 allocs/op
+BenchmarkPostingIter-16                             	    3950	    305670 ns/op	2617.20 MB/s	         5.375 bits/posting	       0 B/op	       0 allocs/op
+BenchmarkPostingIter-16                             	    3782	    305055 ns/op	2622.48 MB/s	         5.375 bits/posting	       0 B/op	       0 allocs/op
+BenchmarkPostingIter-16                             	    4008	    317768 ns/op	2517.56 MB/s	         5.375 bits/posting	       0 B/op	       0 allocs/op
+BenchmarkPostingIter-16                             	    3782	    319839 ns/op	2501.26 MB/s	         5.375 bits/posting	       0 B/op	       0 allocs/op
+BenchmarkIngestFixtures-16                          	      30	  35980651 ns/op	  23.74 MB/s	 7345508 B/op	  102210 allocs/op
+BenchmarkIngestFixtures-16                          	      34	  40153149 ns/op	  21.28 MB/s	 7350118 B/op	  102224 allocs/op
+BenchmarkIngestFixtures-16                          	      36	  39593411 ns/op	  21.58 MB/s	 7344692 B/op	  102213 allocs/op
+BenchmarkIngestFixtures-16                          	      34	  41528176 ns/op	  20.57 MB/s	 7338116 B/op	  102188 allocs/op
+BenchmarkIngestFixtures-16                          	      33	  40159882 ns/op	  21.27 MB/s	 7337339 B/op	  102187 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16            	 4235134	       282.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16            	 4265199	       279.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16            	 4298793	       284.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16            	 4300288	       279.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16            	 4060111	       293.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16           	  334286	      3424 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16           	  357756	      3462 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16           	  337932	      3582 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16           	  334048	      3490 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16           	  352585	      3415 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/rare-1term-16               	 2300415	       517.1 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/rare-1term-16               	 2355057	       513.3 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/rare-1term-16               	 2348170	       514.9 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/rare-1term-16               	 2324452	       545.6 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/rare-1term-16               	 2319032	       514.4 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/topic-1term-16              	  420399	      2849 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/topic-1term-16              	  410163	      2845 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/topic-1term-16              	  435969	      2828 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/topic-1term-16              	  426550	      2847 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/topic-1term-16              	  426086	      2848 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16              	  111808	     10698 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16              	  107388	     11137 ns/op	    1587 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16              	  106443	     11115 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16              	   98994	     11153 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16              	  109922	     10770 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16             	   57057	     20853 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16             	   57459	     21085 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16             	   56707	     20937 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16             	   57326	     20944 ns/op	    1587 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16             	   57543	     20805 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16              	   63237	     18953 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16              	   62876	     19015 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16              	   62604	     20033 ns/op	    1587 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16              	   62312	     19137 ns/op	    1587 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16              	   61084	     19517 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixturesParallel-16                  	  353716	      3183 ns/op	    1619 B/op	      51 allocs/op
+BenchmarkSearchFixturesParallel-16                  	  370300	      3092 ns/op	    1617 B/op	      51 allocs/op
+BenchmarkSearchFixturesParallel-16                  	  404744	      2930 ns/op	    1614 B/op	      51 allocs/op
+BenchmarkSearchFixturesParallel-16                  	  412688	      2849 ns/op	    1613 B/op	      51 allocs/op
+BenchmarkSearchFixturesParallel-16                  	  324553	      3576 ns/op	    1621 B/op	      51 allocs/op
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	196.021s

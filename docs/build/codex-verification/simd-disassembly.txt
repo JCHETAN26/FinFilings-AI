@@ -1,0 +1,83 @@
+TEXT github.com/JCHETAN26/FinFillings-AI/pkg/index.pack8SSE2.abi0(SB) /media/grv22/Extreme SSD2/project/FinFillings AI/pkg/index/bitpack_amd64.s
+  bitpack_amd64.s:14	0x633da0		488b7c2408		MOVQ 0x8(SP), DI	
+  bitpack_amd64.s:15	0x633da5		488b742410		MOVQ 0x10(SP), SI	
+  bitpack_amd64.s:16	0x633daa		488b4c2418		MOVQ 0x18(SP), CX	
+  bitpack_amd64.s:17	0x633daf		660f76ff		PCMPEQD X7, X7		
+  bitpack_amd64.s:18	0x633db3		660f72d718		PSRLD $0x18, X7		
+  bitpack_amd64.s:21	0x633db8		f30f6f06		MOVDQU 0(SI), X0	
+  bitpack_amd64.s:22	0x633dbc		f30f6f4e10		MOVDQU 0x10(SI), X1	
+  bitpack_amd64.s:23	0x633dc1		f30f6f5620		MOVDQU 0x20(SI), X2	
+  bitpack_amd64.s:24	0x633dc6		f30f6f5e30		MOVDQU 0x30(SI), X3	
+  bitpack_amd64.s:25	0x633dcb		660fdbc7		PAND X7, X0		
+  bitpack_amd64.s:26	0x633dcf		660fdbcf		PAND X7, X1		
+  bitpack_amd64.s:27	0x633dd3		660fdbd7		PAND X7, X2		
+  bitpack_amd64.s:28	0x633dd7		660fdbdf		PAND X7, X3		
+  bitpack_amd64.s:29	0x633ddb		660f6bc1		PACKSSDW X1, X0		
+  bitpack_amd64.s:30	0x633ddf		660f6bd3		PACKSSDW X3, X2		
+  bitpack_amd64.s:31	0x633de3		660f67c2		PACKUSWB X2, X0		
+  bitpack_amd64.s:32	0x633de7		f30f7f07		MOVDQU X0, 0(DI)	
+  bitpack_amd64.s:33	0x633deb		4883c640		ADDQ $0x40, SI		
+  bitpack_amd64.s:34	0x633def		4883c710		ADDQ $0x10, DI		
+  bitpack_amd64.s:35	0x633df3		4883e910		SUBQ $0x10, CX		
+  bitpack_amd64.s:36	0x633df7		75bf			JNE 0x633db8		
+  bitpack_amd64.s:37	0x633df9		c3			RET			
+
+TEXT github.com/JCHETAN26/FinFillings-AI/pkg/index.pack16SSE2.abi0(SB) /media/grv22/Extreme SSD2/project/FinFillings AI/pkg/index/bitpack_amd64.s
+  bitpack_amd64.s:44	0x633e00		488b7c2408		MOVQ 0x8(SP), DI	
+  bitpack_amd64.s:45	0x633e05		488b742410		MOVQ 0x10(SP), SI	
+  bitpack_amd64.s:46	0x633e0a		488b4c2418		MOVQ 0x18(SP), CX	
+  bitpack_amd64.s:49	0x633e0f		f30f6f06		MOVDQU 0(SI), X0	
+  bitpack_amd64.s:50	0x633e13		f30f6f4e10		MOVDQU 0x10(SI), X1	
+  bitpack_amd64.s:51	0x633e18		660f72f010		PSLLD $0x10, X0		
+  bitpack_amd64.s:52	0x633e1d		660f72e010		PSRAD $0x10, X0		
+  bitpack_amd64.s:53	0x633e22		660f72f110		PSLLD $0x10, X1		
+  bitpack_amd64.s:54	0x633e27		660f72e110		PSRAD $0x10, X1		
+  bitpack_amd64.s:55	0x633e2c		660f6bc1		PACKSSDW X1, X0		
+  bitpack_amd64.s:56	0x633e30		f30f7f07		MOVDQU X0, 0(DI)	
+  bitpack_amd64.s:57	0x633e34		4883c620		ADDQ $0x20, SI		
+  bitpack_amd64.s:58	0x633e38		4883c710		ADDQ $0x10, DI		
+  bitpack_amd64.s:59	0x633e3c		4883e908		SUBQ $0x8, CX		
+  bitpack_amd64.s:60	0x633e40		75cd			JNE 0x633e0f		
+  bitpack_amd64.s:61	0x633e42		c3			RET			
+
+TEXT github.com/JCHETAN26/FinFillings-AI/pkg/index.unpack8SSE2.abi0(SB) /media/grv22/Extreme SSD2/project/FinFillings AI/pkg/index/bitpack_amd64.s
+  bitpack_amd64.s:66	0x633e60		488b7c2408		MOVQ 0x8(SP), DI	
+  bitpack_amd64.s:67	0x633e65		488b742410		MOVQ 0x10(SP), SI	
+  bitpack_amd64.s:68	0x633e6a		488b4c2418		MOVQ 0x18(SP), CX	
+  bitpack_amd64.s:69	0x633e6f		660fefff		PXOR X7, X7		
+  bitpack_amd64.s:72	0x633e73		f30f6f06		MOVDQU 0(SI), X0	
+  bitpack_amd64.s:73	0x633e77		660f6fc8		MOVDQA X0, X1		
+  bitpack_amd64.s:74	0x633e7b		660f60c7		PUNPCKLBW X7, X0	
+  bitpack_amd64.s:75	0x633e7f		660f68cf		PUNPCKHBW X7, X1	
+  bitpack_amd64.s:76	0x633e83		660f6fd0		MOVDQA X0, X2		
+  bitpack_amd64.s:77	0x633e87		660f6fd9		MOVDQA X1, X3		
+  bitpack_amd64.s:78	0x633e8b		660f61c7		PUNPCKLWD X7, X0	
+  bitpack_amd64.s:79	0x633e8f		660f69d7		PUNPCKHWD X7, X2	
+  bitpack_amd64.s:80	0x633e93		660f61cf		PUNPCKLWD X7, X1	
+  bitpack_amd64.s:81	0x633e97		660f69df		PUNPCKHWD X7, X3	
+  bitpack_amd64.s:82	0x633e9b		f30f7f07		MOVDQU X0, 0(DI)	
+  bitpack_amd64.s:83	0x633e9f		f30f7f5710		MOVDQU X2, 0x10(DI)	
+  bitpack_amd64.s:84	0x633ea4		f30f7f4f20		MOVDQU X1, 0x20(DI)	
+  bitpack_amd64.s:85	0x633ea9		f30f7f5f30		MOVDQU X3, 0x30(DI)	
+  bitpack_amd64.s:86	0x633eae		4883c610		ADDQ $0x10, SI		
+  bitpack_amd64.s:87	0x633eb2		4883c740		ADDQ $0x40, DI		
+  bitpack_amd64.s:88	0x633eb6		4883e910		SUBQ $0x10, CX		
+  bitpack_amd64.s:89	0x633eba		75b7			JNE 0x633e73		
+  bitpack_amd64.s:90	0x633ebc		c3			RET			
+
+TEXT github.com/JCHETAN26/FinFillings-AI/pkg/index.unpack16SSE2.abi0(SB) /media/grv22/Extreme SSD2/project/FinFillings AI/pkg/index/bitpack_amd64.s
+  bitpack_amd64.s:95	0x633ec0		488b7c2408		MOVQ 0x8(SP), DI	
+  bitpack_amd64.s:96	0x633ec5		488b742410		MOVQ 0x10(SP), SI	
+  bitpack_amd64.s:97	0x633eca		488b4c2418		MOVQ 0x18(SP), CX	
+  bitpack_amd64.s:98	0x633ecf		660fefff		PXOR X7, X7		
+  bitpack_amd64.s:101	0x633ed3		f30f6f06		MOVDQU 0(SI), X0	
+  bitpack_amd64.s:102	0x633ed7		660f6fc8		MOVDQA X0, X1		
+  bitpack_amd64.s:103	0x633edb		660f61c7		PUNPCKLWD X7, X0	
+  bitpack_amd64.s:104	0x633edf		660f69cf		PUNPCKHWD X7, X1	
+  bitpack_amd64.s:105	0x633ee3		f30f7f07		MOVDQU X0, 0(DI)	
+  bitpack_amd64.s:106	0x633ee7		f30f7f4f10		MOVDQU X1, 0x10(DI)	
+  bitpack_amd64.s:107	0x633eec		4883c610		ADDQ $0x10, SI		
+  bitpack_amd64.s:108	0x633ef0		4883c720		ADDQ $0x20, DI		
+  bitpack_amd64.s:109	0x633ef4		4883e908		SUBQ $0x8, CX		
+  bitpack_amd64.s:110	0x633ef8		75d9			JNE 0x633ed3		
+  bitpack_amd64.s:111	0x633efa		c3			RET			

@@ -1,0 +1,14 @@
+# Local datasets, indexes, model caches, and credentials
+/data/
+/indexes/
+/models/
+.cache/
+.env
+.env.*
+!.env.example
+*.test
+coverage.out
+__pycache__/
+.venv/
+# Per-request benchmark traces stay local; summaries and provenance are reviewable.
+/bench_kit/results/**/requests-*.csv

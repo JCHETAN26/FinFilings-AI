@@ -1,0 +1,3 @@
+{"id": "audit01", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 8, "flags": [], "model_calls": 4, "seconds": 26.3497135409998}
+{"id": "audit02", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 4, "retries": 2, "accepted_subqueries": 1, "cited_subqueries": 1, "citations": 7, "flags": ["Subquery 1 has no evidence meeting threshold after 2 retries."], "model_calls": 6, "seconds": 51.078549838999606}
+{"id": "audit03", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 8, "flags": [], "model_calls": 4, "seconds": 25.93191754200052}

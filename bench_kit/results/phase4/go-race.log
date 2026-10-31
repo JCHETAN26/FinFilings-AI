@@ -1,0 +1,8 @@
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit	(cached)
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit/load	1.013s
+ok  	github.com/JCHETAN26/FinFillings-AI/cmd/finfilings	(cached)
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/hybrid	(cached)
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	(cached)
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]
+
+exit_code=0

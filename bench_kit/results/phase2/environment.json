@@ -1,0 +1,18 @@
+{
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "logical_cpus": 16,
+  "torch": "2.10.0+cu126",
+  "cuda_available": true,
+  "numpy": "1.26.4",
+  "faiss": "1.15.1",
+  "faiss_compile_options": "OPTIMIZE DD AVX2 ",
+  "transformers": "4.44.2",
+  "fastapi": "0.162.0",
+  "uvicorn": "0.54.0",
+  "ranx": "0.3.21",
+  "cpu_model": "AMD Ryzen 7 5800H with Radeon Graphics",
+  "inference_device": "cpu",
+  "device_evidence": "integration-final.log health reports encoder_device=cpu and reranker_device=cpu",
+  "cuda_note": "CUDA visibility differs between managed sandbox and host; CUDA was not used for these models."
+}

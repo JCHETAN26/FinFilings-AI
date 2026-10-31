@@ -1,0 +1,52 @@
+embedded 800/19511
+embedded 1600/19511
+embedded 2400/19511
+embedded 3200/19511
+embedded 4000/19511
+embedded 4800/19511
+embedded 5600/19511
+embedded 6400/19511
+embedded 7200/19511
+embedded 8000/19511
+embedded 8800/19511
+embedded 9600/19511
+embedded 10400/19511
+embedded 11200/19511
+embedded 12000/19511
+embedded 12800/19511
+embedded 13600/19511
+embedded 14400/19511
+embedded 15200/19511
+embedded 16000/19511
+embedded 16800/19511
+embedded 17600/19511
+embedded 18400/19511
+embedded 19200/19511
+{
+  "format_version": 1,
+  "documents": 19511,
+  "dimension": 384,
+  "subvectors": 48,
+  "nbits": 8,
+  "metric": "inner_product",
+  "normalized": true,
+  "model": "BAAI/bge-small-en-v1.5",
+  "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "query_instruction": "Represent this sentence for searching relevant passages: ",
+  "max_length": 512,
+  "corpus_sha256": "5413d6edc850fde9782dafd972c1a399629ba2a84e049e7dc55c6766008e84cf",
+  "training_count": 19511,
+  "recommended_training_count": 9984,
+  "adequate_training_count": true,
+  "seed": 20261030,
+  "training_iterations": 25,
+  "embedding_seconds": 510.48633013499966,
+  "pq_train_add_seconds": 0.8392773010000383,
+  "total_seconds": 511.33165496400034,
+  "files": {
+    "vectors.f32.npy": "ed9745af54c3d2829445af87b3ada1e99d5efb9b90c520b1c779f2c9a14a69d1",
+    "passages.sqlite": "6b22b826cf1bad200e4698bb0b0e6b1048d4745d2a18d2d6b49969261c90d531",
+    "index.pq8.faiss": "7fa92dea4f3a56f4d530a096c457da148522b4c97216646604b55098fd5ce766",
+    "centroids.npy": "356f888493f992dc5310b4c80f0ba7647967547ba594ec0af5cc4f620e036d0d"
+  }
+}

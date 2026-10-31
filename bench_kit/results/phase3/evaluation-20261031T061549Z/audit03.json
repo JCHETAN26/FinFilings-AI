@@ -1,0 +1,451 @@
+{
+  "prompt": "Audit NVDA filing year 2024: separately retrieve export control risks and dependence on external manufacturing capacity. Explain with filing excerpts only.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "export control restrictions risks affecting sales of products to foreign customers and regions",
+        "filters": {
+          "ticker": "NVDA",
+          "year": 2024,
+          "section": "",
+          "accession": "000104581024000029"
+        }
+      },
+      {
+        "query": "dependence on external third-party foundries and manufacturing capacity for production supply",
+        "filters": {
+          "ticker": "NVDA",
+          "year": 2024,
+          "section": "",
+          "accession": "000104581024000029"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "export control restrictions risks affecting sales of products to foreign customers and regions",
+      "filters": {
+        "ticker": "NVDA",
+        "year": 2024,
+        "section": "",
+        "accession": "000104581024000029"
+      },
+      "score": 5,
+      "rationale": "The passages directly address the subquery for NVDA's FY2024 filing (accession 000104581024000029, cover period ending January 28, 2024). They state that export controls restrict sales of GPUs and networking products to markets outside China, including Europe, Latin America, and Southeast Asia. They describe sanctions that blocked product shipments to Russia and Belarus, the stopped direct sales to Russia, and Entity List constraints on doing business. They also cover demand and design-out effects on foreign customers. Passages are truncated mid-sentence, and they do not quantify revenue impact, but they fully support the risk described in the query.",
+      "evidence": [
+        {
+          "id": "000104581024000029#passage-000084",
+          "text": "request that our customers purchase from our competitors rather than NVIDIA or other U.S. firms, harming our business, market position, and financial results. As a result, excessive or shifting export controls may negatively impact demand for our products and services not only in China, but also in other markets, such as Europe, Latin America, and Southeast Asia. Excessive or shifting export controls increase the risk of investing in U.S. advanced semiconductor products, because by the time a new product is ready for market, it may be subject to new unilateral export controls restricting its sale. At the same time, such controls may increase investment in foreign competitors, which would be less likely to be restricted by U.S. controls. Additionally, restrictions imposed by the Chinese government on the duration of gaming activities and access to games may adversely affect our Gaming revenue, and increased oversight of digital platform companies may adversely affect our Data Center revenue. The Chinese government may impose restrictions on the sale to certain customers of our products, or any products containing components made by our partners and suppliers. For example, the Chinese government announced restrictions relating to certain sales of products containing certain products made by Micron, a supplier of ours. Further restrictions on our products or the products of our suppliers could negatively impact our business and financial results. Finally, our business depends on our ability to receive consistent and reliable supply from our overseas partners, especially in Taiwan. Any new restrictions that negatively impact our ability to receive supply of components,",
+          "metadata": {
+            "ID": "000104581024000029#passage-000084",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000084"
+        },
+        {
+          "id": "000104581024000029#passage-000083",
+          "text": "countries, or by requiring chip tracking and throttling mechanisms that would disable or impair GPUs if certain system or use conditions are detected. The USG has already imposed export controls restricting certain gaming GPUs, and if the USG expands such controls to restrict additional gaming products, it may disrupt a significant portion of our supply and distribution chain and negatively impact sales of such products to markets outside China, including the U.S. and Europe. Export controls may disrupt our supply and distribution chain for a substantial portion of our products, which are warehoused in and distributed from Hong Kong. Export controls restricting our ability to sell datacenter GPUs may also negatively impact demand for our networking products used in servers containing our GPUs. The USG may also impose export controls on our networking products, such as high-speed network interconnects, to limit the ability of downstream parties to create large clusters for frontier model training. Any new control that impacts a wider range of our products would likely have a disproportionate impact on NVIDIA and may disadvantage us against certain of our competitors that sell chips that are outside the scope of such control. Excessive or shifting export controls have already and may in the future encourage customers outside China and other impacted regions to “design-out” certain U.S. semiconductors from their products to reduce the compliance burden and risk, and to ensure that they are able to serve markets worldwide. Excessive or shifting export controls have already encouraged and may in the future encourage overseas governments to",
+          "metadata": {
+            "ID": "000104581024000029#passage-000083",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000083"
+        },
+        {
+          "id": "000104581024000029#passage-000076",
+          "text": "on our business. If we were ever found to have violated export control laws or sanctions of the U.S. or similar applicable non-U.S. laws, even if the violation occurred without our knowledge, we may be subject to various penalties available under the laws, any of which could have a material and adverse impact on our business, operating results and financial condition. For example, in response to the war in Ukraine, the United States and other jurisdictions imposed economic sanctions and export control measures which blocked the passage of our products, services and support into Russia, Belarus, and certain regions of Ukraine. In fiscal year 2023, we stopped direct sales to Russia and closed business operations in Russia. Concurrently, the war in Ukraine has impacted sales in EMEA and may continue to do so in the future. The increasing focus on the risks and strategic importance of AI technologies has resulted in regulatory restrictions that target products and services capable of enabling or facilitating AI and may in the future result in additional restrictions impacting some or all of our product and service offerings. Concerns regarding third-party use of AI for purposes contrary to local governmental interests, including concerns relating to the misuse of AI applications, models, and solutions, has resulted in and could in the future result in unilateral or multilateral restrictions on products that can be used for training, modifying, tuning, and deploying LLMs. Such restrictions have limited and could in the future limit the ability of downstream customers and users worldwide to acquire, deploy",
+          "metadata": {
+            "ID": "000104581024000029#passage-000076",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000076"
+        },
+        {
+          "id": "000104581024000029#passage-000078",
+          "text": "the use, resale, repair, or transfer of our products, negatively impacting our business and financial results. Controls could negatively impact our cost and/or ability to provide services such as NVIDIA AI cloud services and could impact the cost and/or ability for our cloud service providers and customers to provide services to their end customers, even outside China. Export controls could disrupt our supply chain and distribution channels, negatively impacting our ability to serve demand, including in markets outside China and for our gaming products. The possibility of additional export controls has negatively impacted and may in the future negatively impact demand for our products, benefiting competitors that offer alternatives less likely to be restricted by further controls. Repeated changes in the export control rules are likely to impose compliance burdens on our business and our customers, negatively and materially impacting our business. Increasing use of economic sanctions and export controls has impacted and may in the future impact demand for our products or services, negatively impacting our business and financial results. Reduced demand due to export controls could also lead to excess inventory or cause us to incur related supply charges. Additional unilateral or multilateral controls are also likely to include deemed export control limitations that negatively impact the ability of our research and development teams to execute our roadmap or other objectives in a timely manner. Additional export restrictions may not only impact our ability to serve overseas markets, but also provoke responses from foreign governments, including China, that negatively impact our supply chain or",
+          "metadata": {
+            "ID": "000104581024000029#passage-000078",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000078"
+        },
+        {
+          "id": "000104581024000029#passage-000075",
+          "text": "information in the future. Governments and regulators are considering imposing restrictions on the hardware, software, and systems used to develop frontier foundation models and generative AI. If implemented, such restrictions could increase the costs and burdens to us and our customers, delay or halt deployment of new systems using our products, and reduce the number of new entrants and customers, negatively impacting our business and financial results. Revisions to laws or regulations or their interpretation and enforcement could also result in increased taxation, trade sanctions, the imposition of or increase to import duties or tariffs, restrictions and controls on imports or exports, or other retaliatory actions, which could have an adverse effect on our business plans or impact the timing of our shipments. Additionally, changes in the public perception of governments in the regions where we operate or plan to operate could negatively impact our business and results of operations. Government actions, including trade protection and national and economic security policies of U.S. and foreign government bodies, such as tariffs, import or export regulations, including deemed export restrictions and restrictions on the activities of U.S. persons, trade and economic sanctions, decrees, quotas or other trade barriers and restrictions could affect our ability to ship products, provide services to our customers and employees, do business without an export license with entities on the U.S. Department of Commerce’s U.S. Entity List or other USG restricted parties lists (which is expected to change from time to time), and generally fulfill our contractual obligations and have a material adverse effect",
+          "metadata": {
+            "ID": "000104581024000029#passage-000075",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000075"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 9.059785150999915
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "dependence on external third-party foundries and manufacturing capacity for production supply",
+      "filters": {
+        "ticker": "NVDA",
+        "year": 2024,
+        "section": "",
+        "accession": "000104581024000029"
+      },
+      "score": 5,
+      "rationale": "Passages 000104581024000029#passage-000041, #000049, and #000050 directly address the subquery. They state NVDA depends on foundries to manufacture wafers, uses third-party contract manufacturers and assembly/test providers, has no guaranteed wafer or capacity supply, and faces risks from limited geographic concentration of suppliers and foundry capacity shortfalls. Passage 000062 adds manufacturing concentration in Taiwan, Korea, and other regions. Passage 000058 is mostly about cybersecurity of suppliers and is peripheral. The excerpts come from the NVDA 2024 filing (accession 000104581024000029, fiscal period ended January 28, 2024), which matches the filter.",
+      "evidence": [
+        {
+          "id": "000104581024000029#passage-000049",
+          "text": "forecasting difficult. Gray market products and reseller marketplaces compete with our new products and distribution channels. Additionally, we depend on developers, customers and other third parties to build, enhance, and maintain accelerated computing applications that leverage our platforms. We also rely on third-party content providers and publishers to make their content available on our platforms, such as GeForce NOW. Failure by developers, customers, and other third parties to build, enhance, and maintain applications that leverage our platforms, or failure by third-party content providers or publishers to make their content available on reasonable terms or at all for use by our customers or end users on our platforms, could adversely affect customer demand. Dependency on third-party suppliers and their technology to manufacture, assemble, test, or package our products reduces our control over product quantity and quality, manufacturing yields, and product delivery schedules and could harm our business. We depend on foundries to manufacture our semiconductor wafers using their fabrication equipment and techniques. We do not assemble, test, or package our products, but instead contract with independent subcontractors. These subcontractors assist with procuring components used in our systems, boards, and products. We face several risks which have adversely affected or could adversely affect our ability to meet customer demand and scale our supply chain, negatively impact longer-term demand for our products and services, and adversely affect our business operations, gross margin, revenue and/or financial results, including: • lack of guaranteed supply of wafer, component and capacity or decommitment and potential higher wafer and component prices, from incorrectly estimating",
+          "metadata": {
+            "ID": "000104581024000029#passage-000049",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000049"
+        },
+        {
+          "id": "000104581024000029#passage-000041",
+          "text": "to successfully compete in this environment, demand for our products, services and technologies could decrease and we may not establish meaningful revenue. Risks Related to Demand, Supply and Manufacturing Failure to estimate customer demand accurately has led and could lead to mismatches between supply and demand. We use third parties to manufacture and assemble our products, and we have long manufacturing lead times. We are not provided guaranteed wafer, component and capacity supply, and our supply deliveries and production may be non-linear within a quarter or year. If our estimates of customer demand are inaccurate, as we have experienced in the past, there could be a significant mismatch between supply and demand. This mismatch has resulted in both product shortages and excess inventory, has varied across our market platforms, and has significantly harmed our financial results. We build finished products and maintain inventory in advance of anticipated demand. While we have in the past entered and may in the future enter into long-term supply and capacity commitments, we may not be able to secure sufficient 15 Table of Contents commitments for capacity to address our business needs, or our long-term demand expectations may change. These risks may increase as we shorten our product development cycles, enter new lines of business, or integrate new suppliers or components into our supply chain, creating additional supply chain complexity. Additionally, our ability to sell certain products has been and could be impeded if components necessary for the finished products are not available from third parties. This risk may increase as",
+          "metadata": {
+            "ID": "000104581024000029#passage-000041",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000041"
+        },
+        {
+          "id": "000104581024000029#passage-000050",
+          "text": "demand and failing to place orders with our suppliers with sufficient quantities or in a timely manner; • failure by our foundries or contract manufacturers to procure raw materials or provide adequate levels of manufacturing or test capacity for our products; • failure by our foundries to develop, obtain or successfully implement high quality process technologies, including transitions to smaller geometry process technologies such as advanced process node technologies and memory designs needed to manufacture our products; • failure by our suppliers to comply with our policies and expectations and emerging regulatory requirements; • limited number and geographic concentration of global suppliers, foundries, contract manufacturers, assembly and test providers and memory manufacturers; • loss of a supplier and additional expense and/or production delays as a result of qualifying a new foundry or subcontractor and commencing volume production or testing in the event of a loss, addition or change of a supplier; • lack of direct control over product quantity, quality and delivery schedules; • suppliers or their suppliers failing to supply high quality products and/or making changes to their products without our qualification; • delays in product shipments, shortages, a decrease in product quality and/or higher expenses in the event our subcontractors or foundries prioritize our competitors’ or other customers’ orders over ours; • requirements to place orders that are not cancellable upon changes in demand or requirements to prepay for supply in advance; • low manufacturing yields resulting from a failure in our product design or a foundry’s proprietary process technology; and • disruptions in",
+          "metadata": {
+            "ID": "000104581024000029#passage-000050",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000050"
+        },
+        {
+          "id": "000104581024000029#passage-000062",
+          "text": "including but not limited to China, Hong Kong, Israel, Korea and Taiwan where the manufacture of our product components and final assembly of our products are concentrated may result in changing regulatory requirements, and other disruptions that could impact our operations and operating strategies, product demand, access to global markets, hiring, and profitability. For example, other countries have restricted and may continue in the future to restrict business with the State of Israel, where we have engineering, sales support operations and manufacturing, and companies with Israeli operations, including by economic boycotts. Our operations could be harmed and our costs could increase if manufacturing, logistics or other operations are disrupted for any reason, including natural disasters, high heat events or water shortages, power shortages, information technology system failures or cyber-attacks, military actions or economic, business, labor, environmental, public health, or political issues. The ultimate impact on us, our third-party foundries and other suppliers of being located and consolidated in certain geographical areas is unknown. In the event a disaster, war or catastrophic event affects us, the third-party systems on which we rely, or our customers, our business could be harmed as a result of declines in revenue, increases in expenses, and substantial expenditures and time spent to fully resume operations. All of these risks and conditions could materially adversely affect our future sales and operating results. 21 Table of Contents We are monitoring the impact of the geopolitical conflict in and around Israel on our operations, including the health and safety of our approximately 3,700 employees in",
+          "metadata": {
+            "ID": "000104581024000029#passage-000062",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000062"
+        },
+        {
+          "id": "000104581024000029#passage-000058",
+          "text": "threat will not result in an incident that is material to us. Furthermore, we rely on products and services provided by third-party suppliers to operate certain critical business systems, including without limitation, cloud-based infrastructure, encryption and authentication technology, employee email and other functions, which exposes us to supply-chain attacks or other business disruptions. We cannot guarantee that third parties and infrastructure in our supply chain or our partners’ supply chains have not been compromised or that they do not contain exploitable vulnerabilities, defects or bugs that could result in a breach of or disruption to our information technology systems, including our products and services, or the third-party information technology systems that support our services. We may also incorporate third-party data into our AI algorithms or use open-source datasets to train our algorithms. These datasets may be flawed, insufficient, or contain certain biased information, and may otherwise be vulnerable to security incidents. We may have limited insight into the data privacy or security practices of third-party suppliers, including for our AI algorithms. Our ability to monitor these third parties’ information security practices is limited, and they may not have adequate information security measures in place. In addition, if one of our third-party suppliers suffers a security incident (which has happened in the 20 Table of Contents past and may happen in the future), our response may be limited or more difficult because we may not have direct access to their systems, logs and other information related to the security incident. Additionally, we are incorporated into the supply",
+          "metadata": {
+            "ID": "000104581024000029#passage-000058",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000058"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 7.9753108659999725
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Export controls could disrupt our supply chain and distribution channels, negatively impacting our ability to serve demand, including in markets outside China and for our gaming products. [NVDA-2024-10K-p000078](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000078`; accession: `0001045810-24-000029`).\n- Export controls may disrupt our supply and distribution chain for a substantial portion of our products, which are warehoused in and distributed from Hong Kong. [NVDA-2024-10K-p000083](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000083`; accession: `0001045810-24-000029`).\n- If we were ever found to have violated export control laws or sanctions of the U.S. or similar applicable non-U.S. laws, even if the violation occurred without our knowledge, we may be subject to various penalties available under the laws, any of which could have a material and adverse impact on our business, operating results and financial condition. [NVDA-2024-10K-p000076](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000076`; accession: `0001045810-24-000029`).\n- Finally, our business depends on our ability to receive consistent and reliable supply from our overseas partners, especially in Taiwan. [NVDA-2024-10K-p000084](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000084`; accession: `0001045810-24-000029`).\n- We use third parties to manufacture and assemble our products, and we have long manufacturing lead times. We are not provided guaranteed wafer, component and capacity supply, and our supply deliveries and production may be non-linear within a quarter or year. [NVDA-2024-10K-p000041](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000041`; accession: `0001045810-24-000029`).\n- We depend on foundries to manufacture our semiconductor wafers using their fabrication equipment and techniques. We do not assemble, test, or package our products, but instead contract with independent subcontractors. [NVDA-2024-10K-p000049](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000049`; accession: `0001045810-24-000029`).\n- limited number and geographic concentration of global suppliers, foundries, contract manufacturers, assembly and test providers and memory manufacturers; [NVDA-2024-10K-p000050](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000050`; accession: `0001045810-24-000029`).\n- The ultimate impact on us, our third-party foundries and other suppliers of being located and consolidated in certain geographical areas is unknown. [NVDA-2024-10K-p000062](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000062`; accession: `0001045810-24-000029`).",
+  "citations": [
+    {
+      "tag": "NVDA-2024-10K-p000078",
+      "chunk_id": "000104581024000029#passage-000078",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "Export controls could disrupt our supply chain and distribution channels, negatively impacting our ability to serve demand, including in markets outside China and for our gaming products."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000083",
+      "chunk_id": "000104581024000029#passage-000083",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "Export controls may disrupt our supply and distribution chain for a substantial portion of our products, which are warehoused in and distributed from Hong Kong."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000076",
+      "chunk_id": "000104581024000029#passage-000076",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "If we were ever found to have violated export control laws or sanctions of the U.S. or similar applicable non-U.S. laws, even if the violation occurred without our knowledge, we may be subject to various penalties available under the laws, any of which could have a material and adverse impact on our business, operating results and financial condition."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000084",
+      "chunk_id": "000104581024000029#passage-000084",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "Finally, our business depends on our ability to receive consistent and reliable supply from our overseas partners, especially in Taiwan."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000041",
+      "chunk_id": "000104581024000029#passage-000041",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "We use third parties to manufacture and assemble our products, and we have long manufacturing lead times. We are not provided guaranteed wafer, component and capacity supply, and our supply deliveries and production may be non-linear within a quarter or year."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000049",
+      "chunk_id": "000104581024000029#passage-000049",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "We depend on foundries to manufacture our semiconductor wafers using their fabrication equipment and techniques. We do not assemble, test, or package our products, but instead contract with independent subcontractors."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000050",
+      "chunk_id": "000104581024000029#passage-000050",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "limited number and geographic concentration of global suppliers, foundries, contract manufacturers, assembly and test providers and memory manufacturers;"
+    },
+    {
+      "tag": "NVDA-2024-10K-p000062",
+      "chunk_id": "000104581024000029#passage-000062",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "The ultimate impact on us, our third-party foundries and other suppliers of being located and consolidated in certain geographical areas is unknown."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.385293440000055,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 972,
+        "cache_read_input_tokens": 1218,
+        "output_tokens": 354,
+        "output_tokens_details": {
+          "thinking_tokens": 165
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 972,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 354,
+            "cache_read_input_tokens": 1218,
+            "cache_creation_input_tokens": 972,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 972
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00038378
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.858272350999982,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3600,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 737,
+        "output_tokens_details": {
+          "thinking_tokens": 312
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3600,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 737,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 3600,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3600
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00109771
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.946153079000055,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3549,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 685,
+        "output_tokens_details": {
+          "thinking_tokens": 323
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3549,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 685,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 3549,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3549
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0010615099999999999
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 9.314398023999956,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 7324,
+        "cache_read_input_tokens": 882,
+        "output_tokens": 2384,
+        "output_tokens_details": {
+          "thinking_tokens": 1633
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 7324,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2384,
+            "cache_read_input_tokens": 882,
+            "cache_creation_input_tokens": 7324,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 7324
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00266582
+    }
+  ],
+  "elapsed_seconds": 21.761957655999936
+}

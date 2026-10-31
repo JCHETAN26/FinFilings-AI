@@ -1,0 +1,7 @@
+{
+  "sidecar_pid": 900119,
+  "rss_bytes": 1612705792,
+  "uss_bytes": 1377767424,
+  "threads": 28,
+  "note": "Whole live model service after evaluation, includes both real models, PQ8, SQLite and inference workspace. Not compared to a hypothetical float32 whole-service clone."
+}

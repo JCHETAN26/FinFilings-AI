@@ -1,0 +1,448 @@
+{
+  "started_at": "2026-10-30T20:59:20Z",
+  "config": {
+    "corpus": "data/sec/chunks.jsonl",
+    "queries": "bench_kit/queries.jsonl",
+    "output_root": "bench_kit/results",
+    "index_root": "indexes/phase1-bench",
+    "query_workers": 50,
+    "requests_per_round": 100000,
+    "rounds": 3,
+    "mmap_open_runs": 10,
+    "ingest_workers": 8,
+    "segment_buffer_mib": 8,
+    "max_docs_per_segment": 256,
+    "top_k": 10,
+    "query_timeout_ns": 5000000000
+  },
+  "go_version": "go1.27.1",
+  "goos": "linux",
+  "goarch": "amd64",
+  "logical_cpus": 16,
+  "gomaxprocs": 16,
+  "hostname": "grv22",
+  "cpu_model": "AMD Ryzen 7 5800H with Radeon Graphics",
+  "corpus_sha256": "806cf2fc59f4ed352541b0f12ebbd2eba880d1ed44dc65475f7026556b8012ad",
+  "queries_sha256": "b47ee4fd5c36e0440abb2e7a278c902b571ea89fdfa79505ebc8c2962c634cb2",
+  "source_sha256": "da1a228046666666982f8b12882aa837193f9442f6579d8e6d4f784c4938716a",
+  "queries": [
+    {
+      "query": "revenue growth",
+      "expect_hits": true
+    },
+    {
+      "query": "risk factors",
+      "expect_hits": true
+    },
+    {
+      "query": "cash flows operating activities",
+      "expect_hits": true
+    },
+    {
+      "query": "interest rate risk",
+      "expect_hits": true
+    },
+    {
+      "query": "goodwill impairment",
+      "expect_hits": true
+    },
+    {
+      "query": "income tax",
+      "expect_hits": true
+    },
+    {
+      "query": "share repurchase",
+      "expect_hits": true
+    },
+    {
+      "query": "long term debt",
+      "expect_hits": true
+    },
+    {
+      "query": "supply chain",
+      "expect_hits": true
+    },
+    {
+      "query": "cybersecurity",
+      "expect_hits": true
+    },
+    {
+      "query": "research development",
+      "expect_hits": true
+    },
+    {
+      "query": "foreign currency exchange",
+      "expect_hits": true
+    },
+    {
+      "query": "stock based compensation",
+      "expect_hits": true
+    },
+    {
+      "query": "data center",
+      "expect_hits": true
+    },
+    {
+      "query": "cloud services",
+      "expect_hits": true
+    },
+    {
+      "query": "artificial intelligence",
+      "expect_hits": true
+    },
+    {
+      "query": "the and of",
+      "expect_hits": true
+    },
+    {
+      "query": "zzfinfilingsabsenttermxqv",
+      "expect_hits": false
+    }
+  ],
+  "measurement_notes": [
+    "Real caller-supplied SECChunk JSONL; verify provenance.json for data origin. No duplication or generated documents in the supplied SEC preparation script.",
+    "Indexing includes disk JSONL read/decode, analysis, PFOR, segment flushes and fsync/manifest publication; excludes network download and HTML preparation.",
+    "Validated mmap initialization is end-to-end index.Open, including manifest parsing, syscalls, CRC checks and structure validation; not isolated mmap syscall time. Filesystem cache is warm after indexing; caches are not dropped.",
+    "Fixed-work saturated closed-loop load; bounded job queue=workers, results queue=2*workers. Not an open-loop arrival-rate test or HTTP measurement. No SLO pass threshold is assumed.",
+    "Exactly workers persistent query goroutines; index admission slots also equal workers. Search latency includes admission, excludes dispatch queue, validation and CSV output; dispatch-attempt latency additionally includes queue/backpressure. QPS includes validation/collection overhead.",
+    "Pre-load warmup: every worker runs every query once. Every measured hit list must exactly match a serial baseline (including scores and metadata). This tests stability, not independently labeled relevance.",
+    "Nearest-rank percentiles over every observation; exact latency storage bounded to 16 bytes/request (max 1e6 requests). Raw CSV contains every request, including failures.",
+    "Stable means every scheduled request completed, no search errors, no baseline mismatches and no unexpected hit/empty results; does not certify production scale or multi-tenant safety."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "index_path": "indexes/phase1-bench/round-1-1289612002",
+      "indexing": {
+        "documents": 702,
+        "text_bytes": 1182853,
+        "elapsed_ms": 65.335363,
+        "documents_per_second": 10744.564165044894,
+        "text_mib_per_second": 17.26563493929133
+      },
+      "index_stats": {
+        "Segments": 3,
+        "Docs": 702,
+        "Tokens": 182667,
+        "Terms": 14148,
+        "Postings": 95845,
+        "PostingBytes": 177476,
+        "FileBytes": 796880
+      },
+      "validated_mmap_open": {
+        "count": 10,
+        "min_us": 253.276,
+        "p50_us": 270.127,
+        "p95_us": 359.165,
+        "p99_us": 359.165,
+        "max_us": 359.165,
+        "mean_us": 281.9658
+      },
+      "validated_mmap_open_samples_ns": [
+        359165,
+        278784,
+        270127,
+        256092,
+        302338,
+        267072,
+        253677,
+        253276,
+        306305,
+        272822
+      ],
+      "load": {
+        "completed": 100000,
+        "search_errors": 0,
+        "result_mismatches": 0,
+        "unexpected_empty": 0,
+        "unexpected_hits": 0,
+        "peak_active_api_calls": 50,
+        "elapsed_ms": 211.473275,
+        "completed_per_second": 472872.9906887762,
+        "search_latency": {
+          "count": 100000,
+          "min_us": 0.761,
+          "p50_us": 12.724,
+          "p95_us": 44.193,
+          "p99_us": 448.664,
+          "max_us": 7723.88,
+          "mean_us": 39.43706979
+        },
+        "dispatch_attempt_to_return_latency": {
+          "count": 100000,
+          "min_us": 1.764,
+          "p50_us": 68.399,
+          "p95_us": 400.063,
+          "p99_us": 2281.248,
+          "max_us": 8834.507,
+          "mean_us": 152.26650362
+        },
+        "query_counts": [
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555
+        ],
+        "memory_before": {
+          "heap_alloc_bytes": 3523064,
+          "heap_inuse_bytes": 5627904,
+          "total_alloc_bytes": 17317632,
+          "num_gc": 10,
+          "gc_pause_total_ns": 764567,
+          "process_rss_kib": 13352,
+          "goroutines": 51
+        },
+        "memory_after": {
+          "heap_alloc_bytes": 3621792,
+          "heap_inuse_bytes": 5562368,
+          "total_alloc_bytes": 263302592,
+          "num_gc": 115,
+          "gc_pause_total_ns": 22856053,
+          "process_rss_kib": 16008,
+          "goroutines": 1
+        },
+        "gc_count_during_load": 105,
+        "allocated_bytes_during_load": 245984960,
+        "gc_pause_ns_during_load": 22091486
+      },
+      "stable": true
+    },
+    {
+      "round": 2,
+      "index_path": "indexes/phase1-bench/round-2-1560312450",
+      "indexing": {
+        "documents": 702,
+        "text_bytes": 1182853,
+        "elapsed_ms": 71.070434,
+        "documents_per_second": 9877.525160462646,
+        "text_mib_per_second": 15.87237424473983
+      },
+      "index_stats": {
+        "Segments": 3,
+        "Docs": 702,
+        "Tokens": 182667,
+        "Terms": 14148,
+        "Postings": 95845,
+        "PostingBytes": 177476,
+        "FileBytes": 796880
+      },
+      "validated_mmap_open": {
+        "count": 10,
+        "min_us": 249.91,
+        "p50_us": 259.558,
+        "p95_us": 426.612,
+        "p99_us": 426.612,
+        "max_us": 426.612,
+        "mean_us": 293.1481
+      },
+      "validated_mmap_open_samples_ns": [
+        426612,
+        336322,
+        356200,
+        284084,
+        259558,
+        252284,
+        251132,
+        264718,
+        250661,
+        249910
+      ],
+      "load": {
+        "completed": 100000,
+        "search_errors": 0,
+        "result_mismatches": 0,
+        "unexpected_empty": 0,
+        "unexpected_hits": 0,
+        "peak_active_api_calls": 49,
+        "elapsed_ms": 188.168946,
+        "completed_per_second": 531437.3180365266,
+        "search_latency": {
+          "count": 100000,
+          "min_us": 0.781,
+          "p50_us": 12.894,
+          "p95_us": 44.533,
+          "p99_us": 274.115,
+          "max_us": 5640.774,
+          "mean_us": 31.13993633
+        },
+        "dispatch_attempt_to_return_latency": {
+          "count": 100000,
+          "min_us": 1.793,
+          "p50_us": 64.462,
+          "p95_us": 344.688,
+          "p99_us": 1634.051,
+          "max_us": 7994.559,
+          "mean_us": 131.69669474
+        },
+        "query_counts": [
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555
+        ],
+        "memory_before": {
+          "heap_alloc_bytes": 2357088,
+          "heap_inuse_bytes": 4513792,
+          "total_alloc_bytes": 278798944,
+          "num_gc": 126,
+          "gc_pause_total_ns": 25146939,
+          "process_rss_kib": 12200,
+          "goroutines": 51
+        },
+        "memory_after": {
+          "heap_alloc_bytes": 3647408,
+          "heap_inuse_bytes": 6152192,
+          "total_alloc_bytes": 524009624,
+          "num_gc": 228,
+          "gc_pause_total_ns": 47561820,
+          "process_rss_kib": 18516,
+          "goroutines": 1
+        },
+        "gc_count_during_load": 102,
+        "allocated_bytes_during_load": 245210680,
+        "gc_pause_ns_during_load": 22414881
+      },
+      "stable": true
+    },
+    {
+      "round": 3,
+      "index_path": "indexes/phase1-bench/round-3-3636937397",
+      "indexing": {
+        "documents": 702,
+        "text_bytes": 1182853,
+        "elapsed_ms": 34.029642,
+        "documents_per_second": 20629.07391150339,
+        "text_mib_per_second": 33.14923284188773
+      },
+      "index_stats": {
+        "Segments": 3,
+        "Docs": 702,
+        "Tokens": 182667,
+        "Terms": 14148,
+        "Postings": 95845,
+        "PostingBytes": 177476,
+        "FileBytes": 796880
+      },
+      "validated_mmap_open": {
+        "count": 10,
+        "min_us": 249.288,
+        "p50_us": 253.888,
+        "p95_us": 421.923,
+        "p99_us": 421.923,
+        "max_us": 421.923,
+        "mean_us": 276.78709999999995
+      },
+      "validated_mmap_open_samples_ns": [
+        421923,
+        309351,
+        257303,
+        253888,
+        252164,
+        254428,
+        253727,
+        262173,
+        253626,
+        249288
+      ],
+      "load": {
+        "completed": 100000,
+        "search_errors": 0,
+        "result_mismatches": 0,
+        "unexpected_empty": 0,
+        "unexpected_hits": 0,
+        "peak_active_api_calls": 35,
+        "elapsed_ms": 184.566708,
+        "completed_per_second": 541809.5228745154,
+        "search_latency": {
+          "count": 100000,
+          "min_us": 0.831,
+          "p50_us": 12.945,
+          "p95_us": 46.418,
+          "p99_us": 218.341,
+          "max_us": 5785.817,
+          "mean_us": 28.79193664
+        },
+        "dispatch_attempt_to_return_latency": {
+          "count": 100000,
+          "min_us": 2.314,
+          "p50_us": 64.111,
+          "p95_us": 325.682,
+          "p99_us": 1451.208,
+          "max_us": 7110.667,
+          "mean_us": 127.76822631
+        },
+        "query_counts": [
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5556,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555,
+          5555
+        ],
+        "memory_before": {
+          "heap_alloc_bytes": 2476592,
+          "heap_inuse_bytes": 4751360,
+          "total_alloc_bytes": 539573304,
+          "num_gc": 239,
+          "gc_pause_total_ns": 48424010,
+          "process_rss_kib": 13612,
+          "goroutines": 51
+        },
+        "memory_after": {
+          "heap_alloc_bytes": 3257040,
+          "heap_inuse_bytes": 5365760,
+          "total_alloc_bytes": 784528432,
+          "num_gc": 349,
+          "gc_pause_total_ns": 70426764,
+          "process_rss_kib": 14572,
+          "goroutines": 1
+        },
+        "gc_count_during_load": 110,
+        "allocated_bytes_during_load": 244955128,
+        "gc_pause_ns_during_load": 22002754
+      },
+      "stable": true
+    }
+  ],
+  "stable": true
+}

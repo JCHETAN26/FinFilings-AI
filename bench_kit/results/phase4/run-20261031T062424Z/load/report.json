@@ -1,0 +1,67 @@
+{
+  "connection_policy": "new TCP connection for each request; connection, queue, full response and content validation timed",
+  "dense": {
+    "endpoint": "http://127.0.0.1:8766/dense",
+    "requests": 200,
+    "workers": 50,
+    "peak_client_inflight": 50,
+    "successes": 11,
+    "failures": 189,
+    "failure_rate": 0.945,
+    "seconds": 0.247790085,
+    "completed_attempts_qps": 807.1347971812512,
+    "successful_qps": 44.39241384496882,
+    "all_attempt_latency": {
+      "p50_ns": 12307773,
+      "p95_ns": 78527787,
+      "p99_ns": 181661995,
+      "max_ns": 215215734
+    },
+    "successful_latency": {
+      "p50_ns": 129282019,
+      "p95_ns": 215215734,
+      "p99_ns": 215215734,
+      "max_ns": 215215734
+    },
+    "statuses": {
+      "200": 11,
+      "503": 189
+    }
+  },
+  "go": "go1.27.1",
+  "gomaxprocs": 16,
+  "hybrid": {
+    "endpoint": "http://127.0.0.1:8765/search",
+    "requests": 200,
+    "workers": 50,
+    "peak_client_inflight": 50,
+    "successes": 200,
+    "failures": 0,
+    "failure_rate": 0,
+    "seconds": 204.735480092,
+    "completed_attempts_qps": 0.9768702518494984,
+    "successful_qps": 0.9768702518494984,
+    "all_attempt_latency": {
+      "p50_ns": 50752549348,
+      "p95_ns": 56491526871,
+      "p99_ns": 57278598469,
+      "max_ns": 57426016016
+    },
+    "successful_latency": {
+      "p50_ns": 50752549348,
+      "p95_ns": 56491526871,
+      "p99_ns": 57278598469,
+      "max_ns": 57426016016
+    },
+    "statuses": {
+      "200": 200
+    }
+  },
+  "load_model": "finite closed-loop, zero think time; not an open-loop rate or soak test",
+  "percentiles": "exact empirical nearest-rank ceil(p*N), integer nanoseconds; no interpolation",
+  "queries": 100,
+  "query_sha256": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+  "timeout_seconds": 180,
+  "utc": "2026-10-31T06:24:26.112618778Z",
+  "warmup_per_endpoint": 5
+}

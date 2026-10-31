@@ -1,0 +1,67 @@
+{
+  "utc": "2026-10-30T21:57:42.790273+00:00",
+  "python": "3.10.12",
+  "model_requested": "haiku",
+  "backend": "http://127.0.0.1:8765",
+  "cases": [
+    {
+      "id": "audit01",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    },
+    {
+      "id": "audit02",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    },
+    {
+      "id": "audit03",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    },
+    {
+      "id": "audit04",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    },
+    {
+      "id": "audit05",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    },
+    {
+      "id": "audit06",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    },
+    {
+      "id": "audit07",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    },
+    {
+      "id": "audit08",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    },
+    {
+      "id": "audit09",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    },
+    {
+      "id": "audit10",
+      "status": "fail",
+      "error": "HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:8765/search'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+    }
+  ],
+  "passed": 0,
+  "total": 10,
+  "citations": 0,
+  "retrieval_calls": 0,
+  "retries": 0,
+  "fully_covered_positive_cases": 0,
+  "negative_cases": 0,
+  "median_seconds": null,
+  "evaluation_scope": "Live multi-step retrieval, immutable filing filters, bounded critic retries, exact SEC quote/source identity and inline citation checks. No human semantic correctness labels; not an answer-accuracy score."
+}

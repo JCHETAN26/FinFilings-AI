@@ -1,0 +1,149 @@
+FinFilings AI - Phase 1 validation output (raw)
+=================================================
+Captured 2026-10-30 after the build-manager review fixes. Each section is the
+command as run from the repository root, followed by its unedited output.
+Run individually (the agent shell could not redirect output to files), and
+copied verbatim into this file.
+
+CAVEAT: every index-level test indexes deterministic SYNTHETIC TEST FIXTURES
+(1,000 generated chunks, 61-206 tokens each, ~720-word Zipf vocabulary). The
+compression ratio, segment counts, and retrieval checks below are fixture
+results. They are not SEC/EDGAR corpus measurements and must not be quoted
+as real retrieval quality or production performance.
+
+---- Environment ----
+$ go version
+go version go1.27.1 linux/amd64
+
+$ go env GOOS GOARCH GOAMD64 CGO_ENABLED
+linux
+amd64
+v1
+1
+
+CPU (from the benchmark header): AMD Ryzen 7 5800H with Radeon Graphics, 16 logical CPUs (benchmark suffix -16)
+
+---- Formatting ----
+$ gofmt -l .
+(no output: all files formatted)
+
+---- Vet (four build configurations) ----
+$ go vet ./... && go vet -tags purego ./... && GOARCH=arm64 go vet ./... && GOOS=windows go vet ./... && echo "vet: amd64, amd64+purego, arm64, windows OK"
+vet: amd64, amd64+purego, arm64, windows OK
+
+$ go vet ./... && echo "go vet ./...: ok"     (final tree)
+go vet ./...: ok
+
+---- Unit tests ----
+$ go test -count=1 ./...
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	3.198s
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]
+
+---- Race detector ----
+$ go test -count=1 -race ./...
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	7.368s
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]
+
+---- Scalar-only build (SIMD kernels excluded) ----
+$ go test -count=1 -tags purego ./...
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	2.771s
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]
+
+---- Concurrency stress under race (admission, Close, writer lock, ingest) ----
+$ go test -race -count=10 -run 'Admission|Queued|Close|Concurrent|Competing|Crash|FailedClose|Ingest' ./pkg/index/
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	17.016s
+
+(An earlier -count=20 run of the same selection, before the final
+benchmark-only rename, also passed: ok ... 34.113s)
+
+---- Fuzzing (15 s per target, final code) ----
+$ go test -run '^$' -fuzz '^FuzzDecodePFOR$' -fuzztime 15s ./pkg/index/
+fuzz: elapsed: 15s, execs: 3102131 (0/sec), new interesting: 6 (total: 77)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	15.111s
+
+$ go test -run '^$' -fuzz '^FuzzPFORRoundtrip$' -fuzztime 15s ./pkg/index/
+fuzz: elapsed: 16s, execs: 2929442 (0/sec), new interesting: 1 (total: 51)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	16.046s
+
+$ go test -run '^$' -fuzz '^FuzzParseSegment$' -fuzztime 15s ./pkg/index/
+fuzz: elapsed: 15s, execs: 1562973 (0/sec), new interesting: 3 (total: 47)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	15.130s
+
+---- Verbose test list with test log lines ----
+$ go test -count=1 -v ./... 2>&1 | grep -E '^(--- |ok|\?|FAIL|PASS)|_test\.go:[0-9]+:'
+--- PASS: TestSearchAdmissionBoundsConcurrency (0.02s)
+--- PASS: TestQueuedSearchCancellation (0.07s)
+--- PASS: TestCloseWakesQueuedSearches (0.03s)
+--- PASS: TestCloseDuringQueuedAndAdmittedSearches (0.07s)
+    analyzer_budget_test.go:39: rejected after 3980 of 200000 distinct terms (budget 1048576 B)
+--- PASS: TestAnalyzerRejectsManyDistinctTermsEarly (0.04s)
+--- PASS: TestAnalyzerBudgetIsPerDistinctTerm (0.02s)
+--- PASS: TestAnalyzerChargeCoversCommitCost (0.00s)
+--- PASS: TestWriterRejectsManyDistinctTerms (0.01s)
+--- PASS: TestPooledStorageIsBounded (0.01s)
+--- PASS: TestSSE2KernelsDirect (0.00s)
+--- PASS: TestSSE2KernelsDisassembly (0.24s)
+    bitpack_test.go:47: SIMD kernels in this build: amd64-sse2 (widths 8, 16)
+--- PASS: TestBitPackDispatchMatchesReference (0.19s)
+--- PASS: TestPFORUsesByteAlignedWidths (0.00s)
+--- PASS: TestDeltaRoundtrip (0.00s)
+--- PASS: TestStrictDeltaRoundtripAcrossBlocks (0.00s)
+--- PASS: TestStrictDeltaRejectsInvalidNext (0.00s)
+--- PASS: TestPFORRoundtripWithExceptions (0.00s)
+--- PASS: TestPFORRoundtripEdgeCases (0.00s)
+--- PASS: TestPFORRandomRoundtrip (0.00s)
+--- PASS: TestPFORDecodeRejectsCorruptBlocks (0.00s)
+--- PASS: TestPostingsRoundtripAndValidation (0.00s)
+--- PASS: TestSegmentTruncationAtEveryLength (0.02s)
+--- PASS: TestSegmentBitFlipsFailChecksum (0.03s)
+--- PASS: TestSegmentStructuralValidation (0.02s)
+--- PASS: TestCorruptPostingsDetectedAtSearch (0.02s)
+--- PASS: TestCorruptStoredFieldsDetected (0.01s)
+--- PASS: TestOpenRejectsCorruptFiles (0.09s)
+    index_test.go:40: fixture postings: 63082 postings, 504656 raw bytes, 58489 compressed bytes, ratio 0.1159 (7.42 bits/posting), segment file 191995 bytes
+--- PASS: TestFixtureIndexCompression (0.06s)
+--- PASS: TestFixtureRetrievalExactMarkers (0.05s)
+    index_test.go:84: segments=1
+    index_test.go:84: segments=100
+    index_test.go:84: segments=11
+--- PASS: TestFixtureRetrievalMatchesReference (0.59s)
+--- PASS: TestFixtureTopicPrecision (0.03s)
+--- PASS: TestTokensTakePrecedenceOverText (0.01s)
+--- PASS: TestTokensAreAnalyzerNormalized (0.01s)
+--- PASS: TestSearchArgumentsAndEmptyQueries (0.01s)
+--- PASS: TestOptionsValidation (0.00s)
+--- PASS: TestWriterMemoryLimitIsEnforced (0.27s)
+--- PASS: TestWriterDocTooLargeIsStickyAndUnpublished (0.00s)
+--- PASS: TestIngestPropagatesValidationErrors (0.00s)
+--- PASS: TestIngestEmptyDocumentRejected (0.00s)
+--- PASS: TestIngestCancellation (0.00s)
+--- PASS: TestWriterRefusesExistingIndex (0.01s)
+--- PASS: TestWriterCloseSemantics (0.01s)
+--- PASS: TestIngestIsDeterministic (0.25s)
+--- PASS: TestChunkValidation (0.00s)
+--- PASS: TestTokenizer (0.00s)
+    memory_profile_test.go:18: opt-in fixture memory diagnostic
+--- SKIP: TestFixtureMemoryFootprint (0.00s)
+--- PASS: TestConcurrentSearchesAreConsistent (0.05s)
+--- PASS: TestCloseDuringConcurrentSearches (0.05s)
+--- PASS: TestConcurrentWriterCalls (0.14s)
+--- PASS: TestParallelIngestUnderRace (0.31s)
+--- PASS: TestCompetingWritersAreExcluded (0.01s)
+--- PASS: TestConcurrentNewWriterExactlyOneWins (0.00s)
+--- PASS: TestFailedCloseCleansUpAndReleasesLock (0.02s)
+--- PASS: TestNewWriterErrorReleasesLock (0.01s)
+--- PASS: TestCrashLeftoversAreRefusedThenCleaned (0.02s)
+--- PASS: TestFlushNeverOverwritesSegment (0.00s)
+--- PASS: FuzzDecodePFOR (0.00s)
+--- PASS: FuzzPFORRoundtrip (0.00s)
+--- PASS: FuzzParseSegment (0.01s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	2.869s
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]
+
+Note: TestFixtureMemoryFootprint (memory_profile_test.go) was not written as
+part of this change set; it is an opt-in diagnostic gated on
+FINFILINGS_MEMORY_PROFILE=1 and is skipped in the runs above.

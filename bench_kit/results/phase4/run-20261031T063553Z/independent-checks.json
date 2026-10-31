@@ -1,0 +1,20 @@
+{
+  "hybrid": {
+    "records": 200,
+    "successes": 200,
+    "failures": 0,
+    "statuses": {
+      "200": 200
+    },
+    "percentiles_match": true
+  },
+  "dense": {
+    "records": 200,
+    "successes": 200,
+    "failures": 0,
+    "statuses": {
+      "200": 200
+    },
+    "percentiles_match": true
+  }
+}

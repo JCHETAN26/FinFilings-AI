@@ -1,0 +1,12 @@
+We are starting Phase 1 of finfilings-ai: a high-throughput, compressed sparse inverted index in Go over SEC 10-K/10-Q filing passages.
+
+Please implement the base Go modules in pkg/:
+1. pkg/model/chunk.go: Define SECChunk struct with fields (ID, Ticker, CIK, FormType, FilingYear, SectionItem, Text, Tokens).
+2. pkg/index/compress.go: Implement integer compression using Delta Encoding and PForDelta (PFOR) bit-packing for posting lists.
+3. pkg/index/mmap.go: Implement zero-copy segment file loading using syscall.Mmap.
+4. pkg/index/bm25.go: Implement BM25 scoring with pre-allocated buffers (sync.Pool) to avoid GC allocation overhead.
+5. pkg/index/index_test.go: Write unit tests indexing 1,000 mock SEC chunks, verifying compression ratios and retrieval accuracy.
+
+Ensure clean, modular, production-ready Go code with explicit error handling and zero global variables.
+
+Build manager requirements: Phase 1 ONLY, no UI, vector, or agent implementation. Initialize go.mod for github.com/JCHETAN26/FinFillings-AI. Implement a usable disk-backed segment writer/reader and search API, not disconnected primitives. Stream document ingestion to disk; never retain the full corpus in slices/maps. Keep posting buffers bounded via flush/merge or a documented explicit memory limit with errors. Use bounded channel worker pools and instance-owned sync.Pool buffers. Specify segment format and mmap ownership/lifecycle, validate corrupt/truncated inputs, enforce safe Close/concurrent search semantics. No unbounded top-k buffers. Include meaningful race tests, corruption tests, benchmarks with ReportAllocs, and 1,000 deterministic synthetic chunks as TEST FIXTURES ONLY; never claim fixture numbers are SEC corpus performance. Implement actual PFOR exceptions and delta roundtrip; scalar bitpacking must be labeled scalar, no false SIMD claims. If SIMD is not implemented explicitly document this Phase 1 gap. No fake metrics. Run go test ./..., go test -race ./..., go vet ./..., and benchmarks. Document reproducible commands and measured results with limitations in docs/build/phase1.md. Do not commit or push. Do not modify .git, .agents, .codex or .aws. Use only local filesystem and Go tooling; no external MCP services. Finish with exact changed files, results, and unresolved constraints.

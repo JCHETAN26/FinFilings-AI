@@ -1,0 +1,11 @@
+{
+  "queries": 100,
+  "model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "changed_top10_rankings": 2,
+  "max_shared_top10_score_absolute_delta": 5.7220458984375e-06,
+  "original_ndcg10": 0.57574439431233,
+  "optimized_ndcg10": 0.57574439431233,
+  "total_rerank_seconds": 55.65946166400158,
+  "mean_rerank_seconds": 0.5565946166400159,
+  "note": "Actual CPU model inference on the same 100 saved RRF Top-50 candidate sets. No retrieval quality labels used for tuning. Not a fresh end-to-end retrieval evaluation."
+}

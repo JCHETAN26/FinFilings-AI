@@ -1,0 +1,6 @@
+Phase 1 source audit
+Reviewed production compression, SIMD/scalar dispatch, posting decoding, mmap lifecycle, segment format/validation, writer/lock/cleanup, BM25, and search admission.
+Replaced two unreachable panic bodies in the portable bit-packing adapter with functional scalar implementations. A purego-only regression directly exercises both adapters at every width 0..32.
+Non-Unix mmap explicitly returns ErrUnsupportedPlatform; it does not simulate mmap and is outside the supported Linux/Darwin/BSD target. Non-flock writer locking is a real O_EXCL lock with its documented crash limitation.
+Scanned 17 non-test Go files under pkg/: no TODO/FIXME/placeholder/mock/panic markers found.
+No fake data or mocked indexing/search functions are used in the benchmark executable. Existing deterministic generated documents remain in unit tests only.

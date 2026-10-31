@@ -1,0 +1,23 @@
+{"ready": true, "manifest": {"format_version": 1, "documents": 19511, "dimension": 384, "subvectors": 48, "nbits": 8, "metric": "inner_product", "normalized": true, "model": "BAAI/bge-small-en-v1.5", "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a", "query_instruction": "Represent this sentence for searching relevant passages: ", "max_length": 512, "corpus_sha256": "5413d6edc850fde9782dafd972c1a399629ba2a84e049e7dc55c6766008e84cf", "training_count": 19511, "recommended_training_count": 9984, "adequate_training_count": true, "seed": 20261030, "training_iterations": 25, "embedding_seconds": 510.48633013499966, "pq_train_add_seconds": 0.8392773010000383, "total_seconds": 511.33165496400034, "files": {"vectors.f32.npy": "ed9745af54c3d2829445af87b3ada1e99d5efb9b90c520b1c779f2c9a14a69d1", "passages.sqlite": "6b22b826cf1bad200e4698bb0b0e6b1048d4745d2a18d2d6b49969261c90d531", "index.pq8.faiss": "7fa92dea4f3a56f4d530a096c457da148522b4c97216646604b55098fd5ce766", "centroids.npy": "356f888493f992dc5310b4c80f0ba7647967547ba594ec0af5cc4f620e036d0d"}}}
+INFO:     Started server process [163744]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8766 (Press CTRL+C to quit)
+INFO:     127.0.0.1:33228 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33230 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33238 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33254 - "POST /dense HTTP/1.1" 200 OK
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+INFO:     127.0.0.1:33254 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33258 - "POST /rerank HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:33266 - "POST /rerank HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:33280 - "POST /dense HTTP/1.1" 413 Request Entity Too Large
+INFO:     127.0.0.1:33290 - "POST /dense HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:33254 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33292 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33314 - "POST /dense HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [163744]

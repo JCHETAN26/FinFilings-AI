@@ -1,0 +1,814 @@
+{"ready": true, "manifest": {"format_version": 1, "documents": 19511, "dimension": 384, "subvectors": 48, "nbits": 8, "metric": "inner_product", "normalized": true, "model": "BAAI/bge-small-en-v1.5", "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a", "query_instruction": "Represent this sentence for searching relevant passages: ", "max_length": 512, "corpus_sha256": "5413d6edc850fde9782dafd972c1a399629ba2a84e049e7dc55c6766008e84cf", "training_count": 19511, "recommended_training_count": 9984, "adequate_training_count": true, "seed": 20261030, "training_iterations": 25, "embedding_seconds": 510.48633013499966, "pq_train_add_seconds": 0.8392773010000383, "total_seconds": 511.33165496400034, "files": {"vectors.f32.npy": "ed9745af54c3d2829445af87b3ada1e99d5efb9b90c520b1c779f2c9a14a69d1", "passages.sqlite": "6b22b826cf1bad200e4698bb0b0e6b1048d4745d2a18d2d6b49969261c90d531", "index.pq8.faiss": "7fa92dea4f3a56f4d530a096c457da148522b4c97216646604b55098fd5ce766", "centroids.npy": "356f888493f992dc5310b4c80f0ba7647967547ba594ec0af5cc4f620e036d0d"}}}
+INFO:     Started server process [103464]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8766 (Press CTRL+C to quit)
+INFO:     127.0.0.1:35204 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35216 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59288 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59308 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59318 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59334 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59338 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38810 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38828 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38830 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38846 - "POST /dense HTTP/1.1" 200 OK
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+INFO:     127.0.0.1:38890 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38906 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38910 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38914 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38912 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38922 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38936 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38934 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38924 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38950 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38956 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38958 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38960 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38994 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39006 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39008 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39026 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39036 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39046 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39052 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39062 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39064 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39074 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39076 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39092 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39108 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39116 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39122 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39130 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39142 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39154 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39158 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39172 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39184 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39192 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39200 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39210 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39224 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39240 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39252 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39268 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39276 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39290 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39302 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39310 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39324 - "POST /dense HTTP/1.1" 503 Service Unavailable
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+INFO:     127.0.0.1:39384 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39392 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39402 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39418 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39430 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39434 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39442 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39438 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39446 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39448 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39450 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39466 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39468 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39476 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39480 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39488 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39500 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39506 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39526 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39514 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39536 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39534 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39556 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39558 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39568 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39580 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39588 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39600 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39610 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39612 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39628 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39644 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39652 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39658 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39660 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39668 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39674 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39676 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39680 - "POST /dense HTTP/1.1" 503 Service Unavailable
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+INFO:     127.0.0.1:39694 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39698 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39708 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39720 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39734 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39736 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39748 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39750 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39758 - "POST /dense HTTP/1.1" 503 Service Unavailable
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+INFO:     127.0.0.1:39762 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39772 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39802 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39788 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39812 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39826 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39828 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39810 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39844 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39852 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39854 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39862 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39880 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39884 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39876 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39890 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39892 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39906 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39920 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39936 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39942 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39954 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39966 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39976 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39980 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39990 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39988 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39994 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:39998 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40012 - "POST /dense HTTP/1.1" 503 Service Unavailable
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+INFO:     127.0.0.1:40016 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40030 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40032 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40048 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40050 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40060 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40076 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40088 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40094 - "POST /dense HTTP/1.1" 503 Service Unavailable
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+INFO:     127.0.0.1:40104 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40110 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40150 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40120 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40144 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40134 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40162 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40186 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40174 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40184 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40192 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40198 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40212 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40220 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40222 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40234 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40248 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40252 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40258 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40274 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40282 - "POST /dense HTTP/1.1" 503 Service Unavailable
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+INFO:     127.0.0.1:40288 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40326 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40300 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40298 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40334 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40336 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40344 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40358 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40368 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40378 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40380 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40382 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40384 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40402 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40406 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40410 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40412 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40424 - "POST /dense HTTP/1.1" 503 Service Unavailable
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+INFO:     127.0.0.1:40432 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40448 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40464 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40474 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40490 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40488 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40492 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40502 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40514 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40526 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40522 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40530 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40532 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40544 - "POST /dense HTTP/1.1" 503 Service Unavailable
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+WARNING:  Exceeded concurrency limit.
+INFO:     127.0.0.1:40552 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40566 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:40578 - "POST /dense HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:38876 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38852 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38854 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38892 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39328 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39334 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39348 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39364 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39368 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39372 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39378 - "POST /dense HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [103464]

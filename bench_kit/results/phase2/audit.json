@@ -1,0 +1,7 @@
+{
+  "production_placeholder_findings": [],
+  "python_ast_no_pass_or_NotImplemented": true,
+  "go_no_panic_TODO_FIXME": true,
+  "source_files_hashed": 53,
+  "checks": "Manual review of actual FAISS/PyTorch calls, bounded buffers/pools, failure propagation, mmap/SQLite ownership and all measured branches. Synthetic inputs only in explicitly named unit tests; real model integration and published-label benchmark logs preserved."
+}

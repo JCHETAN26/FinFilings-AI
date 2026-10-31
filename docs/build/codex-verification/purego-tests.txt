@@ -1,0 +1,3 @@
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit	0.047s
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	2.814s
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]

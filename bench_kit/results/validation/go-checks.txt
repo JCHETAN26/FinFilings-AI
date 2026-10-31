@@ -1,0 +1,6 @@
+Unit tests passed
+Race tests passed
+Portable scalar tests passed
+go vet passed
+Fixture memory diagnostic completed
+SIMD disassembly saved; results in docs/build/codex-verification

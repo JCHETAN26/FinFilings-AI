@@ -1,0 +1,451 @@
+{
+  "prompt": "Audit MSFT filing year 2024: separately retrieve cloud services growth disclosures and cybersecurity risks. Ground both topics in the filing.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "cloud services growth disclosures, Microsoft Cloud and Azure revenue growth drivers",
+        "filters": {
+          "ticker": "MSFT",
+          "year": 2024,
+          "section": "",
+          "accession": "000095017024087843"
+        }
+      },
+      {
+        "query": "cybersecurity risks, security incidents, and risk factor disclosures",
+        "filters": {
+          "ticker": "MSFT",
+          "year": 2024,
+          "section": "",
+          "accession": "000095017024087843"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "cloud services growth disclosures, Microsoft Cloud and Azure revenue growth drivers",
+      "filters": {
+        "ticker": "MSFT",
+        "year": 2024,
+        "section": "",
+        "accession": "000095017024087843"
+      },
+      "score": 4,
+      "rationale": "The MSFT FY2024 10-K passages (filing year 2024, fiscal period ended June 30, 2024) directly address cloud growth. Passage 94 states Microsoft Cloud revenue rose 23% to $137.4B and Azure/other cloud services grew 30%. Passage 103 attributes Server products and cloud services growth of 22% to Azure and consumption-based services. Passage 98 defines the Microsoft Cloud metric, and passage 102 covers Microsoft Cloud gross margin drivers. Gaps: the excerpts only partly explain the Microsoft Cloud revenue drivers, and the cloud-specific growth discussion is spread across fragments and is not exhaustive. Overall this is strong, directly responsive evidence rather than a complete treatment.",
+      "evidence": [
+        {
+          "id": "000095017024087843#passage-000099",
+          "text": "Gross margin percentage for our Microsoft Cloud business 41 PART II Item 7 Productivity and Business Processes and Intelligent Cloud Metrics related to our Productivity and Business Processes and Intelligent Cloud segments assess the health of our core businesses within these segments. The metrics reflect our cloud and on-premises product strategies and trends. Office Commercial products and cloud services revenue growth Revenue from Office Commercial products and cloud services (Office 365 subscriptions, the Office 365 portion of Microsoft 365 Commercial subscriptions, and Office licensed on-premises), comprising Office, Exchange, SharePoint, Microsoft Teams, Office 365 Security and Compliance, Microsoft Viva, and Copilot for Microsoft 365 Office Consumer products and cloud services revenue growth Revenue from Office Consumer products and cloud services, including Microsoft 365 Consumer and Copilot Pro subscriptions, Office licensed on-premises, and other Office services Office 365 Commercial seat growth The number of Office 365 Commercial seats at end of period where seats are paid users covered by an Office 365 Commercial subscription Microsoft 365 Consumer subscribers The number of Microsoft 365 Consumer and Copilot Pro subscribers at end of period Dynamics products and cloud services revenue growth Revenue from Dynamics products and cloud services, including Dynamics 365, comprising a set of intelligent, cloud-based applications across ERP, CRM, Power Apps, and Power Automate; and on-premises ERP and CRM applications LinkedIn revenue growth Revenue from LinkedIn, including Talent Solutions, Marketing Solutions, Premium Subscriptions, and Sales Solutions Server products and cloud services revenue growth Revenue from Server products and cloud services, including Azure and other cloud services; SQL Server,",
+          "metadata": {
+            "ID": "000095017024087843#passage-000099",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000099"
+        },
+        {
+          "id": "000095017024087843#passage-000103",
+          "text": "user. Office Commercial products revenue declined 16% driven by continued customer shift to cloud offerings. • Office Consumer products and cloud services revenue increased $237 million or 4%. Microsoft 365 Consumer subscribers grew 10% to 82.5 million. • LinkedIn revenue increased $1.4 billion or 9% driven by growth across all lines of business – Talent Solutions, Premium Subscriptions, Marketing Solutions, and Sales Solutions. • Dynamics products and cloud services revenue increased $1.0 billion or 19% driven by Dynamics 365. Dynamics 365 revenue grew 24% driven by growth across all workloads. Operating income increased $6.4 billion or 19%. • Gross margin increased $6.5 billion or 12% driven by growth in Office 365 Commercial. Gross margin percentage decreased slightly. Excluding the impact of the change in accounting estimate, gross margin percentage increased slightly driven by improvement in Office 365 Commercial. • Operating expenses increased $159 million or 1%. Intelligent Cloud Revenue increased $17.5 billion or 20%. • Server products and cloud services revenue increased $17.8 billion or 22% driven by Azure and other cloud services. Azure and other cloud services revenue grew 30% driven by growth in our consumption-based services. Server products revenue increased 3% driven by continued demand for our hybrid solutions, including Windows Server and SQL Server running in multi-cloud environments. • Enterprise and partner services revenue decreased $306 million or 4% driven by declines in Enterprise Support Services and Industry Solutions. 44 PART II Item 7 Operating income increased $11.7 billion or 31%. • Gross margin increased $11.6 billion or 19% driven by growth in",
+          "metadata": {
+            "ID": "000095017024087843#passage-000103",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000103"
+        },
+        {
+          "id": "000095017024087843#passage-000102",
+          "text": "to 71%. Excluding the impact of the change in accounting estimate, Microsoft Cloud gross margin percentage increased slightly driven by improvements in Azure and Office 365 Commercial, inclusive of scaling our AI infrastructure, offset in part by sales mix shift to Azure. Operating expenses increased $4.0 billion or 7% driven by Gaming, with 7 points of growth from the Activision Blizzard acquisition, and investments in cloud engineering, offset in part by the prior year Q2 charge. Operating income increased $20.9 billion or 24% driven by growth across each of our segments. Prior year gross margin, operating income, net income, and diluted EPS were negatively impacted by the Q2 charge, which resulted in decreases of $152 million, $1.2 billion, $946 million, and $0.13, respectively. 43 PART II Item 7 SEGMENT RESULTS OF OPERATIONS (In millions, except percentages) 2024 2023 Percentage Change Revenue Productivity and Business Processes $ 77,728 $ 69,274 12% Intelligent Cloud 105,362 87,907 20% More Personal Computing 62,032 54,734 13% Total $ 245,122 $ 211,915 16% Operating Income Productivity and Business Processes $ 40,540 $ 34,189 19% Intelligent Cloud 49,584 37,884 31% More Personal Computing 19,309 16,450 17% Total $ 109,433 $ 88,523 24% Reportable Segments Fiscal Year 2024 Compared with Fiscal Year 2023 Productivity and Business Processes Revenue increased $8.5 billion or 12%. • Office Commercial products and cloud services revenue increased $5.8 billion or 14%. Office 365 Commercial revenue grew 16% with seat growth of 7%, driven by small and medium business and frontline worker offerings, as well as growth in revenue per",
+          "metadata": {
+            "ID": "000095017024087843#passage-000102",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000102"
+        },
+        {
+          "id": "000095017024087843#passage-000098",
+          "text": "our ambitions, provide transparency into performance trends, and reflect the continued evolution of our products and services. Our commercial and other business metrics are fundamentally connected based on how customers use our products and services. The metrics are disclosed in the MD&A or the Notes to Financial Statements (Part II, Item 8 of this Form 10-K). Financial metrics are calculated based on financial results prepared in accordance with accounting principles generally accepted in the United States of America (“GAAP”), and growth comparisons relate to the corresponding period of last fiscal year. In the first quarter of fiscal year 2024, we made updates to the presentation and method of calculation for certain metrics, revising our Microsoft Cloud revenue metric to include revenue growth and expanding our Microsoft 365 Consumer subscribers metric to include Microsoft 365 Basic subscribers, aligning with how we manage our business. Commercial Our commercial business primarily consists of Server products and cloud services, Office Commercial, Windows Commercial, the commercial portion of LinkedIn, Enterprise and partner services, and Dynamics. Our commercial metrics allow management and investors to assess the overall health of our commercial business and include leading indicators of future performance. Commercial remaining performance obligation Commercial portion of revenue allocated to remaining performance obligations, which includes unearned revenue and amounts that will be invoiced and recognized as revenue in future periods Microsoft Cloud revenue and revenue growth Revenue from Azure and other cloud services, Office 365 Commercial, the commercial portion of LinkedIn, Dynamics 365, and other commercial cloud properties Microsoft Cloud gross margin percentage",
+          "metadata": {
+            "ID": "000095017024087843#passage-000098",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000098"
+        },
+        {
+          "id": "000095017024087843#passage-000094",
+          "text": "other services to people and businesses; licensing and supporting an array of software products; delivering relevant online advertising to a global audience; and designing and selling devices. Our most significant expenses are related to compensating employees; supporting and investing in our cloud-based services, including datacenter operations; designing, manufacturing, marketing, and selling our other products and services; and income taxes. Highlights from fiscal year 2024 compared with fiscal year 2023 included: • Microsoft Cloud revenue increased 23% to $137.4 billion. • Office Commercial products and cloud services revenue increased 14% driven by Office 365 Commercial growth of 16%. • Office Consumer products and cloud services revenue increased 4% and Microsoft 365 Consumer subscribers grew to 82.5 million. • LinkedIn revenue increased 9%. • Dynamics products and cloud services revenue increased 19% driven by Dynamics 365 growth of 24%. • Server products and cloud services revenue increased 22% driven by Azure and other cloud services growth of 30%. • Windows revenue increased 8% with Windows original equipment manufacturer licensing (“Windows OEM”) revenue growth of 7% and Windows Commercial products and cloud services revenue growth of 11%. • Devices revenue decreased 15%. • Xbox content and services revenue increased 50% driven by 44 points of net impact from the Activision Blizzard Inc. (“Activision Blizzard”) acquisition. The net impact reflects the change of Activision Blizzard content from third-party to first-party. • Search and news advertising revenue excluding traffic acquisition costs increased 12%. On October 13, 2023, we completed our acquisition of Activision Blizzard for a total purchase price of $75.4",
+          "metadata": {
+            "ID": "000095017024087843#passage-000094",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000094"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 10.809958632999951
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "cybersecurity risks, security incidents, and risk factor disclosures",
+      "filters": {
+        "ticker": "MSFT",
+        "year": 2024,
+        "section": "",
+        "accession": "000095017024087843"
+      },
+      "score": 5,
+      "rationale": "The MSFT 2024 filing excerpts directly cover the subquery. Passage 52 is the Item 1A risk factor on cyberattacks and security vulnerabilities, and it describes actual incidents, including a nation-state password spray compromise of a legacy test account beginning in late November 2023. Passage 89 covers cyber risk disclosure and states that no risks have materially affected the company as of the filing date. Passages 87, 88 and 90 cover the program, third-party provider risk, incident response, and Board and CISO governance. Together these address cybersecurity risks, security incidents, and risk factor disclosures. The evidence is from the 2024 filing (fiscal period ended June 30, 2024), so no fiscal-year mismatch arises.",
+      "evidence": [
+        {
+          "id": "000095017024087843#passage-000089",
+          "text": "then more deeply assessed to establish a plan of record and activate internal and external notification, disclosure, and communication plans, as applicable. Engineering and development resources are mobilized to resolve or remediate the incident. After the incident is resolved, a comprehensive post-incident review process is conducted. We describe the risks from cybersecurity threats, including previous cybersecurity incidents, in section “Risk Factors” (Part I, Item 1A of this Form 10-K). As of the date of this Form 10-K, we do not believe any risks from cybersecurity threats have materially affected or are reasonably likely to materially affect us, including our results of operations or financial condition. However, the cybersecurity threat environment is increasingly challenging, and we, along with the entire digital ecosystem, are under constant and increasing threat. As discussed above, our business strategy is tied to the SFI and we are committed to continuously monitoring cybersecurity threats, enhancing the security of our products, investing in our cybersecurity infrastructure, and collaborating with peers, customers, service providers, regulators, and governments to advance our and the entire digital ecosystem’s cybersecurity defenses and resiliency. GOVERNANCE Our Board of Directors oversees cybersecurity risk. Cybersecurity reviews by the Board are scheduled to occur at least quarterly, or more frequently as determined to be necessary or advisable. Presentations to the Board of Directors are made by senior management, including our Chief Information Security Officer (“CISO”), our EVP of Microsoft Security, and the head of our Customer Security and Trust organization. The presentations address topics such as cybersecurity threats, incidents, top risks and related",
+          "metadata": {
+            "ID": "000095017024087843#passage-000089",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000089"
+        },
+        {
+          "id": "000095017024087843#passage-000052",
+          "text": "ABUSE RISKS Cyberattacks and security vulnerabilities could lead to reduced revenue, increased costs, liability claims, or harm to our reputation or competitive position. Security of our information technology Threats to IT security can take a variety of forms. Individual and groups of hackers and sophisticated organizations, including state-sponsored organizations or nation-states, continuously undertake attacks that pose threats to our customers and our IT, and we have experienced cybersecurity incidents in which such actors have gained unauthorized access to our IT systems and data, including customer systems and data. These actors use a wide variety of methods, which include developing and deploying malicious software; exploiting known and potential vulnerabilities or intentionally designed processes in hardware, software, or other infrastructure to attack our products and services or gain access to our networks and datacenters; using social engineering techniques to induce our employees, users, partners, or customers to disclose sensitive information, such as passwords, or take other actions to gain access to our data or our users’ or customers’ data; or acting in a coordinated manner or conducting coordinated attacks. For example, as previously disclosed in our Form 8-K filed with the Securities and Exchange Commission on January 19, 2024 and amended on March 8, 2024, beginning in late November 2023, a nation-state associated threat actor used a password spray attack to compromise a legacy test account and, in turn, gain access to Microsoft email accounts. The threat actor used and may continue to use information it obtained to gain, or attempt to gain, unauthorized access to some of",
+          "metadata": {
+            "ID": "000095017024087843#passage-000052",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000052"
+        },
+        {
+          "id": "000095017024087843#passage-000088",
+          "text": "tools to gain insights from over 78 trillion signals per day and over 135 million managed devices. We track over 300 unique threat actors, including 160 nation-state actors and 50 ransomware groups. To support our efforts, we operate a Cyber Defense Operations Center connected to over 10,000 security and threat intelligence experts, including engineers, researchers, data scientists, cybersecurity experts, threat hunters, geopolitical analysts, investigators, and frontline responders across the globe. 34 PART I Item 1C When appropriate, we utilize external service providers to assess, test, or otherwise assist our program. We also leverage third parties by working with external researchers, operating bug bounty programs, and managing coordinated vulnerability disclosure programs with security organizations. We maintain a systematic approach to assessing and controlling the cybersecurity risks presented by third-party service providers. We require third-party service providers to manage their cybersecurity risks in defined ways, undergo cybersecurity reviews, notify us of cyber events, and satisfy additional contractual requirements. We seek to improve the entire cybersecurity ecosystem through multistakeholder diplomacy to set and uphold expectations for state behavior, advancement of government policy that strengthens cybersecurity and resiliency, disruption and deterrence of cybercrime, protection of national security interests, and disruption of digital threats to democracies. We also establish processes and innovate solutions for us and our customers to address the growing number and complexity of cybersecurity regulations. When we experience a cybersecurity incident, we utilize our well-established incident response plans that operate both across the company and at the product and services level. Incidents are first triaged for severity, and",
+          "metadata": {
+            "ID": "000095017024087843#passage-000088",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000088"
+        },
+        {
+          "id": "000095017024087843#passage-000087",
+          "text": "and operational resiliency. We assess our program's effectiveness through various exercises, including tabletop simulations and production environment tests, penetration and vulnerability tests, red team exercises, and other related activities. We conduct mandatory cybersecurity training, provide employees with tools to report suspected incidents and assess their own security posture, and conduct real-time simulated employee education exercises, such as phishing email campaigns designed to emulate real-world attacks. We also engage in robust cybersecurity assessments and remediation efforts for acquired companies. Our computing environments, products, and services are reviewed by our internal audit teams as well as independent third-party assessors. We are committed to managing the most significant risks to our strategies and ambitions, including cybersecurity risks. The Enterprise Risk Management (“ERM”) organization supports management in this commitment by facilitating the semiannual risk assessment, which documents the priority and status of these risks and aligns them with our strategic mitigation efforts. ERM is structured using a framework based on the Committee of Sponsoring Organization (“COSO”) guidance on Enterprise Risk Management Integrating Strategy with Performance and it also aligns with the International Organization for Standardization 31000:2018 Risk Management Standard. We continuously monitor our computing environments, products, and services for vulnerabilities and signs of compromise, and we utilize our own security products to combat cybersecurity threats. We integrate security into our computing environments, products, and services through our Security Development Lifecycle (“SDL”). Our SDL introduces security and privacy considerations throughout all phases of our development process and through the adoption of zero-trust end-to-end architecture. We utilize machine learning and AI-powered security",
+          "metadata": {
+            "ID": "000095017024087843#passage-000087",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000087"
+        },
+        {
+          "id": "000095017024087843#passage-000090",
+          "text": "remediation efforts, results from internal and third-party assessments, progress towards risk-mitigation goals, the functioning of our incident response program, regulatory developments, and digital diplomacy efforts. In addition, we have an escalation process in place to inform senior management and the Board of significant issues. Cybersecurity issues are also considered during separate Board meeting discussions regarding important matters like ERM, audit issues, operational budgeting, business continuity planning, mergers and acquisitions, brand management, and other relevant matters. Our CISO leads the strategy, engineering, and operations of cybersecurity across the company, and reports to the EVP of Microsoft Security. Our CISO has extensive experience assessing and managing cybersecurity programs and cybersecurity risk. Before joining Microsoft, our CISO served in a prior Chief Technology Officer role as well as in senior leadership, engineering, and operational roles within multiple organizations. In addition to the Board’s oversight of cybersecurity risk, to support the CISO, we have established a Cybersecurity Governance Council (“CGC”) charged with overseeing initiatives that safeguard Microsoft’s infrastructure. The CGC is comprised of an executive-level team of Deputy CISOs with cybersecurity backgrounds and expertise relevant to their roles. The CGC responsibilities include approving our enterprise security risk assessment process and results, determining the appropriate cybersecurity risk level and mitigations, reviewing the NIST CSF alignment, and supporting compliance with cybersecurity regulations. Our cybersecurity efforts are supported directly by Microsoft’s security and threat intelligence experts and our employees across the company, all of whom receive cybersecurity awareness training and education and are expected to support our efforts. 35 PART I Item 2,",
+          "metadata": {
+            "ID": "000095017024087843#passage-000090",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000090"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 8.28556168099999
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Microsoft Cloud revenue increased 23% to $137.4 billion. [MSFT-2024-10K-p000094](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000094`; accession: `0000950170-24-087843`).\n- Server products and cloud services revenue increased 22% driven by Azure and other cloud services growth of 30%. [MSFT-2024-10K-p000094](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000094`; accession: `0000950170-24-087843`).\n- Azure and other cloud services revenue grew 30% driven by growth in our consumption-based services. [MSFT-2024-10K-p000103](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000103`; accession: `0000950170-24-087843`).\n- Excluding the impact of the change in accounting estimate, Microsoft Cloud gross margin percentage increased slightly driven by improvements in Azure and Office 365 Commercial, inclusive of scaling our AI infrastructure, offset in part by sales mix shift to Azure. [MSFT-2024-10K-p000102](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000102`; accession: `0000950170-24-087843`).\n- Cyberattacks and security vulnerabilities could lead to reduced revenue, increased costs, liability claims, or harm to our reputation or competitive position. [MSFT-2024-10K-p000052](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000052`; accession: `0000950170-24-087843`).\n- Individual and groups of hackers and sophisticated organizations, including state-sponsored organizations or nation-states, continuously undertake attacks that pose threats to our customers and our IT, and we have experienced cybersecurity incidents in which such actors have gained unauthorized access to our IT systems and data, including customer systems and data. [MSFT-2024-10K-p000052](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000052`; accession: `0000950170-24-087843`).\n- As of the date of this Form 10-K, we do not believe any risks from cybersecurity threats have materially affected or are reasonably likely to materially affect us, including our results of operations or financial condition. [MSFT-2024-10K-p000089](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000089`; accession: `0000950170-24-087843`).\n- We track over 300 unique threat actors, including 160 nation-state actors and 50 ransomware groups. [MSFT-2024-10K-p000088](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000088`; accession: `0000950170-24-087843`).",
+  "citations": [
+    {
+      "tag": "MSFT-2024-10K-p000094",
+      "chunk_id": "000095017024087843#passage-000094",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Microsoft Cloud revenue increased 23% to $137.4 billion."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000094",
+      "chunk_id": "000095017024087843#passage-000094",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Server products and cloud services revenue increased 22% driven by Azure and other cloud services growth of 30%."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000103",
+      "chunk_id": "000095017024087843#passage-000103",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Azure and other cloud services revenue grew 30% driven by growth in our consumption-based services."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000102",
+      "chunk_id": "000095017024087843#passage-000102",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Excluding the impact of the change in accounting estimate, Microsoft Cloud gross margin percentage increased slightly driven by improvements in Azure and Office 365 Commercial, inclusive of scaling our AI infrastructure, offset in part by sales mix shift to Azure."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000052",
+      "chunk_id": "000095017024087843#passage-000052",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Cyberattacks and security vulnerabilities could lead to reduced revenue, increased costs, liability claims, or harm to our reputation or competitive position."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000052",
+      "chunk_id": "000095017024087843#passage-000052",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Individual and groups of hackers and sophisticated organizations, including state-sponsored organizations or nation-states, continuously undertake attacks that pose threats to our customers and our IT, and we have experienced cybersecurity incidents in which such actors have gained unauthorized access to our IT systems and data, including customer systems and data."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000089",
+      "chunk_id": "000095017024087843#passage-000089",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "As of the date of this Form 10-K, we do not believe any risks from cybersecurity threats have materially affected or are reasonably likely to materially affect us, including our results of operations or financial condition."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000088",
+      "chunk_id": "000095017024087843#passage-000088",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "We track over 300 unique threat actors, including 160 nation-state actors and 50 ransomware groups."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.7751263870000002,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 972,
+        "cache_read_input_tokens": 1218,
+        "output_tokens": 411,
+        "output_tokens_details": {
+          "thinking_tokens": 215
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 972,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 411,
+            "cache_read_input_tokens": 1218,
+            "cache_creation_input_tokens": 972,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 972
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00041228
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.122277748999977,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3983,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 911,
+        "output_tokens_details": {
+          "thinking_tokens": 479
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3983,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 911,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 3983,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3983
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0012613100000000003
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.360229595999954,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 4276,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 948,
+        "output_tokens_details": {
+          "thinking_tokens": 491
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4276,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 948,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 4276,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4276
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00133841
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 9.749402306999968,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8390,
+        "cache_read_input_tokens": 882,
+        "output_tokens": 1929,
+        "output_tokens_details": {
+          "thinking_tokens": 1207
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8390,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1929,
+            "cache_read_input_tokens": 882,
+            "cache_creation_input_tokens": 8390,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 8390
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00265152
+    }
+  ],
+  "elapsed_seconds": 24.33735221900008
+}

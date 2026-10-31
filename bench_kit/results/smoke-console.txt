@@ -1,0 +1,4 @@
+Round 1: 702 docs, 10745 docs/s, 17.27 text MiB/s; mmap-open p50 0.270 ms p99 0.359 ms; 50 workers, 100000 requests, 472873 QPS, search p50 0.013 ms p95 0.044 ms p99 0.449 ms max 7.724 ms; errors=0 mismatches=0 stable=true
+Round 2: 702 docs, 9878 docs/s, 15.87 text MiB/s; mmap-open p50 0.260 ms p99 0.427 ms; 50 workers, 100000 requests, 531437 QPS, search p50 0.013 ms p95 0.045 ms p99 0.274 ms max 5.641 ms; errors=0 mismatches=0 stable=true
+Round 3: 702 docs, 20629 docs/s, 33.15 text MiB/s; mmap-open p50 0.254 ms p99 0.422 ms; 50 workers, 100000 requests, 541810 QPS, search p50 0.013 ms p95 0.046 ms p99 0.218 ms max 5.786 ms; errors=0 mismatches=0 stable=true
+Results: bench_kit/results/phase1-1214184192

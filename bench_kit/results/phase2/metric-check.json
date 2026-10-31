@@ -1,0 +1,10 @@
+{
+  "queries": 100,
+  "independent_binary_ndcg_at_10": {
+    "sparse": 0.491909578350881,
+    "dense": 0.44577276078789463,
+    "hybrid": 0.5195578044538675,
+    "reranked": 0.57574439431233
+  },
+  "all_match_ranx_within_1e_12": true
+}

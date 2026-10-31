@@ -1,0 +1,439 @@
+{
+  "prompt": "Audit AAPL filing year 2025 only: separately retrieve revenue disclosures and share repurchase disclosures. Do not substitute filing year 2023 or any other year if 2025 evidence is unavailable.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "Apple net sales revenue disclosures by product and segment",
+        "filters": {
+          "ticker": "AAPL",
+          "year": 2025,
+          "section": "",
+          "accession": ""
+        }
+      },
+      {
+        "query": "Apple share repurchase program disclosures and shares repurchased",
+        "filters": {
+          "ticker": "AAPL",
+          "year": 2025,
+          "section": "",
+          "accession": ""
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "Apple net sales revenue disclosures by product and segment",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No evidence was provided (evidence array is empty). The catalog has no AAPL filing with filing_year 2025; its only AAPL entry is filing_year 2023 (fiscal period ending September 30, 2023), which must not be substituted. With no verified passages, the score is 1. The rewrite keeps the original scope (AAPL, filing year 2025, net sales by product and segment) and adds product and segment terms for lexical matching.",
+      "evidence": [],
+      "accepted": false,
+      "elapsed_seconds": 5.176173835999975
+    },
+    {
+      "subquery": 0,
+      "attempt": 1,
+      "query": "Apple Inc AAPL 10-K annual report filing year 2025 net sales revenue by product iPhone Mac iPad Wearables Home and Accessories Services and by reportable segment Americas Europe Greater China Japan Rest of Asia Pacific; exclude filing year 2023 and other years",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No verified evidence was provided (evidence is empty). The catalog contains no AAPL filing_year 2025 entry. The only AAPL entry is filing_year 2023 (fiscal period ending September 30, 2023), which the audit prompt excludes. No 2025 revenue or repurchase disclosures are available, so nothing is usable.",
+      "evidence": [],
+      "accepted": false,
+      "elapsed_seconds": 4.342620636999982
+    },
+    {
+      "subquery": 0,
+      "attempt": 2,
+      "query": "Apple Inc AAPL 10-K filing year 2025 net sales by product iPhone Mac iPad Wearables Home and Accessories Services; net sales by reportable segment Americas Europe Greater China Japan Rest of Asia Pacific; exclude filing year 2023 and other years",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No verified evidence was retrieved (evidence is empty). The catalog contains no AAPL filing for filing year 2025; its only AAPL entry is filing year 2023 (fiscal period ended September 30, 2023), which the audit prompt prohibits substituting. Revenue and share repurchase disclosures are also unsupported, so no excerpt can be scored as useful.",
+      "evidence": [],
+      "accepted": false,
+      "elapsed_seconds": 5.0415332790000775
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "Apple share repurchase program disclosures and shares repurchased",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No verified evidence was retrieved. The filing catalog has no AAPL entry for filing year 2025; the only AAPL filing is filing year 2023 (accession 000032019323000106, fiscal period ended September 30, 2023), which the audit prompt does not allow as a substitute. The evidence list is empty, so no revenue or share repurchase disclosures can be confirmed.",
+      "evidence": [],
+      "accepted": false,
+      "elapsed_seconds": 4.536438894999947
+    },
+    {
+      "subquery": 1,
+      "attempt": 1,
+      "query": "Apple Inc AAPL 10-K annual report filed in 2025 share repurchase program issuer purchases of equity securities shares repurchased average price paid per share open market repurchases; separately net sales revenue disclosures",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "The evidence array is empty, so there is no verified evidence. The catalog has no AAPL filing with filing_year 2025. Its only AAPL entry is filing_year 2023 (fiscal period ending September 30, 2023), which the audit prompt rules out as a substitute. Nothing can be confirmed for revenue or share repurchases, so the score is 1.",
+      "evidence": [],
+      "accepted": false,
+      "elapsed_seconds": 4.308305882000013
+    },
+    {
+      "subquery": 1,
+      "attempt": 2,
+      "query": "Apple Inc AAPL 10-K annual report filing year 2025 (filing year, not fiscal year; exclude filing year 2023) share repurchase program issuer purchases of equity securities shares repurchased average price paid per share open market repurchases; separately net sales revenue disclosures",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No verified evidence was provided (evidence array is empty). The filing catalog has no AAPL entry with filing_year 2025. Its only AAPL entry is filing_year 2023 (accession 000032019323000106, fiscal period ended September 30, 2023), which the audit prompt excludes. Nothing can be verified, so the score is 1. The rewrite keeps the filing-year-2025 scope and does not substitute 2023 or any other year.",
+      "evidence": [],
+      "accepted": false,
+      "elapsed_seconds": 4.9155001010000205
+    }
+  ],
+  "markdown": "No verified SEC evidence met the relevance threshold. No financial claims were generated.\n\nEvidence gaps:\n- Subquery 0 has no evidence meeting threshold after 2 retries.\n- Subquery 1 has no evidence meeting threshold after 2 retries.\n- No verified answer; evidence unavailable or below threshold.",
+  "citations": [],
+  "flags": [
+    "Subquery 0 has no evidence meeting threshold after 2 retries.",
+    "Subquery 1 has no evidence meeting threshold after 2 retries.",
+    "No verified answer; evidence unavailable or below threshold."
+  ],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.3031245670000544,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 992,
+        "cache_read_input_tokens": 1218,
+        "output_tokens": 365,
+        "output_tokens_details": {
+          "thinking_tokens": 186
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 992,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 365,
+            "cache_read_input_tokens": 1218,
+            "cache_creation_input_tokens": 992,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 992
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00039328000000000003
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.507617942000024,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1329,
+        "cache_read_input_tokens": 591,
+        "output_tokens": 566,
+        "output_tokens_details": {
+          "thinking_tokens": 271
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1329,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 566,
+            "cache_read_input_tokens": 591,
+            "cache_creation_input_tokens": 1329,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1329
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00055491
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.122119030000022,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1325,
+        "cache_read_input_tokens": 591,
+        "output_tokens": 677,
+        "output_tokens_details": {
+          "thinking_tokens": 337
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1325,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 677,
+            "cache_read_input_tokens": 591,
+            "cache_creation_input_tokens": 1325,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1325
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00060961
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.270882066000013,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1141,
+        "cache_read_input_tokens": 831,
+        "output_tokens": 598,
+        "output_tokens_details": {
+          "thinking_tokens": 287
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1141,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 598,
+            "cache_read_input_tokens": 831,
+            "cache_creation_input_tokens": 1141,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1141
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00053571
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.301749470999994,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1167,
+        "cache_read_input_tokens": 831,
+        "output_tokens": 596,
+        "output_tokens_details": {
+          "thinking_tokens": 289
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1167,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 596,
+            "cache_read_input_tokens": 831,
+            "cache_creation_input_tokens": 1167,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1167
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00053991
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.878305017999992,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1163,
+        "cache_read_input_tokens": 831,
+        "output_tokens": 812,
+        "output_tokens_details": {
+          "thinking_tokens": 440
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1163,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 812,
+            "cache_read_input_tokens": 831,
+            "cache_creation_input_tokens": 1163,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1163
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00064711
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.006807612999978,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1164,
+        "cache_read_input_tokens": 831,
+        "output_tokens": 772,
+        "output_tokens_details": {
+          "thinking_tokens": 421
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1164,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 772,
+            "cache_read_input_tokens": 831,
+            "cache_creation_input_tokens": 1164,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1164
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0006273100000000001
+    }
+  ],
+  "elapsed_seconds": 17.865084244999935
+}

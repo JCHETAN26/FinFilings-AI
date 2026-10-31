@@ -1,0 +1,6 @@
+{
+  "bridge_rss_bytes": 21729280,
+  "sidecar_rss_bytes": 1524015104,
+  "sample_count": 210,
+  "note": "Maximum observed at one-second sampling intervals across warmup and both sequential workloads, not an exact instantaneous peak."
+}

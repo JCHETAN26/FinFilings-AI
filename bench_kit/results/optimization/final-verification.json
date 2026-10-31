@@ -1,0 +1,16 @@
+{
+  "identical_query_sha256": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+  "hybrid_throughput_ratio": 1.7979608061133048,
+  "hybrid_p99_reduction_percent": 46.44503688999646,
+  "both_endpoints_zero_failures": true,
+  "admission": {
+    "limit": 64,
+    "active": 0,
+    "peak": 50,
+    "rejected": 0
+  },
+  "native_inference_workers": 1,
+  "quality_preserved": true,
+  "live_integration_passed": true,
+  "report_sha256": "7511974daae010d1ba2fad6ac5051a0e028524c10ef8faeaa45cf4313bd34593"
+}

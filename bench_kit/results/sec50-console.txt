@@ -1,0 +1,11 @@
+Round 1: 702 docs, 13149 docs/s, 21.13 text MiB/s; mmap-open p50 0.257 ms p99 0.410 ms; 50 workers, 1000000 requests, 853124 QPS, search p50 0.012 ms p95 0.039 ms p99 0.047 ms max 5.558 ms; errors=0 mismatches=0 stable=true
+Round 2: 702 docs, 21428 docs/s, 34.43 text MiB/s; mmap-open p50 0.256 ms p99 0.601 ms; 50 workers, 1000000 requests, 843316 QPS, search p50 0.012 ms p95 0.039 ms p99 0.047 ms max 2.817 ms; errors=0 mismatches=0 stable=true
+Round 3: 702 docs, 11614 docs/s, 18.66 text MiB/s; mmap-open p50 0.292 ms p99 0.565 ms; 50 workers, 1000000 requests, 839721 QPS, search p50 0.012 ms p95 0.039 ms p99 0.047 ms max 2.983 ms; errors=0 mismatches=0 stable=true
+Round 4: 702 docs, 21568 docs/s, 34.66 text MiB/s; mmap-open p50 0.251 ms p99 0.751 ms; 50 workers, 1000000 requests, 840911 QPS, search p50 0.012 ms p95 0.039 ms p99 0.047 ms max 3.411 ms; errors=0 mismatches=0 stable=true
+Round 5: 702 docs, 21913 docs/s, 35.21 text MiB/s; mmap-open p50 0.254 ms p99 0.710 ms; 50 workers, 1000000 requests, 840735 QPS, search p50 0.012 ms p95 0.039 ms p99 0.047 ms max 2.919 ms; errors=0 mismatches=0 stable=true
+Round 6: 702 docs, 20337 docs/s, 32.68 text MiB/s; mmap-open p50 0.251 ms p99 0.578 ms; 50 workers, 1000000 requests, 823054 QPS, search p50 0.012 ms p95 0.039 ms p99 0.048 ms max 3.908 ms; errors=0 mismatches=0 stable=true
+Round 7: 702 docs, 20424 docs/s, 32.82 text MiB/s; mmap-open p50 0.253 ms p99 0.361 ms; 50 workers, 1000000 requests, 701627 QPS, search p50 0.012 ms p95 0.039 ms p99 0.048 ms max 4.758 ms; errors=0 mismatches=0 stable=true
+Round 8: 702 docs, 18422 docs/s, 29.60 text MiB/s; mmap-open p50 0.260 ms p99 0.449 ms; 50 workers, 1000000 requests, 853663 QPS, search p50 0.012 ms p95 0.039 ms p99 0.048 ms max 2.837 ms; errors=0 mismatches=0 stable=true
+Round 9: 702 docs, 20367 docs/s, 32.73 text MiB/s; mmap-open p50 0.255 ms p99 0.373 ms; 50 workers, 1000000 requests, 779662 QPS, search p50 0.012 ms p95 0.040 ms p99 0.048 ms max 3.383 ms; errors=0 mismatches=0 stable=true
+Round 10: 702 docs, 17385 docs/s, 27.94 text MiB/s; mmap-open p50 0.265 ms p99 0.456 ms; 50 workers, 1000000 requests, 756405 QPS, search p50 0.012 ms p95 0.039 ms p99 0.048 ms max 5.024 ms; errors=0 mismatches=0 stable=true
+Results: bench_kit/results/phase1-3051556664

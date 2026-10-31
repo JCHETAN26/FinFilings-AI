@@ -1,0 +1,7 @@
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit	0.027s
+ok  	github.com/JCHETAN26/FinFillings-AI/cmd/finfilings	0.003s
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/hybrid	0.034s
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	2.736s
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]
+
+exit_code=0

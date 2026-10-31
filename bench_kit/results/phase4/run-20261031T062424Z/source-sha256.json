@@ -1,0 +1,8 @@
+{
+  "bench_kit/load/main.go": "2be38276a50e80e33ae80aa872621c61b48b59ea10ba15f9282636bd205db067",
+  "bench_kit/load/main_test.go": "acfb6eb6fce4dd62b40b07544a6aa29c4b7c827cab1dfd22494b9c0a28e9f508",
+  "bench_kit/consolidate.py": "c928a6833986a5b6075e251526cc9329f158391a26d34a1b54919500be713b72",
+  "scripts/verify-phase4.py": "b46117729a5aa137914c0c98d138f822c79b4c113e099dec34f520011f58de09",
+  "py/service.py": "4e11af7b01dc9cf08d3aa45eb195e7397e3e39632ac0c48ca72f64a0c092cb75",
+  "cmd/finfilings/main.go": "04406307f34e76ca0b5190c10d080332e39514176e8747fbb0f17c1cd4fc4508"
+}

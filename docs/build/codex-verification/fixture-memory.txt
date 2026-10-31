@@ -1,0 +1,17 @@
+=== RUN   TestFixtureMemoryFootprint
+    memory_profile_test.go:23: after_fixture_build_before_open heap_alloc_bytes=417784 heap_inuse_bytes=1122304 total_alloc_bytes=7858288 num_gc=5
+    memory_profile_test.go:23: after_fixture_build_before_open VmHWM:	   11264 kB
+    memory_profile_test.go:23: after_fixture_build_before_open VmRSS:	   11176 kB
+    memory_profile_test.go:33: SYNTHETIC FIXTURE ONLY: docs=1000 segments=1 mapped_file_bytes=191995 search_slots=2
+    memory_profile_test.go:34: after_mmap_open heap_alloc_bytes=438808 heap_inuse_bytes=1196032 total_alloc_bytes=7879312 num_gc=5
+    memory_profile_test.go:34: after_mmap_open VmHWM:	   11264 kB
+    memory_profile_test.go:34: after_mmap_open VmRSS:	   10696 kB
+    memory_profile_test.go:41: after_100_sequential_searches_no_forced_gc heap_alloc_bytes=629920 heap_inuse_bytes=1384448 total_alloc_bytes=8070424 num_gc=5
+    memory_profile_test.go:41: after_100_sequential_searches_no_forced_gc VmHWM:	   11264 kB
+    memory_profile_test.go:41: after_100_sequential_searches_no_forced_gc VmRSS:	   10204 kB
+    memory_profile_test.go:46: after_close_and_gc heap_alloc_bytes=434728 heap_inuse_bytes=1171456 total_alloc_bytes=8083520 num_gc=6
+    memory_profile_test.go:46: after_close_and_gc VmHWM:	   11264 kB
+    memory_profile_test.go:46: after_close_and_gc VmRSS:	    9900 kB
+--- PASS: TestFixtureMemoryFootprint (0.04s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	0.042s

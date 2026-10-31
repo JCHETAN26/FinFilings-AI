@@ -1,0 +1,58 @@
+{
+  "acquired_at_utc": "2026-10-30T20:58:39.822860+00:00",
+  "words_per_passage": 256,
+  "chunking": "non-overlapping visible HTML text; no duplication; items unclassified",
+  "corpus_sha256": "806cf2fc59f4ed352541b0f12ebbd2eba880d1ed44dc65475f7026556b8012ad",
+  "corpus_bytes": 1311713,
+  "passages": 702,
+  "sources": [
+    {
+      "ticker": "AAPL",
+      "cik": "320193",
+      "filing_year": 2023,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "accession": "000032019323000106",
+      "raw_sha256": "845e5f986f9b3659768c37fecf7d9f6405aae4fe9969f498a164bfdaf80d336c",
+      "raw_bytes": 1559034,
+      "passages": 120,
+      "whitespace_words": 30649
+    },
+    {
+      "ticker": "MSFT",
+      "cik": "789019",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "accession": "000095017024087843",
+      "raw_sha256": "ee55571f4ec7f56874706add491553a10c701ad6e355532dcc736debd5ccfcdf",
+      "raw_bytes": 6861021,
+      "passages": 210,
+      "whitespace_words": 53740
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "1045810",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "accession": "000104581024000029",
+      "raw_sha256": "a36c866075d6f7d3344a199c60a058647975366a1659a73573be8d6b49297da4",
+      "raw_bytes": 2085676,
+      "passages": 204,
+      "whitespace_words": 52188
+    },
+    {
+      "ticker": "AMZN",
+      "cik": "1018724",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "accession": "000101872424000008",
+      "raw_sha256": "07dbcdb70602f5ac69c8af9214913b7870f2fed2990217e073d4083f952f7518",
+      "raw_bytes": 1945288,
+      "passages": 168,
+      "whitespace_words": 42987
+    }
+  ]
+}

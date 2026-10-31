@@ -1,0 +1,338 @@
+{
+  "independent_recheck": true,
+  "passed": 10,
+  "cases": [
+    {
+      "id": "audit01",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 6,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 23.27427950300006,
+      "retries_per_subquery": [
+        0,
+        0
+      ],
+      "final_relevance_grades": [
+        5,
+        4
+      ],
+      "evidence_gaps": [],
+      "prompt": "Compare AAPL filing year 2023 and NVDA filing year 2024: find the disclosed dependence on third-party manufacturing and supply-chain risks. Retrieve evidence separately for each company."
+    },
+    {
+      "id": "audit02",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "accepted_subqueries": 1,
+      "cited_subqueries": 1,
+      "citations": 8,
+      "complete_coverage": false,
+      "flags": [
+        "Subquery 1 has no evidence meeting threshold after 2 retries."
+      ],
+      "model_calls": 6,
+      "seconds": 38.810737087999996,
+      "retries_per_subquery": [
+        0,
+        2
+      ],
+      "final_relevance_grades": [
+        4,
+        1
+      ],
+      "evidence_gaps": [
+        {
+          "subquery": 1,
+          "query": "Amazon cloud business competition and operating costs of cloud infrastructure, including competitors, AWS infrastructure costs, and data center operating expenses",
+          "filters": {
+            "ticker": "AMZN",
+            "year": 2024,
+            "section": "",
+            "accession": "000101872424000008"
+          },
+          "rationale": "All four passages are non-responsive to the AMZN subquery. They cover the cover page, the table of contents, and exhibit lists (note officer certificates, credit agreements, and stock plans). None mentions AWS competitors, cloud competition, AWS segment operating expenses, technology and infrastructure costs, depreciation of servers or data centers, or data center operating costs. Nothing here can support the claim, so the evidence is irrelevant. The rewrite targets Item 1 Business and Item 7 MD&A for the AMZN filing with accession 000101872424000008, which covers fiscal year ended December 31, 2023."
+        }
+      ],
+      "prompt": "Compare MSFT and AMZN, both filing year 2024: retrieve evidence on cloud business competition and the operating costs of their cloud infrastructure. Use separate company-specific retrieval steps."
+    },
+    {
+      "id": "audit03",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 8,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 21.761957655999936,
+      "retries_per_subquery": [
+        0,
+        0
+      ],
+      "final_relevance_grades": [
+        5,
+        5
+      ],
+      "evidence_gaps": [],
+      "prompt": "Audit NVDA filing year 2024: separately retrieve export control risks and dependence on external manufacturing capacity. Explain with filing excerpts only."
+    },
+    {
+      "id": "audit04",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "accepted_subqueries": 1,
+      "cited_subqueries": 1,
+      "citations": 6,
+      "complete_coverage": false,
+      "flags": [
+        "Subquery 1 has no evidence meeting threshold after 2 retries."
+      ],
+      "model_calls": 6,
+      "seconds": 40.500133091000066,
+      "retries_per_subquery": [
+        0,
+        2
+      ],
+      "final_relevance_grades": [
+        4,
+        1
+      ],
+      "evidence_gaps": [
+        {
+          "subquery": 1,
+          "query": "operating expenses disclosure by category",
+          "filters": {
+            "ticker": "AMZN",
+            "year": 2024,
+            "section": "",
+            "accession": "000101872424000008"
+          },
+          "rationale": "None of the five passages contain operating expense figures or categories. They are the exhibit index (Items 15/exhibits 4.x\u201310.x), the 10-K cover page, and the Item 15 financial statement index. The passages only list statement titles, such as \"Consolidated Statements of Operations,\" without any line items (cost of sales, fulfillment, technology and infrastructure, sales and marketing, G&A) or amounts. They also contain no AWS sales disclosure. The evidence is therefore irrelevant to the subquery. The filing year (2024), accession (000101872424000008), and fiscal period end (December 31, 2023) are correctly identified, but the excerpts do not support any operating-expense answer."
+        }
+      ],
+      "prompt": "Audit AMZN filing year 2024: separately retrieve AWS sales disclosures and operating expense disclosures. Support both topics with direct excerpts."
+    },
+    {
+      "id": "audit05",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 5,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 22.657395931999986,
+      "retries_per_subquery": [
+        0,
+        0
+      ],
+      "final_relevance_grades": [
+        5,
+        5
+      ],
+      "evidence_gaps": [],
+      "prompt": "Audit AAPL filing year 2023: separately retrieve share repurchase authorization disclosures and cash dividend disclosures. Provide original supporting excerpts for both."
+    },
+    {
+      "id": "audit06",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 8,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 24.33735221900008,
+      "retries_per_subquery": [
+        0,
+        0
+      ],
+      "final_relevance_grades": [
+        4,
+        5
+      ],
+      "evidence_gaps": [],
+      "prompt": "Audit MSFT filing year 2024: separately retrieve cloud services growth disclosures and cybersecurity risks. Ground both topics in the filing."
+    },
+    {
+      "id": "audit07",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 7,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 28.882181583000033,
+      "retries_per_subquery": [
+        0,
+        0
+      ],
+      "final_relevance_grades": [
+        5,
+        4
+      ],
+      "evidence_gaps": [],
+      "prompt": "Audit AMZN filing year 2024: separately retrieve liquidity and cash-flow disclosures and operating lease obligations. Present supporting excerpts without deriving new numbers."
+    },
+    {
+      "id": "audit08",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 6,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 23.40167284100005,
+      "retries_per_subquery": [
+        0,
+        0
+      ],
+      "final_relevance_grades": [
+        5,
+        4
+      ],
+      "evidence_gaps": [],
+      "prompt": "Audit NVDA filing year 2024: separately retrieve Data Center revenue growth disclosures and gross margin disclosures. Use evidence for each topic without calculating a new ratio."
+    },
+    {
+      "id": "audit09",
+      "status": "pass",
+      "negative": true,
+      "subqueries": 2,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "accepted_subqueries": 0,
+      "cited_subqueries": 0,
+      "citations": 0,
+      "complete_coverage": false,
+      "flags": [
+        "Subquery 0 has no evidence meeting threshold after 2 retries.",
+        "Subquery 1 has no evidence meeting threshold after 2 retries.",
+        "No verified answer; evidence unavailable or below threshold."
+      ],
+      "model_calls": 7,
+      "seconds": 17.865084244999935,
+      "retries_per_subquery": [
+        2,
+        2
+      ],
+      "final_relevance_grades": [
+        1,
+        1
+      ],
+      "evidence_gaps": [
+        {
+          "subquery": 0,
+          "query": "Apple net sales revenue disclosures by product and segment",
+          "filters": {
+            "ticker": "AAPL",
+            "year": 2025,
+            "section": "",
+            "accession": ""
+          },
+          "rationale": "No verified evidence was retrieved (evidence is empty). The catalog contains no AAPL filing for filing year 2025; its only AAPL entry is filing year 2023 (fiscal period ended September 30, 2023), which the audit prompt prohibits substituting. Revenue and share repurchase disclosures are also unsupported, so no excerpt can be scored as useful."
+        },
+        {
+          "subquery": 1,
+          "query": "Apple share repurchase program disclosures and shares repurchased",
+          "filters": {
+            "ticker": "AAPL",
+            "year": 2025,
+            "section": "",
+            "accession": ""
+          },
+          "rationale": "No verified evidence was provided (evidence array is empty). The filing catalog has no AAPL entry with filing_year 2025. Its only AAPL entry is filing_year 2023 (accession 000032019323000106, fiscal period ended September 30, 2023), which the audit prompt excludes. Nothing can be verified, so the score is 1. The rewrite keeps the filing-year-2025 scope and does not substitute 2023 or any other year."
+        }
+      ],
+      "prompt": "Audit AAPL filing year 2025 only: separately retrieve revenue disclosures and share repurchase disclosures. Do not substitute filing year 2023 or any other year if 2025 evidence is unavailable."
+    },
+    {
+      "id": "audit10",
+      "status": "pass",
+      "negative": true,
+      "subqueries": 2,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "accepted_subqueries": 0,
+      "cited_subqueries": 0,
+      "citations": 0,
+      "complete_coverage": false,
+      "flags": [
+        "Subquery 0 has no evidence meeting threshold after 2 retries.",
+        "Subquery 1 has no evidence meeting threshold after 2 retries.",
+        "No verified answer; evidence unavailable or below threshold."
+      ],
+      "model_calls": 7,
+      "seconds": 19.053207153000017,
+      "retries_per_subquery": [
+        2,
+        2
+      ],
+      "final_relevance_grades": [
+        1,
+        1
+      ],
+      "evidence_gaps": [
+        {
+          "subquery": 0,
+          "query": "Microsoft cybersecurity risk factors: threats to systems, data breaches, and security incidents",
+          "filters": {
+            "ticker": "MSFT",
+            "year": 2024,
+            "section": "Item 1A",
+            "accession": "000095017024087843"
+          },
+          "rationale": "No evidence was retrieved (evidence list is empty), so the score is 1. The MSFT 2024 filing (accession 000095017024087843, fiscal period ended June 30, 2024) is catalogued only as \"Full filing (item not classified)\", so the exact \"Item 1A\" SectionItem filter may return nothing. Per the audit instructions, the filter is kept exact and not relaxed. The rewrite keeps the filing-year 2024 scope and the fiscal-period distinction. Cloud competition risk needs a separate query and is not covered here."
+        },
+        {
+          "subquery": 1,
+          "query": "Microsoft cloud competition risk factors: competitive pressure in cloud computing and AI services",
+          "filters": {
+            "ticker": "MSFT",
+            "year": 2024,
+            "section": "Item 1A",
+            "accession": "000095017024087843"
+          },
+          "rationale": "No verified evidence was provided (evidence is empty), so the score is 1. The catalog lists MSFT filing_year 2024 (accession 000095017024087843) with fiscal_period_end June 30, 2024, so the rewrite keeps the filing-year filter and the June 30, 2024 period end. The Item 1A filter is kept exact, and the query is limited to cloud competition risk. The cybersecurity risk retrieval should be run as a separate query under the same filters."
+        }
+      ],
+      "prompt": "Audit MSFT filing year 2024, with the exact SectionItem filter \"Item 1A\": separately retrieve cybersecurity risk and cloud competition risk. Do not relax the exact section filter if unclassified passages are all that is available."
+    }
+  ]
+}

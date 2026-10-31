@@ -1,0 +1,40 @@
+/home/grv22/.local/lib/python3.10/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.8.1' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/home/grv22/.local/lib/python3.10/site-packages/pandas/core/arrays/masked.py:61: UserWarning: Pandas requires version '1.3.6' or newer of 'bottleneck' (version '1.3.2' currently installed).
+  from pandas.core import (
+/home/grv22/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+{
+  "real_models": true,
+  "documents": 19511,
+  "pq8": true,
+  "saved_centroids_match": true,
+  "query_vector_unit_norm": true,
+  "rrf_candidates": 50,
+  "cross_encoder_results": 10,
+  "actual_concurrent_queries": 4,
+  "concurrent_rankings_identical": true,
+  "invalid_requests_rejected": true,
+  "health": {
+    "status": "ready",
+    "documents": 19511,
+    "corpus_sha256": "5413d6edc850fde9782dafd972c1a399629ba2a84e049e7dc55c6766008e84cf",
+    "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "encoder_device": "cpu",
+    "reranker_device": "cpu",
+    "admission": {
+      "limit": 64,
+      "active": 0,
+      "peak": 0,
+      "rejected": 0
+    },
+    "inference_workers": 1,
+    "inference": {},
+    "threads": 4,
+    "rerank_batch_size": 8,
+    "rerank_length_bucketing": true
+  }
+}
+
+exit_code=0

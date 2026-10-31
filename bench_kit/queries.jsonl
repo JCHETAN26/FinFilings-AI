@@ -1,0 +1,18 @@
+{"query":"revenue growth","expect_hits":true}
+{"query":"risk factors","expect_hits":true}
+{"query":"cash flows operating activities","expect_hits":true}
+{"query":"interest rate risk","expect_hits":true}
+{"query":"goodwill impairment","expect_hits":true}
+{"query":"income tax","expect_hits":true}
+{"query":"share repurchase","expect_hits":true}
+{"query":"long term debt","expect_hits":true}
+{"query":"supply chain","expect_hits":true}
+{"query":"cybersecurity","expect_hits":true}
+{"query":"research development","expect_hits":true}
+{"query":"foreign currency exchange","expect_hits":true}
+{"query":"stock based compensation","expect_hits":true}
+{"query":"data center","expect_hits":true}
+{"query":"cloud services","expect_hits":true}
+{"query":"artificial intelligence","expect_hits":true}
+{"query":"the and of","expect_hits":true}
+{"query":"zzfinfilingsabsenttermxqv","expect_hits":false}

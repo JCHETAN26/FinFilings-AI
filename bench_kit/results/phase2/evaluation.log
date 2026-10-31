@@ -1,0 +1,147 @@
+/home/grv22/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+evaluated 10 real labeled queries
+evaluated 20 real labeled queries
+evaluated 30 real labeled queries
+evaluated 40 real labeled queries
+evaluated 50 real labeled queries
+evaluated 60 real labeled queries
+evaluated 70 real labeled queries
+evaluated 80 real labeled queries
+evaluated 90 real labeled queries
+evaluated 100 real labeled queries
+{
+  "ndcg_at_10": {
+    "sparse": 0.49190957835088106,
+    "dense": 0.4457727607878947,
+    "hybrid": 0.5195578044538675,
+    "reranked": 0.57574439431233
+  },
+  "hybrid_minus_sparse": 0.027648226102986395,
+  "reranked_minus_sparse": 0.08383481596144898,
+  "evaluated_queries": 100,
+  "pq_recall_at_10_vs_exact_float32": 0.685,
+  "vector_memory": {
+    "raw_native_payload_bytes": 29968896,
+    "pq_native_payload_bytes": 1329744,
+    "exact_native_payload_reduction_percent": 95.56291963507765,
+    "raw_rss_delta_median_bytes": 30306304,
+    "pq_rss_delta_median_bytes": 2306048,
+    "probes": {
+      "raw": [
+        {
+          "mode": "raw",
+          "documents": 19511,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 29968896
+          },
+          "native_payload_bytes": 29968896,
+          "rss_before_bytes": 51232768,
+          "rss_after_bytes": 81539072,
+          "observed_rss_delta_bytes": 30306304,
+          "serialized_index_bytes": 29968941,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "raw",
+          "documents": 19511,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 29968896
+          },
+          "native_payload_bytes": 29968896,
+          "rss_before_bytes": 51204096,
+          "rss_after_bytes": 81510400,
+          "observed_rss_delta_bytes": 30306304,
+          "serialized_index_bytes": 29968941,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "raw",
+          "documents": 19511,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 29968896
+          },
+          "native_payload_bytes": 29968896,
+          "rss_before_bytes": 51220480,
+          "rss_after_bytes": 81526784,
+          "observed_rss_delta_bytes": 30306304,
+          "serialized_index_bytes": 29968941,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        }
+      ],
+      "pq": [
+        {
+          "mode": "pq",
+          "documents": 19511,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 936528,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 1329744,
+          "rss_before_bytes": 51183616,
+          "rss_after_bytes": 53489664,
+          "observed_rss_delta_bytes": 2306048,
+          "serialized_index_bytes": 1329830,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "pq",
+          "documents": 19511,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 936528,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 1329744,
+          "rss_before_bytes": 51228672,
+          "rss_after_bytes": 53534720,
+          "observed_rss_delta_bytes": 2306048,
+          "serialized_index_bytes": 1329830,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "pq",
+          "documents": 19511,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 936528,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 1329744,
+          "rss_before_bytes": 51191808,
+          "rss_after_bytes": 53497856,
+          "observed_rss_delta_bytes": 2306048,
+          "serialized_index_bytes": 1329830,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        }
+      ]
+    }
+  },
+  "end_to_end_serial_query_seconds": {
+    "p50": 0.9207306650005194,
+    "p99": 2.6737045720001333,
+    "max": 2.7167053739995026
+  },
+  "notes": [
+    "Published FinQA binary supporting-fact labels are not exhaustive relevance judgments or answer correctness.",
+    "ranx receives descending ordinal scores to preserve the returned rank order, including Go deterministic ties; original real model/RRF scores are preserved in raw per-query rankings.",
+    "First 100 eligible dev queries chosen before scoring; no relevance tuning. Corpus contains train/dev context, as an unsupervised retrieval collection, not QA answer/program text.",
+    "PQ8 is IndexPQ(d=384,M=48,nbits=8), not scalar SQ8. Exact native payload includes codebooks and materialized auxiliary arrays; it excludes unknown allocator headers/capacity, model, and passage store.",
+    "RSS is separately observed in isolated real FAISS-only subprocesses, three per mode. Whole application RAM does not shrink by the vector payload percentage.",
+    "CPU-only serial end-to-end timings include BGE query encoding, Go parallel sparse/dense bridge, RRF and real MiniLM Top-50 to Top-10 reranking; not the Phase 1 sparse-only p99.",
+    "ID recall vs exact float32 may penalize interchangeable ties from identical text at different source locations."
+  ]
+}
