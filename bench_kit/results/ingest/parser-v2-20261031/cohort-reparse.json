@@ -1,0 +1,293 @@
+{
+  "scope": "Re-parse of the exact 191 primary documents from the 2026-10-31 live run (byte-identical: SHA-256 checked against the recorded downloads) with parser v2, compared with the v1 results recorded in scale-20261031/ingestion-report.json. Parser-only check; no re-indexing or benchmark.",
+  "parser_old": "deterministic-canonical-heading-v1-go",
+  "parser_new": "deterministic-canonical-heading-v2-go",
+  "summary": {
+    "accepted_before": 138,
+    "unchanged": 136,
+    "changed": 2,
+    "lost": 0,
+    "rejected_before": 53,
+    "gained": 10
+  },
+  "changed_explanation": "Both AFL filings: Item 1A and Item 8 now begin with their own heading lines, and Item 8 no longer ends with the self-linked \"Item 9. Changes in and Disagreements...\" heading line, which v1 did not recognize. All other emitted text is identical.",
+  "gained": [
+    {
+      "ticker": "BAC",
+      "accession": "000007085826000157",
+      "heading_mode": "item"
+    },
+    {
+      "ticker": "MS",
+      "accession": "000089542126000086",
+      "heading_mode": "titled"
+    },
+    {
+      "ticker": "AXP",
+      "accession": "000000496226000080",
+      "heading_mode": "item"
+    },
+    {
+      "ticker": "AXP",
+      "accession": "000000496225000016",
+      "heading_mode": "item"
+    },
+    {
+      "ticker": "PNC",
+      "accession": "000071367626000020",
+      "heading_mode": "item"
+    },
+    {
+      "ticker": "PNC",
+      "accession": "000071367625000027",
+      "heading_mode": "item"
+    },
+    {
+      "ticker": "COF",
+      "accession": "000092762826000024",
+      "heading_mode": "item"
+    },
+    {
+      "ticker": "COF",
+      "accession": "000092762825000092",
+      "heading_mode": "item"
+    },
+    {
+      "ticker": "CVS",
+      "accession": "000006480326000010",
+      "heading_mode": "item"
+    },
+    {
+      "ticker": "CVS",
+      "accession": "000006480325000007",
+      "heading_mode": "item"
+    }
+  ],
+  "changed": [
+    {
+      "ticker": "AFL",
+      "accession": "000162828026011402"
+    },
+    {
+      "ticker": "AFL",
+      "accession": "000000497725000047"
+    }
+  ],
+  "still_rejected": [
+    {
+      "ticker": "ORCL",
+      "accession": "000119312526277521",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "ORCL",
+      "accession": "000095017025087926",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "IBM",
+      "accession": "000005114326000010",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "IBM",
+      "accession": "000005114325000015",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "INTC",
+      "accession": "000005086326000011",
+      "v1_reason": "major sections missing or ambiguous: Item 1A not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "INTC",
+      "accession": "000005086325000009",
+      "v1_reason": "major sections missing or ambiguous: Item 1A not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "QCOM",
+      "accession": "000080432825000085",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "QCOM",
+      "accession": "000080432824000075",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "AMAT",
+      "accession": "000162828025056742",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "AMAT",
+      "accession": "000000695124000044",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "ADI",
+      "accession": "000000628125000153",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "ADI",
+      "accession": "000000628124000204",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "NOW",
+      "accession": "000137371526000007",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (19 candidate headings)"
+    },
+    {
+      "ticker": "NOW",
+      "accession": "000137371525000010",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (19 candidate headings)"
+    },
+    {
+      "ticker": "CDNS",
+      "accession": "000081367226000016",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "CDNS",
+      "accession": "000081367225000024",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "JPM",
+      "accession": "000162828026008131",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (21 candidate headings)"
+    },
+    {
+      "ticker": "WFC",
+      "accession": "000007297126000133",
+      "v1_reason": "major sections missing or ambiguous: Item 1A not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "C",
+      "accession": "000083100126000011",
+      "v1_reason": "major sections missing or ambiguous: Item 1A not found with >= 128 words (0 candidate headings)"
+    },
+    {
+      "ticker": "PYPL",
+      "accession": "000163391726000024",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "PYPL",
+      "accession": "000163391725000019",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "BLK",
+      "accession": "000119312526071966",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "USB",
+      "accession": "000003610426000011",
+      "v1_reason": "major sections missing or ambiguous: Item 1A not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "USB",
+      "accession": "000003610425000016",
+      "v1_reason": "major sections missing or ambiguous: Item 1A not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "TFC",
+      "accession": "000009223026000030",
+      "v1_reason": "major sections missing or ambiguous: duplicate body heading Item 7"
+    },
+    {
+      "ticker": "AMGN",
+      "accession": "000031815426000010",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "AMGN",
+      "accession": "000031815425000010",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "REGN",
+      "accession": "000180422025000011",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "VRTX",
+      "accession": "000087532026000056",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "VRTX",
+      "accession": "000087532025000053",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (23 candidate headings)"
+    },
+    {
+      "ticker": "ABT",
+      "accession": "000162828026010185",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (21 candidate headings)"
+    },
+    {
+      "ticker": "COST",
+      "accession": "000090983226000093",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (20 candidate headings)"
+    },
+    {
+      "ticker": "COST",
+      "accession": "000090983225000101",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (20 candidate headings)"
+    },
+    {
+      "ticker": "PEP",
+      "accession": "000007747626000007",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (21 candidate headings)"
+    },
+    {
+      "ticker": "PEP",
+      "accession": "000007747625000007",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (21 candidate headings)"
+    },
+    {
+      "ticker": "CL",
+      "accession": "000002166526000006",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (46 candidate headings)"
+    },
+    {
+      "ticker": "CL",
+      "accession": "000002166525000008",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (46 candidate headings)"
+    },
+    {
+      "ticker": "MCD",
+      "accession": "000006390826000035",
+      "v1_reason": "major sections missing or ambiguous: Item 1A not found with >= 128 words (0 candidate headings)"
+    },
+    {
+      "ticker": "MCD",
+      "accession": "000006390825000012",
+      "v1_reason": "major sections missing or ambiguous: Item 1A not found with >= 128 words (0 candidate headings)"
+    },
+    {
+      "ticker": "TJX",
+      "accession": "000010919826000008",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (21 candidate headings)"
+    },
+    {
+      "ticker": "TJX",
+      "accession": "000010919825000010",
+      "v1_reason": "major sections missing or ambiguous: Item 8 not found with >= 128 words (21 candidate headings)"
+    },
+    {
+      "ticker": "CVX",
+      "accession": "000009341026000078",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (22 candidate headings)"
+    },
+    {
+      "ticker": "CVX",
+      "accession": "000009341025000009",
+      "v1_reason": "major sections missing or ambiguous: Item 7 not found with >= 128 words (22 candidate headings)"
+    }
+  ]
+}

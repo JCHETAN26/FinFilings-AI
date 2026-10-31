@@ -7,7 +7,7 @@ Status: implemented; see verification evidence and known limitations below.
 | File | What it does |
 |---|---|
 | `pkg/ingest/client.go` | EDGAR client: submissions API (`data.sec.gov/submissions/CIK##########.json`, `recent` block) and Archives document download. It requires a `User-Agent` of the form `<name> <contact email>` and rejects anything else before sending a request. Rate: 0 < r ≤ 10 req/s, default 5. Header dispatch is serialized. Every attempt, retries included, waits at least `1/r + 1 ms` after the previous headers complete; 429/5xx `Retry-After` postpones all waiting callers, including after exhausted retries. Retries are capped (default 2, max 4) and happen only before any body bytes are read. Redirects are not followed. Size limits: 128 MiB per document, 32 MiB per index JSON. Downloads stream to an `io.Writer` with SHA-256. |
-| `pkg/ingest/parser.go` | Deterministic 10-K section parser. It is a Go port of `py/ingest/sections.py` and uses the same IDs and tags. Pass 1 spools visible block-level text to disk (hidden/iXBRL/script/style removed, `<a href>` lines marked as linked). Pass 2 detects canonical `Item N. Title` headings with a 4-line window, so table-of-contents links never count as headings. It emits only Items 1A, 7 and 8, each tagged `Item 1A` / `Item 7` / `Item 8`. If any of the three is missing, duplicated or out of order, the whole filing is rejected (`ErrSections`) and nothing is emitted. No text is ever emitted untagged or under a guessed section. Uses only the standard library: a bounded streaming HTML scanner (1 MiB per token/block, depth 256, at most 512 heading candidates). |
+| `pkg/ingest/parser.go` | Deterministic 10-K section parser (v2, `deterministic-canonical-heading-v2-go`). It began as a Go port of `py/ingest/sections.py` and uses the same IDs and tags. Pass 1 spools visible block-level text to disk (hidden/iXBRL/script/style removed, `<a href>` lines marked as linked unless the link targets an anchor that already appeared, i.e. a heading linking to itself). Pass 2 detects canonical `Item N. Title` headings with a 4-line window, so table-of-contents links never count as headings; a short trailing parenthetical such as `(MD&A)` is ignored, and the title may stand alone on a following line. If Item headings cannot verify all three sections, a titled-heading fallback also accepts standalone exact titles (for annual-report-order filers), and requires Item 8 to end at a later heading. It emits only Items 1A, 7 and 8, each tagged `Item 1A` / `Item 7` / `Item 8`. If any of the three is missing, duplicated or out of order, the whole filing is rejected (`ErrSections`) and nothing is emitted. No text is ever emitted untagged or under a guessed section. `ParseReport.HeadingMode` records `item` or `titled`. Uses only the standard library: a bounded streaming HTML scanner (1 MiB per token/block, depth 256, at most 512 heading candidates, at most 65,536 remembered anchor ids). |
 | `pkg/ingest/pipeline.go` | `RunPipeline`: list filings → download one filing at a time to a disk spool → parse → `index.ShardedWriter` (quarter shard from the filing date) and `passages.jsonl`. Writes `provenance.jsonl`, and writes `report.json` last. Requires a fresh output directory and removes it on failure. `SkipUnparseable` (off by default) records `ErrSections` filings as skipped. |
 | `pkg/index/shards.go` | `ShardKey` (`YYYY_Q{1-4}`). `ShardedWriter`: one immutable index per quarter, open shards capped by `MaxOpenShards` (default 16), so accounted buffer memory is at most `MaxOpenShards × MaxBufferBytes`. `shards.json` is published atomically last. `ShardRouter`: opens the listed shards (`syscall.Mmap` through the unchanged `index.Open`), runs two bounded fan-outs per query (per-shard df, then per-shard top-k scoring with union `N`/avgdl/df), and does a stable merge. Admission is bounded by `MaxConcurrentSearches`, per-search goroutines by `Workers`. Corrupt or inconsistent manifests return `ErrCorrupt`. |
 | `pkg/index/index.go` | Internal refactor only: `SearchFiltered` now calls `searchFiltered(..., global *collectionStats)`, and `termDFs` was added. The public API is unchanged. |
@@ -52,6 +52,32 @@ Shard scoring uses union statistics. A router over N shards returns bit-identica
 - The hybrid engine accepts both `*index.Index` and `*index.ShardRouter`. The HTTP bridge automatically recognizes a quarter-shard root. Dense search and reranking still require a vector index built from the exact same passage bytes; mismatches are rejected.
 - The HTML scanner handles the EDGAR subset (no HTML5 implied end tags). It is bounded and fails explicitly on anything outside its limits.
 - No claims are made about sub-millisecond merge latency or flat RSS at production scale. Only the fixture micro-benchmark and the 4-filing replay RSS readings above were measured.
+
+## Parser v2: bank and annual-report layouts (2026-10-31)
+
+The live run rejected 53 of 191 filings. Inspecting re-downloaded bank 10-Ks found five layouts:
+
+| Layout | Example filers | v2 result |
+|---|---|---|
+| Title ends in an abbreviation, `(MD&A)` / `(“MD&A”)` | AXP, PNC, COF, CVS | parsed |
+| Company name on the Item line, title on the next line | BAC | parsed |
+| Body heading is a link to its own anchor | COF (Item 8), AFL (Item 9) | parsed |
+| No `Item N` labels; sections headed by plain titles | MS | parsed (titled fallback) |
+| Items only cross-reference page ranges of an embedded annual report | JPM, PYPL (Item 8), C | still rejected |
+| Items incorporated by reference from a separate Exhibit 13 | USB, WFC | still rejected |
+| Item 7 heading repeated as a glossary entry | TFC | still rejected (duplicate) |
+
+Re-parsing the exact 191 documents (SHA-256 checked against the recorded downloads):
+- **Before:** 138 accepted, 53 rejected.
+- **v2:** 148 accepted, 43 rejected.
+- **Gained (10):** BAC, MS, AXP ×2, PNC ×2, COF ×2, CVS ×2.
+- **Lost:** 0.
+- **Unchanged:** 136 of the 138 previously accepted filings produce identical sections.
+- **Changed (2, both AFL):** these are corrections. Items 1A and 8 now begin with their own heading lines, and Item 8 no longer ends with the self-linked Item 9 heading.
+
+The Go output still equals the Python v1 parser chunk-for-chunk on the four real replay filings and on the synthetic fixture. Morgan Stanley's titled Item 7 stops at a "Cybersecurity" subheading inside MD&A, so about 3,000 MD&A words are not emitted. Nothing is mislabelled.
+
+This is a parser-only check: the expanded index and benchmark were built with v1 and were not rebuilt. Evidence: `bench_kit/results/ingest/parser-v2-20261031/` (`cohort-reparse.json`, `cohort-reparse.log`, test/race/vet logs). Each new rule has a synthetic regression test, and disabling any one of them fails the tests (`pkg/ingest/parser_variants_test.go`).
 
 ## Serve quarter shards through hybrid search
 

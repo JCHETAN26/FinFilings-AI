@@ -1,23 +1,42 @@
 package ingest
 
-// Deterministic 10-K section parser. It is a Go port of the heading
+// Deterministic 10-K section parser. It started as a Go port of the heading
 // selection in py/ingest/sections.py ("deterministic-canonical-heading-v1")
-// and emits the same chunk IDs and SectionItem tags.
+// and emits the same chunk IDs and SectionItem tags; v2 adds the heading
+// variants and the titled-heading fallback described below, which the Python
+// parser does not implement.
 //
 // Pass 1 streams the raw filing into a disk spool of visible text lines
 // ("<linked 0|1>\t<normalized text>\n"); HTML is reduced to block-level lines
 // with hidden content (script, style, head, ix:header, ix:hidden, the hidden
 // attribute, display:none, visibility:hidden) suppressed and lines inside
-// <a href> marked as linked. Pass 2 slides a 4-line window over the spool and
-// records canonical "Item N. <Title>" headings; linked lines (tables of
-// contents) never start a heading, and titles split across up to four short
-// blocks are joined. Every 10-K item 1..16 is recognized so that each major
+// <a href> marked as linked, except a fragment link whose target id or name
+// appeared earlier in the document (a heading that links to its own anchor,
+// as opposed to a forward table-of-contents or cross-reference link). Pass 2
+// slides a 4-line window over the spool and records canonical "Item N.
+// <Title>" headings; linked lines (tables of contents) never start a heading,
+// titles split across up to four short blocks are joined, a short trailing
+// parenthetical such as "(MD&A)" is ignored, and the title may also stand
+// alone on one of the next three lines ("Item 7. <Company name>" followed by
+// the title). Every 10-K item 1..16 is recognized so that each major
 // section ends at the next heading of any item. A section is accepted only
 // with >= MinSectionWords words (Item 8 may instead be a short
 // "incorporated by reference" pointer). Items 1A, 7 and 8 must all be found
 // exactly once and in that order, or the filing is rejected; there is no
 // fallback that emits untagged or guessed-section text. Text outside those
 // three sections is never emitted.
+//
+// Titled-heading fallback: only if Item headings cannot verify all three
+// sections, the selection is retried with standalone exact-title lines (an
+// unlinked line of at most 160 runes that is exactly a canonical item title,
+// such as "Risk Factors") also counted as headings. This covers filers that
+// lay out the 10-K in annual-report order without "Item N" labels. It applies
+// the same checks plus one more: Item 8 must end at a later heading, not at
+// the end of the document. ParseReport.HeadingMode records which mode was used.
+//
+// Not handled (the filing is rejected): items that only cross-reference page
+// ranges of an annual report, sections that live in a separate Exhibit 13
+// document, and headings that also appear in glossary/definition tables.
 //
 // Scope: 10-K and 10-K/A primary documents only. 10-Q filings use a different
 // Part I/Part II item layout and return ErrUnsupportedForm.
@@ -42,7 +61,7 @@ import (
 )
 
 // ParserVersion names the heading-selection algorithm recorded in reports.
-const ParserVersion = "deterministic-canonical-heading-v1-go"
+const ParserVersion = "deterministic-canonical-heading-v2-go"
 
 // Hard parser limits independent of options.
 const (
@@ -50,6 +69,9 @@ const (
 	maxHTMLDepth       = 256
 	maxHeadingCands    = 512
 	maxHeadingRunes    = 350
+	maxTitleRunes      = 160     // standalone title line in the titled fallback
+	maxAnchorIDs       = 1 << 16 // ids/names remembered for back-link detection
+	maxAnchorIDBytes   = 256
 	maxChunkTextBytes  = 32 << 10
 	headingWindowLines = 4
 )
@@ -106,7 +128,9 @@ type Parser struct {
 	opts   ParserOptions
 	prefix *regexp.Regexp
 	titles map[string]*regexp.Regexp
+	order  []string // titles keys in 10-K order, for deterministic matching
 	byRef  *regexp.Regexp
+	paren  *regexp.Regexp
 }
 
 // NewParser validates opts and compiles the heading patterns.
@@ -150,6 +174,8 @@ func NewParser(opts ParserOptions) (*Parser, error) {
 		prefix: regexp.MustCompile(`(?i)^item\s*(\d{1,2}\s?[abc]?)(?:[.\s:–—-]+|$)(.*)$`),
 		titles: make(map[string]*regexp.Regexp, len(titles)),
 		byRef:  regexp.MustCompile(`(?i)incorporat\w*\s+by\s+reference|information required by this item is set forth`),
+		paren:  regexp.MustCompile(`\s*\([^()]{1,24}\)\s*$`),
+		order:  []string{"1", "1A", "1B", "1C", "2", "3", "4", "5", "6", "7", "7A", "8", "9", "9A", "9B", "9C", "10", "11", "12", "13", "14", "15", "16"},
 	}
 	for item, pattern := range titles {
 		p.titles[item] = regexp.MustCompile(`^(?:` + pattern + `)$`)
@@ -172,6 +198,7 @@ type ParseReport struct {
 	Chunks            int                      `json:"chunks"`
 	Sections          map[string]SectionReport `json:"sections"`
 	Parser            string                   `json:"parser"`
+	HeadingMode       string                   `json:"heading_mode"` // "item" or "titled"
 }
 
 type spoolLine struct {
@@ -236,43 +263,30 @@ func (p *Parser) Parse(ctx context.Context, raw io.Reader, format Format, filing
 	}
 	report = ParseReport{RawBytes: counted.n, RawSHA256: hex.EncodeToString(hash.Sum(nil)), VisibleWords: words, Parser: ParserVersion, Sections: map[string]SectionReport{}}
 
-	candidates, err := p.headings(ctx, spool)
+	candidates, err := p.headings(ctx, spool, false)
 	if err != nil {
 		return report, err
 	}
-	report.CandidateHeadings = len(candidates)
-	sections := map[string]sectionSpan{}
-	for i, h := range candidates {
-		end, endWords := size, words
-		if i+1 < len(candidates) {
-			end, endWords = candidates[i+1].start, candidates[i+1].wordsBefore
-		}
-		count := endWords - h.wordsBefore
-		if h.item != "1A" && h.item != "7" && h.item != "8" {
-			continue
-		}
-		shortReference := false
-		if h.item == "8" && count >= 16 && count < p.opts.MinSectionWords {
-			excerpt := make([]byte, min(4096, end-h.start))
-			if _, err := spool.ReadAt(excerpt, h.start); err != nil {
-				return report, err
+	report.CandidateHeadings, report.HeadingMode = len(candidates), "item"
+	sections, err := p.selectSections(spool, size, words, candidates, false)
+	if errors.Is(err, ErrSections) {
+		titled, serr := p.headings(ctx, spool, true)
+		if serr == nil {
+			var ts map[string]sectionSpan
+			if ts, serr = p.selectSections(spool, size, words, titled, true); serr == nil {
+				sections, err = ts, nil
+				report.CandidateHeadings, report.HeadingMode = len(titled), "titled"
 			}
-			shortReference = p.byRef.Match(excerpt)
 		}
-		if count >= p.opts.MinSectionWords || shortReference {
-			if _, dup := sections[h.item]; dup {
-				return report, fmt.Errorf("%w: duplicate body heading Item %s", ErrSections, h.item)
-			}
-			sections[h.item] = sectionSpan{h.start, end, count}
+		if serr != nil && !errors.Is(serr, ErrSections) {
+			return report, serr
+		}
+		if err != nil {
+			err = fmt.Errorf("%w; titled-heading fallback: %v", err, serr)
 		}
 	}
-	for _, item := range []string{"1A", "7", "8"} {
-		if _, ok := sections[item]; !ok {
-			return report, fmt.Errorf("%w: Item %s not found with >= %d words (%d candidate headings)", ErrSections, item, p.opts.MinSectionWords, len(candidates))
-		}
-	}
-	if !(sections["1A"].start < sections["7"].start && sections["7"].start < sections["8"].start) {
-		return report, fmt.Errorf("%w: Items 1A, 7, 8 are out of 10-K order", ErrSections)
+	if err != nil {
+		return report, err
 	}
 
 	pending := make([]string, 0, p.opts.WordsPerChunk)
@@ -337,9 +351,52 @@ func (p *Parser) Parse(ctx context.Context, raw io.Reader, format Format, filing
 	return report, nil
 }
 
+// selectSections applies the section rules to one candidate list. boundedEnd
+// additionally requires Item 8 to end at a later heading (titled fallback).
+func (p *Parser) selectSections(spool *os.File, size int64, words int, candidates []heading, boundedEnd bool) (map[string]sectionSpan, error) {
+	sections := map[string]sectionSpan{}
+	for i, h := range candidates {
+		end, endWords := size, words
+		if i+1 < len(candidates) {
+			end, endWords = candidates[i+1].start, candidates[i+1].wordsBefore
+		}
+		count := endWords - h.wordsBefore
+		if h.item != "1A" && h.item != "7" && h.item != "8" {
+			continue
+		}
+		shortReference := false
+		if h.item == "8" && count >= 16 && count < p.opts.MinSectionWords {
+			excerpt := make([]byte, min(4096, end-h.start))
+			if _, err := spool.ReadAt(excerpt, h.start); err != nil {
+				return nil, err
+			}
+			shortReference = p.byRef.Match(excerpt)
+		}
+		if count >= p.opts.MinSectionWords || shortReference {
+			if _, dup := sections[h.item]; dup {
+				return nil, fmt.Errorf("%w: duplicate body heading Item %s", ErrSections, h.item)
+			}
+			if boundedEnd && h.item == "8" && i+1 == len(candidates) {
+				return nil, fmt.Errorf("%w: titled Item 8 runs to the end of the document", ErrSections)
+			}
+			sections[h.item] = sectionSpan{h.start, end, count}
+		}
+	}
+	for _, item := range []string{"1A", "7", "8"} {
+		if _, ok := sections[item]; !ok {
+			return nil, fmt.Errorf("%w: Item %s not found with >= %d words (%d candidate headings)", ErrSections, item, p.opts.MinSectionWords, len(candidates))
+		}
+	}
+	if !(sections["1A"].start < sections["7"].start && sections["7"].start < sections["8"].start) {
+		return nil, fmt.Errorf("%w: Items 1A, 7, 8 are out of 10-K order", ErrSections)
+	}
+	return sections, nil
+}
+
 // headings scans the spool with a 4-line window and returns heading
-// candidates with consecutive repeats of the same item collapsed.
-func (p *Parser) headings(ctx context.Context, spool *os.File) ([]heading, error) {
+// candidates with consecutive repeats of the same item collapsed. titled also
+// accepts standalone exact-title lines (see the titled-heading fallback).
+func (p *Parser) headings(ctx context.Context, spool *os.File, titled bool) ([]heading, error) {
 	if _, err := spool.Seek(0, io.SeekStart); err != nil {
 		return nil, err
 	}
@@ -385,7 +442,11 @@ func (p *Parser) headings(ctx context.Context, spool *os.File) ([]heading, error
 		if err := ctx.Err(); err != nil {
 			return nil, err
 		}
-		if item := p.heading(window); item != "" && (len(out) == 0 || out[len(out)-1].item != item) {
+		item := p.heading(window)
+		if item == "" && titled {
+			item = p.standaloneTitle(window[0])
+		}
+		if item != "" && (len(out) == 0 || out[len(out)-1].item != item) {
 			if len(out) == maxHeadingCands {
 				return nil, fmt.Errorf("%w: more than %d heading candidates", ErrSections, maxHeadingCands)
 			}
@@ -417,9 +478,14 @@ func (p *Parser) heading(window []spoolLine) string {
 			if following.linked || p.prefix.MatchString(following.text) {
 				break
 			}
+			// The title alone on a following line, e.g. "Item 7. <Company>"
+			// then "Management's Discussion and Analysis ...".
+			if utf8.RuneCountInString(following.text) <= maxTitleRunes && title.MatchString(p.titleKey(following.text)) {
+				return item
+			}
 			tail += " " + following.text
 		}
-		if title.MatchString(compact(tail)) {
+		if title.MatchString(p.titleKey(tail)) {
 			return item
 		}
 		if i == 0 && strings.TrimSpace(tail) != "" && utf8.RuneCountInString(tail) > maxHeadingRunes {
@@ -427,6 +493,27 @@ func (p *Parser) heading(window []spoolLine) string {
 		}
 	}
 	return ""
+}
+
+// standaloneTitle returns the item whose canonical title is exactly l's
+// text, for an unlinked short line, or "".
+func (p *Parser) standaloneTitle(l spoolLine) string {
+	if l.linked || utf8.RuneCountInString(l.text) > maxTitleRunes {
+		return ""
+	}
+	key := p.titleKey(l.text)
+	for _, item := range p.order {
+		if p.titles[item].MatchString(key) {
+			return item
+		}
+	}
+	return ""
+}
+
+// titleKey compacts s after dropping one short trailing parenthetical, so
+// "... Results of Operations (MD&A)" matches the Item 7 title.
+func (p *Parser) titleKey(s string) string {
+	return compact(p.paren.ReplaceAllString(s, ""))
 }
 
 // compact lower-cases s and keeps only ASCII letters and digits.
@@ -533,6 +620,10 @@ type visibleText struct {
 	text   strings.Builder
 	linked bool
 	words  int
+	// ids holds element id/name values seen so far (at most maxAnchorIDs of
+	// at most maxAnchorIDBytes each), so a fragment link back to an earlier
+	// anchor is not treated as navigation. Past the cap, links stay linked.
+	ids map[string]struct{}
 }
 
 type htmlElem struct {
@@ -579,7 +670,18 @@ func (v *visibleText) start(tag string, attrs map[string]string) error {
 	style := strings.ReplaceAll(strings.ToLower(attrs["style"]), " ", "")
 	_, hiddenAttr := attrs["hidden"]
 	hidden := parent.hidden || hiddenTag[tag] || hiddenAttr || strings.Contains(style, "display:none") || strings.Contains(style, "visibility:hidden")
-	linked := parent.linked || (tag == "a" && attrs["href"] != "")
+	for _, key := range []string{"id", "name"} {
+		if id := attrs[key]; id != "" && len(id) <= maxAnchorIDBytes && len(v.ids) < maxAnchorIDs {
+			if v.ids == nil {
+				v.ids = map[string]struct{}{}
+			}
+			v.ids[id] = struct{}{}
+		}
+	}
+	href := attrs["href"]
+	_, backLink := v.ids[strings.TrimPrefix(href, "#")]
+	backLink = backLink && strings.HasPrefix(href, "#")
+	linked := parent.linked || (tag == "a" && href != "" && !backLink)
 	if !voidTags[tag] {
 		if len(v.stack) >= maxHTMLDepth {
 			return fmt.Errorf("ingest: HTML nesting exceeds %d", maxHTMLDepth)
