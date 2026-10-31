@@ -1,0 +1,113 @@
+{
+  "requested_companies": 100,
+  "ingested_companies": 77,
+  "filings": 148,
+  "skipped": 43,
+  "passages": 29941,
+  "quarter_shards": 9,
+  "raw_downloaded_bytes": 627027402,
+  "no_successful_filing": [
+    {
+      "ticker": "ORCL",
+      "cik": "1341439"
+    },
+    {
+      "ticker": "IBM",
+      "cik": "51143"
+    },
+    {
+      "ticker": "INTC",
+      "cik": "50863"
+    },
+    {
+      "ticker": "QCOM",
+      "cik": "804328"
+    },
+    {
+      "ticker": "AMAT",
+      "cik": "6951"
+    },
+    {
+      "ticker": "ADI",
+      "cik": "6281"
+    },
+    {
+      "ticker": "NOW",
+      "cik": "1373715"
+    },
+    {
+      "ticker": "CDNS",
+      "cik": "813672"
+    },
+    {
+      "ticker": "JPM",
+      "cik": "19617"
+    },
+    {
+      "ticker": "WFC",
+      "cik": "72971"
+    },
+    {
+      "ticker": "C",
+      "cik": "831001"
+    },
+    {
+      "ticker": "PYPL",
+      "cik": "1633917"
+    },
+    {
+      "ticker": "BLK",
+      "cik": "2012383"
+    },
+    {
+      "ticker": "USB",
+      "cik": "36104"
+    },
+    {
+      "ticker": "AMGN",
+      "cik": "318154"
+    },
+    {
+      "ticker": "VRTX",
+      "cik": "875320"
+    },
+    {
+      "ticker": "COST",
+      "cik": "909832"
+    },
+    {
+      "ticker": "PEP",
+      "cik": "77476"
+    },
+    {
+      "ticker": "CL",
+      "cik": "21665"
+    },
+    {
+      "ticker": "MCD",
+      "cik": "63908"
+    },
+    {
+      "ticker": "TJX",
+      "cik": "109198"
+    },
+    {
+      "ticker": "XOM",
+      "cik": "2115436"
+    },
+    {
+      "ticker": "CVX",
+      "cik": "93410"
+    }
+  ],
+  "skip_reasons": {
+    "Item 8 not found with >= 128 words": 27,
+    "Item 7 not found with >= 128 words": 8,
+    "duplicate body heading Item 8": 2,
+    "Item 1A not found with >= 128 words": 3,
+    "duplicate body heading Item 7": 1,
+    "Items 1A, 7, 8 are out of 10-K order": 2
+  },
+  "raw_downloaded_bytes_scope": "Accepted filings only; excludes rejected downloads and the pilot.",
+  "parser": "deterministic-canonical-heading-v2-go"
+}

@@ -1,0 +1,77 @@
+embedded 1600/49452 (reused 1600)
+embedded 3200/49452 (reused 3200)
+embedded 4800/49452 (reused 4800)
+embedded 6400/49452 (reused 6400)
+embedded 8000/49452 (reused 8000)
+embedded 9600/49452 (reused 9600)
+embedded 11200/49452 (reused 11200)
+embedded 12800/49452 (reused 12800)
+embedded 14400/49452 (reused 14400)
+embedded 16000/49452 (reused 16000)
+embedded 17600/49452 (reused 17600)
+embedded 19200/49452 (reused 19200)
+embedded 20800/49452 (reused 20800)
+embedded 22400/49452 (reused 22400)
+embedded 24000/49452 (reused 24000)
+embedded 25600/49452 (reused 25600)
+embedded 27200/49452 (reused 27169)
+embedded 28800/49452 (reused 27676)
+embedded 30400/49452 (reused 29047)
+embedded 32000/49452 (reused 29855)
+embedded 33600/49452 (reused 30680)
+embedded 35200/49452 (reused 32280)
+embedded 36800/49452 (reused 33428)
+embedded 38400/49452 (reused 35028)
+embedded 40000/49452 (reused 36628)
+embedded 41600/49452 (reused 38228)
+embedded 43200/49452 (reused 39219)
+embedded 44800/49452 (reused 40819)
+embedded 46400/49452 (reused 42419)
+embedded 48000/49452 (reused 44019)
+{
+  "format_version": 1,
+  "documents": 49452,
+  "dimension": 384,
+  "subvectors": 48,
+  "nbits": 8,
+  "metric": "inner_product",
+  "normalized": true,
+  "model": "BAAI/bge-small-en-v1.5",
+  "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "query_instruction": "Represent this sentence for searching relevant passages: ",
+  "max_length": 512,
+  "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "reused_embeddings": 45471,
+  "newly_encoded_embeddings": 3981,
+  "embedding_reuse_sources": [
+    {
+      "directory": "indexes/vector-phase2",
+      "corpus_sha256": "5413d6edc850fde9782dafd972c1a399629ba2a84e049e7dc55c6766008e84cf",
+      "vector_sha256": "ed9745af54c3d2829445af87b3ada1e99d5efb9b90c520b1c779f2c9a14a69d1"
+    },
+    {
+      "directory": "indexes/ingest-hybrid-20261031/vectors",
+      "corpus_sha256": "0c00800fb7d58c0dea7b018b5ace0c15c8eac48dc79a492b1793d0f4d90c3c3b",
+      "vector_sha256": "3fc7341c863286b92e8a33daad407a4211e831d20596c85fa640b4d61b0f261c"
+    },
+    {
+      "directory": "indexes/vector-sec-scale-20261031",
+      "corpus_sha256": "51be55cd8c955fb38eeb93739181d4d3d3c3f30a4a774515c6a130418c2e8c9c",
+      "vector_sha256": "faf1c5eac3961851acbef4d6016fc9d39657a5ca806056222567aa6cd8744467"
+    }
+  ],
+  "training_count": 20000,
+  "recommended_training_count": 9984,
+  "adequate_training_count": true,
+  "seed": 20261030,
+  "training_iterations": 25,
+  "embedding_seconds": 393.63302905100136,
+  "pq_train_add_seconds": 0.6752610510011436,
+  "total_seconds": 394.3198102069982,
+  "files": {
+    "vectors.f32.npy": "7f8ddd5a6957dfe53216ec386488531c4e7943689300450cc73d68a5e4021ebc",
+    "passages.sqlite": "edf90058f6df50987e91c19aa25d229ef1bcf82bed2f05e8c777685b32d58dc4",
+    "index.pq8.faiss": "41b0b5e5db40c0baca4958a72d660a2bd0fd3edac9701b16b978799528c295fa",
+    "centroids.npy": "67711f521bca9600826cb25d6797c5a7464c000561b554721d016938435b5986"
+  }
+}

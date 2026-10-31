@@ -20,4 +20,4 @@ Same 100-company cohort and options as `../scale-20261031/` (5 requests/second, 
 - the quarter-shard router opens all 9 shards with 29,941 documents;
 - ticker+section-filtered searches return only that ticker and section.
 
-The output is in `indexes/sec-scale-v2-20261031/` (gitignored). The expanded benchmark corpus and vectors in `../scale-20261031/` were built from the v1 output and have not been rebuilt.
+The output is in `indexes/sec-scale-v2-20261031/` (gitignored). The benchmark was rebuilt on this corpus (49,452 passages); see [RESULTS.md](RESULTS.md).

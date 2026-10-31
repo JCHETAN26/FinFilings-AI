@@ -138,3 +138,22 @@ The hybrid slowdown is caused by rerank cost, not admission. New SEC passages av
 Running four model replicas (`--inference-workers 4`) gave 1.58× hybrid throughput and a 35% lower p99, with nDCG@10 identical to the single-worker run. The gain stays below 4× because 16 intra-op threads compete for 8 physical cores. [Diagnosis and rerun](results/ingest/scale-20261031/RESULTS.md#hybrid-slowdown-diagnosis-and-4-worker-rerun).
 
 Quality and full-pipeline latency regressed under corpus expansion. Raw rankings and all 400 load observations were independently checked; the dense endpoint had no 503 failures. The supervised services were stopped after evaluation.
+
+## Expanded corpus with parser v2 (2026-10-31)
+
+Re-ingesting the same cohort with parser v2 gave 148 accepted filings (77/100 companies) and 29,941 SEC passages. Expanded retrieval collection: 49,452 passages. The 100 FinQA queries and judgments are unchanged.
+
+nDCG@10:
+- BM25: 0.496070
+- PQ8: 0.351491
+- RRF: 0.466944
+- Cross-encoder: 0.537220
+
+PQ8/exact recall@10 is 0.531, and native vector payload is reduced by 96.3573%. Reranked quality is within 0.002 of the 45,923-passage run. The additional passages are unlabeled, so this is not an SEC-only relevance measure.
+
+| Parser-v2 corpus, 50 workers, 1 inference worker | p50 s | p95 s | p99 s | Successful QPS | Failures |
+|---|---:|---:|---:|---:|---:|
+| hybrid | 94.658585 | 102.151134 | 102.891273 | 0.522096 | 0/200 |
+| dense | 0.895732 | 0.921024 | 0.925285 | 55.330507 | 0/200 |
+
+Hybrid throughput is bounded by CPU reranking of long SEC passages, which make up 53.3% of the Top-50 candidates; rerank time is 1.901 s per call. [Detailed results and three-corpus comparison](results/ingest/scale-v2-20261031/RESULTS.md).

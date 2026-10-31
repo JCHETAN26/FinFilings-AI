@@ -1,0 +1,27 @@
+{
+  "ndcg_at_10": {
+    "sparse": 0.49606996225454264,
+    "dense": 0.35149086081069436,
+    "hybrid": 0.46694392786248845,
+    "reranked": 0.5372195239341298
+  },
+  "queries": 100,
+  "load": {
+    "hybrid": {
+      "requests": 200,
+      "successes": 200,
+      "statuses": {
+        "200": 200
+      },
+      "percentiles_verified": true
+    },
+    "dense": {
+      "requests": 200,
+      "successes": 200,
+      "statuses": {
+        "200": 200
+      },
+      "percentiles_verified": true
+    }
+  }
+}
