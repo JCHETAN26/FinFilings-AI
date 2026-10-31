@@ -99,38 +99,6 @@ func TestClientOptionValidation(t *testing.T) {
 	}
 }
 
-// The reservation schedule itself never places two starts closer than
-// 1/rate + 1ms, independent of goroutine wake-up jitter.
-func TestClientReservationSchedule(t *testing.T) {
-	c, err := NewClient(ClientOptions{UserAgent: testUserAgent, RequestsPerSecond: MaxRequestsPerSecond})
-	if err != nil {
-		t.Fatal(err)
-	}
-	var mu sync.Mutex
-	var got []time.Time
-	var wg sync.WaitGroup
-	for range 50 {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			s := c.reserve()
-			mu.Lock()
-			got = append(got, s)
-			mu.Unlock()
-		}()
-	}
-	wg.Wait()
-	slices.SortFunc(got, func(a, b time.Time) int { return a.Compare(b) })
-	for i := 1; i < len(got); i++ {
-		if d := got[i].Sub(got[i-1]); d < 101*time.Millisecond {
-			t.Fatalf("reservations %d,%d only %v apart", i-1, i, d)
-		}
-	}
-	if n := maxInWindow(got, time.Second); n > MaxRequestsPerSecond {
-		t.Fatalf("%d reservations in one second", n)
-	}
-}
-
 func TestClientRateLimitUnderConcurrency(t *testing.T) {
 	var badAgent atomic.Int32
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

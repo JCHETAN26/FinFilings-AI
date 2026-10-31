@@ -70,10 +70,10 @@ type ClientOptions struct {
 
 // Client fetches EDGAR submissions indexes and filing documents.
 //
-// Rate limiting: every attempt (first try, retry) reserves a start time at
-// least 1/RequestsPerSecond + 1ms after the previous reservation, so no
+// Rate limiting: header dispatch is serialized; each attempt (including retries) starts at
+// least 1/RequestsPerSecond + 1ms after the previous headers complete, so no
 // one-second window contains more than RequestsPerSecond starts; 429/503
-// Retry-After pushes the next reservation further out. The limiter is per
+// Retry-After postpones all waiting callers. The limiter is per
 // Client: share one Client for all EDGAR traffic in a process. It cannot see
 // traffic from other processes or machines using the same identity.
 //
@@ -87,6 +87,7 @@ type Client struct {
 	interval  time.Duration
 	mu        sync.Mutex
 	nextStart time.Time
+	dispatch  chan struct{}
 }
 
 // NewClient validates opts and returns a Client.
@@ -137,6 +138,7 @@ func NewClient(opts ClientOptions) (*Client, error) {
 	}
 	return &Client{
 		opts:     opts,
+		dispatch: make(chan struct{}, 1),
 		data:     data,
 		archives: archives,
 		interval: time.Duration(float64(time.Second)/opts.RequestsPerSecond) + time.Millisecond,
@@ -156,19 +158,6 @@ func parseBase(raw string) (*url.URL, error) {
 	return u, nil
 }
 
-// reserve returns the earliest start time this attempt may use and advances
-// the shared schedule.
-func (c *Client) reserve() time.Time {
-	c.mu.Lock()
-	defer c.mu.Unlock()
-	start := time.Now()
-	if c.nextStart.After(start) {
-		start = c.nextStart
-	}
-	c.nextStart = start.Add(c.interval)
-	return start
-}
-
 func (c *Client) deferUntil(t time.Time) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
@@ -178,7 +167,9 @@ func (c *Client) deferUntil(t time.Time) {
 }
 
 func (c *Client) pace(ctx context.Context) error {
-	delay := time.Until(c.reserve())
+	c.mu.Lock()
+	delay := time.Until(c.nextStart)
+	c.mu.Unlock()
 	if delay <= 0 {
 		return ctx.Err()
 	}
@@ -188,7 +179,7 @@ func (c *Client) pace(ctx context.Context) error {
 	case <-timer.C:
 		return nil
 	case <-ctx.Done():
-		return ctx.Err() // the reserved slot is forfeited, never reused early
+		return ctx.Err()
 	}
 }
 
@@ -200,6 +191,14 @@ func retryable(status int) bool {
 // get performs a paced GET with bounded retries. On success the caller owns
 // the response body.
 func (c *Client) get(ctx context.Context, u *url.URL) (*http.Response, error) {
+	// Hold admission through headers and any retry cooldown. Waiting callers
+	// cannot reserve stale timer deadlines or dispatch before a 429 is handled.
+	select {
+	case c.dispatch <- struct{}{}:
+	case <-ctx.Done():
+		return nil, ctx.Err()
+	}
+	defer func() { <-c.dispatch }()
 	for attempt := 0; ; attempt++ {
 		if err := c.pace(ctx); err != nil {
 			return nil, err
@@ -210,6 +209,7 @@ func (c *Client) get(ctx context.Context, u *url.URL) (*http.Response, error) {
 		}
 		req.Header.Set("User-Agent", c.opts.UserAgent)
 		resp, err := c.http.Do(req)
+		c.deferUntil(time.Now().Add(c.interval))
 		if err != nil {
 			if ctx.Err() != nil || attempt >= c.opts.MaxRetries {
 				return nil, fmt.Errorf("ingest: GET %s: %w", u, err)
@@ -222,7 +222,7 @@ func (c *Client) get(ctx context.Context, u *url.URL) (*http.Response, error) {
 		}
 		_, _ = io.Copy(io.Discard, io.LimitReader(resp.Body, 64<<10))
 		resp.Body.Close()
-		if !retryable(resp.StatusCode) || attempt >= c.opts.MaxRetries {
+		if !retryable(resp.StatusCode) {
 			return nil, fmt.Errorf("%w: GET %s: %s", errHTTPStatus, u, resp.Status)
 		}
 		wait := time.Second << attempt
@@ -237,6 +237,9 @@ func (c *Client) get(ctx context.Context, u *url.URL) (*http.Response, error) {
 			return nil, fmt.Errorf("%w: GET %s: Retry-After %v exceeds limit", errHTTPStatus, u, wait)
 		}
 		c.deferUntil(time.Now().Add(wait))
+		if attempt >= c.opts.MaxRetries {
+			return nil, fmt.Errorf("%w: GET %s: %s", errHTTPStatus, u, resp.Status)
+		}
 	}
 }
 

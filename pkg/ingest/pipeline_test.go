@@ -3,6 +3,8 @@ package ingest
 import (
 	"bufio"
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -229,6 +231,16 @@ func TestPipelineEndToEndSyntheticEDGAR(t *testing.T) {
 	}
 	if !strings.Contains(logs.String(), `"msg":"filing_skipped"`) || !strings.Contains(logs.String(), `"msg":"pipeline_complete"`) {
 		t.Fatal("structured logs missing")
+	}
+
+	passageBytes, err := os.ReadFile(filepath.Join(out, PassagesName))
+	if err != nil {
+		t.Fatal(err)
+	}
+	digest := sha256.Sum256(passageBytes)
+	fingerprint, err := os.ReadFile(filepath.Join(out, SegmentsDirName, "CORPUS_SHA256"))
+	if err != nil || string(fingerprint) != hex.EncodeToString(digest[:])+"\n" {
+		t.Fatalf("passage/vector fingerprint mismatch: %s %v", fingerprint, err)
 	}
 
 	// Every stored passage is tagged with exactly one verified section.

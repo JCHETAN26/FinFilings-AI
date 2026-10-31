@@ -3,9 +3,12 @@ package ingest
 import (
 	"bufio"
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"hash"
 	"io"
 	"log/slog"
 	"os"
@@ -210,6 +213,13 @@ func RunPipeline(ctx context.Context, client *Client, ciks []string, out string,
 			return report, err
 		}
 	}
+	// Fingerprint the exact passage stream consumed by embedding ingestion.
+	if err := writeSynced(filepath.Join(out, SegmentsDirName, "CORPUS_SHA256"), []byte(hex.EncodeToString(passages.hash.Sum(nil))+"\n")); err != nil {
+		return report, err
+	}
+	if err := syncDirectory(filepath.Join(out, SegmentsDirName)); err != nil {
+		return report, err
+	}
 	if err := os.Remove(work); err != nil {
 		return report, err
 	}
@@ -273,9 +283,10 @@ func ingestFiling(ctx context.Context, client *Client, parser *Parser, writer *i
 
 // syncedJSONL is an exclusive-create, buffered JSON Lines file.
 type syncedJSONL struct {
-	f   *os.File
-	buf *bufio.Writer
-	enc *json.Encoder
+	hash hash.Hash
+	f    *os.File
+	buf  *bufio.Writer
+	enc  *json.Encoder
 }
 
 func newSyncedJSONL(path string) (*syncedJSONL, error) {
@@ -284,9 +295,10 @@ func newSyncedJSONL(path string) (*syncedJSONL, error) {
 		return nil, err
 	}
 	buf := bufio.NewWriterSize(f, 64<<10)
-	enc := json.NewEncoder(buf)
+	digest := sha256.New()
+	enc := json.NewEncoder(io.MultiWriter(buf, digest))
 	enc.SetEscapeHTML(false)
-	return &syncedJSONL{f: f, buf: buf, enc: enc}, nil
+	return &syncedJSONL{f: f, buf: buf, enc: enc, hash: digest}, nil
 }
 
 func (s *syncedJSONL) write(v any) error { return s.enc.Encode(v) }

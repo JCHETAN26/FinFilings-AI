@@ -43,5 +43,5 @@ func (f FilingFilter) Validate() error {
 }
 
 func (f FilingFilter) Matches(m ChunkMeta) bool {
-	return (f.Ticker == "" || f.Ticker == m.Ticker) && (f.Year == 0 || f.Year == m.FilingYear) && (f.Section == "" || f.Section == m.SectionItem) && (f.Accession == "" || strings.HasPrefix(m.ID, f.Accession+"#passage-"))
+	return (f.Ticker == "" || f.Ticker == m.Ticker) && (f.Year == 0 || f.Year == m.FilingYear) && (f.Section == "" || f.Section == m.SectionItem) && (f.Accession == "" || strings.HasPrefix(m.ID, f.Accession+"#"))
 }

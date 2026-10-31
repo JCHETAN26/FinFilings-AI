@@ -428,7 +428,7 @@ func (s *segment) matches(d uint32, filter model.FilingFilter) (bool, error) {
 		switch field {
 		case 0:
 			if filter.Accession != "" {
-				prefix := filter.Accession + "#passage-"
+				prefix := filter.Accession + "#"
 				matched = matched && len(value) >= len(prefix) && string(value[:len(prefix)]) == prefix
 			}
 		case 1:

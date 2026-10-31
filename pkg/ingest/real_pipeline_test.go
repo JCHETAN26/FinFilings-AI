@@ -39,6 +39,7 @@ type replayRecord struct {
 //
 //	FINFILINGS_REPLAY_MANIFEST=bench_kit/results/ingest/go-edgar/replay-manifest.jsonl
 //	FINFILINGS_REPLAY_REPORT=<path for the JSON report>   (optional)
+//	FINFILINGS_REPLAY_EXPORT=<fresh directory for verified artifacts> (optional)
 func TestRealFilingReplayPipeline(t *testing.T) {
 	manifest := os.Getenv("FINFILINGS_REPLAY_MANIFEST")
 	if manifest == "" {
@@ -211,6 +212,19 @@ SectionParser(256).parse(Path(sys.argv[1]), Path(sys.argv[2]), Filing(%q, %q, %s
 	data, _ := json.MarshalIndent(result, "", "  ")
 	if path := os.Getenv("FINFILINGS_REPLAY_REPORT"); path != "" {
 		if err := os.WriteFile(path, append(data, '\n'), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	// Export only verified, closed artifacts for downstream real-model checks.
+	if export := os.Getenv("FINFILINGS_REPLAY_EXPORT"); export != "" {
+		if !filepath.IsAbs(export) {
+			t.Fatal("FINFILINGS_REPLAY_EXPORT must be absolute")
+		}
+		if err := os.Mkdir(export, 0o700); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.CopyFS(export, os.DirFS(out)); err != nil {
+			os.RemoveAll(export)
 			t.Fatal(err)
 		}
 	}

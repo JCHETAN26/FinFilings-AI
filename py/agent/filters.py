@@ -21,7 +21,7 @@ class FilingFilter(BaseModel):
         return (not self.ticker or self.ticker == metadata.get('Ticker')) and (
             not self.year or self.year == metadata.get('FilingYear')) and (
             not self.section or self.section == metadata.get('SectionItem')) and (
-            not self.accession or str(metadata.get('ID', '')).startswith(self.accession + '#passage-'))
+            not self.accession or str(metadata.get('ID', '')).startswith(self.accession + '#'))
 
     def sql(self) -> tuple[str, list[str | int]]:
         clauses, values = [], []
@@ -31,5 +31,5 @@ class FilingFilter(BaseModel):
                 values.append(value)
         if self.accession:
             clauses.append('id GLOB ?')
-            values.append(self.accession + '#passage-*')
+            values.append(self.accession + '#*')
         return ' AND '.join(clauses) or '1', values

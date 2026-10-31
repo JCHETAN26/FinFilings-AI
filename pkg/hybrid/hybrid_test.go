@@ -80,3 +80,13 @@ func TestRemoteFailureAndCancellationAreExplicit(t *testing.T) {
 		t.Fatal("admission slot leaked")
 	}
 }
+
+func TestNilSparseBackendsRejected(t *testing.T) {
+	var single *index.Index
+	var shards *index.ShardRouter
+	for _, sparse := range []SparseSearcher{nil, single, shards} {
+		if _, err := New(sparse, Options{SidecarURL: "http://127.0.0.1:1"}); err == nil {
+			t.Fatal("nil sparse backend accepted")
+		}
+	}
+}

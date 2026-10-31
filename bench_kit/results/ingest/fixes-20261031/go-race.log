@@ -1,0 +1,8 @@
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit	1.055s
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit/load	1.013s
+ok  	github.com/JCHETAN26/FinFillings-AI/cmd/finfilings	1.109s
+?   	github.com/JCHETAN26/FinFillings-AI/cmd/ingest	[no test files]
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/hybrid	1.036s
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	8.542s
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/ingest	12.625s
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]

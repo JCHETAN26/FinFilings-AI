@@ -1,0 +1,76 @@
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 443 points to 256 centroids: please provide at least 9984 training points
+{
+  "format_version": 1,
+  "documents": 443,
+  "dimension": 384,
+  "subvectors": 48,
+  "nbits": 8,
+  "metric": "inner_product",
+  "normalized": true,
+  "model": "BAAI/bge-small-en-v1.5",
+  "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "query_instruction": "Represent this sentence for searching relevant passages: ",
+  "max_length": 512,
+  "corpus_sha256": "0c00800fb7d58c0dea7b018b5ace0c15c8eac48dc79a492b1793d0f4d90c3c3b",
+  "training_count": 443,
+  "recommended_training_count": 9984,
+  "adequate_training_count": false,
+  "seed": 20261030,
+  "training_iterations": 25,
+  "embedding_seconds": 54.537776672999826,
+  "pq_train_add_seconds": 0.025590990000637248,
+  "total_seconds": 54.5637785910003,
+  "files": {
+    "vectors.f32.npy": "3fc7341c863286b92e8a33daad407a4211e831d20596c85fa640b4d61b0f261c",
+    "passages.sqlite": "27e223530429a21429655a376709ea9a2ea2e8513063b430af2283456b0ef64a",
+    "index.pq8.faiss": "7325b539775f61a3c8b71ddb5cadb20a09b5f1dd744e65509fcbbe111693167c",
+    "centroids.npy": "c93c5a27a1a42f3ba9ba377936a4f06bbaee0b0f5346d33ec517081849339e0b"
+  }
+}

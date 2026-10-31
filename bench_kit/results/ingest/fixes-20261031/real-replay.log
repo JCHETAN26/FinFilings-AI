@@ -1,0 +1,133 @@
+=== RUN   TestRealFilingReplayPipeline
+    real_pipeline_test.go:217: {
+          "AAPL": {
+            "accession": "000032019323000106",
+            "candidate_headings": 22,
+            "raw_bytes": 1559034,
+            "raw_sha256": "845e5f986f9b3659768c37fecf7d9f6405aae4fe9969f498a164bfdaf80d336c",
+            "sections": {
+              "Item 1A": {
+                "words": 9794,
+                "chunks": 39
+              },
+              "Item 7": {
+                "words": 2348,
+                "chunks": 10
+              },
+              "Item 8": {
+                "words": 8659,
+                "chunks": 34
+              }
+            },
+            "shard": "2023_Q4"
+          },
+          "AMZN": {
+            "accession": "000101872424000008",
+            "candidate_headings": 22,
+            "raw_bytes": 1945288,
+            "raw_sha256": "07dbcdb70602f5ac69c8af9214913b7870f2fed2990217e073d4083f952f7518",
+            "sections": {
+              "Item 1A": {
+                "words": 8592,
+                "chunks": 34
+              },
+              "Item 7": {
+                "words": 6967,
+                "chunks": 28
+              },
+              "Item 8": {
+                "words": 17550,
+                "chunks": 69
+              }
+            },
+            "shard": "2024_Q1"
+          },
+          "MSFT": {
+            "accession": "000095017024087843",
+            "candidate_headings": 22,
+            "raw_bytes": 6861021,
+            "raw_sha256": "ee55571f4ec7f56874706add491553a10c701ad6e355532dcc736debd5ccfcdf",
+            "sections": {
+              "Item 1A": {
+                "words": 10869,
+                "chunks": 43
+              },
+              "Item 7": {
+                "words": 7740,
+                "chunks": 31
+              },
+              "Item 8": {
+                "words": 17150,
+                "chunks": 67
+              }
+            },
+            "shard": "2024_Q3"
+          },
+          "NVDA": {
+            "accession": "000104581024000029",
+            "candidate_headings": 22,
+            "raw_bytes": 2085676,
+            "raw_sha256": "a36c866075d6f7d3344a199c60a058647975366a1659a73573be8d6b49297da4",
+            "sections": {
+              "Item 1A": {
+                "words": 16048,
+                "chunks": 63
+              },
+              "Item 7": {
+                "words": 6103,
+                "chunks": 24
+              },
+              "Item 8": {
+                "words": 32,
+                "chunks": 1
+              }
+            },
+            "shard": "2024_Q1"
+          },
+          "chunks": 443,
+          "environment": {
+            "go": "go1.27.1",
+            "goarch": "amd64",
+            "gomaxprocs": 16,
+            "goos": "linux"
+          },
+          "filing_dates_note": "filing_date values in the manifest only choose quarter shards; they were entered from the public EDGAR listing, not re-fetched in this run",
+          "filings": 4,
+          "filtered_hits_by_section": {
+            "Item 1A": 40,
+            "Item 7": 36,
+            "Item 8": 30
+          },
+          "go_heap_alloc_after_bytes": 17655072,
+          "manifest": "bench_kit/results/ingest/go-edgar/replay-manifest.jsonl",
+          "max_request_starts_in_1s": 4,
+          "pipeline_wall_seconds": 2.629498676,
+          "python_reference_identical": {
+            "AAPL": true,
+            "AMZN": true,
+            "MSFT": true,
+            "NVDA": true
+          },
+          "requests": 8,
+          "requests_per_second_limit": 5,
+          "rss_bytes_after_pipeline": 124637184,
+          "rss_bytes_before": 69242880,
+          "rss_bytes_router_open": 126623744,
+          "scope": "REAL SEC 10-K primary documents replayed through a local fake EDGAR transport (no network). Verifies tagging, Go/Python parser agreement, sharding and mmap lifecycle. Not retrieval quality, not network ingestion latency.",
+          "sections": {
+            "Item 1A": 179,
+            "Item 7": 93,
+            "Item 8": 171
+          },
+          "segment_file_bytes": 876293,
+          "segments": 9,
+          "shards": [
+            "2023_Q4:83",
+            "2024_Q1:219",
+            "2024_Q3:141"
+          ],
+          "unclosed_segment_mappings": 0
+        }
+--- PASS: TestRealFilingReplayPipeline (4.36s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/ingest	5.379s

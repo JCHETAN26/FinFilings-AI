@@ -11,6 +11,7 @@ import (
 	"math"
 	"net/http"
 	"net/url"
+	"reflect"
 	"sort"
 	"strings"
 	"time"
@@ -46,16 +47,22 @@ type Options struct {
 	CorpusSHA256  string
 }
 
+// SparseSearcher is implemented by both a single mmap Index and a ShardRouter.
+// The caller retains ownership and closes it after searches finish.
+type SparseSearcher interface {
+	SearchFiltered(context.Context, string, int, model.FilingFilter) ([]index.Hit, error)
+}
+
 type Engine struct {
-	sparse  *index.Index
+	sparse  SparseSearcher
 	options Options
 	client  *http.Client
 	slots   chan struct{}
 }
 
 // New does not take ownership of sparse; its caller closes it after all searches finish.
-func New(sparse *index.Index, opts Options) (*Engine, error) {
-	if sparse == nil {
+func New(sparse SparseSearcher, opts Options) (*Engine, error) {
+	if sparse == nil || (reflect.ValueOf(sparse).Kind() == reflect.Pointer && reflect.ValueOf(sparse).IsNil()) {
 		return nil, errors.New("hybrid: nil sparse index")
 	}
 	u, err := url.Parse(opts.SidecarURL)

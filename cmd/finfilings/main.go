@@ -65,19 +65,43 @@ func build(corpus, dir string) error {
 	return nil
 }
 
-func serve(dir, sidecar, address string) error {
-	ix, err := index.Open(dir, index.Options{MaxConcurrentSearches: 8})
-	if err != nil {
-		return err
+type sparseIndex interface {
+	hybrid.SparseSearcher
+	Close() error
+}
+
+// openSparse supports a legacy single index or a quarter-shard root.
+func openSparse(dir string) (sparseIndex, error) {
+	if _, err := os.Stat(filepath.Join(dir, index.ShardManifestName)); err == nil {
+		return index.OpenShardRouter(dir, index.ShardRouterOptions{MaxConcurrentSearches: 8, Workers: 4})
+	} else if !errors.Is(err, os.ErrNotExist) {
+		return nil, err
 	}
-	defer ix.Close()
+	return index.Open(dir, index.Options{MaxConcurrentSearches: 8})
+}
+
+func searchHandler(dir, sidecar string) (http.Handler, sparseIndex, error) {
+	ix, err := openSparse(dir)
+	if err != nil {
+		return nil, nil, err
+	}
+	ready := false
+	defer func() {
+		if !ready {
+			ix.Close()
+		}
+	}()
 	fingerprint, err := os.ReadFile(filepath.Join(dir, "CORPUS_SHA256"))
 	if err != nil {
-		return err
+		return nil, nil, err
+	}
+	digest, err := hex.DecodeString(stringTrim(fingerprint))
+	if err != nil || len(digest) != sha256.Size {
+		return nil, nil, errors.New("invalid sparse corpus SHA-256")
 	}
 	engine, err := hybrid.New(ix, hybrid.Options{SidecarURL: sidecar, MaxConcurrent: 8, RetrieveN: 100, Timeout: 120 * time.Second, CorpusSHA256: stringTrim(fingerprint)})
 	if err != nil {
-		return err
+		return nil, nil, err
 	}
 	mux := http.NewServeMux()
 	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
@@ -114,6 +138,16 @@ func serve(dir, sidecar, address string) error {
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(result)
 	})
+	ready = true
+	return mux, ix, nil
+}
+
+func serve(dir, sidecar, address string) error {
+	mux, ix, err := searchHandler(dir, sidecar)
+	if err != nil {
+		return err
+	}
+	defer ix.Close()
 	server := &http.Server{Addr: address, Handler: mux, ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second, WriteTimeout: 130 * time.Second, IdleTimeout: 30 * time.Second, MaxHeaderBytes: 16384}
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
@@ -151,7 +185,7 @@ func stringTrim(b []byte) string {
 func main() {
 	mode := flag.String("mode", "serve", "build or serve")
 	corpus := flag.String("corpus", "data/phase2/chunks.jsonl", "SECChunk JSONL")
-	dir := flag.String("index", "indexes/sparse-phase2", "immutable sparse index")
+	dir := flag.String("index", "indexes/sparse-phase2", "single sparse index or quarter-shard root (ingestion output/segments)")
 	sidecar := flag.String("sidecar", "http://127.0.0.1:8766", "local dense/rerank sidecar")
 	address := flag.String("listen", "127.0.0.1:8765", "local bridge listener")
 	flag.Parse()

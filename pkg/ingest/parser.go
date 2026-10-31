@@ -308,7 +308,7 @@ func (p *Parser) Parse(ctx context.Context, raw io.Reader, format Format, filing
 			if err := ctx.Err(); err != nil {
 				return report, err
 			}
-			line, rerr := r.ReadSlice('\n')
+			line, rerr := readBoundedLine(r, maxLineBytes+3)
 			if rerr == io.EOF && len(line) == 0 {
 				break
 			}
@@ -347,7 +347,7 @@ func (p *Parser) headings(ctx context.Context, spool *os.File) ([]heading, error
 	var offset int64
 	words := 0
 	next := func() (spoolLine, bool, error) {
-		raw, err := r.ReadSlice('\n')
+		raw, err := readBoundedLine(r, maxLineBytes+3)
 		if err == io.EOF && len(raw) == 0 {
 			return spoolLine{}, false, nil
 		}
@@ -479,13 +479,30 @@ func writeSpoolLine(out *bufio.Writer, linked bool, text string) (int, error) {
 	return len(fields), out.WriteByte('\n')
 }
 
+// readBoundedLine assembles fragments without imposing bufio's internal
+// buffer size as a document limit. Short lines borrow the reader buffer
+// and remain valid until its next read.
+func readBoundedLine(r *bufio.Reader, limit int) ([]byte, error) {
+	var line []byte
+	for {
+		part, err := r.ReadSlice('\n')
+		if len(line)+len(part) > limit {
+			return nil, fmt.Errorf("ingest: line exceeds %d bytes", limit)
+		}
+		if len(line) == 0 && !errors.Is(err, bufio.ErrBufferFull) {
+			return part, err
+		}
+		line = append(line, part...)
+		if !errors.Is(err, bufio.ErrBufferFull) {
+			return line, err
+		}
+	}
+}
+
 func spoolText(ctx context.Context, src *bufio.Reader, out *bufio.Writer) (int, error) {
 	words := 0
 	for {
-		line, err := src.ReadSlice('\n')
-		if errors.Is(err, bufio.ErrBufferFull) {
-			return 0, fmt.Errorf("ingest: plain-text line exceeds %d bytes", src.Size())
-		}
+		line, err := readBoundedLine(src, maxLineBytes)
 		if len(line) > 0 {
 			if !utf8.Valid(line) {
 				return 0, errors.New("ingest: plain-text filing is not valid UTF-8")

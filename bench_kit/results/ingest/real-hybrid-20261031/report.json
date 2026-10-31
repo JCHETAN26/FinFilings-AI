@@ -1,0 +1,213 @@
+{
+  "scope": "Functional real-model integration on four cached SEC filings; not relevance evaluation or a load benchmark. No live SEC or LLM calls.",
+  "documents": 443,
+  "corpus_sha256": "0c00800fb7d58c0dea7b018b5ace0c15c8eac48dc79a492b1793d0f4d90c3c3b",
+  "vector_manifest": {
+    "format_version": 1,
+    "documents": 443,
+    "dimension": 384,
+    "subvectors": 48,
+    "nbits": 8,
+    "metric": "inner_product",
+    "normalized": true,
+    "model": "BAAI/bge-small-en-v1.5",
+    "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "query_instruction": "Represent this sentence for searching relevant passages: ",
+    "max_length": 512,
+    "corpus_sha256": "0c00800fb7d58c0dea7b018b5ace0c15c8eac48dc79a492b1793d0f4d90c3c3b",
+    "training_count": 443,
+    "recommended_training_count": 9984,
+    "adequate_training_count": false,
+    "seed": 20261030,
+    "training_iterations": 25,
+    "embedding_seconds": 54.537776672999826,
+    "pq_train_add_seconds": 0.025590990000637248,
+    "total_seconds": 54.5637785910003,
+    "files": {
+      "vectors.f32.npy": "3fc7341c863286b92e8a33daad407a4211e831d20596c85fa640b4d61b0f261c",
+      "passages.sqlite": "27e223530429a21429655a376709ea9a2ea2e8513063b430af2283456b0ef64a",
+      "index.pq8.faiss": "7325b539775f61a3c8b71ddb5cadb20a09b5f1dd744e65509fcbbe111693167c",
+      "centroids.npy": "c93c5a27a1a42f3ba9ba377936a4f06bbaee0b0f5346d33ec517081849339e0b"
+    }
+  },
+  "health_before": {
+    "sidecar": {
+      "status": "ready",
+      "documents": 443,
+      "corpus_sha256": "0c00800fb7d58c0dea7b018b5ace0c15c8eac48dc79a492b1793d0f4d90c3c3b",
+      "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+      "encoder_device": "cpu",
+      "reranker_device": "cpu",
+      "admission": {
+        "limit": 64,
+        "active": 0,
+        "peak": 0,
+        "rejected": 0
+      },
+      "inference_workers": 1,
+      "inference": {},
+      "threads": 4,
+      "rerank_batch_size": 8,
+      "rerank_length_bucketing": true
+    },
+    "bridge": {
+      "corpus_sha256": "0c00800fb7d58c0dea7b018b5ace0c15c8eac48dc79a492b1793d0f4d90c3c3b",
+      "status": "ready"
+    }
+  },
+  "sidecar_health_after": {
+    "status": "ready",
+    "documents": 443,
+    "corpus_sha256": "0c00800fb7d58c0dea7b018b5ace0c15c8eac48dc79a492b1793d0f4d90c3c3b",
+    "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "encoder_device": "cpu",
+    "reranker_device": "cpu",
+    "admission": {
+      "limit": 64,
+      "active": 0,
+      "peak": 1,
+      "rejected": 0
+    },
+    "inference_workers": 1,
+    "inference": {
+      "dense": {
+        "count": 13,
+        "work_seconds": 0.8925446529992769,
+        "wait_seconds": 5.762199725722894e-05,
+        "max_work_seconds": 0.7442372240002442
+      },
+      "rank": {
+        "count": 12,
+        "work_seconds": 17.818084906002696,
+        "wait_seconds": 4.033599907415919e-05,
+        "max_work_seconds": 2.5702683010003966
+      }
+    },
+    "threads": 4,
+    "rerank_batch_size": 8,
+    "rerank_length_bucketing": true
+  },
+  "queries": [
+    {
+      "name": "AAPL Item 1A",
+      "seconds": 2.268635648999407,
+      "eligible": 39,
+      "sparse": 27,
+      "dense": 39,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "AAPL Item 7",
+      "seconds": 0.5286614549986552,
+      "eligible": 10,
+      "sparse": 6,
+      "dense": 10,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "AAPL Item 8",
+      "seconds": 1.892499012999906,
+      "eligible": 34,
+      "sparse": 22,
+      "dense": 34,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "AMZN Item 1A",
+      "seconds": 1.3342340649996913,
+      "eligible": 34,
+      "sparse": 16,
+      "dense": 34,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "AMZN Item 7",
+      "seconds": 1.3868185499995889,
+      "eligible": 28,
+      "sparse": 20,
+      "dense": 28,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "AMZN Item 8",
+      "seconds": 2.593708845999572,
+      "eligible": 69,
+      "sparse": 34,
+      "dense": 69,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "MSFT Item 1A",
+      "seconds": 1.6600642779994814,
+      "eligible": 43,
+      "sparse": 16,
+      "dense": 43,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "MSFT Item 7",
+      "seconds": 1.4544553850009834,
+      "eligible": 31,
+      "sparse": 28,
+      "dense": 31,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "MSFT Item 8",
+      "seconds": 2.4464807080003084,
+      "eligible": 67,
+      "sparse": 35,
+      "dense": 67,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "NVDA Item 1A",
+      "seconds": 1.9106443780001428,
+      "eligible": 63,
+      "sparse": 36,
+      "dense": 63,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "NVDA Item 7",
+      "seconds": 1.2519181910010957,
+      "eligible": 24,
+      "sparse": 22,
+      "dense": 24,
+      "reranked": 10,
+      "checks": "PASS"
+    },
+    {
+      "name": "NVDA Item 8",
+      "seconds": 0.02408606700009841,
+      "eligible": 1,
+      "sparse": 1,
+      "dense": 1,
+      "reranked": 1,
+      "checks": "PASS"
+    },
+    {
+      "name": "missing accession",
+      "seconds": 0.01255706200026907,
+      "eligible": 0,
+      "sparse": 0,
+      "dense": 0,
+      "reranked": 0,
+      "checks": "PASS"
+    }
+  ],
+  "passed": 13,
+  "checked_reranked_passages": 111
+}
