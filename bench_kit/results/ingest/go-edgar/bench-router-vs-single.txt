@@ -1,0 +1,48 @@
+# SYNTHETIC FIXTURE micro-benchmarks (pkg/index/fixtures_test.go corpus, 1000 generated docs, 4 quarter shards for the router).
+# Allocation tracking only; NOT SEC retrieval latency or production load numbers.
+goos: linux
+goarch: amd64
+pkg: github.com/JCHETAN26/FinFillings-AI/pkg/index
+cpu: AMD Ryzen 7 5800H with Radeon Graphics         
+BenchmarkSearchFixtures/multi-unique-2-16         	  250582	      4217 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16         	  283687	      4363 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16         	  286429	      4174 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16         	  284121	      4157 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16         	  289339	      4276 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/rare-1term-16             	 2047914	       579.4 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/rare-1term-16             	 2116944	       564.6 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/rare-1term-16             	 2117764	       566.0 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/rare-1term-16             	 2113875	       570.2 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/rare-1term-16             	 2097782	       568.2 ns/op	     152 B/op	       6 allocs/op
+BenchmarkSearchFixtures/topic-1term-16            	  352275	      3561 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/topic-1term-16            	  343442	      3338 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/topic-1term-16            	  368042	      3341 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/topic-1term-16            	  354464	      3318 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/topic-1term-16            	  367692	      3335 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16            	   86673	     13946 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16            	   86445	     14061 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16            	   86527	     13921 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16            	   87036	     14407 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-3term-16            	   81322	     14863 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16           	   44926	     26012 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16           	   46095	     25456 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16           	   47450	     25344 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16           	   47358	     25347 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16           	   46954	     25391 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16            	   50742	     23306 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16            	   51351	     23336 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16            	   51037	     23342 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16            	   50977	     23362 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/mixed-6term-16            	   51024	     24752 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16          	 3874202	       313.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16          	 3896500	       310.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16          	 3844648	       316.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16          	 3665262	       329.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16          	 3664519	       319.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkShardRouterSearchFixtures-16             	   36296	     32229 ns/op	    8074 B/op	     197 allocs/op
+BenchmarkShardRouterSearchFixtures-16             	   36729	     31772 ns/op	    8052 B/op	     197 allocs/op
+BenchmarkShardRouterSearchFixtures-16             	   33273	     37558 ns/op	    8093 B/op	     197 allocs/op
+BenchmarkShardRouterSearchFixtures-16             	   36819	     32152 ns/op	    8068 B/op	     197 allocs/op
+BenchmarkShardRouterSearchFixtures-16             	   35110	     32092 ns/op	    8072 B/op	     197 allocs/op
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	51.780s

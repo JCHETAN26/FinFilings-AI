@@ -1,0 +1,40 @@
+== round 1 HEAD
+BenchmarkSearchFixtures/common-3term-16         	   45878	     25659 ns/op	    1587 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16         	   46668	     26052 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16         	   44445	     26889 ns/op	    1587 B/op	      51 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3902972	       300.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 4014340	       297.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3940365	       302.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  281670	      4121 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  261337	      4503 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  291964	      4143 ns/op	    1585 B/op	      51 allocs/op
+== round 1 working tree
+BenchmarkSearchFixtures/common-3term-16         	   46425	     25413 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16         	   47214	     25342 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16         	   47288	     25328 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3901654	       308.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3891247	       310.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3873710	       312.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  272834	      4251 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  281475	      4566 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  262215	      4278 ns/op	    1585 B/op	      51 allocs/op
+== round 2 HEAD
+BenchmarkSearchFixtures/common-3term-16         	   45644	     25938 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16         	   46390	     25752 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16         	   46717	     25617 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3973423	       306.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3944467	       304.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3934401	       305.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  268202	      4148 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  283525	      4248 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  233770	      4386 ns/op	    1585 B/op	      51 allocs/op
+== round 2 working tree
+BenchmarkSearchFixtures/common-3term-16         	   46710	     25176 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16         	   47623	     25078 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/common-3term-16         	   47557	     26136 ns/op	    1586 B/op	      51 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3875397	       307.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 3831584	       308.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/unknown-1term-16        	 4108710	       295.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  281847	      4205 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  292525	      4125 ns/op	    1585 B/op	      51 allocs/op
+BenchmarkSearchFixtures/multi-unique-2-16       	  295066	      4348 ns/op	    1586 B/op	      51 allocs/op

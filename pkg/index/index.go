@@ -108,6 +108,7 @@ type Index struct {
 	docs       uint64
 	tokens     uint64
 	maxSegDocs uint32
+	maxTermLen int // analyzer limit from the manifest; ShardRouter requires agreement
 	opts       Options
 	scratch    sync.Pool     // *searchScratch; in-use count <= cap(slots)
 	slots      chan struct{} // search admission semaphore
@@ -165,9 +166,10 @@ func Open(dir string, opts Options) (*Index, error) {
 		return nil, err
 	}
 	ix := &Index{
-		opts:  opts,
-		slots: make(chan struct{}, opts.MaxConcurrentSearches),
-		done:  make(chan struct{}),
+		opts:       opts,
+		maxTermLen: m.maxTermLen,
+		slots:      make(chan struct{}, opts.MaxConcurrentSearches),
+		done:       make(chan struct{}),
 	}
 	for _, name := range m.segments {
 		mf, err := mapFile(filepath.Join(dir, name))
@@ -202,6 +204,49 @@ func (ix *Index) Search(ctx context.Context, query string, k int) ([]Hit, error)
 
 // SearchFiltered applies metadata constraints before top-k admission; corpus IDF is unchanged.
 func (ix *Index) SearchFiltered(ctx context.Context, query string, k int, filter model.FilingFilter) ([]Hit, error) {
+	return ix.searchFiltered(ctx, query, k, filter, nil)
+}
+
+// collectionStats replaces an Index's own corpus statistics while scoring,
+// so a ShardRouter can score every shard against the union of all shards.
+// df holds one document frequency per unique query term, in analyzeQuery
+// order (identical across shards that share MaxTermLen).
+type collectionStats struct {
+	docs, tokens uint64
+	df           []uint64
+}
+
+// termDFs appends to dst the local document frequency of every unique query
+// term, in analyzeQuery order. It holds a search slot like Search.
+func (ix *Index) termDFs(ctx context.Context, query string, dst []uint64) ([]uint64, error) {
+	if err := ix.admit(ctx); err != nil {
+		return dst, err
+	}
+	defer ix.release()
+	ix.mu.RLock()
+	defer ix.mu.RUnlock()
+	if ix.closed {
+		return dst, ErrClosed
+	}
+	sc := ix.scratch.Get().(*searchScratch)
+	defer ix.scratch.Put(sc)
+	if err := sc.analyzeQuery(query, ix.opts.MaxQueryTerms); err != nil {
+		return dst, err
+	}
+	for t := range sc.numTerms() {
+		var df uint64
+		for _, s := range ix.segs {
+			if i, ok := s.lookup(sc.term(t)); ok {
+				d, _ := s.postingsOf(i)
+				df += uint64(d)
+			}
+		}
+		dst = append(dst, df)
+	}
+	return dst, nil
+}
+
+func (ix *Index) searchFiltered(ctx context.Context, query string, k int, filter model.FilingFilter, global *collectionStats) ([]Hit, error) {
 	if err := filter.Validate(); err != nil {
 		return nil, err
 	}
@@ -227,7 +272,14 @@ func (ix *Index) SearchFiltered(ctx context.Context, query string, k int, filter
 		return nil, err
 	}
 	nt, ns := sc.numTerms(), len(ix.segs)
-	if nt == 0 || ix.docs == 0 {
+	docs, tokens := ix.docs, ix.tokens
+	if global != nil {
+		if len(global.df) != nt {
+			return nil, fmt.Errorf("%w: %d global term statistics for %d query terms", ErrInvalidArgument, len(global.df), nt)
+		}
+		docs, tokens = global.docs, global.tokens
+	}
+	if nt == 0 || docs == 0 || ix.docs == 0 {
 		return nil, nil
 	}
 	sc.lookups = sc.lookups[:0]
@@ -244,13 +296,16 @@ func (ix *Index) SearchFiltered(ctx context.Context, query string, k int, filter
 			d, _ := s.postingsOf(i)
 			df += uint64(d)
 		}
+		if global != nil {
+			df = global.df[t]
+		}
 		idf := 0.0
 		if df > 0 {
-			idf = bm25IDF(ix.docs, df)
+			idf = bm25IDF(docs, df)
 		}
 		sc.idf = append(sc.idf, idf)
 	}
-	avgDocLen := float64(ix.tokens) / float64(ix.docs)
+	avgDocLen := float64(tokens) / float64(docs)
 	sc.top.reset(k)
 	for si, s := range ix.segs {
 		if err := ctx.Err(); err != nil {

@@ -1,0 +1,254 @@
+=== RUN   TestMeasuredWorkerPoolAndFailureReporting
+--- PASS: TestMeasuredWorkerPoolAndFailureReporting (0.04s)
+=== RUN   TestBuildRejectsMalformedInput
+--- PASS: TestBuildRejectsMalformedInput (0.00s)
+=== RUN   TestPercentileUnitsAndTails
+--- PASS: TestPercentileUnitsAndTails (0.00s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit	1.054s
+=== RUN   TestExactNearestRankQuantiles
+--- PASS: TestExactNearestRankQuantiles (0.00s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit/load	1.012s
+=== RUN   TestBoundedListenerCloseUnblocksAdmission
+--- PASS: TestBoundedListenerCloseUnblocksAdmission (0.00s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/cmd/finfilings	1.012s
+?   	github.com/JCHETAN26/FinFillings-AI/cmd/ingest	[no test files]
+=== RUN   TestRRFRanksOverlapAndTies
+--- PASS: TestRRFRanksOverlapAndTies (0.00s)
+=== RUN   TestRRFRejectsCorruptOrDuplicateHits
+--- PASS: TestRRFRejectsCorruptOrDuplicateHits (0.00s)
+=== RUN   TestRemoteFailureAndCancellationAreExplicit
+--- PASS: TestRemoteFailureAndCancellationAreExplicit (0.02s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/hybrid	1.033s
+=== RUN   TestSearchAdmissionBoundsConcurrency
+--- PASS: TestSearchAdmissionBoundsConcurrency (0.04s)
+=== RUN   TestQueuedSearchCancellation
+--- PASS: TestQueuedSearchCancellation (0.07s)
+=== RUN   TestCloseWakesQueuedSearches
+--- PASS: TestCloseWakesQueuedSearches (0.04s)
+=== RUN   TestCloseDuringQueuedAndAdmittedSearches
+--- PASS: TestCloseDuringQueuedAndAdmittedSearches (0.12s)
+=== RUN   TestAnalyzerRejectsManyDistinctTermsEarly
+    analyzer_budget_test.go:39: rejected after 3980 of 200000 distinct terms (budget 1048576 B)
+--- PASS: TestAnalyzerRejectsManyDistinctTermsEarly (0.47s)
+=== RUN   TestAnalyzerBudgetIsPerDistinctTerm
+--- PASS: TestAnalyzerBudgetIsPerDistinctTerm (0.18s)
+=== RUN   TestAnalyzerChargeCoversCommitCost
+--- PASS: TestAnalyzerChargeCoversCommitCost (0.02s)
+=== RUN   TestWriterRejectsManyDistinctTerms
+=== RUN   TestWriterRejectsManyDistinctTerms/Add
+=== RUN   TestWriterRejectsManyDistinctTerms/Ingest
+--- PASS: TestWriterRejectsManyDistinctTerms (0.11s)
+    --- PASS: TestWriterRejectsManyDistinctTerms/Add (0.00s)
+    --- PASS: TestWriterRejectsManyDistinctTerms/Ingest (0.00s)
+=== RUN   TestPooledStorageIsBounded
+--- PASS: TestPooledStorageIsBounded (0.06s)
+=== RUN   TestSSE2KernelsDirect
+--- PASS: TestSSE2KernelsDirect (0.01s)
+=== RUN   TestSSE2KernelsDisassembly
+--- PASS: TestSSE2KernelsDisassembly (0.24s)
+=== RUN   TestBitPackDispatchMatchesReference
+    bitpack_test.go:47: SIMD kernels in this build: amd64-sse2 (widths 8, 16)
+--- PASS: TestBitPackDispatchMatchesReference (0.76s)
+=== RUN   TestPFORUsesByteAlignedWidths
+--- PASS: TestPFORUsesByteAlignedWidths (0.00s)
+=== RUN   TestDeltaRoundtrip
+--- PASS: TestDeltaRoundtrip (0.00s)
+=== RUN   TestStrictDeltaRoundtripAcrossBlocks
+--- PASS: TestStrictDeltaRoundtripAcrossBlocks (0.00s)
+=== RUN   TestStrictDeltaRejectsInvalidNext
+--- PASS: TestStrictDeltaRejectsInvalidNext (0.00s)
+=== RUN   TestPFORRoundtripWithExceptions
+--- PASS: TestPFORRoundtripWithExceptions (0.00s)
+=== RUN   TestPFORRoundtripEdgeCases
+=== RUN   TestPFORRoundtripEdgeCases/all-max
+=== RUN   TestPFORRoundtripEdgeCases/odd-length
+=== RUN   TestPFORRoundtripEdgeCases/powers-of-two
+=== RUN   TestPFORRoundtripEdgeCases/single-zero
+=== RUN   TestPFORRoundtripEdgeCases/all-zero
+=== RUN   TestPFORRoundtripEdgeCases/single-max
+--- PASS: TestPFORRoundtripEdgeCases (0.00s)
+    --- PASS: TestPFORRoundtripEdgeCases/all-max (0.00s)
+    --- PASS: TestPFORRoundtripEdgeCases/odd-length (0.00s)
+    --- PASS: TestPFORRoundtripEdgeCases/powers-of-two (0.00s)
+    --- PASS: TestPFORRoundtripEdgeCases/single-zero (0.00s)
+    --- PASS: TestPFORRoundtripEdgeCases/all-zero (0.00s)
+    --- PASS: TestPFORRoundtripEdgeCases/single-max (0.00s)
+=== RUN   TestPFORRandomRoundtrip
+--- PASS: TestPFORRandomRoundtrip (0.03s)
+=== RUN   TestPFORDecodeRejectsCorruptBlocks
+--- PASS: TestPFORDecodeRejectsCorruptBlocks (0.00s)
+=== RUN   TestPostingsRoundtripAndValidation
+--- PASS: TestPostingsRoundtripAndValidation (0.00s)
+=== RUN   TestSegmentTruncationAtEveryLength
+--- PASS: TestSegmentTruncationAtEveryLength (0.10s)
+=== RUN   TestSegmentBitFlipsFailChecksum
+--- PASS: TestSegmentBitFlipsFailChecksum (0.08s)
+=== RUN   TestSegmentStructuralValidation
+--- PASS: TestSegmentStructuralValidation (0.02s)
+=== RUN   TestCorruptPostingsDetectedAtSearch
+--- PASS: TestCorruptPostingsDetectedAtSearch (0.02s)
+=== RUN   TestCorruptStoredFieldsDetected
+--- PASS: TestCorruptStoredFieldsDetected (0.01s)
+=== RUN   TestOpenRejectsCorruptFiles
+=== RUN   TestOpenRejectsCorruptFiles/segment-empty
+=== RUN   TestOpenRejectsCorruptFiles/manifest-bad-crc
+=== RUN   TestOpenRejectsCorruptFiles/manifest-truncated
+=== RUN   TestOpenRejectsCorruptFiles/manifest-path-traversal
+=== RUN   TestOpenRejectsCorruptFiles/manifest-bad-count
+=== RUN   TestOpenRejectsCorruptFiles/segment-truncated
+=== RUN   TestOpenRejectsCorruptFiles/segment-missing
+=== RUN   TestOpenRejectsCorruptFiles/manifest-missing
+--- PASS: TestOpenRejectsCorruptFiles (0.12s)
+    --- PASS: TestOpenRejectsCorruptFiles/segment-empty (0.02s)
+    --- PASS: TestOpenRejectsCorruptFiles/manifest-bad-crc (0.02s)
+    --- PASS: TestOpenRejectsCorruptFiles/manifest-truncated (0.02s)
+    --- PASS: TestOpenRejectsCorruptFiles/manifest-path-traversal (0.02s)
+    --- PASS: TestOpenRejectsCorruptFiles/manifest-bad-count (0.02s)
+    --- PASS: TestOpenRejectsCorruptFiles/segment-truncated (0.02s)
+    --- PASS: TestOpenRejectsCorruptFiles/segment-missing (0.02s)
+    --- PASS: TestOpenRejectsCorruptFiles/manifest-missing (0.00s)
+=== RUN   TestFilterBeforeTopKAndRetainsGlobalScores
+--- PASS: TestFilterBeforeTopKAndRetainsGlobalScores (0.09s)
+=== RUN   TestMappedFilterMatchesMetadataWithoutAllocating
+--- PASS: TestMappedFilterMatchesMetadataWithoutAllocating (0.02s)
+=== RUN   TestFixtureIndexCompression
+    index_test.go:40: fixture postings: 63082 postings, 504656 raw bytes, 58489 compressed bytes, ratio 0.1159 (7.42 bits/posting), segment file 191995 bytes
+--- PASS: TestFixtureIndexCompression (0.21s)
+=== RUN   TestFixtureRetrievalExactMarkers
+--- PASS: TestFixtureRetrievalExactMarkers (0.14s)
+=== RUN   TestFixtureRetrievalMatchesReference
+=== RUN   TestFixtureRetrievalMatchesReference/single-segment
+    index_test.go:84: segments=1
+=== RUN   TestFixtureRetrievalMatchesReference/multi-segment-memory-limit
+    index_test.go:84: segments=100
+=== RUN   TestFixtureRetrievalMatchesReference/multi-segment-doc-limit
+    index_test.go:84: segments=11
+--- PASS: TestFixtureRetrievalMatchesReference (1.06s)
+    --- PASS: TestFixtureRetrievalMatchesReference/single-segment (0.12s)
+    --- PASS: TestFixtureRetrievalMatchesReference/multi-segment-memory-limit (0.64s)
+    --- PASS: TestFixtureRetrievalMatchesReference/multi-segment-doc-limit (0.18s)
+=== RUN   TestFixtureTopicPrecision
+--- PASS: TestFixtureTopicPrecision (0.08s)
+=== RUN   TestTokensTakePrecedenceOverText
+--- PASS: TestTokensTakePrecedenceOverText (0.02s)
+=== RUN   TestTokensAreAnalyzerNormalized
+--- PASS: TestTokensAreAnalyzerNormalized (0.02s)
+=== RUN   TestSearchArgumentsAndEmptyQueries
+--- PASS: TestSearchArgumentsAndEmptyQueries (0.02s)
+=== RUN   TestOptionsValidation
+--- PASS: TestOptionsValidation (0.00s)
+=== RUN   TestWriterMemoryLimitIsEnforced
+--- PASS: TestWriterMemoryLimitIsEnforced (0.37s)
+=== RUN   TestWriterDocTooLargeIsStickyAndUnpublished
+--- PASS: TestWriterDocTooLargeIsStickyAndUnpublished (0.00s)
+=== RUN   TestIngestPropagatesValidationErrors
+--- PASS: TestIngestPropagatesValidationErrors (0.01s)
+=== RUN   TestIngestEmptyDocumentRejected
+--- PASS: TestIngestEmptyDocumentRejected (0.00s)
+=== RUN   TestIngestCancellation
+--- PASS: TestIngestCancellation (0.00s)
+=== RUN   TestWriterRefusesExistingIndex
+--- PASS: TestWriterRefusesExistingIndex (0.01s)
+=== RUN   TestWriterCloseSemantics
+--- PASS: TestWriterCloseSemantics (0.01s)
+=== RUN   TestIngestIsDeterministic
+--- PASS: TestIngestIsDeterministic (0.38s)
+=== RUN   TestChunkValidation
+--- PASS: TestChunkValidation (0.00s)
+=== RUN   TestTokenizer
+--- PASS: TestTokenizer (0.00s)
+=== RUN   TestFixtureMemoryFootprint
+    memory_profile_test.go:18: opt-in fixture memory diagnostic
+--- SKIP: TestFixtureMemoryFootprint (0.00s)
+=== RUN   TestConcurrentSearchesAreConsistent
+--- PASS: TestConcurrentSearchesAreConsistent (0.17s)
+=== RUN   TestCloseDuringConcurrentSearches
+--- PASS: TestCloseDuringConcurrentSearches (0.13s)
+=== RUN   TestConcurrentWriterCalls
+--- PASS: TestConcurrentWriterCalls (0.23s)
+=== RUN   TestParallelIngestUnderRace
+--- PASS: TestParallelIngestUnderRace (0.38s)
+=== RUN   TestShardKey
+--- PASS: TestShardKey (0.00s)
+=== RUN   TestShardRouterMatchesSingleIndex
+--- PASS: TestShardRouterMatchesSingleIndex (0.60s)
+=== RUN   TestShardedWriterLimitsAndCleanup
+--- PASS: TestShardedWriterLimitsAndCleanup (0.08s)
+=== RUN   TestShardRouterRejectsCorruptRoots
+--- PASS: TestShardRouterRejectsCorruptRoots (0.09s)
+=== RUN   TestShardRouterConcurrentSearchAndClose
+--- PASS: TestShardRouterConcurrentSearchAndClose (0.20s)
+=== RUN   TestCompetingWritersAreExcluded
+--- PASS: TestCompetingWritersAreExcluded (0.01s)
+=== RUN   TestConcurrentNewWriterExactlyOneWins
+--- PASS: TestConcurrentNewWriterExactlyOneWins (0.00s)
+=== RUN   TestFailedCloseCleansUpAndReleasesLock
+--- PASS: TestFailedCloseCleansUpAndReleasesLock (0.03s)
+=== RUN   TestNewWriterErrorReleasesLock
+--- PASS: TestNewWriterErrorReleasesLock (0.01s)
+=== RUN   TestCrashLeftoversAreRefusedThenCleaned
+--- PASS: TestCrashLeftoversAreRefusedThenCleaned (0.02s)
+=== RUN   TestFlushNeverOverwritesSegment
+--- PASS: TestFlushNeverOverwritesSegment (0.00s)
+=== RUN   FuzzDecodePFOR
+=== RUN   FuzzDecodePFOR/seed#0
+=== RUN   FuzzDecodePFOR/seed#1
+=== RUN   FuzzDecodePFOR/seed#2
+--- PASS: FuzzDecodePFOR (0.00s)
+    --- PASS: FuzzDecodePFOR/seed#0 (0.00s)
+    --- PASS: FuzzDecodePFOR/seed#1 (0.00s)
+    --- PASS: FuzzDecodePFOR/seed#2 (0.00s)
+=== RUN   FuzzPFORRoundtrip
+=== RUN   FuzzPFORRoundtrip/seed#0
+--- PASS: FuzzPFORRoundtrip (0.00s)
+    --- PASS: FuzzPFORRoundtrip/seed#0 (0.00s)
+=== RUN   FuzzParseSegment
+=== RUN   FuzzParseSegment/seed#0
+=== RUN   FuzzParseSegment/seed#1
+=== RUN   FuzzParseSegment/seed#2
+--- PASS: FuzzParseSegment (0.02s)
+    --- PASS: FuzzParseSegment/seed#0 (0.00s)
+    --- PASS: FuzzParseSegment/seed#1 (0.00s)
+    --- PASS: FuzzParseSegment/seed#2 (0.00s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	7.975s
+=== RUN   TestShardsMmapCompatibleAndImmutable
+--- PASS: TestShardsMmapCompatibleAndImmutable (0.10s)
+=== RUN   TestFailureCleanupAndCancellation
+--- PASS: TestFailureCleanupAndCancellation (0.08s)
+=== RUN   TestClientOptionValidation
+--- PASS: TestClientOptionValidation (0.00s)
+=== RUN   TestClientReservationSchedule
+--- PASS: TestClientReservationSchedule (0.00s)
+=== RUN   TestClientRateLimitUnderConcurrency
+    client_test.go:169: 14 concurrent requests at 10 rps: elapsed 1.314283666s, max starts in any 1s window 10
+--- PASS: TestClientRateLimitUnderConcurrency (1.31s)
+=== RUN   TestClientRetriesAndLimits
+--- PASS: TestClientRetriesAndLimits (4.51s)
+=== RUN   TestClientRecentFilings
+--- PASS: TestClientRecentFilings (0.30s)
+=== RUN   TestParserTagsOnlyMajorSections
+--- PASS: TestParserTagsOnlyMajorSections (0.01s)
+=== RUN   TestParserRejectsUnverifiableFilings
+--- PASS: TestParserRejectsUnverifiableFilings (0.10s)
+=== RUN   TestParserItem8ByReferenceAndPlainText
+--- PASS: TestParserItem8ByReferenceAndPlainText (0.01s)
+=== RUN   TestParserMatchesPythonReference
+--- PASS: TestParserMatchesPythonReference (0.05s)
+=== RUN   TestPipelineEndToEndSyntheticEDGAR
+    pipeline_test.go:353: synthetic fixture pipeline: filings=4 skipped=1 chunks=69 shards=[2024_Q4 2023_Q4 2024_Q3 2023_Q3] sections=map[Item 1A:20 Item 7:33 Item 8:16] requests=16
+--- PASS: TestPipelineEndToEndSyntheticEDGAR (1.65s)
+=== RUN   TestRealFilingReplayPipeline
+    real_pipeline_test.go:45: set FINFILINGS_REPLAY_MANIFEST to a replay manifest of real SEC documents
+--- SKIP: TestRealFilingReplayPipeline (0.00s)
+=== RUN   TestRealFilingRepeatedIngestion
+    real_test.go:20: set FINFILINGS_REAL_CHUNKS to parsed real SEC JSONL
+--- SKIP: TestRealFilingRepeatedIngestion (0.00s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/ingest	9.165s
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]
+go test -v -race exit=0
