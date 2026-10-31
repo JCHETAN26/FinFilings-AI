@@ -1,0 +1,92 @@
+{
+  "source": "data/sec/MSFT-000095017024087843.html",
+  "raw_bytes": 6861021,
+  "raw_sha256": "ee55571f4ec7f56874706add491553a10c701ad6e355532dcc736debd5ccfcdf",
+  "chunk_sha256": "4b56bfe7aa44c6339039f5035aebe1dbca9a967d5d82ebbf94abaefe0818cdb2",
+  "parser": {
+    "raw_bytes": 6861021,
+    "raw_sha256": "ee55571f4ec7f56874706add491553a10c701ad6e355532dcc736debd5ccfcdf",
+    "visible_words": 53087,
+    "chunks": 141,
+    "sections": {
+      "Item 1A": {
+        "visible_start": 78306,
+        "visible_end": 152469,
+        "words": 10869,
+        "chunks": 43
+      },
+      "Item 7": {
+        "visible_start": 165582,
+        "visible_end": 218555,
+        "words": 7740,
+        "chunks": 31
+      },
+      "Item 8": {
+        "visible_start": 220593,
+        "visible_end": 338034,
+        "words": 17150,
+        "chunks": 67
+      }
+    },
+    "candidate_headings": 22,
+    "parser": "deterministic-canonical-heading-v1"
+  },
+  "python_rounds": [
+    {
+      "round": 1,
+      "seconds": 1.6601080119999096,
+      "retained_traced_bytes": 78210,
+      "peak_traced_bytes": 1347241,
+      "rss_bytes": 21286912,
+      "file_descriptors": 4,
+      "chunks": 141
+    },
+    {
+      "round": 2,
+      "seconds": 1.7040474750001522,
+      "retained_traced_bytes": 80538,
+      "peak_traced_bytes": 1386643,
+      "rss_bytes": 21495808,
+      "file_descriptors": 4,
+      "chunks": 141
+    },
+    {
+      "round": 3,
+      "seconds": 1.7243967120002708,
+      "retained_traced_bytes": 81153,
+      "peak_traced_bytes": 1387987,
+      "rss_bytes": 21495808,
+      "file_descriptors": 4,
+      "chunks": 141
+    },
+    {
+      "round": 4,
+      "seconds": 1.7220848799997839,
+      "retained_traced_bytes": 81688,
+      "peak_traced_bytes": 1388602,
+      "rss_bytes": 21495808,
+      "file_descriptors": 4,
+      "chunks": 141
+    },
+    {
+      "round": 5,
+      "seconds": 1.6975510090005628,
+      "retained_traced_bytes": 82519,
+      "peak_traced_bytes": 1389265,
+      "rss_bytes": 21495808,
+      "file_descriptors": 4,
+      "chunks": 141
+    },
+    {
+      "round": 6,
+      "seconds": 1.6993761160001668,
+      "retained_traced_bytes": 83086,
+      "peak_traced_bytes": 1390000,
+      "rss_bytes": 21499904,
+      "file_descriptors": 4,
+      "chunks": 141
+    }
+  ],
+  "go_memory_report": "go-memory.json",
+  "scope": "Six Python parse/cleanup rounds and six Go rebuild/mmap/search/close/GC rounds. Finite checks detect observed descriptor/mapping/goroutine leaks and bounded retained-heap growth; they do not prove indefinite leak freedom."
+}

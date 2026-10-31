@@ -4,7 +4,7 @@ Repository: github.com/JCHETAN26/FinFillings-AI. Product name: FinFilings AI.
 
 ## Phase gate
 
-Phases 1, 2 and 3 are user-approved. Phase 4 load testing and the consolidated metrics/report harness are explicitly authorized. Do not implement UI. Preserve Phase 1 APIs and its recorded benchmark conditions.
+Phases 1, 2 and 3 are user-approved. Phase 4 load testing and the consolidated metrics/report harness are explicitly authorized. Manifest-driven SEC ingestion, deterministic section tagging, immutable shards and real memory/resource verification are also user-authorized. Do not implement UI. Preserve Phase 1 APIs and its recorded benchmark conditions.
 
 1. Go foundation: validated SECChunk model, delta/PForDelta posting compression, real SIMD paths with documented coverage and scalar fallback, immutable mmap segments, BM25, bounded worker pools and instance-owned sync.Pool buffers.
 2. Embeddings and FAISS PQ8, RRF (k=60), cross-encoder reranking.

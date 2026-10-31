@@ -6,7 +6,7 @@ FinFilings AI searches SEC 10-K/10-Q passages using a custom Go BM25 engine and 
 
 The project brings together storage engineering, information retrieval, and bounded agent execution. Its benchmarks use actual SEC filings and published FinQA supporting-fact labels, with raw measurements and limitations preserved.
 
-[Verified benchmarks](bench_kit/RESULTS.md) · [Ten audit results](bench_kit/results/phase3/RESULTS.md) · [Build reports](docs/build/phase1.md)
+[Verified benchmarks](bench_kit/RESULTS.md) · [Ten audit results](bench_kit/results/phase3/RESULTS.md) · [Ingestion guide](docs/ingestion/README.md) · [Build reports](docs/build/phase1.md)
 
 ## Architecture
 
@@ -176,6 +176,22 @@ PYTHONPATH=py python -m agent.state_machine \
 
 The JSON result includes the plan, per-hop queries and grades, retries, accepted evidence, final markdown, citations, and evidence-gap flags. Remove `--json` for markdown output.
 
+## Manifest-driven ingestion
+
+The new [streaming ingestion path](docs/ingestion/README.md) accepts a JSONL manifest of local raw filings or SEC archive URLs. It shares an identified, paced EDGAR client (default five requests/second, maximum ten), extracts deterministic Item 1A / Item 7 / Item 8 passages using disk-backed parsing, and streams them into immutable Go shards. Final publication is atomic; duplicate accessions and ambiguous sections are errors.
+
+```bash
+mkdir -p models/bin
+go build -o models/bin/ingest ./cmd/ingest
+PYTHONPATH=py python -m ingest.pipeline \
+  --manifest filings.jsonl \
+  --output indexes/sectioned-production
+```
+
+See the ingestion guide for manifest rows and SEC User-Agent configuration. A replay of four real filings produced **443 section-tagged passages across seven shards and 28 binary segments**. A separate 6.86 MB filing test passed six parser/resource cycles and six Go build/mmap/search/close cycles, with no observed descriptor, mapping or goroutine leaks. [Verification evidence](bench_kit/results/ingest/real/report.json).
+
+Each shard uses the existing `index.Open` loader. Cross-shard HTTP query routing, vector partition coordination, and enrollment of new sources into the agent's trusted citation registry remain integration work. The original benchmark indexes retain their recorded contents and fingerprints.
+
 ## Reproduce tests and benchmarks
 
 After preparing the artifacts, run the repository checks:
@@ -219,9 +235,11 @@ The standalone `models/bin/loadtest` also accepts `-workers`, `-requests`, `-tim
 |---|---|
 | [`pkg/model/`](pkg/model) | SEC records and filing predicates |
 | [`pkg/index/`](pkg/index) | PFOR/SIMD codecs, mmap segments, BM25, pooled buffers, bounded indexing/search |
+| [`pkg/ingest/`](pkg/ingest) | Streaming JSONL-to-shard builder and atomic catalog publication |
 | [`pkg/hybrid/`](pkg/hybrid) | Concurrent sparse/dense retrieval, RRF, sidecar contracts |
 | [`cmd/finfilings/`](cmd/finfilings) | Streaming sparse-index builder and HTTP bridge |
 | [`py/`](py) | Embeddings, PQ8 ingestion, model sidecar, cross-encoder |
+| [`py/ingest/`](py/ingest) | EDGAR client, deterministic section parser and manifest coordinator |
 | [`py/agent/`](py/agent) | Structured planner, critic loop, state machine, citation grounding |
 | [`bench_kit/`](bench_kit) | Quality, memory, audit and HTTP load evaluation; consolidated results |
 | [`scripts/`](scripts) | Verification and service-lifetime supervisors |
@@ -230,7 +248,7 @@ The standalone `models/bin/loadtest` also accepts `-workers`, `-requests`, `-tim
 ## Current scope and limitations
 
 - The acquired SEC corpus contains four 10-K filings. The data model supports 10-K/10-Q forms; the current benchmark does not establish 10-Q coverage or large-corpus performance.
-- SEC sections are currently unclassified. Exact Item 1A filters therefore abstain; section labels are not inferred or fabricated.
+- Original benchmark SEC passages retain unclassified sections. The new ingestion path tags verified Item 1A, Item 7 and Item 8 headings; ambiguous or unsupported layouts fail for review. The original agent benchmark's exact Item 1A test remains an abstention.
 - FinQA supports retrieval evaluation, but its passages lack verified SEC accessions. Published audit claims use the verified SEC registry.
 - Synthesis publishes exact source excerpts. Derived calculations and independently validated abstractive financial conclusions are outside the current implementation.
 - Tenant authentication/isolation, a UI, distributed serving, and production availability guarantees are not implemented. Services are local and loopback-bound.

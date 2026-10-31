@@ -1,0 +1,7 @@
+goos: linux
+goarch: amd64
+pkg: github.com/JCHETAN26/FinFillings-AI/pkg/ingest
+cpu: AMD Ryzen 7 5800H with Radeon Graphics         
+BenchmarkBuildFixtures-16    	       3	 106558549 ns/op	 7637224 B/op	    1181 allocs/op
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/ingest	0.432s

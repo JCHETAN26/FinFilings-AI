@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "filings": 4,
+  "chunks": 443,
+  "sections": [
+    "Item 1A",
+    "Item 7",
+    "Item 8"
+  ],
+  "rate_limit_per_second": 5,
+  "parser": "deterministic-canonical-heading-v1",
+  "shards": 7
+}

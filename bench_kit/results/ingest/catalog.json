@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "documents": 443,
+  "corpus_sha256": "d629b142f2902b665202a73f8c955382cc127f4426dda02f64730cdb3978174f",
+  "shards": [
+    {
+      "path": "shard-000000",
+      "documents": 64,
+      "segments": 4,
+      "corpus_sha256": "bd85f3a53dcb9138b934b0b0fbd9c5d550c6153e69d4435c835be0b314e3392a"
+    },
+    {
+      "path": "shard-000001",
+      "documents": 64,
+      "segments": 4,
+      "corpus_sha256": "fd02e9e6cf3c6beec0c7e5bcda7be4d8b27b991128c95332c7afb2575f40152e"
+    },
+    {
+      "path": "shard-000002",
+      "documents": 64,
+      "segments": 4,
+      "corpus_sha256": "3db38e8a7eeaccbcd05130a597dafb9eb9706c304b3c1530ede4db3167aa6346"
+    },
+    {
+      "path": "shard-000003",
+      "documents": 64,
+      "segments": 4,
+      "corpus_sha256": "c7dd9124c9c2480deeb056f53d35313aaf4cd8c003d6fc7fd743f695637334fb"
+    },
+    {
+      "path": "shard-000004",
+      "documents": 64,
+      "segments": 4,
+      "corpus_sha256": "48e7f879a55d613a721617d9055c04f242c7c71ec9efe3928008adc6ab667b24"
+    },
+    {
+      "path": "shard-000005",
+      "documents": 64,
+      "segments": 4,
+      "corpus_sha256": "e493038f4c29ff3dddb26a2a17bbed889e6e22e2c1e318879d7acb132b54e4fa"
+    },
+    {
+      "path": "shard-000006",
+      "documents": 59,
+      "segments": 4,
+      "corpus_sha256": "7939b248a08c43e090b26af92fa3bc69a8dff807495dd5342ed56fa4858ac1f5"
+    }
+  ]
+}

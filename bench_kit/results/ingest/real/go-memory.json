@@ -1,0 +1,67 @@
+{
+  "corpus_sha256": "4b56bfe7aa44c6339039f5035aebe1dbca9a967d5d82ebbf94abaefe0818cdb2",
+  "real_sec_input": "/tmp/finfilings-real-ingest-8pc4cuih/chunks.jsonl",
+  "rounds": [
+    {
+      "documents": 141,
+      "file_descriptors": 6,
+      "goroutines": 2,
+      "heap_alloc_bytes": 419496,
+      "round": 1,
+      "rss_bytes": 9342976,
+      "shards": 5,
+      "unclosed_mappings": 0
+    },
+    {
+      "documents": 141,
+      "file_descriptors": 6,
+      "goroutines": 2,
+      "heap_alloc_bytes": 420080,
+      "round": 2,
+      "rss_bytes": 9601024,
+      "shards": 5,
+      "unclosed_mappings": 0
+    },
+    {
+      "documents": 141,
+      "file_descriptors": 6,
+      "goroutines": 2,
+      "heap_alloc_bytes": 420472,
+      "round": 3,
+      "rss_bytes": 9748480,
+      "shards": 5,
+      "unclosed_mappings": 0
+    },
+    {
+      "documents": 141,
+      "file_descriptors": 6,
+      "goroutines": 2,
+      "heap_alloc_bytes": 420888,
+      "round": 4,
+      "rss_bytes": 9916416,
+      "shards": 5,
+      "unclosed_mappings": 0
+    },
+    {
+      "documents": 141,
+      "file_descriptors": 6,
+      "goroutines": 2,
+      "heap_alloc_bytes": 421256,
+      "round": 5,
+      "rss_bytes": 9805824,
+      "shards": 5,
+      "unclosed_mappings": 0
+    },
+    {
+      "documents": 141,
+      "file_descriptors": 6,
+      "goroutines": 2,
+      "heap_alloc_bytes": 421656,
+      "round": 6,
+      "rss_bytes": 9830400,
+      "shards": 5,
+      "unclosed_mappings": 0
+    }
+  ],
+  "scope": "Six finite rebuild/open/search/close/GC rounds; no observed FD, mapping or goroutine leaks; retained heap checked within 8 MiB. Not a proof of indefinite leak freedom."
+}

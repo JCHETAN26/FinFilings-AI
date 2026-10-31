@@ -1,0 +1,17 @@
+2026-10-31 00:52:31,073 INFO ingest.sections section_parsed item=1A words=9794 chunks=39
+2026-10-31 00:52:31,074 INFO ingest.sections section_parsed item=7 words=2348 chunks=10
+2026-10-31 00:52:31,076 INFO ingest.sections section_parsed item=8 words=8659 chunks=34
+2026-10-31 00:52:31,094 INFO __main__ filing_complete accession=000032019323000106 chunks=83 sections=['Item 1A', 'Item 7', 'Item 8']
+2026-10-31 00:52:31,767 INFO ingest.sections section_parsed item=1A words=10869 chunks=43
+2026-10-31 00:52:31,769 INFO ingest.sections section_parsed item=7 words=7740 chunks=31
+2026-10-31 00:52:31,776 INFO ingest.sections section_parsed item=8 words=17150 chunks=67
+2026-10-31 00:52:31,804 INFO __main__ filing_complete accession=000095017024087843 chunks=141 sections=['Item 1A', 'Item 7', 'Item 8']
+2026-10-31 00:52:32,002 INFO ingest.sections section_parsed item=1A words=16048 chunks=63
+2026-10-31 00:52:32,004 INFO ingest.sections section_parsed item=7 words=6103 chunks=24
+2026-10-31 00:52:32,004 INFO ingest.sections section_parsed item=8 words=32 chunks=1
+2026-10-31 00:52:32,021 INFO __main__ filing_complete accession=000104581024000029 chunks=88 sections=['Item 1A', 'Item 7', 'Item 8']
+2026-10-31 00:52:32,216 INFO ingest.sections section_parsed item=1A words=8592 chunks=34
+2026-10-31 00:52:32,217 INFO ingest.sections section_parsed item=7 words=6967 chunks=28
+2026-10-31 00:52:32,221 INFO ingest.sections section_parsed item=8 words=17550 chunks=69
+2026-10-31 00:52:32,247 INFO __main__ filing_complete accession=000101872424000008 chunks=131 sections=['Item 1A', 'Item 7', 'Item 8']
+{"chunks": 443, "filings": 4, "format_version": 1, "parser": "deterministic-canonical-heading-v1", "rate_limit_per_second": 5, "sections": ["Item 1A", "Item 7", "Item 8"], "shards": 7}

@@ -1,0 +1,12 @@
+test_retry_after_and_rejections (test_ingest.EdgarContracts) ... download_retry status=429 attempt=1 delay_seconds=1.000 url=http://127.0.0.1:43423/retry
+ok
+test_shared_rate_headers_and_atomic_files (test_ingest.EdgarContracts) ... ok
+test_atomic_success_duplicate_rejection_and_cleanup (test_ingest.PipelineContracts) ... ok
+test_html_links_hidden_text_and_crlf_hash (test_ingest.SectionContracts) ... ok
+test_missing_ambiguous_and_oversized_fail_without_output (test_ingest.SectionContracts) ... ok
+test_plain_toc_boundaries_chunk_tags_and_determinism (test_ingest.SectionContracts) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.137s
+
+OK
