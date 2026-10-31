@@ -1,0 +1,5 @@
+{"time":"2026-10-31T10:31:05.90976512-07:00","level":"INFO","msg":"section_parsed","accession":"000032019325000079","item":"1A","words":9782,"chunks":39}
+{"time":"2026-10-31T10:31:05.910475816-07:00","level":"INFO","msg":"section_parsed","accession":"000032019325000079","item":"7","words":2643,"chunks":11}
+{"time":"2026-10-31T10:31:05.912866326-07:00","level":"INFO","msg":"section_parsed","accession":"000032019325000079","item":"8","words":8539,"chunks":34}
+{"time":"2026-10-31T10:31:05.913811817-07:00","level":"INFO","msg":"filing_ingested","accession":"000032019325000079","ticker":"AAPL","form":"10-K","shard":"2025_Q4","chunks":84}
+{"time":"2026-10-31T10:31:05.958659681-07:00","level":"INFO","msg":"pipeline_complete","filings":1,"skipped":0,"chunks":84,"shards":1}

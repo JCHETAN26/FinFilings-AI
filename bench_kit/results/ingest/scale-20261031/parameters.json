@@ -1,0 +1,32 @@
+{
+  "ingestion": {
+    "rate": 5,
+    "max_filings_per_company": 2,
+    "skip_unparseable": true,
+    "user_agent": "Operator-supplied identifying project and contact email; not persisted here"
+  },
+  "embedding": {
+    "threads": 8,
+    "batch_size": 64,
+    "subvectors": 48,
+    "nbits": 8,
+    "train_limit": 20000,
+    "train_iterations": 25,
+    "reuse_indexes": [
+      "indexes/vector-phase2",
+      "indexes/ingest-hybrid-20261031/vectors"
+    ]
+  },
+  "benchmark": {
+    "queries": 100,
+    "sidecar_threads": 4,
+    "native_inference_workers": 1,
+    "hybrid_admissions": 8,
+    "live_bridge_connections": 16,
+    "load_workers": 50,
+    "requests_per_endpoint": 200,
+    "warmup_per_endpoint": 5,
+    "quality_sparse_layout": "Separate single index over original mixed FinQA/SEC benchmark plus new SEC candidates; real SEC-only quarter shards retained separately"
+  },
+  "git": "No commit or push performed"
+}

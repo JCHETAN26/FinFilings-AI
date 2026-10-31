@@ -85,7 +85,9 @@ class Admission:
 
 
 class Retrieval:
-    def __init__(self, directory, model_lock, threads):
+    def __init__(self, directory, model_lock, threads, workers=1):
+        if not 1 <= workers <= 8:
+            raise ValueError('inference workers must be 1..8')
         directory = Path(directory)
         self.manifest = check_artifacts(directory)
         self.index = faiss.read_index(str(directory / 'index.pq8.faiss'))
@@ -95,15 +97,23 @@ class Retrieval:
         with closing(open_store(self.store)) as db:
             if db.execute('SELECT count(*) FROM passages').fetchone()[0] != self.index.ntotal:
                 raise ValueError('passage store/index size mismatch')
-        self.encoder = Encoder(model_lock, threads)
-        if self.encoder.lock['revision'] != self.manifest['model_revision'] or self.encoder.dimension != self.index.d:
-            raise ValueError('query encoder does not match indexed vectors')
-        self.reranker = Reranker(model_lock, self.store)
+        # One private model/tokenizer pair per inference worker: HF fast
+        # tokenizers mutate padding/truncation state and are not safe to share
+        # across threads. Worker i only ever uses encoders[i]/rerankers[i].
+        self.encoders = [Encoder(model_lock, threads) for _ in range(workers)]
+        for encoder in self.encoders:
+            if encoder.lock['revision'] != self.manifest['model_revision'] or encoder.dimension != self.index.d:
+                raise ValueError('query encoder does not match indexed vectors')
+        self.rerankers = [Reranker(model_lock, self.store) for _ in range(workers)]
+        self.encoder, self.reranker = self.encoders[0], self.rerankers[0]
         self.threads = threads
 
-    def dense(self, request):
+    def rank(self, query, ids, k, worker=0):
+        return self.rerankers[worker].rank(query, ids, k)
+
+    def dense(self, request, worker=0):
         faiss.omp_set_num_threads(self.threads)
-        vector = self.encoder.encode([request.query], query=True)
+        vector = self.encoders[worker].encode([request.query], query=True)
         if request.filters == FilingFilter():
             scores, positions = self.index.search(vector, min(request.k, self.index.ntotal))
         else:
@@ -153,24 +163,30 @@ class Retrieval:
         return np.asarray([[s for s, _ in ranked]], dtype=np.float32), np.asarray([[-p for _, p in ranked]], dtype=np.int64)
 
 
-def app_for(retrieval, executor, max_pending=64):
+def app_for(retrieval, executor, max_pending=64, workers=1):
     if not 1 <= max_pending <= 256:
         raise ValueError('admission budget must be 1..256')
+    if not 1 <= workers <= len(getattr(retrieval, 'encoders', [None])):
+        raise ValueError('inference workers exceed loaded model replicas')
     app = FastAPI(title='FinFilings PQ8 and cross-encoder sidecar')
     app.add_middleware(BodyLimit)
     budget = dict(limit=max_pending, active=0, peak=0, rejected=0)
     app.add_middleware(Admission, budget=budget)
     metrics = {}
-    slots = asyncio.Semaphore(1)  # A single active CPU model/FAISS request; connection cap bounds the queue.
+    # At most `workers` active CPU model/FAISS requests, each pinned to its own
+    # model replica; the admission budget and connection cap bound the queue.
+    free = asyncio.Queue()
+    for worker in range(workers):
+        free.put_nowait(worker)
 
     async def invoke(function, *args):
         queued = time.perf_counter()
-        await slots.acquire()
+        worker = await free.get()
         began = time.perf_counter()
         try:
-            future = asyncio.get_running_loop().run_in_executor(executor, function, *args)
+            future = asyncio.get_running_loop().run_in_executor(executor, function, *args, worker)
         except BaseException:
-            slots.release()
+            free.put_nowait(worker)
             raise
         # Cancellation of the HTTP task must not release the slot while the
         # native inference thread is still active. Only actual completion does.
@@ -184,7 +200,8 @@ def app_for(retrieval, executor, max_pending=64):
             # Retrieve failures even when the client was cancelled.
             if not completed.cancelled():
                 completed.exception()
-            slots.release()
+            # Done callbacks run on the event loop thread, so the queue is safe here.
+            free.put_nowait(worker)
         future.add_done_callback(finished)
         try:
             return await asyncio.shield(future)
@@ -199,7 +216,7 @@ def app_for(retrieval, executor, max_pending=64):
                     encoder_revision=retrieval.encoder.lock['revision'], reranker_revision=retrieval.reranker.lock['revision'],
                     encoder_device=str(next(retrieval.encoder.model.parameters()).device),
                     reranker_device=str(next(retrieval.reranker.model.parameters()).device),
-                    admission=budget.copy(), inference_workers=1, inference=metrics.copy(),
+                    admission=budget.copy(), inference_workers=workers, inference=metrics.copy(),
                     threads=retrieval.threads, rerank_batch_size=retrieval.reranker.batch_size,
                     rerank_length_bucketing=True)
 
@@ -215,7 +232,7 @@ def app_for(retrieval, executor, max_pending=64):
             raise HTTPException(status_code=422, detail='query must contain text')
         if len(set(request.ids)) != len(request.ids) or any(not i or len(i) > 256 for i in request.ids):
             raise HTTPException(status_code=422, detail='candidate IDs must be unique, nonempty and <=256 characters')
-        hits = await invoke(retrieval.reranker.rank, request.query, request.ids, request.k)
+        hits = await invoke(retrieval.rank, request.query, request.ids, request.k)
         return dict(hits=hits, corpus_sha256=retrieval.manifest['corpus_sha256'])
 
     return app
@@ -229,13 +246,16 @@ def main():
     ap.add_argument('--port', type=int, default=8766)
     ap.add_argument('--max-pending', type=int, default=64)
     ap.add_argument('--http-concurrency', type=int, default=128)
+    ap.add_argument('--inference-workers', type=int, default=1, help='parallel native inference jobs, each with its own model replica (1..8)')
     args = ap.parse_args()
     if not 1 <= args.max_pending <= 256 or not args.max_pending < args.http_concurrency <= 512:
         ap.error('require 1 <= max-pending <= 256 and max-pending < http-concurrency <= 512')
-    retrieval = Retrieval(args.index, args.model_lock, args.threads)
+    if not 1 <= args.inference_workers <= 8:
+        ap.error('require 1 <= inference-workers <= 8')
+    retrieval = Retrieval(args.index, args.model_lock, args.threads, args.inference_workers)
     print(json.dumps(dict(ready=True, manifest=retrieval.manifest)), flush=True)
-    with ThreadPoolExecutor(max_workers=1, thread_name_prefix='finfilings-inference') as executor:
-        uvicorn.run(app_for(retrieval, executor, args.max_pending), host='127.0.0.1', port=args.port,
+    with ThreadPoolExecutor(max_workers=args.inference_workers, thread_name_prefix='finfilings-inference') as executor:
+        uvicorn.run(app_for(retrieval, executor, args.max_pending, args.inference_workers), host='127.0.0.1', port=args.port,
                     limit_concurrency=args.http_concurrency, timeout_keep_alive=5)
 
 

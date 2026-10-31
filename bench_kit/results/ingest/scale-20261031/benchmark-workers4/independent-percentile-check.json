@@ -1,0 +1,18 @@
+{
+  "hybrid": {
+    "requests": 200,
+    "successes": 200,
+    "p50_s": 58.048755311,
+    "p95_s": 63.56123577,
+    "p99_s": 65.151894853,
+    "matches_report": true
+  },
+  "dense": {
+    "requests": 200,
+    "successes": 200,
+    "p50_s": 0.60802675,
+    "p95_s": 0.920768197,
+    "p99_s": 0.946093598,
+    "matches_report": true
+  }
+}

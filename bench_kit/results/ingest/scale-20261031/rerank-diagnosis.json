@@ -1,0 +1,31 @@
+{
+  "scope": "Diagnosis of the expanded-corpus hybrid slowdown. Word counts are whitespace tokens of stored passage text; work counters are the sidecar's cumulative per-call native inference time over each supervised run (quality + warmup + load).",
+  "mean_words_original_passages": 37.718107734098716,
+  "mean_words_new_sec_passages": 253.9588066030592,
+  "hybrid_top50_candidates_share_new_sec": 0.5054,
+  "hybrid_top50_candidates_mean_words": 153.5852,
+  "reranked_top10_share_new_sec": 0.226,
+  "runs": {
+    "original_19511_optimized (phase4/run-20261031T063553Z)": {
+      "rank_calls": 205,
+      "rank_work_seconds_per_call": 0.5490419781560909,
+      "inference_workers": 1,
+      "threads": 4,
+      "admission_limit": 64
+    },
+    "expanded_1_worker (benchmark/)": {
+      "rank_calls": 305,
+      "rank_work_seconds_per_call": 1.8514413495640032,
+      "inference_workers": 1,
+      "threads": 4,
+      "admission_limit": 64
+    },
+    "expanded_4_workers (benchmark-workers4/)": {
+      "rank_calls": 305,
+      "rank_work_seconds_per_call": 3.6570009623180533,
+      "inference_workers": 4,
+      "threads": 4,
+      "admission_limit": 64
+    }
+  }
+}

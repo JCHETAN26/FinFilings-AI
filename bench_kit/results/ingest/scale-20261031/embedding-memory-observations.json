@@ -1,0 +1,15 @@
+{
+  "scope": "Two point-in-time embedding-worker observations, not an instantaneous peak or leak proof.",
+  "samples": [
+    {
+      "rss_bytes": 1201926144,
+      "native_threads": 31,
+      "cpu_seconds": 5943.48
+    },
+    {
+      "rss_bytes": 1330102272,
+      "native_threads": 31,
+      "cpu_seconds": 13032.44
+    }
+  ]
+}

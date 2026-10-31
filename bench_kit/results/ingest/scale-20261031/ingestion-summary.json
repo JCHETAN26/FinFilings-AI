@@ -1,0 +1,134 @@
+{
+  "requested_companies": 100,
+  "ingested_companies": 71,
+  "filings": 138,
+  "skipped": 53,
+  "passages": 26412,
+  "quarter_shards": 9,
+  "raw_downloaded_bytes": 548341779,
+  "no_successful_filing": [
+    {
+      "ticker": "ORCL",
+      "cik": "1341439"
+    },
+    {
+      "ticker": "IBM",
+      "cik": "51143"
+    },
+    {
+      "ticker": "INTC",
+      "cik": "50863"
+    },
+    {
+      "ticker": "QCOM",
+      "cik": "804328"
+    },
+    {
+      "ticker": "AMAT",
+      "cik": "6951"
+    },
+    {
+      "ticker": "ADI",
+      "cik": "6281"
+    },
+    {
+      "ticker": "NOW",
+      "cik": "1373715"
+    },
+    {
+      "ticker": "CDNS",
+      "cik": "813672"
+    },
+    {
+      "ticker": "JPM",
+      "cik": "19617"
+    },
+    {
+      "ticker": "BAC",
+      "cik": "70858"
+    },
+    {
+      "ticker": "WFC",
+      "cik": "72971"
+    },
+    {
+      "ticker": "C",
+      "cik": "831001"
+    },
+    {
+      "ticker": "MS",
+      "cik": "895421"
+    },
+    {
+      "ticker": "AXP",
+      "cik": "4962"
+    },
+    {
+      "ticker": "PYPL",
+      "cik": "1633917"
+    },
+    {
+      "ticker": "BLK",
+      "cik": "2012383"
+    },
+    {
+      "ticker": "PNC",
+      "cik": "713676"
+    },
+    {
+      "ticker": "USB",
+      "cik": "36104"
+    },
+    {
+      "ticker": "COF",
+      "cik": "927628"
+    },
+    {
+      "ticker": "AMGN",
+      "cik": "318154"
+    },
+    {
+      "ticker": "VRTX",
+      "cik": "875320"
+    },
+    {
+      "ticker": "CVS",
+      "cik": "64803"
+    },
+    {
+      "ticker": "COST",
+      "cik": "909832"
+    },
+    {
+      "ticker": "PEP",
+      "cik": "77476"
+    },
+    {
+      "ticker": "CL",
+      "cik": "21665"
+    },
+    {
+      "ticker": "MCD",
+      "cik": "63908"
+    },
+    {
+      "ticker": "TJX",
+      "cik": "109198"
+    },
+    {
+      "ticker": "XOM",
+      "cik": "2115436"
+    },
+    {
+      "ticker": "CVX",
+      "cik": "93410"
+    }
+  ],
+  "skip_reasons": {
+    "ingest: major sections missing or ambiguous: Item 8 not found with >= 128 words": 24,
+    "ingest: major sections missing or ambiguous: Item 7 not found with >= 128 words": 19,
+    "ingest: major sections missing or ambiguous: Item 1A not found with >= 128 words": 9,
+    "ingest: major sections missing or ambiguous: duplicate body heading Item 7": 1
+  },
+  "raw_downloaded_bytes_scope": "Accepted filings only; excludes rejected downloads and the pilot."
+}

@@ -117,3 +117,24 @@ python3 bench_kit/consolidate.py
 ```
 
 The isolated project runtime and pinned model cache must already be installed (see the Phase 2/3 setup reports). The supervisor owns both real services and stops them after measurement. Builders and the load tool refuse existing output directories. No tenant-isolation or production-availability claim is made.
+
+## Expanded real SEC corpus (2026-10-31)
+
+Live ingestion: 138 accepted filings, 71/100 companies, 26,412 new passages; 53 explicitly rejected filings. Expanded retrieval collection: 45,923 passages; original 100 FinQA queries/qrels unchanged.
+
+nDCG@10: BM25 0.494313, PQ8 0.379442, RRF 0.463680, cross-encoder 0.539313. PQ8/exact recall@10 0.535000; native vector payload reduction 96.3175%.
+
+[Detailed verified results and limitations](results/ingest/scale-20261031/RESULTS.md). The new SEC passages are unlabeled; this measures frozen-judgment retrieval under corpus expansion, not SEC-only relevance. The earlier phase results above remain historical evidence.
+
+| Expanded corpus, 50 workers | p50 s | p95 s | p99 s | Successful QPS | Failures |
+|---|---:|---:|---:|---:|---:|
+| hybrid, 1 inference worker | 92.301864 | 98.975711 | 100.366191 | 0.535769 | 0/200 |
+| dense, 1 inference worker | 0.890718 | 0.907672 | 0.911780 | 55.477333 | 0/200 |
+| hybrid, 4 inference workers | 58.048755 | 63.561236 | 65.151895 | 0.847348 | 0/200 |
+| dense, 4 inference workers | 0.608027 | 0.920768 | 0.946094 | 70.254031 | 0/200 |
+
+The hybrid slowdown is caused by rerank cost, not admission. New SEC passages average 254 words, against 38 for the original passages, and make up half of the cross-encoder's Top-50 input. That raises native rerank time per call from 0.549 s to 1.851 s.
+
+Running four model replicas (`--inference-workers 4`) gave 1.58× hybrid throughput and a 35% lower p99, with nDCG@10 identical to the single-worker run. The gain stays below 4× because 16 intra-op threads compete for 8 physical cores. [Diagnosis and rerun](results/ingest/scale-20261031/RESULTS.md#hybrid-slowdown-diagnosis-and-4-worker-rerun).
+
+Quality and full-pipeline latency regressed under corpus expansion. Raw rankings and all 400 load observations were independently checked; the dense endpoint had no 503 failures. The supervised services were stopped after evaluation.

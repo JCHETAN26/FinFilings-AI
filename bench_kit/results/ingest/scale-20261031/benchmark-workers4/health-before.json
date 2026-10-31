@@ -1,0 +1,26 @@
+{
+  "sidecar": {
+    "status": "ready",
+    "documents": 45923,
+    "corpus_sha256": "51be55cd8c955fb38eeb93739181d4d3d3c3f30a4a774515c6a130418c2e8c9c",
+    "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "encoder_device": "cpu",
+    "reranker_device": "cpu",
+    "admission": {
+      "limit": 64,
+      "active": 0,
+      "peak": 0,
+      "rejected": 0
+    },
+    "inference_workers": 4,
+    "inference": {},
+    "threads": 4,
+    "rerank_batch_size": 8,
+    "rerank_length_bucketing": true
+  },
+  "bridge": {
+    "corpus_sha256": "51be55cd8c955fb38eeb93739181d4d3d3c3f30a4a774515c6a130418c2e8c9c",
+    "status": "ready"
+  }
+}

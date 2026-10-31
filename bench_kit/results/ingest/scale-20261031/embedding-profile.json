@@ -1,0 +1,23 @@
+[
+  {
+    "threads": 2,
+    "batch_size": 64,
+    "passages": 64,
+    "seconds": 14.41775224400044,
+    "passages_per_second": 4.438972103063561
+  },
+  {
+    "threads": 4,
+    "batch_size": 64,
+    "passages": 64,
+    "seconds": 9.716721198999949,
+    "passages_per_second": 6.58658396070754
+  },
+  {
+    "threads": 8,
+    "batch_size": 64,
+    "passages": 64,
+    "seconds": 6.532002214000386,
+    "passages_per_second": 9.797914621465592
+  }
+]

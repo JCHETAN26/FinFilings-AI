@@ -88,5 +88,27 @@ class AdmissionContracts(unittest.IsolatedAsyncioTestCase):
         await asyncio.gather(*tasks,return_exceptions=True)
         self.assertEqual(budget['active'],0)
 
+class InferenceWorkers(unittest.IsolatedAsyncioTestCase):
+    async def test_workers_run_in_parallel_on_private_replicas(self):
+        # Scheduling contract only; real model inference is covered by the live benchmark.
+        import threading
+        from concurrent.futures import ThreadPoolExecutor
+        from service import app_for
+        barrier=threading.Barrier(2,timeout=5)
+        seen=[]
+        class Replicas:
+            encoders=[object(),object()]
+            def dense(self,request,worker):
+                seen.append(worker);barrier.wait()  # deadlocks unless two run at once
+                return dict(hits=[],corpus_sha256='x')
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            app=app_for(Replicas(),executor,8,workers=2)
+            route=next(r for r in app.routes if getattr(r,'path','')=='/dense').endpoint
+            request=DenseRequest(query='revenue',k=5)
+            await asyncio.wait_for(asyncio.gather(route(request),route(request)),5)
+            self.assertEqual(sorted(seen),[0,1])
+            with self.assertRaises(ValueError):app_for(Replicas(),executor,8,workers=3)
+
+
 if __name__ == '__main__':
     unittest.main()

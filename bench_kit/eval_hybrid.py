@@ -138,7 +138,7 @@ def main():
                                      pq_rss_delta_median_bytes=statistics.median(x['observed_rss_delta_bytes'] for x in memory['pq']), probes=memory),
                   end_to_end_serial_query_seconds=dict(p50=statistics.median(samples),p99=samples[math.ceil(.99*len(samples))-1],max=max(samples)),
                   vector_manifest=manifest, corpus_provenance=provenance,
-                  notes=['Published FinQA binary supporting-fact labels are not exhaustive relevance judgments or answer correctness.',
+                  notes=provenance.get('evaluation_notes', []) + ['Published FinQA binary supporting-fact labels are not exhaustive relevance judgments or answer correctness.',
                          'ranx receives descending ordinal scores to preserve the returned rank order, including Go deterministic ties; original real model/RRF scores are preserved in raw per-query rankings.',
                          f'First {len(samples)} eligible dev queries chosen before scoring; no relevance tuning. Corpus contains train/dev context, as an unsupervised retrieval collection, not QA answer/program text.',
                          'PQ8 is IndexPQ(d=384,M=48,nbits=8), not scalar SQ8. Exact native payload includes codebooks and materialized auxiliary arrays; it excludes unknown allocator headers/capacity, model, and passage store.',
