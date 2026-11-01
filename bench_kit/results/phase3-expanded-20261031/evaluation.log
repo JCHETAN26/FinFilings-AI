@@ -1,0 +1,185 @@
+{"id": "audit01", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 6, "complete_coverage": true, "flags": [], "model_calls": 4, "seconds": 19.35608321500331}
+{"id": "audit02", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 4, "retries": 2, "accepted_subqueries": 1, "cited_subqueries": 1, "citations": 8, "complete_coverage": false, "flags": ["Subquery 1 has no evidence meeting threshold after 2 retries."], "model_calls": 6, "seconds": 43.16906471300172}
+{"id": "audit03", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 8, "complete_coverage": true, "flags": [], "model_calls": 4, "seconds": 23.052863436001644}
+{"id": "audit04", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 5, "complete_coverage": true, "flags": [], "model_calls": 4, "seconds": 21.728234047994192}
+{"id": "audit05", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 6, "complete_coverage": true, "flags": [], "model_calls": 4, "seconds": 23.228362570000172}
+{"id": "audit06", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 7, "complete_coverage": true, "flags": [], "model_calls": 4, "seconds": 20.818338319993927}
+{"id": "audit07", "status": "pass", "negative": false, "subqueries": 3, "retrieval_calls": 4, "retries": 1, "accepted_subqueries": 3, "cited_subqueries": 3, "citations": 8, "complete_coverage": true, "flags": [], "model_calls": 6, "seconds": 35.407978589995764}
+{"id": "audit08", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 5, "complete_coverage": true, "flags": [], "model_calls": 4, "seconds": 20.423297911998816}
+{"id": "audit09", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 8, "complete_coverage": true, "flags": [], "model_calls": 4, "seconds": 24.984407449999708}
+{"id": "audit10", "status": "pass", "negative": true, "subqueries": 2, "retrieval_calls": 6, "retries": 4, "accepted_subqueries": 0, "cited_subqueries": 0, "citations": 0, "complete_coverage": false, "flags": ["Subquery 0 has no evidence meeting threshold after 2 retries.", "Subquery 1 has no evidence meeting threshold after 2 retries.", "No verified answer; evidence unavailable or below threshold."], "model_calls": 7, "seconds": 22.341199747002975}
+{
+  "utc": "2026-11-01T05:57:39.257164+00:00",
+  "python": "3.10.12",
+  "model_requested": "haiku",
+  "backend": "http://127.0.0.1:42249",
+  "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "registered_filings": 152,
+  "cases": [
+    {
+      "id": "audit01",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 6,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 19.35608321500331
+    },
+    {
+      "id": "audit02",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "accepted_subqueries": 1,
+      "cited_subqueries": 1,
+      "citations": 8,
+      "complete_coverage": false,
+      "flags": [
+        "Subquery 1 has no evidence meeting threshold after 2 retries."
+      ],
+      "model_calls": 6,
+      "seconds": 43.16906471300172
+    },
+    {
+      "id": "audit03",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 8,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 23.052863436001644
+    },
+    {
+      "id": "audit04",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 5,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 21.728234047994192
+    },
+    {
+      "id": "audit05",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 6,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 23.228362570000172
+    },
+    {
+      "id": "audit06",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 7,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 20.818338319993927
+    },
+    {
+      "id": "audit07",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 3,
+      "retrieval_calls": 4,
+      "retries": 1,
+      "accepted_subqueries": 3,
+      "cited_subqueries": 3,
+      "citations": 8,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 6,
+      "seconds": 35.407978589995764
+    },
+    {
+      "id": "audit08",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 5,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 20.423297911998816
+    },
+    {
+      "id": "audit09",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 8,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 24.984407449999708
+    },
+    {
+      "id": "audit10",
+      "status": "pass",
+      "negative": true,
+      "subqueries": 2,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "accepted_subqueries": 0,
+      "cited_subqueries": 0,
+      "citations": 0,
+      "complete_coverage": false,
+      "flags": [
+        "Subquery 0 has no evidence meeting threshold after 2 retries.",
+        "Subquery 1 has no evidence meeting threshold after 2 retries.",
+        "No verified answer; evidence unavailable or below threshold."
+      ],
+      "model_calls": 7,
+      "seconds": 22.341199747002975
+    }
+  ],
+  "passed": 10,
+  "total": 10,
+  "citations": 61,
+  "retrieval_calls": 28,
+  "retries": 7,
+  "fully_covered_positive_cases": 8,
+  "negative_cases": 1,
+  "median_seconds": 22.69703159150231,
+  "evaluation_scope": "Live multi-step retrieval, immutable filing filters, bounded critic retries, exact SEC quote/source identity and inline citation checks. No human semantic correctness labels; not an answer-accuracy score."
+}

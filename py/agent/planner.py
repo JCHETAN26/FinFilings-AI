@@ -12,7 +12,8 @@ async def plan_queries(model: StructuredModel, prompt: str, registry: Provenance
         'Do not put years or fiscal-year constraints into the query text unless the USER explicitly asks for a fiscal period; '
         'filing date constraints belong exclusively in filters. A 2024 filing can report fiscal 2023. '
         'A missing filing is not permission to use another year. '
-        'Set section="" unless an exact section is explicitly requested; the catalog currently has no item classification. '
+        'Set section="" unless an exact section is explicitly requested; never relax an explicit section based on catalog availability. '
+        'Use concise topical search phrases; filing identifiers belong in filters, not the query. '
         'Use accession=""; the controller resolves trusted accessions. Do not answer the audit or invent facts.',
         dict(prompt=prompt, verified_filing_catalog=registry.catalog()))
     resolved = [query.model_copy(update={'filters': registry.resolve_filter(query.filters)}) for query in plan.subqueries]

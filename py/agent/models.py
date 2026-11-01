@@ -28,6 +28,7 @@ class Critique(StrictModel):
     score: int = Field(ge=1, le=5)
     rationale: str = Field(min_length=1, max_length=1000)
     rewritten_query: str = Field(min_length=4, max_length=1000)
+    retain_ids: list[str] = Field(default_factory=list, max_length=2)
 
 
 class QuoteClaim(StrictModel):
@@ -57,6 +58,7 @@ class Hop(StrictModel):
     rationale: str
     evidence: list[Evidence] = Field(max_length=5)
     accepted: bool
+    retained_evidence_ids: list[str] = Field(default_factory=list, max_length=2)
     elapsed_seconds: float
 
 

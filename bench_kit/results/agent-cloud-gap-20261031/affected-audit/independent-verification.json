@@ -1,0 +1,63 @@
+{
+  "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "registered_filings": 152,
+  "cases": [
+    {
+      "id": "audit02",
+      "prompt": "Compare MSFT and AMZN, both filing year 2024: retrieve evidence on cloud business competition and the operating costs of their cloud infrastructure. Use separate company-specific retrieval steps.",
+      "citation_checks": "pass",
+      "citations": 8,
+      "subqueries": 2,
+      "cited_subqueries": 2,
+      "retrieval_calls": 3,
+      "retries": 1,
+      "coverage": "full",
+      "flags": [],
+      "seconds": 37.849242862997926,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "cloud business competition and cloud infrastructure operating costs",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "retained_evidence_ids": [],
+          "rationale": "The original goal is MSFT cloud business competition and cloud infrastructure operating costs in the MSFT 2024 filing. Passage 000046 covers competition from cloud-based services and the significant costs of building AI infrastructure. Passage 000047 covers competitive pressures, costs of building and maintaining cloud and AI infrastructure reducing operating margins, and higher operating costs. Passage 000096 states that cloud and AI infrastructure will continue to increase operating costs and may reduce operating margins. Passage 000102 adds Microsoft Cloud gross margin and cloud engineering investment. Passage 000185 is segment revenue data and is only tangential. The evidence is directly useful for the competition and operating-cost themes. It lacks quantified cloud infrastructure cost figures such as capital expenditure or depreciation. The AMZN comparison is outside this MSFT-filtered retrieval."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "cloud business competition and cloud infrastructure operating costs",
+          "score": 3,
+          "accepted": false,
+          "evidence_count": 5,
+          "retained_evidence_ids": [],
+          "rationale": "The original goal covers AMZN's 2024-filed 10-K (FY2023) on cloud competition and cloud infrastructure operating costs. The evidence partially covers the cost side: passage 000064 gives technology and infrastructure expense rising from $73.2B to $85.6B in 2023 and ties AWS operating income growth to spending on technology infrastructure; passage 000151 gives AWS net sales ($90.8B) and AWS operating expenses ($66.1B) for 2023; passage 000097/000067 define infrastructure costs (servers, networking equipment, data center depreciation). Nothing in the supplied passages addresses the competitive landscape for AWS or cloud competition, which is half the goal. The passages are also mostly consolidated/segment financial data rather than a discussion of cloud infrastructure cost drivers in depth."
+        },
+        {
+          "subquery": 1,
+          "attempt": 1,
+          "query": "AWS competitive landscape and competitors in cloud computing services",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "retained_evidence_ids": [
+            "000101872424000008#passage-000064",
+            "000101872424000008#passage-000151"
+          ],
+          "rationale": "The original goal covers AMZN cloud competition and cloud infrastructure operating costs. Passage 000012 describes competition, including web and infrastructure computing services, and says competitors may have greater resources and may force higher spending. Passage 000151 gives AWS segment operating expenses for 2021 to 2023 (43,670; 57,255; 66,126 million) and AWS operating income. Passage 000064 ties AWS growth to higher technology infrastructure spending and payroll. Passage 000005 lists AWS services and competitors in general terms. Together these directly address both halves of the goal. Gaps: no named AWS competitors and no AWS-specific infrastructure cost breakdown, though the goal did not request named competitors."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    }
+  ],
+  "verified_citations": 8,
+  "unique_source_passages": 13,
+  "retries": 1,
+  "retrieval_calls": 3,
+  "median_seconds": 37.849242862997926,
+  "scope": "Exact bytes, immutable filters, bounded retries, inline source identity and quote verification; coverage is structural subquery coverage, not human semantic answer accuracy."
+}

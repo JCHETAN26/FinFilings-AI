@@ -1,0 +1,1383 @@
+{
+  "schema": "finfilings-agent-suite/v1",
+  "suite_id": "broad-validation-v1",
+  "frozen_on": "2026-11-01",
+  "label": "Source-informed regression fixtures. Prompts for audit01..audit10 are the historical regression prompts verbatim; broad11..broad30 were written after reading the cited passages. Anchors are reviewer evidence only: not independent human gold, not an answer-accuracy score, and never exposed to the agent. Availability means the filing year (and exact section) exists in the enrolled corpus, not that any topic is answerable.",
+  "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "enrolled_filings": 152,
+  "case_count": 30,
+  "case_ids": [
+    "audit01",
+    "audit02",
+    "audit03",
+    "audit04",
+    "audit05",
+    "audit06",
+    "audit07",
+    "audit08",
+    "audit09",
+    "audit10",
+    "broad11",
+    "broad12",
+    "broad13",
+    "broad14",
+    "broad15",
+    "broad16",
+    "broad17",
+    "broad18",
+    "broad19",
+    "broad20",
+    "broad21",
+    "broad22",
+    "broad23",
+    "broad24",
+    "broad25",
+    "broad26",
+    "broad27",
+    "broad28",
+    "broad29",
+    "broad30"
+  ],
+  "cases": [
+    {
+      "id": "audit01",
+      "kind": "regression",
+      "prompt": "Compare AAPL filing year 2023 and NVDA filing year 2024: find the disclosed dependence on third-party manufacturing and supply-chain risks. Retrieve evidence separately for each company.",
+      "scopes": [
+        {
+          "ticker": "AAPL",
+          "year": 2023
+        },
+        {
+          "ticker": "NVDA",
+          "year": 2024
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "AAPL",
+          "year": 2023,
+          "section": "",
+          "source_exists": true,
+          "accession": "000032019323000106",
+          "passages_in_scope": 120,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "NVDA",
+          "year": 2024,
+          "section": "",
+          "source_exists": true,
+          "accession": "000104581024000029",
+          "passages_in_scope": 204,
+          "available": true,
+          "reason": "available"
+        }
+      ]
+    },
+    {
+      "id": "audit02",
+      "kind": "regression",
+      "prompt": "Compare MSFT and AMZN, both filing year 2024: retrieve evidence on cloud business competition and the operating costs of their cloud infrastructure. Use separate company-specific retrieval steps.",
+      "scopes": [
+        {
+          "ticker": "MSFT",
+          "year": 2024
+        },
+        {
+          "ticker": "AMZN",
+          "year": 2024
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "MSFT",
+          "year": 2024,
+          "section": "",
+          "source_exists": true,
+          "accession": "000095017024087843",
+          "passages_in_scope": 210,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "source_exists": true,
+          "accession": "000101872424000008",
+          "passages_in_scope": 168,
+          "available": true,
+          "reason": "available"
+        }
+      ]
+    },
+    {
+      "id": "audit03",
+      "kind": "regression",
+      "prompt": "Audit NVDA filing year 2024: separately retrieve export control risks and dependence on external manufacturing capacity. Explain with filing excerpts only.",
+      "scopes": [
+        {
+          "ticker": "NVDA",
+          "year": 2024
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "NVDA",
+          "year": 2024,
+          "section": "",
+          "source_exists": true,
+          "accession": "000104581024000029",
+          "passages_in_scope": 204,
+          "available": true,
+          "reason": "available"
+        }
+      ]
+    },
+    {
+      "id": "audit04",
+      "kind": "regression",
+      "prompt": "Audit AMZN filing year 2024: separately retrieve AWS sales disclosures and operating expense disclosures. Support both topics with direct excerpts.",
+      "scopes": [
+        {
+          "ticker": "AMZN",
+          "year": 2024
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "source_exists": true,
+          "accession": "000101872424000008",
+          "passages_in_scope": 168,
+          "available": true,
+          "reason": "available"
+        }
+      ]
+    },
+    {
+      "id": "audit05",
+      "kind": "regression",
+      "prompt": "Audit AAPL filing year 2023: separately retrieve share repurchase authorization disclosures and cash dividend disclosures. Provide original supporting excerpts for both.",
+      "scopes": [
+        {
+          "ticker": "AAPL",
+          "year": 2023
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "AAPL",
+          "year": 2023,
+          "section": "",
+          "source_exists": true,
+          "accession": "000032019323000106",
+          "passages_in_scope": 120,
+          "available": true,
+          "reason": "available"
+        }
+      ]
+    },
+    {
+      "id": "audit06",
+      "kind": "regression",
+      "prompt": "Audit MSFT filing year 2024: separately retrieve cloud services growth disclosures and cybersecurity risks. Ground both topics in the filing.",
+      "scopes": [
+        {
+          "ticker": "MSFT",
+          "year": 2024
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "MSFT",
+          "year": 2024,
+          "section": "",
+          "source_exists": true,
+          "accession": "000095017024087843",
+          "passages_in_scope": 210,
+          "available": true,
+          "reason": "available"
+        }
+      ]
+    },
+    {
+      "id": "audit07",
+      "kind": "regression",
+      "prompt": "Audit AMZN filing year 2024: separately retrieve liquidity and cash-flow disclosures and operating lease obligations. Present supporting excerpts without deriving new numbers.",
+      "scopes": [
+        {
+          "ticker": "AMZN",
+          "year": 2024
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "source_exists": true,
+          "accession": "000101872424000008",
+          "passages_in_scope": 168,
+          "available": true,
+          "reason": "available"
+        }
+      ]
+    },
+    {
+      "id": "audit08",
+      "kind": "regression",
+      "prompt": "Audit NVDA filing year 2024: separately retrieve Data Center revenue growth disclosures and gross margin disclosures. Use evidence for each topic without calculating a new ratio.",
+      "scopes": [
+        {
+          "ticker": "NVDA",
+          "year": 2024
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "NVDA",
+          "year": 2024,
+          "section": "",
+          "source_exists": true,
+          "accession": "000104581024000029",
+          "passages_in_scope": 204,
+          "available": true,
+          "reason": "available"
+        }
+      ]
+    },
+    {
+      "id": "audit09",
+      "kind": "regression",
+      "prompt": "Audit AAPL filing year 2025 only: separately retrieve revenue disclosures and share repurchase disclosures. Do not substitute filing year 2023 or any other year if 2025 evidence is unavailable.",
+      "scopes": [
+        {
+          "ticker": "AAPL",
+          "year": 2025
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "AAPL",
+          "year": 2025,
+          "section": "",
+          "source_exists": true,
+          "accession": "000032019325000079",
+          "passages_in_scope": 84,
+          "available": true,
+          "reason": "available"
+        }
+      ]
+    },
+    {
+      "id": "audit10",
+      "kind": "regression",
+      "prompt": "Audit MSFT filing year 2024, with the exact SectionItem filter \"Item 1A\": separately retrieve cybersecurity risk and cloud competition risk. Do not relax the exact section filter if unclassified passages are all that is available.",
+      "scopes": [
+        {
+          "ticker": "MSFT",
+          "year": 2024
+        }
+      ],
+      "section": "Item 1A",
+      "expected_scopes": [
+        {
+          "ticker": "MSFT",
+          "year": 2024,
+          "section": "Item 1A",
+          "source_exists": true,
+          "accession": "000095017024087843",
+          "passages_in_scope": 0,
+          "available": false,
+          "reason": "exact_section_absent"
+        }
+      ]
+    },
+    {
+      "id": "broad11",
+      "kind": "positive",
+      "prompt": "Compare KO and PG, both filing year 2025, with the exact SectionItem filter \"Item 7\": retrieve each company's disclosure of how foreign currency exchange rates affected its reported revenue or sales. Use separate company-specific retrieval steps and do not calculate new figures.",
+      "scopes": [
+        {
+          "ticker": "KO",
+          "year": 2025
+        },
+        {
+          "ticker": "PG",
+          "year": 2025
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "KO",
+          "year": 2025,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000002134425000011",
+          "passages_in_scope": 68,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "PG",
+          "year": 2025,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000008042425000076",
+          "passages_in_scope": 54,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "KO",
+            "year": 2025,
+            "id": "000002134425000011#item7#passage-000066",
+            "section_item": "Item 7",
+            "topic": "currency effect on revenue",
+            "excerpt": "potentially unfavorable impact of exchange rate fluctuations on our net income. 58 The total impact of foreign currency exchange rate fluctuations on net operating revenues, including the effect of our hedging activities, was a decrease of 5% and 4% in 2024 and 2023, respectively. The total impact of foreign currency exchange rate fluctuations on operating income, including the effect of our hedging activities, was a decrease of 11% and 8% in 2024 and 2023, respectively. Foreign currency",
+            "passage_text_sha256": "4bc291eec28aeee476dee47512478d72ad5e0ad644d7af52bf789d76c97e7a54"
+          },
+          {
+            "ticker": "PG",
+            "year": 2025,
+            "id": "000008042425000076#item7#passage-000029",
+            "section_item": "Item 7",
+            "topic": "currency effect on net sales",
+            "excerpt": "by unfavorable foreign exchange of 1%. Unit volume was unchanged. Excluding the impact of foreign exchange and acquisitions and divestitures, organic sales increased 1%. Global market share of the Baby, Feminine & Family Care segment decreased 0.2 points. 24 The Procter & Gamble Company •Baby Care net sales decreased mid-single digits. Negative impacts of a decrease in unit volume, unfavorable foreign exchange and divestitures were partially offset by favorable geographic and product mix (due to",
+            "passage_text_sha256": "05dfb4abd910040480a352f5b4fd95aada29a6d1b9b8debbc824e4df071c73af"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad12",
+      "kind": "positive",
+      "prompt": "Compare PFE and MRK, both filing year 2025, with the exact SectionItem filter \"Item 1A\": retrieve each company's risk disclosures about patent protection and generic or biosimilar competition. Use separate company-specific retrieval steps.",
+      "scopes": [
+        {
+          "ticker": "PFE",
+          "year": 2025
+        },
+        {
+          "ticker": "MRK",
+          "year": 2025
+        }
+      ],
+      "section": "Item 1A",
+      "expected_scopes": [
+        {
+          "ticker": "PFE",
+          "year": 2025,
+          "section": "Item 1A",
+          "source_exists": true,
+          "accession": "000007800325000054",
+          "passages_in_scope": 45,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "MRK",
+          "year": 2025,
+          "section": "Item 1A",
+          "source_exists": true,
+          "accession": "000162828025007732",
+          "passages_in_scope": 43,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "PFE",
+            "year": 2025,
+            "id": "000007800325000054#item1A#passage-000029",
+            "section_item": "Item 1A",
+            "topic": "generic challenges to patents",
+            "excerpt": "such regulatory exclusivity, and generic companies are employing aggressive strategies, such as “at-risk” launches that challenge our patent rights. Most of the suits involve claims by generic drug manufacturers that patents covering our products, uses, processes or dosage forms are invalid and/or do not cover the product of the generic or biosimilar drug manufacturer. Independent actions have been filed alleging that our assertions of, or attempts to enforce, patent rights with respect to",
+            "passage_text_sha256": "ea1628efc7248f8efd6d70bd7cfdaaf56a2edfadca7f4491418b7c98198998ae"
+          },
+          {
+            "ticker": "MRK",
+            "year": 2025,
+            "id": "000162828025007732#item1A#passage-000003",
+            "section_item": "Item 1A",
+            "topic": "dependence on patent rights",
+            "excerpt": "below. 27 Table of Contents Risks Related to the Company’s Business The Company is dependent on its patent rights, and if its patent rights are invalidated or circumvented, its business could be materially adversely affected. Patent protection is considered, in the aggregate, to be of material importance to the Company’s marketing of human health and animal health products in the U.S. and in most major foreign markets. Patents covering products that it has introduced normally provide market",
+            "passage_text_sha256": "817542ad8576383c1f20ba4804886fc9bb0260bbddaea1a18b0df834d441e4f5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad13",
+      "kind": "positive",
+      "prompt": "Audit BAC filing year 2026, with the exact SectionItem filter \"Item 7\": separately retrieve regulatory capital ratio disclosures (common equity tier 1) and liquidity coverage ratio disclosures. Present supporting excerpts without deriving new numbers.",
+      "scopes": [
+        {
+          "ticker": "BAC",
+          "year": 2026
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "BAC",
+          "year": 2026,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000007085826000157",
+          "passages_in_scope": 164,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "BAC",
+            "year": 2026,
+            "id": "000007085826000157#item7#passage-000060",
+            "section_item": "Item 7",
+            "topic": "CET1 capital metrics",
+            "excerpt": "Total capital (4) 261,232 250,347 Risk-weighted assets (in billions) 1,773 1,570 Common equity tier 1 capital ratio11.4 %12.8 %10.0 % Tier 1 capital ratio12.8 14.5 11.5 Total capital ratio14.7 15.9 13.5 Leverage-based metrics: Adjusted quarterly average assets (in billions) (5) $3,348 $3,348 Tier 1 leverage ratio6.8 %6.8 %4.0 Supplementary leverage exposure (in billions)$3,986 Supplementary leverage ratio5.7 %5.0 December 31, 2024 Risk-based capital metrics: Common equity tier 1 capital$201,083",
+            "passage_text_sha256": "d28f162a0c974f7492dee96e1580cb0b24ab1b48a61161ea2fdf11cec5a1e4c4"
+          },
+          {
+            "ticker": "BAC",
+            "year": 2026,
+            "id": "000007085826000157#item7#passage-000075",
+            "section_item": "Item 7",
+            "topic": "LCR and HQLA",
+            "excerpt": "composition to what qualifies as High Quality Liquid Assets (HQLA) under the final U.S. Liquidity Coverage Ratio (LCR) rules. However, HQLA for purposes of calculating LCR is not reported at market value, but at a lower value that incorporates regulatory deductions and the exclusion of excess liquidity held at certain subsidiaries. The LCR is calculated as the amount of a financial institution’s unencumbered HQLA relative to the estimated net cash outflows the institution could encounter over a",
+            "passage_text_sha256": "5349c7e1d57048858c20935ad711e87c7d4d9bc9602c59a0d2a4b11541dce15d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad14",
+      "kind": "positive",
+      "prompt": "Audit TGT filing year 2026: separately retrieve the inventory shrink estimate and its sensitivity, and the capital expenditure disclosures. Support both topics with direct excerpts.",
+      "scopes": [
+        {
+          "ticker": "TGT",
+          "year": 2026
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "TGT",
+          "year": 2026,
+          "section": "",
+          "source_exists": true,
+          "accession": "000002741926000016",
+          "passages_in_scope": 99,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "TGT",
+            "year": 2026,
+            "id": "000002741926000016#item7#passage-000016",
+            "section_item": "Item 7",
+            "topic": "shrink reserve sensitivity",
+            "excerpt": "related to shrink and markdowns. Our shrink estimate is based on historical losses and is adjusted to reflect results of actual physical inventory counts. We generally perform counts at each location annually, with counts taking place throughout the year. A 10 percent increase or decrease in our 2025 year-end inventory shrink reserve would impact our cost of sales by approximately $110 million. Historically, our actual physical inventory count results have shown our estimates to be reasonably",
+            "passage_text_sha256": "47da0eb02a0c508d8edf0ec2a0f796ea818488d62259da2b4cead9bd760a6500"
+          },
+          {
+            "ticker": "TGT",
+            "year": 2026,
+            "id": "000002741926000016#item7#passage-000012",
+            "section_item": "Item 7",
+            "topic": "capital expenditures",
+            "excerpt": "Financial Statements Capital Expenditures Note: Amounts may not foot due to rounding. Capital expenditures in 2025 reflect continued investment in our strategic initiatives, including investments in both stores and in our supply chain, enhancing our capabilities and guest experience across stores and digital channels. The increase in capital expenditures in 2025 compared with 2024 primarily reflects an increased investment in both new stores and remodels. We expect capital expenditures in 2026",
+            "passage_text_sha256": "5ba1def91eb356d5fe0cedaf851a04e8007ea964086cbd0e42a5e79afbb1a85d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad15",
+      "kind": "positive",
+      "prompt": "Audit TSLA filing year 2026: separately retrieve tariff and trade-policy risks affecting supply chain costs, and cost of revenues and gross margin disclosures. Use direct excerpts only.",
+      "scopes": [
+        {
+          "ticker": "TSLA",
+          "year": 2026
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "TSLA",
+          "year": 2026,
+          "section": "",
+          "source_exists": true,
+          "accession": "000162828026003952",
+          "passages_in_scope": 181,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "TSLA",
+            "year": 2026,
+            "id": "000162828026003952#item1A#passage-000002",
+            "section_item": "Item 1A",
+            "topic": "tariff supply-chain cost",
+            "excerpt": "remain solvent and operational. U.S. trade policy alterations in 2025, including heightened import tariffs and subsequent retaliatory measures, have impacted our supply chain costs, and may impact the availability of certain technologies or components, depending on the exact scope of the tariffs ultimately implemented and retaliatory export controls. Additionally, if our suppliers do not accurately forecast and effectively allocate production or if they are not willing to allocate sufficient",
+            "passage_text_sha256": "979d461cfdeb9678a6767795e3f5d030b95d9819f664eeaa727f02632e5eb2c1"
+          },
+          {
+            "ticker": "TSLA",
+            "year": 2026,
+            "id": "000162828026003952#item7#passage-000020",
+            "section_item": "Item 7",
+            "topic": "cost of revenues table",
+            "excerpt": "deployments, partially offset by a decrease in average selling price of Megapack. Cost of Revenues and Gross Margin Year Ended December 31,2025 vs. 2024 Change2024 vs. 2023 Change (Dollars in millions)202520242023$%$% Cost of revenues Automotive sales$56,267 $61,870 $65,121 $(5,603)(9)%$(3,251)(5)% Automotive leasing898 1,003 1,268 (105)(10)%(265)(21)% Total automotive cost of revenues57,165 62,873 66,389 (5,708)(9)%(3,516)(5)% Services and other11,599 9,921 7,830 1,678 17 %2,091 27 % Total",
+            "passage_text_sha256": "c27d041d6696489bfb185c40a0fae047293ff4af754cf8802eacaa83caa70d3b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad16",
+      "kind": "positive",
+      "prompt": "Compare V filing year 2024 and V filing year 2025, with the exact SectionItem filter \"Item 1A\": retrieve the disclosed risks from regulation of interchange rates in each filing year. Retrieve evidence separately for each filing year.",
+      "scopes": [
+        {
+          "ticker": "V",
+          "year": 2024
+        },
+        {
+          "ticker": "V",
+          "year": 2025
+        }
+      ],
+      "section": "Item 1A",
+      "expected_scopes": [
+        {
+          "ticker": "V",
+          "year": 2024,
+          "section": "Item 1A",
+          "source_exists": true,
+          "accession": "000140316124000058",
+          "passages_in_scope": 46,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "V",
+          "year": 2025,
+          "section": "Item 1A",
+          "source_exists": true,
+          "accession": "000140316125000089",
+          "passages_in_scope": 48,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "V",
+            "year": 2024,
+            "id": "000140316124000058#item1A#passage-000003",
+            "section_item": "Item 1A",
+            "topic": "interchange regulation 2024 filing",
+            "excerpt": "Reserve issued a proposal for comment which would further lower debit interchange rates, with a mechanism for automatic adjustment every two years. Separately, there continues to be interest in regulation of credit interchange fees and routing practices by members of Congress and state legislators in the U.S. In June 2023, legislation was reintroduced in the U.S. House of Representatives and Senate, which among other things, would require large issuing banks to offer a choice of at least two",
+            "passage_text_sha256": "fe66e1fad316a6c73cee5b90bb68b5077ae6ff586417d7a02c8c9480fb44269c"
+          },
+          {
+            "ticker": "V",
+            "year": 2025,
+            "id": "000140316125000089#item1A#passage-000004",
+            "section_item": "Item 1A",
+            "topic": "interchange regulation 2025 filing",
+            "excerpt": "points, respectively. EU member states have the ability to further reduce these interchange levels within their territories. The European Commission has announced its intention to conduct another impact assessment of the IFR, which could result in even lower caps on interchange rates and the expansion of regulation to other types of products, services and fees. •Several countries in Latin America continue to explore regulatory measures against payments networks and have either adopted or are",
+            "passage_text_sha256": "f977c180e66d11699249fb46d75a937700b715d12636c8012205f7149aa09d41"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad17",
+      "kind": "positive",
+      "prompt": "Compare COP and OXY, both filing year 2025, with the exact SectionItem filter \"Item 7\": retrieve each company's disclosure of how commodity prices affect earnings, cash flows or asset valuation. Retrieve evidence separately for each company.",
+      "scopes": [
+        {
+          "ticker": "COP",
+          "year": 2025
+        },
+        {
+          "ticker": "OXY",
+          "year": 2025
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "COP",
+          "year": 2025,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000116316525000012",
+          "passages_in_scope": 70,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "OXY",
+          "year": 2025,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000079746825000029",
+          "passages_in_scope": 74,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "COP",
+            "year": 2025,
+            "id": "000116316525000012#item7#passage-000008",
+            "section_item": "Item 7",
+            "topic": "commodity price sensitivity",
+            "excerpt": "10-K 36 Management’s Discussion and Analysis Table of Contents Commodity Prices Our earnings and operating cash flows generally correlate with crude oil and natural gas commodity prices. Commodity price levels are subject to factors external to the company and over which we have no control, including but not limited to global economic health, supply or demand disruptions or fears thereof caused by civil unrest, global pandemics, military conflicts, actions taken by OPEC Plus and other major oil",
+            "passage_text_sha256": "51792fc7861f7f52ff9678b9ae0428eca0ad71a68623232cc8e50c21dbc2ea93"
+          },
+          {
+            "ticker": "OXY",
+            "year": 2025,
+            "id": "000079746825000029#item7#passage-000059",
+            "section_item": "Item 7",
+            "topic": "commodity prices and valuation",
+            "excerpt": "estimates of future operating and development costs. It is reasonably possible that prolonged declines in commodity prices, reduced capital spending in response to lower prices or increases in operating costs could result in impairments. For impairment testing, unless prices are contractually fixed, Occidental uses observable forward strip prices for oil and natural gas prices when projecting future cash flows. Future operating and development costs are estimated using the current cost",
+            "passage_text_sha256": "ec46113b0598cb1a26f54232aceb11c53e1df641b68ddf8d97ee66503ac7013a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad18",
+      "kind": "positive",
+      "prompt": "Compare MET and AFL, both filing year 2025: retrieve MET's interest rate risk disclosures and AFL's yen and foreign currency translation disclosures. Use separate company-specific retrieval steps and do not derive new numbers.",
+      "scopes": [
+        {
+          "ticker": "MET",
+          "year": 2025
+        },
+        {
+          "ticker": "AFL",
+          "year": 2025
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "MET",
+          "year": 2025,
+          "section": "",
+          "source_exists": true,
+          "accession": "000109921925000044",
+          "passages_in_scope": 490,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "AFL",
+          "year": 2025,
+          "section": "",
+          "source_exists": true,
+          "accession": "000000497725000047",
+          "passages_in_scope": 306,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "MET",
+            "year": 2025,
+            "id": "000109921925000044#item1A#passage-000001",
+            "section_item": "Item 1A",
+            "topic": "interest rate risk",
+            "excerpt": "payments of insurance premiums may negatively affect our earnings and capitalization. Interest Rate Risks Some of our products and investments expose us to interest rate risks, including changes in the difference between short-term and long-term interest rates, which may reduce or eliminate our investment spread and net income. Interest rate increases may harm our profitability. During rapidly increasing interest rates, we may not be able to replace the investments in our general account with",
+            "passage_text_sha256": "08ea6574bb25e4a2d6b41c25ab5fb3f5f471bbfbe32ab3cc90c73a51669dc92f"
+          },
+          {
+            "ticker": "AFL",
+            "year": 2025,
+            "id": "000000497725000047#item7#passage-000018",
+            "section_item": "Item 7",
+            "topic": "yen translation",
+            "excerpt": "Company excluded the impairment from adjusted earnings. Foreign Currency Translation Aflac Japan’s premiums and a significant portion of its investment income are received in yen, and its claims and most expenses are paid in yen. Aflac Japan purchases yen-denominated assets and U.S. dollar-denominated assets, which may be hedged to yen, to support yen-denominated policy liabilities. Yen-denominated income statement accounts are translated to U.S. dollars using the weighted average Japanese",
+            "passage_text_sha256": "703fb8b2bd125bc8fdb65b4f995d2c65a02ed1575cf553d6fb4fc0a5d04795e6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad19",
+      "kind": "positive",
+      "prompt": "Compare CRM and ADBE, both filing year 2026, with the exact SectionItem filter \"Item 8\": retrieve each company's remaining performance obligation (contracted revenue not yet recognized) disclosures. Use separate company-specific retrieval steps.",
+      "scopes": [
+        {
+          "ticker": "CRM",
+          "year": 2026
+        },
+        {
+          "ticker": "ADBE",
+          "year": 2026
+        }
+      ],
+      "section": "Item 8",
+      "expected_scopes": [
+        {
+          "ticker": "CRM",
+          "year": 2026,
+          "section": "Item 8",
+          "source_exists": true,
+          "accession": "000110852426000060",
+          "passages_in_scope": 74,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "ADBE",
+          "year": 2026,
+          "section": "Item 8",
+          "source_exists": true,
+          "accession": "000079634326000003",
+          "passages_in_scope": 72,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "CRM",
+            "year": 2026,
+            "id": "000110852426000060#item8#passage-000036",
+            "section_item": "Item 8",
+            "topic": "RPO definition",
+            "excerpt": "unearned revenue balance as of January 31, 2025. Remaining Performance Obligation Remaining performance obligation represents contracted revenue that has not yet been recognized and includes unearned revenue and unbilled amounts that will be recognized as revenue in future periods. The transaction price allocated to the remaining performance obligation is based on SSP. Remaining performance obligation is influenced by several factors, including seasonality, the timing of renewals, the timing of",
+            "passage_text_sha256": "8586b0b9b16fbf5b08bbb26ce5ffa9cf78ba2f5660ccb6a73ff29c9baa8a3f53"
+          },
+          {
+            "ticker": "ADBE",
+            "year": 2026,
+            "id": "000079634326000003#item8#passage-000027",
+            "section_item": "Item 8",
+            "topic": "RPO definition",
+            "excerpt": "balance of deferred revenue as of November 29, 2024. Transaction price allocated to remaining performance obligations represents contracted revenue that has not yet been recognized, which includes deferred revenue and unbilled amounts that will be recognized as revenue in future periods. Transaction price allocated to remaining performance obligations is influenced by several factors, including the timing of renewals and average contract term. We applied practical expedients to exclude amounts",
+            "passage_text_sha256": "8e0c536e27ba7a899591d27aea9dc016ba0235e824f0421561542556aee77228"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad20",
+      "kind": "positive",
+      "prompt": "Compare AMD and TXN, both filing year 2026: retrieve AMD's dependence on third-party foundries such as TSMC and TXN's capital expenditures for semiconductor manufacturing. Use separate company-specific retrieval steps.",
+      "scopes": [
+        {
+          "ticker": "AMD",
+          "year": 2026
+        },
+        {
+          "ticker": "TXN",
+          "year": 2026
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "AMD",
+          "year": 2026,
+          "section": "",
+          "source_exists": true,
+          "accession": "000000248826000018",
+          "passages_in_scope": 165,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "TXN",
+          "year": 2026,
+          "section": "",
+          "source_exists": true,
+          "accession": "000009747626000059",
+          "passages_in_scope": 76,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "AMD",
+            "year": 2026,
+            "id": "000000248826000018#item1A#passage-000023",
+            "section_item": "Item 1A",
+            "topic": "foundry dependence",
+            "excerpt": "our 7 nm and lower product microprocessor and GPU portfolio on TSMC’s processes. If TSMC is not able to manufacture wafers for our products at 7 nm or smaller nodes in sufficient quantities to meet customer demand, it could have a material adverse effect on our business. Moreover, we rely on TSMC, UMC and our other foundries to produce wafers with competitive performance attributes for our IC products. Therefore, the foundries, particularly TSMC which manufactures our newest IC products, must be",
+            "passage_text_sha256": "1b8643517fdf4e632c4c910c5affdd4b7e5e90cc893a6369be0c7d049661bd72"
+          },
+          {
+            "ticker": "TXN",
+            "year": 2026,
+            "id": "000009747626000059#item7#passage-000007",
+            "section_item": "Item 7",
+            "topic": "manufacturing capital expenditures",
+            "excerpt": "Investing activities for 2025 used $1.44 billion compared with $3.20 billion in 2024. Capital expenditures were $4.55 billion compared with $4.82 billion in 2024 and were primarily for semiconductor manufacturing equipment and facilities in both periods. In 2025, we received proceeds of $335 million from CHIPS Act incentives, including $75 million in direct funding. Short-term investments provided cash proceeds of $2.78 billion in 2025 compared with $1.47 billion in 2024. We are nearing the end",
+            "passage_text_sha256": "07a419a31da5d5a2e0f460a8ce26074d42dccb4d5bbfd6950ea246b2bd3c79ce"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad21",
+      "kind": "positive",
+      "prompt": "Compare UNH filing year 2025 and CVS filing year 2026, both with the exact SectionItem filter \"Item 7\": retrieve how each company defines or discusses its medical care ratio or medical benefit ratio. Retrieve evidence separately for each company.",
+      "scopes": [
+        {
+          "ticker": "UNH",
+          "year": 2025
+        },
+        {
+          "ticker": "CVS",
+          "year": 2026
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "UNH",
+          "year": 2025,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000073176625000063",
+          "passages_in_scope": 25,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "CVS",
+          "year": 2026,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000006480326000010",
+          "passages_in_scope": 56,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "UNH",
+            "year": 2025,
+            "id": "000073176625000063#item7#passage-000008",
+            "section_item": "Item 7",
+            "topic": "MCR definition",
+            "excerpt": "(c)15.9 %27.0 %27.2 %(11.1)% ________ nm = not meaningful (a)Medical care ratio (MCR) is calculated as medical costs divided by premium revenue. (b)Net earnings margin attributable to UnitedHealth Group common shareholders. (c)Return on equity is calculated as net earnings attributable to UnitedHealth Group common shareholders divided by average shareholders’ equity. Average shareholders’ equity is calculated using the shareholders’ equity balance at the end of the preceding year and the",
+            "passage_text_sha256": "ae92cac6a3dda3260c8f042fdd56ac49d655fcc5638288581acf9b9d78a8d76f"
+          },
+          {
+            "ticker": "CVS",
+            "year": 2026,
+            "id": "000006480326000010#item7#passage-000017",
+            "section_item": "Item 7",
+            "topic": "MBR definition",
+            "excerpt": "Inflation Reduction Act (“IRA”) on the Medicare Part D program. Medical Benefit Ratio •Medical benefit ratio is calculated as health care costs divided by premium revenues and represents the percentage of premium revenues spent on medical benefits for the Company’s Insured members. Management uses MBR to assess the underlying business performance and underwriting of its insurance products, understand variances between actual results and expected results and identify trends in period-over-period",
+            "passage_text_sha256": "78bb6a0ff8fedae5ec13c2a9a6e84b8bbb3b1f22a464efcb8aae17ca4baed429"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad22",
+      "kind": "positive",
+      "prompt": "Compare SBUX filing year 2024 and SBUX filing year 2025, with the exact SectionItem filter \"Item 7\": retrieve comparable store sales and new store opening disclosures for each filing year. Retrieve evidence separately for each filing year.",
+      "scopes": [
+        {
+          "ticker": "SBUX",
+          "year": 2024
+        },
+        {
+          "ticker": "SBUX",
+          "year": 2025
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "SBUX",
+          "year": 2024,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000082922424000057",
+          "passages_in_scope": 32,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "SBUX",
+          "year": 2025,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000082922425000114",
+          "passages_in_scope": 34,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "SBUX",
+            "year": 2024,
+            "id": "000082922424000057#item7#passage-000002",
+            "section_item": "Item 7",
+            "topic": "comparable store sales 2024 filing",
+            "excerpt": "driven by the impact of unfavorable foreign currency translation, a 4% decline in comparable store sales driven by a decline in average ticket of 4%, and lower product and equipment sales to, and royalty revenues from, our licensees. These decreases were partially offset by net new company-operated and licensed store openings over the past 12 months. Revenue for our Channel Development segment decreased 7% in fiscal 2024 compared with fiscal 2023, primarily driven by a decline in revenue in the",
+            "passage_text_sha256": "9d90ff9ace9137f5c4296e209eddca034b1e5630ebca4671faed97311e1d2808"
+          },
+          {
+            "ticker": "SBUX",
+            "year": 2025,
+            "id": "000082922425000114#item7#passage-000002",
+            "section_item": "Item 7",
+            "topic": "store growth 2025 filing",
+            "excerpt": "revenue increased 1% in fiscal 2025 compared to fiscal 2024, primarily driven by net new company-operated store growth of 4%, or 441 stores, over the past 12 months, prior to the 584 North America restructuring closures late in the fourth quarter of fiscal 2025. This growth was partially offset by a 2% decline in comparable store sales. Comparable transactions declined 4%, partially offset by average ticket growth of 2%, primarily driven by annualization of pricing in the current year. Also",
+            "passage_text_sha256": "e38261e11b3c1d0307820bfdbf6d357ca1703c3d664a080cdabd66308a301579"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad23",
+      "kind": "positive",
+      "prompt": "Audit ISRG filing year 2026, with the exact SectionItem filter \"Item 7\": separately retrieve tariff impacts on product cost and da Vinci procedure growth disclosures. Ground both topics in the filing without calculating new rates.",
+      "scopes": [
+        {
+          "ticker": "ISRG",
+          "year": 2026
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "ISRG",
+          "year": 2026,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000103526726000010",
+          "passages_in_scope": 63,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "ISRG",
+            "year": 2026,
+            "id": "000103526726000010#item7#passage-000007",
+            "section_item": "Item 7",
+            "topic": "tariff product cost",
+            "excerpt": "Contents surgical systems into China. These imports into the U.S. and China are subject to tariffs, which we expect to continue to have an adverse impact on the product cost of our da Vinci Xi surgical system in China. Some of our suppliers have also incurred incremental tariffs and have passed or may pass on those additional costs to us. These pass-through tariffs and other specific tariff actions against steel and aluminum, critical minerals, semiconductors, and other products have not had a",
+            "passage_text_sha256": "33d6230e3456e3c26bd16016fbb34620a2266cebaa407697abcec4eb47da6614"
+          },
+          {
+            "ticker": "ISRG",
+            "year": 2026,
+            "id": "000103526726000010#item7#passage-000024",
+            "section_item": "Item 7",
+            "topic": "procedure growth",
+            "excerpt": "OUS urologic surgery, and U.S. gynecologic surgery procedures. U.S. Procedures. U.S. da Vinci procedures grew approximately 15% in 2025, compared to approximately 15% in 2024. The 2025 U.S. procedure growth was largely attributable to growth in general surgery and gynecologic surgery procedures. U.S. General Surgery. General surgery procedures in the U.S. grew approximately 18% in 2025, compared to approximately 19% in 2024, most notably cholecystectomy, hernia repair, appendectomy, and",
+            "passage_text_sha256": "08e2ed4a22bfb5831925851f2fc8c91750c40c24dc4cbd8c1eff3135007b8cee"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad24",
+      "kind": "positive",
+      "prompt": "Compare LLY and JNJ, both filing year 2026, with the exact SectionItem filter \"Item 7\": retrieve LLY's product revenue drivers such as Mounjaro and Zepbound and JNJ's segment sales disclosures. Use separate company-specific retrieval steps.",
+      "scopes": [
+        {
+          "ticker": "LLY",
+          "year": 2026
+        },
+        {
+          "ticker": "JNJ",
+          "year": 2026
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "LLY",
+          "year": 2026,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000005947826000013",
+          "passages_in_scope": 28,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "JNJ",
+          "year": 2026,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000020040626000016",
+          "passages_in_scope": 37,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "LLY",
+            "year": 2026,
+            "id": "000005947826000013#item7#passage-000011",
+            "section_item": "Item 7",
+            "topic": "LLY product revenue drivers",
+            "excerpt": "the U.S., the volume increase and the lower realized prices in 2025 were primarily driven by Mounjaro and Zepbound. Outside the U.S., the volume increase in 2025 was primarily driven by Mounjaro. The following table summarizes our revenue, including net product revenue and collaboration and other revenue, by product in 2025 compared with 2024: Year Ended December 31, 20252024Percent Change U.S.Outside U.S.TotalTotal Mounjaro$13,651 $9,315 $22,965 $11,540 99 Zepbound(1) 13,484 58 13,542 4,926 175",
+            "passage_text_sha256": "63d7dc7b281e5ee41b548e357d8cd61d4a488bc1827e87008dc2569a2acb6406"
+          },
+          {
+            "ticker": "JNJ",
+            "year": 2026,
+            "id": "000020040626000016#item7#passage-000004",
+            "section_item": "Item 7",
+            "topic": "JNJ segment sales",
+            "excerpt": "translational currency Analysis of sales by business segments Innovative Medicine segment Innovative Medicine segment sales in 2025 were $60.4 billion, an increase of 6.0% from 2024, which included operational growth of 5.3% and a positive currency impact of 0.7%. U.S. sales were $36.3 billion, an increase of 7.0%. International sales were $24.1 billion, an increase of 4.6%, which included operational growth of 2.9% and a positive currency impact of 1.7%. In 2025, the net impact of acquisitions",
+            "passage_text_sha256": "e6c3f373e47f84904801fe35042762d6624b72e6590280f879c9a380fb2632b4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad25",
+      "kind": "positive",
+      "prompt": "Compare HPE filing year 2024 and HPE filing year 2025, with the exact SectionItem filter \"Item 7\": retrieve share repurchase authorization and repurchase activity disclosures for each filing year. Retrieve evidence separately for each filing year.",
+      "scopes": [
+        {
+          "ticker": "HPE",
+          "year": 2024
+        },
+        {
+          "ticker": "HPE",
+          "year": 2025
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "HPE",
+          "year": 2024,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000164559024000139",
+          "passages_in_scope": 61,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "HPE",
+          "year": 2025,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000164559025000130",
+          "passages_in_scope": 61,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "HPE",
+            "year": 2024,
+            "id": "000164559024000139#item7#passage-000036",
+            "section_item": "Item 7",
+            "topic": "repurchase authorization 2024 filing",
+            "excerpt": "and settled an aggregate amount of $150 million. As of October 31, 2024, we had a remaining authorization of approximately $0.8 billion for future share repurchases. For more information on our share repurchase program, refer to Note 15, “Stockholders' Equity,” to the Consolidated Financial Statements in Item 8 of Part II. On May 23, 2024, we announced plans to divest our Communications Technology Group (“CTG”) business to HCLTech. CTG is included in our Communications and Media Solutions",
+            "passage_text_sha256": "7ac081fbd9c32d9d9fe60dbde4338524c6ed8105f27ecb4a81fbbe826faf2b68"
+          },
+          {
+            "ticker": "HPE",
+            "year": 2025,
+            "id": "000164559025000130#item7#passage-000036",
+            "section_item": "Item 7",
+            "topic": "repurchase authorization 2025 filing",
+            "excerpt": "and settled an aggregate amount of $202 million. As of October 31, 2025, we had a remaining authorization of approximately $3.6 billion for future share repurchases. For more information on our share repurchase program, refer to Note 15, “Stockholders' Equity,” to the Consolidated Financial Statements in Item 8 of Part II. On November 17, 2025 and November 28, 2025, we announced plans to divest our remaining investment in H3C’s issued share capital for approximately $1.4 billion. For more",
+            "passage_text_sha256": "36e18b9efb510f43da94de89a297deed8f721a2fd71df80dc4bc7d73ad54c3f9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad26",
+      "kind": "positive",
+      "prompt": "Compare HD and WMT, both filing year 2026, with the exact SectionItem filter \"Item 8\": retrieve each company's segment reporting disclosures. Use separate company-specific retrieval steps.",
+      "scopes": [
+        {
+          "ticker": "HD",
+          "year": 2026
+        },
+        {
+          "ticker": "WMT",
+          "year": 2026
+        }
+      ],
+      "section": "Item 8",
+      "expected_scopes": [
+        {
+          "ticker": "HD",
+          "year": 2026,
+          "section": "Item 8",
+          "source_exists": true,
+          "accession": "000162828026019436",
+          "passages_in_scope": 67,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "WMT",
+          "year": 2026,
+          "section": "Item 8",
+          "source_exists": true,
+          "accession": "000010416926000055",
+          "passages_in_scope": 61,
+          "available": true,
+          "reason": "available"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "HD",
+            "year": 2026,
+            "id": "000162828026019436#item8#passage-000026",
+            "section_item": "Item 8",
+            "topic": "segment reporting",
+            "excerpt": "results of operations, or cash flows. Fiscal 2025 Form 10-K 50 Table of Contents 2.SEGMENT REPORTING AND NET SALES Segment Reporting The Company defines its segments based on how internally reported financial information is regularly reviewed by the chief operating decision maker (“CODM”), our President and Chief Executive Officer, to analyze financial performance, make decisions, and allocate resources. Primary Segment. We are engaged in retail operations and sell a wide assortment of home",
+            "passage_text_sha256": "3f70eb1fcd81c4fc8d41fb7dc78d458dd8ff083df16d2a66d3a88fa4f57d76f1"
+          },
+          {
+            "ticker": "WMT",
+            "year": 2026,
+            "id": "000010416926000055#item8#passage-000055",
+            "section_item": "Item 8",
+            "topic": "segments and disaggregated revenue",
+            "excerpt": "contribution expense for defined contribution plans$1,896 $1,829 $1,613 Note 11. Segments and Disaggregated Revenue Segments The Company is engaged in the operation of retail and wholesale stores and clubs, as well as eCommerce websites and mobile applications, located throughout the U.S., Africa, Canada, Central America, Chile, China, India and Mexico. The Company's operations are conducted in three reportable segments: Walmart U.S., Walmart International and Sam's Club U.S. The Company defines",
+            "passage_text_sha256": "f94d73659d8df84a4267fc4ec95e3ac08cd8bce4843c4ab877bac45d0bdbb481"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad27",
+      "kind": "negative",
+      "prompt": "Audit TSLA filing year 2024 only: separately retrieve automotive gross margin disclosures and tariff or supply-chain risks. Do not substitute filing year 2025 or 2026, or any other company, if 2024 evidence is unavailable.",
+      "scopes": [
+        {
+          "ticker": "TSLA",
+          "year": 2024
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "TSLA",
+          "year": 2024,
+          "section": "",
+          "source_exists": false,
+          "accession": "",
+          "passages_in_scope": 0,
+          "available": false,
+          "reason": "filing_year_absent"
+        }
+      ]
+    },
+    {
+      "id": "broad28",
+      "kind": "negative",
+      "prompt": "Audit NVDA filing year 2024, with the exact SectionItem filter \"Item 7\": separately retrieve Data Center revenue discussion and supply cost commentary. Do not relax the exact section filter if only unclassified passages are available.",
+      "scopes": [
+        {
+          "ticker": "NVDA",
+          "year": 2024
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "NVDA",
+          "year": 2024,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000104581024000029",
+          "passages_in_scope": 0,
+          "available": false,
+          "reason": "exact_section_absent"
+        }
+      ]
+    },
+    {
+      "id": "broad29",
+      "kind": "mixed",
+      "prompt": "Compare GS filing year 2026 and BAC filing year 2025: retrieve each firm's regulatory capital ratio disclosures. Retrieve evidence separately for each company and do not substitute another filing year if one filing is unavailable.",
+      "scopes": [
+        {
+          "ticker": "GS",
+          "year": 2026
+        },
+        {
+          "ticker": "BAC",
+          "year": 2025
+        }
+      ],
+      "section": "",
+      "expected_scopes": [
+        {
+          "ticker": "GS",
+          "year": 2026,
+          "section": "",
+          "source_exists": true,
+          "accession": "000088698226000091",
+          "passages_in_scope": 507,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "BAC",
+          "year": 2025,
+          "section": "",
+          "source_exists": false,
+          "accession": "",
+          "passages_in_scope": 0,
+          "available": false,
+          "reason": "filing_year_absent"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "GS",
+            "year": 2026,
+            "id": "000088698226000091#item8#passage-000178",
+            "section_item": "Item 8",
+            "topic": "firm capital ratios",
+            "excerpt": "that qualifies as Common Equity Tier 1 (CET1) capital. The firm calculates its CET1 capital, Tier 1 capital and Total capital ratios in accordance with both the Standardized and Advanced Capital Rules. Each of the ratios calculated under the Standardized and Advanced Capital Rules must meet its respective capital requirements. Under the Capital Framework, the firm is also subject to leverage requirements which consist of a minimum Tier 1 leverage ratio and a minimum supplementary leverage ratio",
+            "passage_text_sha256": "55f46873f669e662ea0dcba17254b3b200ba68a310dd60c3bd3b225dfa7bf25d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "broad30",
+      "kind": "mixed",
+      "prompt": "Compare KO filing year 2025 and AMZN filing year 2024, both with the exact SectionItem filter \"Item 7\": retrieve each company's foreign currency impact disclosures. Retrieve evidence separately for each company and do not relax the section filter.",
+      "scopes": [
+        {
+          "ticker": "KO",
+          "year": 2025
+        },
+        {
+          "ticker": "AMZN",
+          "year": 2024
+        }
+      ],
+      "section": "Item 7",
+      "expected_scopes": [
+        {
+          "ticker": "KO",
+          "year": 2025,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000002134425000011",
+          "passages_in_scope": 68,
+          "available": true,
+          "reason": "available"
+        },
+        {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "Item 7",
+          "source_exists": true,
+          "accession": "000101872424000008",
+          "passages_in_scope": 0,
+          "available": false,
+          "reason": "exact_section_absent"
+        }
+      ],
+      "reviewer_evidence": {
+        "label": "source-informed regression fixture; not independent gold; not exposed to the agent",
+        "anchors": [
+          {
+            "ticker": "KO",
+            "year": 2025,
+            "id": "000002134425000011#item7#passage-000066",
+            "section_item": "Item 7",
+            "topic": "currency effect on revenue",
+            "excerpt": "potentially unfavorable impact of exchange rate fluctuations on our net income. 58 The total impact of foreign currency exchange rate fluctuations on net operating revenues, including the effect of our hedging activities, was a decrease of 5% and 4% in 2024 and 2023, respectively. The total impact of foreign currency exchange rate fluctuations on operating income, including the effect of our hedging activities, was a decrease of 11% and 8% in 2024 and 2023, respectively. Foreign currency",
+            "passage_text_sha256": "4bc291eec28aeee476dee47512478d72ad5e0ad644d7af52bf789d76c97e7a54"
+          }
+        ]
+      }
+    }
+  ]
+}

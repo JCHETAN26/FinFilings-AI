@@ -1,0 +1,439 @@
+{
+  "prompt": "Compare KO and PG, both filing year 2025, with the exact SectionItem filter \"Item 7\": retrieve each company's disclosure of how foreign currency exchange rates affected its reported revenue or sales. Use separate company-specific retrieval steps and do not calculate new figures.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "foreign currency exchange rate impact on net revenues",
+        "filters": {
+          "ticker": "KO",
+          "year": 2025,
+          "section": "Item 7",
+          "accession": "000002134425000011"
+        }
+      },
+      {
+        "query": "foreign currency exchange rate impact on net sales",
+        "filters": {
+          "ticker": "PG",
+          "year": 2025,
+          "section": "Item 7",
+          "accession": "000008042425000076"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "foreign currency exchange rate impact on net revenues",
+      "filters": {
+        "ticker": "KO",
+        "year": 2025,
+        "section": "Item 7",
+        "accession": "000002134425000011"
+      },
+      "score": 5,
+      "rationale": "The original goal is KO's FY2025-filing disclosure of how FX rates affected net operating revenues. Passage 000066 states the total FX impact on net operating revenues, including hedging, was a 5% decrease in 2024 and 4% in 2023. Passage 000031 gives the consolidated revenue bridge with a (5)% foreign currency exchange rate fluctuation effect for 2024 versus 2023, and passage 000040 gives segment-level FX impacts. Passage 000034 adds that FX is expected to be unfavorable for full-year 2025 revenues. This fully covers the subquery, so no retain_ids are needed.",
+      "evidence": [
+        {
+          "id": "000002134425000011#item7#passage-000066",
+          "text": "currency exchange rates on our operating results. Our hedging activities are designed to mitigate, over time, a portion of the potentially unfavorable impact of exchange rate fluctuations on our net income. 58 The total impact of foreign currency exchange rate fluctuations on net operating revenues, including the effect of our hedging activities, was a decrease of 5% and 4% in 2024 and 2023, respectively. The total impact of foreign currency exchange rate fluctuations on operating income, including the effect of our hedging activities, was a decrease of 11% and 8% in 2024 and 2023, respectively. Foreign currency exchange gains and losses are primarily the result of the remeasurement of monetary assets and liabilities from certain currencies into functional currencies. The effects of the remeasurement of these assets and liabilities are partially offset by the impact of our economic hedging program for certain exposures on our consolidated balance sheet. Refer to Note 5 of Notes to Consolidated Financial Statements. Foreign currency exchange gains and losses are recorded in the line item other income (loss) — net in our consolidated statement of income. Refer to the heading “Operations Review — Other Income (Loss) — Net” above. The Company recorded net foreign currency exchange losses of $180 million and $312 million during the years ended December 31, 2024 and 2023, respectively. Impact of Inflation and Changing Prices Inflation affects the way we operate in many markets around the world. In general, we believe that, over time, we will be able to increase prices to counteract the majority of the",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000066",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000066"
+        },
+        {
+          "id": "000002134425000011#item7#passage-000034",
+          "text": "Foreign Exchange” below for additional information about the impact of foreign currency exchange rate fluctuations. “Acquisitions and divestitures” generally refers to acquisitions and divestitures of brands or businesses, some of which the Company considers to be structural changes. The impact of acquisitions and divestitures is the difference between the change in net operating revenues and the change in what our net operating revenues would have been if we removed the net operating revenues associated with an acquisition or a divestiture from either the current year or the prior year, as applicable. Management believes that quantifying the impact that acquisitions and divestitures had on the Company’s net operating revenues provides investors with useful information to enhance their understanding of the Company’s net operating revenue performance by improving their ability to compare our year-to-year results. Management considers the impact of acquisitions and divestitures when evaluating the Company’s performance. Refer to the heading “Structural Changes, Acquired Brands and Newly Licensed Brands” above for additional information related to acquisitions and divestitures. Net operating revenue growth rates are impacted by sales volume; price, product and geographic mix; foreign currency exchange rate fluctuations; and acquisitions and divestitures. The size and timing of acquisitions and divestitures are not consistent from period to period. Based on current spot rates and our hedging coverage in place, we expect foreign currency exchange rate fluctuations will have an unfavorable impact on our full year 2025 net operating revenues. Information about our net operating revenues by operating segment and Corporate as a percentage of Company net operating revenues",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000034",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000034"
+        },
+        {
+          "id": "000002134425000011#item7#passage-000035",
+          "text": "is as follows: Year Ended December 31,20242023 Europe, Middle East & Africa15.8 %16.2 % Latin America13.7 12.7 North America39.6 36.6 Asia Pacific10.8 10.3 Global Ventures6.7 6.7 Bottling Investments13.2 17.2 Corporate0.2 0.3 Total100.0 %100.0 % The percentage contribution of each operating segment fluctuates over time due to net operating revenues in some operating segments growing at a faster rate compared to other operating segments. In addition, foreign currency exchange rate fluctuations impact the percentage contribution of each operating segment. For additional information about the impact of foreign currency exchange rate fluctuations, refer to the heading “Liquidity, Capital Resources and Financial Position — Foreign Exchange” below. Gross Profit Margin Gross profit margin is a ratio calculated by dividing gross profit by net operating revenues. Management believes gross profit margin provides investors with useful information related to the profitability of our business prior to considering all of the selling, general and administrative expenses and other operating charges incurred. Management uses this measure in making financial, operating and planning decisions and in evaluating the Company’s performance. Our gross profit margin increased to 61.1% in 2024 from 59.5% in 2023. This increase was primarily due to the impact of favorable pricing initiatives and the refranchising of our bottling operations in the Philippines, Bangladesh and certain territories in India, partially offset by the unfavorable impact of foreign currency exchange rate fluctuations and higher commodity costs. 47 Selling, General and Administrative Expenses The following table sets forth the components of selling, general and administrative expenses (in millions): Year Ended December 31,20242023 Selling and",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000035",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000035"
+        },
+        {
+          "id": "000002134425000011#item7#passage-000031",
+          "text": "due to the timing of concentrate shipments and the impact of unit case volume from certain joint ventures in which the Company has an ownership interest, but to which the Company does not sell concentrates, syrups, source waters or powders/minerals. 45 Net Operating Revenues Net operating revenues were $47,061 million in 2024, compared to $45,754 million in 2023, an increase of $1,307 million, or 3%. The following table illustrates, on a percentage basis, the estimated impact of the factors resulting in the increase (decrease) in net operating revenues on a consolidated basis and for each of our operating segments: Percent Change 2024 versus 2023 Volume1 Price, Product & Geographic MixForeign Currency Exchange Rate Fluctuations Acquisitions & Divestitures2 Total Consolidated2 %11 %(5)%(4)%3 % Europe, Middle East & Africa(1)17 (16)— 1 Latin America3 21 (14)— 11 North America1 10 — — 11 Asia Pacific2 2 (3)— 2 Global Ventures4 (3)2 — 2 Bottling Investments5 5 (2)(28)(21) Note: Certain rows may not add due to rounding. 1Represents the percent change in net operating revenues attributable to the increase (decrease) in concentrate sales volume for our geographic operating segments and our Global Ventures operating segment (expressed in unit case equivalents) after considering the impact of acquisitions and divestitures, if any. For our Bottling Investments operating segment, this represents the percent change in net operating revenues attributable to the increase (decrease) in unit case volume after considering the impact of structural changes, if any. Our Bottling Investments operating segment data reflects unit case volume growth for consolidated bottlers only after considering",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000031",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000031"
+        },
+        {
+          "id": "000002134425000011#item7#passage-000040",
+          "text": "operating segments. The unfavorable impact of a stronger U.S. dollar compared to the currencies listed above was partially offset by the impact of a weaker U.S. dollar compared to certain other foreign currencies, including the euro and British pound, which had a favorable impact on our Europe, Middle East and Africa and Global Ventures operating segments. Refer to the heading “Liquidity, Capital Resources and Financial Position — Foreign Exchange” below. 49 The Company’s Europe, Middle East and Africa operating segment reported operating income of $4,125 million and $4,202 million for the years ended December 31, 2024 and 2023, respectively. The decrease in operating income was primarily driven by a decline in concentrate sales volume of 1%, higher commodity costs, increased marketing spending, higher operating expenses and an unfavorable foreign currency exchange rate impact of 15%, partially offset by favorable pricing initiatives. Latin America reported operating income of $3,780 million and $3,432 million for the years ended December 31, 2024 and 2023, respectively. The increase in operating income was primarily driven by concentrate sales volume growth of 3% and favorable pricing initiatives, partially offset by higher commodity costs, increased marketing spending, higher operating expenses, higher other operating charges and an unfavorable foreign currency exchange rate impact of 17%. Operating income for North America for the years ended December 31, 2024 and 2023 was $4,336 million and $4,435 million, respectively. The decrease in operating income was primarily driven by higher commodity costs, increased marketing spending, higher operating expenses and higher other operating charges, partially offset by concentrate sales",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000040",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000040"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "elapsed_seconds": 10.045353146000025
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "foreign currency exchange rate impact on net sales",
+      "filters": {
+        "ticker": "PG",
+        "year": 2025,
+        "section": "Item 7",
+        "accession": "000008042425000076"
+      },
+      "score": 5,
+      "rationale": "The PG 2025 Item 7 passages directly answer the original goal. Passage 000019 states that consolidated net sales rose $245 million to $84.3 billion as pricing of 1% was mostly offset by unfavorable foreign exchange of 1%. Passages 000023 and 000029 give segment-level FX effects on Beauty and Baby, Feminine & Family Care net sales. Passage 000016 explains translation and transaction FX exposure and says FX has negatively affected net sales. Passage 000020 covers FX effects on margins and SG&A, which are not net sales, so it adds little. The consolidated disclosure is fully supported.",
+      "evidence": [
+        {
+          "id": "000008042425000076#item7#passage-000016",
+          "text": "Ukraine. Our Russia business accounted for 1% of consolidated net sales, net earnings and net assets as of June 30, 2025. Foreign Exchange. We have significant exposure to exchange rate fluctuations, both due to translation and transaction exposures. Translation exposures arise from measuring income statements of foreign subsidiaries with functional currencies other than the U.S. dollar. Transaction exposures involve impacts from 1) input costs that are denominated in currencies other than the local reporting currency and 2) revaluation of working capital balances denominated in currencies other than the functional currency. We have experienced significant foreign exchange impacts in the past due to the weakening of certain foreign currencies versus the U.S. dollar, which have negatively impacted net sales, net earnings and cash flows. In response to the devaluation of foreign currencies (including those deemed highly inflationary), any lags or inability (due to government restrictions) to implement price increases or the negative impacts of such actions on product consumption may lead to a decline in our net sales, net earnings and cash flows. Commodities and Supply Chain. Our costs are subject to fluctuations due to changes in commodity and input material prices, transportation costs, inflationary impacts and productivity efforts. We have significant exposures to certain commodities and input materials, in particular certain oil-derived materials like resins and paper-based materials like pulp. Volatility in the market price of commodities and input materials directly affects our costs. Disruptions in manufacturing, supply and distribution operations can lead to increased costs. Legal or regulatory requirements and sustainability initiatives may result in",
+          "metadata": {
+            "ID": "000008042425000076#item7#passage-000016",
+            "Ticker": "PG",
+            "CIK": "80424",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000080424-25-000076",
+          "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+          "tag": "PG-2025-10K-item7-p000016"
+        },
+        {
+          "id": "000008042425000076#item7#passage-000020",
+          "text": "51.2% of net sales. The decrease in gross margin was due to: •110 basis points of decline from unfavorable product mix, •50 basis points of product and packaging investments, •30 basis points of higher commodity costs, •20 basis points of unfavorable foreign exchange impacts, •10 basis points of higher transportation costs and other costs and •10 basis points of higher costs from tariffs. These decreases were partially offset by: •180 basis points of manufacturing productivity savings and •30 basis points of increase due to higher pricing. Total SG&A decreased 3% to $22.7 billion and SG&A as a percentage of net sales decreased 80 basis points to 26.9% due to decreased marketing spending and higher foreign exchange transactional charges in the prior year period. •Marketing spending as a percentage of net sales decreased 50 basis points due to a decrease in marketing spending and productivity savings. •Overhead costs as a percentage of net sales decreased 10 basis points as wage inflation headwinds were more than offset by productivity savings, which includes adjustments to variable compensation payouts. •Other operating expenses as a percentage of net sales decreased 30 basis points driven by favorable foreign exchange impacts. Productivity-driven cost savings delivered 140 basis points of benefit to SG&A as a percentage of net sales. The Procter & Gamble Company 21 Operating income increased $1.9 billion, or 10%, to $20.5 billion and operating margin increased 220 basis points to 24.3% due primarily to the decrease in SG&A and the non-cash impairment charge of $1.3 billion ($1.0 billion after tax) on",
+          "metadata": {
+            "ID": "000008042425000076#item7#passage-000020",
+            "Ticker": "PG",
+            "CIK": "80424",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000080424-25-000076",
+          "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+          "tag": "PG-2025-10K-item7-p000020"
+        },
+        {
+          "id": "000008042425000076#item7#passage-000019",
+          "text": "are variable to some extent, we generally experience more scale-related impacts for these costs due to our ability to leverage our organization and systems' infrastructures to support business growth. The main drivers of changes in SG&A as a percentage of net sales are overhead and marketing cost savings, reinvestments (for example, increased advertising), inflation, foreign exchange fluctuations and scale impacts. For a detailed discussion of the fiscal 2024 year-over-year changes, please refer to the MD&A in Part II, Item 7 of the Company's Form 10-K for the fiscal year ended June 30, 2024. Net Sales Net sales increased $245 million to $84.3 billion in fiscal 2025 as an increase in net sales driven by pricing of 1% was mostly offset by unfavorable foreign exchange of 1%. Volume and mix were unchanged versus the prior year. Net sales increased low single digits in Health Care and was unchanged in Grooming, Fabric & Home Care and Baby, Feminine & Family Care. Net sales decreased low single digits in Beauty. Organic sales, which exclude the impacts of acquisitions and divestitures and foreign exchange, increased 2%. Organic sales increased low single digits in all Sector Business Units. Operating Costs Comparisons as a percentage of net sales; fiscal years ended June 3020252024Basis Point Change Gross margin51.2 %51.4 %(20) bps Selling, general and administrative expense26.9 %27.7 %(80) bps Operating margin24.3 %22.1 %220 bps Earnings before income taxes23.9 %22.3 %160 bps Net earnings19.1 %17.8 %130 bps Net earnings attributable to Procter & Gamble19.0 %17.7 %130 bps Gross margin decreased 20 basis points to",
+          "metadata": {
+            "ID": "000008042425000076#item7#passage-000019",
+            "Ticker": "PG",
+            "CIK": "80424",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000080424-25-000076",
+          "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+          "tag": "PG-2025-10K-item7-p000019"
+        },
+        {
+          "id": "000008042425000076#item7#passage-000029",
+          "text": "by unfavorable foreign exchange of 1%. Unit volume was unchanged. Excluding the impact of foreign exchange and acquisitions and divestitures, organic sales increased 1%. Global market share of the Baby, Feminine & Family Care segment decreased 0.2 points. 24 The Procter & Gamble Company •Baby Care net sales decreased mid-single digits. Negative impacts of a decrease in unit volume, unfavorable foreign exchange and divestitures were partially offset by favorable geographic and product mix (due to a higher proportion of premium-priced diapers). Unit volume decreased across all regions (due to increased competitive activity, market contraction and distribution losses) except unit volume increased in Greater China (due to share gains). Organic sales decreased low single digits driven by declines across all regions except for a double digit increase in Greater China and unchanged organic sales in Latin America. Global market share of the baby care category decreased 0.1 points. •Feminine Care net sales were unchanged. Positive impacts of favorable geographic mix and higher pricing (driven primarily by North America) were partially offset by negative impacts of a decrease in unit volume and unfavorable foreign exchange. The unit volume decrease was driven primarily by declines in Greater China (due to market contraction and competitive activity) and Latin America (due to share losses). Organic sales increased low single digits driven by a mid-single-digit increase in North America, partially offset by a mid-single-digit decline in Greater China. Market share of the feminine care category decreased 0.2 points. •Net sales in Family Care, which is predominantly a North American business, increased low",
+          "metadata": {
+            "ID": "000008042425000076#item7#passage-000029",
+            "Ticker": "PG",
+            "CIK": "80424",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000080424-25-000076",
+          "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+          "tag": "PG-2025-10K-item7-p000029"
+        },
+        {
+          "id": "000008042425000076#item7#passage-000023",
+          "text": "($ millions)20252024Change vs. 2024 VolumeN/AN/A(1)% Net sales$14,964$15,220(2)% Net earnings$2,715$2,963(8)% % of net sales18.1%19.5%(140) bps 22 The Procter & Gamble Company Beauty net sales decreased 2% to $15.0 billion as the negative impact of unfavorable mix of 2% (due primarily to the decline of the super-premium SK-II brand, which has higher than segment-average selling prices), unfavorable foreign exchange of 1% and a unit volume decrease of 1% was partially offset by the positive impact of higher pricing of 2%. Excluding the impact of acquisitions and divestitures and foreign exchange, organic sales increased 1%. Global market share of the Beauty segment decreased 0.3 points. •Hair Care net sales decreased low single digits. Positive impacts of favorable product mix and higher pricing (driven by Latin America, Europe and North America) were partially offset by negative impacts of divestitures, unfavorable foreign exchange and a unit volume decline. The unit volume decline was driven by a decline in Greater China (due to market contraction and the impact of divestitures), partially offset by increases in Latin America and Europe (both due to market growth). Organic sales increased low single digits due to double-digit growth in Latin America, mid-single-digit growth in Europe and low single-digit growth in North America, partially offset by a high single-digit decline in Greater China. Global market share of the hair care category decreased 0.9 points. •Personal Care net sales increased high single digits due to a unit volume increase and the positive impacts of higher pricing (driven by North America), partially offset by negative impacts of unfavorable foreign",
+          "metadata": {
+            "ID": "000008042425000076#item7#passage-000023",
+            "Ticker": "PG",
+            "CIK": "80424",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000080424-25-000076",
+          "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+          "tag": "PG-2025-10K-item7-p000023"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "elapsed_seconds": 9.092345991000002
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- The total impact of foreign currency exchange rate fluctuations on net operating revenues, including the effect of our hedging activities, was a decrease of 5% and 4% in 2024 and 2023, respectively. [KO-2025-10K-item7-p000066](https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm) (chunk: `000002134425000011#item7#passage-000066`; accession: `0000021344-25-000011`).\n- Based on current spot rates and our hedging coverage in place, we expect foreign currency exchange rate fluctuations will have an unfavorable impact on our full year 2025 net operating revenues. [KO-2025-10K-item7-p000034](https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm) (chunk: `000002134425000011#item7#passage-000034`; accession: `0000021344-25-000011`).\n- Net sales increased $245 million to $84.3 billion in fiscal 2025 as an increase in net sales driven by pricing of 1% was mostly offset by unfavorable foreign exchange of 1%. [PG-2025-10K-item7-p000019](https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm) (chunk: `000008042425000076#item7#passage-000019`; accession: `0000080424-25-000076`).\n- Beauty net sales decreased 2% to $15.0 billion as the negative impact of unfavorable mix of 2% \\(due primarily to the decline of the super-premium SK-II brand, which has higher than segment-average selling prices\\), unfavorable foreign exchange of 1% and a unit volume decrease of 1% [PG-2025-10K-item7-p000023](https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm) (chunk: `000008042425000076#item7#passage-000023`; accession: `0000080424-25-000076`).\n- Feminine Care net sales were unchanged. Positive impacts of favorable geographic mix and higher pricing \\(driven primarily by North America\\) were partially offset by negative impacts of a decrease in unit volume and unfavorable foreign exchange. [PG-2025-10K-item7-p000029](https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm) (chunk: `000008042425000076#item7#passage-000029`; accession: `0000080424-25-000076`).\n- We have experienced significant foreign exchange impacts in the past due to the weakening of certain foreign currencies versus the U.S. dollar, which have negatively impacted net sales, net earnings and cash flows. [PG-2025-10K-item7-p000016](https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm) (chunk: `000008042425000076#item7#passage-000016`; accession: `0000080424-25-000076`).",
+  "citations": [
+    {
+      "tag": "KO-2025-10K-item7-p000066",
+      "chunk_id": "000002134425000011#item7#passage-000066",
+      "accession": "0000021344-25-000011",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "quote": "The total impact of foreign currency exchange rate fluctuations on net operating revenues, including the effect of our hedging activities, was a decrease of 5% and 4% in 2024 and 2023, respectively."
+    },
+    {
+      "tag": "KO-2025-10K-item7-p000034",
+      "chunk_id": "000002134425000011#item7#passage-000034",
+      "accession": "0000021344-25-000011",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "quote": "Based on current spot rates and our hedging coverage in place, we expect foreign currency exchange rate fluctuations will have an unfavorable impact on our full year 2025 net operating revenues."
+    },
+    {
+      "tag": "PG-2025-10K-item7-p000019",
+      "chunk_id": "000008042425000076#item7#passage-000019",
+      "accession": "0000080424-25-000076",
+      "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+      "quote": "Net sales increased $245 million to $84.3 billion in fiscal 2025 as an increase in net sales driven by pricing of 1% was mostly offset by unfavorable foreign exchange of 1%."
+    },
+    {
+      "tag": "PG-2025-10K-item7-p000023",
+      "chunk_id": "000008042425000076#item7#passage-000023",
+      "accession": "0000080424-25-000076",
+      "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+      "quote": "Beauty net sales decreased 2% to $15.0 billion as the negative impact of unfavorable mix of 2% (due primarily to the decline of the super-premium SK-II brand, which has higher than segment-average selling prices), unfavorable foreign exchange of 1% and a unit volume decrease of 1%"
+    },
+    {
+      "tag": "PG-2025-10K-item7-p000029",
+      "chunk_id": "000008042425000076#item7#passage-000029",
+      "accession": "0000080424-25-000076",
+      "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+      "quote": "Feminine Care net sales were unchanged. Positive impacts of favorable geographic mix and higher pricing (driven primarily by North America) were partially offset by negative impacts of a decrease in unit volume and unfavorable foreign exchange."
+    },
+    {
+      "tag": "PG-2025-10K-item7-p000016",
+      "chunk_id": "000008042425000076#item7#passage-000016",
+      "accession": "0000080424-25-000076",
+      "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+      "quote": "We have experienced significant foreign exchange impacts in the past due to the weakening of certain foreign currencies versus the U.S. dollar, which have negatively impacted net sales, net earnings and cash flows."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.7433406410000316,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13102,
+        "cache_read_input_tokens": 1249,
+        "output_tokens": 363,
+        "output_tokens_details": {
+          "thinking_tokens": 187
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13102,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 363,
+            "cache_read_input_tokens": 1249,
+            "cache_creation_input_tokens": 13102,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13102
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00281459
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.188925269000038,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16151,
+        "cache_read_input_tokens": 1151,
+        "output_tokens": 1046,
+        "output_tokens_details": {
+          "thinking_tokens": 686
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16151,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1046,
+            "cache_read_input_tokens": 1151,
+            "cache_creation_input_tokens": 16151,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16151
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00376491
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.229147875000081,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16119,
+        "cache_read_input_tokens": 1151,
+        "output_tokens": 1036,
+        "output_tokens_details": {
+          "thinking_tokens": 676
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16119,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1036,
+            "cache_read_input_tokens": 1151,
+            "cache_creation_input_tokens": 16119,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16119
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0037535100000000007
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 11.151660290000109,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8185,
+        "cache_read_input_tokens": 882,
+        "output_tokens": 2374,
+        "output_tokens_details": {
+          "thinking_tokens": 1681
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8185,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2374,
+            "cache_read_input_tokens": 882,
+            "cache_creation_input_tokens": 8185,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 8185
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00283302
+    }
+  ],
+  "elapsed_seconds": 24.943016255999964
+}

@@ -9,10 +9,10 @@ import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from pydantic import ValidationError
 from agent.filters import FilingFilter
-from agent.models import Draft, QuoteClaim, Plan
+from agent.models import Draft, QuoteClaim, Plan, Critique
 from agent.provenance import ProvenanceRegistry
 from agent.synthesizer import ground, escape_markdown
-from agent.state_machine import Agent
+from agent.state_machine import Agent, merge_evidence
 from agent.provider import ClaudeJSON
 from common import open_store
 
@@ -20,6 +20,7 @@ from common import open_store
 class Grounding(unittest.TestCase):
     def setUp(self):
         self.registry=ProvenanceRegistry(Path('data/sec/chunks.jsonl'),Path('data/sec/provenance.json'))
+        self.addCleanup(self.registry.close)
         with Path('data/sec/chunks.jsonl').open() as source:
             self.chunk=json.loads(next(source))
         self.hit=dict(id=self.chunk['ID'],text=self.chunk['Text'],metadata={k:v for k,v in self.chunk.items() if k not in ('Text','Tokens')})
@@ -64,6 +65,22 @@ class Grounding(unittest.TestCase):
         with self.assertRaises(ValidationError): Plan(subqueries=[])
         with self.assertRaises(ValidationError): FilingFilter(section='Item 1A\nmalicious')
         self.assertIn(r'\[click\]',escape_markdown('[click](https://evil.invalid)'))
+
+    def test_partial_context_preserves_useful_passages_with_fixed_bound(self):
+        evidence=[]
+        with Path('data/sec/chunks.jsonl').open() as source:
+            for _ in range(7):
+                chunk=json.loads(next(source))
+                hit=dict(id=chunk['ID'],text=chunk['Text'],metadata={k:v for k,v in chunk.items() if k not in ('Text','Tokens')})
+                evidence.append(self.registry.verify(hit,self.filters))
+        merged=merge_evidence(evidence[:2],evidence[2:])
+        self.assertEqual([item.id for item in merged],[item.id for item in evidence[:5]])
+        self.assertEqual(merge_evidence(evidence[:2],evidence[:5]),evidence[:5])
+        self.assertEqual(merge_evidence([],evidence[:5]),evidence[:5])
+        for retained,fresh in [(evidence[:3],[]),([],evidence[:6]),([evidence[0],evidence[0]],[])]:
+            with self.assertRaises(ValueError):merge_evidence(retained,fresh)
+        with self.assertRaises(ValidationError):
+            Critique(score=3,rationale='partial',rewritten_query='missing topic',retain_ids=[item.id for item in evidence[:3]])
 
 
 class PQFilter(unittest.TestCase):
@@ -124,6 +141,46 @@ class ProviderTransport(unittest.IsolatedAsyncioTestCase):
             model.executable='/nonexistent/finfilings-model'
             with self.assertRaises(FileNotFoundError):
                 await asyncio.wait_for(model.generate(Draft,'transport test',{}),2)
+
+
+
+
+class ExpandedProvenance(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        provenance=Path('bench_kit/results/phase3-expanded-20261031/agent-provenance.json')
+        if not provenance.exists():
+            raise unittest.SkipTest('requires enrolled expanded SEC corpus')
+        cls.registry=ProvenanceRegistry(Path('data/sec-scale-v2-evaluation-20261031/chunks.jsonl'),provenance)
+        cls.addClassCleanup(cls.registry.close)
+
+    def test_new_filing_section_identity_and_exact_content(self):
+        self.assertEqual(len(self.registry.sources),152)
+        items=[]
+        with self.registry.corpus.open() as stream:
+            for line in stream:
+                chunk=json.loads(line)
+                if chunk['Ticker']=='AAPL' and chunk['FilingYear']==2025 and chunk['ID'].endswith('passage-000000'):
+                    items.append(chunk)
+        self.assertEqual({c['SectionItem'] for c in items},{'Item 1A','Item 7','Item 8'})
+        tags=[]
+        for chunk in items:
+            filters=FilingFilter(ticker='AAPL',year=2025,section=chunk['SectionItem'])
+            hit=dict(id=chunk['ID'],text=chunk['Text'],metadata={k:v for k,v in chunk.items() if k not in ('Text','Tokens')})
+            evidence=self.registry.verify(hit,filters)
+            self.assertEqual(evidence.accession,'0000320193-25-000079')
+            self.assertIn(chunk['ID'].split('#')[1],evidence.tag)
+            tags.append(evidence.tag)
+            with self.assertRaises(ValueError):self.registry.verify(dict(hit,text=hit['text']+' fabricated'),filters)
+        self.assertEqual(len(set(tags)),3)
+        catalog=next(s for s in self.registry.catalog() if s['accession']=='000032019325000079')
+        self.assertEqual(catalog['sections'],['Item 1A','Item 7','Item 8'])
+
+    def test_missing_exact_section_does_not_borrow_newer_year(self):
+        filters=self.registry.resolve_filter(FilingFilter(ticker='MSFT',year=2024,section='Item 1A'))
+        self.assertEqual(filters.accession,'000095017024087843')
+        self.assertNotIn('Item 1A',self.registry.sections[filters.accession])
+        self.assertEqual(self.registry.resolve_filter(FilingFilter(ticker='AAPL',year=2025)).accession,'000032019325000079')
 
 
 if __name__=='__main__': unittest.main()

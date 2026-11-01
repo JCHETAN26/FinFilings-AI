@@ -1,0 +1,15 @@
+{
+  "git_head": "1c333b4b951ddaffd321edbdacb3ea44699f9ec7",
+  "files": {
+    "py/agent/planner.py": "1d419ac5625b0e8e610955da3ff9d61a36c0a7ba6fed85b1b0683f06e30b493e",
+    "py/agent/critic.py": "cd3347f1c01e20654b98632db0d3cdbfa8eb0b8ccfaa5be144cdc43b0cdfb27c",
+    "py/agent/models.py": "4f43b78c3c62082e40b9b7e39e7a3bbed6793008bed6f9cde9f1e7a1afee6928",
+    "py/agent/state_machine.py": "bc44783994130f81d6d31268d30f119abbb78a4e65f4a371637598d33f02fe52",
+    "py/agent/provenance.py": "656f0ed37f4ca86ee73432ca6ccd6930d887a52927256919f5eae5f325d48fbc",
+    "py/test_agent.py": "109318a509647a98efbd0eaf57265a582cf10d292458482e960a62c6531d32cc",
+    "bench_kit/eval_agent.py": "45484e1211b60073f4c09eae74a0873ee1180886670c5f6f649991baf108df0a",
+    "bench_kit/verify_expanded_agent.py": "9155d8c8ca354ac39da3526fb90c405465f859cfce548abc3af71b10f2b7fb55",
+    "bench_kit/diagnose_cloud.py": "a6690c08220bf2c6b7dfb2130d6393a52a90f141c39c414f16ee60cd80cea5f8",
+    "scripts/evaluate-expanded-agent.py": "933859b76763a1eafbc99b280fa82eb2c37bb25650fdceca69d296564a285840"
+  }
+}

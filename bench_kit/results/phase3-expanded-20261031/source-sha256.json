@@ -1,0 +1,19 @@
+{
+  "git_head": "1c333b4b951ddaffd321edbdacb3ea44699f9ec7",
+  "files": {
+    "bench_kit/eval_agent.py": "2d050234c4198ad8f500b68484fcb0704e17917f2d6246c9e600567e2984ed07",
+    "bench_kit/verify_expanded_agent.py": "e91aa6b4749c7b04b215cecdced7898d84a787bec5d4a9611ab1a4e5d1db9493",
+    "scripts/evaluate-expanded-agent.py": "8367581c499efefa8caef9c4e6539164d2c5a6c0b0973e91ce927288d7b99a4d",
+    "py/test_agent.py": "02e9bccbd9a5e46ba566777273b4f38eac28262b9a490425cd1d88913fba61f1",
+    "py/agent/__init__.py": "2487bcb7e2e9113bc1d224810a42ef067e2acac6e2e52a4b30f860513e50ceea",
+    "py/agent/critic.py": "05813313b08b76d643b8db965921a5b8728d6f2ef28ae3ff6a22207e2677815a",
+    "py/agent/filters.py": "44eefa4ad498046cc7c12fd0d0abca53f7342e2c99d99f2c7e6d6aba11553368",
+    "py/agent/models.py": "aceda4a709e3bb6aedd917d6920262990293c896c98e4ae50433bca01530565e",
+    "py/agent/planner.py": "5f66881ea6b7a56576be0f8f56f4cd90a98dde99cdfafcbf7d5c6d6615555f76",
+    "py/agent/provenance.py": "656f0ed37f4ca86ee73432ca6ccd6930d887a52927256919f5eae5f325d48fbc",
+    "py/agent/provider.py": "9da39cc201a101dd8244cebf6b142396c2008579805082d69eea5cd8bf2ba617",
+    "py/agent/retrieval.py": "8a83fa308f6377c4929320c1491ad0ab2db7d3ce87c4182bcfad69978d699246",
+    "py/agent/state_machine.py": "ba977cf5171cc77fd7face9e462a6d74526343cfa49d05f7ab4bcf42712ed19b",
+    "py/agent/synthesizer.py": "6f0a3420d80c737abf734c3c10019549e6f67b0152da89b27db414cc9c90461b"
+  }
+}

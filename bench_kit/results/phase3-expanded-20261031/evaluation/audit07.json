@@ -1,0 +1,730 @@
+{
+  "prompt": "Audit AMZN filing year 2024: separately retrieve liquidity and cash-flow disclosures and operating lease obligations. Present supporting excerpts without deriving new numbers.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "liquidity and capital resources disclosures",
+        "filters": {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "accession": "000101872424000008"
+        }
+      },
+      {
+        "query": "cash flow disclosures from operating, investing, and financing activities",
+        "filters": {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "accession": "000101872424000008"
+        }
+      },
+      {
+        "query": "operating lease obligations and lease commitments",
+        "filters": {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "accession": "000101872424000008"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "liquidity and capital resources disclosures",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 4,
+      "rationale": "Passage 000057 is directly on point: it has the \"Liquidity and Capital Resources\" section with cash flow totals by activity (operating, investing, financing), principal liquidity sources and cash/marketable securities balances, and operating cash flow drivers. This is the core of the subquery. It is not exhaustive: it omits debt, contractual obligations, and lease commitment detail. Passage 000076 (Item 7A market risk) and 000054 (critical accounting estimates) are only tangentially related. Passage 000084 has the cash flow statement but is a primary statement, not MD&A discussion. Filing year 2024 maps to the fiscal year ended December 31, 2023, which the evidence reflects.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000057",
+          "text": "of our tax accruals. Although we believe our tax estimates are reasonable, the final outcome of audits, investigations, and any other tax controversies could be materially different from our historical income tax provisions and accruals. Liquidity and Capital Resources Cash flow information is as follows (in millions): Year Ended December 31, 2022 2023 Cash provided by (used in): Operating activities $ 46,752 $ 84,946 Investing activities (37,601) (49,833) Financing activities 9,718 (15,879) Our principal sources of liquidity are cash flows generated from operations and our cash, cash equivalents, and marketable securities balances, which, at fair value, were $70.0 billion and $86.8 billion as of December 31, 2022 and 2023. Amounts held in foreign currencies were $18.3 billion and $23.5 billion as of December 31, 2022 and 2023. Our foreign currency balances include British Pounds, Canadian Dollars, Euros, Indian Rupees, and Japanese Yen. Cash provided by (used in) operating activities was $46.8 billion and $84.9 billion in 2022 and 2023. Our operating cash flows result primarily from cash received from our consumer, seller, developer, enterprise, and content creator customers, and advertisers, offset by cash payments we make for products and services, employee compensation, payment processing and related transaction costs, operating leases, and interest payments. Cash received from our customers and other activities generally corresponds to our net sales. The increase in operating cash flow in 2023, compared to the prior year, was due to an increase in net income (loss), excluding non-cash expenses, and changes in working capital. Working capital at any specific point in time is",
+          "metadata": {
+            "ID": "000101872424000008#passage-000057",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000057"
+        },
+        {
+          "id": "000101872424000008#passage-000076",
+          "text": "includes approximately $0.9 billion lower depreciation expense due to an increase in the estimated useful life of our servers beginning on January 1, 2024. • This guidance assumes, among other things, that no additional business acquisitions, restructurings, or legal settlements are concluded. 31 Table of Contents Item 7A. Quantitative and Qualitative Disclosures About Market Risk We are exposed to market risk for the effect of interest rate changes, foreign currency fluctuations, and changes in the market values of our investments. Information relating to quantitative and qualitative disclosures about market risk is set forth below and in Item 7 of Part II, “Management’s Discussion and Analysis of Financial Condition and Results of Operations — Liquidity and Capital Resources.” Interest Rate Risk Our exposure to market risk for changes in interest rates relates primarily to our investment portfolio and our debt. Our long-term debt is carried at amortized cost and fluctuations in interest rates do not impact our consolidated financial statements. However, the fair value of our long-term debt, which pays interest at a fixed rate, will generally fluctuate with movements of interest rates, increasing in periods of declining rates of interest and declining in periods of increasing rates of interest. We generally invest our excess cash in AAA-rated money market funds and investment grade short- to intermediate-term marketable debt securities. Marketable debt securities with fixed interest rates may have their fair market value adversely affected due to a rise in interest rates, and we may suffer losses in principal if forced to sell securities that have declined",
+          "metadata": {
+            "ID": "000101872424000008#passage-000076",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000076"
+        },
+        {
+          "id": "000101872424000008#passage-000054",
+          "text": "Business, Accounting Policies, and Supplemental Disclosures.” Our Annual Report on Form 10-K for the year ended December 31, 2022 includes a discussion and analysis of our financial condition and results of operations for the year ended December 31, 2021 in Item 7 of Part II, “Management’s Discussion and Analysis of Financial Condition and Results of Operations.” Critical Accounting Estimates The preparation of financial statements in conformity with generally accepted accounting principles of the United States (“GAAP”) requires estimates and assumptions that affect the reported amounts of assets and liabilities, revenues and expenses, and related disclosures of contingent liabilities in the consolidated financial statements and accompanying notes. Critical accounting estimates are those estimates made in accordance with GAAP that involve a significant level of estimation uncertainty and have had or are reasonably likely to have a material impact on the financial condition or results of operations of the Company. Based on this definition, we have identified the critical accounting estimates addressed below. We also have other key accounting policies, which involve the use of estimates, judgments, and assumptions that are significant to understanding our results. For additional information, see Item 8 of Part II, “Financial Statements and Supplementary Data — Note 1 — Description of Business, Accounting Policies, and Supplemental Disclosures.” Although we believe that our estimates, assumptions, and judgments are reasonable, they are based upon information presently available. Actual results may differ significantly from these estimates under different assumptions, judgments, or conditions. Inventories Inventories, consisting of products available for sale, are primarily accounted for using the",
+          "metadata": {
+            "ID": "000101872424000008#passage-000054",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000054"
+        },
+        {
+          "id": "000101872424000008#passage-000003",
+          "text": "Securities 19 Item 6. Reserved 19 Item 7. Management’s Discussion and Analysis of Financial Condition and Results of Operations 20 Item 7A. Quantitative and Qualitative Disclosures About Market Risk 32 Item 8. Financial Statements and Supplementary Data 34 Item 9. Changes in and Disagreements with Accountants on Accounting and Financial Disclosure 71 Item 9A. Controls and Procedures 71 Item 9B. Other Information 73 Item 9C. Disclosure Regarding Foreign Jurisdictions that Prevent Inspections 73 PART III Item 10. Directors, Executive Officers, and Corporate Governance 73 Item 11. Executive Compensation 73 Item 12. Security Ownership of Certain Beneficial Owners and Management and Related Shareholder Matters 73 Item 13. Certain Relationships and Related Transactions, and Director Independence 74 Item 14. Principal Accountant Fees and Services 74 PART IV Item 15. Exhibits, Financial Statement Schedules 75 Item 16. Form 10-K Summary 77 Signatures 78 2 Table of Contents AMAZON.COM, INC. PART I Item 1. Business This Annual Report on Form 10-K and the documents incorporated herein by reference contain forward-looking statements based on expectations, estimates, and projections as of the date of this filing. Actual results and outcomes may differ materially from those expressed in forward-looking statements. See Item 1A of Part I — “Risk Factors.” As used herein, “Amazon.com,” “we,” “our,” and similar terms include Amazon.com, Inc. and its subsidiaries, unless the context indicates otherwise. General We seek to be Earth’s most customer-centric company. We are guided by four principles: customer obsession rather than competitor focus, passion for invention, commitment to operational excellence, and long-term thinking. In each of",
+          "metadata": {
+            "ID": "000101872424000008#passage-000003",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000003"
+        },
+        {
+          "id": "000101872424000008#passage-000084",
+          "text": "evaluated the Company’s income tax disclosures in relation to these matters. /s/ Ernst & Young LLP We have served as the Company’s auditor since 1996. Seattle, Washington February 1, 2024 36 Table of Contents AMAZON.COM, INC. CONSOLIDATED STATEMENTS OF CASH FLOWS (in millions) Year Ended December 31, 2021 2022 2023 CASH, CASH EQUIVALENTS, AND RESTRICTED CASH, BEGINNING OF PERIOD $ 42,377 $ 36,477 $ 54,253 OPERATING ACTIVITIES: Net income (loss) 33,364 ( 2,722 ) 30,425 Adjustments to reconcile net income (loss) to net cash from operating activities: Depreciation and amortization of property and equipment and capitalized content costs, operating lease assets, and other 34,433 41,921 48,663 Stock-based compensation 12,757 19,621 24,023 Non-operating expense (income), net ( 14,306 ) 16,966 ( 748 ) Deferred income taxes ( 310 ) ( 8,148 ) ( 5,876 ) Changes in operating assets and liabilities: Inventories ( 9,487 ) ( 2,592 ) 1,449 Accounts receivable, net and other ( 9,145 ) ( 8,622 ) ( 8,348 ) Other assets ( 9,018 ) ( 13,275 ) ( 12,265 ) Accounts payable 3,602 2,945 5,473 Accrued expenses and other 2,123 ( 1,558 ) ( 2,428 ) Unearned revenue 2,314 2,216 4,578 Net cash provided by (used in) operating activities 46,327 46,752 84,946 INVESTING ACTIVITIES: Purchases of property and equipment ( 61,053 ) ( 63,645 ) ( 52,729 ) Proceeds from property and equipment sales and incentives 5,657 5,324 4,596 Acquisitions, net of cash acquired, non-marketable investments, and other ( 1,985 ) ( 8,316 ) ( 5,839 ) Sales and maturities of marketable securities",
+          "metadata": {
+            "ID": "000101872424000008#passage-000084",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000084"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 8.909910888003651
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "cash flow disclosures from operating, investing, and financing activities",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 5,
+      "rationale": "Evidence for AMZN, filing 000101872424000008 (cover-page period ended December 31, 2023) directly covers all three requested activity types. Passage 57 gives the Liquidity cash-flow summary table: operating $84,946M, investing (49,833)M, financing (15,879)M for 2023, with 2022 comparatives. Passage 84 has the operating-activities section of the consolidated statement of cash flows. Passage 85 has the investing and financing line items and the net change in cash. Passages 59 and 72 add financing-flow detail and a free-cash-flow reconciliation. The 2022/2023 columns match the filing's own fiscal years and are not mislabeled. The audit's operating-lease request is outside this subquery and was not graded.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000057",
+          "text": "of our tax accruals. Although we believe our tax estimates are reasonable, the final outcome of audits, investigations, and any other tax controversies could be materially different from our historical income tax provisions and accruals. Liquidity and Capital Resources Cash flow information is as follows (in millions): Year Ended December 31, 2022 2023 Cash provided by (used in): Operating activities $ 46,752 $ 84,946 Investing activities (37,601) (49,833) Financing activities 9,718 (15,879) Our principal sources of liquidity are cash flows generated from operations and our cash, cash equivalents, and marketable securities balances, which, at fair value, were $70.0 billion and $86.8 billion as of December 31, 2022 and 2023. Amounts held in foreign currencies were $18.3 billion and $23.5 billion as of December 31, 2022 and 2023. Our foreign currency balances include British Pounds, Canadian Dollars, Euros, Indian Rupees, and Japanese Yen. Cash provided by (used in) operating activities was $46.8 billion and $84.9 billion in 2022 and 2023. Our operating cash flows result primarily from cash received from our consumer, seller, developer, enterprise, and content creator customers, and advertisers, offset by cash payments we make for products and services, employee compensation, payment processing and related transaction costs, operating leases, and interest payments. Cash received from our customers and other activities generally corresponds to our net sales. The increase in operating cash flow in 2023, compared to the prior year, was due to an increase in net income (loss), excluding non-cash expenses, and changes in working capital. Working capital at any specific point in time is",
+          "metadata": {
+            "ID": "000101872424000008#passage-000057",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000057"
+        },
+        {
+          "id": "000101872424000008#passage-000084",
+          "text": "evaluated the Company’s income tax disclosures in relation to these matters. /s/ Ernst & Young LLP We have served as the Company’s auditor since 1996. Seattle, Washington February 1, 2024 36 Table of Contents AMAZON.COM, INC. CONSOLIDATED STATEMENTS OF CASH FLOWS (in millions) Year Ended December 31, 2021 2022 2023 CASH, CASH EQUIVALENTS, AND RESTRICTED CASH, BEGINNING OF PERIOD $ 42,377 $ 36,477 $ 54,253 OPERATING ACTIVITIES: Net income (loss) 33,364 ( 2,722 ) 30,425 Adjustments to reconcile net income (loss) to net cash from operating activities: Depreciation and amortization of property and equipment and capitalized content costs, operating lease assets, and other 34,433 41,921 48,663 Stock-based compensation 12,757 19,621 24,023 Non-operating expense (income), net ( 14,306 ) 16,966 ( 748 ) Deferred income taxes ( 310 ) ( 8,148 ) ( 5,876 ) Changes in operating assets and liabilities: Inventories ( 9,487 ) ( 2,592 ) 1,449 Accounts receivable, net and other ( 9,145 ) ( 8,622 ) ( 8,348 ) Other assets ( 9,018 ) ( 13,275 ) ( 12,265 ) Accounts payable 3,602 2,945 5,473 Accrued expenses and other 2,123 ( 1,558 ) ( 2,428 ) Unearned revenue 2,314 2,216 4,578 Net cash provided by (used in) operating activities 46,327 46,752 84,946 INVESTING ACTIVITIES: Purchases of property and equipment ( 61,053 ) ( 63,645 ) ( 52,729 ) Proceeds from property and equipment sales and incentives 5,657 5,324 4,596 Acquisitions, net of cash acquired, non-marketable investments, and other ( 1,985 ) ( 8,316 ) ( 5,839 ) Sales and maturities of marketable securities",
+          "metadata": {
+            "ID": "000101872424000008#passage-000084",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000084"
+        },
+        {
+          "id": "000101872424000008#passage-000059",
+          "text": "$9.7 billion and $(15.9) billion in 2022 and 2023. Cash inflows from financing activities resulted from proceeds from short-term debt, and other and long-term-debt of $62.7 billion and $18.1 billion in 2022 and 2023. Cash outflows from financing activities resulted from repurchases of common stock in 2022, payments of short-term debt, and other, long-term debt, finance leases, and financing obligations of $53.0 billion and $34.0 billion in 2022 and 2023. Property and equipment acquired under finance leases was $675 million and $642 million in 2022 and 2023. We had no borrowings outstanding under the two unsecured revolving credit facilities or the commercial paper programs, we had $682 million of borrowings outstanding under the secured revolving credit facility, and the entire amount of the term loan has been repaid as of December 31, 2023. See Item 8 of Part II, “Financial Statements and Supplementary Data — Note 6 — Debt” for additional information. As of December 31, 2023, cash, cash equivalents, and marketable securities held by foreign subsidiaries were $4.7 billion. We intend to invest substantially all of our foreign subsidiary earnings, as well as our capital in our foreign subsidiaries, indefinitely outside of the U.S. in those jurisdictions in which we would incur significant, additional costs upon repatriation of such amounts. Our U.S. taxable income is reduced by accelerated depreciation deductions and increased by the impact of capitalized research and development expenses. U.S. tax rules provide for enhanced accelerated depreciation deductions by allowing us to expense a portion of qualified property, primarily equipment. These enhanced deductions",
+          "metadata": {
+            "ID": "000101872424000008#passage-000059",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000059"
+        },
+        {
+          "id": "000101872424000008#passage-000085",
+          "text": "59,384 31,601 5,627 Purchases of marketable securities ( 60,157 ) ( 2,565 ) ( 1,488 ) Net cash provided by (used in) investing activities ( 58,154 ) ( 37,601 ) ( 49,833 ) FINANCING ACTIVITIES: Common stock repurchased — ( 6,000 ) — Proceeds from short-term debt, and other 7,956 41,553 18,129 Repayments of short-term debt, and other ( 7,753 ) ( 37,554 ) ( 25,677 ) Proceeds from long-term debt 19,003 21,166 — Repayments of long-term debt ( 1,590 ) ( 1,258 ) ( 3,676 ) Principal repayments of finance leases ( 11,163 ) ( 7,941 ) ( 4,384 ) Principal repayments of financing obligations ( 162 ) ( 248 ) ( 271 ) Net cash provided by (used in) financing activities 6,291 9,718 ( 15,879 ) Foreign currency effect on cash, cash equivalents, and restricted cash ( 364 ) ( 1,093 ) 403 Net increase (decrease) in cash, cash equivalents, and restricted cash ( 5,900 ) 17,776 19,637 CASH, CASH EQUIVALENTS, AND RESTRICTED CASH, END OF PERIOD $ 36,477 $ 54,253 $ 73,890 See accompanying notes to consolidated financial statements. 37 Table of Contents AMAZON.COM, INC. CONSOLIDATED STATEMENTS OF OPERATIONS (in millions, except per share data) Year Ended December 31, 2021 2022 2023 Net product sales $ 241,787 $ 242,901 $ 255,887 Net service sales 228,035 271,082 318,898 Total net sales 469,822 513,983 574,785 Operating expenses: Cost of sales 272,344 288,831 304,739 Fulfillment 75,111 84,299 90,619 Technology and infrastructure 56,052 73,213 85,622 Sales and marketing 32,551 42,238 44,370 General and administrative 8,823 11,891 11,816",
+          "metadata": {
+            "ID": "000101872424000008#passage-000085",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000085"
+        },
+        {
+          "id": "000101872424000008#passage-000072",
+          "text": "Less Principal Repayments of Finance Leases and Financing Obligations Free cash flow less principal repayments of finance leases and financing obligations is free cash flow reduced by “Principal repayments of finance leases” and “Principal repayments of financing obligations.” Principal repayments of finance leases and financing obligations approximates the actual payments of cash for our finance leases and financing obligations. The following is a reconciliation of free cash flow less principal repayments of finance leases and financing obligations to the most comparable GAAP cash flow measure, “Net cash provided by (used in) operating activities,” for 2022 and 2023 (in millions): Year Ended December 31, 2022 2023 Net cash provided by (used in) operating activities $ 46,752 $ 84,946 Purchases of property and equipment, net of proceeds from sales and incentives (58,321) (48,133) Free cash flow (11,569) 36,813 Principal repayments of finance leases (7,941) (4,384) Principal repayments of financing obligations (248) (271) Free cash flow less principal repayments of finance leases and financing obligations $ (19,758) $ 32,158 Net cash provided by (used in) investing activities $ (37,601) $ (49,833) Net cash provided by (used in) financing activities $ 9,718 $ (15,879) Free Cash Flow Less Equipment Finance Leases and Principal Repayments of All Other Finance Leases and Financing Obligations Free cash flow less equipment finance leases and principal repayments of all other finance leases and financing obligations is free cash flow reduced by equipment acquired under finance leases, which is included in “Property and equipment acquired under finance leases, net of remeasurements and modifications,” principal repayments of",
+          "metadata": {
+            "ID": "000101872424000008#passage-000072",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000072"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 14.880309129002853
+    },
+    {
+      "subquery": 2,
+      "attempt": 0,
+      "query": "operating lease obligations and lease commitments",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 3,
+      "rationale": "Passages 000106 and 000107 describe lease classification and accounting policy (terms, expense recognition) but give no operating lease obligation or commitment amounts. Passage 000092 has the supplemental cash flow table with cash paid for operating leases and assets acquired under operating leases for 2021-2023, which is related but is cash flow data, not the obligation or commitment schedule. Passages 000072 and 000073 are free cash flow reconciliations covering finance lease principal repayments, which are off-target. No future minimum operating lease payments, maturity table, or total lease commitments appear in the evidence. Partial support only.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000106",
+          "text": "the corresponding operating expense categories on our consolidated statements of operations. Leases We categorize leases with contractual terms longer than twelve months as either operating or finance. Finance leases are generally those leases that allow us to substantially utilize or pay for the entire asset over its estimated life. Assets acquired under finance leases are recorded in “Property and equipment, net.” All other leases are categorized as operating leases. Our leases generally have terms that range from one to ten years for equipment and one to twenty years for property. Certain lease contracts include obligations to pay for other services, such as operations and maintenance. For leases of property, we account for these other services as a component of the lease. For substantially all other leases, the services are accounted for separately and we allocate payments to the lease and other services components based on estimated stand-alone prices. Lease liabilities are recognized at the present value of the fixed lease payments, reduced by landlord incentives using a discount rate based on similarly secured borrowings available to us. Lease assets are recognized based on the initial present value of the fixed lease payments, reduced by landlord incentives, plus any direct costs from executing the leases or lease prepayments reclassified from “Other assets” upon lease commencement. Leasehold improvements are capitalized at cost and amortized over the lesser of their expected useful life or the lease term. When we have the option to extend the lease term, terminate the lease before the contractual expiration date, or purchase the leased",
+          "metadata": {
+            "ID": "000101872424000008#passage-000106",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000106"
+        },
+        {
+          "id": "000101872424000008#passage-000072",
+          "text": "Less Principal Repayments of Finance Leases and Financing Obligations Free cash flow less principal repayments of finance leases and financing obligations is free cash flow reduced by “Principal repayments of finance leases” and “Principal repayments of financing obligations.” Principal repayments of finance leases and financing obligations approximates the actual payments of cash for our finance leases and financing obligations. The following is a reconciliation of free cash flow less principal repayments of finance leases and financing obligations to the most comparable GAAP cash flow measure, “Net cash provided by (used in) operating activities,” for 2022 and 2023 (in millions): Year Ended December 31, 2022 2023 Net cash provided by (used in) operating activities $ 46,752 $ 84,946 Purchases of property and equipment, net of proceeds from sales and incentives (58,321) (48,133) Free cash flow (11,569) 36,813 Principal repayments of finance leases (7,941) (4,384) Principal repayments of financing obligations (248) (271) Free cash flow less principal repayments of finance leases and financing obligations $ (19,758) $ 32,158 Net cash provided by (used in) investing activities $ (37,601) $ (49,833) Net cash provided by (used in) financing activities $ 9,718 $ (15,879) Free Cash Flow Less Equipment Finance Leases and Principal Repayments of All Other Finance Leases and Financing Obligations Free cash flow less equipment finance leases and principal repayments of all other finance leases and financing obligations is free cash flow reduced by equipment acquired under finance leases, which is included in “Property and equipment acquired under finance leases, net of remeasurements and modifications,” principal repayments of",
+          "metadata": {
+            "ID": "000101872424000008#passage-000072",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000072"
+        },
+        {
+          "id": "000101872424000008#passage-000073",
+          "text": "all other finance lease liabilities, which is included in “Principal repayments of finance leases,” and “Principal repayments of financing obligations.” All other finance lease liabilities and financing obligations consists of property. In this measure, equipment acquired under finance leases is reflected as if these assets had been purchased with cash, which is not the case as these assets have been leased. The following is a reconciliation of free cash flow less equipment finance leases and principal repayments of all other finance leases and financing obligations to the most comparable GAAP cash flow measure, “Net cash provided by (used in) operating activities,” for 2022 and 2023 (in millions): Year Ended December 31, 2022 2023 Net cash provided by (used in) operating activities $ 46,752 $ 84,946 Purchases of property and equipment, net of proceeds from sales and incentives (58,321) (48,133) Free cash flow (11,569) 36,813 Equipment acquired under finance leases (1) (299) (310) Principal repayments of all other finance leases (2) (670) (683) Principal repayments of financing obligations (248) (271) Free cash flow less equipment finance leases and principal repayments of all other finance leases and financing obligations $ (12,786) $ 35,549 Net cash provided by (used in) investing activities $ (37,601) $ (49,833) Net cash provided by (used in) financing activities $ 9,718 $ (15,879) ___________________ (1) For the year ended December 31, 2022 and 2023, this amount relates to equipment included in “Property and equipment acquired under finance leases, net of remeasurements and modifications” of $675 million and $642 million. (2) For the year ended",
+          "metadata": {
+            "ID": "000101872424000008#passage-000073",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000073"
+        },
+        {
+          "id": "000101872424000008#passage-000107",
+          "text": "asset, and it is reasonably certain that we will exercise the option, we consider the option in determining the classification and measurement of the lease. Our leases may include variable payments based on measures that include changes in price indices, market interest rates, or the level of sales at a physical store, which are expensed as incurred. Costs associated with operating lease assets are recognized on a straight-line basis within operating expenses over the term of the lease. Finance lease assets are amortized within operating expenses on a straight-line basis over the shorter of the estimated useful lives of the assets or, in the instance where title does not transfer at the end of the lease term, the lease term. The interest component of a finance lease is included in interest expense and recognized using the effective interest method over the lease term. We establish assets and liabilities for the present value of estimated future costs to retire long-lived assets at the termination or expiration of a lease. Such assets are amortized over the lease period into operating expense, and the recorded liabilities are accreted to the future value of the estimated retirement costs. Financing Obligations We record assets and liabilities for estimated construction costs under build-to-suit lease arrangements when we have control over the building during the construction period. If we continue to control the building after the construction period, the arrangement is classified as a financing obligation instead of a lease. The building is depreciated over the shorter of its useful life or the",
+          "metadata": {
+            "ID": "000101872424000008#passage-000107",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000107"
+        },
+        {
+          "id": "000101872424000008#passage-000092",
+          "text": "consolidated statements of operations and primarily impacted our North America segment. Charges for impairment, expenses for terminating contracts and other commitments, and severance costs were not material to our consolidated results of operations for the years ended December 31, 2021 and 2023. Supplemental Cash Flow Information The following table shows supplemental cash flow information (in millions): Year Ended December 31, 2021 2022 2023 SUPPLEMENTAL CASH FLOW INFORMATION: Cash paid for interest on debt, net of capitalized interest $ 1,098 $ 1,561 $ 2,608 Cash paid for operating leases $ 6,722 $ 8,633 $ 10,453 Cash paid for interest on finance leases $ 521 $ 374 $ 308 Cash paid for interest on financing obligations $ 153 $ 207 $ 196 Cash paid for income taxes, net of refunds $ 3,688 $ 6,035 $ 11,179 Assets acquired under operating leases $ 25,369 $ 18,800 $ 14,052 Property and equipment acquired under finance leases, net of remeasurements and modifications $ 7,061 $ 675 $ 642 Property and equipment recognized during the construction period of build-to-suit lease arrangements $ 5,846 $ 3,187 $ 357 Property and equipment derecognized after the construction period of build-to-suit lease arrangements, with the associated leases recognized as operating $ 230 $ 5,158 $ 1,374 Earnings Per Share Basic earnings per share is calculated using our weighted-average outstanding common shares. Diluted earnings per share is calculated using our weighted-average outstanding common shares including the dilutive effect of stock awards as determined under the treasury stock method. In periods when we have a net loss, stock",
+          "metadata": {
+            "ID": "000101872424000008#passage-000092",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000092"
+        }
+      ],
+      "accepted": false,
+      "elapsed_seconds": 11.506310828997812
+    },
+    {
+      "subquery": 2,
+      "attempt": 1,
+      "query": "AMZN 10-K filing year 2024 (fiscal year ended December 31, 2023) operating lease liabilities maturity schedule future minimum operating lease payments total lease commitments Item 8 notes Leases",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 4,
+      "rationale": "Passage 000101872424000008#passage-000128 directly supplies the operating lease maturity line for Dec 31, 2023 (Operating lease liabilities: 11,229 / 9,922 / 9,156 / 8,321 / 7,546 / 44,603 thereafter, total 90,777 $M) in the commitments note. Passage-000120 adds 2023 operating lease cost ($10,550M), weighted-average remaining term (11.3 years) and discount rate (3.3%), but its gross lease liability table is cut off at the 2022 column, so the 2023 reconciliation is missing. Passage-000092 gives 2023 cash paid for operating leases ($10,453M), which supports the cash-flow side. Passage-000054 (critical accounting estimates) and passage-000002 (cover page) are not useful for this subquery. Evidence is strong but not exhaustive.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000054",
+          "text": "Business, Accounting Policies, and Supplemental Disclosures.” Our Annual Report on Form 10-K for the year ended December 31, 2022 includes a discussion and analysis of our financial condition and results of operations for the year ended December 31, 2021 in Item 7 of Part II, “Management’s Discussion and Analysis of Financial Condition and Results of Operations.” Critical Accounting Estimates The preparation of financial statements in conformity with generally accepted accounting principles of the United States (“GAAP”) requires estimates and assumptions that affect the reported amounts of assets and liabilities, revenues and expenses, and related disclosures of contingent liabilities in the consolidated financial statements and accompanying notes. Critical accounting estimates are those estimates made in accordance with GAAP that involve a significant level of estimation uncertainty and have had or are reasonably likely to have a material impact on the financial condition or results of operations of the Company. Based on this definition, we have identified the critical accounting estimates addressed below. We also have other key accounting policies, which involve the use of estimates, judgments, and assumptions that are significant to understanding our results. For additional information, see Item 8 of Part II, “Financial Statements and Supplementary Data — Note 1 — Description of Business, Accounting Policies, and Supplemental Disclosures.” Although we believe that our estimates, assumptions, and judgments are reasonable, they are based upon information presently available. Actual results may differ significantly from these estimates under different assumptions, judgments, or conditions. Inventories Inventories, consisting of products available for sale, are primarily accounted for using the",
+          "metadata": {
+            "ID": "000101872424000008#passage-000054",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000054"
+        },
+        {
+          "id": "000101872424000008#passage-000120",
+          "text": "have entered into non-cancellable operating and finance leases for fulfillment network, data center, office, and physical store facilities as well as server and networking equipment, aircraft, and vehicles. Gross assets acquired under finance leases, including those where title transfers at the end of the lease, are recorded in “ Property and equipment, net ” and were $ 68.0 billion and $ 62.5 billion as of December 31, 2022 and 2023. Accumulated amortization associated with finance leases was $ 45.2 billion and $ 44.7 billion as of December 31, 2022 and 2023. Lease cost recognized in our consolidated statements of operations is summarized as follows (in millions): Year Ended December 31, 2021 2022 2023 Operating lease cost $ 7,199 $ 8,847 $ 10,550 Finance lease cost: Amortization of lease assets 9,857 6,097 5,899 Interest on lease liabilities 473 361 304 Finance lease cost 10,330 6,458 6,203 Variable lease cost 1,556 1,852 2,165 Total lease cost $ 19,085 $ 17,157 $ 18,918 Other information about lease amounts recognized in our consolidated financial statements is as follows: December 31, 2022 December 31, 2023 Weighted-average remaining lease term – operating leases 11.6 years 11.3 years Weighted-average remaining lease term – finance leases 10.3 years 11.9 years Weighted-average discount rate – operating leases 2.8 % 3.3 % Weighted-average discount rate – finance leases 2.3 % 2.7 % Our lease liabilities were as follows (in millions): December 31, 2022 Operating Leases Finance Leases Total Gross lease liabilities $ 81,273 $ 18,019 $ 99,292 Less: imputed interest ( 12,233 ) ( 2,236 )",
+          "metadata": {
+            "ID": "000101872424000008#passage-000120",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000120"
+        },
+        {
+          "id": "000101872424000008#passage-000128",
+          "text": "a syndicate of lenders (the “Short-Term Credit Agreement”), which replaced the prior 364-day revolving credit agreement entered into in November 2022. The Short-Term Credit Agreement matures in October 2024 and may be extended for one additional period of 364 days if approved by the lenders. The interest rate applicable to outstanding balances under the Short-Term Credit Agreement is the Secured Overnight Financing Rate specified in the Short-Term Credit Agreement plus 0.45 %, with a commitment fee of 0.03 % on the undrawn portion. There were no borrowings outstanding under the Short-Term Credit Agreement or the prior 364-day revolving credit agreement as of December 31, 2022 and 2023. We also utilize other short-term credit facilities for working capital purposes. There were $ 1.2 billion and $ 147 million of borrowings outstanding under these facilities as of December 31, 2022 and 2023, which were included in “Accrued expenses and other” on our consolidated balance sheets. In addition, we had $ 6.8 billion of unused letters of credit as of December 31, 2023. 59 Table of Contents Note 7 — COMMITMENTS AND CONTINGENCIES Commitments The following summarizes our principal contractual commitments, excluding open orders for purchases that support normal operations and are generally cancellable, as of December 31, 2023 (in millions): Year Ended December 31, 2024 2025 2026 2027 2028 Thereafter Total Long-term debt principal and interest $ 10,616 $ 7,175 $ 4,858 $ 10,404 $ 3,643 $ 60,176 $ 96,872 Operating lease liabilities 11,229 9,922 9,156 8,321 7,546 44,603 90,777 Finance lease liabilities, including interest 2,292 1,471 1,369",
+          "metadata": {
+            "ID": "000101872424000008#passage-000128",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000128"
+        },
+        {
+          "id": "000101872424000008#passage-000002",
+          "text": "statements of the registrant included in the filing reflect the correction of an error to previously issued financial statements. ☐ Indicate by check mark whether any of those error corrections are restatements that required a recovery analysis of incentive-based compensation received by any of the registrant’s executive officers during the relevant recovery period pursuant to §240.10D-1(b). ☐ Indicate by check mark whether the registrant is a shell company (as defined in Rule 12b-2 of the Exchange Act). Yes ☐ No ☒ Aggregate market value of voting stock held by non-affiliates of the registrant as of June 30, 2023 $ 1,183,684,965,587 Number of shares of common stock outstanding as of January 24, 2024 10,387,381,291 ____________________________________ DOCUMENTS INCORPORATED BY REFERENCE The information required by Part III of this Report, to the extent not set forth herein, is incorporated herein by reference from the registrant’s definitive proxy statement relating to the Annual Meeting of Shareholders to be held in 2024, which definitive proxy statement shall be filed with the Securities and Exchange Commission within 120 days after the end of the fiscal year to which this Report relates. Table of Contents AMAZON.COM, INC. FORM 10-K For the Fiscal Year Ended December 31, 2023 INDEX Page PART I Item 1. Business 3 Item 1A. Risk Factors 6 Item 1B. Unresolved Staff Comments 16 Item 1C. Cybersecurity 16 Item 2. Properties 18 Item 3. Legal Proceedings 18 Item 4. Mine Safety Disclosures 18 PART II Item 5. Market for the Registrant’s Common Stock, Related Shareholder Matters, and Issuer Purchases of Equity",
+          "metadata": {
+            "ID": "000101872424000008#passage-000002",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000002"
+        },
+        {
+          "id": "000101872424000008#passage-000092",
+          "text": "consolidated statements of operations and primarily impacted our North America segment. Charges for impairment, expenses for terminating contracts and other commitments, and severance costs were not material to our consolidated results of operations for the years ended December 31, 2021 and 2023. Supplemental Cash Flow Information The following table shows supplemental cash flow information (in millions): Year Ended December 31, 2021 2022 2023 SUPPLEMENTAL CASH FLOW INFORMATION: Cash paid for interest on debt, net of capitalized interest $ 1,098 $ 1,561 $ 2,608 Cash paid for operating leases $ 6,722 $ 8,633 $ 10,453 Cash paid for interest on finance leases $ 521 $ 374 $ 308 Cash paid for interest on financing obligations $ 153 $ 207 $ 196 Cash paid for income taxes, net of refunds $ 3,688 $ 6,035 $ 11,179 Assets acquired under operating leases $ 25,369 $ 18,800 $ 14,052 Property and equipment acquired under finance leases, net of remeasurements and modifications $ 7,061 $ 675 $ 642 Property and equipment recognized during the construction period of build-to-suit lease arrangements $ 5,846 $ 3,187 $ 357 Property and equipment derecognized after the construction period of build-to-suit lease arrangements, with the associated leases recognized as operating $ 230 $ 5,158 $ 1,374 Earnings Per Share Basic earnings per share is calculated using our weighted-average outstanding common shares. Diluted earnings per share is calculated using our weighted-average outstanding common shares including the dilutive effect of stock awards as determined under the treasury stock method. In periods when we have a net loss, stock",
+          "metadata": {
+            "ID": "000101872424000008#passage-000092",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000092"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 10.07588584900077
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Our principal sources of liquidity are cash flows generated from operations and our cash, cash equivalents, and marketable securities balances, which, at fair value, were $70.0 billion and $86.8 billion as of December 31, 2022 and 2023. [AMZN-2024-10K-p000057](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000057`; accession: `0001018724-24-000008`).\n- Cash provided by \\(used in\\) operating activities was $46.8 billion and $84.9 billion in 2022 and 2023. [AMZN-2024-10K-p000057](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000057`; accession: `0001018724-24-000008`).\n- Net cash provided by \\(used in\\) investing activities $ \\(37,601\\) $ \\(49,833\\) Net cash provided by \\(used in\\) financing activities $ 9,718 $ \\(15,879\\) [AMZN-2024-10K-p000072](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000072`; accession: `0001018724-24-000008`).\n- Cash inflows from financing activities resulted from proceeds from short-term debt, and other and long-term-debt of $62.7 billion and $18.1 billion in 2022 and 2023. [AMZN-2024-10K-p000059](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000059`; accession: `0001018724-24-000008`).\n- Operating lease liabilities 11,229 9,922 9,156 8,321 7,546 44,603 90,777 [AMZN-2024-10K-p000128](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000128`; accession: `0001018724-24-000008`).\n- Lease cost recognized in our consolidated statements of operations is summarized as follows \\(in millions\\): Year Ended December 31, 2021 2022 2023 Operating lease cost $ 7,199 $ 8,847 $ 10,550 [AMZN-2024-10K-p000120](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000120`; accession: `0001018724-24-000008`).\n- Cash paid for operating leases $ 6,722 $ 8,633 $ 10,453 [AMZN-2024-10K-p000092](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000092`; accession: `0001018724-24-000008`).\n- Weighted-average remaining lease term – operating leases 11.6 years 11.3 years [AMZN-2024-10K-p000120](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000120`; accession: `0001018724-24-000008`).",
+  "citations": [
+    {
+      "tag": "AMZN-2024-10K-p000057",
+      "chunk_id": "000101872424000008#passage-000057",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Our principal sources of liquidity are cash flows generated from operations and our cash, cash equivalents, and marketable securities balances, which, at fair value, were $70.0 billion and $86.8 billion as of December 31, 2022 and 2023."
+    },
+    {
+      "tag": "AMZN-2024-10K-p000057",
+      "chunk_id": "000101872424000008#passage-000057",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Cash provided by (used in) operating activities was $46.8 billion and $84.9 billion in 2022 and 2023."
+    },
+    {
+      "tag": "AMZN-2024-10K-p000072",
+      "chunk_id": "000101872424000008#passage-000072",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Net cash provided by (used in) investing activities $ (37,601) $ (49,833) Net cash provided by (used in) financing activities $ 9,718 $ (15,879)"
+    },
+    {
+      "tag": "AMZN-2024-10K-p000059",
+      "chunk_id": "000101872424000008#passage-000059",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Cash inflows from financing activities resulted from proceeds from short-term debt, and other and long-term-debt of $62.7 billion and $18.1 billion in 2022 and 2023."
+    },
+    {
+      "tag": "AMZN-2024-10K-p000128",
+      "chunk_id": "000101872424000008#passage-000128",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Operating lease liabilities 11,229 9,922 9,156 8,321 7,546 44,603 90,777"
+    },
+    {
+      "tag": "AMZN-2024-10K-p000120",
+      "chunk_id": "000101872424000008#passage-000120",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Lease cost recognized in our consolidated statements of operations is summarized as follows (in millions): Year Ended December 31, 2021 2022 2023 Operating lease cost $ 7,199 $ 8,847 $ 10,550"
+    },
+    {
+      "tag": "AMZN-2024-10K-p000092",
+      "chunk_id": "000101872424000008#passage-000092",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Cash paid for operating leases $ 6,722 $ 8,633 $ 10,453"
+    },
+    {
+      "tag": "AMZN-2024-10K-p000120",
+      "chunk_id": "000101872424000008#passage-000120",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Weighted-average remaining lease term – operating leases 11.6 years 11.3 years"
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.4050310130041908,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13068,
+        "cache_read_input_tokens": 1218,
+        "output_tokens": 503,
+        "output_tokens_details": {
+          "thinking_tokens": 273
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13068,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 503,
+            "cache_read_input_tokens": 1218,
+            "cache_creation_input_tokens": 13068,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13068
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00287748
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.476006019998749,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16316,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 802,
+        "output_tokens_details": {
+          "thinking_tokens": 396
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16316,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 802,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 16316,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16316
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00367341
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 8.052943132999644,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 15909,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 1057,
+        "output_tokens_details": {
+          "thinking_tokens": 685
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 15909,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1057,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 15909,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 15909
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0037195100000000005
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.970752342000196,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16519,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 982,
+        "output_tokens_details": {
+          "thinking_tokens": 575
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16519,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 982,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 16519,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16519
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00380401
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.79202185000031,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16354,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 1102,
+        "output_tokens_details": {
+          "thinking_tokens": 602
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16354,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1102,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 16354,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16354
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00383101
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 10.41726105199632,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 10404,
+        "cache_read_input_tokens": 882,
+        "output_tokens": 2776,
+        "output_tokens_details": {
+          "thinking_tokens": 2074
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 10404,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2776,
+            "cache_read_input_tokens": 882,
+            "cache_creation_input_tokens": 10404,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 10404
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0034778200000000004
+    }
+  ],
+  "elapsed_seconds": 35.407978589995764
+}

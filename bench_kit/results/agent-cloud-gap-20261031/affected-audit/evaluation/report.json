@@ -1,0 +1,34 @@
+{
+  "utc": "2026-11-01T06:19:38.624165+00:00",
+  "python": "3.10.12",
+  "model_requested": "haiku",
+  "backend": "http://127.0.0.1:45495",
+  "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "registered_filings": 152,
+  "cases": [
+    {
+      "id": "audit02",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 3,
+      "retries": 1,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 8,
+      "complete_coverage": true,
+      "flags": [],
+      "model_calls": 5,
+      "seconds": 37.849242862997926
+    }
+  ],
+  "passed": 1,
+  "total": 1,
+  "citations": 8,
+  "retrieval_calls": 3,
+  "retries": 1,
+  "fully_covered_positive_cases": 1,
+  "negative_cases": 0,
+  "median_seconds": 37.849242862997926,
+  "evaluation_scope": "Live multi-step retrieval, immutable filing filters, bounded critic retries, exact SEC quote/source identity and inline citation checks. No human semantic correctness labels; not an answer-accuracy score."
+}

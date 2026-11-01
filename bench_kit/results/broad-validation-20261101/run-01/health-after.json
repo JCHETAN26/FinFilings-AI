@@ -1,0 +1,70 @@
+{
+  "sidecar": {
+    "status": "ready",
+    "documents": 49452,
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "encoder_device": "cpu",
+    "reranker_device": "cpu",
+    "reranker_backend": "onnx-fp32",
+    "reranker_artifact_sha256": "72662ff447c2a26c1a89fd582111b215c7236ba7633f722f95ae87a944343c13",
+    "admission": {
+      "limit": 64,
+      "active": 0,
+      "peak": 3,
+      "rejected": 0
+    },
+    "inference_workers": 4,
+    "inference": {
+      "dense": {
+        "count": 86,
+        "work_seconds": 3.8231757310009016,
+        "wait_seconds": 0.0003377450009338645,
+        "max_work_seconds": 0.6946479660000477,
+        "requests": 86
+      },
+      "rank": {
+        "count": 62,
+        "work_seconds": 174.2573336959997,
+        "wait_seconds": 0.00018947300145555346,
+        "max_work_seconds": 3.7716826340001717,
+        "phase_count": 62,
+        "phase_totals": {
+          "fetch_seconds": 0.10796572800040849,
+          "tokenize_seconds": 0.5302245689988467,
+          "padding_seconds": 0.45944945900055245,
+          "inference_seconds": 172.95189841600313,
+          "output_seconds": 0.0508515609992628
+        },
+        "requests": 62
+      }
+    },
+    "threads": 2,
+    "rerank_batch_size": 1,
+    "rerank_length_bucketing": true,
+    "dense_batching": {
+      "batch_size": 8,
+      "wait_ms": 2.0,
+      "coordinators": 4,
+      "trigger": 8,
+      "active_requests": 0,
+      "fast_path_requests": 86,
+      "pending": 0,
+      "metrics": {
+        "submitted": 0,
+        "batches": 0,
+        "dispatched_requests": 0,
+        "cancelled_before_dispatch": 0,
+        "queue_peak": 0,
+        "max_batch_seen": 0,
+        "assembly_wait_seconds": 0.0,
+        "rejected": 0
+      }
+    }
+  },
+  "bridge": {
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "status": "ready"
+  }
+}

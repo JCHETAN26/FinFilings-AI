@@ -1,0 +1,10 @@
+{
+  "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "registered_filings": 152,
+  "verified_citations": 8,
+  "unique_source_passages": 13,
+  "retries": 1,
+  "retrieval_calls": 3,
+  "median_seconds": 37.849242862997926,
+  "scope": "Exact bytes, immutable filters, bounded retries, inline source identity and quote verification; coverage is structural subquery coverage, not human semantic answer accuracy."
+}

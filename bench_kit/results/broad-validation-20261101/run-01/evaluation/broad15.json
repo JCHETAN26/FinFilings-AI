@@ -1,0 +1,448 @@
+{
+  "prompt": "Audit TSLA filing year 2026: separately retrieve tariff and trade-policy risks affecting supply chain costs, and cost of revenues and gross margin disclosures. Use direct excerpts only.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "tariff and trade policy risks affecting supply chain costs",
+        "filters": {
+          "ticker": "TSLA",
+          "year": 2026,
+          "section": "",
+          "accession": "000162828026003952"
+        }
+      },
+      {
+        "query": "cost of revenues and gross margin disclosures",
+        "filters": {
+          "ticker": "TSLA",
+          "year": 2026,
+          "section": "",
+          "accession": "000162828026003952"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "tariff and trade policy risks affecting supply chain costs",
+      "filters": {
+        "ticker": "TSLA",
+        "year": 2026,
+        "section": "",
+        "accession": "000162828026003952"
+      },
+      "score": 5,
+      "rationale": "The original goal is tariff and trade-policy risks affecting supply chain costs in the TSLA 2026 filing. Passage 000002 (Item 1A) states that 2025 U.S. trade policy changes, including heightened import tariffs and retaliatory measures, have impacted supply chain costs. Passage 000014 (Item 1A) says tariff changes affect product costs and that historical special tariff actions increased vehicle costs. Passage 000003 (Item 7) says trade policy changes on tariffs and export controls may affect the global supply chain cost structure. Together these directly answer the goal with excerpts from the correct filing. Passage 000005 is less direct but adds demand effects. Nothing here is outside the subquery.",
+      "evidence": [
+        {
+          "id": "000162828026003952#item1A#passage-000002",
+          "text": "deliver components according to schedules, prices, quality and volumes that are acceptable to us, or we may be unable to manage these components effectively. Our products contain thousands of parts purchased globally from hundreds of suppliers, including single-source direct suppliers, which exposes us to multiple potential sources of component shortages. Unexpected changes in business conditions, materials pricing, including inflation of raw material costs, labor issues, wars, trade policies, natural disasters, health epidemics, trade and shipping disruptions, port congestions, cyberattacks and other factors beyond our or our suppliers’ control could also affect these suppliers’ ability to deliver technologies or components to us or to remain solvent and operational. U.S. trade policy alterations in 2025, including heightened import tariffs and subsequent retaliatory measures, have impacted our supply chain costs, and may impact the availability of certain technologies or components, depending on the exact scope of the tariffs ultimately implemented and retaliatory export controls. Additionally, if our suppliers do not accurately forecast and effectively allocate production or if they are not willing to allocate sufficient production to us, or face other challenges such as insolvency, it may reduce our access to components and require us to search for new suppliers. The unavailability of any component or supplier could result in production delays, idle manufacturing facilities, product design changes and loss of access to important technology and tools for producing and supporting our products, as well as impact our capacity expansion and our ability to fulfill our obligations under customer contracts. For example, as companies, including Tesla, have made rapid",
+          "metadata": {
+            "ID": "000162828026003952#item1A#passage-000002",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item1A-p000002"
+        },
+        {
+          "id": "000162828026003952#item7#passage-000005",
+          "text": "final scope and application of recently announced changes in trade policy remain uncertain at this time, higher tariffs on imports and subsequent retaliatory tariffs could adversely impact consumer spending and demand for durable goods and related services. Furthermore, certain provisions of the OBBBA, including the removal of tax credits for electric vehicles, may also impact consumer demand for electric vehicles in general. We will continue to adjust accordingly to such developments, and we believe our ongoing cost reduction efforts, including through production innovation, process improvements and logistics optimization, and focus on operating leverage, vertical integration and supply chain localization will continue to benefit us in relation to our competitors. Our new products and our advances in autonomy and robotics, position us for future growth. 32 As our vehicle production increases, we must work constantly to similarly increase vehicle delivery capability so that it does not become a bottleneck on our total deliveries. As we expand our manufacturing operations globally, we will also have to continue to increase and staff our delivery, servicing and charging infrastructure accordingly, maintain our vehicle reliability and optimize our Supercharger locations to ensure cost effectiveness and customer satisfaction. In particular, as other automotive manufacturers have announced their adoption of NACS and agreements with us to utilize our Superchargers, we must correspondingly expand our network in order to ensure adequate availability to meet customer demands. We also remain focused on continued enhancements of the capability and efficiency of our servicing operations. In tandem with the launch of our Robotaxi business, we are focused",
+          "metadata": {
+            "ID": "000162828026003952#item7#passage-000005",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item7-p000005"
+        },
+        {
+          "id": "000162828026003952#item7#passage-000003",
+          "text": "are to improve vehicle performance, decrease production costs and increase affordability and customer awareness. We are also capitalizing on our strengths in real-world AI data to advance the development of Optimus, a general purpose, autonomous humanoid robot. These plans are subject to uncertainties inherent in establishing and ramping manufacturing operations, which may be exacerbated by new product and manufacturing technologies we introduce, the number of concurrent international projects, any industry-wide component constraints, labor shortages and any future impact from events outside of our control. For example, changes to fiscal and trade policy with respect to tariffs, export controls and other restrictions may impact our global supply chain cost structure and availability, affecting not only vehicle production, but also facility expansions. Moreover, we have set ambitious technological targets with our plans for battery cells as well as for iterative manufacturing and design improvements for our vehicles. Automotive and AI Enabled Products—Demand, Sales, Deliveries and Infrastructure Our cost reduction efforts, cost innovation strategies, and additional localized procurement and manufacturing are key to our vehicles’ affordability and have allowed us to competitively price our vehicles. We will also continue to generate demand by improving our vehicles’ performance and functionality, including through product offerings and features utilizing artificial intelligence such as FSD (Supervised) and other software, and delivering new vehicles and vehicle options. In addition, we believe the launch of our Robotaxi service unlocks the potential for significant business growth to advance a service-driven business model. We will continue to improve safety and profitability while scaling the network. In addition,",
+          "metadata": {
+            "ID": "000162828026003952#item7#passage-000003",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item7-p000003"
+        },
+        {
+          "id": "000162828026003952#item1A#passage-000014",
+          "text": "local customers; navigating U.S. and foreign government taxes, regulations and permit requirements; enforceability of our contractual rights; trade restrictions, customs regulations, tariffs and price or exchange controls; and preferences in foreign nations for domestically manufactured products. For example, we monitor tax legislation changes on a global basis, including changes arising as a result of the Organization for Economic Cooperation and Development’s multi-jurisdictional plan of action to address base erosion and profit shifting. Further, the United States has recently announced changes to U.S. trade policy, including increasing tariffs on imports, in many cases significantly, and potentially renegotiating or terminating existing trade agreements. The exact scope of any such tariffs that will ultimately be implemented is not known at this time, and the impacts on our business and costs of our products is uncertain. Retaliatory tariffs imposed by other countries on U.S. exports, further increases in U.S. tariffs, and the uncertainties surrounding domestic and foreign tariffs have impacted the pricing for our products, which could adversely impact demand. We cannot predict whether, and to what extent, there may be changes to international trade agreements, such as those with China, or whether, or to what extent, quotas, duties, additional tariffs, export controls or other restrictions will be changed or imposed by the United States or by other countries. Historically, U.S. special tariff actions have increased our costs for vehicles manufactured in the United States and increased costs for those same vehicles when exported from the United States. Further, as it pertains to electric vehicles and lithium-ion batteries for our",
+          "metadata": {
+            "ID": "000162828026003952#item1A#passage-000014",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item1A-p000014"
+        },
+        {
+          "id": "000162828026003952#item1A#passage-000024",
+          "text": "of database contents, or otherwise subject us to liability under laws, regulations and contractual obligations, including those that protect the privacy and security of personal information. This could result in increased costs to us and result in significant legal and financial exposure and/or reputational harm. We also rely on service providers, and similar incidents relating to their information technology systems could also have a material adverse effect on our business. There have been and may continue to be significant supply chain attacks. Our service providers, including our workforce management software provider, have been subject to ransomware and other security incidents, and we cannot guarantee that our or our service providers’ systems have not been breached or that they do not contain exploitable defects, bugs, or vulnerabilities that could result in a security incident, or other disruption to, our or our service providers’ systems. Our ability to monitor our service providers’ security measures is limited, and, in any event, malicious third parties may be able to circumvent those security measures. Further, the implementation, maintenance, segregation and improvement of these systems require significant management time, support and cost, and there are inherent risks associated with developing, improving and expanding our core systems as well as implementing new systems and updating current systems, including disruptions to the related areas of business operation. These risks may affect our ability to manage our data and inventory, procure parts or supplies or manufacture, sell, deliver and service products, adequately protect our intellectual property or achieve and maintain compliance with, or realize available",
+          "metadata": {
+            "ID": "000162828026003952#item1A#passage-000024",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item1A-p000024"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "elapsed_seconds": 9.223855289999847
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "cost of revenues and gross margin disclosures",
+      "filters": {
+        "ticker": "TSLA",
+        "year": 2026,
+        "section": "",
+        "accession": "000162828026003952"
+      },
+      "score": 5,
+      "rationale": "The original subquery asks for cost of revenues and gross margin disclosures in the TSLA 2026 filing (fiscal year 2025 vs. 2024 vs. 2023). The evidence directly supports it: passage-000021 has the Cost of Revenues and Gross Margin table (total cost of revenues $77,733M, total gross profit $17,094M, total gross margin 18.0%, segment gross margins), passage-000008 has the consolidated statement of operations with total cost of revenues and gross profit, and passage-000022 explains the drivers of gross margin changes. Tariff mentions in passages 21 and 22 are incidental to the original goal and do not change the grade.",
+      "evidence": [
+        {
+          "id": "000162828026003952#item7#passage-000021",
+          "text": "generation and storage segment$3,802 $2,640 $1,141 Gross margin energy generation and storage segment29.8 %26.2 %18.9 % Total gross profit$17,094 $17,450 $17,660 Total gross margin18.0 %17.9 %18.2 % Automotive & Services and Other Segment Cost of automotive sales revenue includes direct and indirect materials, labor costs, manufacturing overhead, including depreciation costs of tooling and machinery, shipping and logistic costs, tariffs, reserves for estimated warranty expenses, FSD (Supervised) ongoing maintenance costs, vehicle connectivity costs, and allocations of electricity and infrastructure costs related to our free Supercharging programs. Cost of automotive sales revenues also includes adjustments to warranty expense and charges to write down the carrying value of our inventory when it exceeds its estimated net realizable value and to provide for obsolete and on-hand inventory in excess of forecasted demand. Additionally, cost of automotive sales revenue benefits from manufacturing credits recognized. 38 Cost of automotive leasing revenue includes the depreciation of operating lease vehicles, cost of goods sold associated with lease buyouts and direct sales-type leases, and servicing of leased vehicles. Costs of services and other revenue includes cost of used vehicles including refurbishment costs, labor and material costs associated with providing non-warranty maintenance services and collision, operating costs of paid Supercharging sessions, claim costs associated with providing automotive insurance, and costs associated with our part sales and retail merchandise sales. 2025 compared to 2024 Cost of automotive sales revenue decreased $5.60 billion, or 9%, in the year ended December 31, 2025 as compared to the year ended December 31, 2024 due to the decrease in deliveries year",
+          "metadata": {
+            "ID": "000162828026003952#item7#passage-000021",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item7-p000021"
+        },
+        {
+          "id": "000162828026003952#item7#passage-000022",
+          "text": "over year as discussed above and lower average cost per unit due to sales mix and lower material costs, partially offset by lower fixed cost absorption and an increase in tariffs compared to the prior year. Cost of services and other revenue increased $1.68 billion, or 17%, in the year ended December 31, 2025 as compared to the year ended December 31, 2024, primarily due to increases in used vehicle sales volume and cost, cost of paid Supercharging sessions, cost related to our automotive insurance business, and cost related to our non-warranty maintenance services and collision revenue. Gross margin for total automotive decreased from 18.4% to 17.8% in the year ended December 31, 2025 as compared to the year ended December 31, 2024 primarily due to a decrease in regulatory credits revenue as well as the changes in automotive sales revenue and cost of automotive sales revenue, as discussed above. Gross margin for total automotive & services and other segment decreased from 16.9% to 16.2% in the year ended December 31, 2025 as compared to the year ended December 31, 2024 primarily due to a decrease in regulatory credits revenue, partially offset by an improvement in services and other margins. Energy Generation and Storage Segment Cost of energy generation and storage revenue includes direct and indirect material, tariffs, labor costs, manufacturing overhead, including depreciation costs of tooling and machinery, shipping and logistic costs, warranty expense and cost of servicing. Cost of energy generation and storage revenue also includes charges to write down the carrying value of",
+          "metadata": {
+            "ID": "000162828026003952#item7#passage-000022",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item7-p000022"
+        },
+        {
+          "id": "000162828026003952#item7#passage-000020",
+          "text": "automobile manufacturers. 37 Services and other revenue increased $2.00 billion, or 19%, in the year ended December 31, 2025 as compared to the year ended December 31, 2024, primarily due to increases in paid Supercharging sessions, non-warranty maintenance services and collision revenue, used vehicle sales volume and automotive insurance business revenue. Energy Generation and Storage Segment Energy generation and storage revenue includes sales, leasing, and financing of energy generation and storage products, services related to such products and sales of energy generation incentives. 2025 compared to 2024 Energy generation and storage revenue increased $2.69 billion, or 27%, in the year ended December 31, 2025 as compared to the year ended December 31, 2024 primarily due to increases in Megapack and Powerwall deployments, partially offset by a decrease in average selling price of Megapack. Cost of Revenues and Gross Margin Year Ended December 31,2025 vs. 2024 Change2024 vs. 2023 Change (Dollars in millions)202520242023$%$% Cost of revenues Automotive sales$56,267 $61,870 $65,121 $(5,603)(9)%$(3,251)(5)% Automotive leasing898 1,003 1,268 (105)(10)%(265)(21)% Total automotive cost of revenues57,165 62,873 66,389 (5,708)(9)%(3,516)(5)% Services and other11,599 9,921 7,830 1,678 17 %2,091 27 % Total automotive & services and other segment cost of revenues68,764 72,794 74,219 (4,030)(6)%(1,425)(2)% Energy generation and storage segment8,969 7,446 4,894 1,523 20 %2,552 52 % Total cost of revenues$77,733 $80,240 $79,113 $(2,507)(3)%$1,127 1 % Gross profit total automotive$12,361 $14,197 $16,030 Gross margin total automotive17.8 %18.4 %19.4 % Gross profit total automotive & services and other segment$13,292 $14,810 $16,519 Gross margin total automotive & services and other segment16.2 %16.9 %18.2 % Gross profit energy",
+          "metadata": {
+            "ID": "000162828026003952#item7#passage-000020",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item7-p000020"
+        },
+        {
+          "id": "000162828026003952#item8#passage-000008",
+          "text": "revenue, net of current portion3,631 3,317 Other long-term liabilities12,860 10,495 Total liabilities54,941 48,390 Commitments and contingencies (Note 13) Redeemable noncontrolling interests in subsidiaries58 63 Equity Stockholders’ equity Preferred stock; $0.001 par value; 100 shares authorized; no shares issued and outstanding — — Common stock; $0.001 par value; 6,000 shares authorized; 3,751 and 3,216 shares issued and outstanding as of December 31, 2025 and 2024, respectively 3 3 Additional paid-in capital42,770 38,371 Accumulated other comprehensive income (loss)361 (670) Retained earnings39,003 35,209 Total stockholders’ equity82,137 72,913 Noncontrolling interests in subsidiaries670 704 Total liabilities and equity$137,806 $122,070 The accompanying notes are an integral part of these consolidated financial statements. 49 Tesla, Inc. Consolidated Statements of Operations (in millions, except per share data) Year Ended December 31, 202520242023 Revenues Automotive sales$65,821 $72,480 $78,509 Automotive regulatory credits1,993 2,763 1,790 Automotive leasing1,712 1,827 2,120 Total automotive revenues69,526 77,070 82,419 Energy generation and storage12,771 10,086 6,035 Services and other12,530 10,534 8,319 Total revenues94,827 97,690 96,773 Cost of revenues Automotive sales56,267 61,870 65,121 Automotive leasing898 1,003 1,268 Total automotive cost of revenues57,165 62,873 66,389 Energy generation and storage8,969 7,446 4,894 Services and other11,599 9,921 7,830 Total cost of revenues77,733 80,240 79,113 Gross profit17,094 17,450 17,660 Operating expenses Research and development6,411 4,540 3,969 Selling, general and administrative5,834 5,150 4,800 Restructuring and other494 684 — Total operating expenses12,739 10,374 8,769 Income from operations4,355 7,076 8,891 Interest income1,680 1,569 1,066 Interest expense(338)(350)(156) Other (expense) income, net(419)695 172 Income before income taxes5,278 8,990 9,973 Provision for (benefit from) income taxes1,423 1,837 (5,001) Net income3,855 7,153 14,974 Net income",
+          "metadata": {
+            "ID": "000162828026003952#item8#passage-000008",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item8-p000008"
+        },
+        {
+          "id": "000162828026003952#item8#passage-000063",
+          "text": "term as cost of revenues or operating expenses depending on the nature of the leased asset. Interest expense on finance lease liabilities is recognized over the lease term within Interest expense in the consolidated statements of operations. 75 The balances for the operating and finance leases where we are the lessee are presented as follows (in millions) within our consolidated balance sheets: December 31, 2025December 31, 2024 Operating leases: Operating lease right-of-use assets$6,027 $5,160 Accrued liabilities and other$954 $807 Other long-term liabilities5,389 4,603 Total operating lease liabilities$6,343 $5,410 Finance leases: Energy generation and storage systems, net$19 $21 Property, plant and equipment, net229 350 Total finance lease assets$248 $371 Current portion of long-term debt and finance leases$71 $113 Long-term debt and finance leases, net of current portion152 222 Total finance lease liabilities$223 $335 The components of lease expense are as follows (in millions) within our consolidated statements of operations: Year Ended December 31, 202520242023 Operating lease expense: Operating lease expense (1)$1,766 $1,500 $1,153 Finance lease expense: Amortization of leased assets$118 $409 $506 Interest on lease liabilities12 21 45 Total finance lease expense$130 $430 $551 Total lease expense$1,896 $1,930 $1,704 (1)Includes short-term leases and variable lease costs, which are individually immaterial. Other information related to leases where we are the lessee is as follows: December 31, 2025December 31, 2024 Weighted-average remaining lease term: Operating leases7.7 years7.9 years Finance leases4.3 years4.4 years Weighted-average discount rate: Operating leases5.0 %5.3 % Finance leases4.7 %4.7 % 76 Supplemental cash flow information related to leases where we are the lessee is as follows",
+          "metadata": {
+            "ID": "000162828026003952#item8#passage-000063",
+            "Ticker": "TSLA",
+            "CIK": "1318605",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001628280-26-003952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "tag": "TSLA-2026-10K-item8-p000063"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "elapsed_seconds": 9.390081733999978
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- U.S. trade policy alterations in 2025, including heightened import tariffs and subsequent retaliatory measures, have impacted our supply chain costs, and may impact the availability of certain technologies or components, depending on the exact scope of the tariffs ultimately implemented and retaliatory export controls. [TSLA-2026-10K-item1A-p000002](https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm) (chunk: `000162828026003952#item1A#passage-000002`; accession: `0001628280-26-003952`).\n- For example, changes to fiscal and trade policy with respect to tariffs, export controls and other restrictions may impact our global supply chain cost structure and availability, affecting not only vehicle production, but also facility expansions. [TSLA-2026-10K-item7-p000003](https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm) (chunk: `000162828026003952#item7#passage-000003`; accession: `0001628280-26-003952`).\n- Historically, U.S. special tariff actions have increased our costs for vehicles manufactured in the United States and increased costs for those same vehicles when exported from the United States. [TSLA-2026-10K-item1A-p000014](https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm) (chunk: `000162828026003952#item1A#passage-000014`; accession: `0001628280-26-003952`).\n- lower average cost per unit due to sales mix and lower material costs, partially offset by lower fixed cost absorption and an increase in tariffs compared to the prior year. [TSLA-2026-10K-item7-p000022](https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm) (chunk: `000162828026003952#item7#passage-000022`; accession: `0001628280-26-003952`).\n- Total gross profit$17,094 $17,450 $17,660 Total gross margin18.0 %17.9 %18.2 % [TSLA-2026-10K-item7-p000021](https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm) (chunk: `000162828026003952#item7#passage-000021`; accession: `0001628280-26-003952`).\n- Gross margin for total automotive decreased from 18.4% to 17.8% in the year ended December 31, 2025 as compared to the year ended December 31, 2024 primarily due to a decrease in regulatory credits revenue [TSLA-2026-10K-item7-p000022](https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm) (chunk: `000162828026003952#item7#passage-000022`; accession: `0001628280-26-003952`).\n- Total cost of revenues77,733 80,240 79,113 Gross profit17,094 17,450 17,660 [TSLA-2026-10K-item8-p000008](https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm) (chunk: `000162828026003952#item8#passage-000008`; accession: `0001628280-26-003952`).\n\nEvidence gaps:\n- Dropped unverified claim referencing 000162828026003952\\#item7\\#passage-000020",
+  "citations": [
+    {
+      "tag": "TSLA-2026-10K-item1A-p000002",
+      "chunk_id": "000162828026003952#item1A#passage-000002",
+      "accession": "0001628280-26-003952",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+      "quote": "U.S. trade policy alterations in 2025, including heightened import tariffs and subsequent retaliatory measures, have impacted our supply chain costs, and may impact the availability of certain technologies or components, depending on the exact scope of the tariffs ultimately implemented and retaliatory export controls."
+    },
+    {
+      "tag": "TSLA-2026-10K-item7-p000003",
+      "chunk_id": "000162828026003952#item7#passage-000003",
+      "accession": "0001628280-26-003952",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+      "quote": "For example, changes to fiscal and trade policy with respect to tariffs, export controls and other restrictions may impact our global supply chain cost structure and availability, affecting not only vehicle production, but also facility expansions."
+    },
+    {
+      "tag": "TSLA-2026-10K-item1A-p000014",
+      "chunk_id": "000162828026003952#item1A#passage-000014",
+      "accession": "0001628280-26-003952",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+      "quote": "Historically, U.S. special tariff actions have increased our costs for vehicles manufactured in the United States and increased costs for those same vehicles when exported from the United States."
+    },
+    {
+      "tag": "TSLA-2026-10K-item7-p000022",
+      "chunk_id": "000162828026003952#item7#passage-000022",
+      "accession": "0001628280-26-003952",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+      "quote": "lower average cost per unit due to sales mix and lower material costs, partially offset by lower fixed cost absorption and an increase in tariffs compared to the prior year."
+    },
+    {
+      "tag": "TSLA-2026-10K-item7-p000021",
+      "chunk_id": "000162828026003952#item7#passage-000021",
+      "accession": "0001628280-26-003952",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+      "quote": "Total gross profit$17,094 $17,450 $17,660 Total gross margin18.0 %17.9 %18.2 %"
+    },
+    {
+      "tag": "TSLA-2026-10K-item7-p000022",
+      "chunk_id": "000162828026003952#item7#passage-000022",
+      "accession": "0001628280-26-003952",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+      "quote": "Gross margin for total automotive decreased from 18.4% to 17.8% in the year ended December 31, 2025 as compared to the year ended December 31, 2024 primarily due to a decrease in regulatory credits revenue"
+    },
+    {
+      "tag": "TSLA-2026-10K-item8-p000008",
+      "chunk_id": "000162828026003952#item8#passage-000008",
+      "accession": "0001628280-26-003952",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+      "quote": "Total cost of revenues77,733 80,240 79,113 Gross profit17,094 17,450 17,660"
+    }
+  ],
+  "flags": [
+    "Dropped unverified claim referencing 000162828026003952#item7#passage-000020"
+  ],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.958773689000054,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13075,
+        "cache_read_input_tokens": 1249,
+        "output_tokens": 475,
+        "output_tokens_details": {
+          "thinking_tokens": 302
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13075,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 475,
+            "cache_read_input_tokens": 1249,
+            "cache_creation_input_tokens": 13075,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13075
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00286519
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.42344629299987,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 15855,
+        "cache_read_input_tokens": 1151,
+        "output_tokens": 1034,
+        "output_tokens_details": {
+          "thinking_tokens": 655
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 15855,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1034,
+            "cache_read_input_tokens": 1151,
+            "cache_creation_input_tokens": 15855,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 15855
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00369971
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.140890425999942,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16695,
+        "cache_read_input_tokens": 1151,
+        "output_tokens": 960,
+        "output_tokens_details": {
+          "thinking_tokens": 599
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16695,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 960,
+            "cache_read_input_tokens": 1151,
+            "cache_creation_input_tokens": 16695,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16695
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00383071
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 12.097307452999985,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8573,
+        "cache_read_input_tokens": 882,
+        "output_tokens": 3248,
+        "output_tokens_details": {
+          "thinking_tokens": 2469
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8573,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3248,
+            "cache_read_input_tokens": 882,
+            "cache_creation_input_tokens": 8573,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 8573
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00334762
+    }
+  ],
+  "elapsed_seconds": 25.449487238000074
+}

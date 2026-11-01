@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "started_utc": "2026-11-01T18:53:31.996263+00:00",
+  "mode": "suite",
+  "argv": [
+    "scripts/evaluate-expanded-agent.py",
+    "--out",
+    "bench_kit/results/broad-validation-20261101/run-01",
+    "--suite",
+    "bench_kit/suites/broad-validation-v1.json",
+    "--expected-suite-sha256",
+    "0e8c02d31b8f4cef03f39adc43335f3bc4a34986a37d987e7c9cabdad7ed4fae"
+  ],
+  "finished_utc": "2026-11-01T19:06:28.606764+00:00",
+  "evaluator_exit_code": 0,
+  "service_exit_codes": [
+    -15,
+    0,
+    0
+  ],
+  "owned_processes_stopped": true
+}

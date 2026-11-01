@@ -1,0 +1,437 @@
+{
+  "prompt": "Compare AAPL filing year 2023 and NVDA filing year 2024: find the disclosed dependence on third-party manufacturing and supply-chain risks. Retrieve evidence separately for each company.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "dependence on third-party manufacturing and supply chain risks",
+        "filters": {
+          "ticker": "AAPL",
+          "year": 2023,
+          "section": "",
+          "accession": "000032019323000106"
+        }
+      },
+      {
+        "query": "dependence on third-party manufacturing and supply chain risks",
+        "filters": {
+          "ticker": "NVDA",
+          "year": 2024,
+          "section": "",
+          "accession": "000104581024000029"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "dependence on third-party manufacturing and supply chain risks",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2023,
+        "section": "",
+        "accession": "000032019323000106"
+      },
+      "score": 5,
+      "rationale": "All five passages come from the AAPL 2023 filing (accession 000032019323000106), matching the subquery filters. They directly address dependence on third-party manufacturing: outsourcing partners concentrated in Asia, single-source suppliers, reduced control from outsourced logistics, supplier code violations, and component shortages. The evidence is for AAPL only; NVDA 2024 is covered by a separate subquery and is not graded here.",
+      "evidence": [
+        {
+          "id": "000032019323000106#passage-000022",
+          "text": "of the Company’s manufacturing is performed in whole or in part by outsourcing partners located primarily in China mainland, India, Japan, South Korea, Taiwan and Vietnam, and a significant concentration of this manufacturing is currently performed by a small number of outsourcing partners, often in single locations. Changes or additions to the Company’s supply chain require considerable time and resources and involve significant risks and uncertainties. The Company has also outsourced much of its transportation and logistics management. While these arrangements can lower operating costs, they also reduce the Company’s direct control over production and distribution. Such diminished control has from time to time and may in the future have an adverse effect on the quality or quantity of products manufactured or services provided, or adversely affect the Company’s flexibility to respond to changing conditions. Although arrangements with these partners may contain provisions for product defect expense reimbursement, the Company generally remains responsible to the consumer for warranty and out-of-warranty service in the event of product defects and experiences unanticipated product defect liabilities from time to time. While the Company relies on its partners to adhere to its supplier code of conduct, violations of the supplier code of conduct occur from time to time and can materially adversely affect the Company’s business, reputation, results of operations and financial condition. Apple Inc. | 2023 Form 10-K | 7 The Company relies on single-source outsourcing partners in the U.S., Asia and Europe to supply and manufacture many components, and on outsourcing partners primarily located in Asia, for final",
+          "metadata": {
+            "ID": "000032019323000106#passage-000022",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000022"
+        },
+        {
+          "id": "000032019323000106#passage-000023",
+          "text": "assembly of substantially all of the Company’s hardware products. Any failure of these partners to perform can have a negative impact on the Company’s cost or supply of components or finished goods. In addition, manufacturing or logistics in these locations or transit to final destinations can be disrupted for a variety of reasons, including natural and man-made disasters, information technology system failures, commercial disputes, armed conflict, economic, business, labor, environmental, public health or political issues, or international trade disputes. The Company has invested in manufacturing process equipment, much of which is held at certain of its outsourcing partners, and has made prepayments to certain of its suppliers associated with long-term supply agreements. While these arrangements help ensure the supply of components and finished goods, if these outsourcing partners or suppliers experience severe financial problems or other disruptions in their business, such continued supply can be reduced or terminated, and the recoverability of manufacturing process equipment or prepayments can be negatively impacted. Future operating results depend upon the Company’s ability to obtain components in sufficient quantities on commercially reasonable terms. Because the Company currently obtains certain components from single or limited sources, the Company is subject to significant supply and pricing risks. Many components, including those that are available from multiple sources, are at times subject to industry-wide shortages and significant commodity pricing fluctuations that can materially adversely affect the Company’s business, results of operations and financial condition. For example, the global semiconductor industry has in the past experienced high demand and shortages of supply, which adversely",
+          "metadata": {
+            "ID": "000032019323000106#passage-000023",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000023"
+        },
+        {
+          "id": "000032019323000106#passage-000018",
+          "text": "substantial recovery time, experience significant expenditures to resume operations, and lose significant sales. Because the Company relies on single or limited sources for the supply and manufacture of many critical components, a business interruption affecting such sources would exacerbate any negative consequences to the Company. The Company’s operations are also subject to the risks of industrial accidents at its suppliers and contract manufacturers. While the Company’s suppliers are required to maintain safe working environments and operations, an industrial accident could occur and could result in serious injuries or loss of life, disruption to the Company’s business, and harm to the Company’s reputation. Major public health issues, including pandemics such as the COVID-19 pandemic, have adversely affected, and could in the future materially adversely affect, the Company due to their impact on the global economy and demand for consumer products; the imposition of protective public safety measures, such as stringent employee travel restrictions and limitations on freight services and the movement of products between regions; and disruptions in the Company’s operations, supply chain and sales and distribution channels, resulting in interruptions to the supply of current products and offering of existing services, and delays in production ramps of new products and development of new services. While the Company maintains insurance coverage for certain types of losses, such insurance coverage may be insufficient to cover all losses that may arise. Global markets for the Company’s products and services are highly competitive and subject to rapid technological change, and the Company may be unable to compete effectively in these",
+          "metadata": {
+            "ID": "000032019323000106#passage-000018",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000018"
+        },
+        {
+          "id": "000032019323000106#passage-000017",
+          "text": "measures. For example, tensions between governments, including the U.S. and China, have in the past led to tariffs and other restrictions being imposed on the Company’s business. If disputes and conflicts further escalate in the future, actions by governments in response could be significantly more severe and restrictive and could materially adversely affect the Company’s business. Political uncertainty surrounding trade and other international disputes could also have a negative effect on consumer confidence and spending, which could adversely affect the Company’s business. Many of the Company’s operations and facilities, as well as critical business operations of the Company’s suppliers and contract manufacturers, are in locations that are prone to earthquakes and other natural disasters. In addition, such operations and facilities are subject to the risk of interruption by fire, power shortages, nuclear power plant accidents and other industrial accidents, terrorist attacks and other hostile acts, ransomware and other cybersecurity attacks, labor disputes, public health issues, including pandemics such as the COVID-19 pandemic, and other events beyond the Company’s control. Global climate change is resulting in certain types of natural disasters, such as droughts, floods, hurricanes and wildfires, occurring more frequently or with more intense effects. Such events can make it difficult or impossible for the Company to manufacture and deliver products to its customers, create delays and inefficiencies in the Company’s supply and manufacturing chain, and result in slowdowns and outages to the Company’s service offerings, and negatively impact consumer spending and demand in affected areas. Following an interruption to its business, the Company can require",
+          "metadata": {
+            "ID": "000032019323000106#passage-000017",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000017"
+        },
+        {
+          "id": "000032019323000106#passage-000024",
+          "text": "affected the Company’s ability to obtain sufficient quantities of components and products on commercially reasonable terms or at all. Such disruptions could occur in the future. While the Company has entered into agreements for the supply of many components, there can be no assurance the Company will be able to extend or renew these agreements on similar terms, or at all. Component suppliers may suffer from poor financial conditions, which can lead to business failure for the supplier or consolidation within a particular industry, further limiting the Company’s ability to obtain sufficient quantities of components on commercially reasonable terms or at all. The effects of global or regional economic conditions on the Company’s suppliers, described in “ The Company’s operations and performance depend significantly on global and regional economic conditions and adverse economic conditions can materially adversely affect the Company’s business, results of operations and financial condition, ” above, can also affect the Company’s ability to obtain components . Therefore, the Company remains subject to significant risks of supply shortages and price increases that can materially adversely affect its business, results of operations and financial condition. The Company’s new products often utilize custom components available from only one source. When a component or product uses new technologies, initial capacity constraints may exist until the suppliers’ yields have matured or their manufacturing capacities have increased. The continued availability of these components at acceptable prices, or at all, can be affected for any number of reasons, including if suppliers decide to concentrate on the production of common components",
+          "metadata": {
+            "ID": "000032019323000106#passage-000024",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000024"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 9.047648372004915
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "dependence on third-party manufacturing and supply chain risks",
+      "filters": {
+        "ticker": "NVDA",
+        "year": 2024,
+        "section": "",
+        "accession": "000104581024000029"
+      },
+      "score": 5,
+      "rationale": "The evidence is from the NVDA 2024 filing (accession 000104581024000029, fiscal period ended January 28, 2024), which matches the original filter. Passage 000041 states that NVDA uses third parties to manufacture and assemble products, has long lead times, and has no guaranteed wafer, component, or capacity supply. Passage 000049 directly covers dependency on third-party suppliers and foundries, subcontractors for assembly, test, and packaging, and the resulting supply-chain risks. Passage 000054 adds supplier non-delivery and insolvency risks. Together these fully support the NVDA side of the subquery. The AAPL 2023 comparison is outside this subquery's scope.",
+      "evidence": [
+        {
+          "id": "000104581024000029#passage-000041",
+          "text": "to successfully compete in this environment, demand for our products, services and technologies could decrease and we may not establish meaningful revenue. Risks Related to Demand, Supply and Manufacturing Failure to estimate customer demand accurately has led and could lead to mismatches between supply and demand. We use third parties to manufacture and assemble our products, and we have long manufacturing lead times. We are not provided guaranteed wafer, component and capacity supply, and our supply deliveries and production may be non-linear within a quarter or year. If our estimates of customer demand are inaccurate, as we have experienced in the past, there could be a significant mismatch between supply and demand. This mismatch has resulted in both product shortages and excess inventory, has varied across our market platforms, and has significantly harmed our financial results. We build finished products and maintain inventory in advance of anticipated demand. While we have in the past entered and may in the future enter into long-term supply and capacity commitments, we may not be able to secure sufficient 15 Table of Contents commitments for capacity to address our business needs, or our long-term demand expectations may change. These risks may increase as we shorten our product development cycles, enter new lines of business, or integrate new suppliers or components into our supply chain, creating additional supply chain complexity. Additionally, our ability to sell certain products has been and could be impeded if components necessary for the finished products are not available from third parties. This risk may increase as",
+          "metadata": {
+            "ID": "000104581024000029#passage-000041",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000041"
+        },
+        {
+          "id": "000104581024000029#passage-000049",
+          "text": "forecasting difficult. Gray market products and reseller marketplaces compete with our new products and distribution channels. Additionally, we depend on developers, customers and other third parties to build, enhance, and maintain accelerated computing applications that leverage our platforms. We also rely on third-party content providers and publishers to make their content available on our platforms, such as GeForce NOW. Failure by developers, customers, and other third parties to build, enhance, and maintain applications that leverage our platforms, or failure by third-party content providers or publishers to make their content available on reasonable terms or at all for use by our customers or end users on our platforms, could adversely affect customer demand. Dependency on third-party suppliers and their technology to manufacture, assemble, test, or package our products reduces our control over product quantity and quality, manufacturing yields, and product delivery schedules and could harm our business. We depend on foundries to manufacture our semiconductor wafers using their fabrication equipment and techniques. We do not assemble, test, or package our products, but instead contract with independent subcontractors. These subcontractors assist with procuring components used in our systems, boards, and products. We face several risks which have adversely affected or could adversely affect our ability to meet customer demand and scale our supply chain, negatively impact longer-term demand for our products and services, and adversely affect our business operations, gross margin, revenue and/or financial results, including: • lack of guaranteed supply of wafer, component and capacity or decommitment and potential higher wafer and component prices, from incorrectly estimating",
+          "metadata": {
+            "ID": "000104581024000029#passage-000049",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000049"
+        },
+        {
+          "id": "000104581024000029#passage-000058",
+          "text": "threat will not result in an incident that is material to us. Furthermore, we rely on products and services provided by third-party suppliers to operate certain critical business systems, including without limitation, cloud-based infrastructure, encryption and authentication technology, employee email and other functions, which exposes us to supply-chain attacks or other business disruptions. We cannot guarantee that third parties and infrastructure in our supply chain or our partners’ supply chains have not been compromised or that they do not contain exploitable vulnerabilities, defects or bugs that could result in a breach of or disruption to our information technology systems, including our products and services, or the third-party information technology systems that support our services. We may also incorporate third-party data into our AI algorithms or use open-source datasets to train our algorithms. These datasets may be flawed, insufficient, or contain certain biased information, and may otherwise be vulnerable to security incidents. We may have limited insight into the data privacy or security practices of third-party suppliers, including for our AI algorithms. Our ability to monitor these third parties’ information security practices is limited, and they may not have adequate information security measures in place. In addition, if one of our third-party suppliers suffers a security incident (which has happened in the 20 Table of Contents past and may happen in the future), our response may be limited or more difficult because we may not have direct access to their systems, logs and other information related to the security incident. Additionally, we are incorporated into the supply",
+          "metadata": {
+            "ID": "000104581024000029#passage-000058",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000058"
+        },
+        {
+          "id": "000104581024000029#passage-000035",
+          "text": "to those reports filed or furnished pursuant to Section 13(a) or 15(d) of the Securities Exchange Act of 1934, as amended, or the Exchange Act, are available free of charge on or through our website, http://www.nvidia.com , as soon as reasonably practicable after we electronically file such material with, or furnish it to, the Securities and Exchange Commission, or the SEC. The SEC’s website, http://www.sec.gov , contains reports, proxy and information statements, and other information regarding issuers that file electronically with the SEC. Our web site and the information on it or connected to it are not a part of this Annual Report on Form 10-K. Item 1A. Risk Factors The following risk factors should be considered in addition to the other information in this Annual Report on Form 10-K. The following risks could harm our business, financial condition, results of operations or reputation, which could cause our stock price to decline. Additional risks, trends and uncertainties not presently known to us or that we currently believe are immaterial may also harm our business, financial condition, results of operations or reputation. Risk Factors Summary Risks Related to Our Industry and Markets • Failure to meet the evolving needs of our industry may adversely impact our financial results. • Competition could adversely impact our market share and financial results. Risks Related to Demand, Supply and Manufacturing • Failure to estimate customer demand accurately has led and could lead to mismatches between supply and demand. • Dependency on third-party suppliers and their technology to manufacture, assemble, test, or",
+          "metadata": {
+            "ID": "000104581024000029#passage-000035",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000035"
+        },
+        {
+          "id": "000104581024000029#passage-000054",
+          "text": "developments have in the past and/or could in the future have adverse, wide-ranging effects on our business and financial results, including: • increased costs for wafers, components, logistics, and other supply chain expenses, which have negatively impacted our gross margin in the past and may do so in the future; • increased supply, employee, facilities and infrastructure costs and volatility in the financial markets, which have reduced and may in the future reduce our margins; • decrease in demand for our products, services and technologies and those of our customers, partners or licensees; • the inability of our suppliers to deliver on their supply commitments to us and our customers’ or our licensees’ inability to supply products to customers and/or end users; • limits on our ability to forecast operating results and make business decisions; • the insolvency of key suppliers, distributors, customers, cloud service providers, data center providers, licensing parties or other third parties we rely on; • reduced profitability of customers, which may cause them to scale back operations, exit businesses, file for bankruptcy protection and potentially cease operations, or lead to mergers, consolidations or strategic alliances among other companies, which could adversely affect our ability to compete effectively; and • increased credit and collectability risks, higher borrowing costs or reduced availability of capital markets, reduced liquidity, adverse impacts on our customers and suppliers, failures of counterparties, including financial institutions and insurers, asset impairments, and declines in the value of our financial instruments. 19 Table of Contents Adverse developments affecting financial institutions, such as",
+          "metadata": {
+            "ID": "000104581024000029#passage-000054",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000054"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 8.210912818001816
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- a significant concentration of this manufacturing is currently performed by a small number of outsourcing partners, often in single locations. [AAPL-2023-10K-p000022](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000022`; accession: `0000320193-23-000106`).\n- Any failure of these partners to perform can have a negative impact on the Company’s cost or supply of components or finished goods. [AAPL-2023-10K-p000023](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000023`; accession: `0000320193-23-000106`).\n- Because the Company currently obtains certain components from single or limited sources, the Company is subject to significant supply and pricing risks. [AAPL-2023-10K-p000023](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000023`; accession: `0000320193-23-000106`).\n- We use third parties to manufacture and assemble our products, and we have long manufacturing lead times. [NVDA-2024-10K-p000041](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000041`; accession: `0001045810-24-000029`).\n- Dependency on third-party suppliers and their technology to manufacture, assemble, test, or package our products reduces our control over product quantity and quality, manufacturing yields, and product delivery schedules and could harm our business. [NVDA-2024-10K-p000049](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000049`; accession: `0001045810-24-000029`).\n- We depend on foundries to manufacture our semiconductor wafers using their fabrication equipment and techniques. We do not assemble, test, or package our products, but instead contract with independent subcontractors. [NVDA-2024-10K-p000049](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000049`; accession: `0001045810-24-000029`).",
+  "citations": [
+    {
+      "tag": "AAPL-2023-10K-p000022",
+      "chunk_id": "000032019323000106#passage-000022",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "a significant concentration of this manufacturing is currently performed by a small number of outsourcing partners, often in single locations."
+    },
+    {
+      "tag": "AAPL-2023-10K-p000023",
+      "chunk_id": "000032019323000106#passage-000023",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "Any failure of these partners to perform can have a negative impact on the Company’s cost or supply of components or finished goods."
+    },
+    {
+      "tag": "AAPL-2023-10K-p000023",
+      "chunk_id": "000032019323000106#passage-000023",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "Because the Company currently obtains certain components from single or limited sources, the Company is subject to significant supply and pricing risks."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000041",
+      "chunk_id": "000104581024000029#passage-000041",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "We use third parties to manufacture and assemble our products, and we have long manufacturing lead times."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000049",
+      "chunk_id": "000104581024000029#passage-000049",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "Dependency on third-party suppliers and their technology to manufacture, assemble, test, or package our products reduces our control over product quantity and quality, manufacturing yields, and product delivery schedules and could harm our business."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000049",
+      "chunk_id": "000104581024000029#passage-000049",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "We depend on foundries to manufacture our semiconductor wafers using their fabrication equipment and techniques. We do not assemble, test, or package our products, but instead contract with independent subcontractors."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.689232748001814,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 14292,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 451,
+        "output_tokens_details": {
+          "thinking_tokens": 272
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 14292,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 451,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 14292,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 14292
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0030841
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.0296555109962355,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16610,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 853,
+        "output_tokens_details": {
+          "thinking_tokens": 430
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16610,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 853,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 16610,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16610
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0037487
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.734694753002259,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16642,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 881,
+        "output_tokens_details": {
+          "thinking_tokens": 581
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16642,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 881,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 16642,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16642
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0037691000000000005
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.61463538499811,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8329,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1634,
+        "output_tokens_details": {
+          "thinking_tokens": 1132
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8329,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1634,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 8329,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 8329
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.002483
+    }
+  ],
+  "elapsed_seconds": 19.35608321500331
+}

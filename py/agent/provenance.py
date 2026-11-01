@@ -3,6 +3,9 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sqlite3
+import tempfile
+from contextlib import closing
 from typing import Any
 from urllib.parse import urlparse
 from .filters import FilingFilter
@@ -24,8 +27,8 @@ class ProvenanceRegistry:
         if digest(corpus) != manifest['corpus_sha256']:
             raise ValueError('SEC source corpus checksum mismatch')
         self.sources = {source['accession']: source for source in manifest['sources']}
-        if not 1 <= len(self.sources) <= 100:
-            raise ValueError('registry must contain 1..100 filings')
+        if not 1 <= len(self.sources) <= 10000 or len(self.sources) != len(manifest['sources']):
+            raise ValueError('registry must contain 1..10000 unique filings')
         for accession, source in self.sources.items():
             url = urlparse(source['url'])
             if not re.fullmatch(r'\d{18}', accession) or url.scheme != 'https' or url.netloc != 'www.sec.gov' or url.query or url.fragment:
@@ -34,20 +37,41 @@ class ProvenanceRegistry:
                 raise ValueError('source URL does not match CIK/accession')
         # Read actual cover-page text. Filing year and fiscal period can differ.
         self.periods: dict[str, str] = {}
-        with corpus.open('rb') as stream:
-            while line := stream.readline(4 * 1024 * 1024 + 1):
+        self.sections: dict[str, set[str]] = {a: set() for a in self.sources}
+        # Disk-backed offsets avoid both corpus-sized passage lists and a full
+        # corpus scan for each retrieved citation. Original bytes remain authoritative.
+        self._temporary = tempfile.TemporaryDirectory(prefix='finfilings-provenance-')
+        self._offsets = Path(self._temporary.name) / 'offsets.sqlite'
+        with closing(sqlite3.connect(self._offsets)) as db, corpus.open('rb') as stream:
+            db.execute('CREATE TABLE offsets (id TEXT PRIMARY KEY, position INTEGER NOT NULL)')
+            while True:
+                position = stream.tell()
+                line = stream.readline(4 * 1024 * 1024 + 1)
+                if not line:
+                    break
                 if len(line) > 4 * 1024 * 1024:
                     raise ValueError('SEC record exceeds 4 MiB')
                 chunk = json.loads(line)
+                accession = chunk['ID'].split('#')[0]
+                if accession not in self.sources:
+                    continue  # Published FinQA contexts do not establish SEC provenance.
+                if not re.fullmatch(r'\d{18}#(?:item(?:1A|7|8)#)?passage-\d{6}', chunk['ID']):
+                    raise ValueError('unrecognized SEC passage identifier')
+                db.execute('INSERT INTO offsets VALUES (?,?)', (chunk['ID'], position))
+                self.sections[accession].add(chunk['SectionItem'])
                 if chunk['ID'].endswith('#passage-000000'):
                     match = re.search(r'for the fiscal year ended\s+([A-Za-z]+\s+\d{1,2}\s*,\s*\d{4})', chunk['Text'], re.I)
                     if match:
-                        self.periods[chunk['ID'].split('#')[0]] = ' '.join(match[1].split())
+                        self.periods[accession] = ' '.join(match[1].split())
+            db.commit()
+
+    def close(self) -> None:
+        self._temporary.cleanup()
 
     def catalog(self) -> list[dict[str, Any]]:
         return [dict(ticker=s['ticker'], filing_year=s['filing_year'], accession=a,
                      fiscal_period_end=self.periods.get(a),
-                     form=s['form'], section='Full filing (item not classified)') for a, s in self.sources.items()]
+                     form=s['form'], sections=sorted(self.sections[a])) for a, s in self.sources.items()]
 
     def resolve_filter(self, filters: FilingFilter) -> FilingFilter:
         if not filters.ticker or not filters.year:
@@ -65,26 +89,28 @@ class ProvenanceRegistry:
             raise ValueError('malformed retrieved evidence')
         if metadata.get('ID') != identifier or not filters.matches(metadata):
             raise ValueError('backend returned evidence outside filing filters')
-        match = re.fullmatch(r'(\d{18})#passage-(\d{6})', identifier)
+        match = re.fullmatch(r'(\d{18})#(?:(item(?:1A|7|8))#)?passage-(\d{6})', identifier)
         if not match or match[1] not in self.sources:
             return None  # FinQA has no authoritative accession and cannot become a verified claim.
-        accession, number = match.groups()
+        accession, section, number = match.groups()
         source = self.sources[accession]
         for key, value in [('Ticker', source['ticker']), ('CIK', source['cik']), ('FilingYear', source['filing_year']), ('FormType', source['form'])]:
             if metadata.get(key) != value:
                 raise ValueError('retrieved passage provenance mismatch')
-        # Scan bounded JSONL records on disk; retain only this passage. Four
-        # small filings presently make this cheaper than another derived index.
+        with closing(sqlite3.connect(self._offsets)) as db:
+            row = db.execute('SELECT position FROM offsets WHERE id=?', (identifier,)).fetchone()
+        if row is None:
+            raise ValueError('unknown SEC passage ID')
         with self.corpus.open('rb') as stream:
-            while line := stream.readline(4 * 1024 * 1024 + 1):
-                if len(line) > 4 * 1024 * 1024:
-                    raise ValueError('SEC record exceeds 4 MiB')
-                original = json.loads(line)
-                if original['ID'] == identifier:
-                    expected = {k: v for k, v in original.items() if k not in ('Text', 'Tokens')}
-                    if text != original['Text'] or metadata != expected:
-                        raise ValueError('retrieved content differs from verified SEC source')
-                    return Evidence(id=identifier, text=text, metadata=metadata,
-                        accession=f'{accession[:10]}-{accession[10:12]}-{accession[12:]}', url=source['url'],
-                        tag=f"{source['ticker']}-{source['filing_year']}-{source['form'].replace('-', '')}-p{number}")
-        raise ValueError('unknown SEC passage ID')
+            stream.seek(row[0])
+            line = stream.readline(4 * 1024 * 1024 + 1)
+            if len(line) > 4 * 1024 * 1024:
+                raise ValueError('SEC record exceeds 4 MiB')
+            original = json.loads(line)
+        expected = {k: v for k, v in original.items() if k not in ('Text', 'Tokens')}
+        if original['ID'] != identifier or text != original['Text'] or metadata != expected:
+            raise ValueError('retrieved content differs from verified SEC source')
+        suffix = f'{section}-p{number}' if section else f'p{number}'
+        return Evidence(id=identifier, text=text, metadata=metadata,
+            accession=f'{accession[:10]}-{accession[10:12]}-{accession[12:]}', url=source['url'],
+            tag=f"{source['ticker']}-{source['filing_year']}-{source['form'].replace('-', '')}-{suffix}")

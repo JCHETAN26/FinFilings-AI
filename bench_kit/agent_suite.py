@@ -1,0 +1,295 @@
+"""Frozen broad agent-validation suite: loading, scope availability and failure taxonomy.
+
+Pure standard-library helpers shared by the evaluator, the suite builder and the
+offline verifier. Nothing here talks to a model or a retrieval service.
+
+The suite is a set of *source-informed regression fixtures*. Anchor passages are
+reviewer evidence recorded after reading actual filings; they are not independent
+human gold labels, are never shown to the agent, and are not an answer-accuracy
+measure.
+"""
+import collections
+import hashlib
+import json
+from pathlib import Path
+import re
+import traceback
+from typing import Any
+
+SCHEMA = 'finfilings-agent-suite/v1'
+UNCLASSIFIED = 'Full filing (item not classified)'
+EXACT_SECTIONS = ('Item 1A', 'Item 7', 'Item 8')
+SECTION_COMPONENT = {'item1A': 'Item 1A', 'item7': 'Item 7', 'item8': 'Item 8', None: UNCLASSIFIED}
+PASSAGE_ID = re.compile(r'(\d{18})#(?:(item(?:1A|7|8))#)?passage-(\d{6})')
+MAX_RECORD_BYTES = 4 * 1024 * 1024
+CASE_COUNT = 30
+KIND_COUNTS = {'regression': 10, 'positive': 16, 'negative+mixed': 4}
+REGRESSION_IDS = [f'audit{i:02}' for i in range(1, 11)]
+BASELINE_COMPANIES = frozenset({'AAPL', 'MSFT', 'AMZN', 'NVDA'})
+MIN_NEW_COMPANIES = 12
+MAX_PROMPT_BYTES = 8192
+# Agent-visible: the prompt only. Everything else in a case is evaluator/reviewer metadata.
+AGENT_VISIBLE_FIELDS = ('id', 'prompt')
+FAILURE_CATEGORIES = ('transport', 'model', 'structural')
+EVIDENCE_OUTCOMES = ('supported', 'partial_gap', 'abstained', 'expected_unavailable')
+
+
+class SuiteError(ValueError):
+    """The frozen suite or its availability expectations are invalid."""
+
+
+def sha256_file(path: Path) -> str:
+    checksum = hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        for block in iter(lambda: stream.read(1 << 20), b''):
+            checksum.update(block)
+    return checksum.hexdigest()
+
+
+def sha256_text(text: str) -> str:
+    return hashlib.sha256(text.encode()).hexdigest()
+
+
+def normalize(text: str) -> str:
+    return ' '.join(text.split())
+
+
+def build_trusted_sources(original_provenance: Path, ingest_report: Path) -> list[dict[str, Any]]:
+    """Trusted enrollment: original four filings plus every parser-v2 acquisition.
+
+    Identical field mapping to the historical evaluate-expanded-agent.py enrollment.
+    """
+    sources = list(json.loads(Path(original_provenance).read_text())['sources'])
+    for filing in json.loads(Path(ingest_report).read_text())['filings']:
+        ref, download = filing['ref'], filing['download']
+        sources.append(dict(ticker=ref['Ticker'], cik=ref['CIK'], filing_year=int(ref['FilingDate'][:4]),
+            form=ref['Form'], url=download['url'], accession=ref['Accession'].replace('-', ''),
+            raw_sha256=download['sha256'], fiscal_period_end=ref['ReportDate']))
+    return sources
+
+
+def scan_corpus(corpus: Path, accessions: set[str] | frozenset[str],
+                wanted: set[str] | frozenset[str] = frozenset()) -> tuple[dict[str, collections.Counter], dict[str, dict]]:
+    """Stream the corpus once. Memory: one counter per accession plus only the `wanted` records."""
+    sections = {a: collections.Counter() for a in accessions}
+    found: dict[str, dict] = {}
+    with Path(corpus).open('rb') as stream:
+        while True:
+            line = stream.readline(MAX_RECORD_BYTES + 1)
+            if not line:
+                break
+            if len(line) > MAX_RECORD_BYTES:
+                raise ValueError('oversized corpus record')
+            chunk = json.loads(line)
+            accession = chunk['ID'].split('#')[0]
+            if accession in sections:
+                sections[accession][chunk['SectionItem']] += 1
+            if chunk['ID'] in wanted:
+                if chunk['ID'] in found:
+                    raise ValueError(f"duplicate source ID {chunk['ID']}")
+                found[chunk['ID']] = chunk
+    return sections, found
+
+
+def scope_availability(sources: list[dict[str, Any]], sections: dict[str, collections.Counter],
+                       ticker: str, year: int, section: str) -> dict[str, Any]:
+    """Whether a requested (ticker, filing year[, exact section]) exists in the enrolled corpus.
+
+    This is availability of the *filing and section only*. It never asserts that a
+    particular semantic topic is answerable from the passages.
+    """
+    matches = [s for s in sources if s['ticker'] == ticker and s['filing_year'] == year]
+    if len(matches) > 1:
+        raise SuiteError(f'ambiguous trusted filing for {ticker} {year}')
+    row: dict[str, Any] = dict(ticker=ticker, year=year, section=section, source_exists=bool(matches),
+        accession=matches[0]['accession'] if matches else '', passages_in_scope=0)
+    if matches:
+        counts = sections.get(matches[0]['accession'], collections.Counter())
+        row['passages_in_scope'] = counts[section] if section else sum(counts.values())
+    row['available'] = row['passages_in_scope'] > 0
+    row['reason'] = 'available' if row['available'] else ('exact_section_absent' if row['source_exists'] else 'filing_year_absent')
+    return row
+
+
+def agent_view(case: dict[str, Any]) -> dict[str, Any]:
+    """The only case fields the agent harness may see. Anchors and expectations are excluded."""
+    return {field: case[field] for field in AGENT_VISIBLE_FIELDS}
+
+
+def case_kind_group(kind: str) -> str:
+    return 'negative+mixed' if kind in ('negative', 'mixed') else kind
+
+
+def suite_coverage(suite: dict[str, Any]) -> dict[str, Any]:
+    cases = suite['cases']
+    positive = [c for c in cases if c['kind'] == 'positive']
+    companies = {s['ticker'] for c in positive for s in c['scopes']}
+    return dict(
+        positive_companies=sorted(companies), new_companies_beyond_baseline=sorted(companies - BASELINE_COMPANIES),
+        multi_company_comparisons=[c['id'] for c in cases if len({s['ticker'] for s in c['scopes']}) > 1],
+        multi_year_comparisons=[c['id'] for c in cases if len({s['year'] for s in c['scopes']}) > 1],
+        filing_years=sorted({s['year'] for c in cases for s in c['scopes']}),
+        exact_sections=sorted({c['section'] for c in cases if c['section']}),
+        absent_filing_year=[c['id'] for c in cases if any(e['reason'] == 'filing_year_absent' for e in c['expected_scopes'])],
+        absent_exact_section=[c['id'] for c in cases if any(e['reason'] == 'exact_section_absent' for e in c['expected_scopes'])],
+        mixed_availability=[c['id'] for c in cases if len({e['available'] for e in c['expected_scopes']}) > 1])
+
+
+def validate_suite(suite: dict[str, Any]) -> None:
+    """Structural validation of the frozen suite (no corpus access)."""
+    if suite.get('schema') != SCHEMA:
+        raise SuiteError('unknown suite schema')
+    cases = suite.get('cases')
+    if not isinstance(cases, list) or len(cases) != CASE_COUNT or suite.get('case_count') != CASE_COUNT:
+        raise SuiteError(f'suite must contain exactly {CASE_COUNT} cases')
+    ids = [c.get('id') for c in cases]
+    if ids != suite.get('case_ids') or len(set(ids)) != CASE_COUNT:
+        raise SuiteError('case_ids must match the ordered unique case list')
+    expected_ids = REGRESSION_IDS + [f'broad{i}' for i in range(11, 11 + CASE_COUNT - len(REGRESSION_IDS))]
+    if ids != expected_ids:
+        raise SuiteError('case ids must be audit01..audit10 then broad11..broad30 in order')
+    groups = collections.Counter(case_kind_group(c.get('kind', '')) for c in cases)
+    if dict(groups) != KIND_COUNTS:
+        raise SuiteError(f'case kind counts {dict(groups)} != {KIND_COUNTS}')
+    prompts = [c.get('prompt') for c in cases]
+    if len(set(prompts)) != CASE_COUNT:
+        raise SuiteError('prompts must be unique')
+    all_anchor_text: list[str] = []
+    for case in cases:
+        prompt = case['prompt']
+        if not isinstance(prompt, str) or not prompt.strip() or len(prompt.encode()) > MAX_PROMPT_BYTES:
+            raise SuiteError(f"{case['id']}: invalid prompt")
+        scopes = case.get('scopes')
+        if not scopes or len(scopes) > 3 or len({(s['ticker'], s['year']) for s in scopes}) != len(scopes):
+            raise SuiteError(f"{case['id']}: scopes must be 1..3 unique (ticker, year) pairs")
+        if case.get('section', '') not in ('',) + EXACT_SECTIONS:
+            raise SuiteError(f"{case['id']}: unsupported exact section")
+        for scope in scopes:
+            if scope['ticker'] not in prompt or str(scope['year']) not in prompt:
+                raise SuiteError(f"{case['id']}: prompt must state {scope['ticker']} and {scope['year']}")
+        if case['section'] and f'"{case["section"]}"' not in prompt:
+            raise SuiteError(f"{case['id']}: exact section must be stated in the prompt")
+        expected = case.get('expected_scopes')
+        if not expected or [(e['ticker'], e['year'], e['section']) for e in expected] != [(s['ticker'], s['year'], case['section']) for s in scopes]:
+            raise SuiteError(f"{case['id']}: expected_scopes must mirror scopes and section")
+        if case['kind'] == 'regression':
+            if case.get('reviewer_evidence'):
+                raise SuiteError(f"{case['id']}: verbatim regression prompts carry no added anchors")
+        else:
+            anchors = case.get('reviewer_evidence', {}).get('anchors', [])
+            unavailable = [e for e in expected if not e['available']]
+            if case['kind'] == 'positive' and (unavailable or not anchors):
+                raise SuiteError(f"{case['id']}: positive case needs available scopes and anchors")
+            if case['kind'] == 'negative' and (len(unavailable) != len(expected)):
+                raise SuiteError(f"{case['id']}: negative case must have every scope unavailable")
+            if case['kind'] == 'mixed' and not (unavailable and len(unavailable) < len(expected)):
+                raise SuiteError(f"{case['id']}: mixed case must have available and unavailable scopes")
+            for anchor in anchors:
+                scope = next((e for e in expected if (e['ticker'], e['year']) == (anchor['ticker'], anchor['year'])), None)
+                if scope is None or not scope['available'] or not anchor['id'].startswith(scope['accession'] + '#'):
+                    raise SuiteError(f"{case['id']}: anchor {anchor.get('id')} is outside an available requested scope")
+                all_anchor_text += [anchor['id'], anchor['excerpt']]
+    for case in cases:  # Answer/anchor material must never be recoverable from the agent-visible prompt.
+        for text in all_anchor_text:
+            if text in case['prompt']:
+                raise SuiteError(f"{case['id']}: prompt leaks anchor material")
+    coverage = suite_coverage(suite)
+    if len(coverage['new_companies_beyond_baseline']) < MIN_NEW_COMPANIES:
+        raise SuiteError(f'positive cases must cover >= {MIN_NEW_COMPANIES} companies beyond {sorted(BASELINE_COMPANIES)}')
+    for required in ('multi_company_comparisons', 'multi_year_comparisons', 'absent_filing_year', 'absent_exact_section', 'mixed_availability'):
+        if not coverage[required]:
+            raise SuiteError(f'suite lacks required scenario: {required}')
+    if set(coverage['exact_sections']) != set(EXACT_SECTIONS):
+        raise SuiteError('suite must exercise exact Item 1A, Item 7 and Item 8 filters')
+
+
+def load_suite(path: Path, expected_sha256: str | None = None) -> tuple[dict[str, Any], str]:
+    """Load, hash and validate a frozen suite. Returns (suite, sha256 of the exact file bytes)."""
+    path = Path(path)
+    digest = sha256_file(path)
+    if expected_sha256 is not None and digest != expected_sha256.lower():
+        raise SuiteError(f'suite sha256 {digest} != pinned {expected_sha256}')
+    suite = json.loads(path.read_text())
+    validate_suite(suite)
+    return suite, digest
+
+
+def check_expected_scopes(suite: dict[str, Any], sources: list[dict[str, Any]],
+                          sections: dict[str, collections.Counter], compare_counts: bool = True) -> None:
+    """Recompute availability from the live corpus/enrollment and require it to equal the frozen expectation.
+
+    `compare_counts=False` is for callers that only know which sections exist (the registry), not how many passages.
+    """
+    for case in suite['cases']:
+        for expected in case['expected_scopes']:
+            actual = scope_availability(sources, sections, expected['ticker'], expected['year'], expected['section'])
+            if not compare_counts:
+                actual = dict(actual, passages_in_scope=expected['passages_in_scope'])
+            if actual != expected:
+                raise SuiteError(f"{case['id']}: frozen availability {expected} != corpus {actual}")
+
+
+_AGENT_FILES = {'state_machine.py', 'planner.py', 'critic.py', 'synthesizer.py', 'provenance.py', 'models.py',
+                'filters.py', 'eval_agent.py'}
+
+
+def classify_failure(exc: BaseException) -> str:
+    """transport = retrieval service/network; model = Claude CLI generation; structural = agent/contract/verifier.
+
+    Decided by the innermost agent-code frame of the traceback, then by exception type. It is a triage
+    label, not proof: the full type, message and traceback are always saved beside it.
+    """
+    for frame in reversed(traceback.extract_tb(exc.__traceback__)):
+        base = Path(frame.filename).name
+        if base == 'provider.py':
+            return 'model'
+        if base == 'retrieval.py':
+            return 'transport'
+        if base in _AGENT_FILES:
+            return 'structural'
+    module = type(exc).__module__
+    if module.startswith(('httpx', 'httpcore')) or isinstance(exc, ConnectionError):
+        return 'transport'
+    if isinstance(exc, (TimeoutError, FileNotFoundError)) or module.startswith('pydantic'):
+        return 'model'
+    return 'structural'
+
+
+def failure_record(case_id: str, phase: str, exc: BaseException) -> dict[str, Any]:
+    return dict(id=case_id, status='fail', phase=phase, category=classify_failure(exc), error_type=type(exc).__name__,
+        error=f'{type(exc).__name__}: {exc}',
+        traceback=''.join(traceback.format_exception(type(exc), exc, exc.__traceback__))[-8000:])
+
+
+def evidence_outcome(result_flags: list[str], citations: int, subqueries: int, cited_subqueries: int) -> str:
+    """Honest evidence outcome. supported/partial_gap/abstained are NOT failures."""
+    if citations and cited_subqueries == subqueries and not any(f.startswith('Subquery') for f in result_flags):
+        return 'supported'
+    return 'partial_gap' if cited_subqueries else 'abstained'
+
+
+def registry_sections(registry: Any) -> dict[str, collections.Counter]:
+    """Adapt ProvenanceRegistry.sections (sets) to Counters; counts are 1 per section and not meaningful."""
+    return {accession: collections.Counter({name: 1 for name in names}) for accession, names in registry.sections.items()}
+
+
+REQUIRED_CODE = ('py/service.py', 'py/common.py', 'py/rerank.py', 'py/dense_batcher.py', 'py/agent/state_machine.py',
+                 'cmd/finfilings/main.go', 'pkg/hybrid/hybrid.go', 'pkg/index/shards.go', 'go.mod',
+                 'bench_kit/eval_agent.py', 'bench_kit/agent_suite.py', 'scripts/evaluate-expanded-agent.py')
+
+
+def code_files(root: Path) -> list[str]:
+    """Implementation files whose hashes a run must record: sidecar, agent, Go retrieval stack, harness.
+
+    Third-party packages under models/runtime are not hashed; they are pinned by the environment, not this repository.
+    """
+    root = Path(root)
+    found = set()
+    for pattern in ('py/*.py', 'py/agent/*.py', 'cmd/**/*.go', 'pkg/**/*.go', 'internal/**/*.go', 'go.mod', 'go.sum',
+                    'scripts/evaluate-expanded-agent.py', 'scripts/benchmark-expanded.py', 'bench_kit/eval_agent.py',
+                    'bench_kit/agent_suite.py', 'bench_kit/verify_broad_agent.py', 'bench_kit/build_broad_suite.py'):
+        for path in root.glob(pattern):
+            name = path.name
+            if path.is_file() and not name.startswith('test_') and not name.endswith('_test.go'):
+                found.add(str(path.relative_to(root)))
+    return sorted(found)

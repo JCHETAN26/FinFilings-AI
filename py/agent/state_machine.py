@@ -19,6 +19,23 @@ class SearchBackend(Protocol):
     async def search(self, query: str, filters: FilingFilter) -> list[dict[str, Any]]: ...
 
 
+def merge_evidence(retained: list[Evidence], fresh: list[Evidence]) -> list[Evidence]:
+    """Carry at most two source-verified partial passages into a five-item context."""
+    if len(retained) > 2 or len(fresh) > 5:
+        raise ValueError('evidence context exceeds retention/retrieval bounds')
+    result = list(retained)
+    seen = {item.id for item in retained}
+    if len(seen) != len(retained):
+        raise ValueError('duplicate retained evidence')
+    for item in fresh:
+        if item.id not in seen:
+            result.append(item)
+            seen.add(item.id)
+            if len(result) == 5:
+                break
+    return result
+
+
 class Agent:
     def __init__(self, model: StructuredModel, backend: SearchBackend, registry: ProvenanceRegistry,
                  max_retries: int = 2, threshold: int = 4, concurrency: int = 3):
@@ -31,6 +48,7 @@ class Agent:
 
     async def _retrieve(self, position: int, subquery: SubQuery, audit_prompt: str) -> list[Hop]:
         history, query = [], subquery.query
+        retained: list[Evidence] = []
         for attempt in range(self.max_retries + 1):
             start = time.perf_counter()
             async with self.slots:
@@ -43,15 +61,17 @@ class Agent:
                         evidence.append(item)
                         if len(evidence) == 5:
                             break
+                evidence = merge_evidence(retained, evidence)
                 verdict = await critique(self.model, subquery, query, evidence, audit_prompt, self.registry.catalog())
             accepted = bool(evidence) and verdict.score >= self.threshold
             history.append(Hop(subquery=position, attempt=attempt, query=query, filters=subquery.filters,
                 score=verdict.score, rationale=verdict.rationale, evidence=evidence,
-                accepted=accepted, elapsed_seconds=time.perf_counter()-start))
+                accepted=accepted, retained_evidence_ids=[item.id for item in retained], elapsed_seconds=time.perf_counter()-start))
             if accepted:
                 break
             if attempt < self.max_retries and verdict.rewritten_query.strip().casefold() == query.strip().casefold():
                 raise ValueError('critic failed to rewrite a below-threshold query')
+            retained = [item for item in evidence if item.id in verdict.retain_ids]
             query = verdict.rewritten_query
         return history
 

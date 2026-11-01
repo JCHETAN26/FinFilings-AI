@@ -1,0 +1,450 @@
+{
+  "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "registered_filings": 152,
+  "cases": [
+    {
+      "id": "audit01",
+      "prompt": "Compare AAPL filing year 2023 and NVDA filing year 2024: find the disclosed dependence on third-party manufacturing and supply-chain risks. Retrieve evidence separately for each company.",
+      "citation_checks": "pass",
+      "citations": 6,
+      "subqueries": 2,
+      "cited_subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "coverage": "full",
+      "flags": [],
+      "seconds": 19.35608321500331,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "dependence on third-party manufacturing and supply chain risks",
+          "score": 5,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "All five passages come from the AAPL 2023 filing (accession 000032019323000106), matching the subquery filters. They directly address dependence on third-party manufacturing: outsourcing partners concentrated in Asia, single-source suppliers, reduced control from outsourced logistics, supplier code violations, and component shortages. The evidence is for AAPL only; NVDA 2024 is covered by a separate subquery and is not graded here."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "dependence on third-party manufacturing and supply chain risks",
+          "score": 5,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "The evidence is from the NVDA 2024 filing (accession 000104581024000029, fiscal period ended January 28, 2024), which matches the original filter. Passage 000041 states that NVDA uses third parties to manufacture and assemble products, has long lead times, and has no guaranteed wafer, component, or capacity supply. Passage 000049 directly covers dependency on third-party suppliers and foundries, subcontractors for assembly, test, and packaging, and the resulting supply-chain risks. Passage 000054 adds supplier non-delivery and insolvency risks. Together these fully support the NVDA side of the subquery. The AAPL 2023 comparison is outside this subquery's scope."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "audit02",
+      "prompt": "Compare MSFT and AMZN, both filing year 2024: retrieve evidence on cloud business competition and the operating costs of their cloud infrastructure. Use separate company-specific retrieval steps.",
+      "citation_checks": "pass",
+      "citations": 8,
+      "subqueries": 2,
+      "cited_subqueries": 1,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "coverage": "partial",
+      "flags": [
+        "Subquery 1 has no evidence meeting threshold after 2 retries."
+      ],
+      "seconds": 43.16906471300172,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "Microsoft cloud business competition and operating costs of cloud infrastructure, including datacenter and technology infrastructure expenses",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "The MSFT 2024 filing (accession 000095017024087843, fiscal year ended June 30, 2024) passages directly address the competition question. passage-000023 names Amazon, Google, Broadcom, IBM, Oracle and others as Azure competitors. passage-000096 says cloud and AI infrastructure investment will increase operating costs and lower margins, and it cites datacenter land, energy, server and GPU dependencies. passage-000094 and passage-000102 tie datacenter operations to major expenses and Microsoft Cloud gross margin. The evidence is qualitative, though. It has no datacenter or infrastructure expense figures such as depreciation, cost of revenue, or capex amounts, so it is useful but not fully supported."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "Amazon Web Services cloud business competition and operating costs of cloud infrastructure, including technology infrastructure and datacenter expenses",
+          "score": 3,
+          "accepted": false,
+          "evidence_count": 5,
+          "rationale": "Passages are from the correct AMZN filing (accession 000101872424000008, filing year 2024, fiscal period ended Dec 31, 2023). They directly cover the operating-cost side: Technology and infrastructure costs include servers, networking equipment, and data center depreciation, rent, and utilities supporting AWS. They also give the 2022-2023 operating expense table and state that AWS operating income rose on spending on technology infrastructure. The AWS segment definition is included. However, no passage addresses cloud business competition, such as competitors or market position. The evidence is therefore partial, covering only the cost half of the subquery."
+        },
+        {
+          "subquery": 1,
+          "attempt": 1,
+          "query": "AMZN 2024 filing (fiscal year ended December 31, 2023; accession 000101872424000008) Item 1 or Item 1A competition for AWS cloud services against Microsoft, Google, and other cloud providers, including pricing and market share",
+          "score": 2,
+          "accepted": false,
+          "evidence_count": 5,
+          "rationale": "None of the five passages discusses AWS competition, competitors (Microsoft, Google), pricing, or market share. Passages 000002 and 000000 are cover and table-of-contents text. Passage 000141 covers stock-based compensation and income taxes. Passage 000162 is the exhibit index. Passage 000115 is the only AWS-related text: it covers unearned revenue and $155.7B of AWS contract commitments. That is revenue/backlog context, not competition or infrastructure operating costs, so the evidence is weak for this subquery. Filing year 2024 with fiscal year ended December 31, 2023 and accession 000101872424000008 is consistent with the catalog."
+        },
+        {
+          "subquery": 1,
+          "attempt": 2,
+          "query": "AMZN 10-K filing year 2024 (fiscal year ended December 31, 2023; accession 000101872424000008) Item 1 Business and Item 1A Risk Factors: Amazon Web Services competition with Microsoft Azure, Google Cloud and other cloud providers, including pricing pressure and AWS market share",
+          "score": 1,
+          "accepted": false,
+          "evidence_count": 5,
+          "rationale": "None of the five passages discuss AWS competition, cloud pricing, market share, or datacenter/technology infrastructure costs. They are the cover page, the table of contents, and exhibit indexes (Item 15 material and credit agreements). The cover page does confirm the filing is AMZN's 10-K for fiscal year ended December 31, 2023 (accession 000101872424000008), which matches the filing-year-2024 scope. The passages list Item 1 and Item 1A as page locations but do not include their text, so the subquery is unanswered by this evidence."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "audit03",
+      "prompt": "Audit NVDA filing year 2024: separately retrieve export control risks and dependence on external manufacturing capacity. Explain with filing excerpts only.",
+      "citation_checks": "pass",
+      "citations": 8,
+      "subqueries": 2,
+      "cited_subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "coverage": "full",
+      "flags": [],
+      "seconds": 23.052863436001644,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "Export control restrictions and regulations risks affecting sales of products to customers and markets outside the United States",
+          "score": 5,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "All five passages come from NVDA accession 000104581024000029, the filing-year-2024 10-K with fiscal period ended January 28, 2024, so the filter matches. They directly address export control risks on sales outside the US: restrictions reducing demand in Europe, Latin America, and Southeast Asia; GPU controls that could bar exports to customers or markets; design-out effects; and Russia/Belarus sanctions that blocked product shipments and led to stopping direct Russia sales. Passages are truncated mid-sentence, but the substance is fully supported."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "Dependence on third-party foundries, contract manufacturers, and external manufacturing and packaging capacity supply constraints",
+          "score": 5,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "All evidence comes from the NVDA 2024 filing (accession 000104581024000029, fiscal period ended January 28, 2024). Passages 49, 50, and 41 directly address the subquery: reliance on foundries for wafers, use of independent subcontractors for assembly, test, and packaging, no guaranteed wafer or capacity supply, long lead times, supplier concentration, and manufacturing yield risk. Passage 114 adds capacity purchase commitments and long third-party lead times. Passage 58 covers third-party cybersecurity supply chain risk and is off-topic. The evidence does not address export controls, which the audit also requires, but this subquery is about manufacturing dependence and it is well supported."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "audit04",
+      "prompt": "Audit AMZN filing year 2024: separately retrieve AWS sales disclosures and operating expense disclosures. Support both topics with direct excerpts.",
+      "citation_checks": "pass",
+      "citations": 5,
+      "subqueries": 2,
+      "cited_subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "coverage": "full",
+      "flags": [],
+      "seconds": 21.728234047994192,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "AWS segment net sales disclosures and revenue discussion",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Passage 000062 directly supports the AWS net sales subquery. It gives the Net Sales table with AWS at $80,096M (2022) and $90,757M (2023), AWS YoY growth of 29% and 13%, AWS mix of 16%, and the AWS sales commentary. Passage 000150 defines the AWS segment and begins the segment net sales table, but the AWS figures are cut off. Passage 000004 is a business overview with no AWS sales figures. Passage 000066 covers fulfillment and technology/infrastructure costs, not AWS sales. Passage 000153 covers segment assets and property, not sales. The evidence fits the filing year 2024 (fiscal period ended December 31, 2023), and the 2022/2023 comparison is correct for that filing. It is not fully supported because the AWS revenue drivers discussion and the complete segment reconciliation are missing."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "operating expenses disclosures by category and cost drivers",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Passage 000065 directly discusses cost of sales drivers (product and shipping costs, fulfillment efficiencies, FX impact, shipping cost totals). Passages 000150 and 000151 name the consolidated operating expense categories and give segment and consolidated operating expense figures for 2021-2023. Passage 000106 (lease accounting policy) and 000084 (cash flow statement) are not useful for this subquery. Fulfillment, technology and infrastructure, sales and marketing, and G&A cost drivers are only partly covered, so the evidence is directly useful but not complete. All passages are from the AMZN 000101872424000008 filing (fiscal year ended Dec 31, 2023), consistent with the 2024 filing-year filter."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "audit05",
+      "prompt": "Audit AAPL filing year 2023: separately retrieve share repurchase authorization disclosures and cash dividend disclosures. Provide original supporting excerpts for both.",
+      "citation_checks": "pass",
+      "citations": 6,
+      "subqueries": 2,
+      "cited_subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "coverage": "full",
+      "flags": [],
+      "seconds": 23.228362570000172,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "share repurchase program authorization disclosures, including repurchase authorization amount and remaining capacity",
+          "score": 5,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Passage 000055 (accession 000032019323000106, AAPL 10-K for fiscal period ended September 30, 2023) directly states the authorization amount (\"authorized... to purchase up to $90 billion\" under the program announced May 4, 2023), the utilized amount ($15.9 billion), and the remaining capacity table line (\"Approximate Dollar Value of Shares That May Yet Be Purchased\" = $74,069 million). It also notes the prior program's final $4.6 billion. Passage 000094 supports repurchase activity (471 million shares for $76.6 billion in 2023) and passage 000064 mentions an authorized program without amounts, so both are secondary. Dividend content in passage 000064 is outside this subquery."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "cash dividend disclosures, including dividends declared per share and dividend policy",
+          "score": 5,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Evidence directly covers both parts of the subquery for AAPL's FY2023 10-K (accession 000032019323000106, fiscal period ended September 30, 2023). Passage 71 gives the dividends declared per share ($0.94 for 2023, $0.90 for 2022, $0.85 for 2021) and the declared dividend amount in the equity statement. Passage 65 states the dividend policy: the Company intends to increase its dividend annually, subject to Board declaration. Passage 73 adds cash paid for dividends in financing activities. Passage 52 adds that future dividends are subject to Board declaration. Passage 95 is marginal. No cross-year or filing-year mismatch."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "audit06",
+      "prompt": "Audit MSFT filing year 2024: separately retrieve cloud services growth disclosures and cybersecurity risks. Ground both topics in the filing.",
+      "citation_checks": "pass",
+      "citations": 7,
+      "subqueries": 2,
+      "cited_subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "coverage": "full",
+      "flags": [],
+      "seconds": 20.818338319993927,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "cloud services growth disclosures, revenue growth drivers for cloud offerings",
+          "score": 5,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "All four passages come from the MSFT 2024 10-K (accession 000095017024087843, fiscal year ended June 30, 2024, compared with fiscal 2023). They directly answer the subquery. Passage 094 gives the headline: Microsoft Cloud revenue up 23% to $137.4B. Passage 103 gives Server products and cloud services up $17.8B or 22%, driven by Azure and other cloud services, with Azure growing 30% from consumption-based services. It also covers Dynamics 365 (+24%) and Office 365 Commercial (+16%). Passage 102 covers Microsoft Cloud gross margin drivers, and passage 099 defines the cloud-related metrics. The evidence is fully on-topic for cloud growth and its drivers. Its one limitation is that passage 103 is cut mid-sentence. The evidence does not address cybersecurity, which the audit prompt also requests, but that is outside this subquery."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "cybersecurity risks, security incidents, and risk factors related to information security",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "The evidence is from the MSFT filing-year-2024 10-K (accession 000095017024087843, fiscal period ended June 30, 2024) and directly addresses the subquery. Passage 52 is a risk-factor passage on cyberattacks and security vulnerabilities, and it describes a disclosed nation-state password spray incident. Passages 89, 87, 88 and 90 cover Item 1C risk management, third-party cyber risk, incident response and Board/CISO governance. Usefulness is held to 4 rather than 5 because these are excerpts, not the full Item 1A risk-factor section, and the incident's downstream impact is truncated."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "audit07",
+      "prompt": "Audit AMZN filing year 2024: separately retrieve liquidity and cash-flow disclosures and operating lease obligations. Present supporting excerpts without deriving new numbers.",
+      "citation_checks": "pass",
+      "citations": 8,
+      "subqueries": 3,
+      "cited_subqueries": 3,
+      "retrieval_calls": 4,
+      "retries": 1,
+      "coverage": "full",
+      "flags": [],
+      "seconds": 35.407978589995764,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "liquidity and capital resources disclosures",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Passage 000057 is directly on point: it has the \"Liquidity and Capital Resources\" section with cash flow totals by activity (operating, investing, financing), principal liquidity sources and cash/marketable securities balances, and operating cash flow drivers. This is the core of the subquery. It is not exhaustive: it omits debt, contractual obligations, and lease commitment detail. Passage 000076 (Item 7A market risk) and 000054 (critical accounting estimates) are only tangentially related. Passage 000084 has the cash flow statement but is a primary statement, not MD&A discussion. Filing year 2024 maps to the fiscal year ended December 31, 2023, which the evidence reflects."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "cash flow disclosures from operating, investing, and financing activities",
+          "score": 5,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Evidence for AMZN, filing 000101872424000008 (cover-page period ended December 31, 2023) directly covers all three requested activity types. Passage 57 gives the Liquidity cash-flow summary table: operating $84,946M, investing (49,833)M, financing (15,879)M for 2023, with 2022 comparatives. Passage 84 has the operating-activities section of the consolidated statement of cash flows. Passage 85 has the investing and financing line items and the net change in cash. Passages 59 and 72 add financing-flow detail and a free-cash-flow reconciliation. The 2022/2023 columns match the filing's own fiscal years and are not mislabeled. The audit's operating-lease request is outside this subquery and was not graded."
+        },
+        {
+          "subquery": 2,
+          "attempt": 0,
+          "query": "operating lease obligations and lease commitments",
+          "score": 3,
+          "accepted": false,
+          "evidence_count": 5,
+          "rationale": "Passages 000106 and 000107 describe lease classification and accounting policy (terms, expense recognition) but give no operating lease obligation or commitment amounts. Passage 000092 has the supplemental cash flow table with cash paid for operating leases and assets acquired under operating leases for 2021-2023, which is related but is cash flow data, not the obligation or commitment schedule. Passages 000072 and 000073 are free cash flow reconciliations covering finance lease principal repayments, which are off-target. No future minimum operating lease payments, maturity table, or total lease commitments appear in the evidence. Partial support only."
+        },
+        {
+          "subquery": 2,
+          "attempt": 1,
+          "query": "AMZN 10-K filing year 2024 (fiscal year ended December 31, 2023) operating lease liabilities maturity schedule future minimum operating lease payments total lease commitments Item 8 notes Leases",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Passage 000101872424000008#passage-000128 directly supplies the operating lease maturity line for Dec 31, 2023 (Operating lease liabilities: 11,229 / 9,922 / 9,156 / 8,321 / 7,546 / 44,603 thereafter, total 90,777 $M) in the commitments note. Passage-000120 adds 2023 operating lease cost ($10,550M), weighted-average remaining term (11.3 years) and discount rate (3.3%), but its gross lease liability table is cut off at the 2022 column, so the 2023 reconciliation is missing. Passage-000092 gives 2023 cash paid for operating leases ($10,453M), which supports the cash-flow side. Passage-000054 (critical accounting estimates) and passage-000002 (cover page) are not useful for this subquery. Evidence is strong but not exhaustive."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "audit08",
+      "prompt": "Audit NVDA filing year 2024: separately retrieve Data Center revenue growth disclosures and gross margin disclosures. Use evidence for each topic without calculating a new ratio.",
+      "citation_checks": "pass",
+      "citations": 5,
+      "subqueries": 2,
+      "cited_subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "coverage": "full",
+      "flags": [],
+      "seconds": 20.423297911998816,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "Data Center segment revenue growth disclosures, including year-over-year change in Data Center revenue and drivers",
+          "score": 5,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "All evidence comes from the NVDA 2024 filing (accession 000104581024000029, fiscal year ended Jan 28, 2024). It states Data Center revenue was $47.5B for fiscal 2024, up 217% from fiscal 2023, and gives drivers: Hopper GPU shipments for LLM training and inference, Compute up 266%, Networking/InfiniBand up 133%, cloud provider demand, and AI inference at about 40% of Data Center revenue. This directly answers the subquery. The gross margin passages are outside this subquery's scope and were not used in grading."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "gross margin disclosures, including gross margin percentage, changes in gross margin, and factors affecting it",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Directly addresses the subquery for NVDA filing 2024 (accession 000104581024000029, fiscal year ended Jan 28, 2024). Passage-000110 gives gross margin of 72.7% vs 56.9% with a 15.8-point increase. Passages 000114 and 000121 quantify the gross margin impact of inventory provisions (2.7% unfavorable in FY2024 vs 7.5% in FY2023). Passages 000054 and 000047 name supply-chain cost increases and demand/product factors. Gaps: the Gross Profit and Gross Margin discussion itself is not in the evidence, so other drivers such as product mix and pricing are not covered."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "audit09",
+      "prompt": "Audit AAPL filing year 2025 only: separately retrieve revenue disclosures and share repurchase disclosures. Do not substitute filing year 2023 or any other year if 2025 evidence is unavailable.",
+      "citation_checks": "pass",
+      "citations": 8,
+      "subqueries": 2,
+      "cited_subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "coverage": "full",
+      "flags": [],
+      "seconds": 24.984407449999708,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "Apple net sales revenue disclosures by product and geographic segment, including revenue trends and drivers",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Evidence from AAPL filing 000032019325000079 (filing year 2025) directly answers the product side: a net sales table by iPhone, Mac, iPad, Wearables/Home/Accessories and Services for 2025, 2024 and 2023, plus Item 7 explanations of each category's year-over-year drivers. It also gives 2025 and partial 2024 net sales by geographic segment (Americas, Europe, Greater China, Japan, Rest of Asia Pacific). Gaps: geographic segment trends and drivers are not explained, and the 2024 geographic figures are truncated. The catalog lists fiscal_period_end as September 28, 2024, but the passage text reports fiscal 2025 ending September 27, 2025, so the catalog field looks inconsistent with the content. The text is treated as the FY2025 10-K under filing year 2025."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "Apple share repurchase program disclosures, including shares repurchased, amounts, and remaining authorization",
+          "score": 4,
+          "accepted": true,
+          "evidence_count": 5,
+          "rationale": "Evidence is from the AAPL 2025 10-K (accession 000032019325000079), the requested filing. Passage item7-000007 gives the dollar amount repurchased in 2025 ($89.3B) and the new up-to-$100B program announced in May 2025. Passage item8-000022 gives shares repurchased in 2025 (401,672 thousand), with 2024 and 2023 comparatives. Together these directly answer the shares and amounts parts. Remaining authorization under the new program is not stated, and there is no quarterly breakdown. The catalog's fiscal_period_end (Sept 28, 2024) conflicts with the text's Sept 27, 2025 balance dates; the rewrite keeps the filing-year 2025 scope without demanding fiscal 2024 figures."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "audit10",
+      "prompt": "Audit MSFT filing year 2024, with the exact SectionItem filter \"Item 1A\": separately retrieve cybersecurity risk and cloud competition risk. Do not relax the exact section filter if unclassified passages are all that is available.",
+      "citation_checks": "pass",
+      "citations": 0,
+      "subqueries": 2,
+      "cited_subqueries": 0,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "coverage": "abstain",
+      "flags": [
+        "Subquery 0 has no evidence meeting threshold after 2 retries.",
+        "Subquery 1 has no evidence meeting threshold after 2 retries.",
+        "No verified answer; evidence unavailable or below threshold."
+      ],
+      "seconds": 22.341199747002975,
+      "hops": [
+        {
+          "subquery": 0,
+          "attempt": 0,
+          "query": "cybersecurity risk factors: security breaches, cyberattacks, and unauthorized access to systems and data",
+          "score": 1,
+          "accepted": false,
+          "evidence_count": 0,
+          "rationale": "The evidence array is empty, so no verified evidence supports the audit query. The MSFT 2024 filing (accession 000095017024087843, fiscal period ending June 30, 2024) is catalogued only as a full filing with no classified Item 1A section, so the exact \"Item 1A\" SectionItem filter returns nothing. The original query's scope is preserved: filing year 2024 is kept as the filing-year filter, not a fiscal-year demand. The rewrite adds lexical cybersecurity terms for retrieval only."
+        },
+        {
+          "subquery": 0,
+          "attempt": 1,
+          "query": "Microsoft MSFT 10-K filing 2024 Item 1A Risk Factors cybersecurity risk: cyberattacks, security breaches, malware, ransomware, unauthorized access to systems, networks, data, and customer information, information security incidents",
+          "score": 1,
+          "accepted": false,
+          "evidence_count": 0,
+          "rationale": "No verified evidence was provided (evidence array is empty), so the score is 1. The MSFT 2024 filing (accession 000095017024087843, fiscal period ended June 30, 2024) is catalogued only as \"Full filing (item not classified)\", so the exact SectionItem filter \"Item 1A\" cannot be satisfied for it. The section filter must not be relaxed. The filing year 2024 is the FILING year, and the fiscal period is June 30, 2024. The cloud competition risk retrieval is a separate query and is not covered by this cybersecurity rewrite."
+        },
+        {
+          "subquery": 0,
+          "attempt": 2,
+          "query": "Microsoft MSFT 10-K filing year 2024 fiscal year ended June 30, 2024 Item 1A Risk Factors cybersecurity risk: cyberattacks, security breaches, malware, ransomware, unauthorized access to systems, networks, data, customer information, information security incidents",
+          "score": 1,
+          "accepted": false,
+          "evidence_count": 0,
+          "rationale": "No evidence was retrieved (evidence array is empty), so nothing is verified and the score is 1. The catalog lists the MSFT 2024 filing (accession 000095017024087843, fiscal period end June 30, 2024) only as \"Full filing (item not classified)\", with no Item 1A classification. The exact SectionItem \"Item 1A\" filter is kept as the audit prompt requires, so results may be empty. The rewrite keeps filing year 2024 and fiscal year end June 30, 2024 distinct, and does not add fiscal 2025 or other-year figures. The original query covers only cybersecurity; the cloud competition risk retrieval named in the audit prompt is a separate query and is not included here."
+        },
+        {
+          "subquery": 1,
+          "attempt": 0,
+          "query": "cloud computing competition risk factors: competitive pressure in cloud services and pricing",
+          "score": 1,
+          "accepted": false,
+          "evidence_count": 0,
+          "rationale": "No verified evidence was provided (evidence array is empty), so the score is 1. The original query is broad and lacks lexical anchors for the Item 1A competition risk language. The rewrite keeps the original scope: MSFT, filing year 2024 (accession 000095017024087843, fiscal period ended June 30, 2024), exact Item 1A section filter, and cloud competition risk. It adds risk-factor terms to improve lexical matching. The cybersecurity risk retrieval named in the audit prompt is a separate query and is not included here."
+        },
+        {
+          "subquery": 1,
+          "attempt": 1,
+          "query": "Microsoft 10-K risk factors Item 1A competition cloud computing services Azure competitors Amazon Web Services Google pricing pressure competitive pressure intense competition commercial cloud",
+          "score": 1,
+          "accepted": false,
+          "evidence_count": 0,
+          "rationale": "The evidence list is empty, so there is no verified evidence to assess. Score is 1 per the no-evidence rule. The rewrite keeps the original scope: MSFT, filing year 2024 (accession 000095017024087843, fiscal period ended June 30, 2024), and the exact \"Item 1A\" SectionItem filter. The catalog marks that filing as \"Full filing (item not classified)\", so retrieval may return nothing under the exact filter, and the filter must not be relaxed. The rewrite covers cloud competition only. The cybersecurity risk query must be run as a separate retrieval, which the rewrite does not cover."
+        },
+        {
+          "subquery": 1,
+          "attempt": 2,
+          "query": "Microsoft annual report 10-K filing year 2024 fiscal year ended June 30 2024 Item 1A risk factors competition commercial cloud services Azure competitors Amazon Web Services AWS Google Cloud pricing pressure intense competition competitive pressure",
+          "score": 1,
+          "accepted": false,
+          "evidence_count": 0,
+          "rationale": "No verified evidence was provided (evidence array is empty), so the score is 1. The MSFT 2024 filing (accession 000095017024087843, fiscal period ended June 30, 2024) is catalogued only as \"Full filing (item not classified)\", so the exact Item 1A SectionItem filter may return nothing. The filter must not be relaxed. The rewrite keeps filing year 2024 and the June 30, 2024 period end, and adds lexical terms for cloud competition and pricing pressure. The cybersecurity risk retrieval named in the audit prompt is a separate query and is not covered here."
+        }
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    }
+  ],
+  "verified_citations": 61,
+  "unique_source_passages": 88,
+  "retries": 7,
+  "retrieval_calls": 28,
+  "median_seconds": 22.69703159150231,
+  "scope": "Exact bytes, immutable filters, bounded retries, inline source identity and quote verification; coverage is structural subquery coverage, not human semantic answer accuracy."
+}

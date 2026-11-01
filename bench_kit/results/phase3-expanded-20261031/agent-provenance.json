@@ -1,0 +1,1543 @@
+{
+  "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "sources": [
+    {
+      "ticker": "AAPL",
+      "cik": "320193",
+      "filing_year": 2023,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "accession": "000032019323000106",
+      "raw_sha256": "845e5f986f9b3659768c37fecf7d9f6405aae4fe9969f498a164bfdaf80d336c",
+      "raw_bytes": 1559034,
+      "passages": 120,
+      "whitespace_words": 30649
+    },
+    {
+      "ticker": "MSFT",
+      "cik": "789019",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "accession": "000095017024087843",
+      "raw_sha256": "ee55571f4ec7f56874706add491553a10c701ad6e355532dcc736debd5ccfcdf",
+      "raw_bytes": 6861021,
+      "passages": 210,
+      "whitespace_words": 53740
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "1045810",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "accession": "000104581024000029",
+      "raw_sha256": "a36c866075d6f7d3344a199c60a058647975366a1659a73573be8d6b49297da4",
+      "raw_bytes": 2085676,
+      "passages": 204,
+      "whitespace_words": 52188
+    },
+    {
+      "ticker": "AMZN",
+      "cik": "1018724",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "accession": "000101872424000008",
+      "raw_sha256": "07dbcdb70602f5ac69c8af9214913b7870f2fed2990217e073d4083f952f7518",
+      "raw_bytes": 1945288,
+      "passages": 168,
+      "whitespace_words": 42987
+    },
+    {
+      "ticker": "AAPL",
+      "cik": "320193",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "accession": "000032019325000079",
+      "raw_sha256": "943b1a02c71816719ee9f8457016651e2ccd929e7c938da48f6a67d39dd6bca7",
+      "fiscal_period_end": "2025-09-27"
+    },
+    {
+      "ticker": "AAPL",
+      "cik": "320193",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm",
+      "accession": "000032019324000123",
+      "raw_sha256": "77f1405046796c60203cc58bae24d3906886fe1d171e39085b0766c9e59157ba",
+      "fiscal_period_end": "2024-09-28"
+    },
+    {
+      "ticker": "MSFT",
+      "cik": "789019",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+      "accession": "000119312526323660",
+      "raw_sha256": "bcd165676fc4b16e4853472a6826273ecbfdbe0e0b6952d1a0ef131a7471354a",
+      "fiscal_period_end": "2026-06-30"
+    },
+    {
+      "ticker": "MSFT",
+      "cik": "789019",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "accession": "000095017025100235",
+      "raw_sha256": "e7dc057d609701e43da79638a371284a10e5fe5ad97da4c68e6c2b48037fbea3",
+      "fiscal_period_end": "2025-06-30"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "1045810",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "accession": "000104581026000021",
+      "raw_sha256": "fa09dc37949a198780a23823a2a40618259217f158ca37195c4929e630d3c221",
+      "fiscal_period_end": "2026-01-25"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "1045810",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm",
+      "accession": "000104581025000023",
+      "raw_sha256": "571414fd77760c85e0a7e60a2f06a02a3e118b13eddaccb5b2f6d4ae966404d9",
+      "fiscal_period_end": "2025-01-26"
+    },
+    {
+      "ticker": "AMZN",
+      "cik": "1018724",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
+      "accession": "000101872426000004",
+      "raw_sha256": "4807c682c335a47b30c1911e48fcc7bfda135677cf29dca52660dce2b5932e74",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "AMZN",
+      "cik": "1018724",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
+      "accession": "000101872425000004",
+      "raw_sha256": "e44eac25e3a87aa36273acdbc9fcb4a83cfef930dcb5581bd0fe878a61b9214c",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "GOOGL",
+      "cik": "1652044",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+      "accession": "000165204426000018",
+      "raw_sha256": "4c2c70bdf3a41acf97d7e8ded47e4da4d4755ef9fa1a8d5dbd47d34cae8bcb46",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "GOOGL",
+      "cik": "1652044",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
+      "accession": "000165204425000014",
+      "raw_sha256": "1f46b3eead099258769596c03e3dfbba31d3ff4795737dba15fc00b2a79cf4b0",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "META",
+      "cik": "1326801",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+      "accession": "000162828026003942",
+      "raw_sha256": "606087d4c2f8d0f8881c427c9ff4d7fd01f5b994d1074ab94ceb89949d18180a",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "META",
+      "cik": "1326801",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680125000017/meta-20241231.htm",
+      "accession": "000132680125000017",
+      "raw_sha256": "26ab8041a1a6ba04326e33b01042e86acdc8d0bfdba30035ae128fff97818e37",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "AVGO",
+      "cik": "1730168",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+      "accession": "000173016825000121",
+      "raw_sha256": "b96c8f23bb5f0a12105e8fb7f30093c563a155a45450b871d360f087414275a4",
+      "fiscal_period_end": "2025-11-02"
+    },
+    {
+      "ticker": "AVGO",
+      "cik": "1730168",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016824000139/avgo-20241103.htm",
+      "accession": "000173016824000139",
+      "raw_sha256": "53dcd21650a5672a39c9e2200ac0ea64320948b709205efffd29208c190a86eb",
+      "fiscal_period_end": "2024-11-03"
+    },
+    {
+      "ticker": "TSLA",
+      "cik": "1318605",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+      "accession": "000162828026003952",
+      "raw_sha256": "55f914cd63b683b44c45324430a764184e5f723e51223efe37a36ddb560357ab",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "TSLA",
+      "cik": "1318605",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025003063/tsla-20241231.htm",
+      "accession": "000162828025003063",
+      "raw_sha256": "f1d7b2d6af65733490995584838fb85c78aeb38c2f9ab09203316875780c5c0b",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "MU",
+      "cik": "723125",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm",
+      "accession": "000072312526000023",
+      "raw_sha256": "a62a5e10fba97cd0c0acfde5cb621c47b3d4b5ce4db77090b72ad685266dade3",
+      "fiscal_period_end": "2026-09-03"
+    },
+    {
+      "ticker": "MU",
+      "cik": "723125",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm",
+      "accession": "000072312525000028",
+      "raw_sha256": "e4618cf90042e3dd741a7c0b27cd315ec9d6d9044f74fba14fd731243c3a965a",
+      "fiscal_period_end": "2025-08-28"
+    },
+    {
+      "ticker": "CSCO",
+      "cik": "858877",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm",
+      "accession": "000085887726000132",
+      "raw_sha256": "f5b0b8947ad42618a2a8f273d8a70e08a72547f56edaf7c94fcab9798c0b25a1",
+      "fiscal_period_end": "2026-07-25"
+    },
+    {
+      "ticker": "CSCO",
+      "cik": "858877",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000111/csco-20250726.htm",
+      "accession": "000085887725000111",
+      "raw_sha256": "3b92781ce3b96d4f540dbb3aef09e7945ebb0b3bf102c6be7bb7b1cd8bd4bc2f",
+      "fiscal_period_end": "2025-07-26"
+    },
+    {
+      "ticker": "AMD",
+      "cik": "2488",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "accession": "000000248826000018",
+      "raw_sha256": "1eae3faa649c7874e16ec1060af8314f806be31b92c05c16527173fb5d0f807d",
+      "fiscal_period_end": "2025-12-27"
+    },
+    {
+      "ticker": "AMD",
+      "cik": "2488",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000012/amd-20241228.htm",
+      "accession": "000000248825000012",
+      "raw_sha256": "21e537e026bf1e5afa363faf0f60545714851085383d3f5988af628a2e834fd2",
+      "fiscal_period_end": "2024-12-28"
+    },
+    {
+      "ticker": "TXN",
+      "cik": "97476",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm",
+      "accession": "000009747626000059",
+      "raw_sha256": "87c52f8500762274890bcec8aa1ae87f41d08f094d3b4e29c4fc3581ebcdb45b",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "TXN",
+      "cik": "97476",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747625000007/txn-20241231.htm",
+      "accession": "000009747625000007",
+      "raw_sha256": "c87faeb380bb47b2dfb143e2ee19d0c0ccbf58a66f8160e1639f617cf4ea1ac4",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "LRCX",
+      "cik": "707549",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/707549/000070754926000037/lrcx-20260628.htm",
+      "accession": "000070754926000037",
+      "raw_sha256": "ce533daf9a45ccda01769c9ec7d57b95ad7629dd549e4f1dbd2ddfbd840edd55",
+      "fiscal_period_end": "2026-06-28"
+    },
+    {
+      "ticker": "LRCX",
+      "cik": "707549",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/707549/000070754925000075/lrcx-20250629.htm",
+      "accession": "000070754925000075",
+      "raw_sha256": "56aac7ebe42609cf26b2f490408e3b3834ab026e9b3cce5d603904550a6145fe",
+      "fiscal_period_end": "2025-06-29"
+    },
+    {
+      "ticker": "KLAC",
+      "cik": "319201",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm",
+      "accession": "000031920126000027",
+      "raw_sha256": "3f058942f9a5a6e5f38b193bad8cce86d21a3d58d452e3541888d60457b9219c",
+      "fiscal_period_end": "2026-06-30"
+    },
+    {
+      "ticker": "KLAC",
+      "cik": "319201",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/319201/000031920125000024/klac-20250630.htm",
+      "accession": "000031920125000024",
+      "raw_sha256": "dfb301aa94de85571abcfdd67274bb25799eea1af71bb7cf9eb76c23cf41330d",
+      "fiscal_period_end": "2025-06-30"
+    },
+    {
+      "ticker": "CRM",
+      "cik": "1108524",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+      "accession": "000110852426000060",
+      "raw_sha256": "81839b15147461665ce0dadf929570d44222908d295516f3d363458acd6ba9be",
+      "fiscal_period_end": "2026-01-31"
+    },
+    {
+      "ticker": "CRM",
+      "cik": "1108524",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000006/crm-20250131.htm",
+      "accession": "000110852425000006",
+      "raw_sha256": "189770148798aeca963084c6371ccb10343f99ca153e5f5d72e9f5d36f4ba573",
+      "fiscal_period_end": "2025-01-31"
+    },
+    {
+      "ticker": "ADBE",
+      "cik": "796343",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+      "accession": "000079634326000003",
+      "raw_sha256": "6d00a353890bce815bb27e1bde38da062b3d54258d3947ebd38c2b3680b7b04d",
+      "fiscal_period_end": "2025-11-28"
+    },
+    {
+      "ticker": "ADBE",
+      "cik": "796343",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000004/adbe-20241129.htm",
+      "accession": "000079634325000004",
+      "raw_sha256": "60d6166c56bdedb193149af1e1b7e38f9981ca3308b90bb72089c7eaeb16da31",
+      "fiscal_period_end": "2024-11-29"
+    },
+    {
+      "ticker": "INTU",
+      "cik": "896878",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000037/intu-20260731.htm",
+      "accession": "000089687826000037",
+      "raw_sha256": "4cc9432f9072e4dde62816a5ab440b49fc43887ae814c3098934ca7946e76594",
+      "fiscal_period_end": "2026-07-31"
+    },
+    {
+      "ticker": "INTU",
+      "cik": "896878",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/896878/000089687825000035/intu-20250731.htm",
+      "accession": "000089687825000035",
+      "raw_sha256": "73ca0dad294c987d2e33166bf820e0f2ffdcf3d29c8dee13e40693c020df6fdf",
+      "fiscal_period_end": "2025-07-31"
+    },
+    {
+      "ticker": "PANW",
+      "cik": "1327567",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm",
+      "accession": "000132756726000023",
+      "raw_sha256": "d01f815925bdaad7c37165eeef39256956d187d20369ac93ba98e7934ae3f0d3",
+      "fiscal_period_end": "2026-07-31"
+    },
+    {
+      "ticker": "PANW",
+      "cik": "1327567",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756725000027/panw-20250731.htm",
+      "accession": "000132756725000027",
+      "raw_sha256": "454d4d8041d614186fa5a922a7b6fe0b9bd484991ea150a1191e5e00acaa5a42",
+      "fiscal_period_end": "2025-07-31"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "1535527",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
+      "accession": "000153552726000010",
+      "raw_sha256": "75c69b61ea3a64dacadfad399ef491f839efe56e1874ae7cc8604b45f6ac197a",
+      "fiscal_period_end": "2026-01-31"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "1535527",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000009/crwd-20250131.htm",
+      "accession": "000153552725000009",
+      "raw_sha256": "ff32e298c98a1d177e21101bab19480c96660700669e6adb586a6ea495eb90de",
+      "fiscal_period_end": "2025-01-31"
+    },
+    {
+      "ticker": "SNPS",
+      "cik": "883241",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/883241/000088324125000028/snps-20251031.htm",
+      "accession": "000088324125000028",
+      "raw_sha256": "49e1c651d0f0b5ee51e2a54b6119016838596fc826a7e396587930a3962fbcce",
+      "fiscal_period_end": "2025-10-31"
+    },
+    {
+      "ticker": "SNPS",
+      "cik": "883241",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/883241/000088324124000024/snps-20241031.htm",
+      "accession": "000088324124000024",
+      "raw_sha256": "c4f7787d9daf9c103e0f1d96596e33ff851705806d5771a036f03c09b58a9e48",
+      "fiscal_period_end": "2024-10-31"
+    },
+    {
+      "ticker": "ANET",
+      "cik": "1596532",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000013/anet-20251231.htm",
+      "accession": "000159653226000013",
+      "raw_sha256": "bc1016b1e82cfffdb5f75fd01ea14f8b55c0dab8359f2072c09483ba20602177",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "ANET",
+      "cik": "1596532",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1596532/000159653225000028/anet-20241231.htm",
+      "accession": "000159653225000028",
+      "raw_sha256": "9a72759ed7c77890426ed863202ce42f4d1ac6dd84d562f34c80c9bd5cb144cb",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "DELL",
+      "cik": "1571996",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000008/dell-20260130.htm",
+      "accession": "000157199626000008",
+      "raw_sha256": "7e12ce80264e21f36dc3ddbb36c1776a64feb1bf698f1b690ef4d32921eb1647",
+      "fiscal_period_end": "2026-01-30"
+    },
+    {
+      "ticker": "DELL",
+      "cik": "1571996",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1571996/000157199625000034/dell-20250131.htm",
+      "accession": "000157199625000034",
+      "raw_sha256": "d875b59fd5469db4776f84151f2b5eeb5eddb63e0b298bbb6d45a63b5ac7e841",
+      "fiscal_period_end": "2025-01-31"
+    },
+    {
+      "ticker": "HPE",
+      "cik": "1645590",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+      "accession": "000164559025000130",
+      "raw_sha256": "255a104f26a25fb90f4e4944d678d6c883f257a37e317bbfc70330da3c501d43",
+      "fiscal_period_end": "2025-10-31"
+    },
+    {
+      "ticker": "HPE",
+      "cik": "1645590",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm",
+      "accession": "000164559024000139",
+      "raw_sha256": "28c4949abbc2a318536e5e0cdceb123872aa3dd4a67cf57d6c780090664b64fb",
+      "fiscal_period_end": "2024-10-31"
+    },
+    {
+      "ticker": "BAC",
+      "cik": "70858",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+      "accession": "000007085826000157",
+      "raw_sha256": "9158f8266b0d38f79502f0649589407da5989ec66a0243d924a24f5fbdaf537f",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "GS",
+      "cik": "886982",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+      "accession": "000088698226000091",
+      "raw_sha256": "7a0eeecde3f59fe0bbce9666fc757aa0d40582dd2fc0ba11fa81dcf7d0ebc3e9",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "MS",
+      "cik": "895421",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000086/ms-20251231.htm",
+      "accession": "000089542126000086",
+      "raw_sha256": "57698077e7a8e943c9b7dbb7521fdb583101cc23579a6f271b9b06d5d61112df",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "AXP",
+      "cik": "4962",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000080/axp-20251231.htm",
+      "accession": "000000496226000080",
+      "raw_sha256": "da9e12a3df2520a2a7d0664030119feb6daab445cbcc8ac32b5149b8ffd8ee0e",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "AXP",
+      "cik": "4962",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/4962/000000496225000016/axp-20241231.htm",
+      "accession": "000000496225000016",
+      "raw_sha256": "05bff2eb489126269904bf9b2a7aa0c1480e902196cc515c582c6ef265f24e4b",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "V",
+      "cik": "1403161",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "accession": "000140316125000089",
+      "raw_sha256": "8de897f8bf9239b9aeadd4bd2ff1236316c73fbe42fe9270689dda96d3fe3e53",
+      "fiscal_period_end": "2025-09-30"
+    },
+    {
+      "ticker": "V",
+      "cik": "1403161",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+      "accession": "000140316124000058",
+      "raw_sha256": "fd42fd27863d8d002e33c20f780faaed7e1e571deedc328d445f04d634628005",
+      "fiscal_period_end": "2024-09-30"
+    },
+    {
+      "ticker": "MA",
+      "cik": "1141391",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000013/ma-20251231.htm",
+      "accession": "000114139126000013",
+      "raw_sha256": "3e132bf5bbaf0489b76f086d199d89de0b4ad620525c9f4b43347fafa8e1fdba",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "MA",
+      "cik": "1141391",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1141391/000114139125000011/ma-20241231.htm",
+      "accession": "000114139125000011",
+      "raw_sha256": "a699a48af5e1951c511d1b66f796a527db71a7915ae1a4639380961cac5a72a7",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "SCHW",
+      "cik": "316709",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/316709/000031670926000009/schw-20251231.htm",
+      "accession": "000031670926000009",
+      "raw_sha256": "1f22338d0bf8d956e27fa55f561a15ee36b69c5eae5c0f5cbf8506a3c8fddfa2",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "SCHW",
+      "cik": "316709",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/316709/000031670925000010/schw-20241231.htm",
+      "accession": "000031670925000010",
+      "raw_sha256": "b46b319632ed43ba21b35f59a92437bee824f9d81792d58010ccb4e0933075b1",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "STT",
+      "cik": "93751",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000124/stt-20251231.htm",
+      "accession": "000009375126000124",
+      "raw_sha256": "7c093aa41ba72673803b315c2bc84ea9ad8c1a0a14e3e2f18180e91411d04509",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "STT",
+      "cik": "93751",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/93751/000009375125000111/stt-20241231.htm",
+      "accession": "000009375125000111",
+      "raw_sha256": "bae291532dd34ebfaacc39d1018f5162aba0da3b3107e76e232da8a5dfe99f6e",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "PNC",
+      "cik": "713676",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/713676/000071367626000020/pnc-20251231.htm",
+      "accession": "000071367626000020",
+      "raw_sha256": "33706aa710063799d9b0e09f7ccab01b21f3a89c54942e23535ff22f45d77e52",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "PNC",
+      "cik": "713676",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/713676/000071367625000027/pnc-20241231.htm",
+      "accession": "000071367625000027",
+      "raw_sha256": "18faf8f0012062a53a5b6d35633133b05be627eafd4805a4dd6b0df029d2a423",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "TFC",
+      "cik": "92230",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/92230/000009223025000020/tfc-20241231.htm",
+      "accession": "000009223025000020",
+      "raw_sha256": "b3f409cabfb6e00155dce41cf23706ef6a7d9340e05e9946a6af347cc449107c",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "COF",
+      "cik": "927628",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000024/cof-20251231.htm",
+      "accession": "000092762826000024",
+      "raw_sha256": "709ebb6aacecc95f45cc558b42d9a0fe1d6ca0b8c87cf3504b7802b7f010be27",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "COF",
+      "cik": "927628",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/927628/000092762825000092/cof-20241231.htm",
+      "accession": "000092762825000092",
+      "raw_sha256": "e4646310bee284ef102098654745b1c78ae5a1552bc91ab1368943f57521a95a",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "AIG",
+      "cik": "5272",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000023/aig-20251231.htm",
+      "accession": "000000527226000023",
+      "raw_sha256": "db67e53c9068c4427b565de58277d9924a9b5758118e96339eb2c4bda032f6ad",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "AIG",
+      "cik": "5272",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/5272/000000527225000012/aig-20241231.htm",
+      "accession": "000000527225000012",
+      "raw_sha256": "7135433e0a1e9162263b3ec1bfbad159626916ed60422763230c8335e8e2bd4c",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "MET",
+      "cik": "1099219",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000013/met-20251231.htm",
+      "accession": "000109921926000013",
+      "raw_sha256": "3f134430b5df1287777674ebd511bc5002cabd568dc0d95102acbde27c0875c9",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "MET",
+      "cik": "1099219",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+      "accession": "000109921925000044",
+      "raw_sha256": "58b2309e5251358ecfd76251967faef6de291f52aff5bc5af4ecd2b15e5101cc",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "PRU",
+      "cik": "1137774",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000048/pru-20251231.htm",
+      "accession": "000113777426000048",
+      "raw_sha256": "6e250f25b6e6fc8f12a7053bb5c128d26108cd77c49e4c72091d0031e0954f8f",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "PRU",
+      "cik": "1137774",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1137774/000113777425000044/pru-20241231.htm",
+      "accession": "000113777425000044",
+      "raw_sha256": "8241827d68d78a3213b8d3de2f8c1342e8fd029ef0d693c8a1335be11e35ccaa",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "AFL",
+      "cik": "4977",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/4977/000162828026011402/afl-20251231.htm",
+      "accession": "000162828026011402",
+      "raw_sha256": "64f92db256272cbfa5d202b4a32f569832cc02c2cfb57ef4b2534ad3e8b67270",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "AFL",
+      "cik": "4977",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+      "accession": "000000497725000047",
+      "raw_sha256": "d182c97274a123a61c8683d6626deb46fe1e2111e7bc8191fd893693e6ef65e0",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "LLY",
+      "cik": "59478",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+      "accession": "000005947826000013",
+      "raw_sha256": "287a170735cb39804fa44dceb1ecb6a35ac1bfcb9f275956eef836b332ad3b8a",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "LLY",
+      "cik": "59478",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947825000067/lly-20241231.htm",
+      "accession": "000005947825000067",
+      "raw_sha256": "d07ee8f091e2279a6f1692d70fffae332be9214787fd5614d26cb8c7c28ee6ba",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "JNJ",
+      "cik": "200406",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+      "accession": "000020040626000016",
+      "raw_sha256": "e942b63feca48c7479100158b040dca2813df2a87b712bdd95a1b9ee4985de33",
+      "fiscal_period_end": "2025-12-28"
+    },
+    {
+      "ticker": "JNJ",
+      "cik": "200406",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000038/jnj-20241229.htm",
+      "accession": "000020040625000038",
+      "raw_sha256": "16484d1e87cf204ac95999686f3c5224f1410c8bc5e9ab3c383d24279f653a1a",
+      "fiscal_period_end": "2024-12-29"
+    },
+    {
+      "ticker": "ABBV",
+      "cik": "1551152",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1551152/000155115226000008/abbv-20251231.htm",
+      "accession": "000155115226000008",
+      "raw_sha256": "b74d22c8432bb7e74a0213369925c1fda217ccdcce512b59d64fb160e708cceb",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "ABBV",
+      "cik": "1551152",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1551152/000155115225000020/abbv-20241231.htm",
+      "accession": "000155115225000020",
+      "raw_sha256": "64c20aaa211fde949c426a01c645ddca32bc7dd2670827ecebcd3f9c5aa5d5cc",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "MRK",
+      "cik": "310158",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000063/mrk-20251231.htm",
+      "accession": "000031015826000063",
+      "raw_sha256": "f246ee5a312f714cdc9e5883d9e78f8e5f0aecc00a8f554d9f30fbea53c629be",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "MRK",
+      "cik": "310158",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+      "accession": "000162828025007732",
+      "raw_sha256": "d0d3d41e138decb4809fe65bdd251f43fdbd9db93ab74c2c38c2d551dc359389",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "PFE",
+      "cik": "78003",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800326000026/pfe-20251231.htm",
+      "accession": "000007800326000026",
+      "raw_sha256": "90ccb66089d3516da16c8cabf7a2307138e508cb21352904943c3221fb3425de",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "PFE",
+      "cik": "78003",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+      "accession": "000007800325000054",
+      "raw_sha256": "a0405f1b87436a3cb44847de2a4d58d6ebbb81c886ed65e3e73356434b1f823a",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "BMY",
+      "cik": "14272",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000004/bmy-20251231.htm",
+      "accession": "000001427226000004",
+      "raw_sha256": "33d9eb836065397c20604588db3be91a9f6cf9cab0b488dfcc29c2beadfa25a7",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "BMY",
+      "cik": "14272",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/14272/000001427225000039/bmy-20241231.htm",
+      "accession": "000001427225000039",
+      "raw_sha256": "f038a92253a994218edd145f839bfabb34363da96447c989308c218c8302ea22",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "GILD",
+      "cik": "882095",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000006/gild-20251231.htm",
+      "accession": "000088209526000006",
+      "raw_sha256": "d8ff3c4dda5d1292156c9e19e2a1c0b1d7143abfd8d43e1c37adf66b26faf318",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "GILD",
+      "cik": "882095",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/882095/000088209525000006/gild-20241231.htm",
+      "accession": "000088209525000006",
+      "raw_sha256": "2d14f70a7ad3268d788a914e8cc142ea62375a125611bd5a69299707fac768bb",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "REGN",
+      "cik": "872589",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000008/regn-20251231.htm",
+      "accession": "000087258926000008",
+      "raw_sha256": "4ab421c1be6daf1abec8956fb011b1f42d7db09217dd73d6d034fc67e0b4380f",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "TMO",
+      "cik": "97745",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000018/tmo-20251231.htm",
+      "accession": "000009774526000018",
+      "raw_sha256": "704e75049d30522405996ad55efaee6d91bee38be1dc49a94a98d0ba6325e4db",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "TMO",
+      "cik": "97745",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/97745/000009774525000010/tmo-20241231.htm",
+      "accession": "000009774525000010",
+      "raw_sha256": "f0a2b9618fa5c5d6c780ebd4feeb8f02d8e19167804b42e416d8ed5f1cd97c45",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "DHR",
+      "cik": "313616",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000062/dhr-20251231.htm",
+      "accession": "000031361626000062",
+      "raw_sha256": "1571e054de4e8b236e1deef18acf307e4b95b77efee955a692fa85c98e39b1bc",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "DHR",
+      "cik": "313616",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/313616/000031361625000043/dhr-20241231.htm",
+      "accession": "000031361625000043",
+      "raw_sha256": "ff56579a10a0bae056df51d1f7dc96a6cbc2b67a079041bb3d4616300ce3c71d",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "ABT",
+      "cik": "1800",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1800/000162828025007110/abt-20241231.htm",
+      "accession": "000162828025007110",
+      "raw_sha256": "a13bc1f04e652c42d8e544dd4550212e9bd29820e7c481396e8ee1e08211ca78",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "MDT",
+      "cik": "1613103",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026044354/mdt-20260424.htm",
+      "accession": "000162828026044354",
+      "raw_sha256": "6d8fbfc9e463a9010475933c0f54f5d2a9fa3b2a1ac9c55b1abf5f746cb6509d",
+      "fiscal_period_end": "2026-04-24"
+    },
+    {
+      "ticker": "MDT",
+      "cik": "1613103",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1613103/000161310325000091/mdt-20250425.htm",
+      "accession": "000161310325000091",
+      "raw_sha256": "2310e01fb85d22b172dd7cb1201f4b7c95eb2cccd17b6669dc55dee9871026db",
+      "fiscal_period_end": "2025-04-25"
+    },
+    {
+      "ticker": "SYK",
+      "cik": "310764",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000010/syk-20251231.htm",
+      "accession": "000031076426000010",
+      "raw_sha256": "bd3532a5eb489829e86200a5aaf21b9794adca1f17ad64f865d603b1e426d871",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "SYK",
+      "cik": "310764",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/310764/000031076425000023/syk-20241231.htm",
+      "accession": "000031076425000023",
+      "raw_sha256": "ca28ec65e0ff9bb6ec61236869a40bd33310b07265e3b29cc117b19c2df054ce",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "BSX",
+      "cik": "885725",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/885725/000088572526000010/bsx-20251231.htm",
+      "accession": "000088572526000010",
+      "raw_sha256": "0eaec584cac9afa5570e215773bdeb26a5f15f313c8b7936b7301fc7a9c51ac8",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "BSX",
+      "cik": "885725",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/885725/000088572525000011/bsx-20241231.htm",
+      "accession": "000088572525000011",
+      "raw_sha256": "0d8042ab292e1dffa4bd5202f66299c226a1702c92213ff25c75eec6e34b4952",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "ISRG",
+      "cik": "1035267",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+      "accession": "000103526726000010",
+      "raw_sha256": "4d1fe99b50472084a53789390e6689c94fcdf673e7f7bbcfa4774a43d2a78e56",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "ISRG",
+      "cik": "1035267",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526725000017/isrg-20241231.htm",
+      "accession": "000103526725000017",
+      "raw_sha256": "a446e0536f7f9dfd919014d0acebe647466daca951d4ffaf4687e283be2c809b",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "UNH",
+      "cik": "731766",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000062/unh-20251231.htm",
+      "accession": "000073176626000062",
+      "raw_sha256": "b7f704697a6738c6e02f726a657ed198f0f002167697d83de2bc896400529f21",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "UNH",
+      "cik": "731766",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm",
+      "accession": "000073176625000063",
+      "raw_sha256": "cbeb174c324b654d9c2752eb0ed4f54d3b7bc30f049a8723dcc1c75c20be0342",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "CI",
+      "cik": "1739940",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1739940/000173994026000006/ci-20251231.htm",
+      "accession": "000173994026000006",
+      "raw_sha256": "303b029722fe25badcbf0f916bff4f3c115b6f918ae82ea4dc8c0966dd2a6da8",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "CI",
+      "cik": "1739940",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1739940/000173994025000009/ci-20241231.htm",
+      "accession": "000173994025000009",
+      "raw_sha256": "502d7620d5f0b37b8111e2d0144079a7c4451b733fc91dbe046982916126978a",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "CVS",
+      "cik": "64803",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+      "accession": "000006480326000010",
+      "raw_sha256": "f77e57c04ff60013ebf7e36eb7b5cc3013106699fc701cc6300b116dc24fd730",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "CVS",
+      "cik": "64803",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480325000007/cvs-20241231.htm",
+      "accession": "000006480325000007",
+      "raw_sha256": "54bcc6749c3b956f4ca170fcf35de3820ccf594abf003902e8653f7e81dc3a60",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "WMT",
+      "cik": "104169",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+      "accession": "000010416926000055",
+      "raw_sha256": "9916afbd2b4e9560cf38cdb98c2a1d31f44f523060eaa9dab2f1180f6d4aad20",
+      "fiscal_period_end": "2026-01-31"
+    },
+    {
+      "ticker": "WMT",
+      "cik": "104169",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm",
+      "accession": "000010416925000021",
+      "raw_sha256": "8d6bf34f49cbf8d9c06d0d6320b4501e460f6d52b8194be17f358c14e262ddaf",
+      "fiscal_period_end": "2025-01-31"
+    },
+    {
+      "ticker": "TGT",
+      "cik": "27419",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+      "accession": "000002741926000016",
+      "raw_sha256": "c55a1e3414e0cd4a0342d60a47e7635fd54223d264ec7693a99e0f3f8e02cdf5",
+      "fiscal_period_end": "2026-01-31"
+    },
+    {
+      "ticker": "TGT",
+      "cik": "27419",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741925000018/tgt-20250201.htm",
+      "accession": "000002741925000018",
+      "raw_sha256": "7ff4befb403b2483de82138bb111e2978d37db97f32ecac1444f93efe0b37e33",
+      "fiscal_period_end": "2025-02-01"
+    },
+    {
+      "ticker": "HD",
+      "cik": "354950",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+      "accession": "000162828026019436",
+      "raw_sha256": "509fc9dfe3825950ed62bba10128365934f9d2698e3cb09db4a8efb3cd24154a",
+      "fiscal_period_end": "2026-02-01"
+    },
+    {
+      "ticker": "HD",
+      "cik": "354950",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495025000085/hd-20250202.htm",
+      "accession": "000035495025000085",
+      "raw_sha256": "7629566319e9da5160c26f406598d9a5606b39630e632277fb2c9413475ca39a",
+      "fiscal_period_end": "2025-02-02"
+    },
+    {
+      "ticker": "LOW",
+      "cik": "60667",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000029/low-20260130.htm",
+      "accession": "000006066726000029",
+      "raw_sha256": "75a207fb709f78996da940ce904765f3f55c398a4bbdf4b4edd56f5d396bbe84",
+      "fiscal_period_end": "2026-01-30"
+    },
+    {
+      "ticker": "LOW",
+      "cik": "60667",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/60667/000006066725000049/low-20250131.htm",
+      "accession": "000006066725000049",
+      "raw_sha256": "7aa9e443c92d91740c2f853a75d328644c8c7f295aa75450fec91d85012bd49e",
+      "fiscal_period_end": "2025-01-31"
+    },
+    {
+      "ticker": "PG",
+      "cik": "80424",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000103/pg-20260630.htm",
+      "accession": "000008042426000103",
+      "raw_sha256": "e7c84d4f156c3819141a56d01ad294d78e6c7b857a7ddef528e3d42e2cb429df",
+      "fiscal_period_end": "2026-06-30"
+    },
+    {
+      "ticker": "PG",
+      "cik": "80424",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+      "accession": "000008042425000076",
+      "raw_sha256": "81817b55f7a9fa9eeb21a9d5b606765837d1aef2d1988d1ddcadad15d2795aea",
+      "fiscal_period_end": "2025-06-30"
+    },
+    {
+      "ticker": "KO",
+      "cik": "21344",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+      "accession": "000162828026010047",
+      "raw_sha256": "12e2b05f3fa6a91ffdaa259eec2584c6f81ebd69d06208f99ece82e7c54a8e1b",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "KO",
+      "cik": "21344",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "accession": "000002134425000011",
+      "raw_sha256": "7cf39ce9800aa20b2e48278840694a3824df30f4f9db8fc76dfc21a7b788ed25",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "MDLZ",
+      "cik": "1103982",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026005345/mdlz-20251231.htm",
+      "accession": "000162828026005345",
+      "raw_sha256": "e504a57fb9a2f95f0f30e499d748a4ba6f3af8075224680fb0551a3fe78a9633",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "MDLZ",
+      "cik": "1103982",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1103982/000110398225000030/mdlz-20241231.htm",
+      "accession": "000110398225000030",
+      "raw_sha256": "e8328bf82c39071961321e18c6efb49831661ce0689b9c5ac662806aac2a5a29",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "KMB",
+      "cik": "55785",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/55785/000162828026007567/kmb-20251231.htm",
+      "accession": "000162828026007567",
+      "raw_sha256": "e574779bfcb74cb123939cd56da4aa64e8f3606977446b226be031164d405fe9",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "KMB",
+      "cik": "55785",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/55785/000005578525000013/kmb-20241231.htm",
+      "accession": "000005578525000013",
+      "raw_sha256": "08f08519d173d6d77420648f72ee3789e922e92950e6e4ce2e7997fc78734b6b",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "GIS",
+      "cik": "40704",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/40704/000162828026046466/gis-20260531.htm",
+      "accession": "000162828026046466",
+      "raw_sha256": "43bab5bd295709fe8e0899940b4d6e2c13638e74f9e11730971ca82574c65e0d",
+      "fiscal_period_end": "2026-05-31"
+    },
+    {
+      "ticker": "GIS",
+      "cik": "40704",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/40704/000119312525147079/d938443d10k.htm",
+      "accession": "000119312525147079",
+      "raw_sha256": "0b5e6fab072a69e21aeefb340a5bca79b0be9926d3233484b57d412d5429523f",
+      "fiscal_period_end": "2025-05-25"
+    },
+    {
+      "ticker": "KHC",
+      "cik": "1637459",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000009/khc-20251227.htm",
+      "accession": "000163745926000009",
+      "raw_sha256": "95d620787a747cfb4341aa4eb2d590350cdecf706a328eab94f4e9e664162641",
+      "fiscal_period_end": "2025-12-27"
+    },
+    {
+      "ticker": "KHC",
+      "cik": "1637459",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1637459/000163745925000011/khc-20241228.htm",
+      "accession": "000163745925000011",
+      "raw_sha256": "efc47278ec8383449b8081b1023883835ee4a403ba796a9939bd326071b570cd",
+      "fiscal_period_end": "2024-12-28"
+    },
+    {
+      "ticker": "KR",
+      "cik": "56873",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/56873/000110465926037723/kr-20260131x10k.htm",
+      "accession": "000110465926037723",
+      "raw_sha256": "ba712ea2f02e21754b595cd8dd64b3b7f7e2016989fbf00b20b0335c5c2177c7",
+      "fiscal_period_end": "2026-01-31"
+    },
+    {
+      "ticker": "KR",
+      "cik": "56873",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/56873/000155837025004267/kr-20250201x10k.htm",
+      "accession": "000155837025004267",
+      "raw_sha256": "cd9559b6f7781d84150bd511abb716226885c3aead3f25c0336db3fdad717cf8",
+      "fiscal_period_end": "2025-02-01"
+    },
+    {
+      "ticker": "SBUX",
+      "cik": "829224",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "accession": "000082922425000114",
+      "raw_sha256": "9d1a814b83e8bfb6f764392a9efa8d7b9e9f74ed69e611bdd940467f4c781286",
+      "fiscal_period_end": "2025-09-28"
+    },
+    {
+      "ticker": "SBUX",
+      "cik": "829224",
+      "filing_year": 2024,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+      "accession": "000082922424000057",
+      "raw_sha256": "e9f7c35143951893c8fa09e872f199430860e174ce13c3c41145869e80f29893",
+      "fiscal_period_end": "2024-09-29"
+    },
+    {
+      "ticker": "YUM",
+      "cik": "1041061",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000084/yum-20251231.htm",
+      "accession": "000104106126000084",
+      "raw_sha256": "801f8223f72c2d97125d95bb76e9de54933d6553a48f7ec4389b2a1757a76fb3",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "YUM",
+      "cik": "1041061",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1041061/000104106125000013/yum-20241231.htm",
+      "accession": "000104106125000013",
+      "raw_sha256": "d02d8d4cd632aced082ab0257810a6b5fb977f076bf320774ae1546311ae7790",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "CMG",
+      "cik": "1058090",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000009/cmg-20251231.htm",
+      "accession": "000105809026000009",
+      "raw_sha256": "0334e9db79ed345dec9c5759d97128cc75029d760ac4ca5433f632d39618ac9a",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "CMG",
+      "cik": "1058090",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1058090/000105809025000014/cmg-20241231.htm",
+      "accession": "000105809025000014",
+      "raw_sha256": "36b15e230b393d7a80c30db0b0ae4a19aeff71a91faaba565dbe66a0e36817d3",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "NKE",
+      "cik": "320187",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000088/nke-20260531.htm",
+      "accession": "000032018726000088",
+      "raw_sha256": "b9226bad100e6527d8096410461de9422af357ccd7d3411e9637f75604f2e89f",
+      "fiscal_period_end": "2026-05-31"
+    },
+    {
+      "ticker": "NKE",
+      "cik": "320187",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+      "accession": "000032018725000047",
+      "raw_sha256": "85f78c6dda9a2dfc7171872e07be7d22b2115ac9d14bbc91bdbbe91e36868e8c",
+      "fiscal_period_end": "2025-05-31"
+    },
+    {
+      "ticker": "ROST",
+      "cik": "745732",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000006/rost-20260131.htm",
+      "accession": "000074573226000006",
+      "raw_sha256": "1c6be152a4bd6c9af5048a5cea53b9a2a5cee12c92bdee08e6f808d5ce87a1df",
+      "fiscal_period_end": "2026-01-31"
+    },
+    {
+      "ticker": "ROST",
+      "cik": "745732",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/745732/000074573225000010/rost-20250201.htm",
+      "accession": "000074573225000010",
+      "raw_sha256": "e01ae6e2f77c74d37aa1b40d2e3b85eda01c56d4034f6bbe2cd5f6ef518cf6e5",
+      "fiscal_period_end": "2025-02-01"
+    },
+    {
+      "ticker": "COP",
+      "cik": "1163165",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000009/cop-20251231.htm",
+      "accession": "000116316526000009",
+      "raw_sha256": "77468664fe30d4f61ed0475206fdca0a27cc5aba8c324fa3ffcdd6076fa2108c",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "COP",
+      "cik": "1163165",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000012/cop-20241231.htm",
+      "accession": "000116316525000012",
+      "raw_sha256": "6040ce32cb46dfd7da85909b2ca0d3c44cb940a051b56eab3d19b67fddc398f2",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "EOG",
+      "cik": "821189",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000054/eog-20251231.htm",
+      "accession": "000082118926000054",
+      "raw_sha256": "481c4c7a3028f70ab98fa840edf42f90687a76afd93f0c165102fece1acf0423",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "EOG",
+      "cik": "821189",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/821189/000082118925000011/eog-20241231.htm",
+      "accession": "000082118925000011",
+      "raw_sha256": "ca4e867e5fea1a84911b0f0a9b2749452fb0fe9c5abcdead0dad8070dd74b746",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "SLB",
+      "cik": "87347",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/87347/000119312526021017/slb-20251231.htm",
+      "accession": "000119312526021017",
+      "raw_sha256": "a1c60e9059721f457f19022ad5830952d7bb7a3f7fc293d2c58fef3cc2b7c87a",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "SLB",
+      "cik": "87347",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/87347/000095017025007638/slb-20241231.htm",
+      "accession": "000095017025007638",
+      "raw_sha256": "a76b4786797f170a87f9d3585def80fb2ec7e201543de32dba9660273c66a60a",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "OXY",
+      "cik": "797468",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026009059/oxy-20251231.htm",
+      "accession": "000162828026009059",
+      "raw_sha256": "f76110f3d25ea61fe35226c72de1ef443ef26db3452e3906eab6bb53767d2835",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "OXY",
+      "cik": "797468",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/797468/000079746825000029/oxy-20241231.htm",
+      "accession": "000079746825000029",
+      "raw_sha256": "500b095c62ef0edd5fd5d8f5b94222b6009e59cd5e6c68e2629fd80559d22719",
+      "fiscal_period_end": "2024-12-31"
+    },
+    {
+      "ticker": "PSX",
+      "cik": "1534701",
+      "filing_year": 2026,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000006/psx-20251231.htm",
+      "accession": "000153470126000006",
+      "raw_sha256": "6424a8b5b7eede15b7011570ed5d19fe85ce90bb4cbea830ee4a7e4352c85f9a",
+      "fiscal_period_end": "2025-12-31"
+    },
+    {
+      "ticker": "PSX",
+      "cik": "1534701",
+      "filing_year": 2025,
+      "form": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1534701/000153470125000074/psx-20241231.htm",
+      "accession": "000153470125000074",
+      "raw_sha256": "21f531bc25165cef6d7e8b936a5212b5d73430a17a3841e1d3f0d1cff16a0e03",
+      "fiscal_period_end": "2024-12-31"
+    }
+  ],
+  "source_manifests": [
+    {
+      "path": "data/sec/provenance.json",
+      "sha256": "2817a1ddffe3c491f37f2489f6dbc363b5c47ab0964970f779d7c1460e105c51"
+    },
+    {
+      "path": "indexes/sec-scale-v2-20261031/report.json",
+      "sha256": "36cfd3ab7436196525bb19d57b53683df3a062530ee0bf6f23c878b1afa4fb0b"
+    }
+  ]
+}

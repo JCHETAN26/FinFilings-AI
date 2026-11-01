@@ -73,6 +73,12 @@ Sparse timing covers BM25 calls on 702 cached passages. The HTTP measurements be
 
 The audit run had **six fully covered positive cases, two partial cases, and two correct abstentions**. Citation checks establish exact source grounding; they are not a human-labeled answer-accuracy score. [Inspect every prompt, citation, retry, and gap](bench_kit/results/phase3/RESULTS.md).
 
+Expanded-corpus agent revalidation on 49,452 passages verifies **61/61 citations** across the same ten prompts: eight audits with every subquery cited, one partial, one correct abstention; median **22.70 s**. These are source-grounding checks, not human answer-accuracy labels. [Every expanded audit, retry and evidence gap](bench_kit/results/phase3-expanded-20261031/RESULTS.md).
+
+The AMZN cloud gap was subsequently fixed in an affected-audit rerun: **8/8 verified citations, four per company**, one retry, and no unresolved flags. This follow-up retains useful partial evidence within the five-passage context limit; it does not replace the original ten-audit measurements. [Diagnosis and rerun](bench_kit/results/agent-cloud-gap-20261031/RESULTS.md).
+
+Broad agent validation (frozen `broad-validation-v1`, 30 cases): **30/30 cases verified** (zero transport/model/structural failures): **26 supported, 1 partial gap, 3 expected-unavailable**; **172** independently verified published citations, 86 retrieval calls, 24 retries, median **23.64 s**, 143 Claude calls (`claude-haiku-5-5`). "Supported" means every planned subquery on an *available* scope has a verified published quote; it does **not** mean 26 complete answers. Both mixed cases have their available side fully cited (2/2, 1/1) with the unavailable scope withheld; available-scope coverage is **53/54 = 98.1481 %**. The one gap is HPE filing year 2024 (stayed at critic score 3 through two retries; the amount and remaining authorization sit in adjacent passages 35/36 split mid-sentence, so this is not evidence the disclosure is absent). One TSLA model-proposed quote was rejected by exact-quote grounding. The suite is ten historical prompts plus twenty source-informed regression fixtures over 30 companies with citations; it is not independent human gold, not a semantic accuracy score, and not load latency. [Every case, gap and release gate](bench_kit/results/broad-validation-20261101/RESULTS.md); suite definition and gate documentation in [`bench_kit/suites/`](bench_kit/suites/README.md).
+
 ### 50-worker HTTP load: optimized serving
 
 Each endpoint received **200 requests from 50 persistent clients**, using the same 100 real queries twice. Five warmup requests were excluded; the two scenarios ran sequentially with a new TCP connection per request.
@@ -200,7 +206,7 @@ PYTHONPATH=py python -m ingest.pipeline \
 
 See the ingestion guide for manifest rows and SEC User-Agent configuration. A replay of four real filings produced **443 section-tagged passages across seven shards and 28 binary segments**. A separate 6.86 MB filing test passed six parser/resource cycles and six Go build/mmap/search/close cycles, with no observed descriptor, mapping or goroutine leaks. [Verification evidence](bench_kit/results/ingest/real/report.json).
 
-Each shard uses the existing `index.Open` loader. Cross-shard HTTP query routing, vector partition coordination, and enrollment of new sources into the agent's trusted citation registry remain integration work. The original benchmark indexes retain their recorded contents and fingerprints.
+Each shard uses the existing `index.Open` loader. The hybrid service routes sparse searches across shards; vector search uses the consolidated corpus index. The expanded agent evaluation enrolls 152 trusted SEC filing sources. The original benchmark indexes retain their recorded contents and fingerprints.
 
 ## Reproduce tests and benchmarks
 
@@ -259,6 +265,7 @@ The standalone `models/bin/loadtest` also accepts `-workers`, `-requests`, `-tim
 
 - The acquired SEC corpus contains four 10-K filings. The data model supports 10-K/10-Q forms; the current benchmark does not establish 10-Q coverage or large-corpus performance.
 - Original benchmark SEC passages retain unclassified sections. The new ingestion path tags verified Item 1A, Item 7 and Item 8 headings; ambiguous or unsupported layouts fail for review. The original agent benchmark's exact Item 1A test remains an abstention.
+- The broad agent suite measures structural source grounding on one corpus snapshot and one model sample; see its limitations before quoting any number.
 - FinQA supports retrieval evaluation, but its passages lack verified SEC accessions. Published audit claims use the verified SEC registry.
 - Synthesis publishes exact source excerpts. Derived calculations and independently validated abstractive financial conclusions are outside the current implementation.
 - Tenant authentication/isolation, a UI, distributed serving, and production availability guarantees are not implemented. Services are local and loopback-bound.

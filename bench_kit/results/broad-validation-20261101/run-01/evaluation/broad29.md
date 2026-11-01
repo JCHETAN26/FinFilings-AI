@@ -1,0 +1,11 @@
+Verified filing excerpts (extractive audit evidence; no derived calculations):
+
+- Total risk-based capital requirements CET1 capital ratio10.9%13.7%10.0%10.0% Tier 1 capital ratio12.4%15.2%11.5%11.5% Total capital ratio14.4%17.2%13.5%13.5% [GS-2026-10K-item8-p000178](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000178`; accession: `0000886982-26-000091`).
+- RWAs$688,541 $674,812 CET1 capital ratio15.0%15.3% Tier 1 capital ratio16.8%17.1% Total capital ratio18.8%18.6% [GS-2026-10K-item8-p000180](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000180`; accession: `0000886982-26-000091`).
+- On January 1, 2026, the firm early adopted the modified Enhanced Supplementary Leverage Ratio \(eSLR\) standards, which replaced the 2% buffer applicable to G-SIBs, with a buffer equal to 50% of the firm's G-SIB surcharge \(Method 1\). [GS-2026-10K-item8-p000180](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000180`; accession: `0000886982-26-000091`).
+- The lower of each risk-based capital ratio under the Standardized and Advanced Capital Rules is the ratio against which GS Bank USA’s compliance with its risk-based capital requirements is assessed. [GS-2026-10K-item8-p000182](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000182`; accession: `0000886982-26-000091`).
+- Tier 1 capital$64,071 $62,022 Average adjusted total assets$656,463 $565,513 Total leverage exposure $912,004 $775,170 Tier 1 leverage ratio9.8%11.0% SLR7.0%8.0% [GS-2026-10K-item8-p000184](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000184`; accession: `0000886982-26-000091`).
+- Our target is to maintain capital ratios equal to the regulatory requirements plus a buffer of 50 to 100 basis points. [GS-2026-10K-item7-p000079](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item7#passage-000079`; accession: `0000886982-26-000091`).
+
+Evidence gaps:
+- Subquery 2 has no evidence meeting threshold after 2 retries.

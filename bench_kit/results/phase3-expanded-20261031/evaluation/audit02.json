@@ -1,0 +1,723 @@
+{
+  "prompt": "Compare MSFT and AMZN, both filing year 2024: retrieve evidence on cloud business competition and the operating costs of their cloud infrastructure. Use separate company-specific retrieval steps.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "Microsoft cloud business competition and operating costs of cloud infrastructure, including datacenter and technology infrastructure expenses",
+        "filters": {
+          "ticker": "MSFT",
+          "year": 2024,
+          "section": "",
+          "accession": "000095017024087843"
+        }
+      },
+      {
+        "query": "Amazon Web Services cloud business competition and operating costs of cloud infrastructure, including technology infrastructure and datacenter expenses",
+        "filters": {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "accession": "000101872424000008"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "Microsoft cloud business competition and operating costs of cloud infrastructure, including datacenter and technology infrastructure expenses",
+      "filters": {
+        "ticker": "MSFT",
+        "year": 2024,
+        "section": "",
+        "accession": "000095017024087843"
+      },
+      "score": 4,
+      "rationale": "The MSFT 2024 filing (accession 000095017024087843, fiscal year ended June 30, 2024) passages directly address the competition question. passage-000023 names Amazon, Google, Broadcom, IBM, Oracle and others as Azure competitors. passage-000096 says cloud and AI infrastructure investment will increase operating costs and lower margins, and it cites datacenter land, energy, server and GPU dependencies. passage-000094 and passage-000102 tie datacenter operations to major expenses and Microsoft Cloud gross margin. The evidence is qualitative, though. It has no datacenter or infrastructure expense figures such as depreciation, cost of revenue, or capex amounts, so it is useful but not fully supported.",
+      "evidence": [
+        {
+          "id": "000095017024087843#passage-000102",
+          "text": "to 71%. Excluding the impact of the change in accounting estimate, Microsoft Cloud gross margin percentage increased slightly driven by improvements in Azure and Office 365 Commercial, inclusive of scaling our AI infrastructure, offset in part by sales mix shift to Azure. Operating expenses increased $4.0 billion or 7% driven by Gaming, with 7 points of growth from the Activision Blizzard acquisition, and investments in cloud engineering, offset in part by the prior year Q2 charge. Operating income increased $20.9 billion or 24% driven by growth across each of our segments. Prior year gross margin, operating income, net income, and diluted EPS were negatively impacted by the Q2 charge, which resulted in decreases of $152 million, $1.2 billion, $946 million, and $0.13, respectively. 43 PART II Item 7 SEGMENT RESULTS OF OPERATIONS (In millions, except percentages) 2024 2023 Percentage Change Revenue Productivity and Business Processes $ 77,728 $ 69,274 12% Intelligent Cloud 105,362 87,907 20% More Personal Computing 62,032 54,734 13% Total $ 245,122 $ 211,915 16% Operating Income Productivity and Business Processes $ 40,540 $ 34,189 19% Intelligent Cloud 49,584 37,884 31% More Personal Computing 19,309 16,450 17% Total $ 109,433 $ 88,523 24% Reportable Segments Fiscal Year 2024 Compared with Fiscal Year 2023 Productivity and Business Processes Revenue increased $8.5 billion or 12%. • Office Commercial products and cloud services revenue increased $5.8 billion or 14%. Office 365 Commercial revenue grew 16% with seat growth of 7%, driven by small and medium business and frontline worker offerings, as well as growth in revenue per",
+          "metadata": {
+            "ID": "000095017024087843#passage-000102",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000102"
+        },
+        {
+          "id": "000095017024087843#passage-000096",
+          "text": "cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services. Our datacenters depend on the availability of permitted and buildable land, predictable energy, networking supplies, and servers, including graphics processing units (“GPUs”) and other components. Our devices are primarily manufactured by third-party contract manufacturers. For the majority of our products, we have the ability to use other manufacturers if a current vendor becomes unavailable or unable to meet our requirements. However, some of our products contain certain components for which there are very few qualified suppliers. Extended disruptions at these suppliers could impact our ability to manufacture devices on time to meet consumer demand. Our success is highly dependent on our ability to attract and retain qualified employees. We hire a mix of university and industry talent worldwide. We compete for talented individuals globally by offering an exceptional working environment, broad customer reach, scale in resources, the ability to grow one’s career across many different products and businesses, and competitive compensation and benefits. Our international operations provide a significant portion of our total revenue and expenses. Many of these revenue and expenses are denominated in currencies other than the U.S. dollar. As a result, changes in foreign exchange rates may significantly affect revenue and expenses. Fluctuations in the U.S. dollar relative to certain foreign",
+          "metadata": {
+            "ID": "000095017024087843#passage-000096",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000096"
+        },
+        {
+          "id": "000095017024087843#passage-000094",
+          "text": "other services to people and businesses; licensing and supporting an array of software products; delivering relevant online advertising to a global audience; and designing and selling devices. Our most significant expenses are related to compensating employees; supporting and investing in our cloud-based services, including datacenter operations; designing, manufacturing, marketing, and selling our other products and services; and income taxes. Highlights from fiscal year 2024 compared with fiscal year 2023 included: • Microsoft Cloud revenue increased 23% to $137.4 billion. • Office Commercial products and cloud services revenue increased 14% driven by Office 365 Commercial growth of 16%. • Office Consumer products and cloud services revenue increased 4% and Microsoft 365 Consumer subscribers grew to 82.5 million. • LinkedIn revenue increased 9%. • Dynamics products and cloud services revenue increased 19% driven by Dynamics 365 growth of 24%. • Server products and cloud services revenue increased 22% driven by Azure and other cloud services growth of 30%. • Windows revenue increased 8% with Windows original equipment manufacturer licensing (“Windows OEM”) revenue growth of 7% and Windows Commercial products and cloud services revenue growth of 11%. • Devices revenue decreased 15%. • Xbox content and services revenue increased 50% driven by 44 points of net impact from the Activision Blizzard Inc. (“Activision Blizzard”) acquisition. The net impact reflects the change of Activision Blizzard content from third-party to first-party. • Search and news advertising revenue excluding traffic acquisition costs increased 12%. On October 13, 2023, we completed our acquisition of Activision Blizzard for a total purchase price of $75.4",
+          "metadata": {
+            "ID": "000095017024087843#passage-000094",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000094"
+        },
+        {
+          "id": "000095017024087843#passage-000186",
+          "text": "16,372 14,989 13,631 Search and news advertising 12,576 12,158 11,526 Enterprise and partner services 7,594 7,900 7,605 Dynamics products and cloud services 6,481 5,437 4,687 Devices 4,706 5,521 7,306 Other 45 119 233 Total $ 245,122 $ 211,915 $ 198,270 We have recast certain prior period amounts to conform to the way we internally manage and monitor our business. Our Microsoft Cloud revenue, which includes Azure and other cloud services, Office 365 Commercial, the commercial portion of LinkedIn, Dynamics 365, and other commercial cloud properties, was $ 137.4 billion, $ 111.6 billion, and $ 91.4 billion in fiscal years 2024, 2023, and 2022, respectively. These amounts are primarily included in Server products and cloud services, Office products and cloud services, LinkedIn, and Dynamics products and cloud services in the table above. Assets are not allocated to segments for internal reporting presentations. A portion of amortization and depreciation is included with various other costs in an overhead allocation to each segment. It is impracticable for us to separately identify the amount of amortization and depreciation by segment that is included in the measure of segment profit or loss. Long-lived assets, excluding financial instruments and tax assets, classified by the location of the controlling statutory company and with countries over 10% of the total shown separately, were as follows: (In millions) June 30, 2024 2023 2022 United States $ 186,106 $ 114,380 $ 106,430 Other countries 115,263 72,859 59,938 Total $ 301,369 $ 187,239 $ 166,368 93 PART II Item 8 REPORT OF INDEPENDENT REGIST ERED PUBLIC ACCOUNTING",
+          "metadata": {
+            "ID": "000095017024087843#passage-000186",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000186"
+        },
+        {
+          "id": "000095017024087843#passage-000023",
+          "text": "Azure faces diverse competition from companies such as Amazon, Broadcom, Google, IBM, Oracle, and open source offerings. Azure’s competitive advantage includes enabling a hybrid cloud, allowing deployment of existing datacenters with our public cloud into a single, cohesive infrastructure, and the ability to run at a scale that meets the needs of businesses of all sizes and complexities. Our AI offerings compete with AI products from hyperscalers such as Amazon and Google, as well as products from other emerging competitors, including Anthropic, OpenAI, Meta, and other open source offerings, many of which are also current or potential partners. Our Azure Security offerings include our cloud security solution and security information and event management solution, which compete with companies such as Palo Alto Networks and Cisco. Our Enterprise Mobility + Security offerings also compete with products from a range of competitors including identity vendors, security solution vendors, and numerous other security point solution vendors. We believe our cloud’s global scale, coupled with our broad portfolio of identity and security solutions, allows us to effectively solve complex cybersecurity challenges for our customers and differentiates us from the competition. Our server products face competition from a wide variety of server operating systems and applications offered by companies with a range of market approaches. Vertically integrated computer manufacturers such as Hewlett-Packard, IBM, and Oracle offer their own versions of the Unix operating system preinstalled on server hardware and nearly all computer manufacturers offer server hardware for the Linux operating system. We compete to provide enterprise-wide computing and point solutions with",
+          "metadata": {
+            "ID": "000095017024087843#passage-000023",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000023"
+        }
+      ],
+      "accepted": true,
+      "elapsed_seconds": 8.847442680998938
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "Amazon Web Services cloud business competition and operating costs of cloud infrastructure, including technology infrastructure and datacenter expenses",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 3,
+      "rationale": "Passages are from the correct AMZN filing (accession 000101872424000008, filing year 2024, fiscal period ended Dec 31, 2023). They directly cover the operating-cost side: Technology and infrastructure costs include servers, networking equipment, and data center depreciation, rent, and utilities supporting AWS. They also give the 2022-2023 operating expense table and state that AWS operating income rose on spending on technology infrastructure. The AWS segment definition is included. However, no passage addresses cloud business competition, such as competitors or market position. The evidence is therefore partial, covering only the cost half of the subquery.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000097",
+          "text": "our stores, curation and display of products and services made available in our online stores, and infrastructure costs. Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses. Collectively, these costs reflect the investments we make in order to offer a wide variety of products and services to our customers, including expenditures related to initiatives to build and deploy innovative and efficient software and electronic devices and the development of a satellite network for global broadband service and autonomous vehicles for ride-hailing services. Technology and infrastructure costs are generally expensed as incurred. Sales and Marketing Sales and marketing costs include advertising and payroll and related expenses for personnel engaged in marketing and selling activities, including sales commissions related to AWS. We pay commissions to third parties when their customer referrals result in sales. We also participate in cooperative advertising arrangements with certain of our vendors, and other third parties. Advertising and other promotional costs to market our products and services are expensed as incurred and were $ 16.9 billion, $ 20.6 billion, and $ 20.3 billion in 2021, 2022, and 2023. General and Administrative General and administrative expenses primarily consist of costs for corporate functions, including payroll and related expenses; facilities and equipment expenses, such as depreciation and amortization expense and rent; and professional fees. Stock-Based Compensation Compensation cost for all equity-classified stock awards expected to vest is measured at fair value on the date of grant and recognized over",
+          "metadata": {
+            "ID": "000101872424000008#passage-000097",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000097"
+        },
+        {
+          "id": "000101872424000008#passage-000067",
+          "text": "increased fulfillment costs by $52 million in 2023. We seek to expand our fulfillment network to accommodate a greater selection and in-stock inventory levels and to meet anticipated shipment volumes from sales of our own products as well as sales by third parties for which we provide the fulfillment services. We regularly evaluate our facility requirements. Technology and Infrastructure Technology and infrastructure costs include payroll and related expenses for employees involved in the research and development of new and existing products and services, development, design, and maintenance of our stores, curation and display of products and services made available in our online stores, and infrastructure costs. Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses. Collectively, these costs reflect the investments we make in order to offer a wide variety of products and services to our customers, including expenditures related to initiatives to build and deploy innovative and efficient software and electronic devices and the development of a satellite network for global broadband service and autonomous vehicles for ride-hailing services. We seek to invest efficiently in numerous areas of technology and infrastructure so we may continue to enhance the customer experience and improve our process efficiency through rapid technology developments, while operating at an ever increasing scale. Our technology and infrastructure investment and capital spending projects often support a variety of product and service offerings due to geographic expansion and the cross-functionality of our systems and operations. We expect",
+          "metadata": {
+            "ID": "000101872424000008#passage-000067",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000067"
+        },
+        {
+          "id": "000101872424000008#passage-000150",
+          "text": "of infrastructure costs recorded in “Technology and infrastructure” are allocated to the AWS segment based on usage. There are no internal revenue transactions between our reportable segments. Our chief operating decision maker (“CODM”) regularly reviews consolidated net sales, consolidated operating expenses, and consolidated operating income (loss) by segment. Amounts included in consolidated operating expenses include “Cost of sales,” “Fulfillment,” “Technology and infrastructure,” “Sales and marketing,” “General and administrative,” and “Other operating expense (income), net.” Our CODM manages our business by reviewing annual forecasts and consolidated results by segment on a quarterly basis. North America The North America segment primarily consists of amounts earned from retail sales of consumer products (including from sellers) and advertising and subscription services through North America-focused online and physical stores. This segment includes export sales from these online stores. International The International segment primarily consists of amounts earned from retail sales of consumer products (including from sellers) and advertising and subscription services through internationally-focused online stores. This segment includes export sales from these internationally-focused online stores (including export sales from these online stores to customers in the U.S., Mexico, and Canada), but excludes export sales from our North America-focused online stores. AWS The AWS segment consists of amounts earned from global sales of compute, storage, database, and other services for start-ups, enterprises, government agencies, and academic institutions. Information on reportable segments and reconciliation to consolidated net income (loss) is as follows (in millions): Year Ended December 31, 2021 2022 2023 North America Net sales $ 279,833 $ 315,880 $ 352,828 Operating expenses",
+          "metadata": {
+            "ID": "000101872424000008#passage-000150",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000150"
+        },
+        {
+          "id": "000101872424000008#passage-000068",
+          "text": "spending in technology and infrastructure to increase over time as we continue to add employees and infrastructure. These costs are allocated to segments based on usage. The increase in technology and infrastructure costs in absolute dollars in 2023, compared to the prior year, is primarily due to an increase in spending on infrastructure and increased payroll and related costs associated with technical teams responsible for expanding our existing products and services and initiatives to introduce new products and service offerings. Sales and Marketing Sales and marketing costs include advertising and payroll and related expenses for personnel engaged in marketing and selling activities, including sales commissions related to AWS. We direct customers to our stores primarily through a number of marketing channels, such as our sponsored search, social and online advertising, third-party customer referrals, television advertising, and other initiatives. Our marketing costs are largely variable, based on growth in sales and changes in rates. To the extent there is increased or decreased competition for these traffic sources, or to the extent our mix of these channels shifts, we would expect to see a corresponding change in our marketing costs. The increase in sales and marketing costs in absolute dollars in 2023, compared to the prior year, is primarily due to increased payroll and related expenses for personnel engaged in marketing and selling activities. While costs associated with Amazon Prime membership benefits and other shipping offers are not included in sales and marketing expense, we view these offers as effective worldwide marketing tools, and intend to continue offering",
+          "metadata": {
+            "ID": "000101872424000008#passage-000068",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000068"
+        },
+        {
+          "id": "000101872424000008#passage-000064",
+          "text": "to increased unit sales and increased advertising sales, partially offset by increased shipping and fulfillment costs and increased technology and infrastructure costs. The decrease in International operating loss in absolute dollars in 2023, compared to the prior year, is primarily due to increased unit sales and increased advertising sales, partially offset by increased fulfillment and shipping costs and increased technology and infrastructure costs. Changes in foreign exchange rates positively impacted operating loss by $246 million in 2023. The increase in AWS operating income in absolute dollars in 2023, compared to the prior year, is primarily due to increased sales, partially offset by increased payroll and related expenses and spending on technology infrastructure, both of which were primarily driven by additional investments to support AWS business growth. Changes in foreign exchange rates positively impacted operating income by $220 million in 2023. 25 Table of Contents Operating Expenses Information about operating expenses is as follows (in millions): Year Ended December 31, 2022 2023 Operating Expenses: Cost of sales $ 288,831 $ 304,739 Fulfillment 84,299 90,619 Technology and infrastructure 73,213 85,622 Sales and marketing 42,238 44,370 General and administrative 11,891 11,816 Other operating expense (income), net 1,263 767 Total operating expenses $ 501,735 $ 537,933 Year-over-year Percentage Growth (Decline): Cost of sales 6 % 6 % Fulfillment 12 7 Technology and infrastructure 31 17 Sales and marketing 30 5 General and administrative 35 (1) Other operating expense (income), net 1,936 (39) Percent of Net Sales: Cost of sales 56.2 % 53.0 % Fulfillment 16.4 15.8 Technology and infrastructure 14.2",
+          "metadata": {
+            "ID": "000101872424000008#passage-000064",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000064"
+        }
+      ],
+      "accepted": false,
+      "elapsed_seconds": 9.183199220999086
+    },
+    {
+      "subquery": 1,
+      "attempt": 1,
+      "query": "AMZN 2024 filing (fiscal year ended December 31, 2023; accession 000101872424000008) Item 1 or Item 1A competition for AWS cloud services against Microsoft, Google, and other cloud providers, including pricing and market share",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 2,
+      "rationale": "None of the five passages discusses AWS competition, competitors (Microsoft, Google), pricing, or market share. Passages 000002 and 000000 are cover and table-of-contents text. Passage 000141 covers stock-based compensation and income taxes. Passage 000162 is the exhibit index. Passage 000115 is the only AWS-related text: it covers unearned revenue and $155.7B of AWS contract commitments. That is revenue/backlog context, not competition or infrastructure operating costs, so the evidence is weak for this subquery. Filing year 2024 with fiscal year ended December 31, 2023 and accession 000101872424000008 is consistent with the catalog.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000002",
+          "text": "statements of the registrant included in the filing reflect the correction of an error to previously issued financial statements. ☐ Indicate by check mark whether any of those error corrections are restatements that required a recovery analysis of incentive-based compensation received by any of the registrant’s executive officers during the relevant recovery period pursuant to §240.10D-1(b). ☐ Indicate by check mark whether the registrant is a shell company (as defined in Rule 12b-2 of the Exchange Act). Yes ☐ No ☒ Aggregate market value of voting stock held by non-affiliates of the registrant as of June 30, 2023 $ 1,183,684,965,587 Number of shares of common stock outstanding as of January 24, 2024 10,387,381,291 ____________________________________ DOCUMENTS INCORPORATED BY REFERENCE The information required by Part III of this Report, to the extent not set forth herein, is incorporated herein by reference from the registrant’s definitive proxy statement relating to the Annual Meeting of Shareholders to be held in 2024, which definitive proxy statement shall be filed with the Securities and Exchange Commission within 120 days after the end of the fiscal year to which this Report relates. Table of Contents AMAZON.COM, INC. FORM 10-K For the Fiscal Year Ended December 31, 2023 INDEX Page PART I Item 1. Business 3 Item 1A. Risk Factors 6 Item 1B. Unresolved Staff Comments 16 Item 1C. Cybersecurity 16 Item 2. Properties 18 Item 3. Legal Proceedings 18 Item 4. Mine Safety Disclosures 18 PART II Item 5. Market for the Registrant’s Common Stock, Related Shareholder Matters, and Issuer Purchases of Equity",
+          "metadata": {
+            "ID": "000101872424000008#passage-000002",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000002"
+        },
+        {
+          "id": "000101872424000008#passage-000141",
+          "text": "Outstanding as of December 31, 2022 384.4 144 Units granted 218.1 106 Units vested ( 139.9 ) 143 Units forfeited ( 56.8 ) 135 Outstanding as of December 31, 2023 405.8 125 Scheduled vesting for outstanding restricted stock units as of December 31, 2023, is as follows (in millions): Year Ended 2024 2025 2026 2027 2028 Thereafter Total Scheduled vesting — restricted stock units 218.3 124.6 48.7 11.2 1.3 1.7 405.8 As of December 31, 2023, there was $ 18.3 billion of net unrecognized compensation cost related to unvested stock-based compensation arrangements. This compensation is recognized on an accelerated basis with more than half of the compensation expected to be expensed in the next twelve months, and has a remaining weighted-average recognition period of 0.9 years. The estimated forfeiture rate as of December 31, 2021, 2022, and 2023 was 26.5 %, 26.5 %, and 26.1 %. During 2021, 2022, and 2023, the fair value of restricted stock units that vested was $ 18.2 billion, $ 12.8 billion, and $ 17.6 billion. Common Stock Available for Future Issuance As of December 31, 2023, common stock available for future issuance to employees is 1.6 billion shares. Note 9 — INCOME TAXES In 2021, 2022, and 2023, we recorded a net tax provision (benefit) of $ 4.8 billion, $( 3.2 ) billion, and $ 7.1 billion. Our U.S. taxable income is reduced by accelerated depreciation deductions and increased by the impact of capitalized research and development expenses. Cash paid for income taxes, net of refunds, was $ 3.7 billion,",
+          "metadata": {
+            "ID": "000101872424000008#passage-000141",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000141"
+        },
+        {
+          "id": "000101872424000008#passage-000162",
+          "text": "three years ended December 31, 2023 Consolidated Statements of Comprehensive Income (Loss) for each of the three years ended December 31, 2023 Consolidated Balance Sheets as of December 31, 2022 and 2023 Consolidated Statements of Stockholders’ Equity for each of the three years ended December 31, 2023 Notes to Consolidated Financial Statements Report of Ernst & Young LLP, Independent Registered Public Accounting Firm (2) Index to Financial Statement Schedules: All schedules have been omitted because the required information is included in the consolidated financial statements or the notes thereto, or because it is not required. (3) Index to Exhibits See exhibits listed under Part (b) below. (b) Exhibits: Exhibit Number Description 3.1 Amended and Restated Certificate of Incorporation of Amazon.com, Inc. (incorporated by reference to the Company’s Current Report on Form 8-K, filed May 27, 2022). 3.2 Amended and Restated Bylaws of Amazon.com, Inc. (incorporated by reference to the Company’s Current Report on Form 8-K, filed January 6, 2023). 4.1 Indenture, dated as of November 29, 2012, between Amazon.com, Inc. and Wells Fargo Bank, National Association, as trustee (incorporated by reference to the Company’s Current Report on Form 8-K, filed November 29, 2012). 4.2 Supplemental Indenture, dated as of April 13, 2022, among Amazon.com, Inc., Wells Fargo Bank, National Association, as prior trustee, and Computershare Trust Company, National Association, as successor trustee, containing Form of 2.730% Note due 2024, Form of 3.000% Note due 2025, Form of 3.300% Note due 2027, Form of 3.450% Note due 2029, Form of 3.600% Note due 2032, Form of 3.950%",
+          "metadata": {
+            "ID": "000101872424000008#passage-000162",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000162"
+        },
+        {
+          "id": "000101872424000008#passage-000000",
+          "text": "Table of Contents UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549 ____________________________________ FORM 10-K ____________________________________ (Mark One) ☒ ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 For the fiscal year ended December 31 , 2023 or ☐ TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 For the transition period from to . Commission File No. 000-22513 ____________________________________ AMAZON.COM, INC. (Exact name of registrant as specified in its charter) Delaware 91-1646860 (State or other jurisdiction of incorporation or organization) (I.R.S. Employer Identification No.) 410 Terry Avenue North Seattle , Washington 98109-5210 ( 206 ) 266-1000 (Address and telephone number, including area code, of registrant’s principal executive offices) Securities registered pursuant to Section 12(b) of the Act: Title of Each Class Trading Symbol(s) Name of Each Exchange on Which Registered Common Stock, par value $.01 per share AMZN Nasdaq Global Select Market Securities registered pursuant to Section 12(g) of the Act: None ____________________________________ Indicate by check mark if the registrant is a well-known seasoned issuer, as defined in Rule 405 of the Securities Act. Yes ☒ No ☐ Indicate by check mark if the registrant is not required to file reports pursuant to Section 13 or Section 15(d) of the Exchange Act. Yes ☐ No ☒ Indicate by check mark whether the registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter",
+          "metadata": {
+            "ID": "000101872424000008#passage-000000",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000000"
+        },
+        {
+          "id": "000101872424000008#passage-000115",
+          "text": "recognized over the service period. Unearned revenue primarily relates to prepayments of AWS services and Amazon Prime memberships. Our total unearned revenue as of December 31, 2022 was $ 16.1 billion, of which $ 12.4 billion was recognized as revenue during the year ended December 31, 2023 and our total unearned revenue as of December 31, 2023 was $ 20.6 billion. Included in “Other long-term liabilities” on our consolidated balance sheets was $ 2.9 billion and $ 5.7 billion of unearned revenue as of December 31, 2022 and 2023. Additionally, we have performance obligations, primarily related to AWS, associated with commitments in customer contracts for future services that have not yet been recognized in our financial statements. For contracts with original terms that exceed one year, those commitments not yet recognized were $ 155.7 billion as of December 31, 2023. The weighted average remaining life of our long-term contracts is 4.0 years. However, the amount and timing of revenue recognition is largely driven by customer usage, which can extend beyond the original contractual term. Other Long-Term Liabilities Included in “Other long-term liabilities” on our consolidated balance sheets are liabilities primarily related to financing obligations, unearned revenue, asset retirement obligations, tax contingencies, digital video and music content, and deferred tax liabilities. Foreign Currency We have internationally-focused stores for which the net sales generated, as well as most of the related expenses directly incurred from those operations, are denominated in local functional currencies. The functional currency of our subsidiaries that either operate or support these stores is generally",
+          "metadata": {
+            "ID": "000101872424000008#passage-000115",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000115"
+        }
+      ],
+      "accepted": false,
+      "elapsed_seconds": 11.446081867994508
+    },
+    {
+      "subquery": 1,
+      "attempt": 2,
+      "query": "AMZN 10-K filing year 2024 (fiscal year ended December 31, 2023; accession 000101872424000008) Item 1 Business and Item 1A Risk Factors: Amazon Web Services competition with Microsoft Azure, Google Cloud and other cloud providers, including pricing pressure and AWS market share",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 1,
+      "rationale": "None of the five passages discuss AWS competition, cloud pricing, market share, or datacenter/technology infrastructure costs. They are the cover page, the table of contents, and exhibit indexes (Item 15 material and credit agreements). The cover page does confirm the filing is AMZN's 10-K for fiscal year ended December 31, 2023 (accession 000101872424000008), which matches the filing-year-2024 scope. The passages list Item 1 and Item 1A as page locations but do not include their text, so the subquery is unanswered by this evidence.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000002",
+          "text": "statements of the registrant included in the filing reflect the correction of an error to previously issued financial statements. ☐ Indicate by check mark whether any of those error corrections are restatements that required a recovery analysis of incentive-based compensation received by any of the registrant’s executive officers during the relevant recovery period pursuant to §240.10D-1(b). ☐ Indicate by check mark whether the registrant is a shell company (as defined in Rule 12b-2 of the Exchange Act). Yes ☐ No ☒ Aggregate market value of voting stock held by non-affiliates of the registrant as of June 30, 2023 $ 1,183,684,965,587 Number of shares of common stock outstanding as of January 24, 2024 10,387,381,291 ____________________________________ DOCUMENTS INCORPORATED BY REFERENCE The information required by Part III of this Report, to the extent not set forth herein, is incorporated herein by reference from the registrant’s definitive proxy statement relating to the Annual Meeting of Shareholders to be held in 2024, which definitive proxy statement shall be filed with the Securities and Exchange Commission within 120 days after the end of the fiscal year to which this Report relates. Table of Contents AMAZON.COM, INC. FORM 10-K For the Fiscal Year Ended December 31, 2023 INDEX Page PART I Item 1. Business 3 Item 1A. Risk Factors 6 Item 1B. Unresolved Staff Comments 16 Item 1C. Cybersecurity 16 Item 2. Properties 18 Item 3. Legal Proceedings 18 Item 4. Mine Safety Disclosures 18 PART II Item 5. Market for the Registrant’s Common Stock, Related Shareholder Matters, and Issuer Purchases of Equity",
+          "metadata": {
+            "ID": "000101872424000008#passage-000002",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000002"
+        },
+        {
+          "id": "000101872424000008#passage-000165",
+          "text": "of Restricted Stock Unit Agreement for Officers and Employees (incorporated by reference to the Company’s Annual Report on Form 10-K for the Year ended December 31, 2002). 10.5† Form of Restricted Stock Unit Agreement for Directors (incorporated by reference to the Company’s Annual Report on Form 10-K for the Year ended December 31, 2002). 10.6† Form of Restricted Stock Agreement (incorporated by reference to the Company’s Annual Report on Form 10-K for the Year ended December 31, 2001). 10.7† Form of Global Restricted Stock Unit Award Agreement for Executive Officers. 10.8 Term Loan Agreement, dated as of January 3, 2023, among Amazon.com, Inc., Toronto Dominion (Texas) LLC, as administrative agent, and the other lenders party thereto (incorporated by reference to the Company’s Current Report on Form 8-K, filed January 3, 2023). 10.9 Five-Year Revolving Credit Agreement, dated as of November 1, 2023, among Amazon.com, Inc., Citibank N.A., as administrative agent, and the lenders party thereto (incorporated by reference to the Company’s Current Report on Form 8-K, filed November 1, 2023). 10.10 364-Day Revolving Credit Agreement, dated as of November 1, 2023, among Amazon.com, Inc., Citibank N.A., as administrative agent, and the lenders party thereto (incorporated by reference to the Company’s Current Report on Form 8-K, filed November 1, 2023). 21.1 List of Significant Subsidiaries. 23.1 Consent of Independent Registered Public Accounting Firm. 31.1 Certification of Andrew R. Jassy, President and Chief Executive Officer of Amazon.com, Inc., pursuant to Rule 13a-14(a) under the Securities Exchange Act of 1934. 31.2 Certification of Brian T. Olsavsky, Senior Vice President",
+          "metadata": {
+            "ID": "000101872424000008#passage-000165",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000165"
+        },
+        {
+          "id": "000101872424000008#passage-000164",
+          "text": "3, 2020). 4.7 Officers’ Certificate of Amazon.com, Inc., dated as of May 12, 2021, containing Form of 0.250% Note due 2023, Form of 0.450% Note due 2024, Form of 1.000% Note due 2026, Form of 1.650% Note due 2028, Form of 2.100% Note due 2031, Form of 2.875% Note due 2041, Form of 3.100% Note due 2051, and Form of 3.250% Note due 2061 (incorporated by reference to the Company’s Current Report on Form 8-K, filed May 12, 2021). 4.8 Officers’ Certificate of Amazon.com, Inc., dated as of December 1, 2022, containing Form of 4.700% Note due 2024, Form of 4.600% Note due 2025, Form of 4.550% Note due 2027, Form of 4.650% Note due 2029, and Form of 4.700% Note due 2032 (incorporated by reference to the Company’s Current Report on Form 8-K, filed December 1, 2022). 4.9 Description of Securities (incorporated by reference to the Company’s Annual Report on Form 10-K for the Year ended December 31, 2019). 10.1† 1997 Stock Incentive Plan (amended and restated) (incorporated by reference to the Company’s Quarterly Report on Form 10-Q for the Quarter ended June 30, 2022). 10.2† 1999 Nonofficer Employee Stock Option Plan (amended and restated) (incorporated by reference to the Company’s Quarterly Report on Form 10-Q for the Quarter ended June 30, 2022). 10.3† Form of Indemnification Agreement between Amazon.com, Inc. and each of its Directors (incorporated by reference to Exhibit 10.1 to the Company’s Registration Statement on Form S-1 (Registration No. 333-23795) filed March 24, 1997, as amended on April 21, 1997). 10.4† Form",
+          "metadata": {
+            "ID": "000101872424000008#passage-000164",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000164"
+        },
+        {
+          "id": "000101872424000008#passage-000162",
+          "text": "three years ended December 31, 2023 Consolidated Statements of Comprehensive Income (Loss) for each of the three years ended December 31, 2023 Consolidated Balance Sheets as of December 31, 2022 and 2023 Consolidated Statements of Stockholders’ Equity for each of the three years ended December 31, 2023 Notes to Consolidated Financial Statements Report of Ernst & Young LLP, Independent Registered Public Accounting Firm (2) Index to Financial Statement Schedules: All schedules have been omitted because the required information is included in the consolidated financial statements or the notes thereto, or because it is not required. (3) Index to Exhibits See exhibits listed under Part (b) below. (b) Exhibits: Exhibit Number Description 3.1 Amended and Restated Certificate of Incorporation of Amazon.com, Inc. (incorporated by reference to the Company’s Current Report on Form 8-K, filed May 27, 2022). 3.2 Amended and Restated Bylaws of Amazon.com, Inc. (incorporated by reference to the Company’s Current Report on Form 8-K, filed January 6, 2023). 4.1 Indenture, dated as of November 29, 2012, between Amazon.com, Inc. and Wells Fargo Bank, National Association, as trustee (incorporated by reference to the Company’s Current Report on Form 8-K, filed November 29, 2012). 4.2 Supplemental Indenture, dated as of April 13, 2022, among Amazon.com, Inc., Wells Fargo Bank, National Association, as prior trustee, and Computershare Trust Company, National Association, as successor trustee, containing Form of 2.730% Note due 2024, Form of 3.000% Note due 2025, Form of 3.300% Note due 2027, Form of 3.450% Note due 2029, Form of 3.600% Note due 2032, Form of 3.950%",
+          "metadata": {
+            "ID": "000101872424000008#passage-000162",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000162"
+        },
+        {
+          "id": "000101872424000008#passage-000000",
+          "text": "Table of Contents UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549 ____________________________________ FORM 10-K ____________________________________ (Mark One) ☒ ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 For the fiscal year ended December 31 , 2023 or ☐ TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 For the transition period from to . Commission File No. 000-22513 ____________________________________ AMAZON.COM, INC. (Exact name of registrant as specified in its charter) Delaware 91-1646860 (State or other jurisdiction of incorporation or organization) (I.R.S. Employer Identification No.) 410 Terry Avenue North Seattle , Washington 98109-5210 ( 206 ) 266-1000 (Address and telephone number, including area code, of registrant’s principal executive offices) Securities registered pursuant to Section 12(b) of the Act: Title of Each Class Trading Symbol(s) Name of Each Exchange on Which Registered Common Stock, par value $.01 per share AMZN Nasdaq Global Select Market Securities registered pursuant to Section 12(g) of the Act: None ____________________________________ Indicate by check mark if the registrant is a well-known seasoned issuer, as defined in Rule 405 of the Securities Act. Yes ☒ No ☐ Indicate by check mark if the registrant is not required to file reports pursuant to Section 13 or Section 15(d) of the Exchange Act. Yes ☐ No ☒ Indicate by check mark whether the registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter",
+          "metadata": {
+            "ID": "000101872424000008#passage-000000",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000000"
+        }
+      ],
+      "accepted": false,
+      "elapsed_seconds": 9.094645265999134
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Azure faces diverse competition from companies such as Amazon, Broadcom, Google, IBM, Oracle, and open source offerings. Azure’s competitive advantage includes enabling a hybrid cloud, allowing deployment of existing datacenters with our public cloud into a single, cohesive infrastructure [MSFT-2024-10K-p000023](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000023`; accession: `0000950170-24-087843`).\n- Our AI offerings compete with AI products from hyperscalers such as Amazon and Google, as well as products from other emerging competitors, including Anthropic, OpenAI, Meta, and other open source offerings [MSFT-2024-10K-p000023](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000023`; accession: `0000950170-24-087843`).\n- Microsoft Cloud revenue increased 23% to $137.4 billion. [MSFT-2024-10K-p000094](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000094`; accession: `0000950170-24-087843`).\n- Our most significant expenses are related to compensating employees; supporting and investing in our cloud-based services, including datacenter operations; [MSFT-2024-10K-p000094](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000094`; accession: `0000950170-24-087843`).\n- cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins. [MSFT-2024-10K-p000096](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000096`; accession: `0000950170-24-087843`).\n- We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services. [MSFT-2024-10K-p000096](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000096`; accession: `0000950170-24-087843`).\n- Excluding the impact of the change in accounting estimate, Microsoft Cloud gross margin percentage increased slightly driven by improvements in Azure and Office 365 Commercial, inclusive of scaling our AI infrastructure, offset in part by sales mix shift to Azure. [MSFT-2024-10K-p000102](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000102`; accession: `0000950170-24-087843`).\n- Operating expenses increased $4.0 billion or 7% driven by Gaming, with 7 points of growth from the Activision Blizzard acquisition, and investments in cloud engineering, offset in part by the prior year Q2 charge. [MSFT-2024-10K-p000102](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000102`; accession: `0000950170-24-087843`).\n\nEvidence gaps:\n- Subquery 1 has no evidence meeting threshold after 2 retries.",
+  "citations": [
+    {
+      "tag": "MSFT-2024-10K-p000023",
+      "chunk_id": "000095017024087843#passage-000023",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Azure faces diverse competition from companies such as Amazon, Broadcom, Google, IBM, Oracle, and open source offerings. Azure’s competitive advantage includes enabling a hybrid cloud, allowing deployment of existing datacenters with our public cloud into a single, cohesive infrastructure"
+    },
+    {
+      "tag": "MSFT-2024-10K-p000023",
+      "chunk_id": "000095017024087843#passage-000023",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Our AI offerings compete with AI products from hyperscalers such as Amazon and Google, as well as products from other emerging competitors, including Anthropic, OpenAI, Meta, and other open source offerings"
+    },
+    {
+      "tag": "MSFT-2024-10K-p000094",
+      "chunk_id": "000095017024087843#passage-000094",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Microsoft Cloud revenue increased 23% to $137.4 billion."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000094",
+      "chunk_id": "000095017024087843#passage-000094",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Our most significant expenses are related to compensating employees; supporting and investing in our cloud-based services, including datacenter operations;"
+    },
+    {
+      "tag": "MSFT-2024-10K-p000096",
+      "chunk_id": "000095017024087843#passage-000096",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000096",
+      "chunk_id": "000095017024087843#passage-000096",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000102",
+      "chunk_id": "000095017024087843#passage-000102",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Excluding the impact of the change in accounting estimate, Microsoft Cloud gross margin percentage increased slightly driven by improvements in Azure and Office 365 Commercial, inclusive of scaling our AI infrastructure, offset in part by sales mix shift to Azure."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000102",
+      "chunk_id": "000095017024087843#passage-000102",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "Operating expenses increased $4.0 billion or 7% driven by Gaming, with 7 points of growth from the Activision Blizzard acquisition, and investments in cloud engineering, offset in part by the prior year Q2 charge."
+    }
+  ],
+  "flags": [
+    "Subquery 1 has no evidence meeting threshold after 2 retries."
+  ],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.126134705002187,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13074,
+        "cache_read_input_tokens": 1218,
+        "output_tokens": 610,
+        "output_tokens_details": {
+          "thinking_tokens": 382
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13074,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 610,
+            "cache_read_input_tokens": 1218,
+            "cache_creation_input_tokens": 13074,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13074
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0029321800000000004
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.158680676999211,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16229,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 1027,
+        "output_tokens_details": {
+          "thinking_tokens": 579
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16229,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1027,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 16229,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16229
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00376851
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.274057556998741,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16009,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 916,
+        "output_tokens_details": {
+          "thinking_tokens": 532
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16009,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 916,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 16009,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16009
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00366901
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 8.414099472996895,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16495,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 1078,
+        "output_tokens_details": {
+          "thinking_tokens": 648
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16495,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1078,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 16495,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16495
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0038472099999999998
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.691561079998792,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16718,
+        "cache_read_input_tokens": 901,
+        "output_tokens": 907,
+        "output_tokens_details": {
+          "thinking_tokens": 504
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16718,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 907,
+            "cache_read_input_tokens": 901,
+            "cache_creation_input_tokens": 16718,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16718
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0038063100000000002
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 9.315652997000143,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 4505,
+        "cache_read_input_tokens": 882,
+        "output_tokens": 2016,
+        "output_tokens_details": {
+          "thinking_tokens": 1226
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4505,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2016,
+            "cache_read_input_tokens": 882,
+            "cache_creation_input_tokens": 4505,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4505
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00191802
+    }
+  ],
+  "elapsed_seconds": 43.16906471300172
+}
