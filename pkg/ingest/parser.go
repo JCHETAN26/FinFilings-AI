@@ -34,6 +34,20 @@ package ingest
 // the same checks plus one more: Item 8 must end at a later heading, not at
 // the end of the document. ParseReport.HeadingMode records which mode was used.
 //
+// v3 titled-mode boundary rule (deterministic-canonical-heading-v3-go). An
+// inferred standalone title is a section boundary only if its item comes LATER
+// in canonical 10-K order than the most recent accepted heading. Annual-report
+// layouts contain interior subheadings that merely look like item titles (for
+// example "Cybersecurity", an Operational Risk subsection inside Morgan
+// Stanley's "Quantitative and Qualitative Disclosures about Risk" part), and
+// running page headers that repeat a title; neither can end a section, because a
+// heading that goes backwards or repeats cannot start the next section of a
+// forward-ordered document. Explicit "Item N" headings are never filtered, so
+// out-of-order explicit headings keep their v2 meaning. Standalone titles also
+// accept "Quantitative and Qualitative Disclosures about Risk" (without "Market")
+// as Item 7A, which closes Item 7 instead of letting it run into the risk part.
+// ParserOptions.LegacyTitledHeadings reproduces v2 exactly for replay comparison.
+//
 // Not handled (the filing is rejected): items that only cross-reference page
 // ranges of an annual report, sections that live in a separate Exhibit 13
 // document, and headings that also appear in glossary/definition tables.
@@ -61,7 +75,11 @@ import (
 )
 
 // ParserVersion names the heading-selection algorithm recorded in reports.
-const ParserVersion = "deterministic-canonical-heading-v2-go"
+const ParserVersion = "deterministic-canonical-heading-v3-go"
+
+// ParserVersionV2 is the historical identity written to the parser-v2 reports. It is
+// reported only when ParserOptions.LegacyTitledHeadings reproduces that behaviour.
+const ParserVersionV2 = "deterministic-canonical-heading-v2-go"
 
 // Hard parser limits independent of options.
 const (
@@ -118,6 +136,10 @@ type ParserOptions struct {
 	MaxInputBytes   int64  // 1..512 MiB, default 128 MiB
 	SpoolDir        string // directory for the temporary visible-text spool; default os.TempDir()
 	Logger          *slog.Logger
+	// LegacyTitledHeadings reproduces parser v2 titled-mode heading selection (no
+	// order filter, no "about Risk" Item 7A title) so a replay can compare the
+	// historical baseline with the current parser on identical bytes. Default false.
+	LegacyTitledHeadings bool
 }
 
 // Parser is stateless apart from its options and compiled patterns; it is
@@ -128,9 +150,13 @@ type Parser struct {
 	opts   ParserOptions
 	prefix *regexp.Regexp
 	titles map[string]*regexp.Regexp
-	order  []string // titles keys in 10-K order, for deterministic matching
-	byRef  *regexp.Regexp
-	paren  *regexp.Regexp
+	// standalone holds the patterns for inferred standalone titles: titles, with the
+	// Item 7A "about Risk" variant added unless LegacyTitledHeadings.
+	standalone map[string]*regexp.Regexp
+	rank       map[string]int // item -> position in canonical 10-K order
+	order      []string       // titles keys in 10-K order, for deterministic matching
+	byRef      *regexp.Regexp
+	paren      *regexp.Regexp
 }
 
 // NewParser validates opts and compiles the heading patterns.
@@ -177,8 +203,17 @@ func NewParser(opts ParserOptions) (*Parser, error) {
 		paren:  regexp.MustCompile(`\s*\([^()]{1,24}\)\s*$`),
 		order:  []string{"1", "1A", "1B", "1C", "2", "3", "4", "5", "6", "7", "7A", "8", "9", "9A", "9B", "9C", "10", "11", "12", "13", "14", "15", "16"},
 	}
+	p.standalone = make(map[string]*regexp.Regexp, len(titles))
+	p.rank = make(map[string]int, len(p.order))
+	for i, item := range p.order {
+		p.rank[item] = i
+	}
 	for item, pattern := range titles {
 		p.titles[item] = regexp.MustCompile(`^(?:` + pattern + `)$`)
+		p.standalone[item] = p.titles[item]
+	}
+	if !opts.LegacyTitledHeadings {
+		p.standalone["7A"] = regexp.MustCompile(`^(?:quantitativeandqualitativedisclosuresabout(?:market)?risk)$`)
 	}
 	return p, nil
 }
@@ -187,6 +222,9 @@ func NewParser(opts ParserOptions) (*Parser, error) {
 type SectionReport struct {
 	Words  int `json:"words"`
 	Chunks int `json:"chunks"`
+	// StartWord is the visible-word offset (from the start of the document) of the
+	// section's heading line, so a boundary can be located in the source.
+	StartWord int `json:"start_word,omitempty"`
 }
 
 // ParseReport describes one parsed filing.
@@ -199,6 +237,9 @@ type ParseReport struct {
 	Sections          map[string]SectionReport `json:"sections"`
 	Parser            string                   `json:"parser"`
 	HeadingMode       string                   `json:"heading_mode"` // "item" or "titled"
+	// IgnoredTitles counts inferred standalone titles rejected by the v3 order rule
+	// (titled mode only; 0 otherwise). They are not section boundaries.
+	IgnoredTitles int `json:"ignored_titled_headings,omitempty"`
 }
 
 type spoolLine struct {
@@ -217,6 +258,7 @@ type heading struct {
 type sectionSpan struct {
 	start, end int64
 	words      int
+	startWord  int
 }
 
 // Parse reads one raw filing document and calls emit for every Item 1A, 7
@@ -261,21 +303,25 @@ func (p *Parser) Parse(ctx context.Context, raw io.Reader, format Format, filing
 	if err != nil {
 		return report, err
 	}
-	report = ParseReport{RawBytes: counted.n, RawSHA256: hex.EncodeToString(hash.Sum(nil)), VisibleWords: words, Parser: ParserVersion, Sections: map[string]SectionReport{}}
+	parserID := ParserVersion
+	if p.opts.LegacyTitledHeadings {
+		parserID = ParserVersionV2
+	}
+	report = ParseReport{RawBytes: counted.n, RawSHA256: hex.EncodeToString(hash.Sum(nil)), VisibleWords: words, Parser: parserID, Sections: map[string]SectionReport{}}
 
-	candidates, err := p.headings(ctx, spool, false)
+	candidates, _, err := p.headings(ctx, spool, false)
 	if err != nil {
 		return report, err
 	}
 	report.CandidateHeadings, report.HeadingMode = len(candidates), "item"
 	sections, err := p.selectSections(spool, size, words, candidates, false)
 	if errors.Is(err, ErrSections) {
-		titled, serr := p.headings(ctx, spool, true)
+		titled, ignored, serr := p.headings(ctx, spool, true)
 		if serr == nil {
 			var ts map[string]sectionSpan
 			if ts, serr = p.selectSections(spool, size, words, titled, true); serr == nil {
 				sections, err = ts, nil
-				report.CandidateHeadings, report.HeadingMode = len(titled), "titled"
+				report.CandidateHeadings, report.HeadingMode, report.IgnoredTitles = len(titled), "titled", ignored
 			}
 		}
 		if serr != nil && !errors.Is(serr, ErrSections) {
@@ -345,7 +391,7 @@ func (p *Parser) Parse(ctx context.Context, raw io.Reader, format Format, filing
 		if err := flush(); err != nil {
 			return report, err
 		}
-		report.Sections["Item "+item] = SectionReport{Words: span.words, Chunks: number}
+		report.Sections["Item "+item] = SectionReport{Words: span.words, Chunks: number, StartWord: span.startWord}
 		p.opts.Logger.Info("section_parsed", "accession", filing.Accession, "item", item, "words", span.words, "chunks", number)
 	}
 	return report, nil
@@ -379,7 +425,7 @@ func (p *Parser) selectSections(spool *os.File, size int64, words int, candidate
 			if boundedEnd && h.item == "8" && i+1 == len(candidates) {
 				return nil, fmt.Errorf("%w: titled Item 8 runs to the end of the document", ErrSections)
 			}
-			sections[h.item] = sectionSpan{h.start, end, count}
+			sections[h.item] = sectionSpan{h.start, end, count, h.wordsBefore}
 		}
 	}
 	for _, item := range []string{"1A", "7", "8"} {
@@ -396,9 +442,9 @@ func (p *Parser) selectSections(spool *os.File, size int64, words int, candidate
 // headings scans the spool with a 4-line window and returns heading
 // candidates with consecutive repeats of the same item collapsed. titled also
 // accepts standalone exact-title lines (see the titled-heading fallback).
-func (p *Parser) headings(ctx context.Context, spool *os.File, titled bool) ([]heading, error) {
+func (p *Parser) headings(ctx context.Context, spool *os.File, titled bool) ([]heading, int, error) {
 	if _, err := spool.Seek(0, io.SeekStart); err != nil {
-		return nil, err
+		return nil, 0, err
 	}
 	r := bufio.NewReaderSize(spool, 64<<10)
 	var offset int64
@@ -432,23 +478,34 @@ func (p *Parser) headings(ctx context.Context, spool *os.File, titled bool) ([]h
 		return nil
 	}
 	var out []heading
+	ignored := 0
 	for {
 		if err := fill(); err != nil {
-			return nil, err
+			return nil, 0, err
 		}
 		if len(window) == 0 {
-			return out, nil
+			return out, ignored, nil
 		}
 		if err := ctx.Err(); err != nil {
-			return nil, err
+			return nil, 0, err
 		}
 		item := p.heading(window)
 		if item == "" && titled {
-			item = p.standaloneTitle(window[0])
+			// Inferred standalone title: a boundary only if it moves forward in canonical
+			// order (v3). Explicit "Item N" headings above are never filtered.
+			if inferred := p.standaloneTitle(window[0]); inferred != "" {
+				if !p.opts.LegacyTitledHeadings && len(out) > 0 && p.rank[inferred] <= p.rank[out[len(out)-1].item] {
+					if out[len(out)-1].item != inferred {
+						ignored++
+					}
+				} else {
+					item = inferred
+				}
+			}
 		}
 		if item != "" && (len(out) == 0 || out[len(out)-1].item != item) {
 			if len(out) == maxHeadingCands {
-				return nil, fmt.Errorf("%w: more than %d heading candidates", ErrSections, maxHeadingCands)
+				return nil, 0, fmt.Errorf("%w: more than %d heading candidates", ErrSections, maxHeadingCands)
 			}
 			out = append(out, heading{item: item, start: window[0].start, wordsBefore: window[0].wordsBefore})
 		}
@@ -503,7 +560,7 @@ func (p *Parser) standaloneTitle(l spoolLine) string {
 	}
 	key := p.titleKey(l.text)
 	for _, item := range p.order {
-		if p.titles[item].MatchString(key) {
+		if p.standalone[item].MatchString(key) {
 			return item
 		}
 	}

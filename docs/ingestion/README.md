@@ -140,3 +140,7 @@ python3 bench_kit/eval_ingest.py --output bench_kit/results/ingest/local-real
 ## Remaining scope
 
 The parser is deterministic and fail-closed, not a universal HTML/financial-document interpreter. Unrecognized heading variants, severely malformed markup, scanned PDFs, non-UTF-8 sources, and long lines/tokens exceeding configured bounds are rejected for review. Batches fail atomically rather than silently skipping bad filings. Submission discovery, cross-machine request-budget coordination, resumable distributed scheduling, reference expansion, shard-wide query serving, and automatic audit-registry enrollment are not implemented by this scaffold.
+
+## Related: Go SEC parser v3
+
+This page documents the Python manifest pipeline. The separate Go EDGAR parser (`pkg/ingest/parser.go`) is now `deterministic-canonical-heading-v3-go` for new ingestions: in titled-heading mode it ends Item 7 at a recognised Item 7A heading and ignores backward inferred titles, keeping section identity (no Item 7A-as-Item 7, no Item 15-as-Item 8). Real-source diagnosis, Codex-verified replay and limitations: [`bench_kit/results/parser-boundaries-20261101/RESULTS.md`](../../bench_kit/results/parser-boundaries-20261101/RESULTS.md); revised known-gap note: [`docs/build/edgar-ingest.md`](../build/edgar-ingest.md). Existing corpora were not rebuilt.

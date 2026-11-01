@@ -1,0 +1,18 @@
+{
+  "performed_by": "Codex",
+  "passed": true,
+  "source_current_sha256": "3002143b544ab01805ac755efc857f8f62e59fe7a80c6d6fecdf64be560278b2",
+  "source_matches_archived_raw_hash": false,
+  "legacy_records_equal_to_frozen_corpus": 361,
+  "v2_passages": 361,
+  "v3_passages": 315,
+  "removed_ids": 46,
+  "changed_text_ids": [
+    "000089542126000086#item7#passage-000080"
+  ],
+  "unchanged_item1a_and_item8": true,
+  "rehashed_export_files": 14,
+  "original_four_real_filing_outputs_unchanged": true,
+  "mmap_cleanup_observations_passed": true,
+  "note": "Original raw HTML unavailable: indexed-passage equality does not prove unindexed visible-text equality. No active corpus/index changes; no retrieval quality or latency remeasurement."
+}

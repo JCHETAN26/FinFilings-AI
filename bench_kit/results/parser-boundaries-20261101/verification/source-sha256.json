@@ -1,0 +1,16 @@
+{
+  "performed_by": "Codex",
+  "baseline_git_head": "8a2e16fda91508a4cb6c81f9ba068218fb28ca5a",
+  "files": {
+    "pkg/ingest/parser.go": "988e63ccaa082cb61b674e9def6b0f96c4b62f28433093874f91023de2bc6502",
+    "pkg/ingest/parser_boundaries_test.go": "b73f1c0262b7d460f462466ba5180130b5ae0fc290c5212054b69cb373401cd8",
+    "pkg/ingest/replay_real_test.go": "e91f61112f6cca3a9e59193d5cf4656c8ff06fb686f80227f7d76a8c89f927b7",
+    "cmd/parserreplay/fetch.go": "0c3d80340d2ea786c100da44769bffcde891857b44ef46e1f98b86a1a95515be",
+    "cmd/parserreplay/fetch_test.go": "e16751278bcd0550db946b2f295af65284984185420b4d9e4e6896688208a93b",
+    "cmd/parserreplay/main.go": "d21fa94063d19dc1768ba4b16feb30b2442637e0517c2636ea3d52d17b7cf8a6",
+    "cmd/parserreplay/replay.go": "8d2a7c9ff7b98b0a49f21ea623ea2bcf52e82d31410f32bdf4f6f099d2c3da7a",
+    "cmd/parserreplay/replay_test.go": "88487c3936206b2221f866a7d7876005e875152ac1dbbe42829ed4b087446a27"
+  },
+  "active_corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "note": "Final code hashes after independent tests and before parser-checkpoint commit. Parser source changed; active corpus remains frozen."
+}

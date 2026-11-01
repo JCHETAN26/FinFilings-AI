@@ -1,0 +1,4 @@
+=== RUN   TestRealMorganStanleyBoundaries
+--- PASS: TestRealMorganStanleyBoundaries (0.30s)
+PASS
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/ingest	0.303s

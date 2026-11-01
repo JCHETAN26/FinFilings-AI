@@ -1,0 +1,599 @@
+{
+  "comparison_to_active_corpus": {
+    "corpus_records_for_accession": 361,
+    "parser_v2_legacy": {
+      "identical": 361,
+      "not_in_corpus": 0,
+      "only_in_corpus": 0,
+      "section_differs": 0,
+      "text_differs": 0
+    },
+    "parser_v3": {
+      "identical": 314,
+      "not_in_corpus": 0,
+      "only_in_corpus": 46,
+      "section_differs": 0,
+      "text_differs": 1
+    }
+  },
+  "finished_utc": "2026-11-01T19:30:11Z",
+  "notes": [
+    "Both variants parse identical source bytes. v2 legacy reproduces the historical parser-v2 titled-mode heading selection.",
+    "comparison_to_active_corpus compares only the passages the parser emits (Items 1A, 7, 8). Equal indexed passages do not establish that unindexed visible text is identical; the original raw HTML is unavailable, so a full raw or text difference cannot be reconstructed.",
+    "Chunk IDs are section-relative and 256-word windows start at the section heading: when a section ends earlier only its last chunk changes; no chunk stability is claimed beyond the identical_chunk_prefix reported per section.",
+    "No performance metrics are measured or claimed. The active expanded corpus and indexes are read only."
+  ],
+  "original_four_filings": [
+    {
+      "accession": "000032019323000106",
+      "heading_mode": "item",
+      "identical_output": true,
+      "ignored_titled_headings_v3": 0,
+      "matches_recorded_provenance": true,
+      "passages_sha256_v2_legacy": "258cda79b97d143ea6389dd3a524a49af659e7cdbc023f192b8467e607a0d99e",
+      "passages_sha256_v3": "258cda79b97d143ea6389dd3a524a49af659e7cdbc023f192b8467e607a0d99e",
+      "raw_bytes": 1559034,
+      "raw_sha256": "845e5f986f9b3659768c37fecf7d9f6405aae4fe9969f498a164bfdaf80d336c",
+      "sections_v3": {
+        "Item 1A": {
+          "words": 9794,
+          "chunks": 39,
+          "start_word": 3491
+        },
+        "Item 7": {
+          "words": 2348,
+          "chunks": 10,
+          "start_word": 14380
+        },
+        "Item 8": {
+          "words": 8659,
+          "chunks": 34,
+          "start_word": 17183
+        }
+      },
+      "status": "ok",
+      "ticker": "AAPL"
+    },
+    {
+      "accession": "000095017024087843",
+      "heading_mode": "item",
+      "identical_output": true,
+      "ignored_titled_headings_v3": 0,
+      "matches_recorded_provenance": true,
+      "passages_sha256_v2_legacy": "25873601181c44515fb0d889ffa29bcc32a4725ccfbfb0826260272a197fcad1",
+      "passages_sha256_v3": "25873601181c44515fb0d889ffa29bcc32a4725ccfbfb0826260272a197fcad1",
+      "raw_bytes": 6861021,
+      "raw_sha256": "ee55571f4ec7f56874706add491553a10c701ad6e355532dcc736debd5ccfcdf",
+      "sections_v3": {
+        "Item 1A": {
+          "words": 10869,
+          "chunks": 43,
+          "start_word": 11121
+        },
+        "Item 7": {
+          "words": 7740,
+          "chunks": 31,
+          "start_word": 23822
+        },
+        "Item 8": {
+          "words": 17150,
+          "chunks": 67,
+          "start_word": 31839
+        }
+      },
+      "status": "ok",
+      "ticker": "MSFT"
+    },
+    {
+      "accession": "000104581024000029",
+      "heading_mode": "item",
+      "identical_output": true,
+      "ignored_titled_headings_v3": 0,
+      "matches_recorded_provenance": true,
+      "passages_sha256_v2_legacy": "baee73f95a78b768576fe2945189bf8e2580b771b9e22e46b5a9a552f3ae6e6b",
+      "passages_sha256_v3": "baee73f95a78b768576fe2945189bf8e2580b771b9e22e46b5a9a552f3ae6e6b",
+      "raw_bytes": 2085676,
+      "raw_sha256": "a36c866075d6f7d3344a199c60a058647975366a1659a73573be8d6b49297da4",
+      "sections_v3": {
+        "Item 1A": {
+          "words": 16048,
+          "chunks": 63,
+          "start_word": 9007
+        },
+        "Item 7": {
+          "words": 6103,
+          "chunks": 24,
+          "start_word": 26386
+        },
+        "Item 8": {
+          "words": 32,
+          "chunks": 1,
+          "start_word": 33008
+        }
+      },
+      "status": "ok",
+      "ticker": "NVDA"
+    },
+    {
+      "accession": "000101872424000008",
+      "heading_mode": "item",
+      "identical_output": true,
+      "ignored_titled_headings_v3": 0,
+      "matches_recorded_provenance": true,
+      "passages_sha256_v2_legacy": "c011d8feac2a720d0c9f02b8495eb8532a306b15c8f4d6db42c350c0f0dcd377",
+      "passages_sha256_v3": "c011d8feac2a720d0c9f02b8495eb8532a306b15c8f4d6db42c350c0f0dcd377",
+      "raw_bytes": 1945288,
+      "raw_sha256": "07dbcdb70602f5ac69c8af9214913b7870f2fed2990217e073d4083f952f7518",
+      "sections_v3": {
+        "Item 1A": {
+          "words": 8592,
+          "chunks": 34,
+          "start_word": 2781
+        },
+        "Item 7": {
+          "words": 6967,
+          "chunks": 28,
+          "start_word": 12204
+        },
+        "Item 8": {
+          "words": 17550,
+          "chunks": 69,
+          "start_word": 20089
+        }
+      },
+      "status": "ok",
+      "ticker": "AMZN"
+    }
+  ],
+  "parser_v2_legacy": {
+    "artifact_file_sha256": {
+      "parse-report.json": "55f60ad63488c27e65d7624bfa2818ce5f6ed7d9708df41c5ab99bb0bc2d2f22",
+      "passages.jsonl": "0b036069e828b4a93e64ef965506c4281a979e61f1687c63f05a2f33af89bebb",
+      "segments/2026_Q1/.writer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "segments/2026_Q1/MANIFEST": "1b22941505b1ed8ef4fb48460d40e6c51594ccab8f3fad279d3bfcc3f6a22736",
+      "segments/2026_Q1/seg-000000.ffseg": "ed4f830e282f4e0c59b7c1707dbcc7e7edf846936838951c167c85f418fc8eac",
+      "segments/CORPUS_SHA256": "f2ce8058a0c0aeddc816fc45f9c42d9d98842e2a32bbc17ea22337ba522bcf69",
+      "segments/shards.json": "41add6bd72950590bb054afa95e562b82fc5fdeb9d904609f7e0370a54f2d03c"
+    },
+    "chunk_counts": {
+      "Item 1A": 42,
+      "Item 7": 127,
+      "Item 8": 192
+    },
+    "parse_report": {
+      "raw_bytes": 9714819,
+      "raw_sha256": "3002143b544ab01805ac755efc857f8f62e59fe7a80c6d6fecdf64be560278b2",
+      "visible_words": 109364,
+      "candidate_headings": 22,
+      "chunks": 361,
+      "sections": {
+        "Item 1A": {
+          "words": 10672,
+          "chunks": 42,
+          "start_word": 8889
+        },
+        "Item 7": {
+          "words": 32278,
+          "chunks": 127,
+          "start_word": 19585
+        },
+        "Item 8": {
+          "words": 49101,
+          "chunks": 192,
+          "start_word": 54826
+        }
+      },
+      "parser": "deterministic-canonical-heading-v2-go",
+      "heading_mode": "titled"
+    },
+    "parser": "deterministic-canonical-heading-v2-go",
+    "passages_path": "indexes/parser-boundaries-20261101-codex/ms-v2-legacy/passages.jsonl",
+    "passages_sha256": "0b036069e828b4a93e64ef965506c4281a979e61f1687c63f05a2f33af89bebb",
+    "reopen_and_search": {
+      "cleanup": {
+        "fds_after": 6,
+        "fds_before": 6,
+        "goroutines_after": 3,
+        "goroutines_before": 3,
+        "hit_metadata_valid_after_close": true,
+        "search_after_close_rejected": true
+      },
+      "docs": 361,
+      "probes": [
+        {
+          "name": "item7_mda",
+          "query": "management discussion analysis results of operations net revenues",
+          "filter": "{Ticker:MS Year:2026 Section:Item 7 Accession:}",
+          "hit_ids": [
+            "000089542126000086#item7#passage-000002",
+            "000089542126000086#item7#passage-000000",
+            "000089542126000086#item7#passage-000005",
+            "000089542126000086#item7#passage-000016",
+            "000089542126000086#item7#passage-000062",
+            "000089542126000086#item7#passage-000022",
+            "000089542126000086#item7#passage-000003",
+            "000089542126000086#item7#passage-000008",
+            "000089542126000086#item7#passage-000026",
+            "000089542126000086#item7#passage-000029"
+          ],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "item7_removed_tail_text",
+          "query": "Quantitative and Qualitative Disclosures about Risk Risk Management Overview Risk is an",
+          "filter": "{Ticker:MS Year:2026 Section:Item 7 Accession:}",
+          "hit_ids": [
+            "000089542126000086#item7#passage-000080",
+            "000089542126000086#item7#passage-000034",
+            "000089542126000086#item7#passage-000033",
+            "000089542126000086#item7#passage-000064",
+            "000089542126000086#item7#passage-000123",
+            "000089542126000086#item7#passage-000002",
+            "000089542126000086#item7#passage-000110",
+            "000089542126000086#item7#passage-000124",
+            "000089542126000086#item7#passage-000037",
+            "000089542126000086#item7#passage-000044"
+          ],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "item1A_risk_factors",
+          "query": "risk factors may adversely affect our business",
+          "filter": "{Ticker:MS Year:2026 Section:Item 1A Accession:}",
+          "hit_ids": [
+            "000089542126000086#item1A#passage-000007",
+            "000089542126000086#item1A#passage-000004",
+            "000089542126000086#item1A#passage-000032",
+            "000089542126000086#item1A#passage-000034",
+            "000089542126000086#item1A#passage-000012",
+            "000089542126000086#item1A#passage-000024",
+            "000089542126000086#item1A#passage-000018",
+            "000089542126000086#item1A#passage-000039",
+            "000089542126000086#item1A#passage-000036",
+            "000089542126000086#item1A#passage-000003"
+          ],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "item8_financial_statements",
+          "query": "consolidated balance sheet notes to consolidated financial statements",
+          "filter": "{Ticker:MS Year:2026 Section:Item 8 Accession:}",
+          "hit_ids": [
+            "000089542126000086#item8#passage-000011",
+            "000089542126000086#item8#passage-000031",
+            "000089542126000086#item8#passage-000116",
+            "000089542126000086#item8#passage-000093",
+            "000089542126000086#item8#passage-000044",
+            "000089542126000086#item8#passage-000034",
+            "000089542126000086#item8#passage-000005",
+            "000089542126000086#item8#passage-000021",
+            "000089542126000086#item8#passage-000037",
+            "000089542126000086#item8#passage-000000"
+          ],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "item7A_exact_section_absent",
+          "query": "value-at-risk market risk",
+          "filter": "{Ticker:MS Year:2026 Section:Item 7A Accession:}",
+          "hit_ids": [],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "accession_scoped_no_section",
+          "query": "cybersecurity risk management and strategy",
+          "filter": "{Ticker: Year:0 Section: Accession:000089542126000086}",
+          "hit_ids": [
+            "000089542126000086#item7#passage-000083",
+            "000089542126000086#item7#passage-000082",
+            "000089542126000086#item1A#passage-000016",
+            "000089542126000086#item7#passage-000080",
+            "000089542126000086#item7#passage-000125",
+            "000089542126000086#item7#passage-000085",
+            "000089542126000086#item7#passage-000077",
+            "000089542126000086#item1A#passage-000012",
+            "000089542126000086#item7#passage-000004",
+            "000089542126000086#item7#passage-000104"
+          ],
+          "all_hits_match_filter": true
+        }
+      ],
+      "segments": 1,
+      "shards": 1
+    },
+    "section_text_sha256": {
+      "Item 1A": "5ef557b44092c3b6ec2655579e1fcd44365144ccd1a4064eb1d8c6fadaeafc63",
+      "Item 7": "9d5ee9e5e22489e682794292b7b9b1ecd989067efeb2777f3c050ff7de0e0636",
+      "Item 8": "d8170fc08f2cde404602bf400cfdf383db886b73593133cb8d9a89c3e49c4777"
+    }
+  },
+  "parser_v3": {
+    "artifact_file_sha256": {
+      "parse-report.json": "e95d362db61f6c8db2529d2a5418fdf533baa105b27eb1eef74d33ce69cfd52c",
+      "passages.jsonl": "84df9e8cbda29db4504ef537e26ba1e8a5cde3de20750bafa8434507781d90fc",
+      "segments/2026_Q1/.writer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "segments/2026_Q1/MANIFEST": "1b22941505b1ed8ef4fb48460d40e6c51594ccab8f3fad279d3bfcc3f6a22736",
+      "segments/2026_Q1/seg-000000.ffseg": "755fe64757e48f17e3e6328a93e90e99d081bbbb9b9db8456662b4f7642106a7",
+      "segments/CORPUS_SHA256": "ee3e0d12f17c4c6f0fe419534a4bc0033f5bedeec2b0b217c7b834887458d990",
+      "segments/shards.json": "6cb32578a4c70cf2024dbdd7db6f3ac9a6fccafd732dd79d9a21fd875b9baabe"
+    },
+    "chunk_counts": {
+      "Item 1A": 42,
+      "Item 7": 81,
+      "Item 8": 192
+    },
+    "parse_report": {
+      "raw_bytes": 9714819,
+      "raw_sha256": "3002143b544ab01805ac755efc857f8f62e59fe7a80c6d6fecdf64be560278b2",
+      "visible_words": 109364,
+      "candidate_headings": 17,
+      "chunks": 315,
+      "sections": {
+        "Item 1A": {
+          "words": 10672,
+          "chunks": 42,
+          "start_word": 8889
+        },
+        "Item 7": {
+          "words": 20497,
+          "chunks": 81,
+          "start_word": 19585
+        },
+        "Item 8": {
+          "words": 49101,
+          "chunks": 192,
+          "start_word": 54826
+        }
+      },
+      "parser": "deterministic-canonical-heading-v3-go",
+      "heading_mode": "titled",
+      "ignored_titled_headings": 6
+    },
+    "parser": "deterministic-canonical-heading-v3-go",
+    "passages_path": "indexes/parser-boundaries-20261101-codex/ms-v3/passages.jsonl",
+    "passages_sha256": "84df9e8cbda29db4504ef537e26ba1e8a5cde3de20750bafa8434507781d90fc",
+    "reopen_and_search": {
+      "cleanup": {
+        "fds_after": 6,
+        "fds_before": 6,
+        "goroutines_after": 3,
+        "goroutines_before": 3,
+        "hit_metadata_valid_after_close": true,
+        "search_after_close_rejected": true
+      },
+      "docs": 315,
+      "probes": [
+        {
+          "name": "item7_mda",
+          "query": "management discussion analysis results of operations net revenues",
+          "filter": "{Ticker:MS Year:2026 Section:Item 7 Accession:}",
+          "hit_ids": [
+            "000089542126000086#item7#passage-000002",
+            "000089542126000086#item7#passage-000000",
+            "000089542126000086#item7#passage-000005",
+            "000089542126000086#item7#passage-000016",
+            "000089542126000086#item7#passage-000062",
+            "000089542126000086#item7#passage-000022",
+            "000089542126000086#item7#passage-000003",
+            "000089542126000086#item7#passage-000008",
+            "000089542126000086#item7#passage-000026",
+            "000089542126000086#item7#passage-000029"
+          ],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "item7_removed_tail_text",
+          "query": "Quantitative and Qualitative Disclosures about Risk Risk Management Overview Risk is an",
+          "filter": "{Ticker:MS Year:2026 Section:Item 7 Accession:}",
+          "hit_ids": [
+            "000089542126000086#item7#passage-000034",
+            "000089542126000086#item7#passage-000033",
+            "000089542126000086#item7#passage-000064",
+            "000089542126000086#item7#passage-000002",
+            "000089542126000086#item7#passage-000037",
+            "000089542126000086#item7#passage-000044",
+            "000089542126000086#item7#passage-000043",
+            "000089542126000086#item7#passage-000008",
+            "000089542126000086#item7#passage-000049",
+            "000089542126000086#item7#passage-000036"
+          ],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "item1A_risk_factors",
+          "query": "risk factors may adversely affect our business",
+          "filter": "{Ticker:MS Year:2026 Section:Item 1A Accession:}",
+          "hit_ids": [
+            "000089542126000086#item1A#passage-000007",
+            "000089542126000086#item1A#passage-000004",
+            "000089542126000086#item1A#passage-000032",
+            "000089542126000086#item1A#passage-000034",
+            "000089542126000086#item1A#passage-000018",
+            "000089542126000086#item1A#passage-000012",
+            "000089542126000086#item1A#passage-000000",
+            "000089542126000086#item1A#passage-000024",
+            "000089542126000086#item1A#passage-000039",
+            "000089542126000086#item1A#passage-000017"
+          ],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "item8_financial_statements",
+          "query": "consolidated balance sheet notes to consolidated financial statements",
+          "filter": "{Ticker:MS Year:2026 Section:Item 8 Accession:}",
+          "hit_ids": [
+            "000089542126000086#item8#passage-000011",
+            "000089542126000086#item8#passage-000031",
+            "000089542126000086#item8#passage-000116",
+            "000089542126000086#item8#passage-000093",
+            "000089542126000086#item8#passage-000044",
+            "000089542126000086#item8#passage-000034",
+            "000089542126000086#item8#passage-000005",
+            "000089542126000086#item8#passage-000021",
+            "000089542126000086#item8#passage-000037",
+            "000089542126000086#item8#passage-000000"
+          ],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "item7A_exact_section_absent",
+          "query": "value-at-risk market risk",
+          "filter": "{Ticker:MS Year:2026 Section:Item 7A Accession:}",
+          "hit_ids": [],
+          "all_hits_match_filter": true
+        },
+        {
+          "name": "accession_scoped_no_section",
+          "query": "cybersecurity risk management and strategy",
+          "filter": "{Ticker: Year:0 Section: Accession:000089542126000086}",
+          "hit_ids": [
+            "000089542126000086#item1A#passage-000016",
+            "000089542126000086#item1A#passage-000012",
+            "000089542126000086#item7#passage-000077",
+            "000089542126000086#item7#passage-000004",
+            "000089542126000086#item1A#passage-000010",
+            "000089542126000086#item1A#passage-000014",
+            "000089542126000086#item7#passage-000057",
+            "000089542126000086#item7#passage-000060",
+            "000089542126000086#item1A#passage-000026",
+            "000089542126000086#item1A#passage-000027"
+          ],
+          "all_hits_match_filter": true
+        }
+      ],
+      "segments": 1,
+      "shards": 1
+    },
+    "section_text_sha256": {
+      "Item 1A": "5ef557b44092c3b6ec2655579e1fcd44365144ccd1a4064eb1d8c6fadaeafc63",
+      "Item 7": "b94f97fe0161c92be279edd2759ff15063699a98210fa573848b513cee5585d7",
+      "Item 8": "d8170fc08f2cde404602bf400cfdf383db886b73593133cb8d9a89c3e49c4777"
+    }
+  },
+  "section_diff_v2_to_v3": {
+    "Item 1A": {
+      "v2_words": 10672,
+      "v3_words": 10672,
+      "v2_chunks": 42,
+      "v3_chunks": 42,
+      "v2_start_word": 8889,
+      "v3_start_word": 8889,
+      "identical_leading_chunks": 42,
+      "first_changed_chunk_id": "",
+      "changed_chunk_ids": null,
+      "ids_only_in_v2": null,
+      "ids_only_in_v3": null,
+      "v3_text_is_prefix_of_v2_text": false,
+      "words_removed_from_section": 0,
+      "removed_text_first_30_words": "",
+      "removed_text_last_30_words": "",
+      "removed_text_starts_at_document_word": 0,
+      "v3_section_last_30_words": "",
+      "section_unchanged": true
+    },
+    "Item 7": {
+      "v2_words": 32278,
+      "v3_words": 20497,
+      "v2_chunks": 127,
+      "v3_chunks": 81,
+      "v2_start_word": 19585,
+      "v3_start_word": 19585,
+      "identical_leading_chunks": 80,
+      "first_changed_chunk_id": "000089542126000086#item7#passage-000080",
+      "changed_chunk_ids": [
+        "000089542126000086#item7#passage-000080"
+      ],
+      "ids_only_in_v2": [
+        "000089542126000086#item7#passage-000081",
+        "000089542126000086#item7#passage-000082",
+        "000089542126000086#item7#passage-000083",
+        "000089542126000086#item7#passage-000084",
+        "000089542126000086#item7#passage-000085",
+        "000089542126000086#item7#passage-000086",
+        "000089542126000086#item7#passage-000087",
+        "000089542126000086#item7#passage-000088",
+        "000089542126000086#item7#passage-000089",
+        "000089542126000086#item7#passage-000090",
+        "000089542126000086#item7#passage-000091",
+        "000089542126000086#item7#passage-000092",
+        "000089542126000086#item7#passage-000093",
+        "000089542126000086#item7#passage-000094",
+        "000089542126000086#item7#passage-000095",
+        "000089542126000086#item7#passage-000096",
+        "000089542126000086#item7#passage-000097",
+        "000089542126000086#item7#passage-000098",
+        "000089542126000086#item7#passage-000099",
+        "000089542126000086#item7#passage-000100",
+        "000089542126000086#item7#passage-000101",
+        "000089542126000086#item7#passage-000102",
+        "000089542126000086#item7#passage-000103",
+        "000089542126000086#item7#passage-000104",
+        "000089542126000086#item7#passage-000105",
+        "000089542126000086#item7#passage-000106",
+        "000089542126000086#item7#passage-000107",
+        "000089542126000086#item7#passage-000108",
+        "000089542126000086#item7#passage-000109",
+        "000089542126000086#item7#passage-000110",
+        "000089542126000086#item7#passage-000111",
+        "000089542126000086#item7#passage-000112",
+        "000089542126000086#item7#passage-000113",
+        "000089542126000086#item7#passage-000114",
+        "000089542126000086#item7#passage-000115",
+        "000089542126000086#item7#passage-000116",
+        "000089542126000086#item7#passage-000117",
+        "000089542126000086#item7#passage-000118",
+        "000089542126000086#item7#passage-000119",
+        "000089542126000086#item7#passage-000120",
+        "000089542126000086#item7#passage-000121",
+        "000089542126000086#item7#passage-000122",
+        "000089542126000086#item7#passage-000123",
+        "000089542126000086#item7#passage-000124",
+        "000089542126000086#item7#passage-000125",
+        "000089542126000086#item7#passage-000126"
+      ],
+      "ids_only_in_v3": null,
+      "v3_text_is_prefix_of_v2_text": true,
+      "words_removed_from_section": 11781,
+      "removed_text_first_30_words": "Quantitative and Qualitative Disclosures about Risk Risk Management Overview Risk is an inherent part of our businesses and activities. We believe effective risk management is vital to the success of",
+      "removed_text_last_30_words": "security risk. The Operational Risk Department scope includes oversight of the fraud risk management and prevention program, and third-party risk management (supplier and affiliate risk oversight and assessment), among others.",
+      "removed_text_starts_at_document_word": 40082,
+      "v3_section_last_30_words": "subject to its current SCB requirement of 4.3% until October 1, 2027. We continue to monitor developments related to the open proposal. 57 December 2025 Form 10-K Table of Contents",
+      "section_unchanged": false
+    },
+    "Item 8": {
+      "v2_words": 49101,
+      "v3_words": 49101,
+      "v2_chunks": 192,
+      "v3_chunks": 192,
+      "v2_start_word": 54826,
+      "v3_start_word": 54826,
+      "identical_leading_chunks": 192,
+      "first_changed_chunk_id": "",
+      "changed_chunk_ids": null,
+      "ids_only_in_v2": null,
+      "ids_only_in_v3": null,
+      "v3_text_is_prefix_of_v2_text": false,
+      "words_removed_from_section": 0,
+      "removed_text_first_30_words": "",
+      "removed_text_last_30_words": "",
+      "removed_text_starts_at_document_word": 0,
+      "v3_section_last_30_words": "",
+      "section_unchanged": true
+    }
+  },
+  "source": {
+    "bytes": 9714819,
+    "matches_recorded_filing": false,
+    "path": "data/parser-replay-20261101-codex/ms-20251231.sec-current-NOT-CORPUS-BYTES.htm",
+    "recorded_bytes": 9714832,
+    "recorded_sha256": "57698077e7a8e943c9b7dbb7521fdb583101cc23579a6f271b9b06d5d61112df",
+    "sha256": "3002143b544ab01805ac755efc857f8f62e59fe7a80c6d6fecdf64be560278b2",
+    "url": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000086/ms-20251231.htm"
+  },
+  "started_utc": "2026-11-01T19:30:10Z",
+  "tool": "cmd/parserreplay replay",
+  "unemitted_words_between_item7_end_and_item8_heading": {
+    "v2": 2963,
+    "v3": 14744
+  }
+}
