@@ -1,0 +1,8 @@
+{
+  "observed_unix_seconds": 1793490755.4663875,
+  "pid": 2438393,
+  "rss_bytes": 2860556288,
+  "os_threads": 22,
+  "system_available_bytes": 10961276928,
+  "caveat": "one quality-run process RSS snapshot, not peak RSS or exact index memory; OS threads include idle native pools"
+}

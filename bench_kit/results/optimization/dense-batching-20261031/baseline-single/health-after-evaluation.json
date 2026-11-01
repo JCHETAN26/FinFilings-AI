@@ -1,0 +1,58 @@
+{
+  "sidecar": {
+    "status": "ready",
+    "documents": 49452,
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "encoder_device": "cpu",
+    "reranker_device": "cpu",
+    "reranker_backend": "onnx-fp32",
+    "reranker_artifact_sha256": "72662ff447c2a26c1a89fd582111b215c7236ba7633f722f95ae87a944343c13",
+    "admission": {
+      "limit": 64,
+      "active": 0,
+      "peak": 1,
+      "rejected": 0
+    },
+    "inference_workers": 4,
+    "inference": {
+      "dense": {
+        "count": 200,
+        "work_seconds": 5.36835521300236,
+        "wait_seconds": 0.0010396569850854576,
+        "max_work_seconds": 0.6876082949966076,
+        "requests": 200
+      },
+      "rank": {
+        "count": 100,
+        "work_seconds": 163.0881280659887,
+        "wait_seconds": 0.00041988701559603214,
+        "max_work_seconds": 3.08746696900198,
+        "phase_count": 100,
+        "phase_totals": {
+          "fetch_seconds": 0.14139067694486585,
+          "tokenize_seconds": 0.3343051810297766,
+          "padding_seconds": 0.5498458991496591,
+          "inference_seconds": 161.80246777192224,
+          "output_seconds": 0.07687646301928908
+        },
+        "requests": 100
+      }
+    },
+    "threads": 2,
+    "rerank_batch_size": 1,
+    "rerank_length_bucketing": true,
+    "dense_batching": {
+      "batch_size": 1,
+      "wait_ms": 2.0,
+      "coordinators": 0,
+      "pending": 0,
+      "metrics": {}
+    }
+  },
+  "bridge": {
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "status": "ready"
+  }
+}

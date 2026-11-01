@@ -85,6 +85,7 @@ def main():
                 raise ValueError('evaluation metadata exceeds 10000-query bound')
     runs = {name:{} for name in ('sparse','dense','hybrid','reranked')}
     latencies, recalls = [], []
+    exact_runs = {}
     vectors = np.load(args.index / 'vectors.f32.npy', mmap_mode='r')
     db = open_store(args.index / 'passages.sqlite')
     with (args.data / 'queries.jsonl').open() as questions, (args.out / 'per-query.jsonl').open('w') as raw:
@@ -110,9 +111,10 @@ def main():
                 raise ValueError('candidate budget violated')
             dense = request(args.sidecar + '/dense', dict(query=q['query'], k=10, include_vector=True))
             exact = exact_ids(vectors, np.asarray(dense['query_vector'], dtype=np.float32), db)
+            exact_runs[q['id']] = {doc: float(len(exact)-rank) for rank, doc in enumerate(exact)}
             recall = len(set(exact) & {h['id'] for h in dense['hits']}) / len(exact)
             recalls.append(recall)
-            raw.write(json.dumps(dict(id=q['id'], query=q['query'], seconds=elapsed, pq_recall_at_10=recall, rankings=result)) + '\n')
+            raw.write(json.dumps(dict(id=q['id'], query=q['query'], seconds=elapsed, pq_recall_at_10=recall, exact_dense_ids=exact, rankings=result)) + '\n')
             raw.flush()
             if number % 10 == 0:
                 print(f'evaluated {number} real labeled queries', flush=True)
@@ -131,6 +133,7 @@ def main():
     pq_bytes = memory['pq'][0]['native_payload_bytes']
     samples = sorted(latencies)
     report = dict(ndcg_at_10=ndcg, hybrid_minus_sparse=ndcg['hybrid']-ndcg['sparse'], reranked_minus_sparse=ndcg['reranked']-ndcg['sparse'],
+                  exact_dense_ndcg_at_10=float(evaluate(qrels, Run(exact_runs, name="exact_dense"), "ndcg@10")),
                   evaluated_queries=len(samples), pq_recall_at_10_vs_exact_float32=float(statistics.mean(recalls)),
                   vector_memory=dict(raw_native_payload_bytes=raw_bytes, pq_native_payload_bytes=pq_bytes,
                                      exact_native_payload_reduction_percent=100*(1-pq_bytes/raw_bytes),
@@ -141,7 +144,7 @@ def main():
                   notes=provenance.get('evaluation_notes', []) + ['Published FinQA binary supporting-fact labels are not exhaustive relevance judgments or answer correctness.',
                          'ranx receives descending ordinal scores to preserve the returned rank order, including Go deterministic ties; original real model/RRF scores are preserved in raw per-query rankings.',
                          f'First {len(samples)} eligible dev queries chosen before scoring; no relevance tuning. Corpus contains train/dev context, as an unsupervised retrieval collection, not QA answer/program text.',
-                         'PQ8 is IndexPQ(d=384,M=48,nbits=8), not scalar SQ8. Exact native payload includes codebooks and materialized auxiliary arrays; it excludes unknown allocator headers/capacity, model, and passage store.',
+                         f'PQ8 is IndexPQ(d={manifest["dimension"]},M={manifest["subvectors"]},nbits=8), not scalar SQ8. Exact native payload includes codebooks and materialized auxiliary arrays; it excludes unknown allocator headers/capacity, model, and passage store.',
                          'RSS is separately observed in isolated real FAISS-only subprocesses, three per mode. Whole application RAM does not shrink by the vector payload percentage.',
                          'CPU-only serial end-to-end timings include BGE query encoding, Go parallel sparse/dense bridge, RRF and real MiniLM Top-50 to Top-10 reranking; not the Phase 1 sparse-only p99.',
                          'ID recall vs exact float32 may penalize interchangeable ties from identical text at different source locations.'])

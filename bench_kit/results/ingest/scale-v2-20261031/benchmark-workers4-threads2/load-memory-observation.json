@@ -1,0 +1,5 @@
+{
+  "scope": "Point-in-time sidecar observation during 50-worker load; not an instantaneous peak or leak test.",
+  "rss_bytes": 2311983104,
+  "native_threads": 30
+}

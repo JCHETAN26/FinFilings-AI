@@ -1,0 +1,270 @@
+{
+  "before": "bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-workers4-threads2",
+  "after": "bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-onnx-workers4-threads2",
+  "before_checks": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.48229729941572386,
+      "hybrid": 0.50780475359511,
+      "reranked": 0.553718350070687
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "after_checks": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.48229729941572386,
+      "hybrid": 0.50780475359511,
+      "reranked": 0.553718350070687
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "unchanged_upstream_scores_and_rankings": true,
+  "unchanged_vector_artifacts": true,
+  "unchanged_nominal_cpu_and_candidate_budgets": true,
+  "worker_rebalance": {
+    "before_workers": 4,
+    "after_workers": 4,
+    "before_threads": 2,
+    "after_threads": 2
+  },
+  "changed_top10_rankings": 2,
+  "max_shared_top10_score_absolute_delta": 9.059906005859375e-06,
+  "per_query_ndcg_changes": [],
+  "ndcg_before": {
+    "sparse": 0.4960699622545427,
+    "dense": 0.48229729941572386,
+    "hybrid": 0.50780475359511,
+    "reranked": 0.5537183500706869
+  },
+  "ndcg_after": {
+    "sparse": 0.4960699622545427,
+    "dense": 0.48229729941572386,
+    "hybrid": 0.50780475359511,
+    "reranked": 0.5537183500706869
+  },
+  "serial_query_before": {
+    "p50": 2.432633064499896,
+    "p99": 3.9906466739994357,
+    "max": 4.17667734099814
+  },
+  "serial_query_after": {
+    "p50": 1.8235498810008721,
+    "p99": 3.430891956999403,
+    "max": 3.90977872700023
+  },
+  "before_load": {
+    "connection_policy": "new TCP connection for each request; connection, queue, full response and content validation timed",
+    "dense": {
+      "endpoint": "http://127.0.0.1:41997/dense",
+      "requests": 200,
+      "workers": 50,
+      "peak_client_inflight": 50,
+      "successes": 200,
+      "failures": 0,
+      "failure_rate": 0,
+      "seconds": 2.891156258,
+      "completed_attempts_qps": 69.17647548332546,
+      "successful_qps": 69.17647548332546,
+      "all_attempt_latency": {
+        "p50_ns": 692504060,
+        "p95_ns": 748434749,
+        "p99_ns": 772436016,
+        "max_ns": 1331739532
+      },
+      "successful_latency": {
+        "p50_ns": 692504060,
+        "p95_ns": 748434749,
+        "p99_ns": 772436016,
+        "max_ns": 1331739532
+      },
+      "statuses": {
+        "200": 200
+      }
+    },
+    "go": "go1.27.1",
+    "gomaxprocs": 16,
+    "hybrid": {
+      "endpoint": "http://127.0.0.1:57167/search",
+      "requests": 200,
+      "workers": 50,
+      "peak_client_inflight": 50,
+      "successes": 200,
+      "failures": 0,
+      "failure_rate": 0,
+      "seconds": 197.663935027,
+      "completed_attempts_qps": 1.011818367233663,
+      "successful_qps": 1.011818367233663,
+      "all_attempt_latency": {
+        "p50_ns": 48538136022,
+        "p95_ns": 52334358360,
+        "p99_ns": 54353373147,
+        "max_ns": 55271596259
+      },
+      "successful_latency": {
+        "p50_ns": 48538136022,
+        "p95_ns": 52334358360,
+        "p99_ns": 54353373147,
+        "max_ns": 55271596259
+      },
+      "statuses": {
+        "200": 200
+      }
+    },
+    "load_model": "finite closed-loop, zero think time; not an open-loop rate or soak test",
+    "percentiles": "exact empirical nearest-rank ceil(p*N), integer nanoseconds; no interpolation",
+    "queries": 100,
+    "query_sha256": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+    "timeout_seconds": 180,
+    "utc": "2026-10-31T23:34:29.815804386Z",
+    "warmup_per_endpoint": 5
+  },
+  "after_load": {
+    "connection_policy": "new TCP connection for each request; connection, queue, full response and content validation timed",
+    "dense": {
+      "endpoint": "http://127.0.0.1:40875/dense",
+      "requests": 200,
+      "workers": 50,
+      "peak_client_inflight": 50,
+      "successes": 200,
+      "failures": 0,
+      "failure_rate": 0,
+      "seconds": 3.15161051,
+      "completed_attempts_qps": 63.459618301628275,
+      "successful_qps": 63.459618301628275,
+      "all_attempt_latency": {
+        "p50_ns": 777014923,
+        "p95_ns": 885905620,
+        "p99_ns": 896411652,
+        "max_ns": 1563230162
+      },
+      "successful_latency": {
+        "p50_ns": 777014923,
+        "p95_ns": 885905620,
+        "p99_ns": 896411652,
+        "max_ns": 1563230162
+      },
+      "statuses": {
+        "200": 200
+      }
+    },
+    "go": "go1.27.1",
+    "gomaxprocs": 16,
+    "hybrid": {
+      "endpoint": "http://127.0.0.1:52435/search",
+      "requests": 200,
+      "workers": 50,
+      "peak_client_inflight": 50,
+      "successes": 200,
+      "failures": 0,
+      "failure_rate": 0,
+      "seconds": 189.819974359,
+      "completed_attempts_qps": 1.0536298968292286,
+      "successful_qps": 1.0536298968292286,
+      "all_attempt_latency": {
+        "p50_ns": 46819551398,
+        "p95_ns": 51084854671,
+        "p99_ns": 52733751564,
+        "max_ns": 54662521786
+      },
+      "successful_latency": {
+        "p50_ns": 46819551398,
+        "p95_ns": 51084854671,
+        "p99_ns": 52733751564,
+        "max_ns": 54662521786
+      },
+      "statuses": {
+        "200": 200
+      }
+    },
+    "load_model": "finite closed-loop, zero think time; not an open-loop rate or soak test",
+    "percentiles": "exact empirical nearest-rank ceil(p*N), integer nanoseconds; no interpolation",
+    "queries": 100,
+    "query_sha256": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+    "timeout_seconds": 180,
+    "utc": "2026-10-31T23:47:44.058441008Z",
+    "warmup_per_endpoint": 5
+  },
+  "native_timing": {
+    "before": {
+      "dense": {
+        "count": 610,
+        "mean_native_work_seconds": 0.046475165981991876,
+        "mean_wait_seconds": 0.7620075610508228
+      },
+      "rank": {
+        "count": 305,
+        "mean_native_work_seconds": 3.340839941921328,
+        "mean_wait_seconds": 1.3753693660294646
+      }
+    },
+    "after": {
+      "dense": {
+        "count": 610,
+        "mean_native_work_seconds": 0.053376345306522306,
+        "mean_wait_seconds": 0.8085774770623085
+      },
+      "rank": {
+        "count": 305,
+        "mean_native_work_seconds": 3.035062679751002,
+        "mean_wait_seconds": 1.2300263767376625
+      }
+    }
+  },
+  "onnx_manifest": {
+    "format_version": 1,
+    "model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+    "model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "weights_sha256": "821d1aa69520101d6e0737f78a042ae25b19e5cb9160701909d10434f4aeb0ae",
+    "dtype": "float32",
+    "opset": 17,
+    "max_length": 512,
+    "fused_operator_statistics": {
+      "EmbedLayerNormalization": 1,
+      "Attention": 6,
+      "MultiHeadAttention": 0,
+      "Gelu": 0,
+      "FastGelu": 0,
+      "BiasGelu": 6,
+      "GemmFastGelu": 0,
+      "LayerNormalization": 0,
+      "SimplifiedLayerNormalization": 0,
+      "SkipLayerNormalization": 12,
+      "SkipSimplifiedLayerNormalization": 0,
+      "RotaryEmbedding": 0,
+      "QOrderedAttention": 0,
+      "QOrderedGelu": 0,
+      "QOrderedLayerNormalization": 0,
+      "QOrderedMatMul": 0
+    },
+    "files": {
+      "model.onnx": "72662ff447c2a26c1a89fd582111b215c7236ba7633f722f95ae87a944343c13"
+    }
+  },
+  "hybrid_qps_ratio": 1.041323157346787,
+  "hybrid_p99_reduction_percent": 2.9797995767800733
+}

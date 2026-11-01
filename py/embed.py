@@ -19,7 +19,7 @@ def main():
     ap.add_argument('--batch-size', type=int, default=32)
     ap.add_argument('--threads', type=int, default=4)
     ap.add_argument('--reuse-index', type=Path, action='append', default=[], help='reuse checksum-verified vectors only when ID, text, and model configuration match (max 4)')
-    ap.add_argument('--subvectors', type=int, default=48)
+    ap.add_argument('--subvectors', type=int, default=128, help='PQ8 code width: 128 bytes by default; use 48 for the historical compact configuration')
     ap.add_argument('--train-limit', type=int, default=20000)
     ap.add_argument('--train-iterations', type=int, default=25)
     args = ap.parse_args()

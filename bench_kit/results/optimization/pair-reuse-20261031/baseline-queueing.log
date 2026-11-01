@@ -1,0 +1,108 @@
+{
+  "observations": 200,
+  "seconds": {
+    "client_seconds": {
+      "mean": 33.800252498675,
+      "p50": 37.522779908,
+      "p95": 41.07843348,
+      "p99": 42.495621505,
+      "max": 43.637386998
+    },
+    "outside_engine_seconds": {
+      "mean": 21.91364594933,
+      "p50": 25.392229418,
+      "p95": 27.954231289999996,
+      "p99": 28.706299762,
+      "max": 29.047762797
+    },
+    "engine_admission_seconds": {
+      "mean": 5.8295184138,
+      "p50": 6.038749874,
+      "p95": 7.570020413,
+      "p99": 8.195574531,
+      "max": 8.389547242
+    },
+    "retrieval_parallel_seconds": {
+      "mean": 1.568748711005,
+      "p50": 1.455002825,
+      "p95": 3.277409557,
+      "p99": 3.864160399,
+      "max": 4.372807082
+    },
+    "sparse_seconds": {
+      "mean": 0.004545129135,
+      "p50": 0.004407364,
+      "p95": 0.007202791,
+      "p99": 0.008349439,
+      "max": 0.009826318
+    },
+    "dense_roundtrip_seconds": {
+      "mean": 1.568748711005,
+      "p50": 1.455002825,
+      "p95": 3.277409557,
+      "p99": 3.864160399,
+      "max": 4.372807082
+    },
+    "fusion_seconds": {
+      "mean": 8.0467645e-05,
+      "p50": 6.6356e-05,
+      "p95": 0.000143192,
+      "p99": 0.00039517,
+      "max": 0.000558341
+    },
+    "rerank_roundtrip_seconds": {
+      "mean": 4.48821988659,
+      "p50": 4.626444273,
+      "p95": 7.252705664,
+      "p99": 8.011959793,
+      "max": 8.696599463
+    },
+    "engine_total_seconds": {
+      "mean": 11.886606549345,
+      "p50": 12.133101911,
+      "p95": 14.899287327,
+      "p99": 16.408181265,
+      "max": 16.988189787
+    },
+    "engine_other_seconds": {
+      "mean": 3.907030499995745e-05,
+      "p50": 2.517899999965323e-05,
+      "p95": 6.089499999895054e-05,
+      "p99": 0.0004208480000009729,
+      "max": 0.0010045189999985382
+    }
+  },
+  "mean_client_time_fraction": {
+    "outside_engine_seconds": 0.6483278771420135,
+    "engine_admission_seconds": 0.17246967057505036,
+    "retrieval_parallel_seconds": 0.046412337039982064,
+    "fusion_seconds": 2.3806817716274278e-06,
+    "rerank_roundtrip_seconds": 0.13278657864363416,
+    "engine_other_seconds": 1.155917548293139e-06
+  },
+  "native_load": {
+    "dense": {
+      "calls": 410,
+      "mean_work_seconds": 0.055589968970570024,
+      "mean_wait_seconds": 0.9926981650976814
+    },
+    "rank": {
+      "calls": 205,
+      "mean_work_seconds": 2.956438255327024,
+      "mean_wait_seconds": 1.4571912903996702,
+      "mean_phase_seconds": {
+        "fetch_seconds": 0.004316528326804784,
+        "tokenize_seconds": 0.008767746648646142,
+        "padding_seconds": 0.006500049469078232,
+        "inference_seconds": 2.930946244522269,
+        "output_seconds": 0.0012704522388691946
+      }
+    }
+  },
+  "notes": [
+    "Outside-engine time includes TCP/HTTP handling, time awaiting application accept, client encode/decode and response transmission; it is not a pure network or socket-queue measurement.",
+    "Sparse/dense stages overlap: use their per-request maximum, not their sum. Mean components conserve mean client time; percentile components cannot be added.",
+    "Native load differences include five excluded timing warmups per endpoint. Rerank call count is 205; dense count includes both hybrid and dense scenarios.",
+    "Very small negative engine_other values can arise from independently sampled monotonic spans; values below -1 ms are rejected and no values are clamped."
+  ]
+}

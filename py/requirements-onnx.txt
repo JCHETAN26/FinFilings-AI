@@ -1,0 +1,3 @@
+# Optional FP32 CPU reranker export/runtime; install alongside requirements.txt.
+onnx==1.17.0
+onnxruntime==1.23.2

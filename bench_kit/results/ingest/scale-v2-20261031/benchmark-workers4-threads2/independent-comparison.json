@@ -1,0 +1,60 @@
+{
+  "before": "bench_kit/results/ingest/scale-v2-20261031/benchmark",
+  "after": "bench_kit/results/ingest/scale-v2-20261031/benchmark-workers4-threads2",
+  "independent_before": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.35149086081069436,
+      "hybrid": 0.46694392786248845,
+      "reranked": 0.5372195239341298
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "independent_after": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.35149086081069436,
+      "hybrid": 0.46694392786248845,
+      "reranked": 0.5372195239341298
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "changed_query_rankings": {
+    "sparse": 0,
+    "dense": 0,
+    "hybrid": 0,
+    "reranked": 0
+  },
+  "ndcg_deltas": {
+    "sparse": 0.0,
+    "dense": 0.0,
+    "hybrid": 0.0,
+    "reranked": 0.0
+  },
+  "hybrid_successful_qps_ratio": 1.8180495884535781,
+  "hybrid_p99_reduction_percent": 43.461268857080334
+}

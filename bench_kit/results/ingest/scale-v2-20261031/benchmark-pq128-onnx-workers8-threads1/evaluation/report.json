@@ -1,0 +1,224 @@
+{
+  "ndcg_at_10": {
+    "sparse": 0.4960699622545427,
+    "dense": 0.48229729941572386,
+    "hybrid": 0.50780475359511,
+    "reranked": 0.5537183500706869
+  },
+  "hybrid_minus_sparse": 0.011734791340567319,
+  "reranked_minus_sparse": 0.05764838781614423,
+  "exact_dense_ndcg_at_10": 0.49350279187113805,
+  "evaluated_queries": 100,
+  "pq_recall_at_10_vs_exact_float32": 0.838,
+  "vector_memory": {
+    "raw_native_payload_bytes": 75958272,
+    "pq_native_payload_bytes": 6723072,
+    "exact_native_payload_reduction_percent": 91.14899296287308,
+    "raw_rss_delta_median_bytes": 76267520,
+    "pq_rss_delta_median_bytes": 7888896,
+    "probes": {
+      "raw": [
+        {
+          "mode": "raw",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 75958272
+          },
+          "native_payload_bytes": 75958272,
+          "rss_before_bytes": 51007488,
+          "rss_after_bytes": 127266816,
+          "observed_rss_delta_bytes": 76259328,
+          "serialized_index_bytes": 75958317,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "raw",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 75958272
+          },
+          "native_payload_bytes": 75958272,
+          "rss_before_bytes": 50823168,
+          "rss_after_bytes": 127090688,
+          "observed_rss_delta_bytes": 76267520,
+          "serialized_index_bytes": 75958317,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "raw",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 75958272
+          },
+          "native_payload_bytes": 75958272,
+          "rss_before_bytes": 50917376,
+          "rss_after_bytes": 127201280,
+          "observed_rss_delta_bytes": 76283904,
+          "serialized_index_bytes": 75958317,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        }
+      ],
+      "pq": [
+        {
+          "mode": "pq",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 6329856,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 6723072,
+          "rss_before_bytes": 51142656,
+          "rss_after_bytes": 59248640,
+          "observed_rss_delta_bytes": 8105984,
+          "serialized_index_bytes": 6723158,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "pq",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 6329856,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 6723072,
+          "rss_before_bytes": 50974720,
+          "rss_after_bytes": 58863616,
+          "observed_rss_delta_bytes": 7888896,
+          "serialized_index_bytes": 6723158,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "pq",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 6329856,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 6723072,
+          "rss_before_bytes": 51032064,
+          "rss_after_bytes": 58920960,
+          "observed_rss_delta_bytes": 7888896,
+          "serialized_index_bytes": 6723158,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        }
+      ]
+    }
+  },
+  "end_to_end_serial_query_seconds": {
+    "p50": 3.2143084825002006,
+    "p99": 5.580105726003239,
+    "max": 5.777910544005863
+  },
+  "vector_manifest": {
+    "format_version": 1,
+    "documents": 49452,
+    "dimension": 384,
+    "subvectors": 128,
+    "nbits": 8,
+    "metric": "inner_product",
+    "normalized": true,
+    "model": "BAAI/bge-small-en-v1.5",
+    "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "query_instruction": "Represent this sentence for searching relevant passages: ",
+    "max_length": 512,
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "reused_embeddings": 45471,
+    "newly_encoded_embeddings": 3981,
+    "embedding_reuse_sources": [
+      {
+        "directory": "indexes/vector-phase2",
+        "corpus_sha256": "5413d6edc850fde9782dafd972c1a399629ba2a84e049e7dc55c6766008e84cf",
+        "vector_sha256": "ed9745af54c3d2829445af87b3ada1e99d5efb9b90c520b1c779f2c9a14a69d1"
+      },
+      {
+        "directory": "indexes/ingest-hybrid-20261031/vectors",
+        "corpus_sha256": "0c00800fb7d58c0dea7b018b5ace0c15c8eac48dc79a492b1793d0f4d90c3c3b",
+        "vector_sha256": "3fc7341c863286b92e8a33daad407a4211e831d20596c85fa640b4d61b0f261c"
+      },
+      {
+        "directory": "indexes/vector-sec-scale-20261031",
+        "corpus_sha256": "51be55cd8c955fb38eeb93739181d4d3d3c3f30a4a774515c6a130418c2e8c9c",
+        "vector_sha256": "faf1c5eac3961851acbef4d6016fc9d39657a5ca806056222567aa6cd8744467"
+      }
+    ],
+    "training_count": 20000,
+    "recommended_training_count": 9984,
+    "adequate_training_count": true,
+    "seed": 20261030,
+    "training_iterations": 25,
+    "embedding_seconds": 393.63302905100136,
+    "pq_train_add_seconds": 30.70272642100099,
+    "total_seconds": 394.3198102069982,
+    "files": {
+      "vectors.f32.npy": "7f8ddd5a6957dfe53216ec386488531c4e7943689300450cc73d68a5e4021ebc",
+      "passages.sqlite": "edf90058f6df50987e91c19aa25d229ef1bcf82bed2f05e8c777685b32d58dc4",
+      "index.pq8.faiss": "5d662078e60eeccc4d1174a7eb5f730ec5dd5a12bfe5d68e06d272457ee9b3fb",
+      "centroids.npy": "8e0c4b40654d1c4714e31a5b480917874b3bce395763d965f2a133bafaeeada7"
+    },
+    "requantization": {
+      "source_manifest_sha256": "ef7ace33d850f6a434299509ee3ffc3d776f35f1340621b9b1968d34bf6ecf97",
+      "threads": 2,
+      "method": "same deterministic training sample; code width only",
+      "seconds": 30.70282304200009
+    }
+  },
+  "corpus_provenance": {
+    "dataset": "Frozen FinQA/Phase 2 benchmark plus additional live SEC 10-K sections",
+    "revision": "0f16e2867befa6840783e58be38c9efb9229d742",
+    "source_sha256": "a847fb7e0d61a3125a1e2909852df6b89f1ee64d2c5ff1bf689e332214deee51",
+    "training_source_sha256": "49f237eb9779b569473b26b08048867d04635a7cc39ad6a7a5664c55bb428db6",
+    "training_context_limit": 500,
+    "sec_sha256": "806cf2fc59f4ed352541b0f12ebbd2eba880d1ed44dc65475f7026556b8012ad",
+    "ticker_mapping_sha256": "b5be63822ef78687908848b349820d9d6a962af9287e2164f44f4b217259f4ea",
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "query_sha256": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+    "qrels_sha256": "659f0513a9f547489ae298655bce979255af21f58c1b7ad5ca46652c5e660ef2",
+    "documents": 49452,
+    "selected_queries": 100,
+    "eligible_dev_questions": 732,
+    "excluded_records": 214,
+    "selection": "First eligible dev questions in original order; limit fixed before scoring; no model tuning.",
+    "judgments": "Binary published supporting-fact labels, not exhaustive relevance judgments; not answer accuracy.",
+    "metadata": "FinQA filename year is report year, not verified filing date; CIK joined to current SEC ticker map, historical identity not independently audited. Unmatched tickers excluded.",
+    "corpus": "All eligible dev contexts, all table rows rendered uniformly. No gold strings or QA answers injected. SQLite dedup by source location and text hash. No corpus-sized Python list.",
+    "base_corpus_sha256": "5413d6edc850fde9782dafd972c1a399629ba2a84e049e7dc55c6766008e84cf",
+    "document_counts": {
+      "baseline": 19511,
+      "new_sec": 29941
+    },
+    "new_sec_passages_sha256": "940ad2bf3ea2dd8c2f808e22e671fb6071028374474761400cd9bb8baaca6437",
+    "new_sec_report_sha256": "36cfd3ab7436196525bb19d57b53683df3a062530ee0bf6f23c878b1afa4fb0b",
+    "new_sec_filings": 148,
+    "new_sec_skipped": 43,
+    "evaluation_notes": [
+      "The original 100 query IDs and published qrels are byte-identical; newly ingested SEC passages are additional retrieval candidates.",
+      "New SEC passages have no exhaustive human relevance labels. Report nDCG only against the frozen published FinQA judgments, not as a new SEC-only quality benchmark."
+    ]
+  },
+  "notes": [
+    "The original 100 query IDs and published qrels are byte-identical; newly ingested SEC passages are additional retrieval candidates.",
+    "New SEC passages have no exhaustive human relevance labels. Report nDCG only against the frozen published FinQA judgments, not as a new SEC-only quality benchmark.",
+    "Published FinQA binary supporting-fact labels are not exhaustive relevance judgments or answer correctness.",
+    "ranx receives descending ordinal scores to preserve the returned rank order, including Go deterministic ties; original real model/RRF scores are preserved in raw per-query rankings.",
+    "First 100 eligible dev queries chosen before scoring; no relevance tuning. Corpus contains train/dev context, as an unsupervised retrieval collection, not QA answer/program text.",
+    "PQ8 is IndexPQ(d=384,M=128,nbits=8), not scalar SQ8. Exact native payload includes codebooks and materialized auxiliary arrays; it excludes unknown allocator headers/capacity, model, and passage store.",
+    "RSS is separately observed in isolated real FAISS-only subprocesses, three per mode. Whole application RAM does not shrink by the vector payload percentage.",
+    "CPU-only serial end-to-end timings include BGE query encoding, Go parallel sparse/dense bridge, RRF and real MiniLM Top-50 to Top-10 reranking; not the Phase 1 sparse-only p99.",
+    "ID recall vs exact float32 may penalize interchangeable ties from identical text at different source locations."
+  ]
+}

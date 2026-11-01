@@ -1,0 +1,14 @@
+{
+  "inference_workers": 4,
+  "threads_per_job": 2,
+  "configured_intraop_thread_budget": 8,
+  "load_workers": 50,
+  "requests_per_endpoint": 200,
+  "queries": 100,
+  "candidate_limit": 50,
+  "max_tokens": 512,
+  "reranker_backend": "onnx-fp32",
+  "rerank_batch_size": 1,
+  "dense_batch_size": 1,
+  "dense_batch_wait_ms": 2.0
+}

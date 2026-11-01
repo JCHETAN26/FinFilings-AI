@@ -68,11 +68,16 @@ class Grounding(unittest.TestCase):
 
 class PQFilter(unittest.TestCase):
     def test_pq_block_filter_matches_full_pq_ranking(self):
+        self.check_pq_filter(Path('indexes/vector-phase2'))
+
+    def test_pq128_block_filter_matches_full_pq_ranking(self):
+        self.check_pq_filter(Path('indexes/vector-sec-scale-v2-pq128-20261031'))
+
+    def check_pq_filter(self, directory):
         # Actual saved PQ8 codes and trained centroids. No fake embeddings.
         import faiss
         import numpy as np
         from service import Retrieval
-        directory=Path('indexes/vector-phase2')
         if not directory.exists(): self.skipTest('requires acquired Phase 2 index')
         retrieval=object.__new__(Retrieval)
         retrieval.index=faiss.read_index(str(directory/'index.pq8.faiss'))
@@ -92,7 +97,7 @@ class PQFilter(unittest.TestCase):
         np.testing.assert_allclose(scores[0],[s for s,_ in selected],rtol=1e-6,atol=1e-6)
         empty_scores,empty_ids=retrieval.filtered_search(vector,10,FilingFilter(ticker='MISSING'))
         self.assertEqual(empty_ids.shape,(1,0))
-        # The 2048 boundary must not affect correctness when all 19,511 IDs match.
+        # The 2048 boundary must not affect correctness when every indexed row matches.
         all_scores,all_ids=retrieval.filtered_search(vector,10,FilingFilter())
         np.testing.assert_allclose(all_scores[0],baseline_scores[0][:10],rtol=1e-6,atol=1e-6)
 

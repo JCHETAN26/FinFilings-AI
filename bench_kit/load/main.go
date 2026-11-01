@@ -30,10 +30,21 @@ type query struct {
 	ID    string `json:"id"`
 	Query string `json:"query"`
 }
+type serverTimings struct {
+	Present   bool    `json:"-"`
+	Admission float64 `json:"admission_seconds"`
+	Sparse    float64 `json:"sparse_seconds"`
+	Dense     float64 `json:"dense_seconds"`
+	Fusion    float64 `json:"fusion_seconds"`
+	Rerank    float64 `json:"rerank_seconds"`
+	Total     float64 `json:"total_seconds"`
+}
+
 type observation struct {
 	ID, Worker, Status int
 	NS                 int64
 	Error              string
+	Timings            serverTimings
 }
 type hit struct {
 	ID       string              `json:"id"`
@@ -63,12 +74,19 @@ type result struct {
 	Statuses    map[string]int `json:"statuses"`
 }
 
+func timingCell(t serverTimings, value float64) string {
+	if !t.Present {
+		return ""
+	}
+	return strconv.FormatFloat(value, 'g', -1, 64)
+}
+
 func quantiles(values []int64) percentiles {
 	sort.Slice(values, func(i, j int) bool { return values[i] < values[j] })
 	at := func(p float64) int64 { return values[int(math.Ceil(p*float64(len(values))))-1] }
 	return percentiles{at(.50), at(.95), at(.99), values[len(values)-1]}
 }
-func request(ctx context.Context, client *http.Client, url string, q query, dense bool) (int, error) {
+func request(ctx context.Context, client *http.Client, url string, q query, dense bool, capture ...*serverTimings) (int, error) {
 	payload := map[string]any{"query": q.Query}
 	if dense {
 		payload["k"] = 100
@@ -100,12 +118,17 @@ func request(ctx context.Context, client *http.Client, url string, q query, dens
 		return resp.StatusCode, fmt.Errorf("HTTP %d: %.512s", resp.StatusCode, raw)
 	}
 	var decoded struct {
-		Hits     []hit `json:"hits"`
-		Reranked []hit `json:"reranked"`
-		Hybrid   []hit `json:"hybrid"`
+		Timings  *serverTimings `json:"timings"`
+		Hits     []hit          `json:"hits"`
+		Reranked []hit          `json:"reranked"`
+		Hybrid   []hit          `json:"hybrid"`
 	}
 	if err = json.Unmarshal(raw, &decoded); err != nil {
 		return resp.StatusCode, err
+	}
+	if len(capture) > 0 && decoded.Timings != nil {
+		*capture[0] = *decoded.Timings
+		capture[0].Present = true
 	}
 	hits := decoded.Hits
 	if !dense {
@@ -150,7 +173,7 @@ func run(url string, dense bool, queries []query, n, workers int, timeout time.D
 	}
 	defer file.Close()
 	writer := csv.NewWriter(file)
-	if err = writer.Write([]string{"request", "worker", "query_id", "status", "elapsed_ns", "error"}); err != nil {
+	if err = writer.Write([]string{"request", "worker", "query_id", "status", "elapsed_ns", "error", "engine_admission_seconds", "sparse_seconds", "dense_roundtrip_seconds", "fusion_seconds", "rerank_roundtrip_seconds", "engine_total_seconds"}); err != nil {
 		return result{}, err
 	}
 	results := make(chan observation, workers)
@@ -177,10 +200,11 @@ func run(url string, dense bool, queries []query, n, workers int, timeout time.D
 						break
 					}
 				}
-				status, e := request(ctx, client, url, queries[id%len(queries)], dense)
+				var timings serverTimings
+				status, e := request(ctx, client, url, queries[id%len(queries)], dense, &timings)
 				elapsed := time.Since(begin).Nanoseconds()
 				active.Add(-1)
-				o := observation{ID: id, Worker: worker, Status: status, NS: elapsed}
+				o := observation{ID: id, Worker: worker, Status: status, NS: elapsed, Timings: timings}
 				if e != nil {
 					o.Error = e.Error()
 				}
@@ -204,7 +228,7 @@ func run(url string, dense bool, queries []query, n, workers int, timeout time.D
 		} else {
 			r.Failures++
 		}
-		if e := writer.Write([]string{strconv.Itoa(o.ID), strconv.Itoa(o.Worker), queries[o.ID%len(queries)].ID, strconv.Itoa(o.Status), strconv.FormatInt(o.NS, 10), o.Error}); e != nil && writeErr == nil {
+		if e := writer.Write([]string{strconv.Itoa(o.ID), strconv.Itoa(o.Worker), queries[o.ID%len(queries)].ID, strconv.Itoa(o.Status), strconv.FormatInt(o.NS, 10), o.Error, timingCell(o.Timings, o.Timings.Admission), timingCell(o.Timings, o.Timings.Sparse), timingCell(o.Timings, o.Timings.Dense), timingCell(o.Timings, o.Timings.Fusion), timingCell(o.Timings, o.Timings.Rerank), timingCell(o.Timings, o.Timings.Total)}); e != nil && writeErr == nil {
 			writeErr = e
 			cancel()
 		}
@@ -238,6 +262,7 @@ func main() {
 	}
 }
 func execute() error {
+	scenario := flag.String("scenario", "all", "all, hybrid or dense")
 	workers := flag.Int("workers", 50, "persistent closed-loop clients")
 	n := flag.Int("requests", 200, "measured attempts per endpoint")
 	corpus := flag.String("queries", "data/phase2/queries.jsonl", "fixed genuine benchmark queries")
@@ -246,6 +271,9 @@ func execute() error {
 	dense := flag.String("dense", "http://127.0.0.1:8766/dense", "PQ8 endpoint")
 	timeout := flag.Duration("timeout", 180*time.Second, "total client request deadline")
 	flag.Parse()
+	if *scenario != "all" && *scenario != "hybrid" && *scenario != "dense" {
+		return errors.New("scenario must be all, hybrid or dense")
+	}
 	if *workers < 1 || *workers > 256 || *n < *workers || *n > 1000000 || *timeout <= 0 {
 		return errors.New("invalid load limits")
 	}
@@ -283,11 +311,14 @@ func execute() error {
 	if len(queries) == 0 {
 		return errors.New("empty workload")
 	}
-	report := map[string]any{"utc": time.Now().UTC().Format(time.RFC3339Nano), "go": runtime.Version(), "gomaxprocs": runtime.GOMAXPROCS(0), "queries": len(queries), "query_sha256": hex.EncodeToString(hash.Sum(nil)), "warmup_per_endpoint": 5, "timeout_seconds": timeout.Seconds(), "connection_policy": "new TCP connection for each request; connection, queue, full response and content validation timed", "percentiles": "exact empirical nearest-rank ceil(p*N), integer nanoseconds; no interpolation", "load_model": "finite closed-loop, zero think time; not an open-loop rate or soak test"}
+	report := map[string]any{"utc": time.Now().UTC().Format(time.RFC3339Nano), "go": runtime.Version(), "gomaxprocs": runtime.GOMAXPROCS(0), "queries": len(queries), "query_sha256": hex.EncodeToString(hash.Sum(nil)), "warmup_per_endpoint": 5, "timeout_seconds": timeout.Seconds(), "connection_policy": "new TCP connection for each request; connection, queue, full response and content validation timed", "percentiles": "exact empirical nearest-rank ceil(p*N), integer nanoseconds; no interpolation", "load_model": "finite closed-loop, zero think time; not an open-loop rate or soak test", "scenario": *scenario}
 	for _, endpoint := range []struct {
 		name, url string
 		dense     bool
 	}{{"hybrid", *search, false}, {"dense", *dense, true}} {
+		if *scenario != "all" && endpoint.name != *scenario {
+			continue
+		}
 		r, e := run(endpoint.url, endpoint.dense, queries, *n, *workers, *timeout, *output)
 		if e != nil {
 			return e

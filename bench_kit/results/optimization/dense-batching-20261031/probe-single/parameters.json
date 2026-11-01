@@ -1,0 +1,11 @@
+{
+  "inference_workers": 4,
+  "threads_per_job": 2,
+  "dense_batch_size": 1,
+  "dense_batch_wait_ms": 2,
+  "dense_batch_trigger": 8,
+  "rerank_batch_size": 1,
+  "load_workers": 50,
+  "requests": 2000,
+  "scenario": "dense"
+}

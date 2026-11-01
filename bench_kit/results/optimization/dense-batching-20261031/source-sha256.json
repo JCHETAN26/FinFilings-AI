@@ -1,0 +1,12 @@
+{
+  "py/service.py": "544cfb94c62d221a2c8d73ae1d448526c8f1bfeb1c37be1122305cd112c4d09e",
+  "py/dense_batcher.py": "4ff0aa15b4d0d923868fde0ac8eebebea0865738b8ac2f578ce1a13b895b1ec3",
+  "py/test_dense_batcher.py": "875c56fb429bccfa968f2ad9137d154508714089efacaee2f37dd094e00e7971",
+  "scripts/benchmark-expanded.py": "d75a991281caa33c10266a967d00b74a7b0661e4c2bbed235db0ca6f3add3de9",
+  "bench_kit/load/main.go": "df61b6a06beda6c3429b4c3654f3a39dc5fa85934c04dfc95a40839b36b692c1",
+  "bench_kit/profile_dense_batches.py": "979f25492ddb7fef3dffd2f9202a16dd4b722c82a43be87a3a3865658550e5d4",
+  "bench_kit/probe_dense.py": "3fe3d44721f7eafeae4fc62fa1767f762f7f0d62a0613267d7a7655658e1d738",
+  "bench_kit/verify_dense_http.py": "0ddace09a7c75722e3eb22fd527e965cb0e3983b690ebc2cc3e11df518f6b33f",
+  "bench_kit/verify_dense_probe.py": "44e73de67005cd2e282a24c3393646ec0e4d71145f4da1a789fd42d6e0e06f0a",
+  "bench_kit/analyze_queueing.py": "d04cd08f32634df39b555e921619f36cafa9fe8dc23b8422efc475463175c516"
+}

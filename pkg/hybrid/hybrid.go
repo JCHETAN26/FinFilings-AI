@@ -32,11 +32,23 @@ type PassageHit struct {
 	Metadata model.ChunkMeta `json:"metadata"`
 }
 
+// SearchTimings separates engine admission, parallel retrieval and reranking.
+// Total excludes TCP acceptance, HTTP body decoding and response transmission.
+type SearchTimings struct {
+	Admission float64 `json:"admission_seconds"`
+	Sparse    float64 `json:"sparse_seconds"`
+	Dense     float64 `json:"dense_seconds"`
+	Fusion    float64 `json:"fusion_seconds"`
+	Rerank    float64 `json:"rerank_seconds"`
+	Total     float64 `json:"total_seconds"`
+}
+
 type Result struct {
-	Sparse   []Hit        `json:"sparse"`
-	Dense    []Hit        `json:"dense"`
-	Hybrid   []Hit        `json:"hybrid"`
-	Reranked []PassageHit `json:"reranked,omitempty"`
+	Timings  *SearchTimings `json:"timings,omitempty"`
+	Sparse   []Hit          `json:"sparse"`
+	Dense    []Hit          `json:"dense"`
+	Hybrid   []Hit          `json:"hybrid"`
+	Reranked []PassageHit   `json:"reranked,omitempty"`
 }
 
 type Options struct {
@@ -171,6 +183,8 @@ func (e *Engine) Search(parent context.Context, query string, rerank bool) (Resu
 
 // SearchFiltered constrains both branches before fusion.
 func (e *Engine) SearchFiltered(parent context.Context, query string, rerank bool, filter model.FilingFilter) (Result, error) {
+	started := time.Now()
+	timing := &SearchTimings{}
 	if err := filter.Validate(); err != nil {
 		return Result{}, err
 	}
@@ -185,21 +199,25 @@ func (e *Engine) SearchFiltered(parent context.Context, query string, rerank boo
 		return Result{}, ctx.Err()
 	}
 	defer func() { <-e.slots }()
+	timing.Admission = time.Since(started).Seconds()
 	type branch struct {
-		dense bool
-		hits  []Hit
-		err   error
+		dense   bool
+		hits    []Hit
+		err     error
+		seconds float64
 	}
 	results := make(chan branch, 2)
 	go func() {
+		begin := time.Now()
 		hits, err := e.sparse.SearchFiltered(ctx, query, e.options.RetrieveN, filter)
 		out := make([]Hit, len(hits))
 		for i, h := range hits {
 			out[i] = Hit{h.Chunk.ID, h.Score}
 		}
-		results <- branch{false, out, err}
+		results <- branch{false, out, err, time.Since(begin).Seconds()}
 	}()
 	go func() {
+		begin := time.Now()
 		var response struct {
 			Hits      []Hit  `json:"hits"`
 			CorpusSHA string `json:"corpus_sha256"`
@@ -215,7 +233,7 @@ func (e *Engine) SearchFiltered(parent context.Context, query string, rerank boo
 		if err == nil {
 			err = validateHits(response.Hits, e.options.RetrieveN)
 		}
-		results <- branch{true, response.Hits, err}
+		results <- branch{true, response.Hits, err, time.Since(begin).Seconds()}
 	}()
 	var out Result
 	var errs []error
@@ -227,18 +245,22 @@ func (e *Engine) SearchFiltered(parent context.Context, query string, rerank boo
 		}
 		if b.dense {
 			out.Dense = b.hits
+			timing.Dense = b.seconds
 		} else {
 			out.Sparse = b.hits
+			timing.Sparse = b.seconds
 		}
 	}
 	if err := errors.Join(errs...); err != nil {
 		return Result{}, err
 	}
+	fusionStarted := time.Now()
 	fused, err := RRF(out.Sparse, out.Dense, 50)
 	if err != nil {
 		return Result{}, err
 	}
 	out.Hybrid = fused
+	timing.Fusion = time.Since(fusionStarted).Seconds()
 	if rerank && len(fused) > 0 {
 		ids := make([]string, len(fused))
 		allowed := make(map[string]bool, len(fused))
@@ -250,6 +272,7 @@ func (e *Engine) SearchFiltered(parent context.Context, query string, rerank boo
 			Hits      []PassageHit `json:"hits"`
 			CorpusSHA string       `json:"corpus_sha256"`
 		}
+		rerankStarted := time.Now()
 		if err = e.post(ctx, "/rerank", struct {
 			Query string   `json:"query"`
 			IDs   []string `json:"ids"`
@@ -282,6 +305,9 @@ func (e *Engine) SearchFiltered(parent context.Context, query string, rerank boo
 			}
 		}
 		out.Reranked = response.Hits
+		timing.Rerank = time.Since(rerankStarted).Seconds()
 	}
+	timing.Total = time.Since(started).Seconds()
+	out.Timings = timing
 	return out, nil
 }

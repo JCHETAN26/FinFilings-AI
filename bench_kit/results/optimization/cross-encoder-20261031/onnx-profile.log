@@ -1,0 +1,13 @@
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+V/2008/page_17.pdf-1 8 3.175694190998911 True
+C/2017/page_328.pdf-1 8 1.0264180750018568 True
+DVN/2007/page_58.pdf-2 8 3.391352560996893 True
+ETR/2011/page_341.pdf-3 8 1.3724393740012601 True
+ETR/2004/page_213.pdf-2 8 1.986694734001503 True
+PM/2017/page_38.pdf-1 8 1.0200002620003943 True
+V/2008/page_17.pdf-1 2 2.518750904000626 True
+C/2017/page_328.pdf-1 2 0.7380293230016832 True
+DVN/2007/page_58.pdf-2 2 2.8045528570000897 True
+ETR/2011/page_341.pdf-3 2 0.9655340700010129 True
+ETR/2004/page_213.pdf-2 2 1.8114752429974033 True
+PM/2017/page_38.pdf-1 2 0.730874880002375 True

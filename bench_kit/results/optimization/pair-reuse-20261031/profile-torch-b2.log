@@ -1,0 +1,35 @@
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+{
+  "backend": "torch",
+  "workers": 4,
+  "threads_per_job": 2,
+  "batch_size": 2,
+  "queries": 12,
+  "seconds": 10.221526517001621,
+  "qps": 1.173992943230174,
+  "process_cpu_seconds": 72.310331531,
+  "average_busy_cpu_cores": 7.074318245002361,
+  "mean_native_seconds": 3.013329062501119,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "note": "First twelve saved actual Top-50 sets, no qrels or response cache; executor and replicas both capped. Native work includes contention; caller CPU excludes intra-op helper threads."
+}

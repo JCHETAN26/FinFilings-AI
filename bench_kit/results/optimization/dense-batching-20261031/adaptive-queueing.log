@@ -1,0 +1,134 @@
+{
+  "observations": 200,
+  "seconds": {
+    "client_seconds": {
+      "mean": 31.75210891508,
+      "p50": 35.25622275,
+      "p95": 38.446505653,
+      "p99": 40.077777172,
+      "max": 40.669806329
+    },
+    "outside_engine_seconds": {
+      "mean": 20.579114505875,
+      "p50": 23.792256522000002,
+      "p95": 26.317109846,
+      "p99": 27.574257402,
+      "max": 27.833630317
+    },
+    "engine_admission_seconds": {
+      "mean": 5.48870968526,
+      "p50": 5.664163766,
+      "p95": 7.233155719,
+      "p99": 7.649249749,
+      "max": 7.797539213
+    },
+    "retrieval_parallel_seconds": {
+      "mean": 1.429008226275,
+      "p50": 1.2873774789999999,
+      "p95": 3.037083559,
+      "p99": 3.659485624,
+      "max": 4.482732849
+    },
+    "sparse_seconds": {
+      "mean": 0.00463768577,
+      "p50": 0.004372003,
+      "p95": 0.007110481,
+      "p99": 0.009323915,
+      "max": 0.012567962
+    },
+    "dense_roundtrip_seconds": {
+      "mean": 1.429008226275,
+      "p50": 1.2873774789999999,
+      "p95": 3.037083559,
+      "p99": 3.659485624,
+      "max": 4.482732849
+    },
+    "fusion_seconds": {
+      "mean": 7.5357945e-05,
+      "p50": 6.1626e-05,
+      "p95": 0.000109347,
+      "p99": 0.000349432,
+      "max": 0.00061757
+    },
+    "rerank_roundtrip_seconds": {
+      "mean": 4.25516845666,
+      "p50": 4.327629509,
+      "p95": 6.552744687,
+      "p99": 7.69492747,
+      "max": 8.086886282
+    },
+    "engine_total_seconds": {
+      "mean": 11.172994409205,
+      "p50": 11.384628553,
+      "p95": 13.842944658,
+      "p99": 15.301346702,
+      "max": 15.812956064
+    },
+    "engine_other_seconds": {
+      "mean": 3.268306499990881e-05,
+      "p50": 2.19009999997688e-05,
+      "p95": 8.645399999984704e-05,
+      "p99": 0.0001859019999992384,
+      "max": 0.0006135729999989792
+    }
+  },
+  "mean_client_time_fraction": {
+    "outside_engine_seconds": 0.6481180371644978,
+    "engine_admission_seconds": 0.17286126411128716,
+    "retrieval_parallel_seconds": 0.04500514375586317,
+    "fusion_seconds": 2.3733209407142817e-06,
+    "rerank_roundtrip_seconds": 0.13401215232790714,
+    "engine_other_seconds": 1.0293195040152647e-06
+  },
+  "native_load": {
+    "dense": {
+      "calls": 242,
+      "logical_requests": 410,
+      "mean_batch_size": 1.6942148760330578,
+      "streams": {
+        "dense": {
+          "calls": 218,
+          "logical_requests": 218,
+          "work_seconds": 12.154092223951011,
+          "wait_seconds": 273.6796173260518
+        },
+        "dense_batch": {
+          "calls": 24,
+          "logical_requests": 192,
+          "work_seconds": 5.481456795001577,
+          "wait_seconds": 0.2869007749904995
+        }
+      },
+      "mean_work_seconds": 0.07287416949980409,
+      "mean_wait_seconds": 1.1320930500043072
+    },
+    "rank": {
+      "calls": 205,
+      "logical_requests": 205,
+      "mean_batch_size": 1.0,
+      "streams": {
+        "rank": {
+          "calls": 205,
+          "logical_requests": 205,
+          "work_seconds": 569.2048125119836,
+          "wait_seconds": 288.8756961269464
+        }
+      },
+      "mean_work_seconds": 2.7766088415218713,
+      "mean_wait_seconds": 1.4091497372046167,
+      "mean_phase_seconds": {
+        "fetch_seconds": 0.0040812225073928055,
+        "tokenize_seconds": 0.008259999458486407,
+        "padding_seconds": 0.009851267585131942,
+        "inference_seconds": 2.748056700968797,
+        "output_seconds": 0.0012138965171222325
+      }
+    }
+  },
+  "notes": [
+    "Outside-engine time includes TCP/HTTP handling, time awaiting application accept, client encode/decode and response transmission; it is not a pure network or socket-queue measurement.",
+    "Sparse/dense stages overlap: use their per-request maximum, not their sum. Mean components conserve mean client time; percentile components cannot be added.",
+    "Native load differences include five excluded timing warmups per endpoint. Rerank call count is 205; dense logical request count includes both hybrid and dense scenarios. With batching, native dense call counts and means describe batches, not individual request latency.",
+    "Very small negative engine_other values can arise from independently sampled monotonic spans; values below -1 ms are rejected and no values are clamped."
+  ]
+}

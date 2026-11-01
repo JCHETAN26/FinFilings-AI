@@ -55,7 +55,7 @@ Shard scoring uses union statistics. A router over N shards returns bit-identica
 
 ## Parser v2: bank and annual-report layouts (2026-10-31)
 
-The live run rejected 53 of 191 filings. Inspecting re-downloaded bank 10-Ks found five layouts:
+The live run rejected 53 of 191 filings. Inspecting re-downloaded bank 10-Ks found the following layouts:
 
 | Layout | Example filers | v2 result |
 |---|---|---|
@@ -75,9 +75,9 @@ Re-parsing the exact 191 documents (SHA-256 checked against the recorded downloa
 - **Unchanged:** 136 of the 138 previously accepted filings produce identical sections.
 - **Changed (2, both AFL):** these are corrections. Items 1A and 8 now begin with their own heading lines, and Item 8 no longer ends with the self-linked Item 9 heading.
 
-The Go output still equals the Python v1 parser chunk-for-chunk on the four real replay filings and on the synthetic fixture. Morgan Stanley's titled Item 7 stops at a "Cybersecurity" subheading inside MD&A, so about 3,000 MD&A words are not emitted. Nothing is mislabelled.
+The Go output still equals the Python v1 parser chunk-for-chunk on the four real replay filings and on the synthetic fixture. Morgan Stanley's titled Item 7 stops at a "Cybersecurity" subheading inside MD&A, so about 3,000 MD&A words are not emitted. This is a known coverage gap rather than a complete Item 7 extraction.
 
-This is a parser-only check: the expanded index and benchmark were built with v1 and were not rebuilt. Evidence: `bench_kit/results/ingest/parser-v2-20261031/` (`cohort-reparse.json`, `cohort-reparse.log`, test/race/vet logs). Each new rule has a synthetic regression test, and disabling any one of them fails the tests (`pkg/ingest/parser_variants_test.go`).
+The initial parser-only check was followed by a rebuilt 49,452-passage benchmark using the v2 corpus; see [v2 benchmark results](../../bench_kit/results/ingest/scale-v2-20261031/RESULTS.md). Parser evidence: `bench_kit/results/ingest/parser-v2-20261031/` (`cohort-reparse.json`, `cohort-reparse.log`, test/race/vet logs). Each new rule has a synthetic regression test, and disabling any one of them fails the tests (`pkg/ingest/parser_variants_test.go`).
 
 ## Serve quarter shards through hybrid search
 
@@ -186,3 +186,27 @@ All rankings and 400 per-request observations passed independent checks.
 
 [Complete scaled-corpus results and limitations](../../bench_kit/results/ingest/scale-20261031/RESULTS.md)
 · [Independent checks](../../bench_kit/results/ingest/scale-20261031/independent-checks.json).
+
+## Parser-v2 concurrent serving configuration
+
+A real-model rerun on the unchanged 49,452-passage corpus tested four private inference replicas with two CPU threads each. At 50 clients, hybrid p99 fell from 102.891273 s to 58.173420 s and throughput rose from 0.522096 to 0.949196 QPS, with zero failures across 400 hybrid/dense requests. All 100 query ID rankings and quality metrics were unchanged.
+
+This favors hybrid-heavy workloads: serial-query latency and dense p99 increased, and four replicas require additional memory. It is an explicit runtime option, not a universal default. [Complete comparison, resource observations, and reproduction](../../bench_kit/results/ingest/scale-v2-20261031/benchmark-workers4-threads2/RESULTS.md).
+
+### Dense quality follow-up: PQ128
+
+The fixed parser-v2 corpus now has a fresh `indexes/vector-sec-scale-v2-pq128-20261031` artifact, built from the checksum-verified saved embeddings without model inference. Selection on separate non-training document queries favored 128-byte PQ8 codes while preserving at least 90% native vector payload savings. Actual financial-query recall improved 0.531 → 0.838; dense nDCG@10 0.351491 → 0.482297; reranked 0.537220 → 0.553718. Four workers × two threads remain fixed. All 400 measured load requests succeeded; hybrid p99 54.353373 s, dense p99 0.772436 s. No ingestion expansion or parser-coverage claim is implied.
+
+[Full quality/memory/load evidence](../../bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-workers4-threads2/RESULTS.md).
+
+### Cross-encoder execution follow-up
+
+An explicit fused FP32 ONNX reranker with batches of two improves serial query p50 2.432633 → 1.823550 s on the unchanged PQ128 corpus. Four workers × two threads remain preferred for this hybrid workload: 50-client p99 52.733752 s, QPS 1.053630, zero failures. Eight workers × one thread regressed p99 to 60.089434 s and are not recommended. Every query retains its prior nDCG in both runs, and no upstream rankings/scores change. [Full measurements and limitations](../../bench_kit/results/optimization/cross-encoder-20261031/RESULTS.md).
+
+### Further bounded CPU and queue profiling
+
+A fresh, instrumented batch-two control and one-pair ONNX run preserve every query’s Top-10 ordering and nDCG. With four workers × two threads fixed, hybrid p99 improves **42.495622 → 39.916006 s**, QPS **1.301409 → 1.378062**, with 800/800 successful measured requests across both runs. Single-pair batches are now the ONNX default. Dense p99 increased, and serial p50 is unchanged. Model inference dominates native work; outside-engine handling/waiting and engine admission dominate client time. Added per-request Go timings and sidecar phase counters quantify those contributions without increasing concurrency. [Full controlled results and raw evidence](../../bench_kit/results/optimization/pair-reuse-20261031/RESULTS.md).
+
+### Dense tail follow-up: pressure-triggered BGE queries
+
+The optimized serving profile enables batches of up to eight queries above eight live dense requests, while keeping the existing immediate path below that threshold and the same four native workers × two threads. In matched 2,000-request, 50-client dense probes, p99 improves **1.255924 → 0.552580 s**, QPS **73.295173 → 129.848810**, with 4,000/4,000 measured successes. Actual concurrent HTTP quality replay preserves every Top-100 ID/order for the fixed 100 queries. Standard hybrid throughput stays about 1.38 QPS; observed p99 is 39.590239 → 40.077777 s, so the small tail increase is retained in the evidence. Standard end-to-end nDCG remains 0.553718. Batching is opt-in via `--dense-batch-size 8 --dense-batch-trigger 8`; no corpus, index or parser change is involved. [Full results, bounds and verification](../../bench_kit/results/optimization/dense-batching-20261031/RESULTS.md).

@@ -1,0 +1,40 @@
+{
+  "connection_policy": "new TCP connection for each request; connection, queue, full response and content validation timed",
+  "dense": {
+    "endpoint": "http://127.0.0.1:53715/dense",
+    "requests": 2000,
+    "workers": 50,
+    "peak_client_inflight": 50,
+    "successes": 2000,
+    "failures": 0,
+    "failure_rate": 0,
+    "seconds": 15.402528547,
+    "completed_attempts_qps": 129.84880981697947,
+    "successful_qps": 129.84880981697947,
+    "all_attempt_latency": {
+      "p50_ns": 382851861,
+      "p95_ns": 503824612,
+      "p99_ns": 552580386,
+      "max_ns": 587921871
+    },
+    "successful_latency": {
+      "p50_ns": 382851861,
+      "p95_ns": 503824612,
+      "p99_ns": 552580386,
+      "max_ns": 587921871
+    },
+    "statuses": {
+      "200": 2000
+    }
+  },
+  "go": "go1.27.1",
+  "gomaxprocs": 16,
+  "load_model": "finite closed-loop, zero think time; not an open-loop rate or soak test",
+  "percentiles": "exact empirical nearest-rank ceil(p*N), integer nanoseconds; no interpolation",
+  "queries": 100,
+  "query_sha256": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+  "scenario": "dense",
+  "timeout_seconds": 180,
+  "utc": "2026-11-01T05:04:14.193563562Z",
+  "warmup_per_endpoint": 5
+}

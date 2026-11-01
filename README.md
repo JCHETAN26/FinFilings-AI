@@ -24,7 +24,7 @@ flowchart TB
     end
 
     subgraph Python["Python inference sidecar"]
-        Dense["BGE query encoder<br/>FAISS PQ8 · 384 dimensions · 48 sub-vectors"]
+        Dense["BGE query encoder<br/>FAISS PQ8 · 384 dimensions · configurable PQ8 code width"]
         Rerank["MiniLM cross-encoder<br/>Length-bucketed batches of 8"]
         Store["Disk-backed SQLite<br/>Passage text and metadata"]
         Store --> Rerank
@@ -87,6 +87,16 @@ Length-bucketed reranking improved hybrid throughput **1.80×** and reduced p99 
 Hybrid search remains CPU/queue-bound at 50 clients. The dense run lasted 3.36 seconds; these results do not establish sustained capacity or a production SLO. Percentiles are exact empirical nearest-rank values; nanosecond observations are retained.
 
 [Before/after comparison](bench_kit/RESULTS.md#optimization--verified-beforeafter) · [Raw load report](bench_kit/results/phase4/run-20261031T063553Z/load/report.json) · [Terminal log](bench_kit/results/phase4/run-20261031T063553Z/terminal.log) · [Quality replay](bench_kit/results/optimization/rerank-quality.json)
+
+### Expanded SEC corpus: improved dense quality
+
+The newer 49,452-passage run uses 128-byte PQ8 codes, selected without relevance labels. On the same 100 financial queries, recall against exact float32 retrieval rose from **53.1% to 83.8%**, dense nDCG@10 from **0.3515 to 0.4823**, and reranked nDCG@10 from **0.5372 to 0.5537**. Native vector payload savings remain **91.15%**. These results use a different corpus from the original Phase 2 table above; additional SEC passages are not exhaustively labeled.
+
+The profiled float32 ONNX cross-encoder now defaults to single-pair batches. At four workers × two threads, 50-client hybrid p99 improves **42.50 → 39.92 s** against a fresh batch-two control, with identical Top-10 ordering on all 100 queries. [Inspect CPU, queueing, dense-latency trade-offs and raw measurements](bench_kit/results/optimization/pair-reuse-20261031/RESULTS.md).
+
+Pressure-triggered BGE query batching reduces dense p99 **1.256 → 0.553 s** in matched 2,000-request, 50-client probes, with identical concurrent Top-100 rankings. Hybrid throughput stays about **1.38 QPS** and p99 about **40 s** (39.59 → 40.08 s in the paired run). [Measurements, bounds and launch flags](bench_kit/results/optimization/dense-batching-20261031/RESULTS.md).
+
+New builds default to 128 sub-vectors. Use `--subvectors 48` for the historical compact configuration. [Full quality and bounded-concurrency benchmark](bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-workers4-threads2/RESULTS.md).
 
 ## Run locally
 

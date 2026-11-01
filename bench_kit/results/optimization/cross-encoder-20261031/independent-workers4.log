@@ -1,0 +1,138 @@
+{
+  "before": "bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-workers4-threads2",
+  "after": "bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-onnx-workers4-threads2",
+  "before_checks": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.48229729941572386,
+      "hybrid": 0.50780475359511,
+      "reranked": 0.553718350070687
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "after_checks": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.48229729941572386,
+      "hybrid": 0.50780475359511,
+      "reranked": 0.553718350070687
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "unchanged_upstream_scores_and_rankings": true,
+  "unchanged_vector_artifacts": true,
+  "unchanged_nominal_cpu_and_candidate_budgets": true,
+  "worker_rebalance": {
+    "before_workers": 4,
+    "after_workers": 4,
+    "before_threads": 2,
+    "after_threads": 2
+  },
+  "changed_top10_rankings": 2,
+  "max_shared_top10_score_absolute_delta": 9.059906005859375e-06,
+  "per_query_ndcg_changes": [],
+  "ndcg_before": {
+    "sparse": 0.4960699622545427,
+    "dense": 0.48229729941572386,
+    "hybrid": 0.50780475359511,
+    "reranked": 0.5537183500706869
+  },
+  "ndcg_after": {
+    "sparse": 0.4960699622545427,
+    "dense": 0.48229729941572386,
+    "hybrid": 0.50780475359511,
+    "reranked": 0.5537183500706869
+  },
+  "serial_query_before": {
+    "p50": 2.432633064499896,
+    "p99": 3.9906466739994357,
+    "max": 4.17667734099814
+  },
+  "serial_query_after": {
+    "p50": 1.8235498810008721,
+    "p99": 3.430891956999403,
+    "max": 3.90977872700023
+  },
+  "native_timing": {
+    "before": {
+      "dense": {
+        "count": 610,
+        "mean_native_work_seconds": 0.046475165981991876,
+        "mean_wait_seconds": 0.7620075610508228
+      },
+      "rank": {
+        "count": 305,
+        "mean_native_work_seconds": 3.340839941921328,
+        "mean_wait_seconds": 1.3753693660294646
+      }
+    },
+    "after": {
+      "dense": {
+        "count": 610,
+        "mean_native_work_seconds": 0.053376345306522306,
+        "mean_wait_seconds": 0.8085774770623085
+      },
+      "rank": {
+        "count": 305,
+        "mean_native_work_seconds": 3.035062679751002,
+        "mean_wait_seconds": 1.2300263767376625
+      }
+    }
+  },
+  "onnx_manifest": {
+    "format_version": 1,
+    "model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+    "model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "weights_sha256": "821d1aa69520101d6e0737f78a042ae25b19e5cb9160701909d10434f4aeb0ae",
+    "dtype": "float32",
+    "opset": 17,
+    "max_length": 512,
+    "fused_operator_statistics": {
+      "EmbedLayerNormalization": 1,
+      "Attention": 6,
+      "MultiHeadAttention": 0,
+      "Gelu": 0,
+      "FastGelu": 0,
+      "BiasGelu": 6,
+      "GemmFastGelu": 0,
+      "LayerNormalization": 0,
+      "SimplifiedLayerNormalization": 0,
+      "SkipLayerNormalization": 12,
+      "SkipSimplifiedLayerNormalization": 0,
+      "RotaryEmbedding": 0,
+      "QOrderedAttention": 0,
+      "QOrderedGelu": 0,
+      "QOrderedLayerNormalization": 0,
+      "QOrderedMatMul": 0
+    },
+    "files": {
+      "model.onnx": "72662ff447c2a26c1a89fd582111b215c7236ba7633f722f95ae87a944343c13"
+    }
+  },
+  "hybrid_qps_ratio": 1.041323157346787,
+  "hybrid_p99_reduction_percent": 2.9797995767800733
+}

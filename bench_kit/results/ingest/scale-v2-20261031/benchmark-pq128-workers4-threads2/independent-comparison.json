@@ -1,0 +1,415 @@
+{
+  "before": "bench_kit/results/ingest/scale-v2-20261031/benchmark-workers4-threads2",
+  "after": "bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-workers4-threads2",
+  "before_checks": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.35149086081069436,
+      "hybrid": 0.46694392786248845,
+      "reranked": 0.5372195239341298
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "after_checks": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.48229729941572386,
+      "hybrid": 0.50780475359511,
+      "reranked": 0.553718350070687
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "unchanged_raw_embeddings_and_store": true,
+  "unchanged_concurrency_and_budgets": true,
+  "before_subvectors": 48,
+  "after_subvectors": 128,
+  "before_pq_recall": 0.531,
+  "after_pq_recall": 0.838,
+  "ndcg_before": {
+    "sparse": 0.4960699622545427,
+    "dense": 0.3514908608106944,
+    "hybrid": 0.4669439278624884,
+    "reranked": 0.5372195239341298
+  },
+  "ndcg_after": {
+    "sparse": 0.4960699622545427,
+    "dense": 0.48229729941572386,
+    "hybrid": 0.50780475359511,
+    "reranked": 0.5537183500706869
+  },
+  "exact_dense_ndcg": 0.49350279187113805,
+  "memory_before": {
+    "raw_native_payload_bytes": 75958272,
+    "pq_native_payload_bytes": 2766912,
+    "exact_native_payload_reduction_percent": 96.35732629620642,
+    "raw_rss_delta_median_bytes": 76292096,
+    "pq_rss_delta_median_bytes": 3723264,
+    "probes": {
+      "raw": [
+        {
+          "mode": "raw",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 75958272
+          },
+          "native_payload_bytes": 75958272,
+          "rss_before_bytes": 51097600,
+          "rss_after_bytes": 127389696,
+          "observed_rss_delta_bytes": 76292096,
+          "serialized_index_bytes": 75958317,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "raw",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 75958272
+          },
+          "native_payload_bytes": 75958272,
+          "rss_before_bytes": 51150848,
+          "rss_after_bytes": 127442944,
+          "observed_rss_delta_bytes": 76292096,
+          "serialized_index_bytes": 75958317,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "raw",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 75958272
+          },
+          "native_payload_bytes": 75958272,
+          "rss_before_bytes": 51077120,
+          "rss_after_bytes": 127275008,
+          "observed_rss_delta_bytes": 76197888,
+          "serialized_index_bytes": 75958317,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        }
+      ],
+      "pq": [
+        {
+          "mode": "pq",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 2373696,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 2766912,
+          "rss_before_bytes": 50786304,
+          "rss_after_bytes": 54493184,
+          "observed_rss_delta_bytes": 3706880,
+          "serialized_index_bytes": 2766998,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "pq",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 2373696,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 2766912,
+          "rss_before_bytes": 51015680,
+          "rss_after_bytes": 54738944,
+          "observed_rss_delta_bytes": 3723264,
+          "serialized_index_bytes": 2766998,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "pq",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 2373696,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 2766912,
+          "rss_before_bytes": 51126272,
+          "rss_after_bytes": 55066624,
+          "observed_rss_delta_bytes": 3940352,
+          "serialized_index_bytes": 2766998,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        }
+      ]
+    }
+  },
+  "memory_after": {
+    "raw_native_payload_bytes": 75958272,
+    "pq_native_payload_bytes": 6723072,
+    "exact_native_payload_reduction_percent": 91.14899296287308,
+    "raw_rss_delta_median_bytes": 76292096,
+    "pq_rss_delta_median_bytes": 8110080,
+    "probes": {
+      "raw": [
+        {
+          "mode": "raw",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 75958272
+          },
+          "native_payload_bytes": 75958272,
+          "rss_before_bytes": 51085312,
+          "rss_after_bytes": 127377408,
+          "observed_rss_delta_bytes": 76292096,
+          "serialized_index_bytes": 75958317,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "raw",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 75958272
+          },
+          "native_payload_bytes": 75958272,
+          "rss_before_bytes": 51130368,
+          "rss_after_bytes": 127422464,
+          "observed_rss_delta_bytes": 76292096,
+          "serialized_index_bytes": 75958317,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "raw",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "float32_vectors": 75958272
+          },
+          "native_payload_bytes": 75958272,
+          "rss_before_bytes": 51159040,
+          "rss_after_bytes": 127451136,
+          "observed_rss_delta_bytes": 76292096,
+          "serialized_index_bytes": 75958317,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        }
+      ],
+      "pq": [
+        {
+          "mode": "pq",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 6329856,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 6723072,
+          "rss_before_bytes": 50958336,
+          "rss_after_bytes": 58851328,
+          "observed_rss_delta_bytes": 7892992,
+          "serialized_index_bytes": 6723158,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "pq",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 6329856,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 6723072,
+          "rss_before_bytes": 51122176,
+          "rss_after_bytes": 59232256,
+          "observed_rss_delta_bytes": 8110080,
+          "serialized_index_bytes": 6723158,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        },
+        {
+          "mode": "pq",
+          "documents": 49452,
+          "dimension": 384,
+          "native_buffers_bytes": {
+            "codes": 6329856,
+            "centroids": 393216,
+            "transposed_centroids": 0,
+            "centroids_sq_lengths": 0,
+            "sdc_table": 0
+          },
+          "native_payload_bytes": 6723072,
+          "rss_before_bytes": 51154944,
+          "rss_after_bytes": 59265024,
+          "observed_rss_delta_bytes": 8110080,
+          "serialized_index_bytes": 6723158,
+          "caveat": "Native buffer lengths are exact payload sizes; allocator capacity/headers are not introspectable. RSS delta is observed page-level process memory, not exact index payload. Model and SQLite memory excluded from both isolated probes."
+        }
+      ]
+    }
+  },
+  "load_before": {
+    "connection_policy": "new TCP connection for each request; connection, queue, full response and content validation timed",
+    "dense": {
+      "endpoint": "http://127.0.0.1:57547/dense",
+      "requests": 200,
+      "workers": 50,
+      "peak_client_inflight": 50,
+      "successes": 200,
+      "failures": 0,
+      "failure_rate": 0,
+      "seconds": 2.916623785,
+      "completed_attempts_qps": 68.57243674298569,
+      "successful_qps": 68.57243674298569,
+      "all_attempt_latency": {
+        "p50_ns": 724637426,
+        "p95_ns": 817212912,
+        "p99_ns": 1205311129,
+        "max_ns": 1479782162
+      },
+      "successful_latency": {
+        "p50_ns": 724637426,
+        "p95_ns": 817212912,
+        "p99_ns": 1205311129,
+        "max_ns": 1479782162
+      },
+      "statuses": {
+        "200": 200
+      }
+    },
+    "go": "go1.27.1",
+    "gomaxprocs": 16,
+    "hybrid": {
+      "endpoint": "http://127.0.0.1:38233/search",
+      "requests": 200,
+      "workers": 50,
+      "peak_client_inflight": 50,
+      "successes": 200,
+      "failures": 0,
+      "failure_rate": 0,
+      "seconds": 210.704534022,
+      "completed_attempts_qps": 0.9491964704429079,
+      "successful_qps": 0.9491964704429079,
+      "all_attempt_latency": {
+        "p50_ns": 51559247813,
+        "p95_ns": 57012374116,
+        "p99_ns": 58173419930,
+        "max_ns": 59099217669
+      },
+      "successful_latency": {
+        "p50_ns": 51559247813,
+        "p95_ns": 57012374116,
+        "p99_ns": 58173419930,
+        "max_ns": 59099217669
+      },
+      "statuses": {
+        "200": 200
+      }
+    },
+    "load_model": "finite closed-loop, zero think time; not an open-loop rate or soak test",
+    "percentiles": "exact empirical nearest-rank ceil(p*N), integer nanoseconds; no interpolation",
+    "queries": 100,
+    "query_sha256": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+    "timeout_seconds": 180,
+    "utc": "2026-10-31T23:06:41.278959628Z",
+    "warmup_per_endpoint": 5
+  },
+  "load_after": {
+    "connection_policy": "new TCP connection for each request; connection, queue, full response and content validation timed",
+    "dense": {
+      "endpoint": "http://127.0.0.1:41997/dense",
+      "requests": 200,
+      "workers": 50,
+      "peak_client_inflight": 50,
+      "successes": 200,
+      "failures": 0,
+      "failure_rate": 0,
+      "seconds": 2.891156258,
+      "completed_attempts_qps": 69.17647548332546,
+      "successful_qps": 69.17647548332546,
+      "all_attempt_latency": {
+        "p50_ns": 692504060,
+        "p95_ns": 748434749,
+        "p99_ns": 772436016,
+        "max_ns": 1331739532
+      },
+      "successful_latency": {
+        "p50_ns": 692504060,
+        "p95_ns": 748434749,
+        "p99_ns": 772436016,
+        "max_ns": 1331739532
+      },
+      "statuses": {
+        "200": 200
+      }
+    },
+    "go": "go1.27.1",
+    "gomaxprocs": 16,
+    "hybrid": {
+      "endpoint": "http://127.0.0.1:57167/search",
+      "requests": 200,
+      "workers": 50,
+      "peak_client_inflight": 50,
+      "successes": 200,
+      "failures": 0,
+      "failure_rate": 0,
+      "seconds": 197.663935027,
+      "completed_attempts_qps": 1.011818367233663,
+      "successful_qps": 1.011818367233663,
+      "all_attempt_latency": {
+        "p50_ns": 48538136022,
+        "p95_ns": 52334358360,
+        "p99_ns": 54353373147,
+        "max_ns": 55271596259
+      },
+      "successful_latency": {
+        "p50_ns": 48538136022,
+        "p95_ns": 52334358360,
+        "p99_ns": 54353373147,
+        "max_ns": 55271596259
+      },
+      "statuses": {
+        "200": 200
+      }
+    },
+    "load_model": "finite closed-loop, zero think time; not an open-loop rate or soak test",
+    "percentiles": "exact empirical nearest-rank ceil(p*N), integer nanoseconds; no interpolation",
+    "queries": 100,
+    "query_sha256": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+    "timeout_seconds": 180,
+    "utc": "2026-10-31T23:34:29.815804386Z",
+    "warmup_per_endpoint": 5
+  }
+}

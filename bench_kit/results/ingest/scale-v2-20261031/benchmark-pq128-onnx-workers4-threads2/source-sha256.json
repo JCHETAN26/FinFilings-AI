@@ -1,0 +1,12 @@
+{
+  "py/rerank.py": "6d5a882480a5e339b270e907fb3863e69e26ac053a8540d85c732ec6d578e3d9",
+  "py/service.py": "17fa9e31644b2e9d65fa278057b35b6e1de3d88ca4b5b9fb9abf0f55c38ec345",
+  "py/export_reranker.py": "7fd0099f058fd970ef1a954259b9d22f1f2cce3aa46d5a350c48584775f82022",
+  "py/requirements-onnx.txt": "00497a783b63dadaf9fafc3305b3136c1a6cd38e5abd9ae147b50ec6e92d4a15",
+  "py/test_rerank_onnx.py": "436712046cb29527851e68409df6c2d40056cb505806e9f7c21be9f402e6a085",
+  "scripts/benchmark-expanded.py": "afdfac63b765c551638d4de311d9985713447b044d222e89a31c885dfcfdcc14",
+  "bench_kit/profile_cross_encoder.py": "5b782de2f51e18088150c32017b1e2315888f961cb3f1d1f55fe57032d1fe186",
+  "bench_kit/compare_reranker.py": "f165920c55c48f57d11966eb856375d5edf24aa2103a3bcb3a277bae2befc781",
+  "bench_kit/compare_runtime.py": "b544cffbae8643d81e3fabe1093fe7f2835c06a09e2d9035c10fa8a1738ddf98",
+  "bench_kit/eval_hybrid.py": "6dca909ccecc67167c1094343e3957af66648c4935bb414203d800611e40c03d"
+}

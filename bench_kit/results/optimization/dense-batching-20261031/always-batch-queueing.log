@@ -1,0 +1,128 @@
+{
+  "observations": 200,
+  "seconds": {
+    "client_seconds": {
+      "mean": 32.196486306495,
+      "p50": 35.615770872,
+      "p95": 38.680721054,
+      "p99": 39.985525846,
+      "max": 40.87996956
+    },
+    "outside_engine_seconds": {
+      "mean": 20.889293096455,
+      "p50": 23.954492038,
+      "p95": 26.967149956999997,
+      "p99": 27.537963455000003,
+      "max": 28.200082483
+    },
+    "engine_admission_seconds": {
+      "mean": 5.556797144685,
+      "p50": 5.79518279,
+      "p95": 7.373270599,
+      "p99": 7.771527264,
+      "max": 7.904623239
+    },
+    "retrieval_parallel_seconds": {
+      "mean": 1.436227803535,
+      "p50": 1.309721595,
+      "p95": 3.133069918,
+      "p99": 3.441761851,
+      "max": 3.88646191
+    },
+    "sparse_seconds": {
+      "mean": 0.00454971352,
+      "p50": 0.004285307,
+      "p95": 0.007079587,
+      "p99": 0.009691953,
+      "max": 0.010045136
+    },
+    "dense_roundtrip_seconds": {
+      "mean": 1.436227803535,
+      "p50": 1.309721595,
+      "p95": 3.133069918,
+      "p99": 3.441761851,
+      "max": 3.88646191
+    },
+    "fusion_seconds": {
+      "mean": 8.120465e-05,
+      "p50": 6.6847e-05,
+      "p95": 0.000144002,
+      "p99": 0.000424814,
+      "max": 0.000472544
+    },
+    "rerank_roundtrip_seconds": {
+      "mean": 4.31405212828,
+      "p50": 4.278740881,
+      "p95": 6.977209227,
+      "p99": 7.64534712,
+      "max": 8.844994479
+    },
+    "engine_total_seconds": {
+      "mean": 11.30719321004,
+      "p50": 11.551149902,
+      "p95": 14.282010797,
+      "p99": 15.508408909,
+      "max": 15.923151483
+    },
+    "engine_other_seconds": {
+      "mean": 3.4928890000061606e-05,
+      "p50": 2.3722999999087335e-05,
+      "p95": 5.771899999995611e-05,
+      "p99": 0.00035687500000047834,
+      "max": 0.00045948799999973033
+    }
+  },
+  "mean_client_time_fraction": {
+    "outside_engine_seconds": 0.648806608820572,
+    "engine_admission_seconds": 0.17259017309488295,
+    "retrieval_parallel_seconds": 0.044608215625233295,
+    "fusion_seconds": 2.522158760647698e-06,
+    "rerank_roundtrip_seconds": 0.13399139543403302,
+    "engine_other_seconds": 1.0848665182764183e-06
+  },
+  "native_load": {
+    "dense": {
+      "calls": 232,
+      "logical_requests": 410,
+      "mean_batch_size": 1.7672413793103448,
+      "streams": {
+        "dense_batch": {
+          "calls": 232,
+          "logical_requests": 410,
+          "work_seconds": 17.17531520997727,
+          "wait_seconds": 274.0154980580264
+        }
+      },
+      "mean_work_seconds": 0.07403153107748824,
+      "mean_wait_seconds": 1.1811012847328726
+    },
+    "rank": {
+      "calls": 205,
+      "logical_requests": 205,
+      "mean_batch_size": 1.0,
+      "streams": {
+        "rank": {
+          "calls": 205,
+          "logical_requests": 205,
+          "work_seconds": 576.3016562010962,
+          "wait_seconds": 293.6897684509531
+        }
+      },
+      "mean_work_seconds": 2.8112275912248594,
+      "mean_wait_seconds": 1.4326330168339176,
+      "mean_phase_seconds": {
+        "fetch_seconds": 0.00406765508314271,
+        "tokenize_seconds": 0.008148437721985563,
+        "padding_seconds": 0.010025437178605566,
+        "inference_seconds": 2.7825715526424153,
+        "output_seconds": 0.0012092119561601998
+      }
+    }
+  },
+  "notes": [
+    "Outside-engine time includes TCP/HTTP handling, time awaiting application accept, client encode/decode and response transmission; it is not a pure network or socket-queue measurement.",
+    "Sparse/dense stages overlap: use their per-request maximum, not their sum. Mean components conserve mean client time; percentile components cannot be added.",
+    "Native load differences include five excluded timing warmups per endpoint. Rerank call count is 205; dense logical request count includes both hybrid and dense scenarios. With batching, native dense call counts and means describe batches, not individual request latency.",
+    "Very small negative engine_other values can arise from independently sampled monotonic spans; values below -1 ms are rejected and no values are clamped."
+  ]
+}

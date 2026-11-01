@@ -1,0 +1,709 @@
+{
+  "queries": 100,
+  "pairs": 5000,
+  "unique_pairs": 4853,
+  "tokens": 1142051,
+  "unique_tokens": 1133186,
+  "per_query": [
+    {
+      "id": "V/2008/page_17.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 15639,
+      "unique_tokens": 15639
+    },
+    {
+      "id": "C/2017/page_328.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 4968,
+      "unique_tokens": 4701
+    },
+    {
+      "id": "DVN/2007/page_58.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 16322,
+      "unique_tokens": 16240
+    },
+    {
+      "id": "ETR/2011/page_341.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 43,
+      "tokens": 6112,
+      "unique_tokens": 5882
+    },
+    {
+      "id": "ETR/2004/page_213.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 11431,
+      "unique_tokens": 11431
+    },
+    {
+      "id": "PM/2017/page_38.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 4464,
+      "unique_tokens": 4354
+    },
+    {
+      "id": "JPM/2008/page_85.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 45,
+      "tokens": 13105,
+      "unique_tokens": 12888
+    },
+    {
+      "id": "PNC/2013/page_207.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 19064,
+      "unique_tokens": 19064
+    },
+    {
+      "id": "CME/2017/page_97.pdf-5",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 10579,
+      "unique_tokens": 10579
+    },
+    {
+      "id": "PNC/2013/page_62.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 5634,
+      "unique_tokens": 5520
+    },
+    {
+      "id": "AAPL/2004/page_36.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 7286,
+      "unique_tokens": 7286
+    },
+    {
+      "id": "PKG/2009/page_65.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 12802,
+      "unique_tokens": 12783
+    },
+    {
+      "id": "LMT/2013/page_74.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 13841,
+      "unique_tokens": 13841
+    },
+    {
+      "id": "STT/2011/page_83.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 17155,
+      "unique_tokens": 16926
+    },
+    {
+      "id": "AOS/2004/page_11.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 11441,
+      "unique_tokens": 11441
+    },
+    {
+      "id": "C/2010/page_223.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 14808,
+      "unique_tokens": 14660
+    },
+    {
+      "id": "MSI/2006/page_61.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 14039,
+      "unique_tokens": 13969
+    },
+    {
+      "id": "AMAT/2013/page_18.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 4599,
+      "unique_tokens": 4355
+    },
+    {
+      "id": "DVN/2014/page_85.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 4877,
+      "unique_tokens": 4877
+    },
+    {
+      "id": "SPGI/2018/page_74.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 11053,
+      "unique_tokens": 11053
+    },
+    {
+      "id": "ZBH/2003/page_58.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 12079,
+      "unique_tokens": 12079
+    },
+    {
+      "id": "AMT/2005/page_105.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 19738,
+      "unique_tokens": 19738
+    },
+    {
+      "id": "ETR/2015/page_131.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 10660,
+      "unique_tokens": 10660
+    },
+    {
+      "id": "PNC/2009/page_46.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 15938,
+      "unique_tokens": 15938
+    },
+    {
+      "id": "PM/2017/page_38.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 47,
+      "tokens": 14930,
+      "unique_tokens": 14846
+    },
+    {
+      "id": "ETR/2017/page_114.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 2393,
+      "unique_tokens": 2251
+    },
+    {
+      "id": "UNP/2008/page_77.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 14104,
+      "unique_tokens": 14024
+    },
+    {
+      "id": "AES/2016/page_191.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 10291,
+      "unique_tokens": 9865
+    },
+    {
+      "id": "MAS/2012/page_70.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 8531,
+      "unique_tokens": 8467
+    },
+    {
+      "id": "AON/2010/page_28.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 5113,
+      "unique_tokens": 4827
+    },
+    {
+      "id": "AES/2002/page_46.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 11561,
+      "unique_tokens": 11478
+    },
+    {
+      "id": "CB/2010/page_200.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 16443,
+      "unique_tokens": 16443
+    },
+    {
+      "id": "PM/2015/page_85.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 3677,
+      "unique_tokens": 3504
+    },
+    {
+      "id": "ZBH/2003/page_40.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 15573,
+      "unique_tokens": 15533
+    },
+    {
+      "id": "AAPL/2014/page_38.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 5438,
+      "unique_tokens": 5213
+    },
+    {
+      "id": "ETR/2003/page_84.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 13816,
+      "unique_tokens": 13816
+    },
+    {
+      "id": "LMT/2012/page_47.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 47,
+      "tokens": 7980,
+      "unique_tokens": 7873
+    },
+    {
+      "id": "MAS/2018/page_35.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 11058,
+      "unique_tokens": 11002
+    },
+    {
+      "id": "SYY/2019/page_9.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 11920,
+      "unique_tokens": 11858
+    },
+    {
+      "id": "ETR/2002/page_86.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 18901,
+      "unique_tokens": 18901
+    },
+    {
+      "id": "ZBH/2003/page_58.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 2985,
+      "unique_tokens": 2954
+    },
+    {
+      "id": "AMT/2010/page_34.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 47,
+      "tokens": 12431,
+      "unique_tokens": 12277
+    },
+    {
+      "id": "PM/2014/page_67.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 9823,
+      "unique_tokens": 9493
+    },
+    {
+      "id": "ETR/2002/page_24.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 44,
+      "tokens": 8282,
+      "unique_tokens": 7971
+    },
+    {
+      "id": "PM/2015/page_127.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 10986,
+      "unique_tokens": 10919
+    },
+    {
+      "id": "RSG/2016/page_144.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 45,
+      "tokens": 4892,
+      "unique_tokens": 4688
+    },
+    {
+      "id": "SNPS/2006/page_69.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 11950,
+      "unique_tokens": 11950
+    },
+    {
+      "id": "GIS/2019/page_37.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 15675,
+      "unique_tokens": 15605
+    },
+    {
+      "id": "JPM/2018/page_110.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 15268,
+      "unique_tokens": 14973
+    },
+    {
+      "id": "STT/2008/page_83.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 17969,
+      "unique_tokens": 17969
+    },
+    {
+      "id": "AES/2016/page_185.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 47,
+      "tokens": 11569,
+      "unique_tokens": 11454
+    },
+    {
+      "id": "CDNS/2012/page_30.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 45,
+      "tokens": 7336,
+      "unique_tokens": 6989
+    },
+    {
+      "id": "AMAT/2014/page_35.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 14220,
+      "unique_tokens": 14115
+    },
+    {
+      "id": "LMT/2006/page_90.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 16371,
+      "unique_tokens": 16371
+    },
+    {
+      "id": "MO/2012/page_44.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 16200,
+      "unique_tokens": 16200
+    },
+    {
+      "id": "GS/2017/page_106.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 10499,
+      "unique_tokens": 10499
+    },
+    {
+      "id": "EW/2016/page_79.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 16879,
+      "unique_tokens": 16879
+    },
+    {
+      "id": "SLB/2012/page_44.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 6466,
+      "unique_tokens": 6466
+    },
+    {
+      "id": "GIS/2012/page_64.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 17963,
+      "unique_tokens": 17963
+    },
+    {
+      "id": "PM/2017/page_99.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 12039,
+      "unique_tokens": 11975
+    },
+    {
+      "id": "IP/2007/page_75.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 15048,
+      "unique_tokens": 15048
+    },
+    {
+      "id": "GS/2017/page_143.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 47,
+      "tokens": 5249,
+      "unique_tokens": 5127
+    },
+    {
+      "id": "IP/2006/page_32.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 11486,
+      "unique_tokens": 11440
+    },
+    {
+      "id": "CDNS/2018/page_31.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 7326,
+      "unique_tokens": 7029
+    },
+    {
+      "id": "L/2015/page_59.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 8025,
+      "unique_tokens": 8025
+    },
+    {
+      "id": "ILMN/2007/page_78.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 16454,
+      "unique_tokens": 16454
+    },
+    {
+      "id": "ADI/2011/page_81.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 15802,
+      "unique_tokens": 15802
+    },
+    {
+      "id": "AMT/2012/page_125.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 16876,
+      "unique_tokens": 16876
+    },
+    {
+      "id": "ETR/2004/page_213.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 37,
+      "tokens": 2496,
+      "unique_tokens": 2031
+    },
+    {
+      "id": "IP/2007/page_31.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 10920,
+      "unique_tokens": 10920
+    },
+    {
+      "id": "AMT/2005/page_54.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 15447,
+      "unique_tokens": 15447
+    },
+    {
+      "id": "MSI/2009/page_65.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 3477,
+      "unique_tokens": 3477
+    },
+    {
+      "id": "PM/2015/page_38.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 19293,
+      "unique_tokens": 19293
+    },
+    {
+      "id": "AON/2009/page_48.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 14626,
+      "unique_tokens": 14589
+    },
+    {
+      "id": "CDNS/2006/page_30.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 10153,
+      "unique_tokens": 9988
+    },
+    {
+      "id": "AES/2016/page_191.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 16571,
+      "unique_tokens": 16355
+    },
+    {
+      "id": "CB/2010/page_200.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 19207,
+      "unique_tokens": 19207
+    },
+    {
+      "id": "IP/2012/page_93.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 2656,
+      "unique_tokens": 2629
+    },
+    {
+      "id": "GS/2017/page_143.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 8787,
+      "unique_tokens": 8787
+    },
+    {
+      "id": "HWM/2017/page_41.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 16444,
+      "unique_tokens": 16118
+    },
+    {
+      "id": "RSG/2009/page_100.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 20819,
+      "unique_tokens": 20819
+    },
+    {
+      "id": "BLK/2013/page_124.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 12351,
+      "unique_tokens": 12351
+    },
+    {
+      "id": "AAP/2011/page_28.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 8528,
+      "unique_tokens": 8164
+    },
+    {
+      "id": "LKQ/2010/page_84.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 12816,
+      "unique_tokens": 12816
+    },
+    {
+      "id": "AAPL/2008/page_78.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 18536,
+      "unique_tokens": 18536
+    },
+    {
+      "id": "GS/2013/page_152.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 3907,
+      "unique_tokens": 3663
+    },
+    {
+      "id": "GPN/2009/page_70.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 16981,
+      "unique_tokens": 16981
+    },
+    {
+      "id": "C/2008/page_102.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 9091,
+      "unique_tokens": 9091
+    },
+    {
+      "id": "LMT/2006/page_37.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 8874,
+      "unique_tokens": 8874
+    },
+    {
+      "id": "AES/2015/page_117.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 9893,
+      "unique_tokens": 9893
+    },
+    {
+      "id": "AMT/2005/page_85.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 4583,
+      "unique_tokens": 4441
+    },
+    {
+      "id": "PM/2018/page_24.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 45,
+      "tokens": 5433,
+      "unique_tokens": 5103
+    },
+    {
+      "id": "ZBH/2003/page_58.pdf-4",
+      "pairs": 50,
+      "unique_pairs": 49,
+      "tokens": 2903,
+      "unique_tokens": 2869
+    },
+    {
+      "id": "LMT/2013/page_74.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 15287,
+      "unique_tokens": 15287
+    },
+    {
+      "id": "ETR/2003/page_84.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 12365,
+      "unique_tokens": 12365
+    },
+    {
+      "id": "AMT/2008/page_32.pdf-3",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 16076,
+      "unique_tokens": 16076
+    },
+    {
+      "id": "TROW/2010/page_22.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 50,
+      "tokens": 12142,
+      "unique_tokens": 12142
+    },
+    {
+      "id": "UNP/2008/page_27.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 47,
+      "tokens": 9396,
+      "unique_tokens": 9255
+    },
+    {
+      "id": "APD/2016/page_57.pdf-2",
+      "pairs": 50,
+      "unique_pairs": 48,
+      "tokens": 14177,
+      "unique_tokens": 14061
+    },
+    {
+      "id": "ETR/2017/page_114.pdf-1",
+      "pairs": 50,
+      "unique_pairs": 46,
+      "tokens": 2384,
+      "unique_tokens": 2242
+    }
+  ]
+}

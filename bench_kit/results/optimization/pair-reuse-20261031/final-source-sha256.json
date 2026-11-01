@@ -1,0 +1,12 @@
+{
+  "pkg/hybrid/hybrid.go": "456305c34f8a207f91c04b5ac2ad3793a092162d123abe4a6b10c007dc6dc88e",
+  "bench_kit/load/main.go": "a6868dab63ce53213edd23f49a1bba9245e0e82a411571df64ea0e396dbd11b6",
+  "py/rerank.py": "456437042d098f76201474b16d589ce420aac72c252999f6d0332fc38e7c5301",
+  "py/service.py": "d0daf5002bd523cc3d55b1bbf63d910ee3cfafb0d085e4863139c2f8a5afbb68",
+  "py/test_rerank_onnx.py": "25395602643ce6a84c7bb48308620679e40ab17db8601e8c822487e20188bac5",
+  "scripts/benchmark-expanded.py": "b7af6f7413afafbbcd8bcb5cd7d27d037c9bd9e53d8f49422bc02bdf58923f47",
+  "bench_kit/profile_parallel_rerank.py": "95ee33c8b593118a9914275a129f5212a4831875f52c975dd04fdc81ff3e2c5d",
+  "bench_kit/profile_onnx_ops.py": "a19b5c419d9e865a6aae67df1696fcab8957cad6ddab5aa32b59cee119e3d076",
+  "bench_kit/analyze_queueing.py": "693b4607ca0eaf57753c9a3c277a3fd50f1a65e4b7be18340bbdf9e3cc5e0661",
+  "bench_kit/compare_reranker.py": "f165920c55c48f57d11966eb856375d5edf24aa2103a3bcb3a277bae2befc781"
+}

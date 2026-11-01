@@ -1,0 +1,65 @@
+{
+  "before": "bench_kit/results/ingest/scale-v2-20261031/benchmark-workers4-threads2",
+  "after": "bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-workers4-threads2",
+  "before_checks": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.35149086081069436,
+      "hybrid": 0.46694392786248845,
+      "reranked": 0.5372195239341298
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "after_checks": {
+    "ndcg_at_10": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.48229729941572386,
+      "hybrid": 0.50780475359511,
+      "reranked": 0.553718350070687
+    },
+    "queries": 100,
+    "load": {
+      "hybrid": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      },
+      "dense": {
+        "observations": 200,
+        "successes": 200,
+        "csv_percentiles_match": true
+      }
+    }
+  },
+  "unchanged_raw_embeddings_and_store": true,
+  "unchanged_concurrency_and_budgets": true,
+  "before_subvectors": 48,
+  "after_subvectors": 128,
+  "before_pq_recall": 0.531,
+  "after_pq_recall": 0.838,
+  "ndcg_before": {
+    "sparse": 0.4960699622545427,
+    "dense": 0.3514908608106944,
+    "hybrid": 0.4669439278624884,
+    "reranked": 0.5372195239341298
+  },
+  "ndcg_after": {
+    "sparse": 0.4960699622545427,
+    "dense": 0.48229729941572386,
+    "hybrid": 0.50780475359511,
+    "reranked": 0.5537183500706869
+  },
+  "exact_dense_ndcg": 0.49350279187113805
+}

@@ -1,0 +1,638 @@
+[
+  {
+    "id": "V/2008/page_17.pdf-1",
+    "batch_size": 8,
+    "seconds": 3.175694190998911,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 15639,
+      "padded_tokens": 17032
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:V/2008/page_17.pdf#table_3#5a10ac5bd80a",
+        "score": 7.570199012756348
+      },
+      {
+        "id": "finqa:MA/2008/page_126.pdf#text_7#9eb4d3001ced",
+        "score": 2.6813251972198486
+      },
+      {
+        "id": "finqa:MA/2008/page_126.pdf#text_3#7c4b4faf57a2",
+        "score": 1.6834701299667358
+      },
+      {
+        "id": "finqa:MA/2008/page_126.pdf#table_10#1681a63d3ee6",
+        "score": 0.930086076259613
+      },
+      {
+        "id": "000000496225000016#item8#passage-000018",
+        "score": 0.19625931978225708
+      },
+      {
+        "id": "000000496226000080#item8#passage-000018",
+        "score": -0.5485292673110962
+      },
+      {
+        "id": "finqa:MA/2008/page_126.pdf#text_5#54caeed22bf9",
+        "score": -0.5616466403007507
+      },
+      {
+        "id": "finqa:V/2008/page_17.pdf#table_1#ef65311fb9dd",
+        "score": -0.7095698714256287
+      },
+      {
+        "id": "finqa:V/2008/page_17.pdf#table_2#f5427b711adf",
+        "score": -0.7105397582054138
+      },
+      {
+        "id": "000140316125000089#item7#passage-000009",
+        "score": -0.995374858379364
+      }
+    ]
+  },
+  {
+    "id": "C/2017/page_328.pdf-1",
+    "batch_size": 8,
+    "seconds": 1.0264180750018568,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 4968,
+      "padded_tokens": 6886
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:C/2017/page_328.pdf#text_0#9dab244f2b30",
+        "score": 6.398934841156006
+      },
+      {
+        "id": "finqa:C/2015/page_314.pdf#text_0#4ef31247ce62",
+        "score": 6.171785831451416
+      },
+      {
+        "id": "finqa:C/2015/page_314.pdf#text_2#e24e88656c1f",
+        "score": 4.953514575958252
+      },
+      {
+        "id": "finqa:C/2017/page_328.pdf#text_2#e24e88656c1f",
+        "score": 4.953514575958252
+      },
+      {
+        "id": "finqa:AOS/2007/page_17.pdf#text_1#ba661275857a",
+        "score": 2.885525703430176
+      },
+      {
+        "id": "finqa:C/2017/page_328.pdf#table_6#7a5e5130ef5e",
+        "score": 2.8534858226776123
+      },
+      {
+        "id": "finqa:VLO/2012/page_27.pdf#text_2#263177b43b53",
+        "score": 2.759329319000244
+      },
+      {
+        "id": "finqa:JKHY/2015/page_20.pdf#text_0#6e2af9abd6b4",
+        "score": 2.582396984100342
+      },
+      {
+        "id": "finqa:JKHY/2014/page_30.pdf#text_0#269748474470",
+        "score": 2.557448387145996
+      },
+      {
+        "id": "finqa:TSCO/2017/page_31.pdf#text_1#1e0b253aab74",
+        "score": 1.6844512224197388
+      }
+    ]
+  },
+  {
+    "id": "DVN/2007/page_58.pdf-2",
+    "batch_size": 8,
+    "seconds": 3.391352560996893,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 16322,
+      "padded_tokens": 18648
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:DVN/2010/page_70.pdf#table_2#a4118cdd1738",
+        "score": 6.376777648925781
+      },
+      {
+        "id": "finqa:DVN/2007/page_58.pdf#table_3#3d266df49bdf",
+        "score": 6.375053405761719
+      },
+      {
+        "id": "finqa:DVN/2007/page_58.pdf#table_5#bb4a33d1aa5e",
+        "score": 3.918971538543701
+      },
+      {
+        "id": "finqa:DVN/2010/page_70.pdf#table_3#aab7527dc81c",
+        "score": 3.3489105701446533
+      },
+      {
+        "id": "000116316526000009#item7#passage-000012",
+        "score": 2.2700390815734863
+      },
+      {
+        "id": "000116316525000012#item7#passage-000012",
+        "score": 2.038947820663452
+      },
+      {
+        "id": "000116316526000009#item8#passage-000127",
+        "score": 1.8009040355682373
+      },
+      {
+        "id": "finqa:DVN/2010/page_70.pdf#table_1#26fd2c7c3d3c",
+        "score": 1.730710506439209
+      },
+      {
+        "id": "finqa:DVN/2007/page_58.pdf#table_1#a66010774bc8",
+        "score": 1.7167781591415405
+      },
+      {
+        "id": "finqa:DVN/2007/page_58.pdf#text_31#5de35a566924",
+        "score": 1.7056457996368408
+      }
+    ]
+  },
+  {
+    "id": "ETR/2011/page_341.pdf-3",
+    "batch_size": 8,
+    "seconds": 1.3724393740012601,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 6112,
+      "padded_tokens": 8336
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:ETR/2011/page_376.pdf#table_1#4155062eddcc",
+        "score": 7.492833137512207
+      },
+      {
+        "id": "finqa:ETR/2011/page_377.pdf#table_9#4155062eddcc",
+        "score": 7.492833137512207
+      },
+      {
+        "id": "finqa:ETR/2011/page_341.pdf#table_4#f2e033b7da3b",
+        "score": 7.447054862976074
+      },
+      {
+        "id": "finqa:ETR/2011/page_359.pdf#table_6#41c4f22e67e3",
+        "score": 7.436922550201416
+      },
+      {
+        "id": "finqa:ETR/2011/page_316.pdf#table_1#34228aa5a4f0",
+        "score": 7.410760879516602
+      },
+      {
+        "id": "finqa:GS/2012/page_58.pdf#table_4#236b2e9e50d0",
+        "score": 7.135191917419434
+      },
+      {
+        "id": "finqa:UNP/2012/page_29.pdf#table_7#2ce0bdc63abc",
+        "score": 4.80403470993042
+      },
+      {
+        "id": "finqa:INTC/2013/page_33.pdf#table_1#3ff34c09af66",
+        "score": 4.638298988342285
+      },
+      {
+        "id": "finqa:LMT/2010/page_36.pdf#table_1#a175c81b8349",
+        "score": 4.503485679626465
+      },
+      {
+        "id": "finqa:LMT/2010/page_42.pdf#table_1#71c2df9c74ed",
+        "score": 3.7542076110839844
+      }
+    ]
+  },
+  {
+    "id": "ETR/2004/page_213.pdf-2",
+    "batch_size": 8,
+    "seconds": 1.986694734001503,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 11431,
+      "padded_tokens": 12110
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:ETR/2004/page_213.pdf#text_7#2ccff544a7a6",
+        "score": 5.344875335693359
+      },
+      {
+        "id": "finqa:ETR/2004/page_20.pdf#text_6#ea704611c89c",
+        "score": 4.7451348304748535
+      },
+      {
+        "id": "finqa:ETR/2004/page_20.pdf#table_4#51d7fc875886",
+        "score": 4.575261116027832
+      },
+      {
+        "id": "finqa:ETR/2004/page_213.pdf#table_2#8b549bbe7664",
+        "score": 4.266707420349121
+      },
+      {
+        "id": "finqa:ETR/2008/page_337.pdf#text_2#1d42d564ad3c",
+        "score": 3.765061855316162
+      },
+      {
+        "id": "finqa:ETR/2008/page_376.pdf#text_12#e205bc26248d",
+        "score": 3.2738723754882812
+      },
+      {
+        "id": "finqa:ETR/2004/page_20.pdf#text_14#de3e4a028afc",
+        "score": 3.0057644844055176
+      },
+      {
+        "id": "finqa:ETR/2004/page_213.pdf#text_1#56ca189326b8",
+        "score": 2.9543240070343018
+      },
+      {
+        "id": "finqa:ETR/2008/page_313.pdf#text_9#8d4cabc5d63a",
+        "score": 2.9344499111175537
+      },
+      {
+        "id": "finqa:ETR/2004/page_213.pdf#text_3#6cdf105a3d6f",
+        "score": 2.928071975708008
+      }
+    ]
+  },
+  {
+    "id": "PM/2017/page_38.pdf-1",
+    "batch_size": 8,
+    "seconds": 1.0200002620003943,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 4464,
+      "padded_tokens": 6394
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:PM/2017/page_38.pdf#table_3#cd7b366b00b3",
+        "score": 7.69171142578125
+      },
+      {
+        "id": "finqa:LMT/2017/page_80.pdf#text_4#cf3a60ee30f1",
+        "score": 7.221811294555664
+      },
+      {
+        "id": "finqa:HII/2017/page_47.pdf#table_3#ace84bf425e2",
+        "score": 6.618870735168457
+      },
+      {
+        "id": "finqa:HII/2018/page_64.pdf#text_3#7c8e65e03412",
+        "score": 6.617485046386719
+      },
+      {
+        "id": "finqa:UAA/2017/page_52.pdf#table_6#b558b6975eeb",
+        "score": 6.598475456237793
+      },
+      {
+        "id": "finqa:PPG/2018/page_61.pdf#table_2#37240277de06",
+        "score": 6.470417022705078
+      },
+      {
+        "id": "finqa:INTC/2017/page_45.pdf#text_2#aedbf39bdb99",
+        "score": 6.257054328918457
+      },
+      {
+        "id": "finqa:UAA/2017/page_52.pdf#text_1#52613000c644",
+        "score": 5.3767242431640625
+      },
+      {
+        "id": "finqa:PPG/2018/page_61.pdf#table_5#9b470a51dbee",
+        "score": 5.058286190032959
+      },
+      {
+        "id": "finqa:ETR/2017/page_316.pdf#text_3#3d9e40f0ea31",
+        "score": 4.830107688903809
+      }
+    ]
+  },
+  {
+    "id": "V/2008/page_17.pdf-1",
+    "batch_size": 2,
+    "seconds": 2.518750904000626,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 15639,
+      "padded_tokens": 15916
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:V/2008/page_17.pdf#table_3#5a10ac5bd80a",
+        "score": 7.570199012756348
+      },
+      {
+        "id": "finqa:MA/2008/page_126.pdf#text_7#9eb4d3001ced",
+        "score": 2.6813251972198486
+      },
+      {
+        "id": "finqa:MA/2008/page_126.pdf#text_3#7c4b4faf57a2",
+        "score": 1.6834701299667358
+      },
+      {
+        "id": "finqa:MA/2008/page_126.pdf#table_10#1681a63d3ee6",
+        "score": 0.930086076259613
+      },
+      {
+        "id": "000000496225000016#item8#passage-000018",
+        "score": 0.19625931978225708
+      },
+      {
+        "id": "000000496226000080#item8#passage-000018",
+        "score": -0.5485292673110962
+      },
+      {
+        "id": "finqa:MA/2008/page_126.pdf#text_5#54caeed22bf9",
+        "score": -0.5616466403007507
+      },
+      {
+        "id": "finqa:V/2008/page_17.pdf#table_1#ef65311fb9dd",
+        "score": -0.7095698714256287
+      },
+      {
+        "id": "finqa:V/2008/page_17.pdf#table_2#f5427b711adf",
+        "score": -0.7105397582054138
+      },
+      {
+        "id": "000140316125000089#item7#passage-000009",
+        "score": -0.995374858379364
+      }
+    ]
+  },
+  {
+    "id": "C/2017/page_328.pdf-1",
+    "batch_size": 2,
+    "seconds": 0.7380293230016832,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 4968,
+      "padded_tokens": 5276
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:C/2017/page_328.pdf#text_0#9dab244f2b30",
+        "score": 6.398934841156006
+      },
+      {
+        "id": "finqa:C/2015/page_314.pdf#text_0#4ef31247ce62",
+        "score": 6.171785831451416
+      },
+      {
+        "id": "finqa:C/2015/page_314.pdf#text_2#e24e88656c1f",
+        "score": 4.953514575958252
+      },
+      {
+        "id": "finqa:C/2017/page_328.pdf#text_2#e24e88656c1f",
+        "score": 4.953514575958252
+      },
+      {
+        "id": "finqa:AOS/2007/page_17.pdf#text_1#ba661275857a",
+        "score": 2.885525703430176
+      },
+      {
+        "id": "finqa:C/2017/page_328.pdf#table_6#7a5e5130ef5e",
+        "score": 2.8534858226776123
+      },
+      {
+        "id": "finqa:VLO/2012/page_27.pdf#text_2#263177b43b53",
+        "score": 2.759329319000244
+      },
+      {
+        "id": "finqa:JKHY/2015/page_20.pdf#text_0#6e2af9abd6b4",
+        "score": 2.582396984100342
+      },
+      {
+        "id": "finqa:JKHY/2014/page_30.pdf#text_0#269748474470",
+        "score": 2.557448387145996
+      },
+      {
+        "id": "finqa:TSCO/2017/page_31.pdf#text_1#1e0b253aab74",
+        "score": 1.6844512224197388
+      }
+    ]
+  },
+  {
+    "id": "DVN/2007/page_58.pdf-2",
+    "batch_size": 2,
+    "seconds": 2.8045528570000897,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 16322,
+      "padded_tokens": 16430
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:DVN/2010/page_70.pdf#table_2#a4118cdd1738",
+        "score": 6.376777648925781
+      },
+      {
+        "id": "finqa:DVN/2007/page_58.pdf#table_3#3d266df49bdf",
+        "score": 6.375053405761719
+      },
+      {
+        "id": "finqa:DVN/2007/page_58.pdf#table_5#bb4a33d1aa5e",
+        "score": 3.918971538543701
+      },
+      {
+        "id": "finqa:DVN/2010/page_70.pdf#table_3#aab7527dc81c",
+        "score": 3.3489105701446533
+      },
+      {
+        "id": "000116316526000009#item7#passage-000012",
+        "score": 2.2700390815734863
+      },
+      {
+        "id": "000116316525000012#item7#passage-000012",
+        "score": 2.038947820663452
+      },
+      {
+        "id": "000116316526000009#item8#passage-000127",
+        "score": 1.8009040355682373
+      },
+      {
+        "id": "finqa:DVN/2010/page_70.pdf#table_1#26fd2c7c3d3c",
+        "score": 1.730710506439209
+      },
+      {
+        "id": "finqa:DVN/2007/page_58.pdf#table_1#a66010774bc8",
+        "score": 1.7167781591415405
+      },
+      {
+        "id": "finqa:DVN/2007/page_58.pdf#text_31#5de35a566924",
+        "score": 1.7056457996368408
+      }
+    ]
+  },
+  {
+    "id": "ETR/2011/page_341.pdf-3",
+    "batch_size": 2,
+    "seconds": 0.9655340700010129,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 6112,
+      "padded_tokens": 6422
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:ETR/2011/page_376.pdf#table_1#4155062eddcc",
+        "score": 7.492833137512207
+      },
+      {
+        "id": "finqa:ETR/2011/page_377.pdf#table_9#4155062eddcc",
+        "score": 7.492833137512207
+      },
+      {
+        "id": "finqa:ETR/2011/page_341.pdf#table_4#f2e033b7da3b",
+        "score": 7.447054862976074
+      },
+      {
+        "id": "finqa:ETR/2011/page_359.pdf#table_6#41c4f22e67e3",
+        "score": 7.436922550201416
+      },
+      {
+        "id": "finqa:ETR/2011/page_316.pdf#table_1#34228aa5a4f0",
+        "score": 7.410760879516602
+      },
+      {
+        "id": "finqa:GS/2012/page_58.pdf#table_4#236b2e9e50d0",
+        "score": 7.135191917419434
+      },
+      {
+        "id": "finqa:UNP/2012/page_29.pdf#table_7#2ce0bdc63abc",
+        "score": 4.80403470993042
+      },
+      {
+        "id": "finqa:INTC/2013/page_33.pdf#table_1#3ff34c09af66",
+        "score": 4.638298988342285
+      },
+      {
+        "id": "finqa:LMT/2010/page_36.pdf#table_1#a175c81b8349",
+        "score": 4.503485679626465
+      },
+      {
+        "id": "finqa:LMT/2010/page_42.pdf#table_1#71c2df9c74ed",
+        "score": 3.7542076110839844
+      }
+    ]
+  },
+  {
+    "id": "ETR/2004/page_213.pdf-2",
+    "batch_size": 2,
+    "seconds": 1.8114752429974033,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 11431,
+      "padded_tokens": 11632
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:ETR/2004/page_213.pdf#text_7#2ccff544a7a6",
+        "score": 5.344875335693359
+      },
+      {
+        "id": "finqa:ETR/2004/page_20.pdf#text_6#ea704611c89c",
+        "score": 4.7451348304748535
+      },
+      {
+        "id": "finqa:ETR/2004/page_20.pdf#table_4#51d7fc875886",
+        "score": 4.575261116027832
+      },
+      {
+        "id": "finqa:ETR/2004/page_213.pdf#table_2#8b549bbe7664",
+        "score": 4.266707420349121
+      },
+      {
+        "id": "finqa:ETR/2008/page_337.pdf#text_2#1d42d564ad3c",
+        "score": 3.765061855316162
+      },
+      {
+        "id": "finqa:ETR/2008/page_376.pdf#text_12#e205bc26248d",
+        "score": 3.2738723754882812
+      },
+      {
+        "id": "finqa:ETR/2004/page_20.pdf#text_14#de3e4a028afc",
+        "score": 3.0057644844055176
+      },
+      {
+        "id": "finqa:ETR/2004/page_213.pdf#text_1#56ca189326b8",
+        "score": 2.9543240070343018
+      },
+      {
+        "id": "finqa:ETR/2008/page_313.pdf#text_9#8d4cabc5d63a",
+        "score": 2.9344499111175537
+      },
+      {
+        "id": "finqa:ETR/2004/page_213.pdf#text_3#6cdf105a3d6f",
+        "score": 2.928071975708008
+      }
+    ]
+  },
+  {
+    "id": "PM/2017/page_38.pdf-1",
+    "batch_size": 2,
+    "seconds": 0.730874880002375,
+    "work": {
+      "pairs": 50,
+      "unpadded_tokens": 4464,
+      "padded_tokens": 4652
+    },
+    "identical": true,
+    "hits": [
+      {
+        "id": "finqa:PM/2017/page_38.pdf#table_3#cd7b366b00b3",
+        "score": 7.69171142578125
+      },
+      {
+        "id": "finqa:LMT/2017/page_80.pdf#text_4#cf3a60ee30f1",
+        "score": 7.221811294555664
+      },
+      {
+        "id": "finqa:HII/2017/page_47.pdf#table_3#ace84bf425e2",
+        "score": 6.618870735168457
+      },
+      {
+        "id": "finqa:HII/2018/page_64.pdf#text_3#7c8e65e03412",
+        "score": 6.617485046386719
+      },
+      {
+        "id": "finqa:UAA/2017/page_52.pdf#table_6#b558b6975eeb",
+        "score": 6.598475456237793
+      },
+      {
+        "id": "finqa:PPG/2018/page_61.pdf#table_2#37240277de06",
+        "score": 6.470417022705078
+      },
+      {
+        "id": "finqa:INTC/2017/page_45.pdf#text_2#aedbf39bdb99",
+        "score": 6.257054328918457
+      },
+      {
+        "id": "finqa:UAA/2017/page_52.pdf#text_1#52613000c644",
+        "score": 5.3767242431640625
+      },
+      {
+        "id": "finqa:PPG/2018/page_61.pdf#table_5#9b470a51dbee",
+        "score": 5.058286190032959
+      },
+      {
+        "id": "finqa:ETR/2017/page_316.pdf#text_3#3d9e40f0ea31",
+        "score": 4.830107688903809
+      }
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "py/requantize.py": "e39df3f6eb46399ef9cd85a3d4bebb1eeecd9542eb502f14877d9cc4b248a87a",
+  "py/embed.py": "9805893ae8fb1de8390948c2cf180843fb27566aa5a18b00448fa4536231807b",
+  "py/service.py": "8f0afabefe23413b3333255a35cc483edb4eac7098de17023d2367581374faea",
+  "py/test_requantize.py": "68515403ddfc4fe7915390b067042b7c8a0ae3c574b9139780b10a124ecbf66e",
+  "py/test_agent.py": "8ec5b5adeb951d9d339855de5a7a90ee48ea6833772a331fe796fc221bdf89fa",
+  "bench_kit/calibrate_pq.py": "4ba470416ed23235f9094bf75f88f495caccf431588da37e3d49fef9a3def740",
+  "bench_kit/eval_hybrid.py": "6dca909ccecc67167c1094343e3957af66648c4935bb414203d800611e40c03d",
+  "bench_kit/compare_quantization.py": "aed731b7921fa23c22179f449c8bb3cb92b58097602ab620836801a425930b6e",
+  "scripts/benchmark-expanded.py": "fdf2c5316e68b91a71678732433ee509f93dc93e6c8db1b94dd323c5becac0f3"
+}

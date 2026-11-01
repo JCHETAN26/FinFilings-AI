@@ -1,0 +1,8 @@
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit	(cached)
+ok  	github.com/JCHETAN26/FinFillings-AI/bench_kit/load	(cached)
+ok  	github.com/JCHETAN26/FinFillings-AI/cmd/finfilings	(cached)
+?   	github.com/JCHETAN26/FinFillings-AI/cmd/ingest	[no test files]
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/hybrid	(cached)
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/index	(cached)
+ok  	github.com/JCHETAN26/FinFillings-AI/pkg/ingest	(cached)
+?   	github.com/JCHETAN26/FinFillings-AI/pkg/model	[no test files]

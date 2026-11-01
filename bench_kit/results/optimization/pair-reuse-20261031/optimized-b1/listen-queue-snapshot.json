@@ -1,0 +1,9 @@
+{
+  "observed_unix_seconds": 1793506952.2880054,
+  "port": 48469,
+  "ss_listen_output": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      4096       127.0.0.1:48469      0.0.0.0:*          \n",
+  "cpu_pressure": "some avg10=0.16 avg60=0.15 avg300=0.07 total=182545917\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "note": "Point-in-time kernel listen queue snapshot; Recv-Q is completed connections waiting for application accept, not a duration or peak.",
+  "hybrid_csv_final_mtime_unix_seconds": 1793506961.25,
+  "capture_phase": "after the hybrid scenario completed; not evidence of hybrid-load listen backlog"
+}

@@ -1,0 +1,73 @@
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+{
+  "id": "V/2008/page_17.pdf-1",
+  "work": {
+    "pairs": 50,
+    "unpadded_tokens": 15639,
+    "padded_tokens": 15916,
+    "timings": {
+      "fetch_seconds": 0.0014510190012515523,
+      "tokenize_seconds": 0.0066073030029656366,
+      "padding_seconds": 0.004262292008206714,
+      "inference_seconds": 2.2920692630214035,
+      "output_seconds": 0.0007800129969837144
+    },
+    "total_seconds": 2.305811548998463
+  },
+  "operators": {
+    "MatMul": {
+      "calls": 450,
+      "total_kernel_us": 1145721.0
+    },
+    "Attention": {
+      "calls": 150,
+      "total_kernel_us": 988040.0
+    },
+    "BiasGelu": {
+      "calls": 150,
+      "total_kernel_us": 98283.0
+    },
+    "SkipLayerNormalization": {
+      "calls": 300,
+      "total_kernel_us": 42523.0
+    },
+    "EmbedLayerNormalization": {
+      "calls": 25,
+      "total_kernel_us": 6682.0
+    },
+    "FusedGemm": {
+      "calls": 25,
+      "total_kernel_us": 931.0
+    },
+    "Cast": {
+      "calls": 75,
+      "total_kernel_us": 326.0
+    },
+    "Gather": {
+      "calls": 25,
+      "total_kernel_us": 228.0
+    },
+    "Gemm": {
+      "calls": 25,
+      "total_kernel_us": 180.0
+    }
+  },
+  "node_groups_kernel_us": {
+    "other": 149153.0,
+    "attention": 1117143.0,
+    "feed_forward": 1016618.0
+  },
+  "top10_ids": [
+    "finqa:V/2008/page_17.pdf#table_3#5a10ac5bd80a",
+    "finqa:MA/2008/page_126.pdf#text_7#9eb4d3001ced",
+    "finqa:MA/2008/page_126.pdf#text_3#7c4b4faf57a2",
+    "finqa:MA/2008/page_126.pdf#table_10#1681a63d3ee6",
+    "000000496225000016#item8#passage-000018",
+    "000000496226000080#item8#passage-000018",
+    "finqa:MA/2008/page_126.pdf#text_5#54caeed22bf9",
+    "finqa:V/2008/page_17.pdf#table_1#ef65311fb9dd",
+    "finqa:V/2008/page_17.pdf#table_2#f5427b711adf",
+    "000140316125000089#item7#passage-000009"
+  ],
+  "note": "Single actual Top-50 call, CPU FP32, batch two, two threads. ORT Node event durations are wall-clock microseconds, not summed CPU thread time. Tracing adds overhead; this is attribution, not the latency benchmark."
+}

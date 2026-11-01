@@ -1,0 +1,10 @@
+Collecting onnxruntime==1.23.2
+  Downloading onnxruntime-1.23.2-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.1 kB)
+Downloading onnxruntime-1.23.2-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (17.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.4/17.4 MB 2.6 MB/s  0:00:06
+Installing collected packages: onnxruntime
+Successfully installed onnxruntime-1.23.2
+WARNING: Target directory /media/grv22/Extreme SSD2/project/FinFillings AI/models/runtime/bin already exists. Specify --upgrade to force replacement.
+
+[notice] A new release of pip is available: 26.0.1 -> 26.2.2
+[notice] To update, run: python3 -m pip install --upgrade pip

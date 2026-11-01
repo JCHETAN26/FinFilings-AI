@@ -1,0 +1,67 @@
+{
+  "sidecar": {
+    "status": "ready",
+    "documents": 49452,
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "encoder_device": "cpu",
+    "reranker_device": "cpu",
+    "reranker_backend": "onnx-fp32",
+    "reranker_artifact_sha256": "72662ff447c2a26c1a89fd582111b215c7236ba7633f722f95ae87a944343c13",
+    "admission": {
+      "limit": 64,
+      "active": 0,
+      "peak": 1,
+      "rejected": 0
+    },
+    "inference_workers": 4,
+    "inference": {
+      "dense_batch": {
+        "count": 200,
+        "work_seconds": 5.440179178986,
+        "wait_seconds": 0.00047365904902108014,
+        "max_work_seconds": 0.7570937769996817,
+        "requests": 200
+      },
+      "rank": {
+        "count": 100,
+        "work_seconds": 165.84914554501302,
+        "wait_seconds": 0.00029079901287332177,
+        "max_work_seconds": 3.1261865030028275,
+        "phase_count": 100,
+        "phase_totals": {
+          "fetch_seconds": 0.13990066104452126,
+          "tokenize_seconds": 0.3418133139493875,
+          "padding_seconds": 0.5618229461397277,
+          "inference_seconds": 164.5383330877885,
+          "output_seconds": 0.07804136398044648
+        },
+        "requests": 100
+      }
+    },
+    "threads": 2,
+    "rerank_batch_size": 1,
+    "rerank_length_bucketing": true,
+    "dense_batching": {
+      "batch_size": 8,
+      "wait_ms": 2.0,
+      "coordinators": 4,
+      "pending": 0,
+      "metrics": {
+        "submitted": 200,
+        "batches": 200,
+        "dispatched_requests": 200,
+        "cancelled_before_dispatch": 0,
+        "queue_peak": 1,
+        "max_batch_seen": 1,
+        "assembly_wait_seconds": 0.427628404009738,
+        "rejected": 0
+      }
+    }
+  },
+  "bridge": {
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "status": "ready"
+  }
+}

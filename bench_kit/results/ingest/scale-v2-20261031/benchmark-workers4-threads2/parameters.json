@@ -1,0 +1,10 @@
+{
+  "inference_workers": 4,
+  "threads_per_job": 2,
+  "configured_intraop_thread_budget": 8,
+  "load_workers": 50,
+  "requests_per_endpoint": 200,
+  "queries": 100,
+  "candidate_limit": 50,
+  "max_tokens": 512
+}

@@ -1,0 +1,11 @@
+{
+  "queries": 100,
+  "http_workers": 50,
+  "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+  "query_sha256": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+  "reference": "bench_kit/results/optimization/dense-batching-20261031/baseline-single/evaluation/per-query.jsonl",
+  "reference_sha256": "33981c9135e57c2c23d2d31c8bfaec3ef6721378096191012d505dfc7a0838d5",
+  "changed_top100_rankings": [],
+  "max_shared_score_delta": 2.384185791015625e-07,
+  "note": "Actual concurrent /dense calls; no latency claims from this verification replay. Every Top-100 ID/order compared with saved serial retrieval."
+}

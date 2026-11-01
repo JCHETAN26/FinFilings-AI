@@ -1,0 +1,45 @@
+test_old_and_sectioned_ids_match_in_sql_and_metadata (test_accession_filters.AccessionFilters) ... ok
+test_bounds_and_markdown_injection (test_agent.Grounding) ... ok
+test_checksum_failure_is_explicit (test_agent.Grounding) ... ok
+test_cover_page_fiscal_period_is_distinct_from_filing_year (test_agent.Grounding) ... ok
+test_exact_quote_and_unknown_id_and_fabricated_claim (test_agent.Grounding) ... ok
+test_missing_accession_cannot_become_verified (test_agent.Grounding) ... ok
+test_tampered_content_and_metadata_rejected (test_agent.Grounding) ... ok
+test_wrong_scope_and_forged_accession_rejected (test_agent.Grounding) ... ok
+test_pq128_block_filter_matches_full_pq_ranking (test_agent.PQFilter) ... ok
+test_pq_block_filter_matches_full_pq_ranking (test_agent.PQFilter) ... ok
+test_missing_executable_is_explicit (test_agent.ProviderTransport) ... ok
+test_process_timeout_cleans_up_child (test_agent.ProviderTransport) ... ok
+test_retry_after_and_rejections (test_ingest.EdgarContracts) ... download_retry status=429 attempt=1 delay_seconds=1.000 url=http://127.0.0.1:41291/retry
+ok
+test_retry_after_is_shared_before_next_dispatch (test_ingest.EdgarContracts) ... ok
+test_shared_rate_headers_and_atomic_files (test_ingest.EdgarContracts) ... ok
+test_atomic_success_duplicate_rejection_and_cleanup (test_ingest.PipelineContracts) ... ok
+test_html_links_hidden_text_and_crlf_hash (test_ingest.SectionContracts) ... ok
+test_missing_ambiguous_and_oversized_fail_without_output (test_ingest.SectionContracts) ... ok
+test_plain_toc_boundaries_chunk_tags_and_determinism (test_ingest.SectionContracts) ... ok
+test_budget_is_bounded_and_cancelled_requests_release (test_phase2.AdmissionContracts) ... ok
+test_artifact_corruption_detected (test_phase2.Contracts) ... ok
+test_chunked_body_limit_without_invoking_inference (test_phase2.Contracts) ... ok
+test_model_weights_checksum_is_required (test_phase2.Contracts) ... ok
+test_request_budgets (test_phase2.Contracts) ... ok
+test_uniform_table_rendering (test_phase2.Contracts) ... ok
+test_equal_model_scores_preserve_the_returned_ranking (test_phase2.EvaluationOrder) ... /home/grv22/.local/lib/python3.10/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.8.1' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/home/grv22/.local/lib/python3.10/site-packages/pandas/core/arrays/masked.py:61: UserWarning: Pandas requires version '1.3.6' or newer of 'bottleneck' (version '1.3.2' currently installed).
+  from pandas.core import (
+/home/grv22/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+ok
+test_cancelled_http_tasks_keep_replica_slots_until_native_completion (test_phase2.InferenceCancellation) ... ok
+test_workers_run_in_parallel_on_private_replicas (test_phase2.InferenceWorkers) ... ok
+test_rebuild_preserves_source_and_rejects_manifest_mismatch (test_requantize.Requantization) ... ok
+test_default_single_pair_rank_reports_real_work_without_padding (test_rerank_onnx.ONNXIntegration) ... You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+ok
+test_dynamic_shapes_match_pytorch_fp32_logits (test_rerank_onnx.ONNXIntegration) ... ok
+test_id_text_and_model_must_all_match (test_vector_cache.CachedVectors) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 11.511s
+
+OK

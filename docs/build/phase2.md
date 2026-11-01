@@ -66,7 +66,7 @@ python3 bench_kit/prepare_sec.py
 python3 bench_kit/fetch_finqa.py --user-agent "$SEC_USER_AGENT"
 "$PHASE2_PYTHON" bench_kit/prepare_finqa.py --train-contexts 500 --query-limit 100
 HF_HUB_DISABLE_XET=1 "$PHASE2_PYTHON" py/fetch_models.py
-"$PHASE2_PYTHON" py/embed.py
+"$PHASE2_PYTHON" py/embed.py --subvectors 48
 
 go build -o /tmp/finfilings-phase2 ./cmd/finfilings
 /tmp/finfilings-phase2 -mode build

@@ -110,5 +110,51 @@ class InferenceWorkers(unittest.IsolatedAsyncioTestCase):
             with self.assertRaises(ValueError):app_for(Replicas(),executor,8,workers=3)
 
 
+class InferenceCancellation(unittest.IsolatedAsyncioTestCase):
+    async def test_cancelled_http_tasks_keep_replica_slots_until_native_completion(self):
+        # Scheduling-only fixture. Executor capacity deliberately exceeds the
+        # replica count so an early slot release would start a third native job.
+        import threading
+        from concurrent.futures import ThreadPoolExecutor
+        from service import app_for
+        release = threading.Event()
+        seen = []
+        class Replicas:
+            encoders = [object(), object()]
+            def dense(self, request, worker):
+                seen.append((request.query, worker))
+                if request.query == 'hold' and not release.wait(5):
+                    raise TimeoutError('test did not release native job')
+                return dict(hits=[], corpus_sha256='fixture')
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            app = app_for(Replicas(), executor, 8, workers=2)
+            route = next(r for r in app.routes if getattr(r, 'path', '') == '/dense').endpoint
+            tasks = [asyncio.create_task(route(DenseRequest(query='hold'))) for _ in range(2)]
+            third = None
+            try:
+                for _ in range(200):
+                    if len(seen) == 2:
+                        break
+                    await asyncio.sleep(.005)
+                self.assertEqual(len(seen), 2)
+                self.assertEqual({worker for _, worker in seen}, {0, 1})
+                for task in tasks:
+                    task.cancel()
+                await asyncio.gather(*tasks, return_exceptions=True)
+                third = asyncio.create_task(route(DenseRequest(query='after cancellation')))
+                await asyncio.sleep(.05)
+                self.assertEqual(len(seen), 2, 'replica reused before native job finished')
+                self.assertFalse(third.done())
+                release.set()
+                await asyncio.wait_for(third, 2)
+                self.assertEqual(len(seen), 3)
+            finally:
+                release.set()
+                for task in tasks + ([third] if third is not None else []):
+                    if not task.done():
+                        task.cancel()
+                await asyncio.gather(*tasks, *([third] if third is not None else []), return_exceptions=True)
+
+
 if __name__ == '__main__':
     unittest.main()

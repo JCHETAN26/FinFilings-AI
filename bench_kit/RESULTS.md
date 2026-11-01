@@ -157,3 +157,54 @@ PQ8/exact recall@10 is 0.531, and native vector payload is reduced by 96.3573%. 
 | dense | 0.895732 | 0.921024 | 0.925285 | 55.330507 | 0/200 |
 
 Hybrid throughput is bounded by CPU reranking of long SEC passages, which make up 53.3% of the Top-50 candidates; rerank time is 1.901 s per call. [Detailed results and three-corpus comparison](results/ingest/scale-v2-20261031/RESULTS.md).
+
+## Parser-v2 runtime: four workers × two threads (2026-10-31)
+
+On the fixed 49,452-passage corpus, hybrid throughput increased from 0.522096 to 0.949196 QPS; p99 decreased from 102.891273 to 58.173420 seconds at 50 clients. All 400 measured requests succeeded. All 100 queries retained identical ID rankings across all four stages; reranked nDCG@10 remains 0.537220 and PQ8 recall@10 remains 0.531.
+
+Dense p99 increased to 1.205311 seconds and serial-query latency also increased. This is an optional configuration for hybrid-heavy concurrency, with four model replicas and a nominal eight-thread intra-op budget. It does not address the remaining dense-quality or parser-coverage gaps.
+
+[Detailed controlled comparison and trade-offs](results/ingest/scale-v2-20261031/benchmark-workers4-threads2/RESULTS.md).
+
+## Dense retrieval quality: wider PQ8 codes (2026-10-31)
+
+On the same 49,452 passages and 100 financial queries, increasing PQ8 from 48 to 128 sub-vectors improved recall against exact float32 from **0.531 to 0.838**. Dense nDCG@10 increased **0.351491 → 0.482297**; RRF **0.466944 → 0.507805**; reranked **0.537220 → 0.553718**. BM25 remains **0.496070**. Exact float32 dense nDCG@10 is **0.493503**. Code width was selected using separate non-training document-vector queries without reading financial relevance labels.
+
+Native vector payload rises **2,766,912 → 6,723,072 bytes**, retaining **91.1490%** savings against **75,958,272** float32 bytes. This is vector payload, not whole-service memory. Embeddings, store, training rows, seed and model checkpoints are unchanged. New builds default to 128 sub-vectors; 48 remains an explicit compact option.
+
+With the same four inference workers × two threads and 50 clients, all **400/400** measured requests succeeded. Hybrid p50/p95/p99: **48.538136 / 52.334358 / 54.353373 s**, **1.011818 QPS**. Dense: **0.692504 / 0.748435 / 0.772436 s**, **69.176475 QPS**. These are finite local measurements; newly added SEC passages remain incompletely judged by the frozen FinQA labels.
+
+[Detailed report, raw observations and independent verification](results/ingest/scale-v2-20261031/benchmark-pq128-workers4-threads2/RESULTS.md) · [Label-free PQ configuration comparison](results/ingest/scale-v2-20261031/pq-quality-20261031/RESULTS.md).
+
+## Cross-encoder latency: FP32 graph fusion and smaller batches (2026-10-31)
+
+An explicit FP32 ONNX reranker option retains the pinned MiniLM checkpoint, all 50 candidates and 512-token inputs, with batches of two and fused BERT operations. At four workers × two threads, serial full-query p50 improves **2.432633 → 1.823550 s** (25.04%). All 100 queries retain their nDCG; reranked nDCG@10 remains **0.553718**, PQ recall **0.838**, and upstream scores/rankings are identical. Two order changes only swap identical-text source IDs; Top-10 sets are unchanged.
+
+| 50-client endpoint | p50 s | p95 s | p99 s | Successful QPS | Failures |
+|---|---:|---:|---:|---:|---:|
+| Hybrid, FP32 ONNX 4×2 | 46.819551 | 51.084855 | 52.733752 | 1.053630 | 0/200 |
+| Dense, same service | 0.777015 | 0.885906 | 0.896412 | 63.459618 | 0/200 |
+
+The measured hybrid load gain is modest: p99 **54.353373 → 52.733752 s**, QPS **1.011818 → 1.053630**. Dense p99 increased. A separate bounded **8 workers × 1 thread** run preserved quality and passed all 400 requests but regressed hybrid p99 to **60.089434 s**; it is not recommended. Both new runs used the same nominal eight-thread budget, and all **800/800** requests succeeded without 503s. These are finite local observations, not sustained capacity guarantees. CPU reranking remains the dominant constraint at 50 clients.
+
+All 31 Python tests, Go race tests and Go vet pass. [Full experiment report, native work/queue times, independent checks and reproduction](results/optimization/cross-encoder-20261031/RESULTS.md).
+
+## Further CPU and queue profiling: single-pair FP32 reranking (2026-10-31)
+
+A fresh batch-two baseline measured **42.495622 s** hybrid p99 and **1.301409 QPS**, already faster than the older 52.733752 s run. The measured gain attributed to batch width uses this fresh control. Single-pair ONNX inference, at the same **4 workers × 2 threads**, reduces p99 to **39.916006 s** (**6.07%**) and raises throughput to **1.378062 QPS** (**5.89%**). p50/p95: **35.335991 / 38.633175 s**. All **400/400** optimized requests succeeded; both fresh runs total **800/800**, zero 503s.
+
+Every one of the 100 queries retains identical Top-10 ordering and per-query nDCG; reranked nDCG@10 remains **0.553718**, PQ recall **0.838**. Serial p50 is essentially unchanged, **1.743773 → 1.746030 s**. Dense p99 increased **0.694040 → 0.882777 s**, with **72.812789 QPS** in the optimized service. These finite local runs do not establish sustained capacity or a confidence interval.
+
+The concurrent native profile reduced CPU seconds/query **5.509448 → 4.805314**. A traced call attributes about **49%** of kernel duration to attention and **45%** to feed-forward nodes; model inference is over **99%** of measured native rank work. In the control, mean outside-engine time is **21.913646 s** and admission wait **5.829518 s**, against **33.800252 s** mean client time. Those waits shrink with lower CPU work; existing concurrency and connection bounds remain intact. Outside-engine time includes acceptance, HTTP handling and client work; it is not pure network latency.
+
+Single-pair batches are now the ONNX default; explicit overrides remain supported and PyTorch keeps its historical default. All **32 Python tests**, Go race tests and vet pass. [Full profile, raw observations, queue decomposition and independent verification](results/optimization/pair-reuse-20261031/RESULTS.md).
+
+## Dense p99 follow-up: pressure-triggered BGE batching (2026-10-31)
+
+The optimized profile batches up to eight waiting BGE queries above **eight live dense requests**, while lower pressure keeps the immediate single-query path. It uses the same **four native workers × two threads**, one-pair FP32 reranker, model checkpoints, PQ128 vectors and retrieval budgets. Enable with `--dense-batch-size 8 --dense-batch-trigger 8`; existing launch defaults remain single-query.
+
+In matched **2,000-request, 50-client dense-only probes**, p50/p95/p99 improve **0.670014 / 0.804961 / 1.255924 s → 0.382852 / 0.503825 / 0.552580 s**. Successful throughput rises **73.295173 → 129.848810 QPS**; p99 decreases **56.00%**. All **4,000/4,000** probe requests succeeded. Separate 100-query, 50-client HTTP quality replays retain identical Top-100 ordering; the largest score difference is **0.000000238419**.
+
+The standard 200-request-per-endpoint run gives dense p99 **1.234895 → 0.521500 s**, QPS **74.647152 → 129.953149**. Hybrid throughput is essentially unchanged (**1.382198 → 1.384325 QPS**). Hybrid p99 is **39.590239 → 40.077777 s**, a measured **1.23% increase** in this pair; this is still approximately the prior 40-second result, not a claim of improved hybrid tails or statistical equivalence. All **800/800** standard comparison requests succeeded. Every evaluated query retains its Top-10 order and nDCG; reranked nDCG@10 remains **0.553718**, dense **0.482297**, PQ recall **0.838**.
+
+The trigger preserves the immediate path within the Go engine’s eight-request hybrid cap. Final counters show **418 immediate calls + 192 grouped queries in 24 batches**, matching the original **610 logical dense calls**. All queues drain with no rejected admissions. **37 Python tests**, all Go race tests and vet pass. [Detailed results, native profile, bounds, raw observations and independent verification](results/optimization/dense-batching-20261031/RESULTS.md).
