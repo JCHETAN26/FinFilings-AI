@@ -1,0 +1,24 @@
+{
+  "checked_utc": "2026-11-02T17:32:59.169646+00:00",
+  "passed": true,
+  "paired_gate": true,
+  "primary_median_seconds": {
+    "legacy": 29.71211002200289,
+    "fast": 23.503144278001855
+  },
+  "primary_reduction": 0.20897087885724275,
+  "recovered_case_count": 30,
+  "citations": 140,
+  "cited_available_subqueries": 52,
+  "available_subqueries": 52,
+  "application_tests": 192,
+  "benchmark_tests": 216,
+  "measured_code_files_unchanged": 59,
+  "ui_projection_cases": 30,
+  "report_rows_verified": 30,
+  "documentation_links_missing": [],
+  "publication_candidates_scanned_before_this_record": 275,
+  "publication_candidate_bytes": 4555225,
+  "credential_contact_or_generated_payload_findings": 0,
+  "note": "Codex pre-commit release check. Initial parser accidentally included paired-table rows; corrected to the full-table header. Generated interrupted bridge preserved locally and excluded from Git. Source fixtures are not human semantic gold. UI restart follows publication."
+}

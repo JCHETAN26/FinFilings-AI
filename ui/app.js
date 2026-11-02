@@ -356,7 +356,7 @@
     const bodyNode = el('div', { cls: 'details-body' });
     bodyNode.append(el('dl', { cls: 'meta-grid' },
       el('dt', { text: 'Audit ID' }), el('dd', {}, code(job.id)), el('dt', { text: 'Total time' }), el('dd', { text: seconds(result.elapsed_seconds) }),
-      el('dt', { text: 'Controller states' }), el('dd', { text: d.states.join(' → ') }), el('dt', { text: 'Retrieval calls' }), el('dd', { text: d.retrieval_calls }),
+      el('dt', { text: 'Controller states' }), el('dd', { text: d.states.join(' → ') }), el('dt', { text: 'Execution mode' }), el('dd', { text: `${d.execution_mode} (synthesis: ${d.synthesis_route})` }), el('dt', { text: 'Retrieval calls' }), el('dd', { text: d.retrieval_calls }),
       el('dt', { text: 'Retries' }), el('dd', { text: d.retries })));
     const model = el('table', {}, el('thead', {}, el('tr', {}, ['Step', 'Model', 'Seconds', 'Turns'].map((h) => el('th', { text: h })))),
       el('tbody', {}, d.model_calls.map((c) => el('tr', {}, el('td', { text: c.schema }), el('td', { text: (c.models || []).join(', ') || '—' }), el('td', { text: c.seconds }), el('td', { text: c.num_turns ?? '—' })))));

@@ -1,0 +1,809 @@
+{
+  "prompt": "Compare MSFT and AMZN, both filing year 2024: retrieve evidence on cloud business competition and the operating costs of their cloud infrastructure. Use separate company-specific retrieval steps.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "cloud business competition; cloud infrastructure operating costs",
+        "goal": "cloud business competition and the operating costs of their cloud infrastructure",
+        "filters": {
+          "ticker": "MSFT",
+          "year": 2024,
+          "section": "",
+          "accession": "000095017024087843"
+        }
+      },
+      {
+        "query": "cloud business competition; cloud infrastructure operating costs",
+        "goal": "cloud business competition and the operating costs of their cloud infrastructure",
+        "filters": {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "accession": "000101872424000008"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "cloud business competition; cloud infrastructure operating costs",
+      "requested_goal": "cloud business competition and the operating costs of their cloud infrastructure",
+      "filters": {
+        "ticker": "MSFT",
+        "year": 2024,
+        "section": "",
+        "accession": "000095017024087843"
+      },
+      "score": 4,
+      "rationale": "Within the MSFT FY2024 10-K scope, the passages state the requested cloud competition facts (E01: cloud-based services offered across devices, with competitors developing and deploying cloud services and evolving pricing and delivery models; E02: competitive pressure from free and open-source alternatives) and the cloud infrastructure cost facts (E02: significant costs to build and maintain cloud and AI infrastructure that reduce operating margins; E03: cloud and AI infrastructure will increase operating costs and may decrease operating margins). E04 adds Intelligent Cloud segment context and cloud engineering investment in operating expenses. Read together, the core requested facts are present.",
+      "evidence": [
+        {
+          "id": "000095017024087843#passage-000046",
+          "text": "of these reasons, we may not be able to compete successfully against our current and future competitors, which may adversely affect our business, operations, financial condition, and results of operations. Business model competition Companies compete with us based on a growing variety of business models. • A material part of our business involves cloud-based services available across the spectrum of computing devices. Our competitors continue to develop and deploy cloud-based services for consumers and business customers, and pricing and delivery models are evolving. We and our competitors are devoting significant resources to develop and deploy our cloud-based strategies. • We are investing in artificial intelligence (“AI”) across the entire company and infusing generative AI capabilities into our consumer and commercial offerings. We expect AI technology and services to be a highly competitive and rapidly evolving market, and new competitors continue to enter the market. We will bear significant development and operational costs to build and support the AI models, services, platforms, and infrastructure necessary to meet the needs of our customers. To compete effectively we must also be responsive to technological change, new and potential regulatory developments, and public scrutiny. • Even as we transition more of our business to infrastructure-, platform-, and software-as-a-service business model, the license-based proprietary software model generates a substantial portion of our software revenue. We bear the costs of converting original ideas into software products through investments in research and development, offsetting these costs with the revenue received from licensing our products. Many of our competitors also develop and sell software",
+          "metadata": {
+            "ID": "000095017024087843#passage-000046",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000046"
+        },
+        {
+          "id": "000095017024087843#passage-000102",
+          "text": "to 71%. Excluding the impact of the change in accounting estimate, Microsoft Cloud gross margin percentage increased slightly driven by improvements in Azure and Office 365 Commercial, inclusive of scaling our AI infrastructure, offset in part by sales mix shift to Azure. Operating expenses increased $4.0 billion or 7% driven by Gaming, with 7 points of growth from the Activision Blizzard acquisition, and investments in cloud engineering, offset in part by the prior year Q2 charge. Operating income increased $20.9 billion or 24% driven by growth across each of our segments. Prior year gross margin, operating income, net income, and diluted EPS were negatively impacted by the Q2 charge, which resulted in decreases of $152 million, $1.2 billion, $946 million, and $0.13, respectively. 43 PART II Item 7 SEGMENT RESULTS OF OPERATIONS (In millions, except percentages) 2024 2023 Percentage Change Revenue Productivity and Business Processes $ 77,728 $ 69,274 12% Intelligent Cloud 105,362 87,907 20% More Personal Computing 62,032 54,734 13% Total $ 245,122 $ 211,915 16% Operating Income Productivity and Business Processes $ 40,540 $ 34,189 19% Intelligent Cloud 49,584 37,884 31% More Personal Computing 19,309 16,450 17% Total $ 109,433 $ 88,523 24% Reportable Segments Fiscal Year 2024 Compared with Fiscal Year 2023 Productivity and Business Processes Revenue increased $8.5 billion or 12%. • Office Commercial products and cloud services revenue increased $5.8 billion or 14%. Office 365 Commercial revenue grew 16% with seat growth of 7%, driven by small and medium business and frontline worker offerings, as well as growth in revenue per",
+          "metadata": {
+            "ID": "000095017024087843#passage-000102",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000102"
+        },
+        {
+          "id": "000095017024087843#passage-000047",
+          "text": "to businesses and consumers under this model. • Other competitors develop and offer free applications, online services, and content, and make money by selling third-party advertising. Advertising revenue funds development of products and services these competitors provide to users at little or no cost, competing directly with our revenue-generating products. • Some companies compete with us by modifying and then distributing open source software at little or no cost to end users, using open source AI models, and earning revenue on advertising or integrated products and services. These firms do not bear the full costs of research and development for the open source products. Some open source products mimic the features and functionality of our products. The competitive pressures described above may cause decreased sales volumes, price reductions, and/or increased operating costs, such as for research and development, marketing, and sales incentives, which may adversely affect our financial condition and results of operations. Our focus on cloud-based and AI services presents execution and competitive risks. We are incurring significant costs to build and maintain infrastructure to support cloud computing and AI services. These costs will reduce the operating margins. Whether we succeed in cloud-based and AI services depends on our execution in several areas, including: • Continuing to bring to market compelling cloud-based and AI experiences and products that generate increasing traffic and market share. • Maintaining the utility, compatibility, and performance of our cloud-based and AI services on the growing array of computing devices, including PCs, smartphones, tablets, gaming consoles, and other devices. • Continuing",
+          "metadata": {
+            "ID": "000095017024087843#passage-000047",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000047"
+        },
+        {
+          "id": "000095017024087843#passage-000096",
+          "text": "cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services. Our datacenters depend on the availability of permitted and buildable land, predictable energy, networking supplies, and servers, including graphics processing units (“GPUs”) and other components. Our devices are primarily manufactured by third-party contract manufacturers. For the majority of our products, we have the ability to use other manufacturers if a current vendor becomes unavailable or unable to meet our requirements. However, some of our products contain certain components for which there are very few qualified suppliers. Extended disruptions at these suppliers could impact our ability to manufacture devices on time to meet consumer demand. Our success is highly dependent on our ability to attract and retain qualified employees. We hire a mix of university and industry talent worldwide. We compete for talented individuals globally by offering an exceptional working environment, broad customer reach, scale in resources, the ability to grow one’s career across many different products and businesses, and competitive compensation and benefits. Our international operations provide a significant portion of our total revenue and expenses. Many of these revenue and expenses are denominated in currencies other than the U.S. dollar. As a result, changes in foreign exchange rates may significantly affect revenue and expenses. Fluctuations in the U.S. dollar relative to certain foreign",
+          "metadata": {
+            "ID": "000095017024087843#passage-000096",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000096"
+        },
+        {
+          "id": "000095017024087843#passage-000185",
+          "text": "based on the specific facts and circumstances of the costs being allocated and is generally based on relative gross margin or relative headcount. Segment revenue and operating income were as follows during the periods presented: (In millions) Year Ended June 30, 2024 2023 2022 Revenue Productivity and Business Processes $ 77,728 $ 69,274 $ 63,364 Intelligent Cloud 105,362 87,907 74,965 More Personal Computing 62,032 54,734 59,941 Total $ 245,122 $ 211,915 $ 198,270 Operating Income Productivity and Business Processes $ 40,540 $ 34,189 $ 29,690 Intelligent Cloud 49,584 37,884 33,203 More Personal Computing 19,309 16,450 20,490 Total $ 109,433 $ 88,523 $ 83,383 No sales to an individual customer or country other than the United States accounted for more than 10% of revenue for fiscal years 2024, 2023, or 2022. Revenue, classified by the major geographic areas in which our customers were located, was as follows: (In millions) Year Ended June 30, 2024 2023 2022 United States (a) $ 124,704 $ 106,744 $ 100,218 Other countries 120,418 105,171 98,052 Total $ 245,122 $ 211,915 $ 198,270 (a) Includes billings to OEMs and certain multinational organizations because of the nature of these businesses and the impracticability of determining the geographic source of the revenue. 92 PART II Item 8 Revenue, classified by significant product and service offerings, was as follows: (In millions) Year Ended June 30, 2024 2023 2022 Server products and cloud services $ 97,726 $ 79,970 $ 67,350 Office products and cloud services 54,875 48,848 44,970 Windows 23,244 21,507 24,732 Gaming 21,503 15,466 16,230 LinkedIn",
+          "metadata": {
+            "ID": "000095017024087843#passage-000185",
+            "Ticker": "MSFT",
+            "CIK": "789019",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000950170-24-087843",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+          "tag": "MSFT-2024-10K-p000185"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000095017024087843#passage-000046",
+        "000095017024087843#passage-000102",
+        "000095017024087843#passage-000047",
+        "000095017024087843#passage-000096",
+        "000095017024087843#passage-000185",
+        "000095017024087843#passage-000023",
+        "000095017024087843#passage-000020",
+        "000095017024087843#passage-000048",
+        "000095017024087843#passage-000021",
+        "000095017024087843#passage-000103"
+      ],
+      "fresh_verified_ids": [
+        "000095017024087843#passage-000046",
+        "000095017024087843#passage-000102",
+        "000095017024087843#passage-000047",
+        "000095017024087843#passage-000096",
+        "000095017024087843#passage-000185"
+      ],
+      "quote_selections": [
+        {
+          "chunk_id": "000095017024087843#passage-000046",
+          "quote": "A material part of our business involves cloud-based services available across the spectrum of computing devices. Our competitors continue to develop and deploy cloud-based services for consumers and business customers, and pricing and delivery models are evolving."
+        },
+        {
+          "chunk_id": "000095017024087843#passage-000047",
+          "quote": "We are incurring significant costs to build and maintain infrastructure to support cloud computing and AI services. These costs will reduce the operating margins."
+        },
+        {
+          "chunk_id": "000095017024087843#passage-000096",
+          "quote": "cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins."
+        }
+      ],
+      "quote_flags": [],
+      "elapsed_seconds": 14.798167981003644
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "cloud business competition; cloud infrastructure operating costs",
+      "requested_goal": "cloud business competition and the operating costs of their cloud infrastructure",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 3,
+      "rationale": "The passages cover the operating-cost side well. E02 defines infrastructure costs as servers, networking equipment, data center depreciation and amortization, rent, and utilities that support AWS. E01 attributes AWS operating income growth partly to higher technology infrastructure spending tied to AWS growth. E05 gives AWS net sales and operating expenses for 2021 to 2023. However, no passage describes competition in the cloud business: none names competitors, the competitive landscape, or how AWS competes for customers. That competition element is absent from every passage, so the score is capped at partial.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000150",
+          "text": "of infrastructure costs recorded in “Technology and infrastructure” are allocated to the AWS segment based on usage. There are no internal revenue transactions between our reportable segments. Our chief operating decision maker (“CODM”) regularly reviews consolidated net sales, consolidated operating expenses, and consolidated operating income (loss) by segment. Amounts included in consolidated operating expenses include “Cost of sales,” “Fulfillment,” “Technology and infrastructure,” “Sales and marketing,” “General and administrative,” and “Other operating expense (income), net.” Our CODM manages our business by reviewing annual forecasts and consolidated results by segment on a quarterly basis. North America The North America segment primarily consists of amounts earned from retail sales of consumer products (including from sellers) and advertising and subscription services through North America-focused online and physical stores. This segment includes export sales from these online stores. International The International segment primarily consists of amounts earned from retail sales of consumer products (including from sellers) and advertising and subscription services through internationally-focused online stores. This segment includes export sales from these internationally-focused online stores (including export sales from these online stores to customers in the U.S., Mexico, and Canada), but excludes export sales from our North America-focused online stores. AWS The AWS segment consists of amounts earned from global sales of compute, storage, database, and other services for start-ups, enterprises, government agencies, and academic institutions. Information on reportable segments and reconciliation to consolidated net income (loss) is as follows (in millions): Year Ended December 31, 2021 2022 2023 North America Net sales $ 279,833 $ 315,880 $ 352,828 Operating expenses",
+          "metadata": {
+            "ID": "000101872424000008#passage-000150",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000150"
+        },
+        {
+          "id": "000101872424000008#passage-000064",
+          "text": "to increased unit sales and increased advertising sales, partially offset by increased shipping and fulfillment costs and increased technology and infrastructure costs. The decrease in International operating loss in absolute dollars in 2023, compared to the prior year, is primarily due to increased unit sales and increased advertising sales, partially offset by increased fulfillment and shipping costs and increased technology and infrastructure costs. Changes in foreign exchange rates positively impacted operating loss by $246 million in 2023. The increase in AWS operating income in absolute dollars in 2023, compared to the prior year, is primarily due to increased sales, partially offset by increased payroll and related expenses and spending on technology infrastructure, both of which were primarily driven by additional investments to support AWS business growth. Changes in foreign exchange rates positively impacted operating income by $220 million in 2023. 25 Table of Contents Operating Expenses Information about operating expenses is as follows (in millions): Year Ended December 31, 2022 2023 Operating Expenses: Cost of sales $ 288,831 $ 304,739 Fulfillment 84,299 90,619 Technology and infrastructure 73,213 85,622 Sales and marketing 42,238 44,370 General and administrative 11,891 11,816 Other operating expense (income), net 1,263 767 Total operating expenses $ 501,735 $ 537,933 Year-over-year Percentage Growth (Decline): Cost of sales 6 % 6 % Fulfillment 12 7 Technology and infrastructure 31 17 Sales and marketing 30 5 General and administrative 35 (1) Other operating expense (income), net 1,936 (39) Percent of Net Sales: Cost of sales 56.2 % 53.0 % Fulfillment 16.4 15.8 Technology and infrastructure 14.2",
+          "metadata": {
+            "ID": "000101872424000008#passage-000064",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000064"
+        },
+        {
+          "id": "000101872424000008#passage-000097",
+          "text": "our stores, curation and display of products and services made available in our online stores, and infrastructure costs. Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses. Collectively, these costs reflect the investments we make in order to offer a wide variety of products and services to our customers, including expenditures related to initiatives to build and deploy innovative and efficient software and electronic devices and the development of a satellite network for global broadband service and autonomous vehicles for ride-hailing services. Technology and infrastructure costs are generally expensed as incurred. Sales and Marketing Sales and marketing costs include advertising and payroll and related expenses for personnel engaged in marketing and selling activities, including sales commissions related to AWS. We pay commissions to third parties when their customer referrals result in sales. We also participate in cooperative advertising arrangements with certain of our vendors, and other third parties. Advertising and other promotional costs to market our products and services are expensed as incurred and were $ 16.9 billion, $ 20.6 billion, and $ 20.3 billion in 2021, 2022, and 2023. General and Administrative General and administrative expenses primarily consist of costs for corporate functions, including payroll and related expenses; facilities and equipment expenses, such as depreciation and amortization expense and rent; and professional fees. Stock-Based Compensation Compensation cost for all equity-classified stock awards expected to vest is measured at fair value on the date of grant and recognized over",
+          "metadata": {
+            "ID": "000101872424000008#passage-000097",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000097"
+        },
+        {
+          "id": "000101872424000008#passage-000151",
+          "text": "272,562 318,727 337,951 Operating income (loss) $ 7,271 $ ( 2,847 ) $ 14,877 International Net sales $ 127,787 $ 118,007 $ 131,200 Operating expenses 128,711 125,753 133,856 Operating loss $ ( 924 ) $ ( 7,746 ) $ ( 2,656 ) AWS Net sales $ 62,202 $ 80,096 $ 90,757 Operating expenses 43,670 57,255 66,126 Operating income $ 18,532 $ 22,841 $ 24,631 Consolidated Net sales $ 469,822 $ 513,983 $ 574,785 Operating expenses 444,943 501,735 537,933 Operating income 24,879 12,248 36,852 Total non-operating income (expense) 13,272 ( 18,184 ) 705 Benefit (provision) for income taxes ( 4,791 ) 3,217 ( 7,120 ) Equity-method investment activity, net of tax 4 ( 3 ) ( 12 ) Net income (loss) $ 33,364 $ ( 2,722 ) $ 30,425 68 Table of Contents Net sales by groups of similar products and services, which also have similar economic characteristics, is as follows (in millions): Year Ended December 31, 2021 2022 2023 Net Sales: Online stores (1) $ 222,075 $ 220,004 $ 231,872 Physical stores (2) 17,075 18,963 20,030 Third-party seller services (3) 103,366 117,716 140,053 Advertising services (4) 31,160 37,739 46,906 Subscription services (5) 31,768 35,218 40,209 AWS 62,202 80,096 90,757 Other (6) 2,176 4,247 4,958 Consolidated $ 469,822 $ 513,983 $ 574,785 ___________________ (1) Includes product sales and digital media content where we record revenue gross. We leverage our retail infrastructure to offer a wide selection of consumable and durable goods that includes media products available in both a physical and digital format, such as books, videos,",
+          "metadata": {
+            "ID": "000101872424000008#passage-000151",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000151"
+        },
+        {
+          "id": "000101872424000008#passage-000067",
+          "text": "increased fulfillment costs by $52 million in 2023. We seek to expand our fulfillment network to accommodate a greater selection and in-stock inventory levels and to meet anticipated shipment volumes from sales of our own products as well as sales by third parties for which we provide the fulfillment services. We regularly evaluate our facility requirements. Technology and Infrastructure Technology and infrastructure costs include payroll and related expenses for employees involved in the research and development of new and existing products and services, development, design, and maintenance of our stores, curation and display of products and services made available in our online stores, and infrastructure costs. Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses. Collectively, these costs reflect the investments we make in order to offer a wide variety of products and services to our customers, including expenditures related to initiatives to build and deploy innovative and efficient software and electronic devices and the development of a satellite network for global broadband service and autonomous vehicles for ride-hailing services. We seek to invest efficiently in numerous areas of technology and infrastructure so we may continue to enhance the customer experience and improve our process efficiency through rapid technology developments, while operating at an ever increasing scale. Our technology and infrastructure investment and capital spending projects often support a variety of product and service offerings due to geographic expansion and the cross-functionality of our systems and operations. We expect",
+          "metadata": {
+            "ID": "000101872424000008#passage-000067",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000067"
+        }
+      ],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "Amazon Web Services competitors cloud computing market competition",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000101872424000008#passage-000150",
+        "000101872424000008#passage-000064",
+        "000101872424000008#passage-000097",
+        "000101872424000008#passage-000151",
+        "000101872424000008#passage-000067",
+        "000101872424000008#passage-000006",
+        "000101872424000008#passage-000012",
+        "000101872424000008#passage-000015",
+        "000101872424000008#passage-000066",
+        "000101872424000008#passage-000068"
+      ],
+      "fresh_verified_ids": [
+        "000101872424000008#passage-000150",
+        "000101872424000008#passage-000064",
+        "000101872424000008#passage-000097",
+        "000101872424000008#passage-000151",
+        "000101872424000008#passage-000067"
+      ],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 13.97931275398878
+    },
+    {
+      "subquery": 1,
+      "attempt": 1,
+      "query": "Amazon Web Services competitors cloud computing market competition",
+      "requested_goal": "cloud business competition and the operating costs of their cloud infrastructure",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 3,
+      "rationale": "Scope is AMZN, filing year 2024 (accession 000101872424000008). Competition is covered: E02 names web and infrastructure computing services as an area of competition and says competitors may devote more resources to technology and infrastructure. E01 and E03 add cloud-based infrastructure and cloud services competition. Operating costs are only partly covered. E04 says AWS operating income rose mainly on higher sales, partly offset by payroll and technology infrastructure spending driven by AWS growth. The company-wide Technology and infrastructure expense table (73,213 to 85,622 in millions) is not broken out for AWS. Missing within scope: AWS-specific cloud infrastructure operating cost figures or breakdown. The audit's MSFT comparison is out of scope and was not graded.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000064",
+          "text": "to increased unit sales and increased advertising sales, partially offset by increased shipping and fulfillment costs and increased technology and infrastructure costs. The decrease in International operating loss in absolute dollars in 2023, compared to the prior year, is primarily due to increased unit sales and increased advertising sales, partially offset by increased fulfillment and shipping costs and increased technology and infrastructure costs. Changes in foreign exchange rates positively impacted operating loss by $246 million in 2023. The increase in AWS operating income in absolute dollars in 2023, compared to the prior year, is primarily due to increased sales, partially offset by increased payroll and related expenses and spending on technology infrastructure, both of which were primarily driven by additional investments to support AWS business growth. Changes in foreign exchange rates positively impacted operating income by $220 million in 2023. 25 Table of Contents Operating Expenses Information about operating expenses is as follows (in millions): Year Ended December 31, 2022 2023 Operating Expenses: Cost of sales $ 288,831 $ 304,739 Fulfillment 84,299 90,619 Technology and infrastructure 73,213 85,622 Sales and marketing 42,238 44,370 General and administrative 11,891 11,816 Other operating expense (income), net 1,263 767 Total operating expenses $ 501,735 $ 537,933 Year-over-year Percentage Growth (Decline): Cost of sales 6 % 6 % Fulfillment 12 7 Technology and infrastructure 31 17 Sales and marketing 30 5 General and administrative 35 (1) Other operating expense (income), net 1,936 (39) Percent of Net Sales: Cost of sales 56.2 % 53.0 % Fulfillment 16.4 15.8 Technology and infrastructure 14.2",
+          "metadata": {
+            "ID": "000101872424000008#passage-000064",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000064"
+        },
+        {
+          "id": "000101872424000008#passage-000012",
+          "text": "omnichannel retail, e-commerce services, web and infrastructure computing services, electronic devices, digital content, advertising, grocery, and transportation and logistics services. Some of our current and potential competitors have greater resources, longer histories, more customers, and/or greater brand recognition, particularly with our newly-launched products and services and in our newer geographic regions. They may secure better terms from vendors, adopt more aggressive pricing, and devote more resources to technology, infrastructure, fulfillment, and marketing. Competition continues to intensify, including with the development of new business models and the entry of new and well-funded competitors, and as our competitors enter into business combinations or alliances and established companies in other market segments expand to become competitive with our business. In addition, new and enhanced technologies, including search, web and infrastructure computing services, practical applications of artificial intelligence and machine learning, digital content, and electronic devices continue to increase our competition. The internet facilitates competitive entry and comparison shopping, which enhances the ability of new, smaller, or lesser known businesses to compete against us. As a result of competition, our product and service offerings may not be successful, we may fail to gain or may lose business, and we may be required to increase our spending or lower prices, any of which could materially reduce our sales and profits. Our Expansion into New Products, Services, Technologies, and Geographic Regions Subjects Us to Additional Risks We may have limited or no experience in our newer market segments, and our customers may not adopt our product or service offerings. These offerings, which",
+          "metadata": {
+            "ID": "000101872424000008#passage-000012",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000012"
+        },
+        {
+          "id": "000101872424000008#passage-000136",
+          "text": "intend to defend ourselves vigorously in this matter. In December 2021, the Italian Competition Authority (the “ICA”) issued a decision against Amazon Services Europe S.à r.l., Amazon Europe Core S.à r.l., Amazon EU S.à r.l., Amazon Italia Services S.r.l., and Amazon Italia Logistica S.r.l. claiming that certain of our marketplace and logistics practices in Italy infringe EU competition rules. The decision imposes remedial actions and a fine of € 1.13 billion, which we have paid and will seek to recover pending conclusion of all appeals. We believe the ICA’s decision to be without merit and intend to defend ourselves vigorously in this matter. In July 2022, Acceleration Bay, LLC filed a complaint against Amazon Web Services, Inc. in the United States District Court for the District of Delaware. The complaint alleges, among other things, that Amazon EC2, Amazon CloudFront, AWS Lambda, Amazon Lumberyard, Luna, Amazon Prime Video, Twitch, Amazon GameLift, GridMate, Amazon EKS, AWS App Mesh, and Amazon VPC infringe U.S. Patent Nos. 6,701,344, entitled “Distributed Game Environment”; 6,714,966, entitled “Information Delivery Service”; 6,732,147, entitled “Leaving a Broadcast Channel”; 6,829,634, entitled “Broadcasting Network”; and 6,910,069, entitled “Joining a Broadcast Channel.” The complaint seeks injunctive relief, an unspecified amount of damages, enhanced damages, interest, attorneys’ fees, and costs. We dispute the allegations of wrongdoing and intend to defend ourselves vigorously in this matter. In November 2022, LightGuide, Inc. filed a complaint against Amazon.com, Inc. and Amazon.com Services LLC in the United States District Court for the Eastern District of Texas. The complaint alleges, among other things, that",
+          "metadata": {
+            "ID": "000101872424000008#passage-000136",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000136"
+        },
+        {
+          "id": "000101872424000008#passage-000015",
+          "text": "Foreign Corrupt Practices Act and other applicable U.S. and foreign laws prohibiting corrupt payments to government officials and other third parties; • laws and policies of the U.S. and other jurisdictions affecting trade, foreign investment, loans, and taxes; and • geopolitical events, including war and terrorism. As international physical, e-commerce, and omnichannel retail, cloud services, and other services grow, competition will intensify, including through adoption of evolving business models. Local companies may have a substantial competitive advantage because of their greater understanding of, and focus on, the local customer, as well as their more established local brand names. The inability to hire, train, retain, and manage sufficient required personnel may limit our international growth. The People’s Republic of China (“PRC”) and India regulate Amazon’s and its affiliates’ businesses and operations in country through regulations and license requirements that may restrict (i) foreign investment in and operation of the internet, IT infrastructure, data centers, retail, delivery, and other sectors, (ii) internet content, and (iii) the sale of media and other products and services. For example, in order to meet local ownership, regulatory licensing, and cybersecurity requirements, we provide certain technology services in China through contractual relationships with third parties that hold PRC licenses to provide services. In India, the government restricts the ownership or control of Indian companies by foreign entities involved in online multi-brand retail trading activities. For www.amazon.in, we provide certain marketing tools and logistics services to third-party sellers to enable them to sell online and deliver to customers, and we hold an indirect minority",
+          "metadata": {
+            "ID": "000101872424000008#passage-000015",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000015"
+        },
+        {
+          "id": "000101872424000008#passage-000006",
+          "text": "and app-based means of discovering, using, or acquiring goods and services, either directly or in collaboration with other retailers; (4) companies that provide e-commerce services, including website development and hosting, omnichannel sales, inventory and supply chain management, advertising, fulfillment, customer service, and payment processing; (5) companies that provide fulfillment and logistics services for themselves or for third parties, whether online or offline; (6) companies that provide information technology services or products, including on-premises or cloud-based infrastructure and other services; (7) companies that design, manufacture, market, or sell consumer electronics, telecommunication, and electronic devices; (8) companies that sell grocery products online and in physical stores; and (9) companies that provide advertising services, whether in digital or other formats. We believe that the principal competitive factors in our retail businesses include selection, price, and convenience, including fast and reliable fulfillment. Additional competitive factors for our seller and enterprise services include the quality, speed, and reliability of our services and tools, as well as customers’ ability and willingness to change business practices. Some of our current and potential competitors have greater resources, longer histories, more customers, greater brand recognition, and greater control over inputs critical to our various businesses. They may secure better terms from suppliers, adopt more aggressive pricing, pursue restrictive distribution agreements that restrict our access to supply, direct consumers to their own offerings instead of ours, lock-in potential customers with restrictive terms, and devote more resources to technology, infrastructure, fulfillment, and marketing. The internet facilitates competitive entry and comparison shopping, which enhances the ability of new,",
+          "metadata": {
+            "ID": "000101872424000008#passage-000006",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000006"
+        }
+      ],
+      "accepted": false,
+      "retained_evidence_ids": [
+        "000101872424000008#passage-000064"
+      ],
+      "nominated_retained_ids": [
+        "000101872424000008#passage-000064",
+        "000101872424000008#passage-000067"
+      ],
+      "proposed_rewrite": "AWS segment technology and infrastructure expense, server and data center costs, cloud infrastructure operating expenses",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000101872424000008#passage-000012",
+        "000101872424000008#passage-000136",
+        "000101872424000008#passage-000015",
+        "000101872424000008#passage-000006",
+        "000101872424000008#passage-000004",
+        "000101872424000008#passage-000010",
+        "000101872424000008#passage-000135",
+        "000101872424000008#passage-000048",
+        "000101872424000008#passage-000038",
+        "000101872424000008#passage-000134"
+      ],
+      "fresh_verified_ids": [
+        "000101872424000008#passage-000012",
+        "000101872424000008#passage-000136",
+        "000101872424000008#passage-000015",
+        "000101872424000008#passage-000006",
+        "000101872424000008#passage-000004"
+      ],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 14.657420271993033
+    },
+    {
+      "subquery": 1,
+      "attempt": 2,
+      "query": "AWS segment technology and infrastructure expense, server and data center costs, cloud infrastructure operating expenses",
+      "requested_goal": "cloud business competition and the operating costs of their cloud infrastructure",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 4,
+      "rationale": "Within AMZN's 2024 filing (fiscal period ended December 31, 2023), E01 covers competition in web and infrastructure computing services, including intensifying competition and new well-funded entrants. E03 and E04 define the infrastructure costs that support AWS (servers, networking equipment, data center depreciation, rent, utilities). E02 states that AWS operating income growth was partly offset by spending on technology infrastructure driven by AWS growth. Together these address both the cloud competition and the cloud infrastructure cost elements of the goal. The passages do not give an AWS-only dollar figure for infrastructure costs (only company-wide Technology and infrastructure totals), and they do not name specific cloud competitors. The goal did not ask for either, so neither lowers the score.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000064",
+          "text": "to increased unit sales and increased advertising sales, partially offset by increased shipping and fulfillment costs and increased technology and infrastructure costs. The decrease in International operating loss in absolute dollars in 2023, compared to the prior year, is primarily due to increased unit sales and increased advertising sales, partially offset by increased fulfillment and shipping costs and increased technology and infrastructure costs. Changes in foreign exchange rates positively impacted operating loss by $246 million in 2023. The increase in AWS operating income in absolute dollars in 2023, compared to the prior year, is primarily due to increased sales, partially offset by increased payroll and related expenses and spending on technology infrastructure, both of which were primarily driven by additional investments to support AWS business growth. Changes in foreign exchange rates positively impacted operating income by $220 million in 2023. 25 Table of Contents Operating Expenses Information about operating expenses is as follows (in millions): Year Ended December 31, 2022 2023 Operating Expenses: Cost of sales $ 288,831 $ 304,739 Fulfillment 84,299 90,619 Technology and infrastructure 73,213 85,622 Sales and marketing 42,238 44,370 General and administrative 11,891 11,816 Other operating expense (income), net 1,263 767 Total operating expenses $ 501,735 $ 537,933 Year-over-year Percentage Growth (Decline): Cost of sales 6 % 6 % Fulfillment 12 7 Technology and infrastructure 31 17 Sales and marketing 30 5 General and administrative 35 (1) Other operating expense (income), net 1,936 (39) Percent of Net Sales: Cost of sales 56.2 % 53.0 % Fulfillment 16.4 15.8 Technology and infrastructure 14.2",
+          "metadata": {
+            "ID": "000101872424000008#passage-000064",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000064"
+        },
+        {
+          "id": "000101872424000008#passage-000012",
+          "text": "omnichannel retail, e-commerce services, web and infrastructure computing services, electronic devices, digital content, advertising, grocery, and transportation and logistics services. Some of our current and potential competitors have greater resources, longer histories, more customers, and/or greater brand recognition, particularly with our newly-launched products and services and in our newer geographic regions. They may secure better terms from vendors, adopt more aggressive pricing, and devote more resources to technology, infrastructure, fulfillment, and marketing. Competition continues to intensify, including with the development of new business models and the entry of new and well-funded competitors, and as our competitors enter into business combinations or alliances and established companies in other market segments expand to become competitive with our business. In addition, new and enhanced technologies, including search, web and infrastructure computing services, practical applications of artificial intelligence and machine learning, digital content, and electronic devices continue to increase our competition. The internet facilitates competitive entry and comparison shopping, which enhances the ability of new, smaller, or lesser known businesses to compete against us. As a result of competition, our product and service offerings may not be successful, we may fail to gain or may lose business, and we may be required to increase our spending or lower prices, any of which could materially reduce our sales and profits. Our Expansion into New Products, Services, Technologies, and Geographic Regions Subjects Us to Additional Risks We may have limited or no experience in our newer market segments, and our customers may not adopt our product or service offerings. These offerings, which",
+          "metadata": {
+            "ID": "000101872424000008#passage-000012",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000012"
+        },
+        {
+          "id": "000101872424000008#passage-000150",
+          "text": "of infrastructure costs recorded in “Technology and infrastructure” are allocated to the AWS segment based on usage. There are no internal revenue transactions between our reportable segments. Our chief operating decision maker (“CODM”) regularly reviews consolidated net sales, consolidated operating expenses, and consolidated operating income (loss) by segment. Amounts included in consolidated operating expenses include “Cost of sales,” “Fulfillment,” “Technology and infrastructure,” “Sales and marketing,” “General and administrative,” and “Other operating expense (income), net.” Our CODM manages our business by reviewing annual forecasts and consolidated results by segment on a quarterly basis. North America The North America segment primarily consists of amounts earned from retail sales of consumer products (including from sellers) and advertising and subscription services through North America-focused online and physical stores. This segment includes export sales from these online stores. International The International segment primarily consists of amounts earned from retail sales of consumer products (including from sellers) and advertising and subscription services through internationally-focused online stores. This segment includes export sales from these internationally-focused online stores (including export sales from these online stores to customers in the U.S., Mexico, and Canada), but excludes export sales from our North America-focused online stores. AWS The AWS segment consists of amounts earned from global sales of compute, storage, database, and other services for start-ups, enterprises, government agencies, and academic institutions. Information on reportable segments and reconciliation to consolidated net income (loss) is as follows (in millions): Year Ended December 31, 2021 2022 2023 North America Net sales $ 279,833 $ 315,880 $ 352,828 Operating expenses",
+          "metadata": {
+            "ID": "000101872424000008#passage-000150",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000150"
+        },
+        {
+          "id": "000101872424000008#passage-000097",
+          "text": "our stores, curation and display of products and services made available in our online stores, and infrastructure costs. Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses. Collectively, these costs reflect the investments we make in order to offer a wide variety of products and services to our customers, including expenditures related to initiatives to build and deploy innovative and efficient software and electronic devices and the development of a satellite network for global broadband service and autonomous vehicles for ride-hailing services. Technology and infrastructure costs are generally expensed as incurred. Sales and Marketing Sales and marketing costs include advertising and payroll and related expenses for personnel engaged in marketing and selling activities, including sales commissions related to AWS. We pay commissions to third parties when their customer referrals result in sales. We also participate in cooperative advertising arrangements with certain of our vendors, and other third parties. Advertising and other promotional costs to market our products and services are expensed as incurred and were $ 16.9 billion, $ 20.6 billion, and $ 20.3 billion in 2021, 2022, and 2023. General and Administrative General and administrative expenses primarily consist of costs for corporate functions, including payroll and related expenses; facilities and equipment expenses, such as depreciation and amortization expense and rent; and professional fees. Stock-Based Compensation Compensation cost for all equity-classified stock awards expected to vest is measured at fair value on the date of grant and recognized over",
+          "metadata": {
+            "ID": "000101872424000008#passage-000097",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000097"
+        },
+        {
+          "id": "000101872424000008#passage-000067",
+          "text": "increased fulfillment costs by $52 million in 2023. We seek to expand our fulfillment network to accommodate a greater selection and in-stock inventory levels and to meet anticipated shipment volumes from sales of our own products as well as sales by third parties for which we provide the fulfillment services. We regularly evaluate our facility requirements. Technology and Infrastructure Technology and infrastructure costs include payroll and related expenses for employees involved in the research and development of new and existing products and services, development, design, and maintenance of our stores, curation and display of products and services made available in our online stores, and infrastructure costs. Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses. Collectively, these costs reflect the investments we make in order to offer a wide variety of products and services to our customers, including expenditures related to initiatives to build and deploy innovative and efficient software and electronic devices and the development of a satellite network for global broadband service and autonomous vehicles for ride-hailing services. We seek to invest efficiently in numerous areas of technology and infrastructure so we may continue to enhance the customer experience and improve our process efficiency through rapid technology developments, while operating at an ever increasing scale. Our technology and infrastructure investment and capital spending projects often support a variety of product and service offerings due to geographic expansion and the cross-functionality of our systems and operations. We expect",
+          "metadata": {
+            "ID": "000101872424000008#passage-000067",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000067"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [
+        "000101872424000008#passage-000064",
+        "000101872424000008#passage-000012"
+      ],
+      "nominated_retained_ids": [
+        "000101872424000008#passage-000064",
+        "000101872424000008#passage-000012"
+      ],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000101872424000008#passage-000150",
+        "000101872424000008#passage-000097",
+        "000101872424000008#passage-000067",
+        "000101872424000008#passage-000064",
+        "000101872424000008#passage-000066",
+        "000101872424000008#passage-000153",
+        "000101872424000008#passage-000151",
+        "000101872424000008#passage-000068",
+        "000101872424000008#passage-000052",
+        "000101872424000008#passage-000091"
+      ],
+      "fresh_verified_ids": [
+        "000101872424000008#passage-000150",
+        "000101872424000008#passage-000097",
+        "000101872424000008#passage-000067",
+        "000101872424000008#passage-000064",
+        "000101872424000008#passage-000066"
+      ],
+      "quote_selections": [
+        {
+          "chunk_id": "000101872424000008#passage-000012",
+          "quote": "In addition, new and enhanced technologies, including search, web and infrastructure computing services, practical applications of artificial intelligence and machine learning, digital content, and electronic devices continue to increase our competition."
+        },
+        {
+          "chunk_id": "000101872424000008#passage-000067",
+          "quote": "Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses."
+        },
+        {
+          "chunk_id": "000101872424000008#passage-000064",
+          "quote": "The increase in AWS operating income in absolute dollars in 2023, compared to the prior year, is primarily due to increased sales, partially offset by increased payroll and related expenses and spending on technology infrastructure, both of which were primarily driven by additional investments to support AWS business growth."
+        }
+      ],
+      "quote_flags": [],
+      "elapsed_seconds": 12.245402785003535
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- A material part of our business involves cloud-based services available across the spectrum of computing devices. Our competitors continue to develop and deploy cloud-based services for consumers and business customers, and pricing and delivery models are evolving. [MSFT-2024-10K-p000046](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000046`; accession: `0000950170-24-087843`).\n- We are incurring significant costs to build and maintain infrastructure to support cloud computing and AI services. These costs will reduce the operating margins. [MSFT-2024-10K-p000047](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000047`; accession: `0000950170-24-087843`).\n- cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins. [MSFT-2024-10K-p000096](https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm) (chunk: `000095017024087843#passage-000096`; accession: `0000950170-24-087843`).\n- In addition, new and enhanced technologies, including search, web and infrastructure computing services, practical applications of artificial intelligence and machine learning, digital content, and electronic devices continue to increase our competition. [AMZN-2024-10K-p000012](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000012`; accession: `0001018724-24-000008`).\n- Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses. [AMZN-2024-10K-p000067](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000067`; accession: `0001018724-24-000008`).\n- The increase in AWS operating income in absolute dollars in 2023, compared to the prior year, is primarily due to increased sales, partially offset by increased payroll and related expenses and spending on technology infrastructure, both of which were primarily driven by additional investments to support AWS business growth. [AMZN-2024-10K-p000064](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000064`; accession: `0001018724-24-000008`).",
+  "citations": [
+    {
+      "tag": "MSFT-2024-10K-p000046",
+      "chunk_id": "000095017024087843#passage-000046",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "A material part of our business involves cloud-based services available across the spectrum of computing devices. Our competitors continue to develop and deploy cloud-based services for consumers and business customers, and pricing and delivery models are evolving."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000047",
+      "chunk_id": "000095017024087843#passage-000047",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "We are incurring significant costs to build and maintain infrastructure to support cloud computing and AI services. These costs will reduce the operating margins."
+    },
+    {
+      "tag": "MSFT-2024-10K-p000096",
+      "chunk_id": "000095017024087843#passage-000096",
+      "accession": "0000950170-24-087843",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "quote": "cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins."
+    },
+    {
+      "tag": "AMZN-2024-10K-p000012",
+      "chunk_id": "000101872424000008#passage-000012",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "In addition, new and enhanced technologies, including search, web and infrastructure computing services, practical applications of artificial intelligence and machine learning, digital content, and electronic devices continue to increase our competition."
+    },
+    {
+      "tag": "AMZN-2024-10K-p000067",
+      "chunk_id": "000101872424000008#passage-000067",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses."
+    },
+    {
+      "tag": "AMZN-2024-10K-p000064",
+      "chunk_id": "000101872424000008#passage-000064",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "The increase in AWS operating income in absolute dollars in 2023, compared to the prior year, is primarily due to increased sales, partially offset by increased payroll and related expenses and spending on technology infrastructure, both of which were primarily driven by additional investments to support AWS business growth."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.319057529006386,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13074,
+        "cache_read_input_tokens": 1472,
+        "output_tokens": 821,
+        "output_tokens_details": {
+          "thinking_tokens": 584
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13074,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 821,
+            "cache_read_input_tokens": 1472,
+            "cache_creation_input_tokens": 13074,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13074
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0030402200000000006
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.362282501999289,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16211,
+        "cache_read_input_tokens": 2486,
+        "output_tokens": 1010,
+        "output_tokens_details": {
+          "thinking_tokens": 649
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16211,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1010,
+            "cache_read_input_tokens": 2486,
+            "cache_creation_input_tokens": 16211,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16211
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0037722600000000004
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 8.367735224004718,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16051,
+        "cache_read_input_tokens": 2486,
+        "output_tokens": 1517,
+        "output_tokens_details": {
+          "thinking_tokens": 920
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16051,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1517,
+            "cache_read_input_tokens": 2486,
+            "cache_creation_input_tokens": 16051,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16051
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00399376
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.787668367003789,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16167,
+        "cache_read_input_tokens": 2486,
+        "output_tokens": 1210,
+        "output_tokens_details": {
+          "thinking_tokens": 761
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16167,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1210,
+            "cache_read_input_tokens": 2486,
+            "cache_creation_input_tokens": 16167,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16167
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0038634600000000004
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 9.15907400099968,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 15993,
+        "cache_read_input_tokens": 2486,
+        "output_tokens": 1882,
+        "output_tokens_details": {
+          "thinking_tokens": 1181
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 15993,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1882,
+            "cache_read_input_tokens": 2486,
+            "cache_creation_input_tokens": 15993,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 15993
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.004164660000000001
+    }
+  ],
+  "elapsed_seconds": 47.2077899339929,
+  "execution_mode": "fast",
+  "synthesis_route": "host_quotes"
+}

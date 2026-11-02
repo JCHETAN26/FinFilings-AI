@@ -66,16 +66,16 @@ class Runtime:
         self.registry.close()
 
 
-def build_runtime(*, corpus: Path, provenance: Path, backend_url: str, expected_corpus_sha256: str, model: str = 'haiku',
+def build_runtime(*, corpus: Path, provenance: Path, backend_url: str, expected_corpus_sha256: str, model: str = 'haiku', agent_mode: str = 'fast',
                   job_timeout: float = limits.JOB_TIMEOUT_MAX_SECONDS, model_timeout: float = limits.MODEL_TIMEOUT_MAX_SECONDS) -> Runtime:
-    """One shared disk-backed registry. Agent limits (<=3 subqueries, <=2 retries, 5 contexts) are the agent's own, unchanged."""
+    """One shared disk-backed registry. Agent limits (<=3 subqueries, <=2 retries, 5 contexts) are the agent's own, unchanged. Default mode is the real fast path."""
     if not 1 <= model_timeout <= limits.MODEL_TIMEOUT_MAX_SECONDS:
         raise ValueError(f'model timeout must be 1..{limits.MODEL_TIMEOUT_MAX_SECONDS} seconds')
     registry = ProvenanceRegistry(corpus, provenance)
     try:
         catalog = build_catalog(registry)
         backend = HybridClient(backend_url)
-        agent = Agent(ClaudeJSON(model=model, timeout=model_timeout, concurrency=limits.MODEL_CONCURRENCY), backend, registry)
+        agent = Agent(ClaudeJSON(model=model, timeout=model_timeout, concurrency=limits.MODEL_CONCURRENCY), backend, registry, mode=agent_mode)
         manager = AuditManager(agent, project_result, job_timeout=job_timeout)
         return Runtime(manager=manager, catalog=catalog, probe=BridgeProbe(backend_url, expected_corpus_sha256), registry=registry, backend=backend)
     except BaseException:

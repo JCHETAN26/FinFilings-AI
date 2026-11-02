@@ -130,14 +130,14 @@ class HopTrace(unittest.TestCase):
                 return [dict(id=f'000000000000000001#passage-{n:06}') for n in self.rounds.pop(0)]
 
         model = Recorder(score=3)
-        agent = Agent(model, Backend(), Registry(), max_retries=1)
+        agent = Agent(model, Backend(), Registry(), max_retries=1, mode='legacy')
         sub = SubQuery(query='original search phrase', goal='operating lease obligations', filters=F1)
         hops = asyncio.run(agent._retrieve(0, sub, PROMPT))
         self.assertEqual([h.requested_goal for h in hops], ['operating lease obligations'] * 2)
         self.assertEqual([p[1]['requested_goal'] for p in model.payloads], ['operating lease obligations'] * 2)
         self.assertEqual([p[1]['search_query'] for p in model.payloads], ['original search phrase', 'fixture rewrite'])
         self.assertTrue(all(h.score == 3 and not h.accepted for h in hops))  # no auto-accept of partial evidence
-        legacy = asyncio.run(Agent(Recorder(score=3), type('B', (), {'rounds': [[1]], 'search': Backend.search})(), Registry(), max_retries=0)
+        legacy = asyncio.run(Agent(Recorder(score=3), type('B', (), {'rounds': [[1]], 'search': Backend.search})(), Registry(), max_retries=0, mode='legacy')
                              ._retrieve(0, SubQuery(query='legacy query', filters=F1), PROMPT))
         self.assertEqual(legacy[0].requested_goal, '')
         Hop.model_validate({k: v for k, v in hops[0].model_dump().items() if k != 'requested_goal'})  # old saved hops still load

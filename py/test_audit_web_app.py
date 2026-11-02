@@ -355,8 +355,30 @@ class Catalog(AppCase):
 class FixtureEndToEnd(AppCase):
     """Real Agent, real ProvenanceRegistry over the synthetic corpus; only the model and retrieval backend are scripted."""
 
-    def real_agent(self, **kwargs):
-        return Agent(ScriptedModel(**kwargs), ScriptedBackend(), Fixture.registry)
+    def real_agent(self, mode='legacy', **kwargs):
+        return Agent(ScriptedModel(**kwargs), ScriptedBackend(), Fixture.registry, mode=mode)
+
+    async def test_fast_mode_binds_citations_to_evidence_and_reports_its_real_route(self):
+        self.build(self.real_agent('fast'))
+        done = await self.wait((await self.post(PROMPT)).json()['id'])
+        self.assertEqual(done['status'], 'completed', done.get('error'))
+        result = done['result']
+        self.assertEqual((result['diagnostics']['execution_mode'], result['diagnostics']['synthesis_route']), ('fast', 'host_quotes'))
+        self.assertEqual([c['schema'] for c in result['diagnostics']['model_calls']], ['Plan', 'CritiqueWithQuotes', 'CritiqueWithQuotes'])
+        evidence = {row['id']: row for row in result['evidence']}
+        self.assertEqual(len(result['excerpts']), 2)
+        for excerpt in result['excerpts']:
+            start, end = excerpt['quote_span']
+            self.assertEqual(' '.join(evidence[excerpt['chunk_id']]['text'][start:end].split()), excerpt['quote'])
+
+    async def test_fast_mode_falls_back_with_one_synthesis_call_when_the_critic_proposes_no_quotes(self):
+        self.build(self.real_agent('fast', quotes=False))
+        done = await self.wait((await self.post(PROMPT)).json()['id'])
+        self.assertEqual(done['status'], 'completed', done.get('error'))
+        diag = done['result']['diagnostics']
+        self.assertEqual(diag['synthesis_route'], 'fallback')
+        self.assertEqual([c['schema'] for c in diag['model_calls']], ['Plan', 'CritiqueWithQuotes', 'CritiqueWithQuotes', 'HandleDraft'])
+        self.assertEqual(len(done['result']['excerpts']), 2)
 
     async def test_citations_and_evidence_bind_to_the_real_result(self):
         self.build(self.real_agent())

@@ -40,7 +40,7 @@ class Model:
 
 
 def run(rounds, nominees):
-    agent = Agent(Model(nominees), Backend(rounds), Registry(), max_retries=len(rounds) - 1)
+    agent = Agent(Model(nominees), Backend(rounds), Registry(), max_retries=len(rounds) - 1, mode='legacy')
     return asyncio.run(agent._retrieve(0, SubQuery(query='original query', filters=FILTERS), 'audit'))
 
 
@@ -78,14 +78,14 @@ class ContextBudget(unittest.TestCase):
                 return await super().generate(*a)
         model = Calls([])
         with self.assertRaises(ValueError):
-            asyncio.run(Agent(model, Backend([list(range(1, 12))]), Registry(), max_retries=0)._retrieve(0, SubQuery(query='original query', filters=FILTERS), 'audit'))
+            asyncio.run(Agent(model, Backend([list(range(1, 12))]), Registry(), max_retries=0, mode='legacy')._retrieve(0, SubQuery(query='original query', filters=FILTERS), 'audit'))
         self.assertEqual(model.calls, [])
         class Bad:
             async def search(self, q, f):
                 return {'reranked': []}
         model = Calls([])
         with self.assertRaises(ValueError):
-            asyncio.run(Agent(model, Bad(), Registry(), max_retries=0)._retrieve(0, SubQuery(query='original query', filters=FILTERS), 'audit'))
+            asyncio.run(Agent(model, Bad(), Registry(), max_retries=0, mode='legacy')._retrieve(0, SubQuery(query='original query', filters=FILTERS), 'audit'))
         self.assertEqual(model.calls, [])
 
     def test_rank_four_fresh_survives_two_nominees(self):

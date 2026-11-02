@@ -1,0 +1,127 @@
+{"ready": true, "manifest": {"format_version": 1, "documents": 49406, "dimension": 384, "subvectors": 128, "nbits": 8, "metric": "inner_product", "normalized": true, "model": "BAAI/bge-small-en-v1.5", "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a", "query_instruction": "Represent this sentence for searching relevant passages: ", "max_length": 512, "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f", "reused_embeddings": 49405, "newly_encoded_embeddings": 1, "embedding_reuse_sources": [{"directory": "indexes/vector-sec-scale-v2-pq128-20261031", "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72", "vector_sha256": "7f8ddd5a6957dfe53216ec386488531c4e7943689300450cc73d68a5e4021ebc"}], "training_count": 20000, "recommended_training_count": 9984, "adequate_training_count": true, "seed": 20261030, "training_iterations": 25, "embedding_seconds": 6.417017625999506, "pq_train_add_seconds": 28.34464312199998, "total_seconds": 34.77153289399939, "files": {"vectors.f32.npy": "bc63fd66dadc9b52802771ec1372e41e0fd0e3c40a88923ec17c1f24384cd755", "passages.sqlite": "946a5654110346a901e63a40fa330630728828d9819dbf5441595f1f70dc93f8", "index.pq8.faiss": "40be087632b8ead6490867d9744825906a95ce548f07a8549aa626bd9e756ebb", "centroids.npy": "2abed68ae79105b51ffc6fb0ca3ffca1378f383055d753b46345cd29884725a5"}}}
+INFO:     Started server process [1557929]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:47091 (Press CTRL+C to quit)
+INFO:     127.0.0.1:33976 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50820 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50832 - "POST /dense HTTP/1.1" 200 OK
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+INFO:     127.0.0.1:50832 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50820 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38862 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38868 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38868 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38862 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53186 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53172 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53172 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53186 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44910 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44896 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44896 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44910 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43610 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43622 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43610 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43622 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51362 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51374 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51362 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51374 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48234 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48238 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48234 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48238 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40282 - "POST /dense HTTP/1.1" 200 OK
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+INFO:     127.0.0.1:40282 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33424 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33428 - "POST /dense HTTP/1.1" 200 OK
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+INFO:     127.0.0.1:33428 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33424 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55036 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55036 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46536 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46544 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46544 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46536 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36082 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36080 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36082 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36080 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37138 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37140 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37140 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37138 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41690 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41676 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41676 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41690 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55162 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55156 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55162 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55156 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33298 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33284 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33298 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33284 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37426 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37424 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37426 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37424 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48870 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48864 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48870 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48864 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48676 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48692 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49438 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49446 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49446 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49446 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50414 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50414 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48586 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48578 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48596 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48596 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48596 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48596 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50202 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50190 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43290 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43290 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43298 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43298 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56740 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56744 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56740 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56744 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56744 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40320 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40332 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40332 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40332 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40332 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37726 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37736 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37736 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37736 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37736 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56170 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56180 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56180 - "POST /rerank HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56180 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36256 - "POST /dense HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37770 - "GET /health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1557929]

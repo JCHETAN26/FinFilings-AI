@@ -1,0 +1,44 @@
+[
+  {
+    "pid": 3675546,
+    "cmdline": [
+      "/usr/bin/python3",
+      "-u",
+      "py/service.py",
+      "--index",
+      "indexes/vector-sec-scale-v3-pq128-20261101",
+      "--port",
+      "52697",
+      "--inference-workers",
+      "4",
+      "--threads",
+      "2",
+      "--reranker-onnx",
+      "models/reranker-onnx-fp32-optimized-20261031",
+      "--rerank-batch-size",
+      "1",
+      "--dense-batch-size",
+      "8",
+      "--dense-batch-trigger",
+      "8",
+      "--dense-batch-wait-ms",
+      "2"
+    ],
+    "reason": "orphaned children of stopped UI launcher; UI8766 connection refused"
+  },
+  {
+    "pid": 3675547,
+    "cmdline": [
+      "/media/grv22/Extreme SSD2/project/FinFillings AI/data/audit-ui/run-20261102T082101Z-3675347/bridge",
+      "-mode",
+      "serve",
+      "-index",
+      "indexes/sparse-sec-scale-v3-20261101",
+      "-sidecar",
+      "http://127.0.0.1:52697",
+      "-listen",
+      "127.0.0.1:48973"
+    ],
+    "reason": "orphaned children of stopped UI launcher; UI8766 connection refused"
+  }
+]

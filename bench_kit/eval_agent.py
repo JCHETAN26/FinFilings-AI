@@ -104,7 +104,8 @@ def verify(result, case: dict, registry: ProvenanceRegistry) -> dict:
         accepted_subqueries=sum(h.accepted for h in result.hops), cited_subqueries=covered,
         citations=len(result.citations), complete_coverage=(not negative and covered == len(result.plan.subqueries)),
         evidence_outcome=outcome, unavailable_subqueries=unavailable,
-        flags=result.flags, model_calls=len(result.model_calls), seconds=result.elapsed_seconds)
+        flags=result.flags, model_calls=len(result.model_calls), seconds=result.elapsed_seconds,
+        agent_mode=result.execution_mode, synthesis_route=result.synthesis_route)
 
 
 def legacy_expected(case: dict, registry: ProvenanceRegistry) -> dict:
@@ -137,7 +138,7 @@ def prepare_suite_run(args, registry: ProvenanceRegistry, output: Path) -> tuple
     (output / 'suite.sha256').write_text(f'{digest}  suite.json\n')
     write_json(output / 'run-manifest.json', dict(started_utc=datetime.now(timezone.utc).isoformat(), suite_id=suite['suite_id'],
         suite_sha256=digest, corpus_sha256=suite['corpus_sha256'], case_count=suite['case_count'], selected=selected_ids,
-        full_suite=selected_ids == suite['case_ids'], model_requested=args.model, backend=args.backend, python=platform.python_version(),
+        full_suite=selected_ids == suite['case_ids'], model_requested=args.model, agent_mode=args.agent_mode, backend=args.backend, python=platform.python_version(),
         note='Written before the first request. The agent receives case prompts only; anchors and expectations are evaluator metadata.'))
     cases = [dict(case, require_citations=False) for case in suite['cases'] if case['id'] in selected_ids]
     return suite, digest, cases
@@ -180,7 +181,7 @@ async def evaluate(args) -> None:
         model = ClaudeJSON(model=args.model)
         records = []
         async with HybridClient(args.backend) as backend:
-            agent = Agent(model, backend, registry)
+            agent = Agent(model, backend, registry, mode=args.agent_mode)
             for case in selected:
                 record = await run_case(agent, registry, case, output, suite_mode)
                 if suite_mode:
@@ -192,7 +193,7 @@ async def evaluate(args) -> None:
                 print(json.dumps(record), flush=True)
         passed = [r for r in records if r['status']=='pass']
         report = dict(utc=datetime.now(timezone.utc).isoformat(), python=platform.python_version(),
-            model_requested=args.model, backend=args.backend, corpus_sha256=digest(Path(args.corpus)), registered_filings=len(registry.sources), cases=records, passed=len(passed), total=len(records),
+            model_requested=args.model, agent_mode=args.agent_mode, backend=args.backend, corpus_sha256=digest(Path(args.corpus)), registered_filings=len(registry.sources), cases=records, passed=len(passed), total=len(records),
             citations=sum(r.get('citations',0) for r in records), retrieval_calls=sum(r.get('retrieval_calls',0) for r in records),
             retries=sum(r.get('retries',0) for r in records),
             fully_covered_positive_cases=sum(r.get('complete_coverage',False) for r in records),
@@ -216,6 +217,8 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--backend', default='http://127.0.0.1:8765')
     parser.add_argument('--model', default='haiku')
+    parser.add_argument('--agent-mode', choices=('legacy', 'fast'), default='legacy',
+                        help='legacy (default here, keeps historical commands reproducible): separate synthesis call; fast: critic-selected quotes, host formatting')
     parser.add_argument('--corpus', default='data/sec/chunks.jsonl')
     parser.add_argument('--provenance', default='data/sec/provenance.json')
     parser.add_argument('--output', default='bench_kit/results/phase3/evaluation')

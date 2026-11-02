@@ -929,7 +929,7 @@ class EvaluatorContracts(unittest.TestCase):
                 out = Path(directory)
                 async with HybridClient('http://127.0.0.1:9') as backend:  # closed local port: real httpx transport error
                     model = PlanOnly()
-                    transport = await self.eval_agent.run_case(Agent(model, backend, self.registry), self.registry, case, out, True)
+                    transport = await self.eval_agent.run_case(Agent(model, backend, self.registry, mode='legacy'), self.registry, case, out, True)
                     self.assertTrue((out / 'broad14.failure.json').exists())
                     leaked = [a['id'] for a in case['reviewer_evidence']['anchors']] + [a['excerpt'][:40] for a in case['reviewer_evidence']['anchors']]
                     self.assertFalse([t for t in leaked if any(t in payload for payload in model.seen)])

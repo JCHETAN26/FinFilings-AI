@@ -1,0 +1,401 @@
+{
+  "prompt": "Compare GS filing year 2026 and BAC filing year 2025: retrieve each firm's regulatory capital ratio disclosures. Retrieve evidence separately for each company and do not substitute another filing year if one filing is unavailable.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "regulatory capital ratios CET1 Tier 1 total capital leverage ratio",
+        "goal": "retrieve each firm's regulatory capital ratio disclosures",
+        "filters": {
+          "ticker": "GS",
+          "year": 2026,
+          "section": "",
+          "accession": "000088698226000091"
+        }
+      },
+      {
+        "query": "regulatory capital ratios CET1 Tier 1 total capital leverage ratio",
+        "goal": "retrieve each firm's regulatory capital ratio disclosures",
+        "filters": {
+          "ticker": "BAC",
+          "year": 2025,
+          "section": "",
+          "accession": ""
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "regulatory capital ratios CET1 Tier 1 total capital leverage ratio",
+      "requested_goal": "retrieve each firm's regulatory capital ratio disclosures",
+      "filters": {
+        "ticker": "GS",
+        "year": 2026,
+        "section": "",
+        "accession": "000088698226000091"
+      },
+      "score": 4,
+      "rationale": "Within GS 2026 scope (accession 000088698226000091), the passages state the consolidated Standardized risk-based ratios (CET1 15.0%/15.3%, Tier 1 16.8%/17.1%, Total 18.8%/18.6% for December 2025/2024), the consolidated Tier 1 leverage ratio (6.6%/6.8%) and SLR (5.2%/5.5%), plus the required minimums for GS, GS Bank USA and GSIB. The Advanced-rule ratio values are described only qualitatively in E02 and GS Bank USA's actual ratios are not shown, but the core regulatory capital ratio disclosures requested are supported.",
+      "evidence": [
+        {
+          "id": "000088698226000091#item8#passage-000178",
+          "text": "that qualifies as Common Equity Tier 1 (CET1) capital. The firm calculates its CET1 capital, Tier 1 capital and Total capital ratios in accordance with both the Standardized and Advanced Capital Rules. Each of the ratios calculated under the Standardized and Advanced Capital Rules must meet its respective capital requirements. Under the Capital Framework, the firm is also subject to leverage requirements which consist of a minimum Tier 1 leverage ratio and a minimum supplementary leverage ratio (SLR), as well as the SLR buffer. Consolidated Regulatory Capital Requirements Risk-Based Capital Ratios. The table below presents the minimum, capital conservation buffer and total risk-based capital requirements. As of December 2025202420252024 StandardizedAdvanced Risk-based capital minimum requirements CET1 capital ratio 4.5%4.5%4.5%4.5% Tier 1 capital ratio 6.0%6.0%6.0%6.0% Total capital ratio 8.0%8.0%8.0%8.0% Capital conservation buffer requirements G-SIB surcharge (Method 2) 3.0%3.0%3.0%3.0% Stress capital buffer 3.4%6.2%N/AN/A Fixed buffer N/AN/A2.5%2.5% Countercyclical capital buffer 0.0%0.0%0.0%0.0% Total 6.4%9.2%5.5%5.5% Total risk-based capital requirements CET1 capital ratio10.9%13.7%10.0%10.0% Tier 1 capital ratio12.4%15.2%11.5%11.5% Total capital ratio14.4%17.2%13.5%13.5% In the table above: •The total risk-based capital requirements for each of the capital ratios consist of the required risk-based capital minimum and the capital conservation buffer requirements. •The G-SIB surcharge is calculated using two methodologies (Method 1 and Method 2), the higher of which is reflected in the firm’s capital conservation buffer requirements. Method 1 relies upon measures of the size, interconnectedness, substitutability, complexity and cross-jurisdictional activities of each G-SIB. Method 2 uses similar inputs but includes a measure of reliance on short-term wholesale funding instead of substitutability. As of both December",
+          "metadata": {
+            "ID": "000088698226000091#item8#passage-000178",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item8-p000178"
+        },
+        {
+          "id": "000088698226000091#item8#passage-000182",
+          "text": "USA is required to calculate the CET1 capital, Tier 1 capital and Total capital ratios in accordance with both the Standardized and Advanced Capital Rules. The lower of each risk-based capital ratio under the Standardized and Advanced Capital Rules is the ratio against which GS Bank USA’s compliance with its risk-based capital requirements is assessed. In addition, under the regulatory framework for prompt corrective action applicable to GS Bank USA, in order to meet the quantitative requirements for a “well-capitalized” depository institution, GS Bank USA must also meet the “well-capitalized” requirements in the table below. GS Bank USA’s capital levels and prompt corrective action classification are also subject to qualitative judgments by the regulators about components of capital, risk weightings and other factors. Failure to comply with the capital requirements, including a breach of the buffers described below, would result in restrictions being imposed by the regulators. The table below presents GS Bank USA’s risk-based capital, leverage and “well-capitalized” requirements. As of December 2025202420252024 \"Well-capitalized\" Requirements Requirements Risk-based capital requirements CET1 capital ratio7.0%7.0%6.5%6.5% Tier 1 capital ratio8.5%8.5%8.0%8.0% Total capital ratio10.5%10.5%10.0%10.0% Leverage requirements Tier 1 leverage ratio4.0%4.0%5.0%5.0% SLR3.0%3.0%6.0%6.0% In the table above: •The CET1 capital ratio requirement includes a minimum of 4.5%, the Tier 1 capital ratio requirement includes a minimum of 6.0% and the Total capital ratio requirement includes a minimum of 8.0%. These requirements also include the capital conservation buffer requirements consisting of a 2.5% buffer and the countercyclical capital buffer, which the FRB has set to zero percent. •The “well-capitalized” requirements were the binding",
+          "metadata": {
+            "ID": "000088698226000091#item8#passage-000182",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item8-p000182"
+        },
+        {
+          "id": "000088698226000091#item8#passage-000180",
+          "text": "1 capital$115,647 $115,647 Tier 2 capital$14,125 $10,164 Total capital$129,772 $125,811 RWAs$688,541 $674,812 CET1 capital ratio15.0%15.3% Tier 1 capital ratio16.8%17.1% Total capital ratio18.8%18.6% In the table above, the Standardized risk-based capital ratios as of December 2025 decreased compared with December 2024, reflecting an increase in Credit RWAs, partially offset by a decrease in Market RWAs and an increase in capital. The Advanced CET1 capital ratio as of December 2025 decreased compared with December 2024, reflecting an increase in Credit RWAs, partially offset by decreases in both Operational and Market RWAs, and an increase in capital. The Advanced Tier 1 and Total capital ratios as of December 2025 were essentially unchanged compared with December 2024. Leverage Ratios. The table below presents the leverage requirements. As of December 20252024 Tier 1 leverage ratio4.0%4.0% SLR5.0%5.0% In the table above, the SLR requirement of 5% includes a minimum of 3% and a 2% buffer applicable to G-SIBs. On January 1, 2026, the firm early adopted the modified Enhanced Supplementary Leverage Ratio (eSLR) standards, which replaced the 2% buffer applicable to G-SIBs, with a buffer equal to 50% of the firm's G-SIB surcharge (Method 1). As a result, effective January 1, 2026, the firm's SLR buffer decreased to 0.75% and the SLR requirement decreased to 3.75%. The table below presents information about leverage ratios. For the Three Months Ended or as of December $ in millions20252024 Tier 1 capital$118,943 $115,647 Average adjusted total assets$1,810,007 $1,692,500 Total leverage exposure $2,297,597 $2,120,756 Tier 1 leverage ratio6.6%6.8% SLR5.2%5.5% In the table above: •Average adjusted total",
+          "metadata": {
+            "ID": "000088698226000091#item8#passage-000180",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item8-p000180"
+        },
+        {
+          "id": "000088698226000091#item7#passage-000088",
+          "text": "Total capital ratio29.0%29.1% In the table above, the risk-based capital ratios as of December 2025 included profits that are still subject to annual audit by GSIB’s external auditors and approval by GSIB’s Board of Directors for inclusion in risk-based capital. These profits contributed 262 basis points to the CET1 capital ratio as of December 2025. The table below presents GSIB’s leverage ratio requirement and leverage ratio. As of December 20252024 Leverage ratio requirement3.7%3.7% Leverage ratio8.4%8.9% In the table above, the leverage ratio as of December 2025 included profits that are still subject to annual audit by GSIB’s external auditors and approval by GSIB’s Board of Directors for inclusion in risk-based capital. These profits contributed 96 basis points to the leverage ratio as of December 2025. GSIB is subject to minimum reserve requirements at central banks in certain of the jurisdictions in which it operates. As of both December 2025 and December 2024, GSIB was in compliance with these requirements. •GSBE. GSBE is our German bank subsidiary supervised by the European Central Bank, BaFin and Deutsche Bundesbank. GSBE is a non-U.S. banking subsidiary of GS Bank USA and is also subject to standalone regulatory capital requirements noted below. GSBE is subject to the capital requirements prescribed in the E.U. Capital Requirements Directive (CRD) and E.U. Capital Requirements Regulation (CRR), both of which are largely based on Basel III, and the finalized revisions to the Basel III Capital Requirements set by the Basel Committee (Basel III Revisions), which became effective on January 1, 2025. The deposits of GSBE",
+          "metadata": {
+            "ID": "000088698226000091#item7#passage-000088",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item7-p000088"
+        },
+        {
+          "id": "000088698226000091#item8#passage-000181",
+          "text": "assets represents the average daily assets for the quarter adjusted for deductions from Tier 1 capital, and for the three months ended December 2024, also reflected the impact of Current Expected Credit Losses (CECL) transition. •Total leverage exposure includes average adjusted total assets and the monthly average of off-balance sheet and other exposures, primarily consisting of derivatives, securities financing transactions, commitments and guarantees. •Tier 1 leverage ratio is calculated as Tier 1 capital divided by average adjusted total assets. •SLR is calculated as Tier 1 capital divided by total leverage exposure. GS Bank USA GS Bank USA is the firm’s primary U.S. bank subsidiary. GS Bank USA is a New York State-chartered bank and a member of the Federal Reserve System, is supervised and regulated by the FRB, the FDIC, the New York State Department of Financial Services (NYDFS) and the Consumer Financial Protection Bureau (CFPB), and is subject to regulatory capital requirements that are calculated under the Capital Framework. GS Bank USA is an “Advanced approaches” banking organization under the Capital Framework. The deposits of GS Bank USA are insured by the FDIC to the extent provided by law. Goldman Sachs 2025 Form 10-K 213 THE GOLDMAN SACHS GROUP, INC. AND SUBSIDIARIES Notes to Consolidated Financial Statements The Capital Framework includes the minimum risk-based capital and the capital conservation buffer requirements (consisting of a 2.5% buffer and the countercyclical capital buffer). The buffer must consist entirely of capital that qualifies as CET1 capital. In addition, the Capital Framework includes the leverage ratio requirement. GS Bank",
+          "metadata": {
+            "ID": "000088698226000091#item8#passage-000181",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item8-p000181"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000088698226000091#item8#passage-000178",
+        "000088698226000091#item8#passage-000182",
+        "000088698226000091#item8#passage-000180",
+        "000088698226000091#item7#passage-000088",
+        "000088698226000091#item8#passage-000181",
+        "000088698226000091#item8#passage-000184",
+        "000088698226000091#item7#passage-000092",
+        "000088698226000091#item7#passage-000089",
+        "000088698226000091#item7#passage-000090",
+        "000088698226000091#item8#passage-000183"
+      ],
+      "fresh_verified_ids": [
+        "000088698226000091#item8#passage-000178",
+        "000088698226000091#item8#passage-000182",
+        "000088698226000091#item8#passage-000180",
+        "000088698226000091#item7#passage-000088",
+        "000088698226000091#item8#passage-000181"
+      ],
+      "quote_selections": [
+        {
+          "chunk_id": "000088698226000091#item8#passage-000180",
+          "quote": "CET1 capital ratio15.0%15.3% Tier 1 capital ratio16.8%17.1% Total capital ratio18.8%18.6%"
+        }
+      ],
+      "quote_flags": [
+        "Critic quote (subquery 0): Dropped claim for handle E03: quote not found verbatim in that passage"
+      ],
+      "elapsed_seconds": 14.72997349100001
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "regulatory capital ratios CET1 Tier 1 total capital leverage ratio",
+      "requested_goal": "retrieve each firm's regulatory capital ratio disclosures",
+      "filters": {
+        "ticker": "BAC",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No verified evidence exists for the current scope (BAC, filing year 2025). The evidence list is empty, so every required element is absent. The catalog lists a BAC filing only for year 2026 (accession 000007085826000157), and no BAC 2025 filing appears. Per the scope contract, the 2026 filing cannot substitute for the 2025 scope. The required element is BAC's regulatory capital ratio disclosures (CET1, Tier 1, total capital and leverage ratios) within the 2025 filing, and it is absent from every passage. Other companies and filing years in the audit prompt are out of scope and were not graded.",
+      "evidence": [],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "Bank of America regulatory capital ratios CET1 Tier 1 total capital supplementary leverage ratio risk-based capital",
+      "terminal_reason": null,
+      "retrieved_ids": [],
+      "fresh_verified_ids": [],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 4.95012362500006
+    },
+    {
+      "subquery": 1,
+      "attempt": 1,
+      "query": "Bank of America regulatory capital ratios CET1 Tier 1 total capital supplementary leverage ratio risk-based capital",
+      "requested_goal": "retrieve each firm's regulatory capital ratio disclosures",
+      "filters": {
+        "ticker": "BAC",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No evidence was supplied, so no passage states any regulatory capital ratio for BAC within the current scope. The filing catalog lists no BAC filing for year 2025; its only BAC entry is the 2026 filing (accession 000007085826000157). That 2026 filing is outside scope and must not stand in for the missing 2025 filing. The required element, BAC's regulatory capital ratio disclosures (CET1, Tier 1, total capital and leverage ratios), is absent from every passage because no passages exist.",
+      "evidence": [],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "Bank of America regulatory capital ratios CET1 Tier 1 total capital supplementary leverage ratio risk-based capital",
+      "terminal_reason": "stalled_rewrite",
+      "retrieved_ids": [],
+      "fresh_verified_ids": [],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 4.761514858000055
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- CET1 capital ratio15.0%15.3% Tier 1 capital ratio16.8%17.1% Total capital ratio18.8%18.6% [GS-2026-10K-item8-p000180](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000180`; accession: `0000886982-26-000091`).\n\nEvidence gaps:\n- Subquery 1 has no evidence meeting threshold after 1 retries.\n- Subquery 1 stopped early: no verified evidence and the critic proposed no new query \\(stalled rewrite\\).\n- Critic quote \\(subquery 0\\): Dropped claim for handle E03: quote not found verbatim in that passage",
+  "citations": [
+    {
+      "tag": "GS-2026-10K-item8-p000180",
+      "chunk_id": "000088698226000091#item8#passage-000180",
+      "accession": "0000886982-26-000091",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+      "quote": "CET1 capital ratio15.0%15.3% Tier 1 capital ratio16.8%17.1% Total capital ratio18.8%18.6%"
+    }
+  ],
+  "flags": [
+    "Subquery 1 has no evidence meeting threshold after 1 retries.",
+    "Subquery 1 stopped early: no verified evidence and the critic proposed no new query (stalled rewrite).",
+    "Critic quote (subquery 0): Dropped claim for handle E03: quote not found verbatim in that passage"
+  ],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.064788150999902,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13085,
+        "cache_read_input_tokens": 1472,
+        "output_tokens": 834,
+        "output_tokens_details": {
+          "thinking_tokens": 586
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13085,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 834,
+            "cache_read_input_tokens": 1472,
+            "cache_creation_input_tokens": 13085,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13085
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00304892
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.873665421000169,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13243,
+        "cache_read_input_tokens": 2037,
+        "output_tokens": 666,
+        "output_tokens_details": {
+          "thinking_tokens": 320
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13243,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 666,
+            "cache_read_input_tokens": 2037,
+            "cache_creation_input_tokens": 13243,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13243
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00300217
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.696622266000077,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13258,
+        "cache_read_input_tokens": 2037,
+        "output_tokens": 669,
+        "output_tokens_details": {
+          "thinking_tokens": 335
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13258,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 669,
+            "cache_read_input_tokens": 2037,
+            "cache_creation_input_tokens": 13258,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13258
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0030066700000000003
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 11.632532783999977,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16726,
+        "cache_read_input_tokens": 2486,
+        "output_tokens": 2373,
+        "output_tokens_details": {
+          "thinking_tokens": 1828
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16726,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2373,
+            "cache_read_input_tokens": 2486,
+            "cache_creation_input_tokens": 16726,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16726
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00455676
+    }
+  ],
+  "elapsed_seconds": 19.7965949930001,
+  "execution_mode": "fast",
+  "synthesis_route": "host_quotes"
+}

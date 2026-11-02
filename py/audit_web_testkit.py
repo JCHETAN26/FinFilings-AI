@@ -8,7 +8,7 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from agent.filters import FilingFilter
-from agent.models import AgentResult, Citation, Critique, Evidence, HandleDraft, HandleClaim, Hop, Plan, State, SubQuery
+from agent.models import AgentResult, Citation, Critique, CritiqueWithQuotes, CriticClaim, Evidence, HandleDraft, HandleClaim, Hop, Plan, State, SubQuery
 
 ACC = '000000000000000007'
 ACC_DASH = '0000000000-00-000007'
@@ -96,14 +96,20 @@ def write_fixture_corpus(directory: Path) -> tuple[Path, Path]:
 
 class ScriptedModel:
     """Scripted StructuredModel: Plan -> two scopes, Critique -> fixed score, HandleDraft -> exact quotes of E01/E02."""
-    def __init__(self, second_ticker: str = 'TST'):
-        self.calls, self.second_ticker = [], second_ticker
+    def __init__(self, second_ticker: str = 'TST', quotes: bool = True):
+        self.calls, self.second_ticker, self.quotes = [], second_ticker, quotes  # quotes=False: the fast critic proposes none (forces the fallback)
 
     async def generate(self, schema, instruction, payload):
         self.calls.append(dict(schema=schema.__name__, models=['test-double'], seconds=0.0, num_turns=1))
         if schema is Plan:
             return Plan(subqueries=[SubQuery(query='supplier concentration vendors', goal='supplier concentration', filters=FilingFilter(ticker='TST', year=2024)),
                                     SubQuery(query='export controls shipments', goal='export controls', filters=FilingFilter(ticker=self.second_ticker, year=2024))])
+        if schema is CritiqueWithQuotes:
+            has = bool(payload['evidence'])
+            quotes = {'supplier': QUOTE_A, 'export': QUOTE_B}
+            claims = [CriticClaim(ref=row['ref'], quote=quotes['supplier' if 'supplier' in row['text'] else 'export']) for row in payload['evidence']] if self.quotes else []
+            return CritiqueWithQuotes(score=4 if has else 1, rationale='fixture critic', rewritten_query=payload['search_query'] if not has else 'rewrite words',
+                                      retain_refs=[], claims=claims)
         if schema is Critique:
             has = bool(payload['evidence'])
             return Critique(score=4 if has else 1, rationale='fixture critic', rewritten_query=payload['search_query'] if not has else 'rewrite words', retain_ids=[])

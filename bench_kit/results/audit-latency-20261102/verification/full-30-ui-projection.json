@@ -1,0 +1,249 @@
+{
+  "note": "Codex projects every saved real audit result through the actual UI projection; offline verification, no browser/model calls.",
+  "passed": true,
+  "cases": 30,
+  "excerpts": 140,
+  "max_serialized_bytes": 39773,
+  "records": [
+    {
+      "id": "audit01",
+      "serialized_bytes": 26658,
+      "excerpts": 5,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "audit02",
+      "serialized_bytes": 39773,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "audit03",
+      "serialized_bytes": 27122,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "audit04",
+      "serialized_bytes": 26108,
+      "excerpts": 4,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "audit05",
+      "serialized_bytes": 21373,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "audit06",
+      "serialized_bytes": 27634,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "audit07",
+      "serialized_bytes": 22361,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "audit08",
+      "serialized_bytes": 20311,
+      "excerpts": 4,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "audit09",
+      "serialized_bytes": 25015,
+      "excerpts": 5,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "audit10",
+      "serialized_bytes": 6194,
+      "excerpts": 0,
+      "gaps": 3,
+      "mode": "fast",
+      "route": "none"
+    },
+    {
+      "id": "broad11",
+      "serialized_bytes": 26178,
+      "excerpts": 4,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad12",
+      "serialized_bytes": 27797,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad13",
+      "serialized_bytes": 26317,
+      "excerpts": 5,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad14",
+      "serialized_bytes": 26684,
+      "excerpts": 5,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad15",
+      "serialized_bytes": 27686,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad16",
+      "serialized_bytes": 27248,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad17",
+      "serialized_bytes": 28004,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad18",
+      "serialized_bytes": 27681,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad19",
+      "serialized_bytes": 27842,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad20",
+      "serialized_bytes": 25745,
+      "excerpts": 5,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad21",
+      "serialized_bytes": 27357,
+      "excerpts": 5,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad22",
+      "serialized_bytes": 26992,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad23",
+      "serialized_bytes": 26455,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad24",
+      "serialized_bytes": 26827,
+      "excerpts": 5,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad25",
+      "serialized_bytes": 26242,
+      "excerpts": 5,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad26",
+      "serialized_bytes": 27029,
+      "excerpts": 6,
+      "gaps": 0,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad27",
+      "serialized_bytes": 7224,
+      "excerpts": 0,
+      "gaps": 3,
+      "mode": "fast",
+      "route": "none"
+    },
+    {
+      "id": "broad28",
+      "serialized_bytes": 6788,
+      "excerpts": 0,
+      "gaps": 3,
+      "mode": "fast",
+      "route": "none"
+    },
+    {
+      "id": "broad29",
+      "serialized_bytes": 15748,
+      "excerpts": 1,
+      "gaps": 3,
+      "mode": "fast",
+      "route": "host_quotes"
+    },
+    {
+      "id": "broad30",
+      "serialized_bytes": 16770,
+      "excerpts": 3,
+      "gaps": 1,
+      "mode": "fast",
+      "route": "host_quotes"
+    }
+  ]
+}

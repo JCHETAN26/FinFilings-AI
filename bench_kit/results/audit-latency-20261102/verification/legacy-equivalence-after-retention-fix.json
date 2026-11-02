@@ -1,0 +1,29 @@
+{
+  "note": "Scripted recorder against HEAD baseline, empty and saved real evidence; not live quality or timing.",
+  "checks": [
+    {
+      "component": "critic",
+      "evidence": 0,
+      "same_calls": true,
+      "same_output": true
+    },
+    {
+      "component": "critic",
+      "evidence": 5,
+      "same_calls": true,
+      "same_output": true
+    },
+    {
+      "component": "synthesizer",
+      "evidence": 0,
+      "same_calls": true,
+      "same_output": true
+    },
+    {
+      "component": "synthesizer",
+      "evidence": 5,
+      "same_calls": true,
+      "same_output": true
+    }
+  ]
+}

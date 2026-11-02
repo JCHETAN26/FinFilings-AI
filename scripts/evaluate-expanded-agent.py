@@ -45,6 +45,9 @@ def build_parser():
     parser.add_argument('--suite',type=Path,help='Frozen broad validation suite JSON; runs every case unless --suite-case is given')
     parser.add_argument('--expected-suite-sha256',help='Pin the exact suite bytes; mismatch aborts before any service starts')
     parser.add_argument('--suite-case',action='append',help='Partial suite run (repeatable); the offline verifier then needs --allow-subset')
+    parser.add_argument('--agent-mode',choices=('legacy','fast'),default='legacy',help='Agent execution mode for suite/historical runs (default legacy keeps historical commands reproducible); recorded in the manifests')
+    parser.add_argument('--paired-latency',action='store_true',help='Paired legacy-vs-fast latency benchmark over ONE shared backend (bench_kit/eval_agent_latency.py); needs --suite, selects cases with --suite-case (default: the preregistered six)')
+    parser.add_argument('--repeats',type=int,choices=(1,2,3),default=2,help='paired repeats per case (only with --paired-latency; total runs are capped at 24)')
     parser.add_argument('--diagnose-only',action='store_true')
     parser.add_argument('--rank-diagnostic',action='store_true',help='Start the bounded services, replay saved queries via bench_kit/diagnose_ranks.py (no agent/LLM calls), stop')
     parser.add_argument('--replay',type=Path,action='append',default=[],help='saved raw case JSON for --rank-diagnostic (repeatable)')
@@ -60,6 +63,8 @@ def main(argv=None):
         parser.error('--rank-diagnostic needs --replay and excludes --suite/--audit-id/--diagnose-only')
     if args.suite and (args.audit_id or args.diagnose_only):
         parser.error('--suite cannot be combined with --audit-id/--diagnose-only')
+    if args.paired_latency and (not args.suite or args.audit_id or args.diagnose_only or args.rank_diagnostic):
+        parser.error('--paired-latency requires --suite and excludes --audit-id/--diagnose-only/--rank-diagnostic')
     if args.suite_case and not args.suite:
         parser.error('--suite-case requires --suite')
     root=Path(__file__).resolve().parents[1];os.chdir(root)
@@ -84,7 +89,7 @@ def main(argv=None):
     if lineage_problems:raise ValueError('ingestion report lineage invalid: '+'; '.join(lineage_problems))
     sources=agent_suite.build_trusted_sources(original,report)
     args.out.mkdir(parents=True,exist_ok=False)
-    status=dict(status='started',started_utc=datetime.now(timezone.utc).isoformat(),mode='suite' if args.suite else 'rank-diagnostic' if args.rank_diagnostic else 'historical',argv=sys.argv)
+    status=dict(status='started',agent_mode='paired:legacy+fast' if args.paired_latency else args.agent_mode,started_utc=datetime.now(timezone.utc).isoformat(),mode='paired-latency' if args.paired_latency else 'suite' if args.suite else 'rank-diagnostic' if args.rank_diagnostic else 'historical',argv=sys.argv)
     status_path=args.out/'run-status.json'
     status_path.write_text(json.dumps(status,indent=2)+'\n')
     if args.suite:  # Saved input suite + hash precede the first request (and the first service start).
@@ -145,7 +150,10 @@ def main(argv=None):
                 except Exception as exc:(args.out/'health-after.error.txt').write_text(f'{type(exc).__name__}: {exc}\n')
             status['status']='completed'
             return
-        command=[sys.executable,'-u','bench_kit/eval_agent.py','--backend',backend,'--corpus',str(data/'chunks.jsonl'),'--provenance',str(provenance),'--output',str(args.out/'evaluation')]
+        script='bench_kit/eval_agent_latency.py' if args.paired_latency else 'bench_kit/eval_agent.py'
+        command=[sys.executable,'-u',script]+(['run'] if args.paired_latency else [])+['--backend',backend,'--corpus',str(data/'chunks.jsonl'),'--provenance',str(provenance),'--output',str(args.out/('latency' if args.paired_latency else 'evaluation'))]
+        if args.paired_latency:command+=['--repeats',str(args.repeats)]
+        else:command+=['--agent-mode',args.agent_mode]
         if args.suite:
             command+=['--suite',str(args.out/'suite.json'),'--expected-suite-sha256',suite_digest]
             for case in args.suite_case or []:command+=['--case',case]

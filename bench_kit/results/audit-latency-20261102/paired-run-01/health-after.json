@@ -1,0 +1,70 @@
+{
+  "sidecar": {
+    "status": "ready",
+    "documents": 49406,
+    "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+    "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "encoder_device": "cpu",
+    "reranker_device": "cpu",
+    "reranker_backend": "onnx-fp32",
+    "reranker_artifact_sha256": "72662ff447c2a26c1a89fd582111b215c7236ba7633f722f95ae87a944343c13",
+    "admission": {
+      "limit": 64,
+      "active": 0,
+      "peak": 2,
+      "rejected": 0
+    },
+    "inference_workers": 4,
+    "inference": {
+      "dense": {
+        "count": 72,
+        "work_seconds": 8.382642299009603,
+        "wait_seconds": 0.0007287099288078025,
+        "max_work_seconds": 2.2405742709961487,
+        "requests": 72
+      },
+      "rank": {
+        "count": 38,
+        "work_seconds": 226.180013204008,
+        "wait_seconds": 0.00039531601942144334,
+        "max_work_seconds": 7.307411767993472,
+        "phase_count": 38,
+        "phase_totals": {
+          "fetch_seconds": 0.19689806696260348,
+          "tokenize_seconds": 0.7767641179380007,
+          "padding_seconds": 0.482145817426499,
+          "inference_seconds": 224.5364376893558,
+          "output_seconds": 0.04852843399567064
+        },
+        "requests": 38
+      }
+    },
+    "threads": 2,
+    "rerank_batch_size": 1,
+    "rerank_length_bucketing": true,
+    "dense_batching": {
+      "batch_size": 8,
+      "wait_ms": 2.0,
+      "coordinators": 4,
+      "trigger": 8,
+      "active_requests": 0,
+      "fast_path_requests": 72,
+      "pending": 0,
+      "metrics": {
+        "submitted": 0,
+        "batches": 0,
+        "dispatched_requests": 0,
+        "cancelled_before_dispatch": 0,
+        "queue_peak": 0,
+        "max_batch_seen": 0,
+        "assembly_wait_seconds": 0.0,
+        "rejected": 0
+      }
+    }
+  },
+  "bridge": {
+    "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,454 @@
+{
+  "prompt": "Audit NVDA filing year 2024: separately retrieve Data Center revenue growth disclosures and gross margin disclosures. Use evidence for each topic without calculating a new ratio.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "NVIDIA Data Center revenue growth year over year",
+        "goal": "Data Center revenue growth disclosures",
+        "filters": {
+          "ticker": "NVDA",
+          "year": 2024,
+          "section": "",
+          "accession": "000104581024000029"
+        }
+      },
+      {
+        "query": "NVIDIA gross margin percentage",
+        "goal": "gross margin disclosures",
+        "filters": {
+          "ticker": "NVDA",
+          "year": 2024,
+          "section": "",
+          "accession": "000104581024000029"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "NVIDIA Data Center revenue growth year over year",
+      "requested_goal": "Data Center revenue growth disclosures",
+      "filters": {
+        "ticker": "NVDA",
+        "year": 2024,
+        "section": "",
+        "accession": "000104581024000029"
+      },
+      "score": 5,
+      "rationale": "Current scope is NVDA FY2024 10-K (accession 000104581024000029). The requested goal is Data Center revenue growth. E03 states Data Center revenue for fiscal 2024 was $47.5 billion, up 217% from fiscal 2023. E02 repeats that Data Center revenue for fiscal 2024 was up 217%, and E05 gives the underlying figures ($47,525M in FY2024 vs $15,005M in FY2023). The core requested fact is fully supported within scope. The audit prompt's gross margin element is outside the requested_goal and was not graded.",
+      "evidence": [
+        {
+          "id": "000104581024000029#passage-000111",
+          "text": "reflects higher sell-in to partners following the normalization of channel inventory levels and growing demand. Professional Visualization revenue for fiscal year 2024 was up 1%. Automotive revenue for the fiscal year 2024 was up 21%. The increase primarily reflected growth in self-driving platforms. Gross margin increased in fiscal year 2024, primarily driven by Data Center revenue growth and lower net inventory provisions as a percentage of revenue. Operating expenses increased for fiscal year 2024, driven by growth in employees and compensation increases. Fiscal year 2023 also included a $1.4 billion acquisition termination charge related to the proposed Arm transaction. Market Platform Highlights Data Center revenue for fiscal year 2024 was $47.5 billion, up 217% from fiscal year 2023. In Data Center, we launched AI inference platforms that combine our full-stack inference software with NVIDIA Ada, NVIDIA Hopper and NVIDIA Grace Hopper processors optimized for generative AI, LLMs and other AI workloads. We introduced NVIDIA DGX Cloud and AI Foundations to help businesses create and operate custom large language models and generative AI models. As AV algorithms move to video transformers, and more cars are equipped with cameras, we expect NVIDIA’s automotive data center processing demand to grow significantly. We estimate that in fiscal year 2024, approximately 40% of Data Center revenue was for AI inference. In the fourth quarter of fiscal year 2024, large cloud providers represented more than half of our Data Center revenue, supporting both internal workloads and external customers. We announced NVIDIA Spectrum-X, an accelerated networking platform for AI. Gaming revenue for fiscal",
+          "metadata": {
+            "ID": "000104581024000029#passage-000111",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000111"
+        },
+        {
+          "id": "000104581024000029#passage-000119",
+          "text": "Jan 29, 2023 $ Change % Change ($ in millions) Compute & Networking $ 32,016 $ 5,083 $ 26,933 530 % Graphics 5,846 4,552 1,294 28 % All Other (4,890) (5,411) 521 (10) % Total $ 32,972 $ 4,224 $ 28,748 681 % Compute & Networking revenue – The year-on-year increase was due to higher Data Center revenue. Compute grew 266% due to higher shipments of the NVIDIA Hopper GPU computing platform for the training and inference of LLMs, recommendation engines and generative AI applications. Networking was up 133% due to higher shipments of InfiniBand. Graphics revenue – The year-on-year increase was led by growth in Gaming of 15% driven by higher sell-in to partners following the normalization of channel inventory levels. Reportable segment operating income – The year-on-year increase in Compute & Networking and Graphics operating income was driven by higher revenue. 39 Table of Contents All Other operating loss - The year-on-year decrease was due to the $1.4 billion Arm acquisition termination cost in fiscal year 2023, partially offset by a $839 million increase in stock-based compensation expense in fiscal year 2024. Concentration of Revenue Revenue by geographic region is designated based on the billing location even if the revenue may be attributable to end customers, such as enterprises and gamers in a different location. Revenue from sales to customers outside of the United States accounted for 56% and 69% of total revenue for fiscal years 2024 and 2023, respectively. Our direct and indirect customers include public cloud, consumer internet companies, enterprises, startups, public",
+          "metadata": {
+            "ID": "000104581024000029#passage-000119",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000119"
+        },
+        {
+          "id": "000104581024000029#passage-000110",
+          "text": "which may cause disruption to our product development or operations. We did not experience any significant impact or expense to our business; however, if the conflict is further extended, it could impact future product development, operations, and revenue or create other uncertainty for our business. 35 Table of Contents Fiscal Year 2024 Summary Year Ended Jan 28, 2024 Jan 29, 2023 Change ($ in millions, except per share data) Revenue $ 60,922 $ 26,974 Up 126% Gross margin 72.7 % 56.9 % Up 15.8 pts Operating expenses $ 11,329 $ 11,132 Up 2% Operating income $ 32,972 $ 4,224 Up 681% Net income $ 29,760 $ 4,368 Up 581% Net income per diluted share $ 11.93 $ 1.74 Up 586% We specialize in markets where our computing platforms can provide tremendous acceleration for applications. These platforms incorporate processors, interconnects, software, algorithms, systems, and services to deliver unique value. Our platforms address four large markets where our expertise is critical: Data Center, Gaming, Professional Visualization, and Automotive. Revenue for fiscal year 2024 was $60.9 billion, up 126% from a year ago. Data Center revenue for fiscal year 2024 was up 217%. Strong demand was driven by enterprise software and consumer internet applications, and multiple industry verticals including automotive, financial services, and healthcare. Customers across industry verticals access NVIDIA AI infrastructure both through the cloud and on-premises. Data Center compute revenue was up 244% in the fiscal year. Networking revenue was up 133% in the fiscal year. Gaming revenue for fiscal year 2024 was up 15%. The increase",
+          "metadata": {
+            "ID": "000104581024000029#passage-000110",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000110"
+        },
+        {
+          "id": "000104581024000029#passage-000197",
+          "text": "and 2022. The following table summarizes information pertaining to our revenue by each of the specialized markets we serve: Year Ended Jan 28, 2024 Jan 29, 2023 Jan 30, 2022 Revenue: (In millions) Data Center $ 47,525 $ 15,005 $ 10,613 Gaming 10,447 9,067 12,462 Professional Visualization 1,553 1,544 2,111 Automotive 1,091 903 566 OEM and Other 306 455 1,162 Total revenue $ 60,922 $ 26,974 $ 26,914 79 Table of Contents NVIDIA Corporation and Subsidiaries Notes to the Consolidated Financial Statements (Continued) The following table presents summarized information for long-lived assets by country. Long-lived assets consist of property and equipment and exclude other assets, operating lease assets, goodwill, and intangible assets. Jan 28, 2024 Jan 29, 2023 Long-lived assets: (In millions) United States $ 2,595 $ 2,587 Taiwan 773 702 Israel 325 283 Other countries 221 235 Total long-lived assets $ 3,914 $ 3,807 80 NVIDIA Corporation and Subsidiaries Schedule II – Valuation and Qualifying Accounts Description Balance at Beginning of Period Additions Deductions Balance at End of Period (In millions) Fiscal year 2024 Allowance for doubtful accounts $ 4 $ — (1) $ — (1) $ 4 Sales return allowance $ 26 $ 213 (2) $ ( 130 ) (4) $ 109 Deferred tax valuation allowance $ 1,484 $ 162 (3) $ ( 94 ) (3) $ 1,552 Fiscal year 2023 Allowance for doubtful accounts $ 4 $ — (1) $ — (1) $ 4 Sales return allowance $ 13 $ 104 (2) $ ( 91 ) (4) $ 26 Deferred tax valuation allowance",
+          "metadata": {
+            "ID": "000104581024000029#passage-000197",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000197"
+        },
+        {
+          "id": "000104581024000029#passage-000012",
+          "text": "accelerate the adoption of AI. 5 Table of Contents At the foundation of the NVIDIA accelerated computing platform are our GPUs, which excel at parallel workloads such as the training and inferencing of neural networks. They are available in the NVIDIA accelerated computing platform and in industry standard servers from every major cloud provider and server maker. Beyond GPUs, our data center platform expanded to include DPUs in fiscal year 2022 and CPUs in fiscal year 2024. We can optimize across the entire computing, networking and storage stack to deliver data center-scale computing solutions. While our approach starts with powerful chips, what makes it a full-stack computing platform is our large body of software, including the CUDA parallel programming model, the CUDA-X collection of acceleration libraries, APIs, SDKs, and domain-specific application frameworks. In addition to software delivered to customers as an integral part of our data center computing platform, we offer paid licenses to NVIDIA AI Enterprise, a comprehensive suite of enterprise-grade AI software and NVIDIA vGPU software for graphics-rich virtual desktops and workstations. In fiscal year 2024, we launched the NVIDIA DGX Cloud, an AI-training-as-a-service platform which includes cloud-based infrastructure and software for AI, customizable pretrained AI models, and access to NVIDIA experts. We have partnered with leading cloud service providers to host this service in their data centers. Gaming Gaming is the largest entertainment industry, with PC gaming as the predominant platform. Many factors propel its growth, including new high production value games and franchises, the continued rise of competitive gaming, or eSports, social",
+          "metadata": {
+            "ID": "000104581024000029#passage-000012",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000012"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000104581024000029#passage-000111",
+        "000104581024000029#passage-000119",
+        "000104581024000029#passage-000110",
+        "000104581024000029#passage-000197",
+        "000104581024000029#passage-000012",
+        "000104581024000029#passage-000112",
+        "000104581024000029#passage-000163",
+        "000104581024000029#passage-000043",
+        "000104581024000029#passage-000175",
+        "000104581024000029#passage-000179"
+      ],
+      "fresh_verified_ids": [
+        "000104581024000029#passage-000111",
+        "000104581024000029#passage-000119",
+        "000104581024000029#passage-000110",
+        "000104581024000029#passage-000197",
+        "000104581024000029#passage-000012"
+      ],
+      "quote_selections": [
+        {
+          "chunk_id": "000104581024000029#passage-000111",
+          "quote": "Data Center revenue for fiscal year 2024 was $47.5 billion, up 217% from fiscal year 2023."
+        },
+        {
+          "chunk_id": "000104581024000029#passage-000110",
+          "quote": "Data Center revenue for fiscal year 2024 was up 217%."
+        }
+      ],
+      "quote_flags": [],
+      "elapsed_seconds": 14.010530237006606
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "NVIDIA gross margin percentage",
+      "requested_goal": "gross margin disclosures",
+      "filters": {
+        "ticker": "NVDA",
+        "year": 2024,
+        "section": "",
+        "accession": "000104581024000029"
+      },
+      "score": 5,
+      "rationale": "Current scope is NVDA's 2024 filing (fiscal year ended Jan 28, 2024). E01 gives the reported gross margin of 72.7% for fiscal 2024 versus 56.9% for fiscal 2023, up 15.8 points. E02 states the drivers: gross margin increased mainly from Data Center revenue growth and lower net inventory provisions as a percentage of revenue. Together these fully cover the requested gross margin disclosure. No calculation was needed or used.",
+      "evidence": [
+        {
+          "id": "000104581024000029#passage-000111",
+          "text": "reflects higher sell-in to partners following the normalization of channel inventory levels and growing demand. Professional Visualization revenue for fiscal year 2024 was up 1%. Automotive revenue for the fiscal year 2024 was up 21%. The increase primarily reflected growth in self-driving platforms. Gross margin increased in fiscal year 2024, primarily driven by Data Center revenue growth and lower net inventory provisions as a percentage of revenue. Operating expenses increased for fiscal year 2024, driven by growth in employees and compensation increases. Fiscal year 2023 also included a $1.4 billion acquisition termination charge related to the proposed Arm transaction. Market Platform Highlights Data Center revenue for fiscal year 2024 was $47.5 billion, up 217% from fiscal year 2023. In Data Center, we launched AI inference platforms that combine our full-stack inference software with NVIDIA Ada, NVIDIA Hopper and NVIDIA Grace Hopper processors optimized for generative AI, LLMs and other AI workloads. We introduced NVIDIA DGX Cloud and AI Foundations to help businesses create and operate custom large language models and generative AI models. As AV algorithms move to video transformers, and more cars are equipped with cameras, we expect NVIDIA’s automotive data center processing demand to grow significantly. We estimate that in fiscal year 2024, approximately 40% of Data Center revenue was for AI inference. In the fourth quarter of fiscal year 2024, large cloud providers represented more than half of our Data Center revenue, supporting both internal workloads and external customers. We announced NVIDIA Spectrum-X, an accelerated networking platform for AI. Gaming revenue for fiscal",
+          "metadata": {
+            "ID": "000104581024000029#passage-000111",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000111"
+        },
+        {
+          "id": "000104581024000029#passage-000110",
+          "text": "which may cause disruption to our product development or operations. We did not experience any significant impact or expense to our business; however, if the conflict is further extended, it could impact future product development, operations, and revenue or create other uncertainty for our business. 35 Table of Contents Fiscal Year 2024 Summary Year Ended Jan 28, 2024 Jan 29, 2023 Change ($ in millions, except per share data) Revenue $ 60,922 $ 26,974 Up 126% Gross margin 72.7 % 56.9 % Up 15.8 pts Operating expenses $ 11,329 $ 11,132 Up 2% Operating income $ 32,972 $ 4,224 Up 681% Net income $ 29,760 $ 4,368 Up 581% Net income per diluted share $ 11.93 $ 1.74 Up 586% We specialize in markets where our computing platforms can provide tremendous acceleration for applications. These platforms incorporate processors, interconnects, software, algorithms, systems, and services to deliver unique value. Our platforms address four large markets where our expertise is critical: Data Center, Gaming, Professional Visualization, and Automotive. Revenue for fiscal year 2024 was $60.9 billion, up 126% from a year ago. Data Center revenue for fiscal year 2024 was up 217%. Strong demand was driven by enterprise software and consumer internet applications, and multiple industry verticals including automotive, financial services, and healthcare. Customers across industry verticals access NVIDIA AI infrastructure both through the cloud and on-premises. Data Center compute revenue was up 244% in the fiscal year. Networking revenue was up 133% in the fiscal year. Gaming revenue for fiscal year 2024 was up 15%. The increase",
+          "metadata": {
+            "ID": "000104581024000029#passage-000110",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000110"
+        },
+        {
+          "id": "000104581024000029#passage-000176",
+          "text": "11 % of our accounts receivable balance as of January 28, 2024. Two customers accounted for 14 % and 11 % of our accounts receivable balance as of January 29, 2023. Certain balance sheet components are as follows: Jan 28, 2024 Jan 29, 2023 (In millions) Inventories (1) : Raw materials $ 1,719 $ 2,430 Work in-process 1,505 466 Finished goods 2,058 2,263 Total inventories $ 5,282 $ 5,159 (1) In fiscal years 2024 and 2023, we recorded an inventory provision of $ 774 million and $ 1.0 billion, respectively, in cost of revenue. 68 Table of Contents NVIDIA Corporation and Subsidiaries Notes to the Consolidated Financial Statements (Continued) Jan 28, 2024 Jan 29, 2023 Estimated Useful Life (In millions) (In years) Property and Equipment: Land $ 218 $ 218 (A) Buildings, leasehold improvements, and furniture 1,816 1,598 (B) Equipment, compute hardware, and software 5,200 4,303 3 - 7 Construction in process 189 382 (C) Total property and equipment, gross 7,423 6,501 Accumulated depreciation and amortization ( 3,509 ) ( 2,694 ) Total property and equipment, net $ 3,914 $ 3,807 (A) Land is a non-depreciable asset. (B) The estimated useful lives of our buildings are up to thirty years . Leasehold improvements and finance leases are amortized based on the lesser of either the asset’s estimated useful life or the expected remaining lease term. (C) Construction in process represents assets that are not available for their intended use as of the balance sheet date. Depreciation expense for fiscal years 2024, 2023, and 2022 was $",
+          "metadata": {
+            "ID": "000104581024000029#passage-000176",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000176"
+        },
+        {
+          "id": "000104581024000029#passage-000175",
+          "text": "securities totaled $ 1.3 billion and $ 288 million as of January 28, 2024 and January 29, 2023, respectively. Gains and losses on these investments, realized and unrealized, are recognized in Other income and expense, net on our Consolidated Statements of Income. 67 Table of Contents NVIDIA Corporation and Subsidiaries Notes to the Consolidated Financial Statements (Continued) Adjustments to the carrying value of our non-marketable equity securities accounted for under the measurement alternative were as follows: Year Ended Jan 28, 2024 (In millions) Carrying amount as of Jan 29, 2023 $ 288 Adjustments related to non-marketable equity securities: Net additions 859 Unrealized gains 194 Impairments and unrealized losses ( 20 ) Carrying amount as of Jan 28, 2024 $ 1,321 In the fourth quarter of fiscal year 2024, one of our private company investments completed a secondary equity raise that resulted in an unrealized gain of $ 178 million. Net unrealized gains recognized for the year ended January 28, 2024 for non-marketable investments in non-affiliated entities still held as of January 28, 2024 were $ 174 million. Net unrealized and realized gains related to non-marketable equity securities were not significant for fiscal years 2023 and 2022. The following table summarizes the cumulative gross unrealized gains and cumulative gross unrealized losses and impairments related to non-marketable equity securities accounted for under the measurement alternative: Jan 28, 2024 (In millions) Cumulative gross unrealized gains $ 270 Cumulative gross unrealized losses and impairments ( 45 ) Note 10 - Balance Sheet Components Two customers accounted for 24 % and",
+          "metadata": {
+            "ID": "000104581024000029#passage-000175",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000175"
+        },
+        {
+          "id": "000104581024000029#passage-000168",
+          "text": "Board may decrease this percentage at its discretion. Each offering period is about 24 months, divided into four purchase periods of six months . The price of common stock purchased under our 2012 Plan will be equal to 85 % of the lower of the fair market value of the common stock on the commencement date of each offering period or the fair market value of the common stock on each purchase date within the offering. As of January 28, 2024, we had 227 million shares reserved for future issuance under the 2012 Plan. 62 Table of Contents NVIDIA Corporation and Subsidiaries Notes to the Consolidated Financial Statements (Continued) Equity Award Activity The following is a summary of our equity award transactions under our equity incentive plans: RSUs, PSUs and Market-based PSUs Outstanding Number of Shares Weighted Average Grant-Date Fair Value (In millions, except per share data) Balances, Jan 29, 2023 45 $ 158.45 Granted 14 $ 374.08 Vested restricted stock ( 21 ) $ 148.56 Canceled and forfeited ( 1 ) $ 206.35 Balances, Jan 28, 2024 37 $ 245.94 Vested and expected to vest after Jan 28, 2024 37 $ 245.49 As of January 28, 2024 and January 29, 2023, there were 147 million and 160 million shares, respectively, of common stock available for future grants under our equity incentive plans. The total fair value of RSUs and PSUs, as of their respective vesting dates, during the years ended January 28, 2024, January 29, 2023, and January 30, 2022, was $ 8.2 billion, $",
+          "metadata": {
+            "ID": "000104581024000029#passage-000168",
+            "Ticker": "NVDA",
+            "CIK": "1045810",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001045810-24-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+          "tag": "NVDA-2024-10K-p000168"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000104581024000029#passage-000111",
+        "000104581024000029#passage-000110",
+        "000104581024000029#passage-000176",
+        "000104581024000029#passage-000175",
+        "000104581024000029#passage-000168",
+        "000104581024000029#passage-000119",
+        "000104581024000029#passage-000028",
+        "000104581024000029#passage-000191",
+        "000104581024000029#passage-000047",
+        "000104581024000029#passage-000142"
+      ],
+      "fresh_verified_ids": [
+        "000104581024000029#passage-000111",
+        "000104581024000029#passage-000110",
+        "000104581024000029#passage-000176",
+        "000104581024000029#passage-000175",
+        "000104581024000029#passage-000168"
+      ],
+      "quote_selections": [
+        {
+          "chunk_id": "000104581024000029#passage-000110",
+          "quote": "Revenue $ 60,922 $ 26,974 Up 126% Gross margin 72.7 % 56.9 % Up 15.8 pts"
+        },
+        {
+          "chunk_id": "000104581024000029#passage-000111",
+          "quote": "Gross margin increased in fiscal year 2024, primarily driven by Data Center revenue growth and lower net inventory provisions as a percentage of revenue."
+        }
+      ],
+      "quote_flags": [],
+      "elapsed_seconds": 13.375179235008545
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Data Center revenue for fiscal year 2024 was $47.5 billion, up 217% from fiscal year 2023. [NVDA-2024-10K-p000111](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000111`; accession: `0001045810-24-000029`).\n- Data Center revenue for fiscal year 2024 was up 217%. [NVDA-2024-10K-p000110](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000110`; accession: `0001045810-24-000029`).\n- Revenue $ 60,922 $ 26,974 Up 126% Gross margin 72.7 % 56.9 % Up 15.8 pts [NVDA-2024-10K-p000110](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000110`; accession: `0001045810-24-000029`).\n- Gross margin increased in fiscal year 2024, primarily driven by Data Center revenue growth and lower net inventory provisions as a percentage of revenue. [NVDA-2024-10K-p000111](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000111`; accession: `0001045810-24-000029`).",
+  "citations": [
+    {
+      "tag": "NVDA-2024-10K-p000111",
+      "chunk_id": "000104581024000029#passage-000111",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "Data Center revenue for fiscal year 2024 was $47.5 billion, up 217% from fiscal year 2023."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000110",
+      "chunk_id": "000104581024000029#passage-000110",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "Data Center revenue for fiscal year 2024 was up 217%."
+    },
+    {
+      "tag": "NVDA-2024-10K-p000110",
+      "chunk_id": "000104581024000029#passage-000110",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "Revenue $ 60,922 $ 26,974 Up 126% Gross margin 72.7 % 56.9 % Up 15.8 pts"
+    },
+    {
+      "tag": "NVDA-2024-10K-p000111",
+      "chunk_id": "000104581024000029#passage-000111",
+      "accession": "0001045810-24-000029",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm",
+      "quote": "Gross margin increased in fiscal year 2024, primarily driven by Data Center revenue growth and lower net inventory provisions as a percentage of revenue."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.395813638999243,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13069,
+        "cache_read_input_tokens": 1472,
+        "output_tokens": 592,
+        "output_tokens_details": {
+          "thinking_tokens": 387
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13069,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 592,
+            "cache_read_input_tokens": 1472,
+            "cache_creation_input_tokens": 13069,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13069
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0029247200000000004
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.583651648994419,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16260,
+        "cache_read_input_tokens": 2486,
+        "output_tokens": 1231,
+        "output_tokens_details": {
+          "thinking_tokens": 761
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16260,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1231,
+            "cache_read_input_tokens": 2486,
+            "cache_creation_input_tokens": 16260,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16260
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00389256
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.254469567007618,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16306,
+        "cache_read_input_tokens": 2486,
+        "output_tokens": 1103,
+        "output_tokens_details": {
+          "thinking_tokens": 632
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16306,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1103,
+            "cache_read_input_tokens": 2486,
+            "cache_creation_input_tokens": 16306,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16306
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.003837760000000001
+    }
+  ],
+  "elapsed_seconds": 19.411527331991238,
+  "execution_mode": "fast",
+  "synthesis_route": "host_quotes"
+}

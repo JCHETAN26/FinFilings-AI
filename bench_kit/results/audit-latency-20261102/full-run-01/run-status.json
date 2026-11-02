@@ -1,0 +1,25 @@
+{
+  "status": "started",
+  "agent_mode": "fast",
+  "started_utc": "2026-11-02T16:44:36.360148+00:00",
+  "mode": "suite",
+  "argv": [
+    "scripts/evaluate-expanded-agent.py",
+    "--agent-mode",
+    "fast",
+    "--out",
+    "bench_kit/results/audit-latency-20261102/full-run-01",
+    "--corpus-dir",
+    "data/sec-scale-v3-evaluation-20261101",
+    "--ingest-report",
+    "indexes/sec-scale-v3-20261101/report.json",
+    "--vector-index",
+    "indexes/vector-sec-scale-v3-pq128-20261101",
+    "--sparse-index",
+    "indexes/sparse-sec-scale-v3-20261101",
+    "--suite",
+    "bench_kit/suites/broad-validation-v2.json",
+    "--expected-suite-sha256",
+    "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d"
+  ]
+}

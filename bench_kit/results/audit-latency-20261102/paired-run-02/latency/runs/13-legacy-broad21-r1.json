@@ -1,0 +1,486 @@
+{
+  "prompt": "Compare UNH filing year 2025 and CVS filing year 2026, both with the exact SectionItem filter \"Item 7\": retrieve how each company defines or discusses its medical care ratio or medical benefit ratio. Retrieve evidence separately for each company.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "medical care ratio medical benefit ratio definition",
+        "goal": "retrieve how each company defines or discusses its medical care ratio or medical benefit ratio",
+        "filters": {
+          "ticker": "UNH",
+          "year": 2025,
+          "section": "Item 7",
+          "accession": "000073176625000063"
+        }
+      },
+      {
+        "query": "medical care ratio medical benefit ratio definition",
+        "goal": "retrieve how each company defines or discusses its medical care ratio or medical benefit ratio",
+        "filters": {
+          "ticker": "CVS",
+          "year": 2026,
+          "section": "Item 7",
+          "accession": "000006480326000010"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "medical care ratio medical benefit ratio definition",
+      "requested_goal": "retrieve how each company defines or discusses its medical care ratio or medical benefit ratio",
+      "filters": {
+        "ticker": "UNH",
+        "year": 2025,
+        "section": "Item 7",
+        "accession": "000073176625000063"
+      },
+      "score": 4,
+      "rationale": "Passage 000008 states UNH's definition directly: \"Medical care ratio (MCR) is calculated as medical costs divided by premium revenue.\" It also covers how the MCR is discussed, with the 2024 vs. 2023 \"Medical Costs and MCR\" section attributing MCR movement to Medicare funding reductions, Medicaid timing mismatch, hospital coding intensity, specialty pharmaceutical prescribing, member mix, and Change Healthcare cyberattack costs. Passage 000003 adds context on medical cost trends and MLR thresholds. Together these establish the definition and the core discussion within UNH's 2025 Item 7 scope. The passages do not show the 2025 fiscal-year MCR figures themselves, but the goal does not require a specific numeric breakdown, so the score stays at 4.",
+      "evidence": [
+        {
+          "id": "000073176625000063#item7#passage-000008",
+          "text": "(c)15.9 %27.0 %27.2 %(11.1)% ________ nm = not meaningful (a)Medical care ratio (MCR) is calculated as medical costs divided by premium revenue. (b)Net earnings margin attributable to UnitedHealth Group common shareholders. (c)Return on equity is calculated as net earnings attributable to UnitedHealth Group common shareholders divided by average shareholders’ equity. Average shareholders’ equity is calculated using the shareholders’ equity balance at the end of the preceding year and the shareholders’ equity balances at the end of each of the four quarters of the year presented. 2024 RESULTS OF OPERATIONS COMPARED TO 2023 RESULTS Consolidated Financial Results Revenues The increases in revenues were primarily driven by growth in Optum Rx, UnitedHealthcare’s domestic offerings and Optum Health, partially offset by the sale of UnitedHealthcare’s Brazil operations. Medical Costs and MCR Medical costs increased primarily due to growth in people served through Medicare Advantage and domestic commercial offerings and member mix. The MCR increased as a result of the revenue effects of the Medicare funding reductions, Medicaid timing mismatch between people’s health status and rates, upshift in hospital coding intensity, specialty pharmaceutical prescribing patterns, member mix and due to incremental medical costs for accommodations made to care providers as a result of the Change Healthcare cyberattack. 27 Table of Contents Operating Cost Ratio The operating cost ratio decreased primarily due to operating cost management and gains related to business portfolio refinement, including strategic transactions, partially offset by the impact of our direct response efforts to the Change Healthcare cyberattack and investments to support future growth. Loss on Sale of",
+          "metadata": {
+            "ID": "000073176625000063#item7#passage-000008",
+            "Ticker": "UNH",
+            "CIK": "731766",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000731766-25-000063",
+          "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm",
+          "tag": "UNH-2025-10K-item7-p000008"
+        },
+        {
+          "id": "000073176625000063#item7#passage-000003",
+          "text": "of expected future costs, including medical care patterns, inflation and labor market dynamics. We frequently evaluate and adjust our approach in each of the local markets we serve, considering relevant factors, such as product positioning, price competitiveness and environmental, competitive, legislative and regulatory considerations, including minimum medical loss ratio (MLR) thresholds and similar revenue adjustments. We will continue seeking to balance growth and profitability across all these dimensions. The commercial risk market remains highly competitive in the small group, large group and individual segments. We expect broad-based competition to continue as the industry adapts to individual and employer needs. Medicare Advantage funding continues to be pressured, as discussed below in “Regulatory Trends and Uncertainties” and we have observed increased care patterns as discussed below in “Medical Cost Trends.” Our 2025 benefit design approach contemplates these trends. In Medicaid, we believe the payment rate environment creates the risk of continued downward pressure on Medicaid margin percentages. We continue to take a prudent, market-sustainable posture for both new business and maintenance of existing relationships. We continue to advocate for actuarially sound rates commensurate with our medical cost trends and we remain dedicated to partnering with those states that are committed to the long-term viability of their programs. Medical Cost Trends. Our medical cost trends primarily relate to changes in unit costs, care activity and prescription drug costs. As expected and contemplated in our benefits design, we have continued to observe increased care patterns, which may continue in future periods. We also observed an upshift in hospital coding intensity",
+          "metadata": {
+            "ID": "000073176625000063#item7#passage-000003",
+            "Ticker": "UNH",
+            "CIK": "731766",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000731766-25-000063",
+          "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm",
+          "tag": "UNH-2025-10K-item7-p000003"
+        },
+        {
+          "id": "000073176625000063#item7#passage-000021",
+          "text": "Factors (Decrease) Increase in FactorsIncrease (Decrease) In Medical Costs Payable (in millions) (0.75)%$973 (0.50)647 (0.25)322 0.25(321) 0.50(640) 0.75(958) Medical Cost Per Member Per Month Trend Factors. Medical cost PMPM trend factors are significant factors we use in developing our medical costs payable estimates for the most recent two months. Medical cost trend factors are developed through a comprehensive analysis of claims incurred in prior months, provider contracting and expected unit costs, benefit design and a review of a broad set of health care utilization indicators. These factors include but are not limited to pharmacy utilization trends, inpatient hospital authorization data and seasonal and other incidence data from the National Centers for Disease Control. We also consider macroeconomic variables such as GDP growth, employment and disposable income. A large number of factors can cause the medical cost trend to vary from our estimates, including: our ability and practices to manage medical and pharmaceutical costs, changes in level and mix of services utilized; mix of benefits offered, including the impact of co-pays and deductibles; changes in medical practices; and catastrophes, epidemics and pandemics. The following table illustrates the sensitivity of these factors and the estimated potential impact on our medical costs payable estimates for the most recent two months as of December 31, 2024: Medical Cost PMPM Quarterly Trend Increase (Decrease) in FactorsIncrease (Decrease) In Medical Costs Payable (in millions) 3%$1,264 2843 1421 (1)(421) (2)(843) (3)(1,264) The completion factors and medical costs PMPM trend factors analyses above include outcomes considered reasonably likely based on our historical experience estimating",
+          "metadata": {
+            "ID": "000073176625000063#item7#passage-000021",
+            "Ticker": "UNH",
+            "CIK": "731766",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000731766-25-000063",
+          "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm",
+          "tag": "UNH-2025-10K-item7-p000021"
+        },
+        {
+          "id": "000073176625000063#item7#passage-000022",
+          "text": "liabilities for incurred but not reported benefit claims. Management believes the amount of medical costs payable is reasonable and adequate to cover our liability for unpaid claims as of December 31, 2024; however, actual claim payments may differ from established estimates as discussed above. Assuming a hypothetical 1% difference between our December 31, 2024 estimates of medical costs payable and actual medical costs payable, 2024 net earnings would have increased or decreased by approximately $260 million. For more detail related to our medical cost estimates, see Note 2 of the Notes to the Consolidated Financial Statements included in Part II, Item 8, “Financial Statements and Supplementary Data.” Goodwill We evaluate goodwill for impairment annually or more frequently when an event occurs or circumstances change indicating the carrying value may not be recoverable. When testing goodwill for impairment, we may first assess qualitative factors to determine if it is more likely than not the carrying value of a reporting unit exceeds its estimated fair value. During a qualitative analysis, we consider the impact of changes, if any, to the following factors: macroeconomic, industry and market factors; cost factors; changes in overall financial performance; and any other relevant events and uncertainties impacting a reporting unit. If our qualitative assessment indicates a goodwill impairment is more likely than not, we perform additional quantitative analyses. We may also elect to skip the qualitative testing and proceed directly to the quantitative testing. For reporting units where a quantitative analysis is performed, we perform a test measuring the fair values of the",
+          "metadata": {
+            "ID": "000073176625000063#item7#passage-000022",
+            "Ticker": "UNH",
+            "CIK": "731766",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000731766-25-000063",
+          "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm",
+          "tag": "UNH-2025-10K-item7-p000022"
+        },
+        {
+          "id": "000073176625000063#item7#passage-000019",
+          "text": "operations, which include internal development of new products, programs and technology applications and may include acquisitions. CRITICAL ACCOUNTING ESTIMATES Critical accounting estimates are those estimates requiring management to make challenging, subjective or complex judgments, often because they must estimate the effects of matters inherently uncertain and may change in subsequent periods. Critical accounting estimates involve judgments and uncertainties which are sufficiently sensitive and may result in materially different results under different assumptions and conditions. Medical Costs Payable Medical costs and medical costs payable include estimates of our obligations for medical care services rendered on behalf of consumers, but for which claims have either not yet been received or processed. Depending on the health care professional and type of service, the typical billing lag for services can be up to 90 days from the date of service. Approximately 90% of claims related to medical care services are known and settled within 90 days from the date of service. In each reporting period, our operating results include the effects of more completely developed medical costs payable estimates associated with previously reported periods. If the revised estimate of prior period medical costs is less than the previous estimate, we will decrease reported medical costs in the current period (favorable development). If the revised estimate of prior period medical costs is more than the previous estimate, we will increase reported medical costs in the current period (unfavorable development). Medical costs in 2024, 2023 and 2022 included favorable medical cost development related to prior years of $700 million, $840 million and",
+          "metadata": {
+            "ID": "000073176625000063#item7#passage-000019",
+            "Ticker": "UNH",
+            "CIK": "731766",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000731766-25-000063",
+          "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm",
+          "tag": "UNH-2025-10K-item7-p000019"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000073176625000063#item7#passage-000008",
+        "000073176625000063#item7#passage-000003",
+        "000073176625000063#item7#passage-000021",
+        "000073176625000063#item7#passage-000022",
+        "000073176625000063#item7#passage-000019",
+        "000073176625000063#item7#passage-000011",
+        "000073176625000063#item7#passage-000006",
+        "000073176625000063#item7#passage-000004",
+        "000073176625000063#item7#passage-000020",
+        "000073176625000063#item7#passage-000010"
+      ],
+      "fresh_verified_ids": [
+        "000073176625000063#item7#passage-000008",
+        "000073176625000063#item7#passage-000003",
+        "000073176625000063#item7#passage-000021",
+        "000073176625000063#item7#passage-000022",
+        "000073176625000063#item7#passage-000019"
+      ],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 10.82339714000409
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "medical care ratio medical benefit ratio definition",
+      "requested_goal": "retrieve how each company defines or discusses its medical care ratio or medical benefit ratio",
+      "filters": {
+        "ticker": "CVS",
+        "year": 2026,
+        "section": "Item 7",
+        "accession": "000006480326000010"
+      },
+      "score": 5,
+      "rationale": "Within CVS FY2026 Item 7 scope, passage 000017 (with its adjacent continuation 000018) gives the definition: medical benefit ratio is health care costs divided by premium revenues, the percentage of premium revenues spent on medical benefits for Insured members. It also gives management's use of the metric (assessing underlying performance and underwriting, variances, trends) and the reported figures: MBR of 91.2% in 2025 versus 92.5% in 2024, driven by Government business performance and prior-year development. Passage 000021 adds that a higher MBR in the health care delivery business pressured adjusted operating income. CVS uses \"medical benefit ratio\" rather than \"medical care ratio,\" which the evidence covers as the equivalent metric. The core requested facts are present in current scope.",
+      "evidence": [
+        {
+          "id": "000006480326000010#item7#passage-000017",
+          "text": "“Segment Analysis” above in this MD&A for a reconciliation of operating income (loss) (GAAP measure) to adjusted operating income for the Health Care Benefits segment, which represents the Company’s principal measure of segment performance. Commentary - 2025 compared to 2024 Revenues •Total revenues increased $12.7 billion, or 9.7%, in 2025 compared to 2024 primarily driven by increases in the Government business, largely due to the impact of the Inflation Reduction Act (“IRA”) on the Medicare Part D program. Medical Benefit Ratio •Medical benefit ratio is calculated as health care costs divided by premium revenues and represents the percentage of premium revenues spent on medical benefits for the Company’s Insured members. Management uses MBR to assess the underlying business performance and underwriting of its insurance products, understand variances between actual results and expected results and identify trends in period-over-period results. MBR provides management and investors with information useful in assessing the operating results of the Company’s Insured Health Care Benefits products. •The MBR decreased to 91.2% in 2025 compared to 92.5% in the prior year primarily driven by improved underlying performance in the Government business and higher favorable prior year development. Operating expenses •Operating expenses in the Health Care Benefits segment include selling, general and administrative expenses and depreciation and amortization expenses. •Operating expenses increased $622 million, or 3.5%, in 2025 compared to 2024 primarily driven by increased investments to support the segment’s business operations. Adjusted operating income •Adjusted operating income increased $2.6 billion in 2025 compared to 2024 primarily driven by improved underlying performance in the",
+          "metadata": {
+            "ID": "000006480326000010#item7#passage-000017",
+            "Ticker": "CVS",
+            "CIK": "64803",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000064803-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+          "tag": "CVS-2026-10K-item7-p000017"
+        },
+        {
+          "id": "000006480326000010#item7#passage-000001",
+          "text": "The Health Care Benefits segment operates as one of the nation’s leading diversified health care benefits providers through its Aetna® operations. The Health Care Benefits segment has the information and resources to help members, in consultation with their health care professionals, make more informed decisions about their health care. The Health Care Benefits segment offers a broad range of traditional, voluntary and consumer-directed health insurance products and related services, including medical, pharmacy, dental and behavioral health plans, medical management capabilities, Medicare Advantage and Medicare Supplement plans, PDPs and Medicaid health care management services. The Health Care Benefits segment’s primary customers, its members, primarily access the segment’s products and services through employer groups, government-sponsored plans or individually. The Health Care Benefits segment also serves customers who purchase products and services that are ancillary to its health insurance products. The Company refers to insurance products (where it assumes all or a majority of the risk for medical and dental care costs) as “Insured” and administrative services contract products (where the plan sponsor assumes all or a majority of the risk for medical and dental care costs) as “ASC.” The Company also sold Insured plans directly to individual consumers through the individual public health insurance exchanges (“Public Exchanges”) through the year ended December 31, 2025. The Company exited the states in which Aetna operated on the Public Exchanges effective January 2026. Overview of the Health Services Segment The Health Services segment provides a full range of pharmacy benefit management (“PBM”) solutions through its CVS Caremark® operations and delivers health",
+          "metadata": {
+            "ID": "000006480326000010#item7#passage-000001",
+            "Ticker": "CVS",
+            "CIK": "64803",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000064803-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+          "tag": "CVS-2026-10K-item7-p000001"
+        },
+        {
+          "id": "000006480326000010#item7#passage-000018",
+          "text": "Government business and higher favorable prior year development. 71 The following table summarizes the Health Care Benefits segment’s medical membership as of December 31, 2025 and 2024: 20252024 In thousandsInsured ASC TotalInsuredASCTotal Medical membership: Commercial3,447 15,350 18,797 4,691 14,160 18,851 Medicare Advantage4,267 — 4,267 4,447 — 4,447 Medicare Supplement1,202 — 1,202 1,282 — 1,282 Medicaid1,952 373 2,325 2,094 421 2,515 Total medical membership10,868 15,723 26,591 12,514 14,581 27,095 Supplemental membership information: Medicare Prescription Drug Plan (stand-alone) 4,041 4,882 Medical Membership •Medical membership represents the number of members covered by the Company’s Insured and ASC medical products and related services at a specified point in time. Management uses this metric to understand variances between actual medical membership and expected amounts as well as trends in period-over-period results. This metric provides management and investors with information useful in understanding the impact of medical membership on segment total revenues and operating results. •Medical membership as of December 31, 2025 decreased 504,000 members compared with December 31, 2024, reflecting declines in the individual exchange and Government product lines, partially offset by an increase in Commercial ASC membership. Medicare Update On April 7, 2025, CMS issued its final notice detailing final 2026 Medicare Advantage payment rates. Final 2026 Medicare Advantage rates resulted in an expected average increase in revenue for the Medicare Advantage industry of 5.06%, excluding the CMS estimate of Medicare Advantage risk score trend. On January 26, 2026, CMS issued an advance notice detailing proposed 2027 Medicare Advantage payment rates. The 2027 Medicare Advantage rates, if finalized as proposed,",
+          "metadata": {
+            "ID": "000006480326000010#item7#passage-000018",
+            "Ticker": "CVS",
+            "CIK": "64803",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000064803-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+          "tag": "CVS-2026-10K-item7-p000018"
+        },
+        {
+          "id": "000006480326000010#item7#passage-000021",
+          "text": "days supplied compared to a normal prescription. Commentary - 2025 compared to 2024 Revenues •Total revenues increased $16.8 billion, or 9.7%, in 2025 compared to 2024 primarily driven by pharmacy drug mix and brand inflation, partially offset by continued pharmacy client price improvements. Operating expenses •Operating expenses in the Health Services segment include selling, general and administrative expenses; and depreciation and amortization expense. •Operating expenses increased $787 million, or 24.4%, in 2025 compared to 2024. The increase was primarily due to a $291 million litigation charge, $288 million in pre-tax losses on Accountable Care assets and an $83 million Health Care Delivery clinic closure charge, all recorded during 2025. 73 Goodwill impairment •In 2025, the Company recorded a $5.7 billion goodwill impairment charge related to the Health Care Delivery reporting unit within the Health Services segment. See Note 6 ‘‘Goodwill and Other Intangibles’’ included in Item 8 of this 10-K for additional information. Adjusted operating income •Adjusted operating income decreased $92 million, or 1.3%, in 2025 compared to 2024. The decrease in adjusted operating income was primarily driven by continued pharmacy client price improvements and the impact of a higher medical benefit ratio in the Company’s health care delivery business, partially offset by improved purchasing economics and pharmacy drug mix. Pharmacy claims processed •Pharmacy claims processed represents the number of prescription claims processed through the Company’s pharmacy benefits manager and dispensed by either its retail network pharmacies or the Company’s mail and specialty pharmacies. Management uses this metric to understand variances between actual claims processed and",
+          "metadata": {
+            "ID": "000006480326000010#item7#passage-000021",
+            "Ticker": "CVS",
+            "CIK": "64803",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000064803-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+          "tag": "CVS-2026-10K-item7-p000021"
+        },
+        {
+          "id": "000006480326000010#item7#passage-000040",
+          "text": "the disclosures relating to them. Revenue Recognition Health Care Benefits Segment Health Care Benefits revenue is principally derived from insurance premiums and fees billed to customers. Revenue related to the Company’s Government business is collected monthly from the U.S. federal government and various government agencies based on fixed payment rates and member eligibility. Some of the Company’s Government contracts allow for premiums to be adjusted to reflect actual experience or the relative health status of Insured members. Such adjustments are reasonably estimable at the outset of the contract, and adjustments to those estimates are made based on actual experience of the customer emerging under the contract and the terms of the underlying contract. Health Services Segment The Health Services segment sells prescription drugs directly through its specialty and mail order pharmacy offerings and indirectly through the Company’s retail pharmacy network. The Company’s pharmacy benefit arrangements are accounted for in a manner consistent with a master supply arrangement as there are no contractual minimum volumes and each prescription is considered a separate purchasing decision and distinct performance obligation transferred at a point in time. PBM services performed in connection with each prescription claim are considered part of a single performance obligation which culminates in the fulfillment of prescription drugs. The Company recognizes revenue using the gross method at the contract price negotiated with its clients when the Company has concluded it controls the prescription drug before it is transferred to the client plan members. The Company controls prescriptions fulfilled indirectly through its retail pharmacy network because it",
+          "metadata": {
+            "ID": "000006480326000010#item7#passage-000040",
+            "Ticker": "CVS",
+            "CIK": "64803",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000064803-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+          "tag": "CVS-2026-10K-item7-p000040"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000006480326000010#item7#passage-000017",
+        "000006480326000010#item7#passage-000001",
+        "000006480326000010#item7#passage-000018",
+        "000006480326000010#item7#passage-000021",
+        "000006480326000010#item7#passage-000040",
+        "000006480326000010#item7#passage-000009",
+        "000006480326000010#item7#passage-000002",
+        "000006480326000010#item7#passage-000053",
+        "000006480326000010#item7#passage-000016",
+        "000006480326000010#item7#passage-000019"
+      ],
+      "fresh_verified_ids": [
+        "000006480326000010#item7#passage-000017",
+        "000006480326000010#item7#passage-000001",
+        "000006480326000010#item7#passage-000018",
+        "000006480326000010#item7#passage-000021",
+        "000006480326000010#item7#passage-000040"
+      ],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 11.866009627003223
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Medical care ratio \\(MCR\\) is calculated as medical costs divided by premium revenue. [UNH-2025-10K-item7-p000008](https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm) (chunk: `000073176625000063#item7#passage-000008`; accession: `0000731766-25-000063`).\n- The MCR increased as a result of the revenue effects of the Medicare funding reductions, Medicaid timing mismatch between people’s health status and rates, upshift in hospital coding intensity, specialty pharmaceutical prescribing patterns, member mix and due to incremental medical costs for accommodations made to care providers as a result of the Change Healthcare cyberattack. [UNH-2025-10K-item7-p000008](https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm) (chunk: `000073176625000063#item7#passage-000008`; accession: `0000731766-25-000063`).\n- Medical benefit ratio is calculated as health care costs divided by premium revenues and represents the percentage of premium revenues spent on medical benefits for the Company’s Insured members. [CVS-2026-10K-item7-p000017](https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm) (chunk: `000006480326000010#item7#passage-000017`; accession: `0000064803-26-000010`).\n- Management uses MBR to assess the underlying business performance and underwriting of its insurance products, understand variances between actual results and expected results and identify trends in period-over-period results. [CVS-2026-10K-item7-p000017](https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm) (chunk: `000006480326000010#item7#passage-000017`; accession: `0000064803-26-000010`).\n- The MBR decreased to 91.2% in 2025 compared to 92.5% in the prior year primarily driven by improved underlying performance in the Government business and higher favorable prior year development. [CVS-2026-10K-item7-p000017](https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm) (chunk: `000006480326000010#item7#passage-000017`; accession: `0000064803-26-000010`).",
+  "citations": [
+    {
+      "tag": "UNH-2025-10K-item7-p000008",
+      "chunk_id": "000073176625000063#item7#passage-000008",
+      "accession": "0000731766-25-000063",
+      "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm",
+      "quote": "Medical care ratio (MCR) is calculated as medical costs divided by premium revenue."
+    },
+    {
+      "tag": "UNH-2025-10K-item7-p000008",
+      "chunk_id": "000073176625000063#item7#passage-000008",
+      "accession": "0000731766-25-000063",
+      "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm",
+      "quote": "The MCR increased as a result of the revenue effects of the Medicare funding reductions, Medicaid timing mismatch between people’s health status and rates, upshift in hospital coding intensity, specialty pharmaceutical prescribing patterns, member mix and due to incremental medical costs for accommodations made to care providers as a result of the Change Healthcare cyberattack."
+    },
+    {
+      "tag": "CVS-2026-10K-item7-p000017",
+      "chunk_id": "000006480326000010#item7#passage-000017",
+      "accession": "0000064803-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+      "quote": "Medical benefit ratio is calculated as health care costs divided by premium revenues and represents the percentage of premium revenues spent on medical benefits for the Company’s Insured members."
+    },
+    {
+      "tag": "CVS-2026-10K-item7-p000017",
+      "chunk_id": "000006480326000010#item7#passage-000017",
+      "accession": "0000064803-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+      "quote": "Management uses MBR to assess the underlying business performance and underwriting of its insurance products, understand variances between actual results and expected results and identify trends in period-over-period results."
+    },
+    {
+      "tag": "CVS-2026-10K-item7-p000017",
+      "chunk_id": "000006480326000010#item7#passage-000017",
+      "accession": "0000064803-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480326000010/cvs-20251231.htm",
+      "quote": "The MBR decreased to 91.2% in 2025 compared to 92.5% in the prior year primarily driven by improved underlying performance in the Government business and higher favorable prior year development."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.329635992995463,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 14567,
+        "output_tokens": 716,
+        "output_tokens_details": {
+          "thinking_tokens": 465
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 716,
+            "cache_read_input_tokens": 14567,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00050387
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.205479868003749,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16161,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 940,
+        "output_tokens_details": {
+          "thinking_tokens": 491
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16161,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 940,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16161,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16161
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0037194
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.817902334994869,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16268,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 847,
+        "output_tokens_details": {
+          "thinking_tokens": 402
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16268,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 847,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16268,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16268
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036943000000000006
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 10.948520254009054,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 7694,
+        "output_tokens": 2482,
+        "output_tokens_details": {
+          "thinking_tokens": 2026
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2482,
+            "cache_read_input_tokens": 7694,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0013181399999999998
+    }
+  ],
+  "elapsed_seconds": 29.15284309000708,
+  "execution_mode": "legacy",
+  "synthesis_route": "legacy"
+}

@@ -37,6 +37,33 @@ class Critique(StrictModel):
     retain_ids: list[str] = Field(default_factory=list, max_length=2)
 
 
+MAX_CRITIC_CLAIMS = 4
+HOP_QUOTE_MIN, HOP_QUOTE_MAX = 40, 2000
+
+
+class CriticClaim(StrictModel):
+    """Critic-proposed quote bound to a short in-context handle (E01..E05). Deliberately lenient on length: the host, not the
+    wire schema, enforces 40..2000 characters, so one malformed quote is dropped and flagged instead of failing the whole call."""
+    ref: str = Field(min_length=1, max_length=64)
+    quote: str = Field(min_length=1, max_length=4000)
+
+
+class CritiqueWithQuotes(StrictModel):
+    """Fast-mode WIRE proposal (the schema the model sees; ledger name 'CritiqueWithQuotes'). It never contains canonical passage IDs:
+    retention names passages by the same short handles (E01..E05) as the quotes. The host turns it into a CriticVerdict."""
+    score: int = Field(ge=1, le=5)
+    rationale: str = Field(min_length=1, max_length=1000)
+    rewritten_query: str = Field(min_length=4, max_length=1000)
+    retain_refs: list[str] = Field(default_factory=list, max_length=2)
+    claims: list[CriticClaim] = Field(default_factory=list, max_length=MAX_CRITIC_CLAIMS)
+
+
+class CriticVerdict(Critique):
+    """Host verdict of a fast critic call: the legacy Critique fields with retain_ids already resolved from exact handles to canonical IDs,
+    plus the still-untrusted quote proposals (grounded by the controller only for an accepted hop)."""
+    claims: list[CriticClaim] = Field(default_factory=list, max_length=MAX_CRITIC_CLAIMS)
+
+
 class QuoteClaim(StrictModel):
     chunk_id: str = Field(min_length=1, max_length=256)
     quote: str = Field(min_length=40, max_length=2000)
@@ -65,6 +92,12 @@ class Evidence(StrictModel):
     tag: str
 
 
+class HopQuote(StrictModel):
+    """A critic-selected quote that the HOST verified verbatim inside this hop's own evidence (never an unverified proposal)."""
+    chunk_id: str = Field(min_length=1, max_length=256)
+    quote: str = Field(min_length=HOP_QUOTE_MIN, max_length=HOP_QUOTE_MAX)
+
+
 class Hop(StrictModel):
     subquery: int
     attempt: int
@@ -85,6 +118,10 @@ class Hop(StrictModel):
     terminal_reason: Literal['stalled_rewrite'] | None = None
     retrieved_ids: list[str] = Field(default_factory=list, max_length=10)
     fresh_verified_ids: list[str] = Field(default_factory=list, max_length=5)
+    # Fast mode only (empty in legacy): host-verified quote selections of an ACCEPTED hop, and bounded drop flags that never contain
+    # the rejected text. A below-threshold hop never records or publishes quotes.
+    quote_selections: list[HopQuote] = Field(default_factory=list, max_length=MAX_CRITIC_CLAIMS)
+    quote_flags: list[str] = Field(default_factory=list, max_length=MAX_CRITIC_CLAIMS)
     elapsed_seconds: float
 
 
@@ -106,3 +143,6 @@ class AgentResult(StrictModel):
     flags: list[str]
     model_calls: list[dict[str, Any]]
     elapsed_seconds: float
+    # What actually ran. Saved results from before fast mode lack both keys and mean the legacy path.
+    execution_mode: Literal['fast', 'legacy'] = 'legacy'
+    synthesis_route: Literal['host_quotes', 'fallback', 'legacy', 'none'] = 'legacy'

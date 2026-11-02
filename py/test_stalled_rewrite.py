@@ -49,7 +49,7 @@ class Model:
 
 def retrieve(rounds, critiques, retries=2):
     model, backend = Model(critiques), Backend(rounds)
-    hops = asyncio.run(Agent(model, backend, Registry(), max_retries=retries)._retrieve(0, SubQuery(query='alpha query', goal='alpha disclosures', filters=FILTERS), PROMPT))
+    hops = asyncio.run(Agent(model, backend, Registry(), max_retries=retries, mode='legacy')._retrieve(0, SubQuery(query='alpha query', goal='alpha disclosures', filters=FILTERS), PROMPT))
     return hops, model, backend
 
 
@@ -69,7 +69,7 @@ class Stall(unittest.TestCase):
                 calls.append(schema.__name__)
                 return await super().generate(schema, instruction, payload)
         model, backend = Counting([(1, 'a better alpha query'), (1, 'a better alpha query')]), Backend([[], []])
-        hops = asyncio.run(Agent(model, backend, Registry())._retrieve(0, SubQuery(query='alpha query', goal='alpha disclosures', filters=FILTERS), PROMPT))
+        hops = asyncio.run(Agent(model, backend, Registry(), mode='legacy')._retrieve(0, SubQuery(query='alpha query', goal='alpha disclosures', filters=FILTERS), PROMPT))
         self.assertEqual([h.terminal_reason for h in hops], [None, 'stalled_rewrite'])
         self.assertEqual([h.query for h in hops], ['alpha query', 'a better alpha query'])
         self.assertEqual(hops[0].proposed_rewrite, hops[1].query)
@@ -92,7 +92,7 @@ class Stall(unittest.TestCase):
 
     def test_stalled_subquery_is_a_published_gap_not_evidence_and_adds_true_flags(self):
         model = Model([(1, 'alpha query'), (1, 'beta query')])
-        agent = Agent(model, Backend([[], []]), Registry())
+        agent = Agent(model, Backend([[], []]), Registry(), mode='legacy')
         result = asyncio.run(agent.run(PROMPT))
         self.assertEqual(model.seen, ['Plan', 'Critique', 'Critique'])
         self.assertEqual(result.citations, [])
@@ -104,7 +104,7 @@ class Stall(unittest.TestCase):
 
     def test_exhausted_subquery_has_no_stop_flag(self):
         model = Model([(1, 'r1 alpha query'), (1, 'r2 alpha query'), (1, 'r2 alpha query'), (1, 'r1 beta query'), (1, 'r2 beta query'), (1, 'r2 beta query')])
-        result = asyncio.run(Agent(model, Backend([[]] * 6), Registry()).run(PROMPT))
+        result = asyncio.run(Agent(model, Backend([[]] * 6), Registry(), mode='legacy').run(PROMPT))
         self.assertFalse(any('stopped early' in f for f in result.flags))
         self.assertEqual(len([h for h in result.hops if h.subquery == 0]), 3)
 

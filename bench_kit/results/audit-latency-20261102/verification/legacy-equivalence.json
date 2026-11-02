@@ -1,0 +1,29 @@
+{
+  "note": "Scripted recorder equivalence using saved real evidence; not live model quality or timing. Initial harness attempt returned score4 for empty evidence, correctly rejected; corrected fixture uses score1.",
+  "checks": [
+    {
+      "component": "critic",
+      "evidence": 0,
+      "same_calls": true,
+      "same_output": true
+    },
+    {
+      "component": "critic",
+      "evidence": 5,
+      "same_calls": true,
+      "same_output": true
+    },
+    {
+      "component": "synthesizer",
+      "evidence": 0,
+      "same_calls": true,
+      "same_output": true
+    },
+    {
+      "component": "synthesizer",
+      "evidence": 5,
+      "same_calls": true,
+      "same_output": true
+    }
+  ]
+}

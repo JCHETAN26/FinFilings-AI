@@ -1,0 +1,542 @@
+{
+  "available_subqueries": 36,
+  "cited_available_subqueries": 36,
+  "note": "Additional Codex verification: direct streaming comparison against original JSONL bytes, metadata and citations; independent arithmetic. No application verification helpers imported. Not semantic gold.",
+  "runs": 24,
+  "unique_source_passages": 57,
+  "records": [
+    {
+      "run_id": "01-legacy-audit04-r1",
+      "mode": "legacy",
+      "seconds": 29.682945667998865,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 6,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "02-fast-audit04-r1",
+      "mode": "fast",
+      "seconds": 21.69523820199538,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "03-fast-audit04-r2",
+      "mode": "fast",
+      "seconds": 31.79777198600641,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "04-legacy-audit04-r2",
+      "mode": "legacy",
+      "seconds": 30.125743219992728,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 6,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "05-legacy-audit07-r1",
+      "mode": "legacy",
+      "seconds": 34.73909335299686,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 8,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "06-fast-audit07-r1",
+      "mode": "fast",
+      "seconds": 23.210198696004227,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 6,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "07-fast-audit07-r2",
+      "mode": "fast",
+      "seconds": 39.509471327997744,
+      "model_calls": 4,
+      "retrieval_calls": 3,
+      "retries": 1,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 3
+      },
+      "evidence_instances_checked": 15,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "08-legacy-audit07-r2",
+      "mode": "legacy",
+      "seconds": 49.02766150300158,
+      "model_calls": 5,
+      "retrieval_calls": 3,
+      "retries": 1,
+      "citations": 6,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 1,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 3
+      },
+      "evidence_instances_checked": 15,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "09-legacy-broad25-r1",
+      "mode": "legacy",
+      "seconds": 29.741274376006913,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 4,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "10-fast-broad25-r1",
+      "mode": "fast",
+      "seconds": 24.264392074997886,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 4,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "11-fast-broad25-r2",
+      "mode": "fast",
+      "seconds": 22.969042358003207,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "12-legacy-broad25-r2",
+      "mode": "legacy",
+      "seconds": 26.546243439006503,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 4,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "13-legacy-broad21-r1",
+      "mode": "legacy",
+      "seconds": 29.15284309000708,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "14-fast-broad21-r1",
+      "mode": "fast",
+      "seconds": 19.532494695013156,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 4,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "15-fast-broad21-r2",
+      "mode": "fast",
+      "seconds": 23.796089859999483,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "16-legacy-broad21-r2",
+      "mode": "legacy",
+      "seconds": 27.828590620003524,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_subqueries": 0
+    },
+    {
+      "run_id": "17-legacy-audit10-r1",
+      "mode": "legacy",
+      "seconds": 23.830330810000305,
+      "model_calls": 7,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "citations": 0,
+      "accepted": 0,
+      "covered": 0,
+      "flags": 3,
+      "route": "none",
+      "schema_counts": {
+        "Plan": 1,
+        "Critique": 6
+      },
+      "evidence_instances_checked": 0,
+      "available_subqueries": 0,
+      "cited_available_subqueries": 0,
+      "unavailable_subqueries": 2
+    },
+    {
+      "run_id": "18-fast-audit10-r1",
+      "mode": "fast",
+      "seconds": 23.284387323990813,
+      "model_calls": 7,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "citations": 0,
+      "accepted": 0,
+      "covered": 0,
+      "flags": 3,
+      "route": "none",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 6
+      },
+      "evidence_instances_checked": 0,
+      "available_subqueries": 0,
+      "cited_available_subqueries": 0,
+      "unavailable_subqueries": 2
+    },
+    {
+      "run_id": "19-fast-audit10-r2",
+      "mode": "fast",
+      "seconds": 23.103761531005148,
+      "model_calls": 7,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "citations": 0,
+      "accepted": 0,
+      "covered": 0,
+      "flags": 3,
+      "route": "none",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 6
+      },
+      "evidence_instances_checked": 0,
+      "available_subqueries": 0,
+      "cited_available_subqueries": 0,
+      "unavailable_subqueries": 2
+    },
+    {
+      "run_id": "20-legacy-audit10-r2",
+      "mode": "legacy",
+      "seconds": 22.113869170003454,
+      "model_calls": 7,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "citations": 0,
+      "accepted": 0,
+      "covered": 0,
+      "flags": 3,
+      "route": "none",
+      "schema_counts": {
+        "Plan": 1,
+        "Critique": 6
+      },
+      "evidence_instances_checked": 0,
+      "available_subqueries": 0,
+      "cited_available_subqueries": 0,
+      "unavailable_subqueries": 2
+    },
+    {
+      "run_id": "21-legacy-broad30-r1",
+      "mode": "legacy",
+      "seconds": 30.827496508005424,
+      "model_calls": 6,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "citations": 5,
+      "accepted": 1,
+      "covered": 1,
+      "flags": 1,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 4
+      },
+      "evidence_instances_checked": 5,
+      "available_subqueries": 1,
+      "cited_available_subqueries": 1,
+      "unavailable_subqueries": 1
+    },
+    {
+      "run_id": "22-fast-broad30-r1",
+      "mode": "fast",
+      "seconds": 23.255046954989666,
+      "model_calls": 5,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "citations": 3,
+      "accepted": 1,
+      "covered": 1,
+      "flags": 1,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 4
+      },
+      "evidence_instances_checked": 5,
+      "available_subqueries": 1,
+      "cited_available_subqueries": 1,
+      "unavailable_subqueries": 1
+    },
+    {
+      "run_id": "23-fast-broad30-r2",
+      "mode": "fast",
+      "seconds": 20.92226331899292,
+      "model_calls": 5,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "citations": 3,
+      "accepted": 1,
+      "covered": 1,
+      "flags": 1,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 4
+      },
+      "evidence_instances_checked": 5,
+      "available_subqueries": 1,
+      "cited_available_subqueries": 1,
+      "unavailable_subqueries": 1
+    },
+    {
+      "run_id": "24-legacy-broad30-r2",
+      "mode": "legacy",
+      "seconds": 32.80406813000445,
+      "model_calls": 6,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "citations": 4,
+      "accepted": 1,
+      "covered": 1,
+      "flags": 2,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 4
+      },
+      "evidence_instances_checked": 5,
+      "available_subqueries": 1,
+      "cited_available_subqueries": 1,
+      "unavailable_subqueries": 1
+    }
+  ],
+  "failures": [],
+  "primary_median_seconds": {
+    "legacy": 29.71211002200289,
+    "fast": 23.503144278001855
+  },
+  "primary_reduction": 0.20897087885724275,
+  "release_eligible": true,
+  "per_mode": {
+    "legacy": {
+      "calls": 59,
+      "citations": 53,
+      "retries": 13
+    },
+    "fast": {
+      "calls": 49,
+      "citations": 45,
+      "retries": 13
+    }
+  }
+}

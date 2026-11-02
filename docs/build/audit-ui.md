@@ -1,6 +1,6 @@
 # Local audit workbench (UI)
 
-A browser front end around the existing, unchanged `Agent(ClaudeJSON, HybridClient, ProvenanceRegistry)`. It is a **local, single-user tool**: no accounts, no tenants, no authentication, no cloud deployment, and no production claim. The planner, critic, retrieval, ranking and extractive-synthesis code in `py/agent/` is not modified.
+A browser front end around the existing `Agent(ClaudeJSON, HybridClient, ProvenanceRegistry)` (unchanged during the initial UI phase; see "Agent mode" below for the later, separately authorized latency change). It is a **local, single-user tool**: no accounts, no tenants, no authentication, no cloud deployment, and no production claim. In the initial UI phase the planner, critic, retrieval, ranking and extractive-synthesis code in `py/agent/` was not modified; that statement is historical and scoped to that phase.
 
 **Status:** implemented and verified locally on November 2, 2026: 167 application tests, real Chrome 139 checks on three frozen scenarios against the real services, a 20-way admission/cancellation burst, security probes and a real active-audit shutdown. These are source/structural checks, not answer accuracy, human gold or load latency. Full evidence and the preserved harness and launcher corrections: [bench_kit/results/audit-ui-20261102/RESULTS.md](../../bench_kit/results/audit-ui-20261102/RESULTS.md). Not deployed; no authentication or tenancy.
 
@@ -102,7 +102,7 @@ Use the **same local port** as `--port`; the `Host` allowlist only accepts `127.
 | Job runtime | configurable, **≤ 600 s** (default 600) | `AuditManager` |
 | One model call | **≤ 180 s** (default 180) | `ClaudeJSON` (existing) |
 | Model concurrency | **2** | `ClaudeJSON` (existing default) |
-| Agent | ≤ 3 subqueries, ≤ 2 retries, ≤ 5 passages per search context, 3 concurrent retrievals | `Agent` (unchanged) |
+| Agent | ≤ 3 subqueries, ≤ 2 retries, ≤ 5 passages per search context, 3 concurrent retrievals | `Agent` (bounds unchanged) |
 | Catalog | filings only (never passages), bounded to 10 000 entries | `ProvenanceRegistry`, `build_catalog` |
 | HTTP | uvicorn `limit_concurrency` 32, backlog 64, header block ≤ 16 KiB, keep-alive 5 s | `server.uvicorn_config` |
 | Shutdown cleanup warning interval | 45 s. This is a **warning deadline, not a bound**: shutdown logs a warning every interval and keeps waiting until the agent task and its model process groups have really finished (the slot, backend and registry stay held, new audits are refused). An outer supervisor's SIGKILL is the only hard stop | `AuditManager.shutdown` |
@@ -162,7 +162,7 @@ cd py && PYTHONPATH=../models/runtime:. python3 -m unittest test_audit_web_manag
 
 `py/test_audit_web_ui_flow.py` runs `py/ui_flow/harness.js` under Node: a minimal fake DOM and scripted `fetch` drive the real `ui/app.js` through result/job association, stale-response races, the 15 s timeout with no POST retry, history refresh after an ambiguous submit, cancel availability and non-overlapping polling. It is not a browser; layout, focus and real rendering are not covered.
 
-They use scripted agents/models/backends and a synthetic fixture corpus (`py/audit_web_testkit.py`, TEST DOUBLES ONLY); one end-to-end class runs the real `Agent` and `ProvenanceRegistry` over that fixture with a scripted model and backend. Covered: single-slot admission (25 simultaneous submits, 20 simultaneous HTTP POSTs → exactly one accepted), pending/running/completed/failed/cancelled consistency, no slot release before cancel cleanup, shutdown ordering, job timeout, history count/TTL/result-byte bounds, oversized result, sanitized errors for each failure class, body limits (Content-Length, chunked, raw ASGI streaming), prompt validation, Host/Origin/CSRF/content-type/duplicate-header attacks, no CORS, security headers on rejections, static routes and traversal, SEC URL trust, citation/evidence binding (including unknown and unaccepted evidence), UTF-16 highlight offsets, real no-evidence flags, hostile strings remaining inert data, static HTML/CSS/JS rules (no inline script/handler, no `innerHTML`/`eval`/storage, element IDs exist), bind policy, uvicorn bounds, launcher work-directory safety, process-group-only termination, and enrollment checksum refusal. Timings in these tests are not benchmarks. They do not test model quality (the agent is unchanged) and do not exercise a real browser.
+They use scripted agents/models/backends and a synthetic fixture corpus (`py/audit_web_testkit.py`, TEST DOUBLES ONLY); one end-to-end class runs the real `Agent` and `ProvenanceRegistry` over that fixture with a scripted model and backend. Covered: single-slot admission (25 simultaneous submits, 20 simultaneous HTTP POSTs → exactly one accepted), pending/running/completed/failed/cancelled consistency, no slot release before cancel cleanup, shutdown ordering, job timeout, history count/TTL/result-byte bounds, oversized result, sanitized errors for each failure class, body limits (Content-Length, chunked, raw ASGI streaming), prompt validation, Host/Origin/CSRF/content-type/duplicate-header attacks, no CORS, security headers on rejections, static routes and traversal, SEC URL trust, citation/evidence binding (including unknown and unaccepted evidence), UTF-16 highlight offsets, real no-evidence flags, hostile strings remaining inert data, static HTML/CSS/JS rules (no inline script/handler, no `innerHTML`/`eval`/storage, element IDs exist), bind policy, uvicorn bounds, launcher work-directory safety, process-group-only termination, and enrollment checksum refusal. Timings in these tests are not benchmarks. They do not test model quality (the agent's model behavior is not exercised) and do not exercise a real browser.
 
 ## Known limitations and unresolved requirements
 
@@ -175,4 +175,14 @@ They use scripted agents/models/backends and a synthetic fixture corpus (`py/aud
 - Run-directory files (manifest, logs, `bridge`) are created with owner-only modes where the filesystem supports them, but on exFAT no confidentiality is claimed from `chmod`; logs may contain audit questions and error details, stay local and must not be published.
 - Sidecar and bridge stdout logs under `data/audit-ui/run-*/` are not rotated, and old run directories are not pruned.
 - The registry's catalog reports the cover-page fiscal period text as extracted (for example `September 30 , 2023`); it is displayed as recorded.
-- Result quality is whatever the unchanged agent produces; see the existing validation reports. This UI adds no accuracy claim.
+- Result quality is whatever the agent produces; see the existing validation reports. This UI adds no accuracy claim.
+
+## Agent mode (added after the initial UI phase)
+
+The UI now defaults to the agent's `fast` execution mode (host-verified quotes proposed by the critic; no final synthesis call unless a bounded fallback
+applies). Start it with `--agent-mode legacy` for the previous path. Each result's "Run details (technical)" shows the mode and the synthesis route that actually ran
+(`host_quotes`, `fallback`, `none`, or `legacy`); results saved before this change lack the keys and read as legacy. Bounds are unchanged (one active audit,
+2 model calls, 3 subqueries, 2 retries, 5 contexts). A running UI process keeps the code it imported, so restart it to pick the change up. Measured latency
+results for the modes are in [`agent-latency.md`](agent-latency.md) and the [latency results](../../bench_kit/results/audit-latency-20261102/RESULTS.md); the
+UI benchmark/test reports above are historical and were not re-measured for this change (last UI real checks: 167 application / 168 benchmark tests; latest agent
+tests: 192 application / 216 benchmark, [log](../../bench_kit/results/audit-latency-20261102/verification/benchmark-tests-04.log); the earlier 192 / 191 logs are historical). Verification and release gates passed; Git publication is recorded in history and the UI launch command is available. These benchmark figures are not new live UI measurements or a deployment, and no single uninterrupted 30-case run is claimed here.

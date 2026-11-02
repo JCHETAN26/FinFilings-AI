@@ -23,6 +23,7 @@ def main(argv=None) -> None:
     parser.add_argument('--host', default='127.0.0.1')
     parser.add_argument('--port', type=int, default=8766)
     parser.add_argument('--model', default='haiku')
+    parser.add_argument('--agent-mode', choices=('fast', 'legacy'), default='fast')
     parser.add_argument('--job-timeout', type=float, default=limits.JOB_TIMEOUT_MAX_SECONDS)
     parser.add_argument('--model-timeout', type=float, default=limits.MODEL_TIMEOUT_MAX_SECONDS)
     parser.add_argument('--tunnel-local-port', type=int, action='append', default=[], help='extra local port a trusted SSH tunnel uses')
@@ -31,7 +32,7 @@ def main(argv=None) -> None:
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s %(message)s')
     expected = json.loads(args.provenance.read_text())['corpus_sha256']
     runtime = build_runtime(corpus=args.corpus, provenance=args.provenance, backend_url=args.backend, expected_corpus_sha256=expected,
-                            model=args.model, job_timeout=args.job_timeout, model_timeout=args.model_timeout)
+                            model=args.model, agent_mode=args.agent_mode, job_timeout=args.job_timeout, model_timeout=args.model_timeout)
     try:
         asyncio.run(serve(runtime, args.host, args.port, tunnel_ports=tuple(args.tunnel_local_port), open_browser=args.open_browser))
     finally:

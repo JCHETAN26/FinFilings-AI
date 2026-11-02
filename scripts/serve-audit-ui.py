@@ -62,6 +62,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--tunnel-local-port', type=int, action='append', default=[],
                         help='local port of a trusted SSH tunnel when it differs from --port (adds it to the Host allowlist)')
     parser.add_argument('--model', default='haiku', help='Claude CLI model alias (default haiku)')
+    parser.add_argument('--agent-mode', choices=('fast', 'legacy'), default='fast', help='fast (default): critic-selected quotes + host formatting; legacy: separate synthesis call')
     parser.add_argument('--job-timeout', type=float, default=600, help='seconds per audit, max 600')
     parser.add_argument('--model-timeout', type=float, default=180, help='seconds per model call, max 180')
     parser.add_argument('--startup-timeout', type=startup_seconds, default=180, help='seconds to wait for the retrieval services, 1..600 (default 180)')
@@ -221,7 +222,7 @@ def main(argv=None) -> int:
                     raise TimeoutError('retrieval services did not become ready in time')
                 time.sleep(0.25)
         runtime = build_runtime(corpus=enrolled['corpus'], provenance=manifest, backend_url=backend, expected_corpus_sha256=enrolled['corpus_sha256'],
-                                model=args.model, job_timeout=args.job_timeout, model_timeout=args.model_timeout)
+                                model=args.model, agent_mode=args.agent_mode, job_timeout=args.job_timeout, model_timeout=args.model_timeout)
         status['status'] = 'serving'
         asyncio.run(serve(runtime, host, args.port, tunnel_ports=tuple(args.tunnel_local_port), open_browser=args.browser))
         status['status'] = 'stopped'

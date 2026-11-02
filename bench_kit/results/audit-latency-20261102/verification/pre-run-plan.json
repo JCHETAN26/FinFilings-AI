@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-11-02T15:50:46.702969+00:00",
+  "baseline_commit": "489bfcf9571a32491cac332978d874a273e96aa1",
+  "suite_sha256": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+  "paired_case_ids": [
+    "audit04",
+    "audit07",
+    "broad25",
+    "broad21",
+    "audit10",
+    "broad30"
+  ],
+  "primary_supported_case_ids": [
+    "audit04",
+    "audit07",
+    "broad25",
+    "broad21"
+  ],
+  "repeats_per_case_per_mode": 2,
+  "order": "Alternate legacy/candidate then candidate/legacy within pairs; one audit at a time; one shared 4x2 backend",
+  "latency_gate": {
+    "metric": "Median end-to-end seconds across the 8 supported-case runs per mode",
+    "required_reduction_fraction": 0.15,
+    "cache_policy": "No audit-result cache; every run invokes actual provider and retrieval as required by its path."
+  },
+  "quality_gates": [
+    "Zero model, transport or structural failures in paired runs",
+    "Exact SEC source, citation metadata and quote grounding on every paired result",
+    "All available planned subqueries cited; unavailable scopes publish no claims; mixed side preserved",
+    "Full frozen 30-case candidate run independently verified, no available-topic gaps, all expected absent scopes withheld",
+    "Critic threshold4, max2retries/5context/2modelcalls/3subqueries and4x2inference unchanged",
+    "No changes to corpus, model, sparse/vector/reranking artifacts",
+    "Fallback is bounded to one real existing synthesis call; no fake model ledger entries",
+    "Original and candidate modes remain separately runnable and raw failures preserved"
+  ],
+  "release_rule": "Push only if all quality and latency gates pass; do not rerun unchanged to seek a lucky result.",
+  "scope_note": "Source-informed regression fixtures, not independent semantic gold. Small-sample matched timing observations are not an SLA or p99 benchmark."
+}

@@ -308,7 +308,7 @@ def check_expected_scopes(suite: dict[str, Any], sources: list[dict[str, Any]],
 
 
 _AGENT_FILES = {'state_machine.py', 'planner.py', 'critic.py', 'synthesizer.py', 'provenance.py', 'models.py',
-                'filters.py', 'eval_agent.py'}
+                'filters.py', 'eval_agent.py', 'fast.py', 'eval_agent_latency.py'}
 
 
 def classify_failure(exc: BaseException) -> str:
@@ -365,7 +365,7 @@ def code_files(root: Path) -> list[str]:
     found = set()
     for pattern in ('py/*.py', 'py/agent/*.py', 'cmd/**/*.go', 'pkg/**/*.go', 'internal/**/*.go', 'go.mod', 'go.sum',
                     'scripts/evaluate-expanded-agent.py', 'scripts/benchmark-expanded.py', 'bench_kit/eval_agent.py',
-                    'bench_kit/agent_suite.py', 'bench_kit/verify_broad_agent.py', 'bench_kit/build_broad_suite.py'):
+                    'bench_kit/agent_suite.py', 'bench_kit/verify_broad_agent.py', 'bench_kit/build_broad_suite.py', 'bench_kit/eval_agent_latency.py'):
         for path in root.glob(pattern):
             name = path.name
             if path.is_file() and not name.startswith('test_') and not name.endswith('_test.go'):

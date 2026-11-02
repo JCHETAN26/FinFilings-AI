@@ -1,0 +1,62 @@
+{
+  "checked_utc": "2026-11-02T17:24:37.226736+00:00",
+  "health": [
+    {
+      "batch": "paired-run-02",
+      "moment": "before",
+      "workers": 4,
+      "threads": 2,
+      "admission_limit": 64,
+      "admission_peak": 0,
+      "admission_rejections": 0,
+      "dense_batch_size": 8,
+      "dense_trigger": 8
+    },
+    {
+      "batch": "paired-run-02",
+      "moment": "after",
+      "workers": 4,
+      "threads": 2,
+      "admission_limit": 64,
+      "admission_peak": 2,
+      "admission_rejections": 0,
+      "dense_batch_size": 8,
+      "dense_trigger": 8
+    },
+    {
+      "batch": "full-run-01",
+      "moment": "before",
+      "workers": 4,
+      "threads": 2,
+      "admission_limit": 64,
+      "admission_peak": 0,
+      "admission_rejections": 0,
+      "dense_batch_size": 8,
+      "dense_trigger": 8
+    },
+    {
+      "batch": "full-run-02-remaining",
+      "moment": "before",
+      "workers": 4,
+      "threads": 2,
+      "admission_limit": 64,
+      "admission_peak": 0,
+      "admission_rejections": 0,
+      "dense_batch_size": 8,
+      "dense_trigger": 8
+    },
+    {
+      "batch": "full-run-02-remaining",
+      "moment": "after",
+      "workers": 4,
+      "threads": 2,
+      "admission_limit": 64,
+      "admission_peak": 2,
+      "admission_rejections": 0,
+      "dense_batch_size": 8,
+      "dense_trigger": 8
+    }
+  ],
+  "active_audit_services": [],
+  "note": "Codex independently checked saved health profiles and absence of matching audit processes after recovery. Interrupted batch has no health-after or normal cleanup claim."
+}

@@ -1,0 +1,476 @@
+{
+  "prompt": "Audit ISRG filing year 2026, with the exact SectionItem filter \"Item 7\": separately retrieve tariff impacts on product cost and da Vinci procedure growth disclosures. Ground both topics in the filing without calculating new rates.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "tariff impact on product cost of goods sold",
+        "goal": "tariff impacts on product cost",
+        "filters": {
+          "ticker": "ISRG",
+          "year": 2026,
+          "section": "Item 7",
+          "accession": "000103526726000010"
+        }
+      },
+      {
+        "query": "da Vinci procedure growth, procedure volume increase",
+        "goal": "da Vinci procedure growth disclosures",
+        "filters": {
+          "ticker": "ISRG",
+          "year": 2026,
+          "section": "Item 7",
+          "accession": "000103526726000010"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "tariff impact on product cost of goods sold",
+      "requested_goal": "tariff impacts on product cost",
+      "filters": {
+        "ticker": "ISRG",
+        "year": 2026,
+        "section": "Item 7",
+        "accession": "000103526726000010"
+      },
+      "score": 5,
+      "rationale": "Within ISRG's 2026 Item 7 scope, the passages directly state the tariff impact on product cost. E02 says tariffs on imports into the U.S. and China are expected to continue to have an adverse impact on the product cost of the da Vinci Xi system in China, and that tariffs and other trade measures increased cost of revenues by approximately $63.0 million in 2025. E01 covers the sourcing exposure (Mexicali manufacturing under USMCA, endoscopes from Germany subject to tariffs). E05 states that the 2026 tariff expense is expected to increase if tariffs remain in effect. Together these cover the requested product-cost tariff impact. No requested element is missing.",
+      "evidence": [
+        {
+          "id": "000103526726000010#item7#passage-000043",
+          "text": "2026. In 2025, new and incremental tariffs were imposed on goods imported to the U.S. We import raw materials and finished goods from sources outside of the U.S., which were subject to tariffs, including but not limited to our endoscopes, which are primarily manufactured in Germany. If the tariffs continue to be in effect in 2026 as currently implemented, we expect the associated expense to increase in 2026. The ultimate impact of tariffs will depend on various factors, including the amount, scope, timing, and nature of the tariffs. Service Our service gross profit during the periods presented was as follows (dollars in millions): Year Ended December 31, 2025 vs 2024 2024 vs 2023 2025 2024 2023 $ Change % Change $ Change % Change Service gross profit (1) $1,015.8 $902.3 $815.0 $113.5 13 %$87.3 11 % Service gross profit margin 64.6%69.0%69.8% ________ (1) Includes the following expenses: Share-based compensation expense$34.5 $30.5 $28.2 $4.0 13 %$2.3 8 % Intangible asset amortization$0.7 $0.8 $0.9 $(0.1)(13)%$(0.1)(11)% Service gross profit margin decreased in 2025 compared to 2024, primarily driven by higher costs associated with our da Vinci 5 surgical system, an unfavorable repair mix, incremental fixed costs, including depreciation expense, and new tariffs, partially offset by lower logistics costs and lower excess and obsolete inventory charges. Selling, General and Administrative Expenses Selling, general and administrative expenses include costs for sales, marketing, and administrative personnel, sales and marketing activities, trade show expenses, legal expenses, regulatory fees, and general corporate expenses. 78 Table of Contents Selling, general and administrative expenses during the",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000043",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000043"
+        },
+        {
+          "id": "000103526726000010#item7#passage-000007",
+          "text": "63 Table of Contents surgical systems into China. These imports into the U.S. and China are subject to tariffs, which we expect to continue to have an adverse impact on the product cost of our da Vinci Xi surgical system in China. Some of our suppliers have also incurred incremental tariffs and have passed or may pass on those additional costs to us. These pass-through tariffs and other specific tariff actions against steel and aluminum, critical minerals, semiconductors, and other products have not had a material direct impact on our operations to date, but the long-term effect of these and other existing and future tariff actions is difficult to predict. U.S. tariffs have also given rise to trade measures by other countries, including additional restrictions on certain exports. These trade measures could impact the reliability and efficiency of our supply chain if they are imposed on materials important to our production operations. In particular, restrictions on the export of rare earth elements, including magnets, and critical minerals from China could potentially restrict access to components used in many of our products and could have a material adverse effect on our business, financial condition, or results of operations. In 2025, tariffs and other trade measures have increased our cost of revenues by approximately $63.0 million. Based on the announced and implemented global tariffs as of the date of this report, and assuming such tariffs remain in place, we expect our cost of revenues driven by tariffs and other trade measures to continue to increase in 2026. Future",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000007",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000007"
+        },
+        {
+          "id": "000103526726000010#item7#passage-000006",
+          "text": "and NMPA regulatory clearance in China. We plan to seek additional clearances, approvals, and certifications for our Ion endoluminal system in OUS markets over time. The success of new product introductions depends on a number of factors including, but not limited to, pricing, competition, geographic market and consumer acceptance, the effective forecasting and management of product demand, inventory levels, the management of manufacturing and supply costs, and the risk that new products may have quality or other defects in the early stages of introduction. Trade and Tariffs Update Beginning in 2025, the U.S. implemented a baseline tariff framework on most imports with higher country- and product-specific rates for certain trading partners, including Mexico, Germany, and China, among others, alongside reciprocal measures announced by other jurisdictions. Our disclosure reflects tariffs currently in effect or announced as of the date of this report and assumes such tariffs remain in place, consistent with how we reflect tariff impacts in our financial outlook. We currently manufacture a significant majority of our instruments and accessories in Mexicali, Mexico. Most of these products qualify as originating under the USMCA and, therefore, have not been subject to U.S. import tariffs to date. We also import certain raw materials and finished goods from outside of the U.S. that are subject to tariffs, including our endoscopes, a majority of which are manufactured in Germany. In addition, our operations involve importing certain raw materials from China, importing sub-assemblies to support our local da Vinci Xi surgical system manufacturing in China, and selling U.S.-manufactured da Vinci Xi",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000006",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000006"
+        },
+        {
+          "id": "000103526726000010#item7#passage-000008",
+          "text": "changes to tariff rates and the imposition of new tariffs by the U.S. and/or other countries could result in a material impact to our results of operations. The ultimate impact of changes to tariffs and trade barriers will depend on various factors, including the timing, amount, scope, and nature of any tariffs or trade barriers that are implemented, all of which could have a material adverse effect on our business, financial condition, or results of operations. Remanufactured Instruments Third parties have offered, and may continue to offer, instruments that have been modified to support the use of some of our limited-use instruments beyond their labeled life. We are aware that the FDA has granted 510(k) clearance for the remanufacturing of certain of these instruments for use with our da Vinci Si, da Vinci X, and da Vinci Xi surgical systems. To date, such offerings have not had a material impact on our revenues, but such activities could result in reduced revenue if these products have broader uptake as well as generate negative publicity for us if these products cause injuries and/or do not function as intended when used. Both of these possibilities could have a material adverse effect on our business, financial condition, or results of operations. For further details on remanufactured instruments, refer to the “Products & Services – Da Vinci – Instruments” section of our corporate website. The inclusion of a reference to our corporate website in this filing does not include or incorporate by reference the information on our website into this Form",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000008",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000008"
+        },
+        {
+          "id": "000103526726000010#item7#passage-000009",
+          "text": "10-K. Other Macroeconomic Environment Factors Our future results of operations and liquidity could be materially adversely affected by uncertainties surrounding macroeconomic and geopolitical factors both in the U.S. and globally. These uncertainties include any introduction or modification of tariffs or trade barriers, supply chain challenges, inflationary pressures, elevated interest rates, and disruptions in the commodity markets stemming from conflicts, such as those between Russia and Ukraine and conflicts in the Middle East. During the fourth quarter of 2025, we continued to experience isolated stresses to supply, particularly for specific component materials impacted by evolving trade requirements and at certain subcontract suppliers that were operationally challenged to meet our production requirements. These isolated instances did not have a material impact on our business during the fourth quarter of 2025. As a result of the escalation in tariffs and country-specific trade requirements, including export license controls between major economies, we may experience tariff-related inflation in raw materials costs as well as supply shortages based on shipment delays and the availability of alternative sources of supply for critical materials used in the manufacture of finished products. Elevated interest rates may also impact the ability of certain suppliers to fund necessary investments in capacity and infrastructure. Any insolvency of certain suppliers, including sole- and single-sourced suppliers, may present heightened continuity risks. Additionally, although incidents of cybersecurity breaches have not significantly impacted our supply chain to date, they continue to be actively monitored to protect supply continuity. We are actively engaged in activities that seek to mitigate the impact of any",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000009",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000009"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000103526726000010#item7#passage-000043",
+        "000103526726000010#item7#passage-000007",
+        "000103526726000010#item7#passage-000006",
+        "000103526726000010#item7#passage-000008",
+        "000103526726000010#item7#passage-000009",
+        "000103526726000010#item7#passage-000039",
+        "000103526726000010#item7#passage-000042",
+        "000103526726000010#item7#passage-000057",
+        "000103526726000010#item7#passage-000051",
+        "000103526726000010#item7#passage-000010"
+      ],
+      "fresh_verified_ids": [
+        "000103526726000010#item7#passage-000043",
+        "000103526726000010#item7#passage-000007",
+        "000103526726000010#item7#passage-000006",
+        "000103526726000010#item7#passage-000008",
+        "000103526726000010#item7#passage-000009"
+      ],
+      "quote_selections": [
+        {
+          "chunk_id": "000103526726000010#item7#passage-000007",
+          "quote": "These imports into the U.S. and China are subject to tariffs, which we expect to continue to have an adverse impact on the product cost of our da Vinci Xi surgical system in China."
+        },
+        {
+          "chunk_id": "000103526726000010#item7#passage-000007",
+          "quote": "In 2025, tariffs and other trade measures have increased our cost of revenues by approximately $63.0 million."
+        },
+        {
+          "chunk_id": "000103526726000010#item7#passage-000043",
+          "quote": "If the tariffs continue to be in effect in 2026 as currently implemented, we expect the associated expense to increase in 2026."
+        }
+      ],
+      "quote_flags": [],
+      "elapsed_seconds": 10.332534819000102
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "da Vinci procedure growth, procedure volume increase",
+      "requested_goal": "da Vinci procedure growth disclosures",
+      "filters": {
+        "ticker": "ISRG",
+        "year": 2026,
+        "section": "Item 7",
+        "accession": "000103526726000010"
+      },
+      "score": 5,
+      "rationale": "The passages fully answer the requested da Vinci procedure growth disclosures within ISRG's 2026 filing, Item 7. They give U.S. and OUS da Vinci procedure growth rates for 2025 and 2024, the segment breakdowns (general surgery, gynecology, urology), and the overall instruments and accessories tie-in (about 18% higher da Vinci procedure volume). The filing year 2026 covers fiscal 2025 data, which is what the passages report. No required element is missing.",
+      "evidence": [
+        {
+          "id": "000103526726000010#item7#passage-000040",
+          "text": "to U.S. patients’ ability to choose their provider and method of treatment, reimbursement structures supportive of innovation and MIS, and our initial investments focused on U.S. infrastructure. We have been investing in our business in OUS markets, and our OUS procedures have grown faster in proportion to U.S. procedures. We expect that our OUS procedures and revenue will make up a greater portion of our business in the long term. Product Revenue Instruments and accessories revenue increased by 19% to $6.02 billion for 2025, compared to $5.08 billion for 2024. The increase in instruments and accessories revenue was primarily driven by approximately 18% higher da Vinci procedure volume, 76 Table of Contents approximately 51% higher Ion procedure volume, and incremental growth of SP procedures, partially offset by an unfavorable procedure mix. The 2025 U.S. da Vinci procedure growth was approximately 15%, driven primarily by strong growth in general surgery procedures, most notably cholecystectomy, hernia repair, appendectomy, and colorectal procedures, and gynecologic procedures. The number of U.S. da Vinci bariatric procedures performed declined in the high-single digits in 2025 compared to 2024. The 2025 OUS da Vinci procedure growth was approximately 23%, driven by growth in general surgery procedures, most notably colorectal and hernia repair procedures; urologic procedures, most notably prostatectomy and partial nephrectomy procedures; and gynecologic procedures. Geographically, the 2025 OUS da Vinci procedure growth was driven by several markets with particular strength in South Korea and India. Systems revenue increased by 26% to $2.47 billion for 2025, compared to $1.97 billion for 2024. The higher",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000040",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000040"
+        },
+        {
+          "id": "000103526726000010#item7#passage-000027",
+          "text": "growth in OUS prostatectomy procedures compared to 2024. Kidney cancer procedures have also been a strong contributor to our recent global urology procedure growth. Clinical publications have demonstrated that the use of a da Vinci surgical system increases the likelihood that a patient will receive nephron sparing surgery through a partial nephrectomy, which is typically the surgical society guideline recommended therapy. OUS Gynecology. OUS gynecology procedures grew approximately 28% in 2025, compared to approximately 29% in 2024, most notably hysterectomy procedures. The growth in hysterectomy procedures has been largely driven by increased use of our systems by new da Vinci surgeons. Ion Procedures The adoption of robotic-assisted bronchoscopy using the Ion endoluminal system has the potential to grow if it can offer greater patient value than non-Ion alternatives and competitive total economics for healthcare providers. In 2025, approximately 144,100 biopsy procedures were performed with Ion systems, compared to approximately 95,500 in 2024 and approximately 53,800 in 2023. The increase in our overall procedure volume in 2025 reflects a larger installed base of approximately 995 systems, an increase of 24% compared to the installed base of approximately 805 systems as of 2024. Currently, the vast majority of Ion biopsy procedures are performed in the U.S. System Demand System placements are driven by procedure growth in most geographic markets. In some markets, system placements are constrained by regulation. In geographies where da Vinci procedure adoption is in an early stage or system placements are constrained by regulation, system sales will precede procedure growth. 71 Table of Contents The",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000027",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000027"
+        },
+        {
+          "id": "000103526726000010#item7#passage-000026",
+          "text": "systems, supported by expanded global evidence validating the clinical and economic value of da Vinci procedures as well as increased surgeon training. In South Korea, the doctor strikes that began in the first quarter of 2024 have ended; we saw a recovery in the number of procedures performed in 2025, and the growth rate in South Korea exceeded the overall OUS procedure growth rate. OUS General Surgery. OUS general surgery procedures grew approximately 31% in 2025, compared to approximately 35% in 2024, most notably colorectal and hernia repair procedures. Colorectal procedures contributed the most incremental procedures in 2025 and 2024, aided by improved clinical outcomes relative to open and laparoscopic techniques within certain patient populations, along with enabling technologies, such as our da Vinci energy and da Vinci stapler products as well as our Integrated Table Motion product. The growth in hernia repair procedures has largely been driven by increased use of our systems by new da Vinci surgeons. OUS Urology. OUS urology procedures have been a consistent contributor to our overall procedure growth. OUS urology procedures grew approximately 16% in 2025, compared to approximately 14% in 2024, most notably prostatectomy and partial nephrectomy procedures. In the U.S., da Vinci is the standard of care for the surgical treatment of prostate cancer, and we believe that the growth is largely aligned with surgical volumes of prostate cancer. In OUS markets, prostatectomy is at varying states of adoption in different areas of the world but is the largest overall da Vinci procedure. In 2025, we saw consistent",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000026",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000026"
+        },
+        {
+          "id": "000103526726000010#item7#passage-000025",
+          "text": "volume will grow in the future. We expect a large portion of hernia repairs will continue to be performed via different modalities of surgery. Growth in appendectomy procedures reflects greater access to acute and after-hours care. We believe that our stapling instruments may minimize complications and reduce operative times in emergent and after-hours settings. Similar to cholecystectomy procedures, there is currently a high level of laparoscopic techniques used in appendectomy procedures. The adoption of da Vinci for colorectal procedures, which includes several underlying procedures, such as low anterior resections for rectal cancers and certain colon procedures for benign and cancerous conditions, has been ongoing for several years and is supported by certain technologies, such as our da Vinci energy and da Vinci stapler products as well as our Integrated Table Motion product. U.S. Gynecology. Gynecology procedures in the U.S. grew approximately 11% in 2025, compared to approximately 8% in 2024. Benign hysterectomy procedures contributed the most incremental procedures in 2025 and 2024. The growth in benign hysterectomy procedures has been largely driven by use of our systems by new da Vinci surgeons. 70 Table of Contents OUS Procedures. OUS da Vinci procedures grew approximately 23% in 2025, compared to approximately 23% in 2024. In OUS markets, robotic-assisted procedures are at varying states of adoption in different areas of the world with cancer procedures outpacing benign procedures. We saw strong procedure growth in South Korea and India during 2025. We believe that growth in these global markets is being driven by increased acceptance among surgeons and health",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000025",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000025"
+        },
+        {
+          "id": "000103526726000010#item7#passage-000024",
+          "text": "approximately 17% in 2024, largely attributable to growth in U.S. general surgery, OUS general surgery (particularly cancer), OUS urologic surgery, and U.S. gynecologic surgery procedures. U.S. Procedures. U.S. da Vinci procedures grew approximately 15% in 2025, compared to approximately 15% in 2024. The 2025 U.S. procedure growth was largely attributable to growth in general surgery and gynecologic surgery procedures. U.S. General Surgery. General surgery procedures in the U.S. grew approximately 18% in 2025, compared to approximately 19% in 2024, most notably cholecystectomy, hernia repair, appendectomy, and colorectal procedures. The number of U.S. da Vinci bariatric procedures performed declined in the high-single digits in 2025 compared to 2024. Cholecystectomy, inguinal and ventral hernia repair, and appendectomy procedures contributed the most incremental procedures in 2025. Cholecystectomy, inguinal and ventral hernia repair, and colorectal procedures contributed the most incremental procedures in 2024. Given the already very high level of laparoscopic techniques used in cholecystectomy procedures, it remains unclear to what extent robotic-assisted surgery using da Vinci may continue to be adopted. We believe that growth in hernia repair procedures using da Vinci reflects improved clinical outcomes within certain patient populations, as well as potential cost benefits relative to certain alternative treatments. We believe that hernia repair procedures represent a significant opportunity with the potential to drive growth in future periods. However, given the differences in surgical complexity associated with the treatment of various hernia patient populations and varying surgeon opinions regarding optimal surgical technique, it is difficult to estimate the timing of and to what extent hernia repair procedure",
+          "metadata": {
+            "ID": "000103526726000010#item7#passage-000024",
+            "Ticker": "ISRG",
+            "CIK": "1035267",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001035267-26-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+          "tag": "ISRG-2026-10K-item7-p000024"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000103526726000010#item7#passage-000040",
+        "000103526726000010#item7#passage-000027",
+        "000103526726000010#item7#passage-000026",
+        "000103526726000010#item7#passage-000025",
+        "000103526726000010#item7#passage-000024",
+        "000103526726000010#item7#passage-000022",
+        "000103526726000010#item7#passage-000019",
+        "000103526726000010#item7#passage-000032",
+        "000103526726000010#item7#passage-000028",
+        "000103526726000010#item7#passage-000042"
+      ],
+      "fresh_verified_ids": [
+        "000103526726000010#item7#passage-000040",
+        "000103526726000010#item7#passage-000027",
+        "000103526726000010#item7#passage-000026",
+        "000103526726000010#item7#passage-000025",
+        "000103526726000010#item7#passage-000024"
+      ],
+      "quote_selections": [
+        {
+          "chunk_id": "000103526726000010#item7#passage-000024",
+          "quote": "U.S. da Vinci procedures grew approximately 15% in 2025, compared to approximately 15% in 2024."
+        },
+        {
+          "chunk_id": "000103526726000010#item7#passage-000026",
+          "quote": "OUS general surgery procedures grew approximately 31% in 2025, compared to approximately 35% in 2024, most notably colorectal and hernia repair procedures."
+        },
+        {
+          "chunk_id": "000103526726000010#item7#passage-000040",
+          "quote": "The 2025 OUS da Vinci procedure growth was approximately 23%, driven by growth in general surgery procedures, most notably colorectal and hernia repair procedures;"
+        }
+      ],
+      "quote_flags": [],
+      "elapsed_seconds": 13.893691108000212
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- These imports into the U.S. and China are subject to tariffs, which we expect to continue to have an adverse impact on the product cost of our da Vinci Xi surgical system in China. [ISRG-2026-10K-item7-p000007](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm) (chunk: `000103526726000010#item7#passage-000007`; accession: `0001035267-26-000010`).\n- In 2025, tariffs and other trade measures have increased our cost of revenues by approximately $63.0 million. [ISRG-2026-10K-item7-p000007](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm) (chunk: `000103526726000010#item7#passage-000007`; accession: `0001035267-26-000010`).\n- If the tariffs continue to be in effect in 2026 as currently implemented, we expect the associated expense to increase in 2026. [ISRG-2026-10K-item7-p000043](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm) (chunk: `000103526726000010#item7#passage-000043`; accession: `0001035267-26-000010`).\n- U.S. da Vinci procedures grew approximately 15% in 2025, compared to approximately 15% in 2024. [ISRG-2026-10K-item7-p000024](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm) (chunk: `000103526726000010#item7#passage-000024`; accession: `0001035267-26-000010`).\n- OUS general surgery procedures grew approximately 31% in 2025, compared to approximately 35% in 2024, most notably colorectal and hernia repair procedures. [ISRG-2026-10K-item7-p000026](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm) (chunk: `000103526726000010#item7#passage-000026`; accession: `0001035267-26-000010`).\n- The 2025 OUS da Vinci procedure growth was approximately 23%, driven by growth in general surgery procedures, most notably colorectal and hernia repair procedures; [ISRG-2026-10K-item7-p000040](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm) (chunk: `000103526726000010#item7#passage-000040`; accession: `0001035267-26-000010`).",
+  "citations": [
+    {
+      "tag": "ISRG-2026-10K-item7-p000007",
+      "chunk_id": "000103526726000010#item7#passage-000007",
+      "accession": "0001035267-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+      "quote": "These imports into the U.S. and China are subject to tariffs, which we expect to continue to have an adverse impact on the product cost of our da Vinci Xi surgical system in China."
+    },
+    {
+      "tag": "ISRG-2026-10K-item7-p000007",
+      "chunk_id": "000103526726000010#item7#passage-000007",
+      "accession": "0001035267-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+      "quote": "In 2025, tariffs and other trade measures have increased our cost of revenues by approximately $63.0 million."
+    },
+    {
+      "tag": "ISRG-2026-10K-item7-p000043",
+      "chunk_id": "000103526726000010#item7#passage-000043",
+      "accession": "0001035267-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+      "quote": "If the tariffs continue to be in effect in 2026 as currently implemented, we expect the associated expense to increase in 2026."
+    },
+    {
+      "tag": "ISRG-2026-10K-item7-p000024",
+      "chunk_id": "000103526726000010#item7#passage-000024",
+      "accession": "0001035267-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+      "quote": "U.S. da Vinci procedures grew approximately 15% in 2025, compared to approximately 15% in 2024."
+    },
+    {
+      "tag": "ISRG-2026-10K-item7-p000026",
+      "chunk_id": "000103526726000010#item7#passage-000026",
+      "accession": "0001035267-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+      "quote": "OUS general surgery procedures grew approximately 31% in 2025, compared to approximately 35% in 2024, most notably colorectal and hernia repair procedures."
+    },
+    {
+      "tag": "ISRG-2026-10K-item7-p000040",
+      "chunk_id": "000103526726000010#item7#passage-000040",
+      "accession": "0001035267-26-000010",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+      "quote": "The 2025 OUS da Vinci procedure growth was approximately 23%, driven by growth in general surgery procedures, most notably colorectal and hernia repair procedures;"
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.152699594000069,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13090,
+        "cache_read_input_tokens": 1472,
+        "output_tokens": 592,
+        "output_tokens_details": {
+          "thinking_tokens": 373
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13090,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 592,
+            "cache_read_input_tokens": 1472,
+            "cache_creation_input_tokens": 13090,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13090
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0029289200000000002
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.337867415999881,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 15944,
+        "cache_read_input_tokens": 2486,
+        "output_tokens": 1409,
+        "output_tokens_details": {
+          "thinking_tokens": 826
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 15944,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1409,
+            "cache_read_input_tokens": 2486,
+            "cache_creation_input_tokens": 15944,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 15944
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00391836
+    },
+    {
+      "schema": "CritiqueWithQuotes",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 10.884761490000074,
+      "num_turns": 3,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 17980,
+        "cache_read_input_tokens": 21194,
+        "output_tokens": 2222,
+        "output_tokens_details": {
+          "thinking_tokens": 1150
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 17980,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 533,
+            "cache_read_input_tokens": 18708,
+            "cache_creation_input_tokens": 1758,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1758
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0049193399999999995
+    }
+  ],
+  "elapsed_seconds": 19.048771257999988,
+  "execution_mode": "fast",
+  "synthesis_route": "host_quotes"
+}

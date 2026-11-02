@@ -1,0 +1,472 @@
+{
+  "prompt": "Compare HPE filing year 2024 and HPE filing year 2025, with the exact SectionItem filter \"Item 7\": retrieve share repurchase authorization and repurchase activity disclosures for each filing year. Retrieve evidence separately for each filing year.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "share repurchase authorization and repurchase activity",
+        "goal": "share repurchase authorization and repurchase activity disclosures",
+        "filters": {
+          "ticker": "HPE",
+          "year": 2024,
+          "section": "Item 7",
+          "accession": "000164559024000139"
+        }
+      },
+      {
+        "query": "share repurchase authorization and repurchase activity",
+        "goal": "share repurchase authorization and repurchase activity disclosures",
+        "filters": {
+          "ticker": "HPE",
+          "year": 2025,
+          "section": "Item 7",
+          "accession": "000164559025000130"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "share repurchase authorization and repurchase activity",
+      "requested_goal": "share repurchase authorization and repurchase activity disclosures",
+      "filters": {
+        "ticker": "HPE",
+        "year": 2024,
+        "section": "Item 7",
+        "accession": "000164559024000139"
+      },
+      "score": 5,
+      "rationale": "Within HPE's FY2024 Item 7 scope, the passages together state both required elements. Passage 35 says that during fiscal 2024 HPE repurchased shares under the program previously authorized by its Board, and passage 36 completes the sentence: it repurchased and settled an aggregate of $150 million. Passage 36 also states that as of October 31, 2024 about $0.8 billion remained authorized for future repurchases, and points to Note 15 for program details. Passage 42 adds that financing cash flow reflected lower share repurchases of $0.3 billion year over year. The repurchase activity amount, the remaining authorization, and the cash-flow context are all present. Share counts and original authorization size were not requested, so their absence does not lower the score.",
+      "evidence": [
+        {
+          "id": "000164559024000139#item7#passage-000036",
+          "text": "and settled an aggregate amount of $150 million. As of October 31, 2024, we had a remaining authorization of approximately $0.8 billion for future share repurchases. For more information on our share repurchase program, refer to Note 15, “Stockholders' Equity,” to the Consolidated Financial Statements in Item 8 of Part II. On May 23, 2024, we announced plans to divest our Communications Technology Group (“CTG”) business to HCLTech. CTG is included in our Communications and Media Solutions business, which is reported in the Corporate Investments and Other segment. This divestiture includes the platform-based software solutions portions of the CTG portfolio, including systems integration, network applications, data intelligence, and the business support systems groups. As of October 31, 2024, assets and liabilities to be sold have been presented in our Consolidated Balance Sheets as assets and liabilities held for sale. On December 1, 2024, we completed the disposition of CTG. We received net proceeds of $210 million and expect to recognize a gain of approximately $230 million. On January 9, 2024, we entered into the Merger Agreement, under which HPE will acquire Juniper Networks in an all-cash transaction for $40.00 per share, representing an equity value of approximately $14 billion. The transaction was unanimously approved by the boards of directors of both companies. On April 2, 2024, Juniper Networks shareholders approved the transaction. The closing of the transaction remains subject to receipt of regulatory approvals and satisfaction of other customary closing conditions. In connection with the merger, we entered into a commitment letter whereby we obtained a",
+          "metadata": {
+            "ID": "000164559024000139#item7#passage-000036",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-24-000139",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm",
+          "tag": "HPE-2024-10K-item7-p000036"
+        },
+        {
+          "id": "000164559024000139#item7#passage-000035",
+          "text": "the payment of consideration to consummate the Juniper Networks transaction) and for the foreseeable future thereafter. Our liquidity is subject to various risks including the risks identified in the section entitled “Risk Factors” in Item 1A and market risks identified in the section entitled “Quantitative and Qualitative Disclosures about Market Risk” in Item 7A. Our cash balances are held in numerous locations throughout the world, with a substantial amount held in the U.S. as of October 31, 2024. We utilize a variety of planning and financing strategies in an effort to ensure that our worldwide cash is available when and where it is needed. Amounts held outside of the U.S. are generally utilized to support our non-U.S. liquidity needs. Repatriations of amounts held outside the U.S. generally will not be taxable from a U.S. federal tax perspective, but may be subject to state income or 55 Table of Contents HEWLETT PACKARD ENTERPRISE COMPANY AND SUBSIDIARIES Management's Discussion and Analysis of Financial Condition and Results of Operations (Continued) foreign withholding tax. Where local restrictions prevent an efficient intercompany transfer of funds, our intent is to keep cash balances outside of the U.S. and to meet liquidity needs through ongoing cash flows, external borrowings, or both. We do not expect restrictions or potential taxes incurred on repatriation of amounts held outside of the U.S. to have a material effect on our overall liquidity, financial condition, or results of operations. In connection with the share repurchase program previously authorized by our Board of Directors, during fiscal 2024, we repurchased",
+          "metadata": {
+            "ID": "000164559024000139#item7#passage-000035",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-24-000139",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm",
+          "tag": "HPE-2024-10K-item7-p000035"
+        },
+        {
+          "id": "000164559024000139#item7#passage-000034",
+          "text": "points primarily due to increases in cost of services as a percentage of net revenue while operating expenses as a percentage of net revenue remained relatively flat. Cost of services as a percentage of net revenue increased primarily due to the scale of net revenue decline and increases in cost of services due to unfavorable currency fluctuations and higher expenses. LIQUIDITY AND CAPITAL RESOURCES Current Overview We use cash generated by operations as our primary source of liquidity. We believe that internally generated cash flows will be generally sufficient to support our operating businesses, capital expenditures, product development initiatives, acquisitions and disposal activities including legal settlements, restructuring activities, transformation costs, indemnifications, maturing debt, interest payments, and income tax payments, in addition to any future investments, share repurchases, and shareholder dividend payments. We expect to supplement this short-term liquidity, if necessary, by accessing the capital markets, issuing commercial paper, and borrowing under credit facilities made available by various domestic and foreign financial institutions. However, our access to capital markets may be constrained and our cost of borrowing may increase under certain business, market and economic conditions. We anticipate that the funds made available, including the debt funding related to the pending merger with Juniper Networks, proceeds from issuance of the Preferred Stock and proceeds from the sale of 30% of the total issued share capital of H3C, and cash generated from our operations, along with our access to capital markets, will be sufficient to meet our liquidity requirements for at least the next twelve months (including for",
+          "metadata": {
+            "ID": "000164559024000139#item7#passage-000034",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-24-000139",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm",
+          "tag": "HPE-2024-10K-item7-p000034"
+        },
+        {
+          "id": "000164559024000139#item7#passage-000042",
+          "text": "period was primarily due to higher inventory levels caused by strategic purchases of key components to support growth in AI systems. DPO measures the average number of days our accounts payable balances are outstanding. DPO is calculated by dividing ending accounts payable by a 90-day average of cost of goods sold. Compared to the corresponding three-month period in fiscal 2023, the increase in DPO by 36 days in the current period was primarily due to higher inventory purchases. Investing Activities Net cash used in investing activities decreased by $3.2 billion in fiscal 2024, as compared to the corresponding period in fiscal 2023. The decrease was primarily due to proceeds from UNIS in connection with the sale of 30% of the total issued share capital of H3C of $2.1 billion, lower net payments made in connection with business acquisitions of $0.6 billion, lower cash utilized in net financial collateral activities of $0.2 billion, and lower investments in property, plant and equipment and software assets, net of sales proceeds of $0.2 billion, as compared to the prior-year period. Financing Activities Net cash provided by financing activities increased by $7.6 billion in fiscal 2024, as compared to the corresponding period in fiscal 2023. This was primarily due to higher proceeds from debt issuance (net of issuance costs) of $6.5 billion, proceeds from the issuance of the Preferred Stock (net of issuance costs) of $1.5 billion, and lower share repurchases of $0.3 billion, partially offset by higher repayments of debt of $0.6 billion, as compared to the prior-year period. 58",
+          "metadata": {
+            "ID": "000164559024000139#item7#passage-000042",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-24-000139",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm",
+          "tag": "HPE-2024-10K-item7-p000042"
+        },
+        {
+          "id": "000164559024000139#item7#passage-000043",
+          "text": "Table of Contents HEWLETT PACKARD ENTERPRISE COMPANY AND SUBSIDIARIES Management's Discussion and Analysis of Financial Condition and Results of Operations (Continued) Free Cash Flow Free cash flow (“FCF”) represents cash flow from operations less net capital expenditures (investments in property, plant and equipment (“PP&E”) and software assets less proceeds from the sale of PP&E), and adjusted for the effect of exchange rate fluctuations on cash, cash equivalents, and restricted cash. FCF increased by $0.1 billion, as compared to the corresponding period in fiscal 2023. This was primarily due to lower net capital expenditures, as compared to the prior-year period. For more information on our FCF, refer to the section entitled “GAAP to non-GAAP Reconciliations” included in this MD&A. For more information on the impact of operating assets and liabilities to our cash flows, see Note 7, “Balance Sheet Details,” to the Consolidated Financial Statements in Item 8 of Part II. Capital Resources Debt Levels As of October 31, 202420232022 Dollars in millions Short-term debt$4,742 $4,868 $4,612 Long-term debt$13,504 $7,487 $7,853 Weighted-average interest rate5.4 %5.4 %4.0 % We maintain debt levels that we establish through consideration of several factors, including cash flow expectations, cash requirements for operations, investment plans (including acquisitions), share repurchase activities, our cost of capital, and targeted capital structure. We maintain a revolving credit facility and two commercial paper programs, “the Parent Programs”, and a wholly-owned subsidiary maintains a third program. In September 2024, we terminated the prior senior unsecured revolving credit facility that was entered into in December 2021, and entered into a",
+          "metadata": {
+            "ID": "000164559024000139#item7#passage-000043",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-24-000139",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm",
+          "tag": "HPE-2024-10K-item7-p000043"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000164559024000139#item7#passage-000036",
+        "000164559024000139#item7#passage-000035",
+        "000164559024000139#item7#passage-000034",
+        "000164559024000139#item7#passage-000042",
+        "000164559024000139#item7#passage-000043",
+        "000164559024000139#item7#passage-000039",
+        "000164559024000139#item7#passage-000057",
+        "000164559024000139#item7#passage-000054",
+        "000164559024000139#item7#passage-000050",
+        "000164559024000139#item7#passage-000038"
+      ],
+      "fresh_verified_ids": [
+        "000164559024000139#item7#passage-000036",
+        "000164559024000139#item7#passage-000035",
+        "000164559024000139#item7#passage-000034",
+        "000164559024000139#item7#passage-000042",
+        "000164559024000139#item7#passage-000043"
+      ],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 13.772683246002998
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "share repurchase authorization and repurchase activity",
+      "requested_goal": "share repurchase authorization and repurchase activity disclosures",
+      "filters": {
+        "ticker": "HPE",
+        "year": 2025,
+        "section": "Item 7",
+        "accession": "000164559025000130"
+      },
+      "score": 5,
+      "rationale": "The current scope is HPE, filing year 2025, Item 7. Passage 000164559025000130#item7#passage-000036 (with the adjacent passage 000035) states that during fiscal 2025 HPE repurchased and settled about $202 million of stock under the previously authorized program. It also states a remaining authorization of about $3.6 billion as of October 31, 2025, and points to Note 15 for details. Together these cover both the authorization status and the repurchase activity the goal asks for. Other passages only mention share repurchases as a liquidity use, so they add little. No required element is missing from this scope.",
+      "evidence": [
+        {
+          "id": "000164559025000130#item7#passage-000036",
+          "text": "of planning and financing strategies in an effort to ensure that our worldwide cash is available when and where it is needed. Amounts held outside of the U.S. are generally utilized to support our non-U.S. liquidity needs. Repatriations of amounts held outside the U.S. generally will not be taxable from a U.S. federal tax perspective, but may be subject to state income or foreign withholding tax. Where local restrictions prevent an efficient intercompany transfer of funds, our intent is to keep cash balances outside of the U.S. and to meet liquidity needs through ongoing cash flows, external borrowings, or both. We do not expect restrictions or potential taxes incurred on repatriation of amounts held outside of the U.S. to have a material effect on our overall liquidity, financial condition, or results of operations. In connection with the share repurchase program previously authorized by our Board of Directors, during fiscal 2025, we repurchased and settled an aggregate amount of $202 million. As of October 31, 2025, we had a remaining authorization of approximately $3.6 billion for future share repurchases. For more information on our share repurchase program, refer to Note 15, “Stockholders' Equity,” to the Consolidated Financial Statements in Item 8 of Part II. On November 17, 2025 and November 28, 2025, we announced plans to divest our remaining investment in H3C’s issued share capital for approximately $1.4 billion. For more information on the pending divestiture of H3C shares, refer to Note 19, “Equity Interests,” to the Consolidated Financial Statements in Item 8 of Part II. On",
+          "metadata": {
+            "ID": "000164559025000130#item7#passage-000036",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-25-000130",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+          "tag": "HPE-2025-10K-item7-p000036"
+        },
+        {
+          "id": "000164559025000130#item7#passage-000035",
+          "text": "million, or 28.0%, primarily driven by lower gross profit, partially offset by a decrease in operating expenses due to the divestiture of the CTG business. LIQUIDITY AND CAPITAL RESOURCES Current Overview We use cash generated by operations as our primary source of liquidity. We believe that internally generated cash flows will be generally sufficient to support our operating businesses, capital expenditures, product development initiatives, and disposal activities including legal settlements, restructuring activities, transformation costs, indemnifications, maturing debt, interest payments, and income tax payments, in addition to any future investments, share repurchases, and stockholder dividend payments. We expect to supplement this short-term liquidity, if necessary, by accessing the capital markets, issuing commercial paper, and borrowing under credit facilities made available by various domestic and foreign financial institutions. However, our access to capital markets may be constrained and our cost of borrowing may increase under certain business, market and economic conditions. We anticipate that the funds made available and cash generated from our operations, along with our access to capital markets, will be sufficient to meet our liquidity requirements for at least the next twelve months and for the foreseeable future thereafter. Our liquidity is subject to various risks including the risks identified in the section entitled “Risk Factors” in Item 1A and market risks identified in the section entitled “Quantitative and Qualitative Disclosures about Market Risk” in Item 7A. Our cash balances are held in numerous locations throughout the world, with a substantial amount held outside the U.S. as of October 31, 2025. We utilize a variety",
+          "metadata": {
+            "ID": "000164559025000130#item7#passage-000035",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-25-000130",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+          "tag": "HPE-2025-10K-item7-p000035"
+        },
+        {
+          "id": "000164559025000130#item7#passage-000041",
+          "text": "$1.4 billion, and higher cash utilized for stock-based award activities of $0.2 billion during the current period, as compared to the prior-year period. In addition, the prior-year period included proceeds from the issuance of the Preferred Stock (net of issuance costs) of $1.5 billion. Free Cash Flow Free cash flow (“FCF”) represents cash flow from operations less net capital expenditures (investments in property, plant and equipment (“PP&E”) and software assets less proceeds from the sale of PP&E), and adjusted for the effect of exchange rate fluctuations on cash, cash equivalents, and restricted cash. FCF decreased by $1.3 billion in fiscal 2025, as compared to fiscal 2024, primarily due to lower cash provided by operating activities. For more information on our FCF, refer to the section entitled “GAAP to non-GAAP Reconciliations” included in this MD&A. For more information on the impact of operating assets and liabilities to our cash flows, see Note 7, “Balance Sheet Details,” to the Consolidated Financial Statements in Item 8 of Part II. Capital Resources Debt Levels As of October 31, 202520242023 Dollars in millions Short-term debt$4,609 $4,742 $4,868 Long-term debt$17,756 $13,504 $7,487 Weighted-average interest rate4.8 %5.4 %5.4 % 63 Table of Contents HEWLETT PACKARD ENTERPRISE COMPANY AND SUBSIDIARIES Management's Discussion and Analysis of Financial Condition and Results of Operations (Continued) We maintain debt levels that we establish through consideration of several factors, including cash flow expectations, cash requirements for operations, investment plans (including acquisitions), share repurchase activities, our cost of capital, and targeted capital structure. We maintain a revolving credit facility and",
+          "metadata": {
+            "ID": "000164559025000130#item7#passage-000041",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-25-000130",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+          "tag": "HPE-2025-10K-item7-p000041"
+        },
+        {
+          "id": "000164559025000130#item7#passage-000057",
+          "text": "benefits associated with each non-GAAP item. In addition to the items previously explained, management excludes these items for the following reasons: 70 Table of Contents HEWLETT PACKARD ENTERPRISE COMPANY AND SUBSIDIARIES Management's Discussion and Analysis of Financial Condition and Results of Operations (Continued) •Gain on sale of a business represents the gain associated with certain disposal activities. On December 1, 2024, we completed the disposition of CTG which resulted in a gain of $248 million. We consider this divestiture to be a discrete event and believe eliminating this adjustment for the purposes of calculating non-GAAP measures facilitates the evaluation of our current operating performance. •During the six months ended April 30, 2024, we stopped reporting H3C earnings in our non-GAAP results due to the planned divestiture of the H3C investment. Per the terms of the original Put Share Purchase Agreement, we weren’t anticipating receiving dividends from this investment prospectively. However, on May 24, 2024, we entered into an Amended and Restated Put Share Purchase Agreement and an Agreement on Subsequent Arrangements, both with UNIS, which, taken together, revise the arrangements governing the aforementioned sale as previously set forth in the original Put Share Purchase Agreement. On September 4, 2024, we divested 30% of the total issued share capital of H3C. As of October 31, 2025, we continued to possess the option to sell the remaining 19% of the total issued share capital of H3C. Subsequent to fiscal year end, however, we entered into share purchase agreements to divest all of the remaining issued share capital of",
+          "metadata": {
+            "ID": "000164559025000130#item7#passage-000057",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-25-000130",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+          "tag": "HPE-2025-10K-item7-p000057"
+        },
+        {
+          "id": "000164559025000130#item7#passage-000054",
+          "text": "costs associated with disposal activities, and disaster (recovery) charges. We exclude these costs because we consider these charges to be discrete events and do not believe they are reflective of normal continuing business operations. For fiscal 2025, acquisition charges were driven by costs associated with the Merger and miscellaneous disposition related charges. For fiscal 2024, acquisition charges were driven by the Merger and prior acquisitions of Axis and Athonet. •We incurred severance and other charges pursuant to cost management initiatives. We exclude these charges because we do not believe they are reflective of normal continuing business operations. We believe eliminating these adjustments for the purposes of calculating non-GAAP measures facilitates the evaluation of our current operating performance. •We incurred H3C divestiture related severance costs in connection with the disposition of issued share capital of H3C held by HPE. On September 4, 2024, we divested 30% of the total issued share capital of H3C and received proceeds of $2.1 billion of pre-tax consideration ($2.0 billion post-tax). The divestiture resulted in decreased future investment earnings and cash dividend inflows resulting in a decision to implement offsetting cost savings measures. These measures include severance for certain of the Company’s employees. The non-GAAP adjustment represents our costs to execute these related exit actions to offset the loss in equity earnings and related cash flows. We expect future annualized cost savings of approximately $120 million following the completion of these actions. Non-GAAP earnings from operations and non-GAAP operating profit margin consist of earnings from operations or earnings from operations as a",
+          "metadata": {
+            "ID": "000164559025000130#item7#passage-000054",
+            "Ticker": "HPE",
+            "CIK": "1645590",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001645590-25-000130",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+          "tag": "HPE-2025-10K-item7-p000054"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000164559025000130#item7#passage-000036",
+        "000164559025000130#item7#passage-000035",
+        "000164559025000130#item7#passage-000041",
+        "000164559025000130#item7#passage-000057",
+        "000164559025000130#item7#passage-000054",
+        "000164559025000130#item7#passage-000009",
+        "000164559025000130#item7#passage-000008",
+        "000164559025000130#item7#passage-000049",
+        "000164559025000130#item7#passage-000044",
+        "000164559025000130#item7#passage-000013"
+      ],
+      "fresh_verified_ids": [
+        "000164559025000130#item7#passage-000036",
+        "000164559025000130#item7#passage-000035",
+        "000164559025000130#item7#passage-000041",
+        "000164559025000130#item7#passage-000057",
+        "000164559025000130#item7#passage-000054"
+      ],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 13.560423066999647
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- and settled an aggregate amount of $150 million. As of October 31, 2024, we had a remaining authorization of approximately $0.8 billion for future share repurchases. [HPE-2024-10K-item7-p000036](https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm) (chunk: `000164559024000139#item7#passage-000036`; accession: `0001645590-24-000139`).\n- This was primarily due to higher proceeds from debt issuance \\(net of issuance costs\\) of $6.5 billion, proceeds from the issuance of the Preferred Stock \\(net of issuance costs\\) of $1.5 billion, and lower share repurchases of $0.3 billion, partially offset by higher repayments of debt of $0.6 billion, as compared to the prior-year period. [HPE-2024-10K-item7-p000042](https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm) (chunk: `000164559024000139#item7#passage-000042`; accession: `0001645590-24-000139`).\n- In connection with the share repurchase program previously authorized by our Board of Directors, during fiscal 2025, we repurchased and settled an aggregate amount of $202 million. As of October 31, 2025, we had a remaining authorization of approximately $3.6 billion for future share repurchases. [HPE-2025-10K-item7-p000036](https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm) (chunk: `000164559025000130#item7#passage-000036`; accession: `0001645590-25-000130`).",
+  "citations": [
+    {
+      "tag": "HPE-2024-10K-item7-p000036",
+      "chunk_id": "000164559024000139#item7#passage-000036",
+      "accession": "0001645590-24-000139",
+      "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm",
+      "quote": "and settled an aggregate amount of $150 million. As of October 31, 2024, we had a remaining authorization of approximately $0.8 billion for future share repurchases."
+    },
+    {
+      "tag": "HPE-2024-10K-item7-p000042",
+      "chunk_id": "000164559024000139#item7#passage-000042",
+      "accession": "0001645590-24-000139",
+      "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559024000139/hpe-20241031.htm",
+      "quote": "This was primarily due to higher proceeds from debt issuance (net of issuance costs) of $6.5 billion, proceeds from the issuance of the Preferred Stock (net of issuance costs) of $1.5 billion, and lower share repurchases of $0.3 billion, partially offset by higher repayments of debt of $0.6 billion, as compared to the prior-year period."
+    },
+    {
+      "tag": "HPE-2025-10K-item7-p000036",
+      "chunk_id": "000164559025000130#item7#passage-000036",
+      "accession": "0001645590-25-000130",
+      "url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+      "quote": "In connection with the share repurchase program previously authorized by our Board of Directors, during fiscal 2025, we repurchased and settled an aggregate amount of $202 million. As of October 31, 2025, we had a remaining authorization of approximately $3.6 billion for future share repurchases."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.280942033990868,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 14567,
+        "output_tokens": 625,
+        "output_tokens_details": {
+          "thinking_tokens": 396
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 625,
+            "cache_read_input_tokens": 14567,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00045837000000000004
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.425785339990398,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16186,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 863,
+        "output_tokens_details": {
+          "thinking_tokens": 503
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16186,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 863,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16186,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16186
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036858999999999998
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.686686985995038,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16252,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 1079,
+        "output_tokens_details": {
+          "thinking_tokens": 647
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16252,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1079,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16252,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16252
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0038071
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 9.999638828987372,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 6716,
+        "cache_read_input_tokens": 925,
+        "output_tokens": 1903,
+        "output_tokens_details": {
+          "thinking_tokens": 1532
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6716,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1903,
+            "cache_read_input_tokens": 925,
+            "cache_creation_input_tokens": 6716,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 6716
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00230415
+    }
+  ],
+  "elapsed_seconds": 29.062843637992046,
+  "execution_mode": "legacy",
+  "synthesis_route": "legacy"
+}

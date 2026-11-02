@@ -1,0 +1,460 @@
+{
+  "note": "Additional Codex verification: direct streaming comparison against original JSONL bytes, metadata and citations; independent arithmetic. No application verification helpers imported. Not semantic gold.",
+  "runs": 23,
+  "unique_source_passages": 59,
+  "records": [
+    {
+      "run_id": "01-legacy-audit04-r1",
+      "mode": "legacy",
+      "seconds": 35.52449981101381,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 7,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "02-fast-audit04-r1",
+      "mode": "fast",
+      "seconds": 23.44192965500406,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "03-fast-audit04-r2",
+      "mode": "fast",
+      "seconds": 23.08175165200373,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "04-legacy-audit04-r2",
+      "mode": "legacy",
+      "seconds": 30.84273890098848,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 6,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "05-legacy-audit07-r1",
+      "mode": "legacy",
+      "seconds": 44.67337802700058,
+      "model_calls": 5,
+      "retrieval_calls": 3,
+      "retries": 1,
+      "citations": 6,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 3
+      },
+      "evidence_instances_checked": 15
+    },
+    {
+      "run_id": "06-fast-audit07-r1",
+      "mode": "fast",
+      "seconds": 25.177849810002954,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 6,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "07-fast-audit07-r2",
+      "mode": "fast",
+      "seconds": 21.514669251992018,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "08-legacy-audit07-r2",
+      "mode": "legacy",
+      "seconds": 46.23761408799328,
+      "model_calls": 5,
+      "retrieval_calls": 3,
+      "retries": 1,
+      "citations": 8,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 3
+      },
+      "evidence_instances_checked": 15
+    },
+    {
+      "run_id": "09-legacy-broad25-r1",
+      "mode": "legacy",
+      "seconds": 30.006378948994097,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 4,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "10-fast-broad25-r1",
+      "mode": "fast",
+      "seconds": 22.47871925099753,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 5,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "12-legacy-broad25-r2",
+      "mode": "legacy",
+      "seconds": 29.062843637992046,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 3,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "13-legacy-broad21-r1",
+      "mode": "legacy",
+      "seconds": 30.089000134001253,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 6,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "14-fast-broad21-r1",
+      "mode": "fast",
+      "seconds": 16.38478253199719,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 4,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "15-fast-broad21-r2",
+      "mode": "fast",
+      "seconds": 19.743207891006023,
+      "model_calls": 3,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 4,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "16-legacy-broad21-r2",
+      "mode": "legacy",
+      "seconds": 28.828256030988996,
+      "model_calls": 4,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "citations": 7,
+      "accepted": 2,
+      "covered": 2,
+      "flags": 0,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 2
+      },
+      "evidence_instances_checked": 10
+    },
+    {
+      "run_id": "17-legacy-audit10-r1",
+      "mode": "legacy",
+      "seconds": 21.982634751009755,
+      "model_calls": 6,
+      "retrieval_calls": 5,
+      "retries": 3,
+      "citations": 0,
+      "accepted": 0,
+      "covered": 0,
+      "flags": 4,
+      "route": "none",
+      "schema_counts": {
+        "Plan": 1,
+        "Critique": 5
+      },
+      "evidence_instances_checked": 0
+    },
+    {
+      "run_id": "18-fast-audit10-r1",
+      "mode": "fast",
+      "seconds": 24.454259101999924,
+      "model_calls": 7,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "citations": 0,
+      "accepted": 0,
+      "covered": 0,
+      "flags": 3,
+      "route": "none",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 6
+      },
+      "evidence_instances_checked": 0
+    },
+    {
+      "run_id": "19-fast-audit10-r2",
+      "mode": "fast",
+      "seconds": 21.897038431998226,
+      "model_calls": 6,
+      "retrieval_calls": 5,
+      "retries": 3,
+      "citations": 0,
+      "accepted": 0,
+      "covered": 0,
+      "flags": 4,
+      "route": "none",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 5
+      },
+      "evidence_instances_checked": 0
+    },
+    {
+      "run_id": "20-legacy-audit10-r2",
+      "mode": "legacy",
+      "seconds": 22.80158641700109,
+      "model_calls": 7,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "citations": 0,
+      "accepted": 0,
+      "covered": 0,
+      "flags": 3,
+      "route": "none",
+      "schema_counts": {
+        "Plan": 1,
+        "Critique": 6
+      },
+      "evidence_instances_checked": 0
+    },
+    {
+      "run_id": "21-legacy-broad30-r1",
+      "mode": "legacy",
+      "seconds": 31.977013185009127,
+      "model_calls": 6,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "citations": 6,
+      "accepted": 1,
+      "covered": 1,
+      "flags": 1,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 4
+      },
+      "evidence_instances_checked": 5
+    },
+    {
+      "run_id": "22-fast-broad30-r1",
+      "mode": "fast",
+      "seconds": 23.28423455200391,
+      "model_calls": 5,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "citations": 3,
+      "accepted": 1,
+      "covered": 1,
+      "flags": 1,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 4
+      },
+      "evidence_instances_checked": 5
+    },
+    {
+      "run_id": "23-fast-broad30-r2",
+      "mode": "fast",
+      "seconds": 23.506337649014313,
+      "model_calls": 5,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "citations": 3,
+      "accepted": 1,
+      "covered": 1,
+      "flags": 1,
+      "route": "host_quotes",
+      "schema_counts": {
+        "Plan": 1,
+        "CritiqueWithQuotes": 4
+      },
+      "evidence_instances_checked": 5
+    },
+    {
+      "run_id": "24-legacy-broad30-r2",
+      "mode": "legacy",
+      "seconds": 29.201864882998052,
+      "model_calls": 6,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "citations": 5,
+      "accepted": 1,
+      "covered": 1,
+      "flags": 1,
+      "route": "legacy",
+      "schema_counts": {
+        "Plan": 1,
+        "HandleDraft": 1,
+        "Critique": 4
+      },
+      "evidence_instances_checked": 5
+    }
+  ],
+  "failures": [
+    {
+      "id": "broad25",
+      "status": "fail",
+      "phase": "agent_run",
+      "category": "structural",
+      "error_type": "ValueError",
+      "error": "ValueError: critic retained unknown or duplicate evidence",
+      "traceback": "Traceback (most recent call last):\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/bench_kit/eval_agent_latency.py\", line 124, in execute\n    result = await agent.run(lib.agent_view(case)['prompt'])\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/state_machine.py\", line 165, in run\n    histories = await asyncio.gather(*tasks)\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/state_machine.py\", line 104, in _retrieve\n    verdict, handles = await critique_with_quotes(self.model, subquery, query, evidence, audit_prompt, self.registry.catalog())\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/critic.py\", line 124, in critique_with_quotes\n    _checked(response, evidence)\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/critic.py\", line 93, in _checked\n    raise ValueError('critic retained unknown or duplicate evidence')\nValueError: critic retained unknown or duplicate evidence\n"
+    }
+  ],
+  "primary_median_seconds": {
+    "legacy": 30.465869517494866,
+    "fast": 22.47871925099753
+  },
+  "primary_reduction": null,
+  "release_eligible": false,
+  "per_mode": {
+    "legacy": {
+      "calls": 59,
+      "citations": 58,
+      "retries": 13
+    },
+    "fast": {
+      "calls": 44,
+      "citations": 40,
+      "retries": 11
+    }
+  }
+}

@@ -5,14 +5,15 @@ import json
 from pathlib import Path
 import time
 from typing import Protocol, Any
-from .critic import critique
+from .critic import critique, critique_with_quotes
 from .filters import FilingFilter
 from .models import AgentResult, Evidence, Hop, State, SubQuery
 from .planner import plan_queries
 from .provider import ClaudeJSON, StructuredModel
 from .provenance import ProvenanceRegistry
 from .retrieval import HybridClient
-from .synthesizer import synthesize, escape_markdown
+from .fast import citation_for, ground_critic_claims, merge_citations
+from .synthesizer import NO_EVIDENCE, draft_citations, escape_markdown, render_markdown, synthesize
 
 
 class SearchBackend(Protocol):
@@ -22,6 +23,7 @@ class SearchBackend(Protocol):
 FRESH_RESERVED = 4  # Fresh top-ranked verified hits that stale carry may never displace.
 CONTEXT_LIMIT = 5
 STALL_FLAG = 'Subquery {} stopped early: no verified evidence and the critic proposed no new query (stalled rewrite).'
+EXECUTION_MODES = ('fast', 'legacy')
 MAX_BACKEND_HITS = 10  # Protocol-level bound, independent of HybridClient.
 
 
@@ -68,9 +70,12 @@ def merge_evidence(retained: list[Evidence], fresh: list[Evidence]) -> list[Evid
 
 class Agent:
     def __init__(self, model: StructuredModel, backend: SearchBackend, registry: ProvenanceRegistry,
-                 max_retries: int = 2, threshold: int = 4, concurrency: int = 3):
+                 max_retries: int = 2, threshold: int = 4, concurrency: int = 3, mode: str = 'fast'):
         if not 0 <= max_retries <= 2 or not 1 <= threshold <= 5 or not 1 <= concurrency <= 3:
             raise ValueError('invalid agent limits')
+        if mode not in EXECUTION_MODES:
+            raise ValueError(f'execution mode must be one of {EXECUTION_MODES}')
+        self.mode = mode  # 'fast': critic nominates quotes, host renders; 'legacy': separate HandleDraft synthesis call
         self.model, self.backend, self.registry = model, backend, registry
         self.max_retries, self.threshold = max_retries, threshold
         self.slots = asyncio.Semaphore(concurrency)
@@ -95,8 +100,13 @@ class Agent:
                             break
                 fresh_ids = [item.id for item in evidence]
                 evidence, carried = select_context(retained, evidence)
-                verdict = await critique(self.model, subquery, query, evidence, audit_prompt, self.registry.catalog())
+                if self.mode == 'fast':
+                    verdict, handles = await critique_with_quotes(self.model, subquery, query, evidence, audit_prompt, self.registry.catalog())
+                else:
+                    verdict, handles = await critique(self.model, subquery, query, evidence, audit_prompt, self.registry.catalog()), {}
             accepted = bool(evidence) and verdict.score >= self.threshold
+            # Fast mode: proposals count only when the hop itself is accepted at the unchanged threshold; otherwise they are discarded unseen.
+            quotes, quote_flags = ground_critic_claims(verdict.claims, handles, position) if self.mode == 'fast' and accepted else ([], [])
             unchanged = verdict.rewritten_query.strip().casefold() == query.strip().casefold()
             # Fail-closed early stop, narrowly: no verified evidence at all, not the final attempt, critic proposed no new query.
             stalled = (not accepted and not evidence and attempt < self.max_retries and unchanged)
@@ -104,7 +114,8 @@ class Agent:
                 score=verdict.score, rationale=verdict.rationale, evidence=evidence,
                 accepted=accepted, retained_evidence_ids=[item.id for item in carried], nominated_retained_ids=[item.id for item in retained],
                 proposed_rewrite='' if accepted else verdict.rewritten_query, terminal_reason='stalled_rewrite' if stalled else None,
-                retrieved_ids=[hit['id'] for hit in raw], fresh_verified_ids=fresh_ids, elapsed_seconds=time.perf_counter()-start))
+                retrieved_ids=[hit['id'] for hit in raw], fresh_verified_ids=fresh_ids,
+                quote_selections=quotes, quote_flags=quote_flags, elapsed_seconds=time.perf_counter()-start))
             if accepted or stalled:
                 break
             if attempt < self.max_retries and unchanged:
@@ -112,6 +123,31 @@ class Agent:
             retained = [item for item in evidence if item.id in verdict.retain_ids]  # nominees: <=2, context order
             query = verdict.rewritten_query
         return history
+
+    async def _finish_fast(self, prompt: str, histories: list[list[Hop]], selected: dict[str, Evidence]):
+        """Synthesize without a final model call when every accepted subquery has host-verified critic quotes.
+
+        If any accepted subquery has none, ONE existing HandleDraft call runs over just those subqueries' accepted contexts (at most 15
+        passages) and its grounded citations are merged with the quotes already verified. Pure host formatting otherwise.
+        """
+        if not selected:
+            text, citations, flags = NO_EVIDENCE
+            return text, list(citations), list(flags), 'none'
+        finals = [history[-1] for history in histories]
+        groups, context, flags = [], [], []
+        for hop in finals:
+            by_id = {item.id: item for item in hop.evidence}
+            groups.append([citation_for(by_id[q.chunk_id], q.quote) for q in hop.quote_selections] if hop.accepted else [])
+            context.append(hop.evidence if hop.accepted else [])
+            flags.extend(hop.quote_flags)
+        gaps = [hop for hop in finals if hop.accepted and not hop.quote_selections]
+        fallback = []
+        if gaps:
+            gap_evidence = {item.id: item for hop in gaps for item in hop.evidence}
+            fallback, fallback_flags = await draft_citations(self.model, prompt, list(gap_evidence.values()))
+            flags.extend(fallback_flags)
+        citations = merge_citations(groups, fallback, context)
+        return render_markdown(citations, flags), citations, flags, 'fallback' if gaps else 'host_quotes'
 
     async def run(self, prompt: str) -> AgentResult:
         if not prompt.strip() or len(prompt.encode()) > 8192:
@@ -144,7 +180,11 @@ class Agent:
                     for item in history[-1].evidence:
                         selected[item.id] = item
             states.append(State.SYNTHESIZE)
-            markdown, citations, dropped = await synthesize(self.model, prompt, list(selected.values()))
+            if self.mode == 'legacy':
+                markdown, citations, dropped = await synthesize(self.model, prompt, list(selected.values()))
+                route = 'legacy' if selected else 'none'
+            else:
+                markdown, citations, dropped, route = await self._finish_fast(prompt, histories, selected)
             flags.extend(dropped)
             covered_ids = {citation.chunk_id for citation in citations}
             for i, history in enumerate(histories):
@@ -153,13 +193,14 @@ class Agent:
             if flags:
                 markdown += '\n\nEvidence gaps:\n' + '\n'.join('- ' + escape_markdown(flag) for flag in flags)
             return AgentResult(prompt=prompt, states=states, plan=plan, hops=hops, markdown=markdown,
-                citations=citations, flags=flags, model_calls=list(calls or []), elapsed_seconds=time.perf_counter()-start)
+                citations=citations, flags=flags, model_calls=list(calls or []), elapsed_seconds=time.perf_counter()-start,
+                execution_mode=self.mode, synthesis_route=route)
 
 
 async def main_async(args: argparse.Namespace) -> None:
     registry = ProvenanceRegistry(Path(args.corpus), Path(args.provenance))
     async with HybridClient(args.backend) as backend:
-        result = await Agent(ClaudeJSON(args.model), backend, registry).run(args.prompt)
+        result = await Agent(ClaudeJSON(args.model), backend, registry, mode=args.agent_mode).run(args.prompt)
     print(result.model_dump_json(indent=2) if args.json else result.markdown)
 
 
@@ -171,6 +212,7 @@ def main() -> None:
     parser.add_argument('--provenance', default='data/sec/provenance.json')
     parser.add_argument('--model', default='haiku')
     parser.add_argument('--json', action='store_true')
+    parser.add_argument('--agent-mode', choices=EXECUTION_MODES, default='fast', help='fast (default): critic-selected quotes, host formatting; legacy: separate synthesis call')
     asyncio.run(main_async(parser.parse_args()))
 
 

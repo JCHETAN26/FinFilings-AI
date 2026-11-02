@@ -26,10 +26,15 @@ import agent_suite as lib  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 STATES = ['Plan', 'Retrieve_Evaluate', 'Synthesize']
 MAX_RETRIES, MAX_CONTEXT, MAX_CARRIED = 2, 5, 2
+MAX_HOP_QUOTES, MAX_FAST_CITATIONS = 4, 12
+MODES = ('legacy', 'fast')
+QUOTE_FLAG = re.compile(r'Critic quote \(subquery (\d+)\): (?:quote length outside 40\.\.2000 characters|Dropped claim with unknown evidence handle .{0,40}'
+                        r'|Dropped claim for handle E\d{2}: quote not found verbatim in that passage)')
 CASE_FILE = re.compile(r'^((?:audit|broad)\d{2})(\.failure)?\.(json|md)$')
 SUMMARY_FILES = {'report.json', 'records.jsonl', 'suite.json', 'suite.sha256', 'run-manifest.json'}
 DASHED = re.compile(r'\d{10}-\d{2}-\d{6}')
 # Fields the evaluator reports per passing case; every one is recomputed independently and compared.
+OPTIONAL_COMPARE_FIELDS = ('agent_mode', 'synthesis_route')  # absent from reports written before fast mode
 COMPARE_FIELDS = ('subqueries', 'retrieval_calls', 'retries', 'accepted_subqueries', 'cited_subqueries', 'citations', 'complete_coverage',
                   'negative', 'evidence_outcome', 'unavailable_subqueries', 'flags', 'model_calls')
 IMMUTABLE_TREES = ('vector_index', 'reranker_model', 'sparse_index')
@@ -164,10 +169,37 @@ def audit_evidence(item, scope, section, source, originals, checks, where):
     checks.req(item['tag'] == f"{source['ticker']}-{source['filing_year']}-{source['form'].replace('-', '')}-{suffix}", f'{where}: tag mismatch')
 
 
+def audit_hop_quotes(hop, mode, position, where, originals, req):
+    """Fast-mode quote selections: only an ACCEPTED hop may carry them, each verbatim in that hop's own verified evidence.
+
+    Legacy traces (and every non-accepted hop) must carry none, so a below-threshold proposal can never have been recorded.
+    """
+    selections, flags = hop.get('quote_selections', []), hop.get('quote_flags', [])
+    if not req(isinstance(selections, list) and isinstance(flags, list), f'{where}: malformed quote trace'):
+        return
+    if mode == 'legacy' or not hop['accepted']:
+        req(not selections and not flags, f'{where}: quote selections/flags on a {"legacy" if mode == "legacy" else "non-accepted"} hop')
+        return
+    req(len(selections) <= MAX_HOP_QUOTES and len(selections) + len(flags) <= MAX_HOP_QUOTES, f'{where}: more than {MAX_HOP_QUOTES} critic claims accounted for')
+    context, seen = {e['id'] for e in hop['evidence']}, set()
+    for number, selection in enumerate(selections):
+        chunk, quote = selection.get('chunk_id'), selection.get('quote')
+        original = originals.get(chunk)
+        req(chunk in context and original is not None and isinstance(quote, str) and 40 <= len(quote) <= 2000 and quote == lib.normalize(quote)
+            and quote in lib.normalize(original['Text']), f'{where}: quote selection {number} is not a verbatim excerpt of this hop\'s evidence')
+        req((chunk, quote) not in seen, f'{where}: duplicate quote selection')
+        seen.add((chunk, quote))
+    for flag in flags:
+        found = QUOTE_FLAG.fullmatch(flag) if isinstance(flag, str) and len(flag) <= 200 else None
+        req(found is not None and int(found[1]) == position, f'{where}: malformed or unbounded quote flag')
+
+
 def audit_case(case, result, markdown_file, sources_by_scope, originals, checks):
     """Return per-case metrics. Every check appends a problem instead of stopping."""
     cid = case['id']
     req = checks.req
+    mode = result.get('execution_mode', 'legacy')
+    req(mode in MODES, f'{cid}: invalid execution mode {mode!r}')
     req(result.get('prompt') == case['prompt'], f'{cid}: saved prompt differs from the frozen suite')
     req(result.get('states') == STATES, f'{cid}: invalid state order {result.get("states")}')
     expected = {(e['ticker'], e['year']): e for e in case['expected_scopes']}
@@ -212,6 +244,7 @@ def audit_case(case, result, markdown_file, sources_by_scope, originals, checks)
             ids = [e['id'] for e in evidence]
             req(len(ids) == len(set(ids)) <= MAX_CONTEXT, f'{where}/h{index}: context {len(ids)} passages / duplicates')
             req(hop['accepted'] == (bool(evidence) and hop['score'] >= 4), f'{where}/h{index}: acceptance inconsistent with score/evidence')
+            audit_hop_quotes(hop, mode, position, f'{where}/h{index}', originals, req)
             carried = hop.get('retained_evidence_ids', [])
             req(len(carried) <= MAX_CARRIED and len(set(carried)) == len(carried), f'{where}/h{index}: carried passages {len(carried)}')
             current = {e['id']: e for e in evidence}
@@ -325,13 +358,40 @@ def audit_case(case, result, markdown_file, sources_by_scope, originals, checks)
     if len(unavailable_positions) == len(subqueries):
         req(not citations, f'{cid}: all scopes unavailable but citations were published')
     counts = collections.Counter(call['schema'] for call in result['model_calls'])
-    synthesis = counts.get('Draft', 0) + counts.get('HandleDraft', 0)
-    allowed = {'Plan', 'Critique', 'Draft', 'HandleDraft'}
-    req(set(counts) <= allowed, f'{cid}: unknown model-call schemas {sorted(set(counts) - allowed)}')
-    req(counts.get('Plan', 0) == 1 and counts.get('Critique', 0) == len(result['hops'])
-        and synthesis == (1 if accepted_evidence else 0) and not (counts.get('Draft', 0) and counts.get('HandleDraft', 0))
-        and len(result['model_calls']) == 1 + len(result['hops']) + synthesis,
-        f'{cid}: model-call ledger {dict(counts)} inconsistent with trace')
+    route = result.get('synthesis_route', 'legacy' if accepted_evidence else 'none')  # reports before fast mode lack the key
+    final_hops = [hops_by_query[p][-1] for p in range(len(subqueries)) if hops_by_query.get(p)]
+    gap_positions = [h['subquery'] for h in final_hops if h['accepted'] and not h.get('quote_selections')]
+    if mode == 'legacy':
+        synthesis = counts.get('Draft', 0) + counts.get('HandleDraft', 0)
+        req(route == ('legacy' if accepted_evidence else 'none'), f'{cid}: legacy synthesis route {route!r} inconsistent with the trace')
+        req(set(counts) <= {'Plan', 'Critique', 'Draft', 'HandleDraft'}, f'{cid}: unknown model-call schemas {sorted(set(counts) - {"Plan", "Critique", "Draft", "HandleDraft"})}')
+        req(counts.get('Plan', 0) == 1 and counts.get('Critique', 0) == len(result['hops'])
+            and synthesis == (1 if accepted_evidence else 0) and not (counts.get('Draft', 0) and counts.get('HandleDraft', 0))
+            and len(result['model_calls']) == 1 + len(result['hops']) + synthesis,
+            f'{cid}: model-call ledger {dict(counts)} inconsistent with trace')
+    else:
+        expected_route = 'none' if not accepted_evidence else 'fallback' if gap_positions else 'host_quotes'
+        req(route == expected_route, f'{cid}: fast synthesis route {route!r} but the trace requires {expected_route!r}')
+        fallback_calls = 1 if expected_route == 'fallback' else 0
+        req(set(counts) <= {'Plan', 'CritiqueWithQuotes', 'HandleDraft'}, f'{cid}: unknown model-call schemas {sorted(set(counts) - {"Plan", "CritiqueWithQuotes", "HandleDraft"})}')
+        req(counts.get('Plan', 0) == 1 and counts.get('CritiqueWithQuotes', 0) == len(result['hops']) and counts.get('HandleDraft', 0) == fallback_calls
+            and len(result['model_calls']) == 1 + len(result['hops']) + fallback_calls, f'{cid}: fast model-call ledger {dict(counts)} inconsistent with trace')
+        req(len(citations) <= MAX_FAST_CITATIONS, f'{cid}: more than {MAX_FAST_CITATIONS} final citations')
+        every_flag = [f for h in result['hops'] for f in h.get('quote_flags', [])]
+        req(all(f in result['flags'] for f in every_flag), f'{cid}: a recorded quote flag is missing from the published flags')
+        own = {(q['chunk_id'], q['quote']) for h in final_hops if h['accepted'] for q in h.get('quote_selections', [])}
+        published = {(c['chunk_id'], c['quote']) for c in citations}
+        if expected_route == 'host_quotes':
+            req(published <= own and len(published) == min(len(own), MAX_FAST_CITATIONS), f'{cid}: published quotes differ from the host-verified critic selections')
+        elif expected_route == 'fallback':
+            gap_ids = {e['id'] for h in final_hops if h['accepted'] and not h.get('quote_selections') for e in h['evidence']}
+            req(all(pair in own or pair[0] in gap_ids for pair in published), f'{cid}: fallback citation outside the gap subqueries\' accepted evidence')
+        else:
+            req(not citations, f'{cid}: route none but citations were published')
+        for h in final_hops:  # every accepted goal keeps its own verified quote through deduplication and the cap
+            mine = [(q['chunk_id'], q['quote']) for q in h.get('quote_selections', [])]
+            if h['accepted'] and mine:
+                req(any(pair in published for pair in mine), f'{cid}/sq{h["subquery"]}: an accepted goal lost all of its verified quotes')
     req(all(call['models'] for call in result['model_calls']), f'{cid}: model call without a recorded model id')
     req(markdown_file is not None and markdown_file.rstrip() == result['markdown'].rstrip(), f'{cid}: saved markdown differs from result JSON')
     available_positions = [p for p in range(len(subqueries)) if p not in unavailable_positions]
@@ -342,7 +402,7 @@ def audit_case(case, result, markdown_file, sources_by_scope, originals, checks)
     negative = len(unavailable_positions) == len(subqueries)
     cited_available = sum(cited_positions[p] for p in available_positions)
     mixed = bool(unavailable_positions) and not negative
-    return dict(subqueries=len(subqueries), retrieval_calls=len(result['hops']), retries=sum(h['attempt'] > 0 for h in result['hops']),
+    return dict(agent_mode=mode, synthesis_route=route, subqueries=len(subqueries), retrieval_calls=len(result['hops']), retries=sum(h['attempt'] > 0 for h in result['hops']),
         accepted_subqueries=sum(h['accepted'] for h in result['hops']), negative=negative, model_calls=len(result['model_calls']),
         complete_coverage=(not negative and sum(cited_positions) == len(subqueries)),
         available_subqueries=len(available_positions), cited_available_subqueries=cited_available,
@@ -388,7 +448,7 @@ def compare_evaluator_summary(evaluation, expected_ids, records, results):
             if (row.get('status') == 'pass') != (record['verdict'] == 'verified'):
                 found.append(f"{name}/{row.get('id')}: evaluator says {row.get('status')}, independent verdict {record['verdict']}")
             elif record['verdict'] == 'verified':
-                for field in COMPARE_FIELDS:
+                for field in COMPARE_FIELDS + tuple(f for f in OPTIONAL_COMPARE_FIELDS if f in row):
                     if row.get(field) != record.get(field):
                         found.append(f"{name}/{row['id']}: reported {field}={row.get(field)!r} but recomputed {record.get(field)!r}")
                 if abs(row.get('seconds', -1) - record['seconds']) > 1e-9:
@@ -551,6 +611,8 @@ def verify(directory, suite_path, pin, corpus, original_provenance, ingest_repor
                 record.update(audit_case(case, results[cid], markdown, by_scope, originals, checks))
             except (KeyError, TypeError, IndexError) as exc:
                 checks.req(False, f'{cid}: malformed result JSON ({type(exc).__name__}: {exc})')
+            if manifest.get('agent_mode') in MODES:
+                checks.req(record.get('agent_mode') == manifest['agent_mode'], f'{cid}: result mode {record.get("agent_mode")!r} differs from the pre-run manifest mode {manifest["agent_mode"]!r}')
             record['problems'] += checks.problems
         record['verdict'] = ('verified' if state[cid] == 'completed' and not record['problems'] else
                              'run_failed' if state[cid] == 'run_failed' and not [p for p in record['problems']] else 'verification_failed')
@@ -571,6 +633,7 @@ def verify(directory, suite_path, pin, corpus, original_provenance, ingest_repor
         omitted=[r['id'] for r in records if r['state'] == 'omitted'],
         failures_by_category={k: sum(r.get('failure_category') == k for r in records) for k in lib.FAILURE_CATEGORIES},
         evidence_outcomes={k: groups.get(k, 0) for k in lib.EVIDENCE_OUTCOMES},
+        execution_modes=dict(collections.Counter(r.get('agent_mode') for r in verified)), synthesis_routes=dict(collections.Counter(r.get('synthesis_route') for r in verified)),
         mixed_availability_cases_verified=[r['id'] for r in verified if r.get('mixed_availability')],
         verified_citations=sum(r.get('citations', 0) for r in verified), unique_source_passages_checked=len(needed),
         anchors=dict(total=sum(r.get('anchors_total', 0) for r in verified), retrieved=sum(len(r.get('anchors_retrieved', [])) for r in verified),

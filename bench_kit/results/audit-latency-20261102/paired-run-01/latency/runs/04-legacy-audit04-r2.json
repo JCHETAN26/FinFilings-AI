@@ -1,0 +1,493 @@
+{
+  "prompt": "Audit AMZN filing year 2024: separately retrieve AWS sales disclosures and operating expense disclosures. Support both topics with direct excerpts.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "Amazon Web Services segment net sales",
+        "goal": "AWS sales disclosures",
+        "filters": {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "accession": "000101872424000008"
+        }
+      },
+      {
+        "query": "operating expenses by category cost of sales technology and infrastructure",
+        "goal": "operating expense disclosures",
+        "filters": {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "",
+          "accession": "000101872424000008"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "Amazon Web Services segment net sales",
+      "requested_goal": "AWS sales disclosures",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 5,
+      "rationale": "Passage 000101872424000008#passage-000062 gives the AWS net sales table in millions: $80,096 (2022) and $90,757 (2023). It also gives AWS year-over-year growth (29% in 2022, 13% in 2023), growth excluding foreign exchange (same figures), and AWS share of consolidated net sales (16% in both years). Passage 000101872424000008#passage-000004 describes AWS as a reportable segment, and passage 000101872424000008#passage-000152 adds AWS-related country attribution context. Together these fully cover the requested AWS sales disclosures for the AMZN FY2023 filing (filed 2024). The audit prompt's operating expense topic is outside this subquery's stated goal and was not graded.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000004",
+          "text": "our segments, we serve our primary customer sets, consisting of consumers, sellers, developers, enterprises, content creators, advertisers, and employees. We have organized our operations into three segments: North America, International, and Amazon Web Services (“AWS”). These segments reflect the way the Company evaluates its business performance and manages its operations. Information on our net sales is contained in Item 8 of Part II, “Financial Statements and Supplementary Data — Note 10 — Segment Information.” Consumers We serve consumers through our online and physical stores and focus on selection, price, and convenience. We design our stores to enable hundreds of millions of unique products to be sold by us and by third parties across dozens of product categories. Customers access our offerings through our websites, mobile apps, Alexa, devices, streaming, and physically visiting our stores. We also manufacture and sell electronic devices, including Kindle, Fire tablet, Fire TV, Echo, Ring, Blink, and eero, and we develop and produce media content. We seek to offer our customers low prices, fast and free delivery, easy-to-use functionality, and timely customer service. In addition, we offer subscription services such as Amazon Prime, a membership program that includes fast, free shipping on tens of millions of items, access to award-winning movies and series, and other benefits. We fulfill customer orders in a number of ways, including through: North America and International fulfillment networks that we operate; co-sourced and outsourced arrangements in certain countries; digital delivery; and through our physical stores. We operate customer service centers globally, which are supplemented by co-sourced arrangements.",
+          "metadata": {
+            "ID": "000101872424000008#passage-000004",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000004"
+        },
+        {
+          "id": "000101872424000008#passage-000062",
+          "text": "addition, changes in fuel, utility, and food costs, interest rates, and economic outlook may impact customer demand and our ability to forecast consumer spending patterns. We also expect the current macroeconomic environment and enterprise customer cost optimization efforts to impact our AWS revenue growth rates. We expect some or all of these factors to continue to impact our operations into Q1 2024. Net Sales Net sales include product and service sales. Product sales represent revenue from the sale of products and related shipping fees and digital media content where we record revenue gross. Service sales primarily represent third-party seller fees, which includes commissions and any related fulfillment and shipping fees, AWS sales, advertising services, Amazon Prime membership fees, and certain digital media content subscriptions. Net sales information is as follows (in millions): Year Ended December 31, 2022 2023 Net Sales: North America $ 315,880 $ 352,828 International 118,007 131,200 AWS 80,096 90,757 Consolidated $ 513,983 $ 574,785 Year-over-year Percentage Growth (Decline): North America 13 % 12 % International (8) 11 AWS 29 13 Consolidated 9 12 Year-over-year Percentage Growth, excluding the effect of foreign exchange rates: North America 13 % 12 % International 4 11 AWS 29 13 Consolidated 13 12 Net Sales Mix: North America 61 % 61 % International 23 23 AWS 16 16 Consolidated 100 % 100 % Sales increased 12% in 2023, compared to the prior year. Changes in foreign exchange rates reduced net sales by $71 million in 2023. For a discussion of the effect of foreign exchange rates on sales",
+          "metadata": {
+            "ID": "000101872424000008#passage-000062",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000062"
+        },
+        {
+          "id": "000101872424000008#passage-000066",
+          "text": "AWS segment are primarily classified as “Technology and infrastructure” as we leverage a shared infrastructure that supports both our internal technology requirements and external sales to AWS customers. Fulfillment Fulfillment costs primarily consist of those costs incurred in operating and staffing our North America and International fulfillment centers, physical stores, and customer service centers and payment processing costs. While AWS payment processing and related transaction costs are included in “Fulfillment,” AWS costs are primarily classified as “Technology and infrastructure.” Fulfillment costs as a percentage of net sales may vary due to several factors, such as payment processing and related transaction costs, our level of productivity and accuracy, changes in volume, size, and weight of units received and 26 Table of Contents fulfilled, the extent to which third-party sellers utilize Fulfillment by Amazon services, timing of fulfillment network and physical store expansion, the extent we utilize fulfillment services provided by third parties, mix of products and services sold, and our ability to affect customer service contacts per unit by implementing improvements in our operations and enhancements to our customer self-service features. Additionally, sales by our sellers have higher payment processing and related transaction costs as a percentage of net sales compared to our retail sales because payment processing costs are based on the gross purchase price of underlying transactions. The increase in fulfillment costs in absolute dollars in 2023, compared to the prior year, is primarily due to increased sales and investments in our fulfillment network, partially offset by fulfillment network efficiencies. Changes in foreign exchange rates",
+          "metadata": {
+            "ID": "000101872424000008#passage-000066",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000066"
+        },
+        {
+          "id": "000101872424000008#passage-000152",
+          "text": "games, music, and software. These product sales include digital products sold on a transactional basis. Digital media content subscriptions that provide unlimited viewing or usage rights are included in “Subscription services.” (2) Includes product sales where our customers physically select items in a store. Sales to customers who order goods online for delivery or pickup at our physical stores are included in “Online stores.” (3) Includes commissions and any related fulfillment and shipping fees, and other third-party seller services. (4) Includes sales of advertising services to sellers, vendors, publishers, authors, and others, through programs such as sponsored ads, display, and video advertising. (5) Includes annual and monthly fees associated with Amazon Prime memberships, as well as digital video, audiobook, digital music, e-book, and other non-AWS subscription services. (6) Includes sales related to various other offerings, such as certain licensing and distribution of video content, health care services, and shipping services, and our co-branded credit card agreements. Net sales are attributed to countries primarily based on country-focused online and physical stores or, for AWS purposes, the selling entity. Net sales attributed to countries that represent a significant portion of consolidated net sales are as follows (in millions): Year Ended December 31, 2021 2022 2023 United States $ 314,006 $ 356,113 $ 395,637 Germany 37,326 33,598 37,588 United Kingdom 31,914 30,074 33,591 Japan 23,071 24,396 26,002 Rest of world 63,505 69,802 81,967 Consolidated $ 469,822 $ 513,983 $ 574,785 69 Table of Contents Total segment assets exclude corporate assets, such as cash and cash equivalents, marketable securities, other",
+          "metadata": {
+            "ID": "000101872424000008#passage-000152",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000152"
+        },
+        {
+          "id": "000101872424000008#passage-000089",
+          "text": "$ ( 7,837 ) $ 99,025 $ ( 3,040 ) $ 113,618 $ 201,875 See accompanying notes to consolidated financial statements. 41 Table of Contents AMAZON.COM, INC. NOTES TO CONSOLIDATED FINANCIAL STATEMENTS Note 1 — DESCRIPTION OF BUSINESS, ACCOUNTING POLICIES, AND SUPPLEMENTAL DISCLOSURES Description of Business We seek to be Earth’s most customer-centric company. In each of our segments, we serve our primary customer sets, consisting of consumers, sellers, developers, enterprises, content creators, advertisers, and employees. We serve consumers through our online and physical stores and focus on selection, price, and convenience. We offer programs that enable sellers to grow their businesses, sell their products in our stores, and fulfill orders using our services, and programs that allow authors, independent publishers, musicians, filmmakers, Twitch streamers, skill and app developers, and others to publish and sell content. We serve developers and enterprises of all sizes through AWS, which offers a broad set of on-demand technology services, including compute, storage, database, analytics, and machine learning, and other services. We also manufacture and sell electronic devices. In addition, we provide advertising services to sellers, vendors, publishers, authors, and others, through programs such as sponsored ads, display, and video advertising. We have organized our operations into three segments: North America, International, and AWS. See “Note 10 — Segment Information.” Common Stock Split On May 27, 2022, we effected a 20 -for-1 stock split of our common stock and proportionately increased the number of authorized shares of common stock. All share, restricted stock unit (“RSU”), and per share or per RSU",
+          "metadata": {
+            "ID": "000101872424000008#passage-000089",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000089"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000101872424000008#passage-000004",
+        "000101872424000008#passage-000062",
+        "000101872424000008#passage-000066",
+        "000101872424000008#passage-000152",
+        "000101872424000008#passage-000089",
+        "000101872424000008#passage-000010",
+        "000101872424000008#passage-000094",
+        "000101872424000008#passage-000150",
+        "000101872424000008#passage-000115",
+        "000101872424000008#passage-000085"
+      ],
+      "fresh_verified_ids": [
+        "000101872424000008#passage-000004",
+        "000101872424000008#passage-000062",
+        "000101872424000008#passage-000066",
+        "000101872424000008#passage-000152",
+        "000101872424000008#passage-000089"
+      ],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 13.504168180006673
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "operating expenses by category cost of sales technology and infrastructure",
+      "requested_goal": "operating expense disclosures",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "",
+        "accession": "000101872424000008"
+      },
+      "score": 5,
+      "rationale": "Passage 000064 gives the consolidated \"Operating Expenses\" table by category (cost of sales, fulfillment, technology and infrastructure, sales and marketing, G&A, other operating expense) with dollar amounts, year-over-year growth, and percent of net sales for 2022 and 2023, plus total operating expenses. Passage 000151 gives operating expenses by segment (North America, International, AWS) and consolidated totals for 2021 to 2023. Passages 000067 and 000097 define the technology and infrastructure, sales and marketing, and G&A cost categories. Together these cover the requested operating expense disclosures for the AMZN 2024 filing scope.",
+      "evidence": [
+        {
+          "id": "000101872424000008#passage-000150",
+          "text": "of infrastructure costs recorded in “Technology and infrastructure” are allocated to the AWS segment based on usage. There are no internal revenue transactions between our reportable segments. Our chief operating decision maker (“CODM”) regularly reviews consolidated net sales, consolidated operating expenses, and consolidated operating income (loss) by segment. Amounts included in consolidated operating expenses include “Cost of sales,” “Fulfillment,” “Technology and infrastructure,” “Sales and marketing,” “General and administrative,” and “Other operating expense (income), net.” Our CODM manages our business by reviewing annual forecasts and consolidated results by segment on a quarterly basis. North America The North America segment primarily consists of amounts earned from retail sales of consumer products (including from sellers) and advertising and subscription services through North America-focused online and physical stores. This segment includes export sales from these online stores. International The International segment primarily consists of amounts earned from retail sales of consumer products (including from sellers) and advertising and subscription services through internationally-focused online stores. This segment includes export sales from these internationally-focused online stores (including export sales from these online stores to customers in the U.S., Mexico, and Canada), but excludes export sales from our North America-focused online stores. AWS The AWS segment consists of amounts earned from global sales of compute, storage, database, and other services for start-ups, enterprises, government agencies, and academic institutions. Information on reportable segments and reconciliation to consolidated net income (loss) is as follows (in millions): Year Ended December 31, 2021 2022 2023 North America Net sales $ 279,833 $ 315,880 $ 352,828 Operating expenses",
+          "metadata": {
+            "ID": "000101872424000008#passage-000150",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000150"
+        },
+        {
+          "id": "000101872424000008#passage-000064",
+          "text": "to increased unit sales and increased advertising sales, partially offset by increased shipping and fulfillment costs and increased technology and infrastructure costs. The decrease in International operating loss in absolute dollars in 2023, compared to the prior year, is primarily due to increased unit sales and increased advertising sales, partially offset by increased fulfillment and shipping costs and increased technology and infrastructure costs. Changes in foreign exchange rates positively impacted operating loss by $246 million in 2023. The increase in AWS operating income in absolute dollars in 2023, compared to the prior year, is primarily due to increased sales, partially offset by increased payroll and related expenses and spending on technology infrastructure, both of which were primarily driven by additional investments to support AWS business growth. Changes in foreign exchange rates positively impacted operating income by $220 million in 2023. 25 Table of Contents Operating Expenses Information about operating expenses is as follows (in millions): Year Ended December 31, 2022 2023 Operating Expenses: Cost of sales $ 288,831 $ 304,739 Fulfillment 84,299 90,619 Technology and infrastructure 73,213 85,622 Sales and marketing 42,238 44,370 General and administrative 11,891 11,816 Other operating expense (income), net 1,263 767 Total operating expenses $ 501,735 $ 537,933 Year-over-year Percentage Growth (Decline): Cost of sales 6 % 6 % Fulfillment 12 7 Technology and infrastructure 31 17 Sales and marketing 30 5 General and administrative 35 (1) Other operating expense (income), net 1,936 (39) Percent of Net Sales: Cost of sales 56.2 % 53.0 % Fulfillment 16.4 15.8 Technology and infrastructure 14.2",
+          "metadata": {
+            "ID": "000101872424000008#passage-000064",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000064"
+        },
+        {
+          "id": "000101872424000008#passage-000067",
+          "text": "increased fulfillment costs by $52 million in 2023. We seek to expand our fulfillment network to accommodate a greater selection and in-stock inventory levels and to meet anticipated shipment volumes from sales of our own products as well as sales by third parties for which we provide the fulfillment services. We regularly evaluate our facility requirements. Technology and Infrastructure Technology and infrastructure costs include payroll and related expenses for employees involved in the research and development of new and existing products and services, development, design, and maintenance of our stores, curation and display of products and services made available in our online stores, and infrastructure costs. Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses. Collectively, these costs reflect the investments we make in order to offer a wide variety of products and services to our customers, including expenditures related to initiatives to build and deploy innovative and efficient software and electronic devices and the development of a satellite network for global broadband service and autonomous vehicles for ride-hailing services. We seek to invest efficiently in numerous areas of technology and infrastructure so we may continue to enhance the customer experience and improve our process efficiency through rapid technology developments, while operating at an ever increasing scale. Our technology and infrastructure investment and capital spending projects often support a variety of product and service offerings due to geographic expansion and the cross-functionality of our systems and operations. We expect",
+          "metadata": {
+            "ID": "000101872424000008#passage-000067",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000067"
+        },
+        {
+          "id": "000101872424000008#passage-000097",
+          "text": "our stores, curation and display of products and services made available in our online stores, and infrastructure costs. Infrastructure costs include servers, networking equipment, and data center related depreciation and amortization, rent, utilities, and other expenses necessary to support AWS and other Amazon businesses. Collectively, these costs reflect the investments we make in order to offer a wide variety of products and services to our customers, including expenditures related to initiatives to build and deploy innovative and efficient software and electronic devices and the development of a satellite network for global broadband service and autonomous vehicles for ride-hailing services. Technology and infrastructure costs are generally expensed as incurred. Sales and Marketing Sales and marketing costs include advertising and payroll and related expenses for personnel engaged in marketing and selling activities, including sales commissions related to AWS. We pay commissions to third parties when their customer referrals result in sales. We also participate in cooperative advertising arrangements with certain of our vendors, and other third parties. Advertising and other promotional costs to market our products and services are expensed as incurred and were $ 16.9 billion, $ 20.6 billion, and $ 20.3 billion in 2021, 2022, and 2023. General and Administrative General and administrative expenses primarily consist of costs for corporate functions, including payroll and related expenses; facilities and equipment expenses, such as depreciation and amortization expense and rent; and professional fees. Stock-Based Compensation Compensation cost for all equity-classified stock awards expected to vest is measured at fair value on the date of grant and recognized over",
+          "metadata": {
+            "ID": "000101872424000008#passage-000097",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000097"
+        },
+        {
+          "id": "000101872424000008#passage-000151",
+          "text": "272,562 318,727 337,951 Operating income (loss) $ 7,271 $ ( 2,847 ) $ 14,877 International Net sales $ 127,787 $ 118,007 $ 131,200 Operating expenses 128,711 125,753 133,856 Operating loss $ ( 924 ) $ ( 7,746 ) $ ( 2,656 ) AWS Net sales $ 62,202 $ 80,096 $ 90,757 Operating expenses 43,670 57,255 66,126 Operating income $ 18,532 $ 22,841 $ 24,631 Consolidated Net sales $ 469,822 $ 513,983 $ 574,785 Operating expenses 444,943 501,735 537,933 Operating income 24,879 12,248 36,852 Total non-operating income (expense) 13,272 ( 18,184 ) 705 Benefit (provision) for income taxes ( 4,791 ) 3,217 ( 7,120 ) Equity-method investment activity, net of tax 4 ( 3 ) ( 12 ) Net income (loss) $ 33,364 $ ( 2,722 ) $ 30,425 68 Table of Contents Net sales by groups of similar products and services, which also have similar economic characteristics, is as follows (in millions): Year Ended December 31, 2021 2022 2023 Net Sales: Online stores (1) $ 222,075 $ 220,004 $ 231,872 Physical stores (2) 17,075 18,963 20,030 Third-party seller services (3) 103,366 117,716 140,053 Advertising services (4) 31,160 37,739 46,906 Subscription services (5) 31,768 35,218 40,209 AWS 62,202 80,096 90,757 Other (6) 2,176 4,247 4,958 Consolidated $ 469,822 $ 513,983 $ 574,785 ___________________ (1) Includes product sales and digital media content where we record revenue gross. We leverage our retail infrastructure to offer a wide selection of consumable and durable goods that includes media products available in both a physical and digital format, such as books, videos,",
+          "metadata": {
+            "ID": "000101872424000008#passage-000151",
+            "Ticker": "AMZN",
+            "CIK": "1018724",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0001018724-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+          "tag": "AMZN-2024-10K-p000151"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000101872424000008#passage-000150",
+        "000101872424000008#passage-000064",
+        "000101872424000008#passage-000067",
+        "000101872424000008#passage-000097",
+        "000101872424000008#passage-000151",
+        "000101872424000008#passage-000066",
+        "000101872424000008#passage-000068",
+        "000101872424000008#passage-000065",
+        "000101872424000008#passage-000096",
+        "000101872424000008#passage-000050"
+      ],
+      "fresh_verified_ids": [
+        "000101872424000008#passage-000150",
+        "000101872424000008#passage-000064",
+        "000101872424000008#passage-000067",
+        "000101872424000008#passage-000097",
+        "000101872424000008#passage-000151"
+      ],
+      "quote_selections": [],
+      "quote_flags": [],
+      "elapsed_seconds": 14.589271623000968
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Net sales information is as follows \\(in millions\\): Year Ended December 31, 2022 2023 Net Sales: North America $ 315,880 $ 352,828 International 118,007 131,200 AWS 80,096 90,757 Consolidated $ 513,983 $ 574,785 [AMZN-2024-10K-p000062](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000062`; accession: `0001018724-24-000008`).\n- The AWS segment consists of amounts earned from global sales of compute, storage, database, and other services for start-ups, enterprises, government agencies, and academic institutions. [AMZN-2024-10K-p000150](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000150`; accession: `0001018724-24-000008`).\n- AWS Net sales $ 62,202 $ 80,096 $ 90,757 Operating expenses 43,670 57,255 66,126 Operating income $ 18,532 $ 22,841 $ 24,631 [AMZN-2024-10K-p000151](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000151`; accession: `0001018724-24-000008`).\n- Operating Expenses Information about operating expenses is as follows \\(in millions\\): Year Ended December 31, 2022 2023 Operating Expenses: Cost of sales $ 288,831 $ 304,739 Fulfillment 84,299 90,619 Technology and infrastructure 73,213 85,622 Sales and marketing 42,238 44,370 General and administrative 11,891 11,816 Other operating expense \\(income\\), net 1,263 767 Total operating expenses $ 501,735 $ 537,933 [AMZN-2024-10K-p000064](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000064`; accession: `0001018724-24-000008`).\n- Amounts included in consolidated operating expenses include “Cost of sales,” “Fulfillment,” “Technology and infrastructure,” “Sales and marketing,” “General and administrative,” and “Other operating expense \\(income\\), net.” [AMZN-2024-10K-p000150](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000150`; accession: `0001018724-24-000008`).\n- Technology and infrastructure costs are generally expensed as incurred. [AMZN-2024-10K-p000097](https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm) (chunk: `000101872424000008#passage-000097`; accession: `0001018724-24-000008`).",
+  "citations": [
+    {
+      "tag": "AMZN-2024-10K-p000062",
+      "chunk_id": "000101872424000008#passage-000062",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Net sales information is as follows (in millions): Year Ended December 31, 2022 2023 Net Sales: North America $ 315,880 $ 352,828 International 118,007 131,200 AWS 80,096 90,757 Consolidated $ 513,983 $ 574,785"
+    },
+    {
+      "tag": "AMZN-2024-10K-p000150",
+      "chunk_id": "000101872424000008#passage-000150",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "The AWS segment consists of amounts earned from global sales of compute, storage, database, and other services for start-ups, enterprises, government agencies, and academic institutions."
+    },
+    {
+      "tag": "AMZN-2024-10K-p000151",
+      "chunk_id": "000101872424000008#passage-000151",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "AWS Net sales $ 62,202 $ 80,096 $ 90,757 Operating expenses 43,670 57,255 66,126 Operating income $ 18,532 $ 22,841 $ 24,631"
+    },
+    {
+      "tag": "AMZN-2024-10K-p000064",
+      "chunk_id": "000101872424000008#passage-000064",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Operating Expenses Information about operating expenses is as follows (in millions): Year Ended December 31, 2022 2023 Operating Expenses: Cost of sales $ 288,831 $ 304,739 Fulfillment 84,299 90,619 Technology and infrastructure 73,213 85,622 Sales and marketing 42,238 44,370 General and administrative 11,891 11,816 Other operating expense (income), net 1,263 767 Total operating expenses $ 501,735 $ 537,933"
+    },
+    {
+      "tag": "AMZN-2024-10K-p000150",
+      "chunk_id": "000101872424000008#passage-000150",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Amounts included in consolidated operating expenses include “Cost of sales,” “Fulfillment,” “Technology and infrastructure,” “Sales and marketing,” “General and administrative,” and “Other operating expense (income), net.”"
+    },
+    {
+      "tag": "AMZN-2024-10K-p000097",
+      "chunk_id": "000101872424000008#passage-000097",
+      "accession": "0001018724-24-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/amzn-20231231.htm",
+      "quote": "Technology and infrastructure costs are generally expensed as incurred."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.78920396900503,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 14531,
+        "output_tokens": 718,
+        "output_tokens_details": {
+          "thinking_tokens": 513
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 718,
+            "cache_read_input_tokens": 14531,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00050451
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.212762764000217,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 17800,
+        "output_tokens": 829,
+        "output_tokens_details": {
+          "thinking_tokens": 415
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 829,
+            "cache_read_input_tokens": 17800,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0005927
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.375903059000848,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16249,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 1077,
+        "output_tokens_details": {
+          "thinking_tokens": 691
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16249,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1077,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16249,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16249
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0038055000000000003
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 10.45493599800102,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 6919,
+        "cache_read_input_tokens": 925,
+        "output_tokens": 2317,
+        "output_tokens_details": {
+          "thinking_tokens": 1680
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6919,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2317,
+            "cache_read_input_tokens": 925,
+            "cache_creation_input_tokens": 6919,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 6919
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00255175
+    }
+  ],
+  "elapsed_seconds": 30.84273890098848,
+  "execution_mode": "legacy",
+  "synthesis_route": "legacy"
+}

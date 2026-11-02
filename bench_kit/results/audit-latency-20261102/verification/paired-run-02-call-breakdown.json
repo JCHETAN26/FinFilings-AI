@@ -1,0 +1,178 @@
+{
+  "note": "Codex arithmetic from all24 raw successful traces. One structured invocation may contain multiple CLI-reported turns; summed per-call seconds overlap for parallel calls and are not end-to-end latency.",
+  "per_mode": {
+    "legacy": {
+      "invocations": 59,
+      "cli_reported_turns": 118,
+      "turns_histogram": {
+        "2": 59
+      },
+      "schemas": {
+        "Plan": 12,
+        "Critique": 37,
+        "HandleDraft": 10
+      },
+      "call_seconds_by_schema": {
+        "Critique": {
+          "median": 5.980291821004357,
+          "total": 232.44025516405236
+        },
+        "Plan": {
+          "median": 5.947138429502957,
+          "total": 70.17434067602153
+        },
+        "HandleDraft": {
+          "median": 9.885558466994553,
+          "total": 101.65461155501544
+        }
+      },
+      "per_case": {
+        "audit04": {
+          "seconds": [
+            29.682945667998865,
+            30.125743219992728
+          ],
+          "citations": [
+            6,
+            6
+          ]
+        },
+        "audit07": {
+          "seconds": [
+            34.73909335299686,
+            49.02766150300158
+          ],
+          "citations": [
+            8,
+            6
+          ]
+        },
+        "broad25": {
+          "seconds": [
+            29.741274376006913,
+            26.546243439006503
+          ],
+          "citations": [
+            4,
+            4
+          ]
+        },
+        "broad21": {
+          "seconds": [
+            29.15284309000708,
+            27.828590620003524
+          ],
+          "citations": [
+            5,
+            5
+          ]
+        },
+        "audit10": {
+          "seconds": [
+            23.830330810000305,
+            22.113869170003454
+          ],
+          "citations": [
+            0,
+            0
+          ]
+        },
+        "broad30": {
+          "seconds": [
+            30.827496508005424,
+            32.80406813000445
+          ],
+          "citations": [
+            5,
+            4
+          ]
+        }
+      }
+    },
+    "fast": {
+      "invocations": 49,
+      "cli_reported_turns": 104,
+      "turns_histogram": {
+        "2": 45,
+        "5": 1,
+        "3": 3
+      },
+      "schemas": {
+        "Plan": 12,
+        "CritiqueWithQuotes": 37
+      },
+      "call_seconds_by_schema": {
+        "Plan": {
+          "median": 5.390373622496554,
+          "total": 66.61076275898085
+        },
+        "CritiqueWithQuotes": {
+          "median": 7.109513582006912,
+          "total": 295.5172806479677
+        }
+      },
+      "per_case": {
+        "audit04": {
+          "seconds": [
+            21.69523820199538,
+            31.79777198600641
+          ],
+          "citations": [
+            5,
+            5
+          ]
+        },
+        "audit07": {
+          "seconds": [
+            23.210198696004227,
+            39.509471327997744
+          ],
+          "citations": [
+            6,
+            5
+          ]
+        },
+        "broad25": {
+          "seconds": [
+            24.264392074997886,
+            22.969042358003207
+          ],
+          "citations": [
+            4,
+            5
+          ]
+        },
+        "broad21": {
+          "seconds": [
+            19.532494695013156,
+            23.796089859999483
+          ],
+          "citations": [
+            4,
+            5
+          ]
+        },
+        "audit10": {
+          "seconds": [
+            23.284387323990813,
+            23.103761531005148
+          ],
+          "citations": [
+            0,
+            0
+          ]
+        },
+        "broad30": {
+          "seconds": [
+            23.255046954989666,
+            20.92226331899292
+          ],
+          "citations": [
+            3,
+            3
+          ]
+        }
+      }
+    }
+  }
+}

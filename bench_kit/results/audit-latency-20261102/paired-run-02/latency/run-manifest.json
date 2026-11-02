@@ -1,0 +1,321 @@
+{
+  "started_utc": "2026-11-02T16:32:33.539388+00:00",
+  "kind": "paired-latency",
+  "suite_id": "broad-validation-v2",
+  "suite_sha256": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+  "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+  "model_requested": "haiku",
+  "backend": "http://127.0.0.1:44175",
+  "python": "3.10.12",
+  "cases": [
+    "audit04",
+    "audit07",
+    "broad25",
+    "broad21",
+    "audit10",
+    "broad30"
+  ],
+  "repeats": 2,
+  "primary_supported_cases": [
+    "audit04",
+    "audit07",
+    "broad25",
+    "broad21"
+  ],
+  "modes": [
+    "legacy",
+    "fast"
+  ],
+  "schedule": [
+    {
+      "ordinal": 1,
+      "pair": 0,
+      "case": "audit04",
+      "repeat": 1,
+      "mode": "legacy",
+      "position_in_pair": 0,
+      "run_id": "01-legacy-audit04-r1"
+    },
+    {
+      "ordinal": 2,
+      "pair": 0,
+      "case": "audit04",
+      "repeat": 1,
+      "mode": "fast",
+      "position_in_pair": 1,
+      "run_id": "02-fast-audit04-r1"
+    },
+    {
+      "ordinal": 3,
+      "pair": 1,
+      "case": "audit04",
+      "repeat": 2,
+      "mode": "fast",
+      "position_in_pair": 0,
+      "run_id": "03-fast-audit04-r2"
+    },
+    {
+      "ordinal": 4,
+      "pair": 1,
+      "case": "audit04",
+      "repeat": 2,
+      "mode": "legacy",
+      "position_in_pair": 1,
+      "run_id": "04-legacy-audit04-r2"
+    },
+    {
+      "ordinal": 5,
+      "pair": 2,
+      "case": "audit07",
+      "repeat": 1,
+      "mode": "legacy",
+      "position_in_pair": 0,
+      "run_id": "05-legacy-audit07-r1"
+    },
+    {
+      "ordinal": 6,
+      "pair": 2,
+      "case": "audit07",
+      "repeat": 1,
+      "mode": "fast",
+      "position_in_pair": 1,
+      "run_id": "06-fast-audit07-r1"
+    },
+    {
+      "ordinal": 7,
+      "pair": 3,
+      "case": "audit07",
+      "repeat": 2,
+      "mode": "fast",
+      "position_in_pair": 0,
+      "run_id": "07-fast-audit07-r2"
+    },
+    {
+      "ordinal": 8,
+      "pair": 3,
+      "case": "audit07",
+      "repeat": 2,
+      "mode": "legacy",
+      "position_in_pair": 1,
+      "run_id": "08-legacy-audit07-r2"
+    },
+    {
+      "ordinal": 9,
+      "pair": 4,
+      "case": "broad25",
+      "repeat": 1,
+      "mode": "legacy",
+      "position_in_pair": 0,
+      "run_id": "09-legacy-broad25-r1"
+    },
+    {
+      "ordinal": 10,
+      "pair": 4,
+      "case": "broad25",
+      "repeat": 1,
+      "mode": "fast",
+      "position_in_pair": 1,
+      "run_id": "10-fast-broad25-r1"
+    },
+    {
+      "ordinal": 11,
+      "pair": 5,
+      "case": "broad25",
+      "repeat": 2,
+      "mode": "fast",
+      "position_in_pair": 0,
+      "run_id": "11-fast-broad25-r2"
+    },
+    {
+      "ordinal": 12,
+      "pair": 5,
+      "case": "broad25",
+      "repeat": 2,
+      "mode": "legacy",
+      "position_in_pair": 1,
+      "run_id": "12-legacy-broad25-r2"
+    },
+    {
+      "ordinal": 13,
+      "pair": 6,
+      "case": "broad21",
+      "repeat": 1,
+      "mode": "legacy",
+      "position_in_pair": 0,
+      "run_id": "13-legacy-broad21-r1"
+    },
+    {
+      "ordinal": 14,
+      "pair": 6,
+      "case": "broad21",
+      "repeat": 1,
+      "mode": "fast",
+      "position_in_pair": 1,
+      "run_id": "14-fast-broad21-r1"
+    },
+    {
+      "ordinal": 15,
+      "pair": 7,
+      "case": "broad21",
+      "repeat": 2,
+      "mode": "fast",
+      "position_in_pair": 0,
+      "run_id": "15-fast-broad21-r2"
+    },
+    {
+      "ordinal": 16,
+      "pair": 7,
+      "case": "broad21",
+      "repeat": 2,
+      "mode": "legacy",
+      "position_in_pair": 1,
+      "run_id": "16-legacy-broad21-r2"
+    },
+    {
+      "ordinal": 17,
+      "pair": 8,
+      "case": "audit10",
+      "repeat": 1,
+      "mode": "legacy",
+      "position_in_pair": 0,
+      "run_id": "17-legacy-audit10-r1"
+    },
+    {
+      "ordinal": 18,
+      "pair": 8,
+      "case": "audit10",
+      "repeat": 1,
+      "mode": "fast",
+      "position_in_pair": 1,
+      "run_id": "18-fast-audit10-r1"
+    },
+    {
+      "ordinal": 19,
+      "pair": 9,
+      "case": "audit10",
+      "repeat": 2,
+      "mode": "fast",
+      "position_in_pair": 0,
+      "run_id": "19-fast-audit10-r2"
+    },
+    {
+      "ordinal": 20,
+      "pair": 9,
+      "case": "audit10",
+      "repeat": 2,
+      "mode": "legacy",
+      "position_in_pair": 1,
+      "run_id": "20-legacy-audit10-r2"
+    },
+    {
+      "ordinal": 21,
+      "pair": 10,
+      "case": "broad30",
+      "repeat": 1,
+      "mode": "legacy",
+      "position_in_pair": 0,
+      "run_id": "21-legacy-broad30-r1"
+    },
+    {
+      "ordinal": 22,
+      "pair": 10,
+      "case": "broad30",
+      "repeat": 1,
+      "mode": "fast",
+      "position_in_pair": 1,
+      "run_id": "22-fast-broad30-r1"
+    },
+    {
+      "ordinal": 23,
+      "pair": 11,
+      "case": "broad30",
+      "repeat": 2,
+      "mode": "fast",
+      "position_in_pair": 0,
+      "run_id": "23-fast-broad30-r2"
+    },
+    {
+      "ordinal": 24,
+      "pair": 11,
+      "case": "broad30",
+      "repeat": 2,
+      "mode": "legacy",
+      "position_in_pair": 1,
+      "run_id": "24-legacy-broad30-r2"
+    }
+  ],
+  "git_head": "489bfcf9571a32491cac332978d874a273e96aa1",
+  "code": {
+    "bench_kit/agent_suite.py": "73e18d13d994aaea8cdd48ea59a7619d7a255761036c51121d2a49b63df4a5e8",
+    "bench_kit/build_broad_suite.py": "507214f458370998b62a378868483b0a0fd6460c72cc56dc39fffa8a58078d7e",
+    "bench_kit/eval_agent.py": "e7a3bf59691b78ec0111b08c06714655695c12e6a99758b6d427e68083c92dfe",
+    "bench_kit/eval_agent_latency.py": "4fc0d5db21896982234e6d607399b241995f4092a5b4d9113fcea23599ffecbf",
+    "bench_kit/verify_broad_agent.py": "b81f5abc755582b4190256c40f8d216ba85d5ef7fd28dc6052af7cda5c9f40d2",
+    "cmd/finfilings/listener.go": "b59762dc8592d4f212276b0ae8d28042e13ed70a3a8d708391e32ad0cbc53b18",
+    "cmd/finfilings/main.go": "a4bfce4cdeacb814c821f2405f6a3e99a75dfa0e1b8524639b2db702c5f6167a",
+    "cmd/ingest/main.go": "426a0584061e2b72147e28f6f13d5c6426c48903b5f64ad358be6471ffcec3f8",
+    "cmd/parserreplay/fetch.go": "0c3d80340d2ea786c100da44769bffcde891857b44ef46e1f98b86a1a95515be",
+    "cmd/parserreplay/main.go": "d21fa94063d19dc1768ba4b16feb30b2442637e0517c2636ea3d52d17b7cf8a6",
+    "cmd/parserreplay/replay.go": "8d2a7c9ff7b98b0a49f21ea623ea2bcf52e82d31410f32bdf4f6f099d2c3da7a",
+    "go.mod": "045b4da56d89272aec2f47fe0901845465ad7b821440d3965917ee5eb6407ef9",
+    "pkg/hybrid/hybrid.go": "456305c34f8a207f91c04b5ac2ad3793a092162d123abe4a6b10c007dc6dc88e",
+    "pkg/index/bitpack.go": "57dc65e78b32043b487819b5d472329cdc7e8c2dc6104a5f2e8ca454b57641c5",
+    "pkg/index/bitpack_amd64.go": "b3613824fa114cec7570bbd2a567a31fe7faa07b706c1e6f1872c29e7e217908",
+    "pkg/index/bitpack_generic.go": "37a9fd68100028e43bec76955c5e32a0a4519e7ca09307d249c53e242bef635c",
+    "pkg/index/bm25.go": "9817f2c7f03092e6a8b8353f7a523ad897e6b23236b38cfcc378a41968db6cdd",
+    "pkg/index/compress.go": "6713d0fced5e924adb99d5703be789509905e00c9f67b983fb4d28d445e6a035",
+    "pkg/index/errors.go": "decfcbac2803f97945db4d8b75657695f557e22980b8cf2757d8db5c937ea64b",
+    "pkg/index/index.go": "645306f00941e399b076028f391abe58ea638bb64b7035e1136d4f567e43bd91",
+    "pkg/index/lock_other.go": "25afa734fa64af824673b9ab2fb67e44f455cffadcd00e3e9ec703af5cfebf28",
+    "pkg/index/lock_unix.go": "90a008cb9702b5eabc22e485657ab1e55a56a31cfa3691b5dad239489cd0df2b",
+    "pkg/index/manifest.go": "b77d89225e4d581c6c0e8aa7690d9c24c10053a0240a94cadeca72a9529b846a",
+    "pkg/index/mmap.go": "7ae914e0d6a6c035c504fe8cdb1d68e9cabfea672fae07d47074be7f429f6d28",
+    "pkg/index/mmap_other.go": "12228a5ae75c9c6381cfdbd3816415e8893e7e90b361a8afbff4e7d185e291c6",
+    "pkg/index/postings.go": "5fbdf880385bf8c493fd45d70acd3b06bdc143c6d0f9e1afdb443e124e47f337",
+    "pkg/index/segment.go": "2c2230ca0c954de3abe41f383eee9d677966b1c5048936c85508ab0d01600474",
+    "pkg/index/shards.go": "488467653579056bc0104422e00e64132d2a42174e75c5a193bff6a95878cb74",
+    "pkg/index/tokenize.go": "c169b28fd7c8bc56124abd5e53928449a1848647a79338bc61f4151eb31c0ff6",
+    "pkg/index/writer.go": "600fd46da1ccd7e50b03a13edbf46040c2c18035ef64e639b10914b4ea68538b",
+    "pkg/ingest/build.go": "3a2c25701c743f20f2d3326396d8c5742810809f8508608f5fcc41837833bc18",
+    "pkg/ingest/client.go": "08d7b06a05d2f394a02e62ea467cbe7bb9cfb68152ce13535833cbfa7f24f19d",
+    "pkg/ingest/parser.go": "988e63ccaa082cb61b674e9def6b0f96c4b62f28433093874f91023de2bc6502",
+    "pkg/ingest/pipeline.go": "e3d19f3bd4d75990a97dd7e41267a4bfb8197269ab03061a3a380fc2ade1d988",
+    "pkg/model/chunk.go": "2c68985331230d7dde844d10b9ab1efa4e1331439a0906cf88f1085942cdf511",
+    "pkg/model/filter.go": "be4ad190e6dad7c5380b6533114f80190a17f348ee6de0c59e0bd341b561b389",
+    "py/agent/__init__.py": "2487bcb7e2e9113bc1d224810a42ef067e2acac6e2e52a4b30f860513e50ceea",
+    "py/agent/critic.py": "ebac33af6cdb90bb3195e1cbe4d4efa02c3eabc5792449cbc6d3f3601d2371e2",
+    "py/agent/fast.py": "66636e06172401ff247055ad4c58d910c2cf641d3c3b1b08fd30ec49eb677ce0",
+    "py/agent/filters.py": "44eefa4ad498046cc7c12fd0d0abca53f7342e2c99d99f2c7e6d6aba11553368",
+    "py/agent/models.py": "2f1c9c8c503244b839835c89900319c84724bebea3cc880e22f7633a3b641de5",
+    "py/agent/planner.py": "d95a87fb4a74c99d362c508516543acc1d0aabec1f9731a6e4625fe1cb6b34f4",
+    "py/agent/provenance.py": "656f0ed37f4ca86ee73432ca6ccd6930d887a52927256919f5eae5f325d48fbc",
+    "py/agent/provider.py": "9da39cc201a101dd8244cebf6b142396c2008579805082d69eea5cd8bf2ba617",
+    "py/agent/retrieval.py": "8a83fa308f6377c4929320c1491ad0ab2db7d3ce87c4182bcfad69978d699246",
+    "py/agent/state_machine.py": "240c1f19fcbe0efcd72df18155fa320dede3bd05d004e00540e0951a0a39d0bd",
+    "py/agent/synthesizer.py": "35b86f0359d45ec7dda5908f3a1e03109898ee432d53f524e7a73ee6fb0f1d51",
+    "py/audit_web_testkit.py": "4899432ef084d0ebdd6d59bad6ddf39701586a4d524e4580ba68322d22cb3414",
+    "py/common.py": "80d65027e74f1972bf4016696e5962a7397a5e915e8e7089b495542d56c0b86e",
+    "py/dense_batcher.py": "4ff0aa15b4d0d923868fde0ac8eebebea0865738b8ac2f578ce1a13b895b1ec3",
+    "py/embed.py": "9805893ae8fb1de8390948c2cf180843fb27566aa5a18b00448fa4536231807b",
+    "py/export_reranker.py": "7fd0099f058fd970ef1a954259b9d22f1f2cce3aa46d5a350c48584775f82022",
+    "py/fetch_models.py": "63fbdcee9ac9925e6cbfd5c94e60e4825f73f8ee2f031411bf87364b59add613",
+    "py/requantize.py": "e39df3f6eb46399ef9cd85a3d4bebb1eeecd9542eb502f14877d9cc4b248a87a",
+    "py/rerank.py": "456437042d098f76201474b16d589ce420aac72c252999f6d0332fc38e7c5301",
+    "py/service.py": "544cfb94c62d221a2c8d73ae1d448526c8f1bfeb1c37be1122305cd112c4d09e",
+    "py/vector_cache.py": "e364f695ebfa08fc701b3aa7c714068b7561b20fe64a61c3670a41aefa2054cf",
+    "scripts/benchmark-expanded.py": "d75a991281caa33c10266a967d00b74a7b0661e4c2bbed235db0ca6f3add3de9",
+    "scripts/evaluate-expanded-agent.py": "2bf50a7270c794b1e027cf1ea951233da48ec8c8fa98f6808438fa671195100d"
+  },
+  "limits": {
+    "max_runs": 24,
+    "audits_active": 1,
+    "model_concurrency": 2,
+    "agent_concurrency": 3,
+    "subqueries_max": 3,
+    "retries_max": 2,
+    "contexts_max": 5,
+    "retained_max": 2
+  },
+  "controls": "Prompts are the frozen suite prompts, unchanged. One shared ClaudeJSON (2 slots) and one shared HybridClient serve both modes; no result cache; no per-mode tuning; every run is kept, failures included.",
+  "note": "Written before the first request."
+}

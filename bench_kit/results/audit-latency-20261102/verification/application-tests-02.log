@@ -1,0 +1,68 @@
+...............audit e188a1f1-bbd1-42c7-84c3-f8d792f31f7f failed
+Traceback (most recent call last):
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web/manager.py", line 148, in _supervise
+    result = agent_task.result()
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web_testkit.py", line 77, in run
+    raise self.error
+RuntimeError: Claude generation failed, exit=1 /home/u/.claude/secret
+.............................................audit e0456428-4aed-4d43-955a-2c32f70af6a1 failed
+Traceback (most recent call last):
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web/manager.py", line 148, in _supervise
+    result = agent_task.result()
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web_testkit.py", line 77, in run
+    raise self.error
+ValueError: boom
+...audit 0ccb27ad-95b1-4ade-8d26-cf391f779a2f failed
+Traceback (most recent call last):
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web/manager.py", line 152, in _supervise
+    raise ResultTooLarge('serialized result exceeds the configured bound')
+audit_web.errors.ResultTooLarge: serialized result exceeds the configured bound
+...audit 2731d54e-ea4e-4377-b8eb-7870ad860896 failed
+Traceback (most recent call last):
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web/manager.py", line 148, in _supervise
+    result = agent_task.result()
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web_testkit.py", line 77, in run
+    raise self.error
+asyncio.exceptions.TimeoutError
+audit 1bcdb840-f457-4745-be8e-8e38744305ee failed
+Traceback (most recent call last):
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web/manager.py", line 148, in _supervise
+    result = agent_task.result()
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web_testkit.py", line 77, in run
+    raise self.error
+httpx.ConnectError: http://127.0.0.1:1 /secret/path
+audit 2784ef18-a2f6-47b7-849b-610321ab88d3 failed
+Traceback (most recent call last):
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web/manager.py", line 148, in _supervise
+    result = agent_task.result()
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web_testkit.py", line 77, in run
+    raise self.error
+RuntimeError: Claude generation failed, exit=9 /tmp/x
+audit 28154d7d-a5b7-47fe-9d5a-98a8872b8e94 failed
+Traceback (most recent call last):
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web/manager.py", line 148, in _supervise
+    result = agent_task.result()
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/py/audit_web_testkit.py", line 77, in run
+    raise self.error
+ValueError: /etc/passwd
+...audit 285827dd-64c3-4465-8890-ecf1d63c8cf2 cleanup still running 0.01s into shutdown; continuing to wait
+audit 285827dd-64c3-4465-8890-ecf1d63c8cf2 cleanup still running 0.01s into shutdown; continuing to wait
+audit 285827dd-64c3-4465-8890-ecf1d63c8cf2 cleanup still running 0.01s into shutdown; continuing to wait
+audit 285827dd-64c3-4465-8890-ecf1d63c8cf2 cleanup still running 0.01s into shutdown; continuing to wait
+audit 285827dd-64c3-4465-8890-ecf1d63c8cf2 cleanup still running 0.01s into shutdown; continuing to wait
+audit 285827dd-64c3-4465-8890-ecf1d63c8cf2 cleanup still running 0.01s into shutdown; continuing to wait
+audit 285827dd-64c3-4465-8890-ecf1d63c8cf2 cleanup still running 0.01s into shutdown; continuing to wait
+audit 285827dd-64c3-4465-8890-ecf1d63c8cf2 cleanup still running 0.01s into shutdown; continuing to wait
+................................................................................download_retry status=429 attempt=1 delay_seconds=1.000 url=http://127.0.0.1:44081/retry
+............./home/grv22/.local/lib/python3.10/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.8.1' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/home/grv22/.local/lib/python3.10/site-packages/pandas/core/arrays/masked.py:61: UserWarning: Pandas requires version '1.3.6' or newer of 'bottleneck' (version '1.3.2' currently installed).
+  from pandas.core import (
+/home/grv22/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+....You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+...................
+----------------------------------------------------------------------
+Ran 185 tests in 14.946s
+
+OK

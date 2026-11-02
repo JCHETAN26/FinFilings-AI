@@ -1,0 +1,6 @@
+Verified filing excerpts (extractive audit evidence; no derived calculations):
+
+- Data Center revenue for fiscal year 2024 was $47.5 billion, up 217% from fiscal year 2023. [NVDA-2024-10K-p000111](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000111`; accession: `0001045810-24-000029`).
+- Data Center revenue for fiscal year 2024 was up 217%. [NVDA-2024-10K-p000110](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000110`; accession: `0001045810-24-000029`).
+- Revenue $ 60,922 $ 26,974 Up 126% Gross margin 72.7 % 56.9 % Up 15.8 pts [NVDA-2024-10K-p000110](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000110`; accession: `0001045810-24-000029`).
+- Gross margin increased in fiscal year 2024, primarily driven by Data Center revenue growth and lower net inventory provisions as a percentage of revenue. [NVDA-2024-10K-p000111](https://www.sec.gov/Archives/edgar/data/1045810/000104581024000029/nvda-20240128.htm) (chunk: `000104581024000029#passage-000111`; accession: `0001045810-24-000029`).

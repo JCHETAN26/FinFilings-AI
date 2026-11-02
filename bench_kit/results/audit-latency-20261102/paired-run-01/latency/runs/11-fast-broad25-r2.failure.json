@@ -1,0 +1,9 @@
+{
+  "id": "broad25",
+  "status": "fail",
+  "phase": "agent_run",
+  "category": "structural",
+  "error_type": "ValueError",
+  "error": "ValueError: critic retained unknown or duplicate evidence",
+  "traceback": "Traceback (most recent call last):\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/bench_kit/eval_agent_latency.py\", line 124, in execute\n    result = await agent.run(lib.agent_view(case)['prompt'])\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/state_machine.py\", line 165, in run\n    histories = await asyncio.gather(*tasks)\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/state_machine.py\", line 104, in _retrieve\n    verdict, handles = await critique_with_quotes(self.model, subquery, query, evidence, audit_prompt, self.registry.catalog())\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/critic.py\", line 124, in critique_with_quotes\n    _checked(response, evidence)\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/critic.py\", line 93, in _checked\n    raise ValueError('critic retained unknown or duplicate evidence')\nValueError: critic retained unknown or duplicate evidence\n"
+}

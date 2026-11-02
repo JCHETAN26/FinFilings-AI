@@ -1,0 +1,8 @@
+Verified filing excerpts (extractive audit evidence; no derived calculations):
+
+- The total impact of foreign currency exchange rate fluctuations on net operating revenues, including the effect of our hedging activities, was a decrease of 5% and 4% in 2024 and 2023, respectively. [KO-2025-10K-item7-p000066](https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm) (chunk: `000002134425000011#item7#passage-000066`; accession: `0000021344-25-000011`).
+- In 2024, fluctuations in foreign currency exchange rates unfavorably impacted consolidated operating income by 11% due to a stronger U.S. dollar compared to certain foreign currencies [KO-2025-10K-item7-p000039](https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm) (chunk: `000002134425000011#item7#passage-000039`; accession: `0000021344-25-000011`).
+- The Company recorded net foreign currency exchange losses of $180 million and $312 million during the years ended December 31, 2024 and 2023, respectively. [KO-2025-10K-item7-p000066](https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm) (chunk: `000002134425000011#item7#passage-000066`; accession: `0000021344-25-000011`).
+
+Evidence gaps:
+- Subquery 1 has no evidence meeting threshold after 2 retries.

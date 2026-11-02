@@ -1,0 +1,124 @@
+{
+  "passed": true,
+  "problems": [],
+  "kind": "composite recovery verification of an interrupted run plus a fresh continuation batch; NOT one uninterrupted normal run",
+  "suite_id": "broad-validation-v2",
+  "suite_sha256": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+  "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+  "batches": {
+    "interrupted": {
+      "directory": "bench_kit/results/audit-latency-20261102/full-run-01",
+      "status": "started",
+      "completed": [
+        "audit01",
+        "audit02",
+        "audit03",
+        "audit04",
+        "audit05",
+        "audit06",
+        "audit07",
+        "audit08",
+        "audit09",
+        "audit10",
+        "broad11",
+        "broad12",
+        "broad13",
+        "broad14",
+        "broad15",
+        "broad16",
+        "broad17",
+        "broad18"
+      ],
+      "omitted": [
+        "broad19",
+        "broad20",
+        "broad21",
+        "broad22",
+        "broad23",
+        "broad24",
+        "broad25",
+        "broad26",
+        "broad27",
+        "broad28",
+        "broad29",
+        "broad30"
+      ]
+    },
+    "continuation": {
+      "directory": "bench_kit/results/audit-latency-20261102/full-run-02-remaining",
+      "status": "completed",
+      "selected": [
+        "broad19",
+        "broad20",
+        "broad21",
+        "broad22",
+        "broad23",
+        "broad24",
+        "broad25",
+        "broad26",
+        "broad27",
+        "broad28",
+        "broad29",
+        "broad30"
+      ]
+    }
+  },
+  "interruption_record": "bench_kit/results/audit-latency-20261102/verification/full-run-01-interruption.json",
+  "interruption_record_sha256": "204ac6ab0239b85531acee56412a57e8f4470bdbe66f54e585e2cf638e93b5e5",
+  "counts": {
+    "cases": 30,
+    "citations": 140,
+    "retrieval_calls": 77,
+    "retries": 17,
+    "cli_invocations": 107,
+    "available_subqueries": 52,
+    "cited_available_subqueries": 52,
+    "outcomes": {
+      "supported": 27,
+      "expected_unavailable": 3
+    },
+    "routes": {
+      "host_quotes": 27,
+      "none": 3
+    }
+  },
+  "per_batch_unique_source_passages": {
+    "interrupted": 158,
+    "continuation": 90,
+    "note": "Per-batch counts; the cross-batch union is not derivable from the verifier summaries."
+  },
+  "timing": {
+    "median_seconds": 20.347354651000046,
+    "max_seconds": 47.2077899339929,
+    "note": "Descriptive completed-case seconds across two batches; not a controlled comparison and not an SLA, p99 or cost claim. In-flight work lost at the interruption is unknown and not counted."
+  },
+  "verifier_sources": {
+    "/media/grv22/Extreme SSD2/project/FinFillings AI/bench_kit/verify_agent_recovery.py": "ec1a630e63fdb573716ae51ac8b08b7f83e324959dd0df3dfb774ba1479cc01e",
+    "/media/grv22/Extreme SSD2/project/FinFillings AI/bench_kit/verify_broad_agent.py": "b81f5abc755582b4190256c40f8d216ba85d5ef7fd28dc6052af7cda5c9f40d2",
+    "/media/grv22/Extreme SSD2/project/FinFillings AI/bench_kit/agent_suite.py": "73e18d13d994aaea8cdd48ea59a7619d7a255761036c51121d2a49b63df4a5e8"
+  },
+  "existing_verifier_summaries": {
+    "interrupted": {
+      "passed": false,
+      "verified": 18,
+      "global_problems": [
+        "run-status.json missing, unfinished, or owned processes not confirmed stopped"
+      ],
+      "evaluator_summary_discrepancies": [
+        "evaluation/report.json missing",
+        "records.jsonl: case IDs differ from the frozen selection (missing ['broad19', 'broad20', 'broad21', 'broad22', 'broad23', 'broad24', 'broad25', 'broad26', 'broad27', 'broad28', 'broad29', 'broad30'], extra [])"
+      ]
+    },
+    "continuation": {
+      "passed": true,
+      "verified": 12,
+      "gates_met": true
+    }
+  },
+  "not_established": [
+    "process/service cleanup (recorded separately by the reviewer)",
+    "any normal supervisor cleanup or health-after record for a single 30-case run",
+    "human semantic correctness (fixtures are source-informed, not human gold)",
+    "usage consumed by unsaved in-flight work at the interruption"
+  ]
+}

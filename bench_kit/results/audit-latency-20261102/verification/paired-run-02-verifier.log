@@ -1,0 +1,330 @@
+{
+  "directory": "bench_kit/results/audit-latency-20261102/paired-run-02/latency",
+  "environment": {
+    "artifacts": {
+      "suite_sha256": "recomputed_verified",
+      "corpus_sha256": "recomputed_verified",
+      "ingest_report_sha256": "recomputed_verified",
+      "original_provenance_sha256": "recomputed_verified",
+      "vector_index": {
+        "recorded_files": 5,
+        "recomputed_verified": 5,
+        "mismatched": [],
+        "missing": [],
+        "unrecorded": []
+      },
+      "reranker_model": {
+        "recorded_files": 2,
+        "recomputed_verified": 2,
+        "mismatched": [],
+        "missing": [],
+        "unrecorded": []
+      },
+      "sparse_index": {
+        "recorded_files": 28,
+        "recomputed_verified": 28,
+        "mismatched": [],
+        "missing": [],
+        "unrecorded": []
+      },
+      "code": {
+        "changed": [],
+        "missing": [],
+        "recomputed_unchanged": 59,
+        "required_but_unrecorded": [],
+        "strict": true
+      }
+    },
+    "ingest_lineage": {
+      "mode": "targeted_replacement",
+      "parsers": {
+        "deterministic-canonical-heading-v2-go": 147,
+        "deterministic-canonical-heading-v3-go": 1
+      },
+      "reparsed_filings": 1,
+      "untouched_filings": 147,
+      "current_raw_fixture": "recomputed_verified",
+      "previous_report_sha256": "36cfd3ab7436196525bb19d57b53683df3a062530ee0bf6f23c878b1afa4fb0b",
+      "statement": "Mixed lineage: a targeted parser-v3 replacement of one filing. The other filings were NOT reparsed and keep their parser-v2 output byte for byte."
+    },
+    "run_status": "completed",
+    "health_profile": {
+      "workers": 4,
+      "threads": 2
+    }
+  },
+  "suite_id": "broad-validation-v2",
+  "suite_sha256": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+  "scheduled_runs": 24,
+  "verified": 24,
+  "run_failed": [],
+  "verification_failed": [],
+  "omitted": [],
+  "global_problems": [],
+  "comparison": {
+    "pairs": [
+      {
+        "case": "audit04",
+        "repeat": 1,
+        "legacy_seconds": 29.682945667998865,
+        "fast_seconds": 21.69523820199538,
+        "improvement": 0.26910090242879836,
+        "legacy_calls": 4,
+        "fast_calls": 3,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 2,
+        "fast_cited": 2,
+        "both_supported": true
+      },
+      {
+        "case": "audit04",
+        "repeat": 2,
+        "legacy_seconds": 30.125743219992728,
+        "fast_seconds": 31.79777198600641,
+        "improvement": -0.055501660284485554,
+        "legacy_calls": 4,
+        "fast_calls": 3,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 2,
+        "fast_cited": 2,
+        "both_supported": true
+      },
+      {
+        "case": "audit07",
+        "repeat": 1,
+        "legacy_seconds": 34.73909335299686,
+        "fast_seconds": 23.210198696004227,
+        "improvement": 0.3318709138388628,
+        "legacy_calls": 4,
+        "fast_calls": 3,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 2,
+        "fast_cited": 2,
+        "both_supported": true
+      },
+      {
+        "case": "audit07",
+        "repeat": 2,
+        "legacy_seconds": 49.02766150300158,
+        "fast_seconds": 39.509471327997744,
+        "improvement": 0.19413918353868687,
+        "legacy_calls": 5,
+        "fast_calls": 4,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 2,
+        "fast_cited": 2,
+        "both_supported": true
+      },
+      {
+        "case": "audit10",
+        "repeat": 1,
+        "legacy_seconds": 23.830330810000305,
+        "fast_seconds": 23.284387323990813,
+        "improvement": 0.022909605844850023,
+        "legacy_calls": 7,
+        "fast_calls": 7,
+        "fast_route": "none",
+        "legacy_outcome": "expected_unavailable",
+        "fast_outcome": "expected_unavailable",
+        "legacy_cited": 0,
+        "fast_cited": 0,
+        "both_supported": false
+      },
+      {
+        "case": "audit10",
+        "repeat": 2,
+        "legacy_seconds": 22.113869170003454,
+        "fast_seconds": 23.103761531005148,
+        "improvement": -0.04476341762681857,
+        "legacy_calls": 7,
+        "fast_calls": 7,
+        "fast_route": "none",
+        "legacy_outcome": "expected_unavailable",
+        "fast_outcome": "expected_unavailable",
+        "legacy_cited": 0,
+        "fast_cited": 0,
+        "both_supported": false
+      },
+      {
+        "case": "broad21",
+        "repeat": 1,
+        "legacy_seconds": 29.15284309000708,
+        "fast_seconds": 19.532494695013156,
+        "improvement": 0.32999691883538995,
+        "legacy_calls": 4,
+        "fast_calls": 3,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 2,
+        "fast_cited": 2,
+        "both_supported": true
+      },
+      {
+        "case": "broad21",
+        "repeat": 2,
+        "legacy_seconds": 27.828590620003524,
+        "fast_seconds": 23.796089859999483,
+        "improvement": 0.14490495818014693,
+        "legacy_calls": 4,
+        "fast_calls": 3,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 2,
+        "fast_cited": 2,
+        "both_supported": true
+      },
+      {
+        "case": "broad25",
+        "repeat": 1,
+        "legacy_seconds": 29.741274376006913,
+        "fast_seconds": 24.264392074997886,
+        "improvement": 0.18415089520936523,
+        "legacy_calls": 4,
+        "fast_calls": 3,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 2,
+        "fast_cited": 2,
+        "both_supported": true
+      },
+      {
+        "case": "broad25",
+        "repeat": 2,
+        "legacy_seconds": 26.546243439006503,
+        "fast_seconds": 22.969042358003207,
+        "improvement": 0.13475357028283064,
+        "legacy_calls": 4,
+        "fast_calls": 3,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 2,
+        "fast_cited": 2,
+        "both_supported": true
+      },
+      {
+        "case": "broad30",
+        "repeat": 1,
+        "legacy_seconds": 30.827496508005424,
+        "fast_seconds": 23.255046954989666,
+        "improvement": 0.24563945862581837,
+        "legacy_calls": 6,
+        "fast_calls": 5,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 1,
+        "fast_cited": 1,
+        "both_supported": true
+      },
+      {
+        "case": "broad30",
+        "repeat": 2,
+        "legacy_seconds": 32.80406813000445,
+        "fast_seconds": 20.92226331899292,
+        "improvement": 0.3622052229596415,
+        "legacy_calls": 6,
+        "fast_calls": 5,
+        "fast_route": "host_quotes",
+        "legacy_outcome": "supported",
+        "fast_outcome": "supported",
+        "legacy_cited": 1,
+        "fast_cited": 1,
+        "both_supported": true
+      }
+    ],
+    "per_mode": {
+      "legacy": {
+        "runs": 12,
+        "median_seconds": 29.71211002200289,
+        "model_calls": 59,
+        "retries": 13,
+        "retrieval_calls": 37,
+        "cited_available_subqueries": 18,
+        "available_subqueries": 18,
+        "routes": {
+          "legacy": 10,
+          "none": 2
+        },
+        "outcomes": {
+          "supported": 10,
+          "expected_unavailable": 2
+        }
+      },
+      "fast": {
+        "runs": 12,
+        "median_seconds": 23.232622825496946,
+        "model_calls": 49,
+        "retries": 13,
+        "retrieval_calls": 37,
+        "cited_available_subqueries": 18,
+        "available_subqueries": 18,
+        "routes": {
+          "host_quotes": 10,
+          "none": 2
+        },
+        "outcomes": {
+          "supported": 10,
+          "expected_unavailable": 2
+        }
+      }
+    },
+    "order_effect": {
+      "legacy_first": {
+        "pairs": 6,
+        "median_improvement": 0.25737018052730837
+      },
+      "fast_first": {
+        "pairs": 6,
+        "median_improvement": 0.13982926423148878
+      }
+    },
+    "primary_supported": {
+      "primary_cases": [
+        "audit04",
+        "audit07",
+        "broad25",
+        "broad21"
+      ],
+      "expected_runs_per_mode": 8,
+      "runs_used": {
+        "legacy": 8,
+        "fast": 8
+      },
+      "median_seconds": {
+        "legacy": 29.71211002200289,
+        "fast": 23.503144278001855
+      },
+      "reduction": 0.20897087885724275,
+      "problems": [],
+      "latency_target_met": true
+    },
+    "descriptive": {
+      "supported_pairs": 10,
+      "median_paired_improvement_supported_pairs": 0.21988932108225262,
+      "median_paired_improvement_all_pairs": 0.18914503937402605,
+      "note": "Descriptive only: a median of per-pair fractions is a different statistic from the gate (reduction of median seconds)."
+    },
+    "preregistered": {
+      "latency_target": 0.15,
+      "latency_target_met": true,
+      "model_calls_not_increased_in_every_pair": true,
+      "coverage_not_reduced_in_every_pair": true,
+      "expected_absent_withheld_in_every_run": true,
+      "note": "Computed from re-verified traces. The release decision and the full 30-case candidate check remain with the reviewer."
+    }
+  },
+  "scope": "Wall-clock of live paired runs on a small frozen subset after independent structural re-verification. Not a throughput, tail-latency or answer-accuracy result.",
+  "passed": true
+}
