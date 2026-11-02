@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "all_eight_hpe_quotes_independently_matched_to_original_text": true,
+  "both_runs_have_two_verified_filing_years": true,
+  "only_four_model_calls_each": true,
+  "unchanged_threshold_and_retrieval_implementation": true,
+  "all_execution_hashes_recomputed_unchanged": true,
+  "python_application_tests": 50,
+  "benchmark_contract_tests": 136,
+  "no_go_source_changed": true,
+  "note": "Go race/vet passed in baseline 6f18c04; Go tests not rerun for this Python-only change."
+}

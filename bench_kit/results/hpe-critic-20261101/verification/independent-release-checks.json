@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "runs": {
+    "run-01": {
+      "passed": true,
+      "selected_case_ids": [
+        "broad25",
+        "broad28",
+        "broad30"
+      ],
+      "verified_cases": 3,
+      "verified_citations": 10,
+      "hpe_citations": 4,
+      "hpe_retries": 0,
+      "hpe_available_subquery_coverage": "2/2",
+      "hpe_seconds": 23.04018711900062,
+      "changed_implementation_files": [
+        "py/agent/critic.py"
+      ],
+      "all_index_model_hashes_match_baseline": true,
+      "all_execution_code_hashes_still_match": true,
+      "bounded_health": {
+        "limit": 64,
+        "active": 0,
+        "peak": 2,
+        "rejected": 0
+      },
+      "owned_processes_stopped": true
+    },
+    "run-02": {
+      "passed": true,
+      "selected_case_ids": [
+        "broad25"
+      ],
+      "verified_cases": 1,
+      "verified_citations": 4,
+      "hpe_citations": 4,
+      "hpe_retries": 0,
+      "hpe_available_subquery_coverage": "2/2",
+      "hpe_seconds": 22.182750946998567,
+      "changed_implementation_files": [
+        "py/agent/critic.py"
+      ],
+      "all_index_model_hashes_match_baseline": true,
+      "all_execution_code_hashes_still_match": true,
+      "bounded_health": {
+        "limit": 64,
+        "active": 0,
+        "peak": 2,
+        "rejected": 0
+      },
+      "owned_processes_stopped": true
+    }
+  },
+  "total_verified_citations_across_selected_runs": 14,
+  "python_application_tests": 50,
+  "benchmark_contract_tests": 136,
+  "no_full30_case_rerun_claim": true,
+  "scope": "Two preregistered HPE replays, one absent-section control and one mixed-availability control. Source/structure verified; not an answer-accuracy measure."
+}

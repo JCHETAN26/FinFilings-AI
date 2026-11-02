@@ -1,0 +1,105 @@
+{
+  "suite_id": "broad-validation-v2",
+  "suite_sha256": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+  "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+  "frozen_case_count": 30,
+  "full_suite": false,
+  "enrolled_filings": 152,
+  "verified": 1,
+  "run_failed": 0,
+  "verification_failed": 0,
+  "omitted": [],
+  "failures_by_category": {
+    "transport": 0,
+    "model": 0,
+    "structural": 0
+  },
+  "evidence_outcomes": {
+    "supported": 1,
+    "partial_gap": 0,
+    "abstained": 0,
+    "expected_unavailable": 0
+  },
+  "mixed_availability_cases_verified": [],
+  "verified_citations": 4,
+  "unique_source_passages_checked": 10,
+  "anchors": {
+    "total": 2,
+    "retrieved": 2,
+    "cited": 2,
+    "note": "Informational reviewer-evidence overlap for source-informed fixtures. Not recall, not accuracy."
+  },
+  "global_problems": [],
+  "evaluator_summary_discrepancies": [],
+  "artifact_verification": {
+    "suite_sha256": "recomputed_verified",
+    "corpus_sha256": "recomputed_verified",
+    "ingest_report_sha256": "recomputed_verified",
+    "original_provenance_sha256": "recomputed_verified",
+    "vector_index": {
+      "recorded_files": 5,
+      "recomputed_verified": 5,
+      "mismatched": [],
+      "missing": [],
+      "unrecorded": []
+    },
+    "reranker_model": {
+      "recorded_files": 2,
+      "recomputed_verified": 2,
+      "mismatched": [],
+      "missing": [],
+      "unrecorded": []
+    },
+    "sparse_index": {
+      "recorded_files": 28,
+      "recomputed_verified": 28,
+      "mismatched": [],
+      "missing": [],
+      "unrecorded": []
+    },
+    "code": {
+      "changed": [],
+      "missing": [],
+      "recomputed_unchanged": 56,
+      "required_but_unrecorded": [],
+      "strict": true
+    }
+  },
+  "ingest_lineage": {
+    "mode": "targeted_replacement",
+    "parsers": {
+      "deterministic-canonical-heading-v2-go": 147,
+      "deterministic-canonical-heading-v3-go": 1
+    },
+    "reparsed_filings": 1,
+    "untouched_filings": 147,
+    "current_raw_fixture": "recomputed_verified",
+    "previous_report_sha256": "36cfd3ab7436196525bb19d57b53683df3a062530ee0bf6f23c878b1afa4fb0b",
+    "statement": "Mixed lineage: a targeted parser-v3 replacement of one filing. The other filings were NOT reparsed and keep their parser-v2 output byte for byte."
+  },
+  "available_subqueries": 2,
+  "cited_available_subqueries": 2,
+  "mixed_cases": {},
+  "run_status": "completed",
+  "scope": "Frozen-suite membership, scope availability, source identity/bytes, citations, bounds, continuity and mixed-availability behaviour. Source-informed regression fixtures; not independent human gold and not an answer-accuracy score.",
+  "passed": true,
+  "release_gates": {
+    "all_frozen_cases_retained": true,
+    "no_failures_or_violations": true,
+    "unavailable_scopes_publish_zero_claims": true,
+    "mixed_cases_preserve_unavailable_and_fully_support_available": false,
+    "citation_coverage_of_available_subqueries": {
+      "cited": 2,
+      "available": 2,
+      "ratio": 1.0,
+      "threshold": 0.8,
+      "met": true
+    },
+    "not_checked_by_this_tool": [
+      "full Python suite",
+      "Go race/vet",
+      "public snapshot has no weights/datasets/credentials/private contact info"
+    ],
+    "all_checked_gates_met": false
+  }
+}

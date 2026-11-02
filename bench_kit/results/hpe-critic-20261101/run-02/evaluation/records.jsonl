@@ -1,0 +1,1 @@
+{"id": "broad25", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 4, "complete_coverage": true, "evidence_outcome": "supported", "unavailable_subqueries": [], "flags": [], "model_calls": 4, "seconds": 22.182750946998567, "kind": "positive"}

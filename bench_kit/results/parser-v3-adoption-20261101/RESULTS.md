@@ -2,7 +2,7 @@
 
 **Status: measurements complete and independently verified; every pre-registered gate passes (`gates.json`, OVERALL PASS).** Retrieval/load
 and the 30-case agent audit were all run on the same new corpus and verified independently by Codex (strict code check, `--enforce-gates`).
-Adoption of the corpus version is validated and the reproduction tooling is ready; **committing and pushing are pending and have not been done.**
+Adoption of the corpus version is validated and the reproduction tooling is ready; **published as commit `6f18c04` (recorded in Git history); no deployment performed.**
 Method, guards and commands: [`docs/build/parser-v3-adoption.md`](../../../docs/build/parser-v3-adoption.md).
 
 **Read first — two things not to over-read:** (1) **dense-only nDCG@10 fell by 0.01497489942688951** (0.48229729941572386 → 0.46732239998883435);
@@ -184,7 +184,7 @@ expected-unavailable case because that filing is only stored as unclassified tex
   and flagged "no verified answer". This is the required outcome, not a failure.
 * **Mixed (2):** `broad29` (GS 2026 ✓ / BAC 2025 ✗) and `broad30` (KO 2025 Item 7 ✓ / AMZN 2024 Item 7 ✗) cited the available side (1/1 each) and withheld the unavailable side,
   which still carries an explicit "below threshold after 2 retries" flag. That flag is deliberate evidence of the gap, not silent success.
-* **HPE 2024 (`broad25`) — partial gap, not full coverage and not a transport failure.** The HPE 2024 subquery scored **3 on all three attempts** (initial plus two retries; critic
+* **HPE 2024 (`broad25`) — partial gap (historical baseline; a later critic follow-up is recorded in [`../hpe-critic-20261101/RESULTS.md`](../hpe-critic-20261101/RESULTS.md) and this section is not rewritten), not full coverage and not a transport failure.** The HPE 2024 subquery scored **3 on all three attempts** (initial plus two retries; critic
   threshold 4), was never accepted and has no published claim; HPE 2025 scored 4 on the first attempt and is cited. The retrieved context held the adjacent passages
   `000164559024000139#item7#passage-000035` and `…#passage-000036`, in which the repurchase sentence is split across the passage boundary; the critic rationales
   repeatedly asked for the original authorization size and share counts, which were not explicitly asked for in the prompt, so this looks like a critic-threshold outcome on a boundary-split sentence,
@@ -215,7 +215,7 @@ The 30 prompts, scopes and expectations are identical; the suite has no Morgan S
 * Only one filing differs; v3 parsing has not been observed on any other titled-mode filing, and the other 147 filings' raw bytes were not kept.
 * FinQA labels cover FinQA passages only; the 29,895 SEC passages are unlabeled candidates. The quality numbers are a development-set regression
   check, not SEC retrieval quality, not held-out accuracy and not answer accuracy.
-* Item 8 reference stubs, 43 skipped filings and the HPE 2024 critic gap are unrelated and unresolved.
+* Item 8 reference stubs and 43 skipped filings are unrelated and unresolved. The HPE 2024 critic gap was open in this baseline; see the [follow-up](../hpe-critic-20261101/RESULTS.md) for the later targeted critic change and its two-replay check.
 * Local, loopback, warm, single-machine measurements; not production load latency or multi-tenant isolation. CLI defaults remain v2 and v3 is selected only by explicit paths; no deployment was performed, and nothing is claimed about any running service.
 
 ## Evidence

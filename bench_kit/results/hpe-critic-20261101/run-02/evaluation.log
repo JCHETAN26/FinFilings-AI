@@ -1,0 +1,55 @@
+{"id": "broad25", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 4, "complete_coverage": true, "evidence_outcome": "supported", "unavailable_subqueries": [], "flags": [], "model_calls": 4, "seconds": 22.182750946998567, "kind": "positive"}
+{
+  "utc": "2026-11-02T00:33:12.509797+00:00",
+  "python": "3.10.12",
+  "model_requested": "haiku",
+  "backend": "http://127.0.0.1:60347",
+  "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+  "registered_filings": 152,
+  "cases": [
+    {
+      "id": "broad25",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 4,
+      "complete_coverage": true,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 22.182750946998567,
+      "kind": "positive"
+    }
+  ],
+  "passed": 1,
+  "total": 1,
+  "citations": 4,
+  "retrieval_calls": 2,
+  "retries": 0,
+  "fully_covered_positive_cases": 1,
+  "negative_cases": 0,
+  "median_seconds": 22.182750946998567,
+  "evaluation_scope": "Live multi-step retrieval, immutable filing filters, bounded critic retries, exact SEC quote/source identity and inline citation checks. No human semantic correctness labels; not an answer-accuracy score.",
+  "suite_id": "broad-validation-v2",
+  "suite_sha256": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+  "selected": [
+    "broad25"
+  ],
+  "failures_by_category": {
+    "transport": 0,
+    "model": 0,
+    "structural": 0
+  },
+  "evidence_outcomes": {
+    "supported": 1,
+    "partial_gap": 0,
+    "abstained": 0,
+    "expected_unavailable": 0
+  },
+  "note": "Failures (transport/model/structural) are distinct from evidence_outcomes (supported/partial_gap/abstained/expected_unavailable), which are honest results. Run bench_kit/verify_broad_agent.py for independent verification; this summary is not trusted by it."
+}

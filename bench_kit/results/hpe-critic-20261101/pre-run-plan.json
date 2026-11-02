@@ -1,0 +1,35 @@
+{
+  "recorded_utc": "2026-11-02T00:27:28.414429+00:00",
+  "baseline_commit": "6f18c04",
+  "input_sha256": {
+    "py/agent/critic.py": "cd3347f1c01e20654b98632db0d3cdbfa8eb0b8ccfaa5be144cdc43b0cdfb27c",
+    "py/agent/state_machine.py": "bc44783994130f81d6d31268d30f119abbb78a4e65f4a371637598d33f02fe52",
+    "bench_kit/suites/broad-validation-v2.json": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+    "bench_kit/results/parser-v3-adoption-20261101/agent-run-01/evaluation/broad25.json": "350811000beeb4d1f1f7ce6da58d0f6e52f8b42f37d82d8b28d759f3cb4147ff"
+  },
+  "planned_live_runs": [
+    {
+      "directory": "run-01",
+      "cases": [
+        "broad25",
+        "broad28",
+        "broad30"
+      ]
+    },
+    {
+      "directory": "run-02",
+      "cases": [
+        "broad25"
+      ]
+    }
+  ],
+  "acceptance": [
+    "Both fresh HPE runs cite each available 2024/2025 planned scope with no HPE evidence-gap flags.",
+    "All published citations match original source text and trusted metadata.",
+    "At most two retries per subquery; five-passage context, two retained passages, existing worker/model limits unchanged.",
+    "Absent-section control publishes zero claims; mixed control fully cites its available side and withholds its absent side.",
+    "No model/index/corpus/suite/threshold or verification weakening; all attempts preserved.",
+    "Python and benchmark contract suites pass; strict source/code/artifact checks pass."
+  ],
+  "scope": "Targeted critic regression validation; not a fresh 30-case result or independent semantic accuracy measure."
+}

@@ -1,6 +1,6 @@
 # Parser v3 adoption — new versioned corpus (tooling and runbook)
 
-Status (November 1, 2026): **adoption validated; all pre-registered gates pass; commit and push are pending (not done).**
+Status (November 1, 2026): **adoption validated; all pre-registered gates pass; published as commit `6f18c04` (recorded in Git history); no deployment performed.**
 
 | Stage | State |
 |---|---|
@@ -10,7 +10,7 @@ Status (November 1, 2026): **adoption validated; all pre-registered gates pass; 
 | Matched 100-query quality + 200-request/endpoint 50-client load, `v2-control` vs `v3-candidate` | done; every nDCG and 400 latencies per run recomputed independently |
 | 30-case agent audit `agent-run-01`, strict verifier (`--strict-code --enforce-gates`) | **30/30 verified, 0 failures, 187 citations, 51/52 = 98.08 %**; 26 supported / 1 partial (HPE 2024) / 3 expected-unavailable |
 | `compare_v3_gates.py` | OVERALL PASS ([`gates.json`](../../bench_kit/results/parser-v3-adoption-20261101/gates.json)) |
-| Commit, push | **pending — not committed, not pushed** |
+| Commit, push | Published as `6f18c04`; recorded in Git history; no deployment performed |
 
 Full figures, all 30 case rows and caveats: [`bench_kit/results/parser-v3-adoption-20261101/RESULTS.md`](../../bench_kit/results/parser-v3-adoption-20261101/RESULTS.md).
 Disclosed: dense-only nDCG@10 fell 0.01497 (the gated fused/reranked metrics did not); the agent suite has no MS case, so it does not establish MS or general parser quality.
@@ -168,6 +168,6 @@ Set before any v3 run; implemented as constants in `bench_kit/compare_v3_gates.p
   be tiny and is not evidence about SEC retrieval quality.
 * The agent suite is source-informed regression fixtures with one reviewer; coverage is structural, not answer accuracy. Model output varies
   between runs.
-* The HPE 2024 critic gap, the Item 8 reference stubs and the 43 skipped filings are unrelated to this change and remain open.
+* The Item 8 reference stubs and the 43 skipped filings are unrelated to this change and remain open. The HPE 2024 critic gap was open at this baseline (historical); a later targeted critic follow-up is in [`hpe-critic.md`](hpe-critic.md) and [its report](../../bench_kit/results/hpe-critic-20261101/RESULTS.md).
 * Hybrid-load results are finite, closed-loop, local observations on a non-isolated machine.
 * The MS raw HTML used for the replacement is not the previously archived file (see Lineage).

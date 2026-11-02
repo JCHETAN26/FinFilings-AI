@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "staged_files_scanned": 55,
+  "staged_bytes_scanned": 676565,
+  "findings": [],
+  "all_execution_code_hashes_still_verified": true,
+  "no_weights_indexes_raw_corpora_or_private_contact_in_staged_blobs": true
+}

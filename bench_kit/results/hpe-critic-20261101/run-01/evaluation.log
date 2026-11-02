@@ -1,0 +1,106 @@
+{"id": "broad25", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 2, "retries": 0, "accepted_subqueries": 2, "cited_subqueries": 2, "citations": 4, "complete_coverage": true, "evidence_outcome": "supported", "unavailable_subqueries": [], "flags": [], "model_calls": 4, "seconds": 23.04018711900062, "kind": "positive"}
+{"id": "broad28", "status": "pass", "negative": true, "subqueries": 2, "retrieval_calls": 6, "retries": 4, "accepted_subqueries": 0, "cited_subqueries": 0, "citations": 0, "complete_coverage": false, "evidence_outcome": "expected_unavailable", "unavailable_subqueries": [0, 1], "flags": ["Subquery 0 has no evidence meeting threshold after 2 retries.", "Subquery 1 has no evidence meeting threshold after 2 retries.", "No verified answer; evidence unavailable or below threshold."], "model_calls": 7, "seconds": 16.89245960900007, "kind": "negative"}
+{"id": "broad30", "status": "pass", "negative": false, "subqueries": 2, "retrieval_calls": 4, "retries": 2, "accepted_subqueries": 1, "cited_subqueries": 1, "citations": 6, "complete_coverage": false, "evidence_outcome": "supported", "unavailable_subqueries": [1], "flags": ["Subquery 1 has no evidence meeting threshold after 2 retries."], "model_calls": 6, "seconds": 26.317040361998806, "kind": "mixed"}
+{
+  "utc": "2026-11-02T00:32:09.241899+00:00",
+  "python": "3.10.12",
+  "model_requested": "haiku",
+  "backend": "http://127.0.0.1:38575",
+  "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+  "registered_filings": 152,
+  "cases": [
+    {
+      "id": "broad25",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "cited_subqueries": 2,
+      "citations": 4,
+      "complete_coverage": true,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "flags": [],
+      "model_calls": 4,
+      "seconds": 23.04018711900062,
+      "kind": "positive"
+    },
+    {
+      "id": "broad28",
+      "status": "pass",
+      "negative": true,
+      "subqueries": 2,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "accepted_subqueries": 0,
+      "cited_subqueries": 0,
+      "citations": 0,
+      "complete_coverage": false,
+      "evidence_outcome": "expected_unavailable",
+      "unavailable_subqueries": [
+        0,
+        1
+      ],
+      "flags": [
+        "Subquery 0 has no evidence meeting threshold after 2 retries.",
+        "Subquery 1 has no evidence meeting threshold after 2 retries.",
+        "No verified answer; evidence unavailable or below threshold."
+      ],
+      "model_calls": 7,
+      "seconds": 16.89245960900007,
+      "kind": "negative"
+    },
+    {
+      "id": "broad30",
+      "status": "pass",
+      "negative": false,
+      "subqueries": 2,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "accepted_subqueries": 1,
+      "cited_subqueries": 1,
+      "citations": 6,
+      "complete_coverage": false,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [
+        1
+      ],
+      "flags": [
+        "Subquery 1 has no evidence meeting threshold after 2 retries."
+      ],
+      "model_calls": 6,
+      "seconds": 26.317040361998806,
+      "kind": "mixed"
+    }
+  ],
+  "passed": 3,
+  "total": 3,
+  "citations": 10,
+  "retrieval_calls": 12,
+  "retries": 6,
+  "fully_covered_positive_cases": 1,
+  "negative_cases": 1,
+  "median_seconds": 23.04018711900062,
+  "evaluation_scope": "Live multi-step retrieval, immutable filing filters, bounded critic retries, exact SEC quote/source identity and inline citation checks. No human semantic correctness labels; not an answer-accuracy score.",
+  "suite_id": "broad-validation-v2",
+  "suite_sha256": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+  "selected": [
+    "broad25",
+    "broad28",
+    "broad30"
+  ],
+  "failures_by_category": {
+    "transport": 0,
+    "model": 0,
+    "structural": 0
+  },
+  "evidence_outcomes": {
+    "supported": 2,
+    "partial_gap": 0,
+    "abstained": 0,
+    "expected_unavailable": 1
+  },
+  "note": "Failures (transport/model/structural) are distinct from evidence_outcomes (supported/partial_gap/abstained/expected_unavailable), which are honest results. Run bench_kit/verify_broad_agent.py for independent verification; this summary is not trusted by it."
+}
