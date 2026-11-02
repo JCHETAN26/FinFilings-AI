@@ -1,0 +1,10 @@
+Verified filing excerpts (extractive audit evidence; no derived calculations):
+
+- The firm is subject to consolidated regulatory capital requirements which are calculated in accordance with the regulations of the FRB \(Capital Framework\). [GS-2026-10K-item8-p000177](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000177`; accession: `0000886982-26-000091`).
+- The firm calculates its CET1 capital, Tier 1 capital and Total capital ratios in accordance with both the Standardized and Advanced Capital Rules. [GS-2026-10K-item8-p000178](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000178`; accession: `0000886982-26-000091`).
+- Consolidated Regulatory Capital Requirements Risk-Based Capital Ratios. The table below presents the minimum, capital conservation buffer and total risk-based capital requirements. [GS-2026-10K-item8-p000178](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000178`; accession: `0000886982-26-000091`).
+- The lower of each risk-based capital ratio under the Standardized and Advanced Capital Rules is the ratio against which GS Bank USA’s compliance with its risk-based capital requirements is assessed. [GS-2026-10K-item8-p000182](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000182`; accession: `0000886982-26-000091`).
+- The table below presents GSI’s risk-based capital requirements. As of December 20252024 CET1 capital ratio9.0%9.1% Tier 1 capital ratio10.9%11.0% Total capital ratio13.5%13.6% [GS-2026-10K-item7-p000092](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item7#passage-000092`; accession: `0000886982-26-000091`).
+
+Evidence gaps:
+- Subquery 1 has no evidence meeting threshold after 2 retries.

@@ -1,0 +1,77 @@
+{
+  "sidecar": {
+    "status": "ready",
+    "documents": 49452,
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "encoder_device": "cpu",
+    "reranker_device": "cpu",
+    "reranker_backend": "onnx-fp32",
+    "reranker_artifact_sha256": "72662ff447c2a26c1a89fd582111b215c7236ba7633f722f95ae87a944343c13",
+    "admission": {
+      "limit": 64,
+      "active": 0,
+      "peak": 50,
+      "rejected": 0
+    },
+    "inference_workers": 4,
+    "inference": {
+      "dense": {
+        "count": 418,
+        "work_seconds": 19.488308143991162,
+        "wait_seconds": 310.2429971169786,
+        "max_work_seconds": 0.7080907519994071,
+        "requests": 418
+      },
+      "rank": {
+        "count": 305,
+        "work_seconds": 825.5371923990042,
+        "wait_seconds": 347.06552175200886,
+        "max_work_seconds": 6.633373524999115,
+        "phase_count": 305,
+        "phase_totals": {
+          "fetch_seconds": 0.9965869469924655,
+          "tokenize_seconds": 2.223062877996199,
+          "padding_seconds": 2.7032512918940483,
+          "inference_seconds": 817.9584717278976,
+          "output_seconds": 0.3385295379830495
+        },
+        "requests": 305
+      },
+      "dense_batch": {
+        "count": 24,
+        "work_seconds": 5.675143663003837,
+        "wait_seconds": 0.38037964499744703,
+        "max_work_seconds": 0.27851467700020294,
+        "requests": 192
+      }
+    },
+    "threads": 2,
+    "rerank_batch_size": 1,
+    "rerank_length_bucketing": true,
+    "dense_batching": {
+      "batch_size": 8,
+      "wait_ms": 2.0,
+      "coordinators": 4,
+      "trigger": 8,
+      "active_requests": 0,
+      "fast_path_requests": 418,
+      "pending": 0,
+      "metrics": {
+        "submitted": 192,
+        "batches": 24,
+        "dispatched_requests": 192,
+        "cancelled_before_dispatch": 0,
+        "queue_peak": 42,
+        "max_batch_seen": 8,
+        "assembly_wait_seconds": 21.939119398990442,
+        "rejected": 0
+      }
+    }
+  },
+  "bridge": {
+    "corpus_sha256": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "status": "ready"
+  }
+}

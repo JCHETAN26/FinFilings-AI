@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "files_equal_to_head": {
+    "py/common.py": "80d65027e74f1972bf4016696e5962a7397a5e915e8e7089b495542d56c0b86e",
+    "py/service.py": "544cfb94c62d221a2c8d73ae1d448526c8f1bfeb1c37be1122305cd112c4d09e",
+    "py/rerank.py": "456437042d098f76201474b16d589ce420aac72c252999f6d0332fc38e7c5301",
+    "py/dense_batcher.py": "4ff0aa15b4d0d923868fde0ac8eebebea0865738b8ac2f578ce1a13b895b1ec3",
+    "py/embed.py": "9805893ae8fb1de8390948c2cf180843fb27566aa5a18b00448fa4536231807b",
+    "pkg/hybrid/hybrid.go": "456305c34f8a207f91c04b5ac2ad3793a092162d123abe4a6b10c007dc6dc88e",
+    "cmd/finfilings/main.go": "a4bfce4cdeacb814c821f2405f6a3e99a75dfa0e1b8524639b2db702c5f6167a",
+    "scripts/benchmark-expanded.py": "d75a991281caa33c10266a967d00b74a7b0661e4c2bbed235db0ca6f3add3de9"
+  }
+}

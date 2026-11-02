@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "staged_files_scanned": 138,
+  "staged_bytes_scanned": 8207115,
+  "findings": [],
+  "excluded_artifact_roots": [
+    "data/",
+    "models/",
+    "indexes/"
+  ],
+  "note": "Scanned staged blobs, not only working-tree paths; private SEC contact and common credential patterns absent."
+}

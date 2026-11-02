@@ -1,0 +1,215 @@
+{
+  "thresholds": {
+    "ndcg_max_drop": 0.005,
+    "pq_recall_max_drop": 0.02,
+    "payload_reduction_min_percent": 90.0,
+    "hybrid_p99_max_regression": 0.1
+  },
+  "sections": {
+    "quality": [
+      {
+        "name": "baseline_matches_stated_v2_values",
+        "passed": true,
+        "baseline_ndcg": 0.5537183500706869,
+        "stated_ndcg": 0.5537183500706869,
+        "baseline_recall": 0.838,
+        "stated_recall": 0.838
+      },
+      {
+        "name": "same_100_development_queries",
+        "passed": true,
+        "baseline_queries": 100,
+        "candidate_queries": 100,
+        "identical_ids": true
+      },
+      {
+        "name": "hybrid_rerank_ndcg_drop_within_0.005",
+        "passed": true,
+        "baseline": 0.5537183500706869,
+        "candidate": 0.5539997505715865,
+        "drop": -0.0002814005008995313,
+        "max_drop": 0.005
+      },
+      {
+        "name": "pq_recall_at_10_drop_within_0.02",
+        "passed": true,
+        "baseline": 0.838,
+        "candidate": 0.841,
+        "drop": -0.0030000000000000027,
+        "max_drop": 0.02
+      },
+      {
+        "name": "payload_reduction_at_least_90_percent",
+        "passed": true,
+        "candidate_percent": 91.14851097707431,
+        "minimum": 90.0
+      }
+    ],
+    "load": [
+      {
+        "name": "baseline_hybrid_shape",
+        "passed": true,
+        "requests": 200,
+        "workers": 50
+      },
+      {
+        "name": "candidate_hybrid_shape",
+        "passed": true,
+        "requests": 200,
+        "workers": 50
+      },
+      {
+        "name": "baseline_dense_shape",
+        "passed": true,
+        "requests": 200,
+        "workers": 50
+      },
+      {
+        "name": "candidate_dense_shape",
+        "passed": true,
+        "requests": 200,
+        "workers": 50
+      },
+      {
+        "name": "matched_configuration",
+        "passed": true,
+        "mismatched": {},
+        "query_sha256_equal": true
+      },
+      {
+        "name": "baseline_hybrid_zero_failures",
+        "passed": true,
+        "failures": 0,
+        "successes": 200,
+        "statuses": {
+          "200": 200
+        }
+      },
+      {
+        "name": "candidate_hybrid_zero_failures",
+        "passed": true,
+        "failures": 0,
+        "successes": 200,
+        "statuses": {
+          "200": 200
+        }
+      },
+      {
+        "name": "baseline_dense_zero_failures",
+        "passed": true,
+        "failures": 0,
+        "successes": 200,
+        "statuses": {
+          "200": 200
+        }
+      },
+      {
+        "name": "candidate_dense_zero_failures",
+        "passed": true,
+        "failures": 0,
+        "successes": 200,
+        "statuses": {
+          "200": 200
+        }
+      },
+      {
+        "name": "hybrid_p99_regression_within_10_percent",
+        "passed": true,
+        "baseline_p99_seconds": 47.812667999,
+        "candidate_p99_seconds": 44.999937571,
+        "regression": -0.05882814211620291,
+        "max_regression": 0.1,
+        "note": "A failure here is reported as is; a rerun is justified only for an identified, unresolved source of noise, and every attempt is preserved."
+      },
+      {
+        "name": "dense_p99_reported_not_gated",
+        "passed": true,
+        "baseline_p99_seconds": 0.575851645,
+        "candidate_p99_seconds": 0.556806811,
+        "informational": true
+      }
+    ],
+    "agent": [
+      {
+        "name": "suite_and_corpus_bound",
+        "passed": true,
+        "suite_id": "broad-validation-v2",
+        "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+        "full_suite": true
+      },
+      {
+        "name": "all_30_cases_verified",
+        "passed": true,
+        "verified": 30,
+        "run_failed": 0,
+        "verification_failed": 0,
+        "omitted": []
+      },
+      {
+        "name": "no_transport_model_or_structural_failures",
+        "passed": true,
+        "failures_by_category": {
+          "transport": 0,
+          "model": 0,
+          "structural": 0
+        }
+      },
+      {
+        "name": "no_global_problems_or_summary_discrepancies",
+        "passed": true,
+        "verifier_passed": true,
+        "global_problems": [],
+        "discrepancies": []
+      },
+      {
+        "name": "unavailable_scopes_withheld",
+        "passed": true
+      },
+      {
+        "name": "mixed_available_sides_fully_supported",
+        "passed": true,
+        "mixed_cases": {
+          "broad29": {
+            "result": "mixed_fully_supported",
+            "available_side": "1/1",
+            "unavailable_withheld": true
+          },
+          "broad30": {
+            "result": "mixed_fully_supported",
+            "available_side": "1/1",
+            "unavailable_withheld": true
+          }
+        }
+      },
+      {
+        "name": "available_subquery_citation_coverage_at_least_80_percent",
+        "passed": true,
+        "coverage": {
+          "cited": 51,
+          "available": 52,
+          "ratio": 0.9807692307692307,
+          "threshold": 0.8,
+          "met": true
+        }
+      },
+      {
+        "name": "verifier_release_gates_all_met",
+        "passed": true
+      }
+    ]
+  },
+  "section_passed": {
+    "quality": true,
+    "load": true,
+    "agent": true
+  },
+  "sections_not_evaluated": [],
+  "passed": true,
+  "not_checked_by_this_tool": [
+    "Go and Python test suites",
+    "go test -race",
+    "go vet",
+    "source-integrity hashing",
+    "public-snapshot secret/artifact scan"
+  ]
+}

@@ -9,7 +9,10 @@ reviewer evidence for source-informed regression fixtures, not independent human
 answer-accuracy label. They are stored here but are never passed to the agent.
 """
 import argparse
+import copy
+import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import sys
@@ -126,6 +129,35 @@ def excerpt(text: str, needle: str) -> str:
     return flat[start:end]
 
 
+def publish_suite(output: Path, suite: dict) -> str:
+    """Write the suite and its `.sha256` pin, both by exclusive create. Returns the suite SHA-256.
+
+    Refuses if EITHER file already exists (an orphan pin is as much a conflict as an existing suite), so no frozen suite
+    or pin is ever replaced. If a write fails part-way, only the files this call created are removed.
+    """
+    output = Path(output)
+    pin = output.with_suffix('.sha256')
+    for path in (output, pin):
+        if os.path.lexists(path):
+            raise FileExistsError(f'{path} already exists; a frozen suite and its pin are never overwritten')
+    output.parent.mkdir(parents=True, exist_ok=True)
+    data = (json.dumps(suite, indent=2, ensure_ascii=False) + '\n').encode()
+    digest = hashlib.sha256(data).hexdigest()
+    owned = []
+    try:
+        for path, payload in ((output, data), (pin, f'{digest}  {output.name}\n'.encode())):
+            with path.open('xb') as stream:
+                owned.append(path)
+                stream.write(payload)
+                stream.flush()
+                os.fsync(stream.fileno())
+    except BaseException:
+        for path in owned:
+            path.unlink(missing_ok=True)
+        raise
+    return digest
+
+
 def build(corpus: Path, original: Path, report: Path, history: Path, output: Path) -> dict:
     sources = suite_lib.build_trusted_sources(original, report)
     accessions = {s['accession'] for s in sources}
@@ -177,13 +209,59 @@ def build(corpus: Path, original: Path, report: Path, history: Path, output: Pat
         case_ids=[c['id'] for c in cases], cases=cases)
     suite_lib.validate_suite(suite)
     suite_lib.check_expected_scopes(suite, sources, sections)
-    if output.exists():
-        raise FileExistsError(f'{output} already exists; a frozen suite is never overwritten')
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(suite, indent=2, ensure_ascii=False) + '\n')
-    digest = suite_lib.sha256_file(output)
-    output.with_suffix('.sha256').write_text(f'{digest}  {output.name}\n')
+    digest = publish_suite(output, suite)
     return dict(suite=str(output), sha256=digest, coverage=suite_lib.suite_coverage(suite))
+
+
+IDENTICAL_FIELDS = ('id', 'kind', 'prompt', 'scopes', 'section', 'expected_scopes', 'reviewer_evidence')
+
+
+def derive(base_suite: Path, corpus: Path, original: Path, report: Path, output: Path, suite_id: str,
+           frozen_on: str = FROZEN_DATE) -> dict:
+    """Freeze a NEW suite version for a new corpus version from an existing frozen suite.
+
+    Prompts, scopes, exact sections, negative/mixed expectations (including per-scope availability and passage counts) and
+    reviewer anchors are taken from the base suite unchanged. They are NOT rewritten, re-chosen or tuned: the builder
+    recomputes availability and anchor passage hashes against the new corpus and refuses to emit a suite if any of it differs.
+    The base suite file and its hash are never touched. Anchors stay informational and are never agent input.
+    """
+    for path in (Path(output), Path(output).with_suffix('.sha256')):
+        if os.path.lexists(path):
+            raise FileExistsError(f'{path} already exists; a frozen suite and its pin are never overwritten')
+    pin = Path(base_suite).with_suffix('.sha256').read_text().split()[0]
+    base, base_digest = suite_lib.load_suite(Path(base_suite), pin)
+    if suite_id == base['suite_id']:
+        raise ValueError('a derived suite needs a new suite_id')
+    sources = suite_lib.build_trusted_sources(original, report)
+    wanted = {a['id'] for c in base['cases'] for a in c.get('reviewer_evidence', {}).get('anchors', [])}
+    sections, found = suite_lib.scan_corpus(corpus, {s['accession'] for s in sources}, wanted)
+    if set(found) != wanted:
+        raise ValueError(f'anchor passages missing from the new corpus: {sorted(wanted - set(found))}')
+    cases = []
+    for case in base['cases']:
+        fresh = copy.deepcopy(case)
+        recomputed = [suite_lib.scope_availability(sources, sections, s['ticker'], s['year'], case['section']) for s in case['scopes']]
+        if recomputed != case['expected_scopes']:
+            raise ValueError(f"{case['id']}: availability on the new corpus {recomputed} != frozen expectation {case['expected_scopes']}")
+        for anchor in case.get('reviewer_evidence', {}).get('anchors', []):
+            chunk = found[anchor['id']]
+            if suite_lib.sha256_text(chunk['Text']) != anchor['passage_text_sha256'] or chunk['SectionItem'] != anchor['section_item']:
+                raise ValueError(f"{case['id']}: anchor {anchor['id']} changed on the new corpus")
+        cases.append(fresh)
+    label = (base['label'] + f" Derived from {base['suite_id']} (suite sha256 {base_digest}) for a new corpus version: every prompt, scope, "
+             'exact section, availability expectation and anchor is carried over unchanged and re-verified against the new corpus; nothing was re-chosen after any result.')
+    suite = dict(schema=suite_lib.SCHEMA, suite_id=suite_id, frozen_on=frozen_on, label=label,
+        derived_from=dict(suite_id=base['suite_id'], suite_sha256=base_digest, corpus_sha256=base['corpus_sha256'],
+                          identical_case_fields=list(IDENTICAL_FIELDS)),
+        corpus_sha256=suite_lib.sha256_file(corpus), enrolled_filings=len(sources), case_count=len(cases),
+        case_ids=[c['id'] for c in cases], cases=cases)
+    suite_lib.validate_suite(suite)
+    suite_lib.check_expected_scopes(suite, sources, sections)
+    for old, new in zip(base['cases'], suite['cases']):
+        if any(old.get(field) != new.get(field) for field in IDENTICAL_FIELDS):
+            raise ValueError(f"{old['id']}: derived case differs from the base suite")
+    digest = publish_suite(output, suite)
+    return dict(suite=str(output), sha256=digest, derived_from=suite['derived_from'], coverage=suite_lib.suite_coverage(suite))
 
 
 if __name__ == '__main__':
@@ -192,6 +270,13 @@ if __name__ == '__main__':
     parser.add_argument('--original-provenance', type=Path, default=ROOT / 'data/sec/provenance.json')
     parser.add_argument('--ingest-report', type=Path, default=ROOT / 'indexes/sec-scale-v2-20261031/report.json')
     parser.add_argument('--history', type=Path, default=ROOT / 'bench_kit/results/phase3-expanded-20261031/evaluation')
-    parser.add_argument('--output', type=Path, default=ROOT / 'bench_kit/suites/broad-validation-v1.json')
+    parser.add_argument('--output', type=Path, default=None, help='default for a fresh build: bench_kit/suites/broad-validation-v1.json; required with --derive-from')
+    parser.add_argument('--derive-from', type=Path, help='existing frozen suite whose cases are carried over unchanged (requires --suite-id and an explicit --output)')
+    parser.add_argument('--suite-id', help='id for the derived suite, e.g. broad-validation-v2')
     args = parser.parse_args()
-    print(json.dumps(build(args.corpus, args.original_provenance, args.ingest_report, args.history, args.output), indent=2))
+    if args.derive_from:
+        if not args.suite_id or args.output is None:
+            parser.error('--derive-from requires --suite-id and an explicit --output')
+        print(json.dumps(derive(args.derive_from, args.corpus, args.original_provenance, args.ingest_report, args.output, args.suite_id), indent=2))
+        raise SystemExit(0)
+    print(json.dumps(build(args.corpus, args.original_provenance, args.ingest_report, args.history, args.output or ROOT / 'bench_kit/suites/broad-validation-v1.json'), indent=2))

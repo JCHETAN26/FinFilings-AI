@@ -6,7 +6,7 @@ FinFilings AI searches SEC 10-K/10-Q passages using a custom Go BM25 engine and 
 
 The project brings together storage engineering, information retrieval, and bounded agent execution. Its benchmarks use actual SEC filings and published FinQA supporting-fact labels, with raw measurements and limitations preserved.
 
-[Verified benchmarks](bench_kit/RESULTS.md) · [Ten audit results](bench_kit/results/phase3/RESULTS.md) · [Ingestion guide](docs/ingestion/README.md) · [Build reports](docs/build/phase1.md)
+**Latest: [parser-v3 adoption — 30-case verified report](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md)** · [Verified benchmarks](bench_kit/RESULTS.md) · [Ten audit results](bench_kit/results/phase3/RESULTS.md) · [Ingestion guide](docs/ingestion/README.md) · [Build reports](docs/build/phase1.md)
 
 ## Architecture
 
@@ -24,8 +24,8 @@ flowchart TB
     end
 
     subgraph Python["Python inference sidecar"]
-        Dense["BGE query encoder<br/>FAISS PQ8 · 384 dimensions · configurable PQ8 code width"]
-        Rerank["MiniLM cross-encoder<br/>Length-bucketed batches of 8"]
+        Dense["BGE query encoder<br/>FAISS PQ8 · 384 dimensions · 128-byte codes (validated expanded profile; 48 historical)"]
+        Rerank["MiniLM cross-encoder<br/>FP32 ONNX, single-pair batches (preferred); PyTorch length-bucketed batches of 8 historical"]
         Store["Disk-backed SQLite<br/>Passage text and metadata"]
         Store --> Rerank
     end
@@ -41,9 +41,9 @@ flowchart TB
 ### Storage and retrieval
 
 - **Compressed sparse index:** delta encoding and PFOR integer bit-packing, immutable binary segments, read-only `syscall.Mmap`, CRC/structure validation, and BM25 scoring. SSE2 packing/unpacking covers 8- and 16-bit widths on amd64; other widths and platforms use scalar kernels.
-- **Dense retrieval:** pinned `BAAI/bge-small-en-v1.5` embeddings and `IndexPQ(384, 48, 8)` with inner-product search. Raw float32 reference vectors stay in a disk-backed mmap for evaluation; serving uses compressed codes and centroids.
-- **Hybrid ranking:** sparse and dense searches run concurrently, then RRF (`k=60`) merges their rank orders. The pinned `cross-encoder/ms-marco-MiniLM-L6-v2` model scores all Top-50 candidates and returns Top-10 passages. Length bucketing reduces padding work.
-- **Bounded execution:** Go uses bounded worker pools, search admission, reusable scoring buffers, and a 16-connection listener. Python admits up to 64 inference requests behind one native inference worker, with an HTTP concurrency guard of 128. Excess application work receives HTTP 429 with `Retry-After`; cancellation preserves the native-work limit.
+- **Dense retrieval:** pinned `BAAI/bge-small-en-v1.5` embeddings and FAISS `IndexPQ` with inner-product search: **128 sub-vectors (128-byte codes) in the validated expanded-corpus profile**; `IndexPQ(384, 48, 8)` is the historical Phase 2 configuration, whose results are kept dated below. Raw float32 reference vectors stay in a disk-backed mmap for evaluation; serving uses compressed codes and centroids.
+- **Hybrid ranking:** sparse and dense searches run concurrently, then RRF (`k=60`) merges their rank orders. The pinned `cross-encoder/ms-marco-MiniLM-L6-v2` model scores all Top-50 candidates and returns Top-10 passages. The preferred cross-encoder backend is FP32 ONNX with single-pair batches; the PyTorch path (length-bucketed batches of 8) is the historical default.
+- **Bounded execution:** Go uses bounded worker pools, search admission, reusable scoring buffers, and a 16-connection listener. Python admits up to 64 inference requests with an HTTP concurrency guard of 128. The service default is one native inference worker; the validated profile is an explicit opt-in of **4 inference workers × 2 threads** (plus optional pressure-triggered dense batching of 8), still bounded by the same admission limits. Excess application work receives HTTP 429 with `Retry-After`; cancellation preserves the native-work limit.
 - **Filing filters:** ticker, filing year, section, and accession predicates constrain both retrieval branches before fusion. Sparse predicates compare mmap metadata directly; filtered PQ8 search streams matching compressed codes in blocks of 2,048.
 
 ### Audit controller and grounding
@@ -56,7 +56,7 @@ Structured generation uses an authenticated Claude Code CLI with file/command to
 
 ## Verified results
 
-Measured on an **AMD Ryzen 7 5800H, 16 logical CPUs, Linux**, with CPU model inference. These are finite local experiments on a non-isolated desktop with warm caches/models. [The consolidated report](bench_kit/RESULTS.md) contains raw evidence, workload definitions, and reproduction details.
+Measured on an **AMD Ryzen 7 5800H (8 physical cores, 16 logical CPUs), Linux**, with CPU model inference. These are finite local experiments on a non-isolated desktop with warm caches/models. The tables below keep their original dated measurements (the Phase 1–4 rows are from October 30–31, 2026 on earlier corpora/profiles and are not rewritten); the latest verified adoption summary is under "Latest: parser-v3" below. [The consolidated report](bench_kit/RESULTS.md) contains raw evidence, workload definitions, and reproduction details.
 
 | Component | Measurement | Result | Workload |
 |---|---|---:|---|
@@ -105,6 +105,14 @@ The profiled float32 ONNX cross-encoder now defaults to single-pair batches. At 
 Pressure-triggered BGE query batching reduces dense p99 **1.256 → 0.553 s** in matched 2,000-request, 50-client probes, with identical concurrent Top-100 rankings. Hybrid throughput stays about **1.38 QPS** and p99 about **40 s** (39.59 → 40.08 s in the paired run). [Measurements, bounds and launch flags](bench_kit/results/optimization/dense-batching-20261031/RESULTS.md).
 
 New builds default to 128 sub-vectors. Use `--subvectors 48` for the historical compact configuration. [Full quality and bounded-concurrency benchmark](bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-workers4-threads2/RESULTS.md).
+
+### Latest: parser-v3 mixed-lineage corpus (November 1, 2026)
+
+A new, separately versioned corpus (`data/sec-scale-v3-evaluation-20261101`, 49,406 passages vs 49,452): only Morgan Stanley was reparsed with parser v3 (361 → 315 passages: 314 identical, 46 removed Item 7A text, 1 changed ID); **147 filings were not reparsed**, no new raw files were fetched for them, and everything else is byte-identical. The current MS source (SHA-256 `3002143b…78b2`, 9,714,819 bytes) is not the archived file (`57698077…12df`, 9,714,832 bytes, gone); the cause of the 13-byte difference is unknown and the report records both identities. New sparse and PQ128 indexes were built (49,405 vectors reused bit-identically, 1 encoded, PQ codebook retrained). v2 artifacts, `broad-validation-v1` and all earlier evidence are unchanged.
+
+Matched run (same 100 FinQA **development** queries, 4 inference workers × 2 threads, 50 clients, 200 requests/endpoint, zero failures in 400/400 requests per run, every nDCG and latency recomputed independently by Codex): reranked nDCG@10 **0.5537183500706869 → 0.5539997505715865**, hybrid 0.50780475359511 → 0.5100210113496677, PQ recall@10 0.838 → 0.841, native vector payload savings 91.1485 % (payload only, not whole-process RSS), hybrid p99 **47.812667999 s → 44.999937571 s**, dense p99 0.575851645 → 0.556806811 s. **Disclosed regression: dense-only nDCG@10 fell 0.48229729941572386 → 0.46732239998883435 (−0.01497).** The small upward movements are not attributed to the MS fix (the PQ codebook was retrained and the candidate pool changed). These are development-set regression checks — not held-out, not SEC retrieval accuracy; load figures are single finite closed-loop runs on a non-isolated Ryzen 7 5800H (8 physical / 16 logical CPUs, CPU inference), not an SLA.
+
+**Agent audit: 30/30 verified, 0 failures, 187 citations, 51/52 = 98.08 % coverage, all pre-registered gates pass; dense-only nDCG@10 fell 0.01497 (disclosed). Commit/push pending.** [Full 30-case report](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md) · [runbook](docs/build/parser-v3-adoption.md)
 
 ## Run locally
 

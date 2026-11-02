@@ -30,15 +30,28 @@ def tree_hashes(directory):
     return {str(p):digest(p) for p in sorted(directory.rglob('*')) if p.is_file()}
 
 
-def main():
+# Defaults reproduce the historical v2 run exactly; every artifact path can be redirected for a new corpus version.
+PATH_DEFAULTS=dict(corpus_dir='data/sec-scale-v2-evaluation-20261031',ingest_report='indexes/sec-scale-v2-20261031/report.json',
+    original_provenance='data/sec/provenance.json',vector_index='indexes/vector-sec-scale-v2-pq128-20261031',
+    sparse_index='indexes/sparse-sec-scale-v2-20261031',reranker_model='models/reranker-onnx-fp32-optimized-20261031')
+
+
+def build_parser():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out',type=Path,required=True)
+    for name,default in PATH_DEFAULTS.items():
+        parser.add_argument('--'+name.replace('_','-'),type=Path,default=Path(default),help=f'default: {default}')
     parser.add_argument('--audit-id', choices=[f'audit{i:02}' for i in range(1,11)],help='Historical mode: run one regression audit')
     parser.add_argument('--suite',type=Path,help='Frozen broad validation suite JSON; runs every case unless --suite-case is given')
     parser.add_argument('--expected-suite-sha256',help='Pin the exact suite bytes; mismatch aborts before any service starts')
     parser.add_argument('--suite-case',action='append',help='Partial suite run (repeatable); the offline verifier then needs --allow-subset')
     parser.add_argument('--diagnose-only',action='store_true')
-    args=parser.parse_args()
+    return parser
+
+
+def main(argv=None):
+    parser=build_parser()
+    args=parser.parse_args(argv)
     if args.suite and (args.audit_id or args.diagnose_only):
         parser.error('--suite cannot be combined with --audit-id/--diagnose-only')
     if args.suite_case and not args.suite:
@@ -48,9 +61,9 @@ def main():
     import agent_suite
     spec=importlib.util.spec_from_file_location('benchmark',root/'scripts/benchmark-expanded.py')
     support=importlib.util.module_from_spec(spec);spec.loader.exec_module(support)
-    data=Path('data/sec-scale-v2-evaluation-20261031')
+    data=args.corpus_dir
     meta=json.loads((data/'provenance.json').read_text())
-    original=Path('data/sec/provenance.json');report=Path('indexes/sec-scale-v2-20261031/report.json')
+    original=args.original_provenance;report=args.ingest_report
     if digest(report)!=meta['new_sec_report_sha256'] or digest(data/'chunks.jsonl')!=meta['corpus_sha256']:
         raise ValueError('expanded corpus/report checksum mismatch')
     baseline=json.loads(original.read_text())
@@ -61,6 +74,8 @@ def main():
         suite,suite_digest=agent_suite.load_suite(args.suite,args.expected_suite_sha256)
         if suite['corpus_sha256']!=meta['corpus_sha256']:
             raise ValueError('suite was frozen against a different corpus')
+    lineage,lineage_problems=agent_suite.check_report_lineage(report,root)
+    if lineage_problems:raise ValueError('ingestion report lineage invalid: '+'; '.join(lineage_problems))
     sources=agent_suite.build_trusted_sources(original,report)
     args.out.mkdir(parents=True,exist_ok=False)
     status=dict(status='started',started_utc=datetime.now(timezone.utc).isoformat(),mode='suite' if args.suite else 'historical',argv=sys.argv)
@@ -72,7 +87,7 @@ def main():
     provenance=args.out/'agent-provenance.json'
     provenance.write_text(json.dumps(dict(corpus_sha256=meta['corpus_sha256'],sources=sources,source_manifests=[dict(path=str(p),sha256=digest(p)) for p in [original,report]]),indent=2)+'\n')
     env=dict(os.environ,HF_HOME=str(root/'models/hf-cache'),HF_HUB_OFFLINE='1',PYTHONPATH=os.pathsep.join([str(root/'models/runtime'),str(root/'py')]),OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='2',NUMBA_NUM_THREADS='4',GOCACHE='/tmp/finfilings-go-cache',CCACHE_DIR='/tmp/finfilings-ccache',CCACHE_TEMPDIR='/tmp/finfilings-ccache-tmp')
-    vector_index=Path('indexes/vector-sec-scale-v2-pq128-20261031');model_dir=Path('models/reranker-onnx-fp32-optimized-20261031');sparse_index=Path('indexes/sparse-sec-scale-v2-20261031')
+    vector_index,model_dir,sparse_index=args.vector_index,args.reranker_model,args.sparse_index
     if args.suite:
         code_files=[Path(f) for f in agent_suite.code_files(root)]
         head=subprocess.run(['git','rev-parse','HEAD'],capture_output=True,text=True).stdout.strip()
@@ -80,10 +95,12 @@ def main():
         (args.out/'artifact-hashes.json').write_text(json.dumps(dict(
             suite_sha256=suite_digest,corpus_sha256=meta['corpus_sha256'],
             ingest_report_sha256=digest(report),original_provenance_sha256=digest(original),
+            previous_ingest_report_sha256=lineage.get('previous_report_sha256'),ingest_lineage=lineage,
+            artifact_paths={k:str(getattr(args,k)) for k in PATH_DEFAULTS},
             enrolled_source_manifest_sha256=digest(provenance),enrolled_filings=len(sources),
             vector_index=tree_hashes(vector_index),reranker_model=tree_hashes(model_dir),sparse_index=tree_hashes(sparse_index),
             code={str(p):digest(p) for p in code_files},git_head=head,git_uncommitted_paths=len(dirty),
-            paths_relative_to_repository_root=True,note='Hashes are taken before the first request. Raw filing HTML for the parser-v2 acquisitions is not stored locally; its sha256 values come from the ingestion report.'),indent=2)+'\n')
+            paths_relative_to_repository_root=True,note='Hashes are taken before the first request. Raw filing HTML for parser-v2 acquisitions is not stored locally; its sha256 values come from the ingestion report. In a mixed-lineage report only the targeted filing was reparsed; see ingest_lineage.'),indent=2)+'\n')
     bridge=(args.out/'bridge').resolve()
     processes=[];logs=[]
     signal.signal(signal.SIGTERM,lambda *_:sys.exit(143))  # Make `finally` cleanup run on termination too.

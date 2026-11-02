@@ -55,9 +55,10 @@ def normalize(text: str) -> str:
 
 
 def build_trusted_sources(original_provenance: Path, ingest_report: Path) -> list[dict[str, Any]]:
-    """Trusted enrollment: original four filings plus every parser-v2 acquisition.
+    """Trusted enrollment: original four filings plus every acquisition recorded in the ingestion report.
 
-    Identical field mapping to the historical evaluate-expanded-agent.py enrollment.
+    Identical field mapping to the historical evaluate-expanded-agent.py enrollment. For a mixed-lineage report the
+    `download` block is the *current* raw identity; earlier identities live in the filing's `raw_identity_history`.
     """
     sources = list(json.loads(Path(original_provenance).read_text())['sources'])
     for filing in json.loads(Path(ingest_report).read_text())['filings']:
@@ -66,6 +67,83 @@ def build_trusted_sources(original_provenance: Path, ingest_report: Path) -> lis
             form=ref['Form'], url=download['url'], accession=ref['Accession'].replace('-', ''),
             raw_sha256=download['sha256'], fiscal_period_end=ref['ReportDate']))
     return sources
+
+
+LINEAGE_SCHEMA = 'finfilings-ingest-lineage/v1'
+
+
+def check_report_lineage(report_path: Path, root: Path) -> tuple[dict[str, Any], list[str]]:
+    """Check an ingestion report's declared lineage against the previous report it names. Returns (info, problems).
+
+    A report without a `lineage` block must be single-parser; mixed parsers that are not declared are a problem, so a
+    partially reparsed corpus can never pass as a uniformly parsed one. With a lineage block the previous report is re-hashed,
+    every non-targeted filing must equal its previous entry exactly, and each targeted filing must retain the previous raw
+    identity in `raw_identity_history` and record its current identity in `download`/`parse`.
+    """
+    report_path, root = Path(report_path), Path(root)
+    report = json.loads(report_path.read_text())
+    parsers = collections.Counter(f['parse']['parser'] for f in report['filings'])
+    lineage = report.get('lineage')
+    if lineage is None:
+        problems = [f'ingestion report mixes parsers {dict(parsers)} without a lineage declaration'] if len(parsers) > 1 else []
+        return dict(mode='single_parser', parsers=dict(parsers)), problems
+    problems: list[str] = []
+
+    def need(condition: bool, message: str) -> bool:
+        if not condition:
+            problems.append(message)
+        return bool(condition)
+
+    info: dict[str, Any] = dict(mode=lineage.get('kind'), parsers=dict(parsers), reparsed_filings=lineage.get('reparsed_filings'),
+        untouched_filings=lineage.get('untouched_filings'))
+    need(lineage.get('schema') == LINEAGE_SCHEMA and lineage.get('kind') == 'targeted_replacement', 'unsupported lineage schema/kind')
+    previous = lineage.get('previous') or {}
+    relative = previous.get('report_path', '')
+    previous_path = (root / relative).resolve() if relative and not Path(relative).is_absolute() else None
+    if previous_path is None or not previous_path.is_relative_to(root.resolve()) or not previous_path.is_file():
+        need(False, 'lineage previous report path is unsafe or missing')
+        return info, problems
+    need(sha256_file(previous_path) == previous.get('report_sha256'), 'previous ingestion report differs from the lineage hash')
+    old = json.loads(previous_path.read_text())
+    targets = {t['accession'] for t in lineage.get('targeted_filings', [])}
+    need(bool(targets) and lineage.get('reparsed_filings') == len(targets), 'lineage reparsed_filings disagrees with targeted_filings')
+    old_by = {f['ref']['Accession']: f for f in old['filings']}
+    new_by = {f['ref']['Accession']: f for f in report['filings']}
+    need(list(old_by) == list(new_by) and len(new_by) == len(report['filings']), 'filing set/order differs from the previous report')
+    need(lineage.get('untouched_filings') == len(new_by) - len(targets), 'lineage untouched_filings disagrees with the report')
+    need(report.get('skipped') == old.get('skipped'), 'skipped filings differ from the previous report')
+    for accession, entry in new_by.items():
+        before = old_by.get(accession)
+        if before is None:
+            continue
+        if accession not in targets:
+            need(entry == before, f'untouched filing {accession} differs from the previous report')
+            continue
+        history = entry.get('raw_identity_history') or []
+        need(len(history) >= 2, f'targeted filing {accession} lacks raw identity history')
+        if len(history) >= 2:
+            first, last = history[0], history[-1]
+            need((first.get('url'), first.get('bytes'), first.get('sha256')) == (before['download']['url'], before['download']['bytes'], before['download']['sha256']),
+                 f'targeted filing {accession} does not retain the previous raw identity')
+            need((last.get('bytes'), last.get('sha256')) == (entry['download']['bytes'], entry['download']['sha256']) == (entry['parse']['raw_bytes'], entry['parse']['raw_sha256']),
+                 f'targeted filing {accession} current raw identity is inconsistent')
+        need(entry['ref'] == before['ref'] and entry['download']['url'] == before['download']['url'], f'targeted filing {accession} changed identity fields')
+    need(dict(parsers) == report.get('parsers'), 'declared parser counts differ from the filings')
+    totals = collections.Counter()
+    for filing in report['filings']:
+        for name, value in filing['parse']['sections'].items():
+            totals[name] += value['chunks']
+    need(report['chunks'] == sum(f['parse']['chunks'] for f in report['filings']) and dict(totals) == report['sections'], 'report totals differ from the filings')
+    fixture = lineage.get('current_raw_fixture') or {}
+    fixture_path = (root / fixture['path']).resolve() if fixture.get('path') and not Path(fixture['path']).is_absolute() else None
+    if fixture_path is not None and fixture_path.is_relative_to(root.resolve()) and fixture_path.is_file():
+        need(sha256_file(fixture_path) == fixture.get('sha256'), 'current raw fixture bytes differ from the recorded hash')
+        info['current_raw_fixture'] = 'recomputed_verified'
+    else:
+        info['current_raw_fixture'] = 'not_present_locally'
+    info['previous_report_sha256'] = previous.get('report_sha256')
+    info['statement'] = lineage.get('statement')
+    return info, problems
 
 
 def scan_corpus(corpus: Path, accessions: set[str] | frozenset[str],

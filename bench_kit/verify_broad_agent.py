@@ -405,12 +405,18 @@ def verify(directory, suite_path, pin, corpus, original_provenance, ingest_repor
     gp(enrolled['corpus_sha256'] == suite['corpus_sha256'], 'run enrollment names a different corpus')
     gp(len(trusted) == suite['enrolled_filings'], 'enrolled filing count differs from frozen suite')
     trusted_source_checks(trusted, global_checks)
+    # Lineage: a mixed-parser corpus must declare it, retain previous raw identities and leave untouched filings exactly as before.
+    lineage_info, lineage_problems = lib.check_report_lineage(ingest_report, root)
+    global_checks.problems += lineage_problems
     hashes_path = directory / 'artifact-hashes.json'
     artifact_report = {}
     if gp(hashes_path.is_file(), 'artifact-hashes.json missing'):
         artifact_report, artifact_problems = verify_artifacts(json.loads(hashes_path.read_text()), root, suite_digest, suite['corpus_sha256'],
                                                               ingest_report, original_provenance, strict_code)
         global_checks.problems += artifact_problems
+        recorded_previous = json.loads(hashes_path.read_text()).get('previous_ingest_report_sha256')
+        if lineage_info.get('previous_report_sha256') is not None or recorded_previous is not None:
+            gp(recorded_previous == lineage_info.get('previous_report_sha256'), 'artifact-hashes previous_ingest_report_sha256 differs from the report lineage')
     status_path = directory / 'run-status.json'
     run_status = json.loads(status_path.read_text()) if status_path.is_file() else {}
     gp(bool(run_status) and run_status.get('status') in ('completed', 'failed') and run_status.get('owned_processes_stopped') is True,
@@ -510,7 +516,7 @@ def verify(directory, suite_path, pin, corpus, original_provenance, ingest_repor
                      cited=sum(len(r.get('anchors_cited', [])) for r in verified),
                      note='Informational reviewer-evidence overlap for source-informed fixtures. Not recall, not accuracy.'),
         coverage=lib.suite_coverage(suite), global_problems=global_checks.problems, evaluator_summary_discrepancies=discrepancies,
-        artifact_verification=artifact_report,
+        artifact_verification=artifact_report, ingest_lineage=lineage_info,
         available_subqueries=sum(r.get('available_subqueries', 0) for r in verified), cited_available_subqueries=sum(r.get('cited_available_subqueries', 0) for r in verified),
         mixed_cases={r['id']: dict(result=r['mixed_result'], available_side=f"{r['cited_available_subqueries']}/{r['available_subqueries']}", unavailable_withheld=r['unavailable_withheld']) for r in verified if r.get('mixed_availability')},
         run_status=run_status.get('status'), cases=records,

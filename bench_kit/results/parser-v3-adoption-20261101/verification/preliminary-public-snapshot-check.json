@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "files_scanned": 929,
+  "bytes_scanned": 73860649,
+  "findings": [],
+  "oversize": [],
+  "forbidden_artifacts": [],
+  "note": "Preliminary working-tree scan; final staged snapshot is scanned again before publication."
+}

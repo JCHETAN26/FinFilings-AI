@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-11-01T22:38:25.655282+00:00",
+  "hashes": {
+    "data/sec-scale-v2-evaluation-20261031/chunks.jsonl": "9e7267d5726e1bfb12cbf4896040da57d63a1cc13efc123e0dcaead3df0f6c72",
+    "data/sec-scale-v2-evaluation-20261031/queries.jsonl": "9775ce96f1529894ea06e8b6c5f1aa088ebc04fa4a94966fb27420745fa76255",
+    "data/sec-scale-v2-evaluation-20261031/qrels.tsv": "659f0513a9f547489ae298655bce979255af21f58c1b7ad5ca46652c5e660ef2",
+    "bench_kit/suites/broad-validation-v1.json": "0e8c02d31b8f4cef03f39adc43335f3bc4a34986a37d987e7c9cabdad7ed4fae",
+    "indexes/parser-boundaries-20261101-codex/ms-v3/passages.jsonl": "84df9e8cbda29db4504ef537e26ba1e8a5cde3de20750bafa8434507781d90fc",
+    "data/parser-replay-20261101-codex/ms-20251231.sec-current-NOT-CORPUS-BYTES.htm": "3002143b544ab01805ac755efc857f8f62e59fe7a80c6d6fecdf64be560278b2"
+  },
+  "frozen_gates": {
+    "reranked_ndcg_min": 0.5487183500706869,
+    "pq_recall_min": 0.818,
+    "vector_payload_savings_min": 0.9,
+    "hybrid_p99_matched_max_ratio": 1.1,
+    "load_failures_max": 0,
+    "agent_available_subquery_coverage_min": 0.8,
+    "agent_source_citation_filter_bound_violations_max": 0
+  },
+  "notes": [
+    "Same 100 development queries; not held-out accuracy.",
+    "Only MS targeted replacement; other original parser lineage preserved.",
+    "No model/ranking/worker configuration changes authorized for this comparison."
+  ]
+}

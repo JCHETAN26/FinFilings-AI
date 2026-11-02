@@ -1,0 +1,48 @@
+{
+  "v2-control": {
+    "passed": true,
+    "ndcg_recomputed_from_ranked_ids": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.48229729941572386,
+      "hybrid": 0.50780475359511,
+      "reranked": 0.553718350070687
+    },
+    "pq_recall_mean": 0.838,
+    "load_percentiles_recomputed_from_all_200_attempts": {
+      "hybrid": {
+        "p50_ns": 40738980026,
+        "p95_ns": 45927368196,
+        "p99_ns": 47812667999
+      },
+      "dense": {
+        "p50_ns": 375723541,
+        "p95_ns": 544229498,
+        "p99_ns": 575851645
+      }
+    },
+    "all400_load_responses_successful": true
+  },
+  "v3-candidate": {
+    "passed": true,
+    "ndcg_recomputed_from_ranked_ids": {
+      "sparse": 0.49606996225454264,
+      "dense": 0.46732239998883435,
+      "hybrid": 0.5100210113496677,
+      "reranked": 0.5539997505715865
+    },
+    "pq_recall_mean": 0.841,
+    "load_percentiles_recomputed_from_all_200_attempts": {
+      "hybrid": {
+        "p50_ns": 39277474295,
+        "p95_ns": 43206629190,
+        "p99_ns": 44999937571
+      },
+      "dense": {
+        "p50_ns": 341392907,
+        "p95_ns": 518217658,
+        "p99_ns": 556806811
+      }
+    },
+    "all400_load_responses_successful": true
+  }
+}

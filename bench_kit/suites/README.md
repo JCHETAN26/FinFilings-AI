@@ -138,3 +138,13 @@ and about 3,000 MD&A words are not emitted (`docs/build/edgar-ingest.md`). That 
 source document, produce fresh replay artifacts, and leave the current frozen corpus, indexes and `broad-validation-v1`
 untouched; any corrected corpus is a new version with its own new suite version. The Item 8 stub and skipped-filing gaps above
 remain documented, unfixed findings.
+
+## `broad-validation-v2` (parser-v3 corpus)
+
+Frozen 2026-11-01 for the mixed-lineage corpus `data/sec-scale-v3-evaluation-20261101` (49,406 passages; only Morgan Stanley reparsed with
+parser v3). Built by `python3 bench_kit/build_broad_suite.py --derive-from bench_kit/suites/broad-validation-v1.json --suite-id broad-validation-v2 --corpus … --ingest-report … --output bench_kit/suites/broad-validation-v2.json`.
+Every case's `id`, `kind`, `prompt`, `scopes`, `section`, `expected_scopes` (availability and passage counts, including the negative and mixed
+expectations) and `reviewer_evidence` is carried over **unchanged**; the builder recomputes availability and each anchor's passage hash
+against the new corpus and refuses to write the suite if anything differs, and refuses to overwrite. Only `suite_id`, `frozen_on`, `label`,
+`derived_from`, `corpus_sha256` change. Anchors remain reviewer information and are never agent input. `broad-validation-v1` and its
+evidence are untouched. The first v2 run (`agent-run-01`) is complete: 30/30 verified under the strict verifier, 26 supported / 1 partial (HPE 2024) / 3 expected-unavailable, 51/52 available-scope subqueries cited ([all 30 rows](../results/parser-v3-adoption-20261101/RESULTS.md)); see [`docs/build/parser-v3-adoption.md`](../../docs/build/parser-v3-adoption.md).
