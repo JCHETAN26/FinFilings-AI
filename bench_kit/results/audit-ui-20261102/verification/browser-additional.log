@@ -1,0 +1,7 @@
+history preserves new question draft True
+Traceback (most recent call last):
+  File "/tmp/finfilings_ui_browser_additional.py", line 23, in <module>
+    check('history labels original audited question','AWS sales disclosures' in b.evaluate("document.querySelector('.audited-question').textContent"))
+  File "/tmp/finfilings_ui_cdp.py", line 20, in evaluate
+    if 'exceptionDetails' in reply:raise RuntimeError(reply['exceptionDetails'])
+RuntimeError: {'exceptionId': 1, 'text': 'Uncaught', 'lineNumber': 0, 'columnNumber': 43, 'scriptId': '32', 'stackTrace': {'callFrames': [{'functionName': '', 'scriptId': '32', 'url': '', 'lineNumber': 0, 'columnNumber': 43}]}, 'exception': {'type': 'object', 'subtype': 'error', 'className': 'TypeError', 'description': "TypeError: Cannot read properties of null (reading 'textContent')\n    at <anonymous>:1:44", 'objectId': '-2726029386216208300.2.2'}}

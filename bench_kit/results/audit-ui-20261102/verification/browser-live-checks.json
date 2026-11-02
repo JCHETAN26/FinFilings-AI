@@ -1,0 +1,95 @@
+{
+  "checks": [
+    {
+      "check": "actual catalog loaded",
+      "passed": true
+    },
+    {
+      "check": "desktop no horizontal overflow",
+      "passed": true
+    },
+    {
+      "check": "keyboard skip link reachable",
+      "passed": true
+    },
+    {
+      "check": "audit04 completed",
+      "passed": true
+    },
+    {
+      "check": "audit04 DOM excerpts match API",
+      "passed": true
+    },
+    {
+      "check": "audit04 original question visible",
+      "passed": true
+    },
+    {
+      "check": "supported audit has excerpts and no gap flags",
+      "passed": true
+    },
+    {
+      "check": "citation opens exact full passage",
+      "passed": true
+    },
+    {
+      "check": "quoted text highlighted",
+      "passed": true
+    },
+    {
+      "check": "SEC links use verified URL",
+      "passed": true
+    },
+    {
+      "check": "Escape closes evidence dialog",
+      "passed": true
+    },
+    {
+      "check": "mobile no horizontal overflow",
+      "passed": true
+    },
+    {
+      "check": "mobile evidence dialog fits viewport",
+      "passed": true
+    },
+    {
+      "check": "audit10 completed",
+      "passed": true
+    },
+    {
+      "check": "audit10 DOM excerpts match API",
+      "passed": true
+    },
+    {
+      "check": "audit10 original question visible",
+      "passed": true
+    },
+    {
+      "check": "unavailable question withholds claims and displays gaps",
+      "passed": true
+    },
+    {
+      "check": "broad30 completed",
+      "passed": true
+    },
+    {
+      "check": "broad30 DOM excerpts match API",
+      "passed": true
+    },
+    {
+      "check": "broad30 original question visible",
+      "passed": true
+    },
+    {
+      "check": "mixed question retains available quotes and missing-side gaps",
+      "passed": true
+    },
+    {
+      "check": "no browser runtime exceptions",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "runtime_errors": [],
+  "fixture": false
+}

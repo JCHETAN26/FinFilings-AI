@@ -1,0 +1,9 @@
+history preserves new question draft True
+history labels original audited question True
+new audit clears previous evidence immediately False
+Traceback (most recent call last):
+  File "/tmp/finfilings_ui_browser_additional.py", line 28, in <module>
+    check('new audit clears previous evidence immediately',b.evaluate("document.querySelectorAll('.excerpt').length===0"))
+  File "/tmp/finfilings_ui_browser_additional.py", line 7, in check
+    if not value:raise AssertionError(name)
+AssertionError: new audit clears previous evidence immediately

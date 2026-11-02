@@ -1,0 +1,9 @@
+history preserves new question draft True
+history labels original audited question True
+accepted new audit clears previous evidence True
+browser cancel withholds result True
+hostile quote rendered literally True
+hostile response creates no markup elements True
+hostile link withheld True
+hostile passage displayed as plain text True
+no script execution True

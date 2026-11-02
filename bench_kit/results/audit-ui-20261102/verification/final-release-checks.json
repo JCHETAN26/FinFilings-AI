@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-02T08:03:53.288774+00:00",
+  "checks": {
+    "technical_verification": true,
+    "documentation_rows_and_links": true,
+    "public_snapshot": true,
+    "raw_artifact_seal_intact": true,
+    "tested_source_hashes_intact": true,
+    "no_unstaged_changes": true
+  },
+  "all_checks_passed": true,
+  "publication_decision": "approve",
+  "tests": {
+    "application": 167,
+    "benchmark_contract": 168
+  },
+  "primary_scenarios": 3,
+  "primary_verified_citations": 13,
+  "primary_available_planned_subqueries_cited": "3/3",
+  "extra_harness_completed_audit_citations": 6,
+  "admission_burst": {
+    "clients": 20,
+    "accepted": 1,
+    "busy_429": 19
+  },
+  "limits": {
+    "active_audits": 1,
+    "queued_audits": 0,
+    "inference_workers": 4,
+    "intra_op_threads": 2
+  },
+  "deployment": "none; local single-user UI; all owned verification services stopped",
+  "limitations": "Source/structural verification and finite admission checks, not semantic accuracy or sustained search-load latency. Failed harness attempts and corrected launcher status bug are preserved."
+}

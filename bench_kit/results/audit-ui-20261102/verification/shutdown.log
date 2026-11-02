@@ -1,0 +1,43 @@
+{
+  "job_started_for_shutdown": {
+    "id": "5aef64ba-4673-476b-86d3-3001871d0fbe",
+    "status": "pending",
+    "status_url": "/api/audits/5aef64ba-4673-476b-86d3-3001871d0fbe"
+  },
+  "models_before_signal": [
+    2832126
+  ],
+  "owned_children": [
+    {
+      "pid": 2786950,
+      "name": "python3"
+    },
+    {
+      "pid": 2786951,
+      "name": "bridge"
+    },
+    {
+      "pid": 2832126,
+      "name": "claude"
+    }
+  ],
+  "shutdown_seconds_observed": 1.01,
+  "all_owned_pids_gone": true,
+  "launcher_status": {
+    "started_utc": "2026-11-02T04:51:59.596925+00:00",
+    "host": "127.0.0.1",
+    "port": 8766,
+    "status": "failed",
+    "error": "SystemExit",
+    "finished_utc": "2026-11-02T05:02:31.602760+00:00",
+    "service_exit_codes": [
+      -15,
+      0
+    ],
+    "owned_processes_stopped": true
+  },
+  "last_observation": {
+    "elapsed": 1.01,
+    "alive_owned": []
+  }
+}

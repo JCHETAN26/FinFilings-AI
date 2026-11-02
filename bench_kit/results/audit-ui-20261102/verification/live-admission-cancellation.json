@@ -1,0 +1,179 @@
+{
+  "checks": [
+    {
+      "check": "bad Host",
+      "passed": true
+    },
+    {
+      "check": "bad Host security headers",
+      "passed": true
+    },
+    {
+      "check": "bad Origin",
+      "passed": true
+    },
+    {
+      "check": "bad Origin security headers",
+      "passed": true
+    },
+    {
+      "check": "missing CSRF header",
+      "passed": true
+    },
+    {
+      "check": "missing CSRF header security headers",
+      "passed": true
+    },
+    {
+      "check": "wrong content type",
+      "passed": true
+    },
+    {
+      "check": "wrong content type security headers",
+      "passed": true
+    },
+    {
+      "check": "bad JSON",
+      "passed": true
+    },
+    {
+      "check": "bad JSON security headers",
+      "passed": true
+    },
+    {
+      "check": "empty prompt",
+      "passed": true
+    },
+    {
+      "check": "empty prompt security headers",
+      "passed": true
+    },
+    {
+      "check": "oversize UTF8 prompt",
+      "passed": true
+    },
+    {
+      "check": "oversize UTF8 prompt security headers",
+      "passed": true
+    },
+    {
+      "check": "body over 16KiB",
+      "passed": true
+    },
+    {
+      "check": "body over 16KiB security headers",
+      "passed": true
+    },
+    {
+      "check": "unknown file",
+      "passed": true
+    },
+    {
+      "check": "unknown file security headers",
+      "passed": true
+    },
+    {
+      "check": "unknown audit",
+      "passed": true
+    },
+    {
+      "check": "unknown audit security headers",
+      "passed": true
+    },
+    {
+      "check": "chunked oversize body",
+      "passed": true
+    },
+    {
+      "check": "guards started no audits",
+      "passed": true
+    },
+    {
+      "check": "20-client burst exactly one admitted",
+      "passed": true
+    },
+    {
+      "check": "real Claude process started",
+      "passed": true
+    },
+    {
+      "check": "active job status real",
+      "passed": true
+    },
+    {
+      "check": "cancel accepted",
+      "passed": true
+    },
+    {
+      "check": "cancelled result withheld",
+      "passed": true
+    },
+    {
+      "check": "owned Claude processes gone before readmission",
+      "passed": true
+    },
+    {
+      "check": "no active-slot release while model alive",
+      "passed": true
+    },
+    {
+      "check": "admission resumes after cleanup",
+      "passed": true
+    },
+    {
+      "check": "second cancelled audit no result or orphan",
+      "passed": true
+    },
+    {
+      "check": "backend remains ready",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "burst": {
+    "clients": 20,
+    "statuses": [
+      202,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429
+    ],
+    "admitted": "496b0571-7595-493d-8b08-0054f9ceaa90",
+    "model_pids_before_cancel": [
+      2808960
+    ],
+    "cleanup_observations": [
+      {
+        "status": "running",
+        "active_id": "496b0571-7595-493d-8b08-0054f9ceaa90",
+        "model_pids": []
+      },
+      {
+        "status": "cancelled",
+        "active_id": null,
+        "model_pids": []
+      }
+    ]
+  },
+  "runtime": {
+    "ui_pid": 2783545,
+    "run_directory": "data/audit-ui/run-20261102T045159Z-2783545"
+  },
+  "note": "Real 20-client admission/cancellation check, not a search latency or sustained-load benchmark. Cancelled audits produce no financial results."
+}

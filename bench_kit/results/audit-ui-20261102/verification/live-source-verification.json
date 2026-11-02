@@ -1,0 +1,71 @@
+{
+  "note": "Independent checks on real UI result projections against original corpus bytes and trusted manifests; source/citation/coverage verification, not semantic accuracy.",
+  "passed": true,
+  "unique_source_passages_checked": 14,
+  "verified_citations": 13,
+  "cases": [
+    {
+      "case": "audit04",
+      "citations": 7,
+      "available_planned_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "gaps": [],
+      "retries": 0,
+      "retrieval_calls": 2,
+      "elapsed_seconds": 25.169,
+      "stalled_stops": [],
+      "passed": true
+    },
+    {
+      "case": "audit10",
+      "citations": 0,
+      "available_planned_subqueries": 0,
+      "cited_available_subqueries": 0,
+      "gaps": [
+        {
+          "text": "Subquery 0 has no evidence meeting threshold after 2 retries.",
+          "subquery": 0
+        },
+        {
+          "text": "Subquery 1 has no evidence meeting threshold after 2 retries.",
+          "subquery": 1
+        },
+        {
+          "text": "No verified answer; evidence unavailable or below threshold.",
+          "subquery": null
+        }
+      ],
+      "retries": 4,
+      "retrieval_calls": 6,
+      "elapsed_seconds": 18.304,
+      "stalled_stops": [],
+      "passed": true
+    },
+    {
+      "case": "broad30",
+      "citations": 6,
+      "available_planned_subqueries": 1,
+      "cited_available_subqueries": 1,
+      "gaps": [
+        {
+          "text": "Subquery 1 has no evidence meeting threshold after 1 retries.",
+          "subquery": 1
+        },
+        {
+          "text": "Subquery 1 stopped early: no verified evidence and the critic proposed no new query (stalled rewrite).",
+          "subquery": 1
+        }
+      ],
+      "retries": 1,
+      "retrieval_calls": 3,
+      "elapsed_seconds": 20.586,
+      "stalled_stops": [
+        {
+          "subquery": 1,
+          "attempt": 1
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

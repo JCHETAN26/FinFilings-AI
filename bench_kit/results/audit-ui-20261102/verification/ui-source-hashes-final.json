@@ -1,0 +1,24 @@
+{
+  "hashes": {
+    "py/audit_web/__init__.py": "f77f5020c2cedb71256770e693022b39061c2cf6ab10e5c57642fdf1c2d77920",
+    "py/audit_web/__main__.py": "7c9272fa1c1979e20d7d1c8fb2a62f4ac1bf9ddda9c4a86f8b786bd88cbd8822",
+    "py/audit_web/app.py": "d0bac3af262c6d7bde228d90b49eeb0d2946c245cd3214f6c226a7933e853425",
+    "py/audit_web/enrollment.py": "39ba581b6b91e7da4e84fa5f1bf3e83c5de6f1388c5e6ffe2c078cca27461681",
+    "py/audit_web/errors.py": "fa5fd6a7d1f1a6e58b1952758fd1d9434ddc4d402d242534e4b1347b1df91cf1",
+    "py/audit_web/limits.py": "1c948fb831e2f798917f51ba080f4ece2e3e50fe92f81adeb7a3acd6082133c5",
+    "py/audit_web/manager.py": "8b7f04556f1729502cd2e8b1fb9d86be10faa6cd5ce039016723821b10da7637",
+    "py/audit_web/projection.py": "24f40cd7a3b7aad37ccfb68e2f6a7fc2a4254dd982907ca5b9acc35fee1db93b",
+    "py/audit_web/runtime.py": "1c4db98a59f6b85879c34071350422893e23d1817039cc9427a7e53fbc33fa81",
+    "py/audit_web/samples.py": "8e3103047224b14a385b71a8b5ee84ae27bd9b9869657f7c5d92204adad31e40",
+    "py/audit_web/server.py": "d75d49ab833f63eb4c6cd9812c1bb02612e7225dd7ecfb6fc00d4781db356d86",
+    "scripts/serve-audit-ui.py": "013aec08e1e7fc880a24e8408328b12de5c6c71aa1727416f8563c5694483bb9",
+    "ui/app.css": "388dd38543b96e66a86799681730207fd8f14e8f1d2fe1e0faca5824e5aee445",
+    "ui/app.js": "a267f7196e008363a76046099d494c853431234dfa211f146b4a47082e40ccee",
+    "ui/favicon.svg": "d9be62f4c1dd2d7b2154513be1a31f04d66996c0c74da8184a334c30b0d093ff",
+    "ui/index.html": "087316d957e3b3ab34080b9c7720851e2248266ebae743d7f039b485cfe63b99"
+  },
+  "changes_since_browser_verification": [
+    "scripts/serve-audit-ui.py"
+  ],
+  "reason": "Correct normal shutdown status and validate startup timeout; API/frontend/agent unchanged."
+}

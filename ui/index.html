@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>FinFilings AI · Audit workbench</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#question">Skip to the question box</a>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">FF</span>
+      <div>
+        <h1>FinFilings AI</h1>
+        <p>Audit workbench for SEC filings</p>
+      </div>
+    </div>
+    <p class="local-badge" id="local-badge">Local only · single user · no sign-in</p>
+  </header>
+
+  <main class="layout">
+    <div class="main-col">
+      <section class="card" aria-labelledby="ask-heading">
+        <h2 id="ask-heading">Ask an audit question</h2>
+        <form id="ask-form" novalidate>
+          <label for="question">Your question about specific company filings</label>
+          <p id="question-help" class="hint">Name each company, the filing year and the topics you want checked. Answers are limited to excerpts found in the filings loaded on this machine.</p>
+          <textarea id="question" name="question" rows="6" autocomplete="off" spellcheck="true" aria-describedby="question-help question-count form-error"></textarea>
+          <div class="form-row">
+            <span id="question-count" class="hint" aria-hidden="true"></span>
+            <div class="actions">
+              <button id="submit-button" type="submit" class="btn primary">Run audit</button>
+              <button id="cancel-button" type="button" class="btn danger" hidden>Cancel audit</button>
+            </div>
+          </div>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+        </form>
+        <div class="samples">
+          <h3 id="samples-heading">Example questions</h3>
+          <div id="samples" class="chips" role="group" aria-labelledby="samples-heading"></div>
+          <p id="sample-note" class="hint" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="status-card" class="card" aria-labelledby="status-heading" hidden>
+        <div class="status-head">
+          <h2 id="status-heading">Audit status</h2>
+          <span id="status-pill" class="pill" data-status="idle">Idle</span>
+        </div>
+        <p class="status-meta"><span id="status-elapsed"></span> <span id="status-id" class="hint"></span></p>
+        <div id="status-prompt" class="audited" hidden>
+          <h3>Audited question</h3>
+          <p id="status-prompt-text" class="audited-text"></p>
+        </div>
+        <div id="status-message" class="status-message" role="status" aria-live="polite"></div>
+        <div id="status-actions" class="actions"></div>
+      </section>
+
+      <section id="results" class="results" aria-labelledby="results-heading" tabindex="-1">
+        <h2 id="results-heading">Results</h2>
+        <div id="results-body">
+          <div class="empty-state">
+            <p><strong>No audit has been run in this view yet.</strong></p>
+            <p>Type a question above or pick an example. Results appear here as verified excerpts, each tied to an exact filing passage and an sec.gov link.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <aside class="side-col" aria-label="Corpus and history">
+      <section class="card" aria-labelledby="corpus-heading">
+        <h2 id="corpus-heading">Filings available</h2>
+        <p id="corpus-summary" class="hint">Loading the filing catalog…</p>
+        <label for="corpus-filter" class="sr-only">Filter filings by ticker</label>
+        <input id="corpus-filter" type="search" placeholder="Filter by ticker, e.g. NVDA" autocomplete="off" maxlength="16" hidden>
+        <ul id="corpus-list" class="corpus-list" tabindex="0" aria-label="Company filings in this corpus"></ul>
+      </section>
+      <section class="card" aria-labelledby="history-heading">
+        <h2 id="history-heading">Recent audits</h2>
+        <p class="hint">Kept in server memory only: the latest 8 finished audits, each for 30 minutes. Nothing is stored in your browser.</p>
+        <ul id="history-list" class="history-list" aria-live="polite"></ul>
+        <p id="history-empty" class="hint">No recent audits.</p>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="evidence-dialog" aria-labelledby="evidence-title">
+    <div class="dialog-head">
+      <h2 id="evidence-title">Evidence</h2>
+      <button id="evidence-close" type="button" class="btn" aria-label="Close evidence detail">Close</button>
+    </div>
+    <div id="evidence-body"></div>
+  </dialog>
+
+  <noscript><p class="noscript">This workbench needs JavaScript (served from this same address only) to run audits.</p></noscript>
+</body>
+</html>

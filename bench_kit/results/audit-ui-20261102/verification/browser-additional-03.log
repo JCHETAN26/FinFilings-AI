@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/tmp/finfilings_ui_browser_additional.py", line 21, in <module>
+    wait("document.querySelectorAll('.excerpt').length===7")
+  File "/tmp/finfilings_ui_browser_additional.py", line 14, in wait
+    raise TimeoutError(expr)
+TimeoutError: document.querySelectorAll('.excerpt').length===7

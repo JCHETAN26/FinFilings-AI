@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "fresh_runtime_history_empty": true,
+  "catalog_loaded_in_browser": true,
+  "audit_started_for_shutdown": {
+    "id": "592c8b51-51d7-4c5a-936f-96c05e58ce7e",
+    "status": "pending",
+    "status_url": "/api/audits/592c8b51-51d7-4c5a-936f-96c05e58ce7e"
+  },
+  "model_pids_before_shutdown": [
+    2848593
+  ],
+  "owned_children": [
+    {
+      "pid": 2845998,
+      "name": "python3"
+    },
+    {
+      "pid": 2845999,
+      "name": "bridge"
+    },
+    {
+      "pid": 2848593,
+      "name": "claude"
+    }
+  ],
+  "shutdown_seconds_observed": 0.454,
+  "launcher_status": {
+    "started_utc": "2026-11-02T05:05:46.885723+00:00",
+    "host": "127.0.0.1",
+    "port": 8766,
+    "status": "stopped",
+    "stop_reason": "SIGTERM",
+    "finished_utc": "2026-11-02T05:06:21.769332+00:00",
+    "service_exit_codes": [
+      -15,
+      0
+    ],
+    "owned_processes_stopped": true
+  },
+  "remaining_owned": [],
+  "note": "Real final launcher cleanup with active model subprocess. Conventional exit143 is expected for SIGTERM; launcher status must be stopped, not failed."
+}

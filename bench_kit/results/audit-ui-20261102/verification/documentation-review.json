@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "scenario_rows_checked": 3,
+  "metric_mismatches": [],
+  "local_links_checked": 119,
+  "missing_links": [],
+  "release_record_links_to_be_created_before_commit": [
+    "verification/final-release-checks.json",
+    "verification/public-snapshot-check.json"
+  ],
+  "raw_sealed_files_checked": 40,
+  "raw_artifacts_unchanged": true,
+  "final_ui_source_files_checked": 16,
+  "tested_source_unchanged": true
+}

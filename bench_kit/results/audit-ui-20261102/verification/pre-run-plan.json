@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-11-02T04:47:29.218377+00:00",
+  "baseline_commit": "04e6c2aedf6d2b8558e94300f6652a27a817023c",
+  "scope": "Local single-user audit UI over unchanged validated retrieval/agent",
+  "gates": [
+    "Full application and benchmark contract tests pass",
+    "Core agent, sparse/dense/reranker, corpus and index bytes unchanged",
+    "Real browser desktop/mobile workflows, source links and quote highlighting",
+    "Real supported audit04, unavailable audit10, mixed broad30 checked against actual SEC source text and scope expectations",
+    "20-client submission burst: one accepted, rest busy; cancellation waits for owned model processes to stop; new admission only after cleanup",
+    "Host/Origin/body/CSRF protections, bounded payloads, hostile text rendered as text in explicitly labelled browser fixture",
+    "Owned services stop on launcher shutdown; no orphan model or inference processes",
+    "No datasets/indexes/weights/private contact/credentials committed"
+  ],
+  "bounds": {
+    "active_audits": 1,
+    "queued_audits": 0,
+    "finished_history": 8,
+    "history_ttl_seconds": 1800,
+    "result_bytes": 1048576,
+    "prompt_bytes": 8192,
+    "request_body_bytes": 16384,
+    "inference_workers": 4,
+    "intra_op_threads": 2,
+    "model_calls_concurrent": 2,
+    "subqueries_concurrent": 3,
+    "retries_per_subquery_max": 2
+  },
+  "core_source_sha256": {
+    "py/agent/__init__.py": "2487bcb7e2e9113bc1d224810a42ef067e2acac6e2e52a4b30f860513e50ceea",
+    "py/agent/critic.py": "f1ad9603bafb3cacb2f277ad7ebad1fb639161e292ed373cc9cbb1d7a29436d0",
+    "py/agent/filters.py": "44eefa4ad498046cc7c12fd0d0abca53f7342e2c99d99f2c7e6d6aba11553368",
+    "py/agent/models.py": "27a011d2ce5b53c99a29057e0480dc50d6cebcc2c93022a9a638edc78f32b102",
+    "py/agent/planner.py": "d95a87fb4a74c99d362c508516543acc1d0aabec1f9731a6e4625fe1cb6b34f4",
+    "py/agent/provenance.py": "656f0ed37f4ca86ee73432ca6ccd6930d887a52927256919f5eae5f325d48fbc",
+    "py/agent/provider.py": "9da39cc201a101dd8244cebf6b142396c2008579805082d69eea5cd8bf2ba617",
+    "py/agent/retrieval.py": "8a83fa308f6377c4929320c1491ad0ab2db7d3ce87c4182bcfad69978d699246",
+    "py/agent/state_machine.py": "92ca46c8cd67b03550d7b0cbe05b50daa1ab016f9664a502dbd16b7ba899a6b7",
+    "py/agent/synthesizer.py": "62f2945fabd9e125999c74b3037c4a22813dac54d49b83d64fc6e779cc232f08"
+  },
+  "note": "Fixture tests are not real SEC quality/load metrics. Live model calls and UI checks use saved raw outputs; every failed attempt retained."
+}

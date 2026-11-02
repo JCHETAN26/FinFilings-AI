@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "verified_citations": 6,
+  "unique_passages_checked": 9,
+  "note": "One extra real AMZN audit completed while correcting the browser harness asynchronous-submission assertion. Preserved separately; not part of the three preregistered scenario results. Exact source/quote and both-plan coverage checks pass.",
+  "harness_attempts": [
+    {
+      "log": "browser-additional.log",
+      "result": "harness selector typo; no product change"
+    },
+    {
+      "log": "browser-additional-02.log",
+      "result": "harness checked before asynchronous submit returned; extra audit completed"
+    },
+    {
+      "log": "browser-additional-03.log",
+      "result": "harness selected a newer same-prompt audit with a different citation count; no product change"
+    },
+    {
+      "log": "browser-additional-04.log",
+      "result": "passed using exact saved job ID and correct async waiting"
+    }
+  ]
+}

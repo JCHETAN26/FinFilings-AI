@@ -1,0 +1,25 @@
+actual catalog loaded True
+desktop no horizontal overflow True
+keyboard skip link reachable True
+audit04 completed True
+audit04 DOM excerpts match API True
+audit04 original question visible True
+supported audit has excerpts and no gap flags True
+citation opens exact full passage True
+quoted text highlighted True
+SEC links use verified URL True
+Escape closes evidence dialog True
+mobile no horizontal overflow True
+mobile evidence dialog fits viewport True
+REAL AUDIT audit04 excerpts 7 gaps 0 retries 0
+audit10 completed True
+audit10 DOM excerpts match API True
+audit10 original question visible True
+unavailable question withholds claims and displays gaps True
+REAL AUDIT audit10 excerpts 0 gaps 3 retries 4
+broad30 completed True
+broad30 DOM excerpts match API True
+broad30 original question visible True
+mixed question retains available quotes and missing-side gaps True
+REAL AUDIT broad30 excerpts 6 gaps 2 retries 1
+no browser runtime exceptions True

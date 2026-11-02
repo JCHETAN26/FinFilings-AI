@@ -1,0 +1,42 @@
+{
+  "checks": [
+    {
+      "check": "history preserves new question draft",
+      "passed": true
+    },
+    {
+      "check": "history labels original audited question",
+      "passed": true
+    },
+    {
+      "check": "accepted new audit clears previous evidence",
+      "passed": true
+    },
+    {
+      "check": "browser cancel withholds result",
+      "passed": true
+    },
+    {
+      "check": "hostile quote rendered literally",
+      "passed": true
+    },
+    {
+      "check": "hostile response creates no markup elements",
+      "passed": true
+    },
+    {
+      "check": "hostile link withheld",
+      "passed": true
+    },
+    {
+      "check": "hostile passage displayed as plain text",
+      "passed": true
+    },
+    {
+      "check": "no script execution",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "note": "History and cancellation use real local jobs. Hostile-text checks use an explicitly labelled browser-only mocked response; they are security fixture checks, not SEC/model quality results."
+}

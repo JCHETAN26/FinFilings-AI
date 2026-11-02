@@ -6,7 +6,7 @@ FinFilings AI searches SEC 10-K/10-Q passages using a custom Go BM25 engine and 
 
 The project brings together storage engineering, information retrieval, and bounded agent execution. Its benchmarks use actual SEC filings and published FinQA supporting-fact labels, with raw measurements and limitations preserved.
 
-**Latest: [AMZN operating-expense fix — full 30-case validation](bench_kit/results/amzn-expense-20261101/RESULTS.md)** · [post-HPE held run (historical)](bench_kit/results/post-hpe-full-20261101/RESULTS.md) · [HPE critic fix — targeted two-replay check](bench_kit/results/hpe-critic-20261101/RESULTS.md) · [parser-v3 adoption — 30-case verified report](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md) · [Verified benchmarks](bench_kit/RESULTS.md) · [Ten audit results](bench_kit/results/phase3/RESULTS.md) · [Ingestion guide](docs/ingestion/README.md) · [Build reports](docs/build/phase1.md)
+**Latest UI: [local audit workbench — live verification](bench_kit/results/audit-ui-20261102/RESULTS.md)** · **Latest agent: [AMZN operating-expense fix — full 30-case validation](bench_kit/results/amzn-expense-20261101/RESULTS.md)** · [post-HPE held run (historical)](bench_kit/results/post-hpe-full-20261101/RESULTS.md) · [HPE critic fix — targeted two-replay check](bench_kit/results/hpe-critic-20261101/RESULTS.md) · [parser-v3 adoption — 30-case verified report](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md) · [Verified benchmarks](bench_kit/RESULTS.md) · [Ten audit results](bench_kit/results/phase3/RESULTS.md) · [Ingestion guide](docs/ingestion/README.md) · [Build reports](docs/build/phase1.md)
 
 ## Architecture
 
@@ -208,6 +208,18 @@ PYTHONPATH=py python -m agent.state_machine \
 
 The JSON result includes the plan, per-hop queries and grades, retries, accepted evidence, final markdown, citations, and evidence-gap flags. Remove `--json` for markdown output.
 
+### 5. Local audit workbench (browser UI)
+
+One command starts the sidecar, the Go bridge and a loopback-only web UI over the current parser-v3 corpus, verifying provenance first. It needs the local artifacts named in the build doc and a signed-in Claude Code CLI; it downloads nothing.
+
+```bash
+python3 scripts/serve-audit-ui.py        # prints http://127.0.0.1:8766/ once the UI is actually ready; add --browser to open it
+```
+
+From a Mac, tunnel to the Linux host with the same port: `ssh -N -L 8766:127.0.0.1:8766 USER@HOST`, then browse `http://127.0.0.1:8766/`. Single-user, unauthenticated, loopback only, one audit at a time; needs the offline artifacts and a signed-in Claude CLI. Verified with real Chrome on three frozen scenarios (source/structural checks, not answer accuracy or load latency): [UI verification report](bench_kit/results/audit-ui-20261102/RESULTS.md) · [design and limits](docs/build/audit-ui.md).
+
+![Audit workbench with a real result](bench_kit/results/audit-ui-20261102/live/workbench-results-desktop.png)
+
 ## Manifest-driven ingestion
 
 The new [streaming ingestion path](docs/ingestion/README.md) accepts a JSONL manifest of local raw filings or SEC archive URLs. It shares an identified, paced EDGAR client (default five requests/second, maximum ten), extracts deterministic Item 1A / Item 7 / Item 8 passages using disk-backed parsing, and streams them into immutable Go shards. Final publication is atomic; duplicate accessions and ambiguous sections are errors.
@@ -273,6 +285,7 @@ The standalone `models/bin/loadtest` also accepts `-workers`, `-requests`, `-tim
 | [`py/`](py) | Embeddings, PQ8 ingestion, model sidecar, cross-encoder |
 | [`py/ingest/`](py/ingest) | EDGAR client, deterministic section parser and manifest coordinator |
 | [`py/agent/`](py/agent) | Structured planner, critic loop, state machine, citation grounding |
+| [`py/audit_web/`](py/audit_web), [`ui/`](ui) | Local single-user audit workbench: bounded job manager, loopback API, native HTML/CSS/JS |
 | [`bench_kit/`](bench_kit) | Quality, memory, audit and HTTP load evaluation; consolidated results |
 | [`scripts/`](scripts) | Verification and service-lifetime supervisors |
 | [`docs/build/`](docs/build) | Storage, retrieval and agent design reports |
@@ -284,5 +297,5 @@ The standalone `models/bin/loadtest` also accepts `-workers`, `-requests`, `-tim
 - The broad agent suite measures structural source grounding on one corpus snapshot and one model sample; see its limitations before quoting any number.
 - FinQA supports retrieval evaluation, but its passages lack verified SEC accessions. Published audit claims use the verified SEC registry.
 - Synthesis publishes exact source excerpts. Derived calculations and independently validated abstractive financial conclusions are outside the current implementation.
-- Tenant authentication/isolation, a UI, distributed serving, and production availability guarantees are not implemented. Services are local and loopback-bound.
+- Tenant authentication/isolation, distributed serving, and production availability guarantees are not implemented. The local audit workbench (`ui/`) is single-user and unauthenticated; services are local and loopback-bound.
 - Results cover finite, warm local workloads. The source hashes, raw logs, negative cases, and failed preliminary attempts remain available for review.

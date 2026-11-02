@@ -1,0 +1,13 @@
+{
+  "started_utc": "2026-11-02T04:51:59.596925+00:00",
+  "host": "127.0.0.1",
+  "port": 8766,
+  "status": "failed",
+  "error": "SystemExit",
+  "finished_utc": "2026-11-02T05:02:31.602760+00:00",
+  "service_exit_codes": [
+    -15,
+    0
+  ],
+  "owned_processes_stopped": true
+}

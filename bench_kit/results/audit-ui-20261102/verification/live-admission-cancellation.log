@@ -1,0 +1,32 @@
+bad Host True
+bad Host security headers True
+bad Origin True
+bad Origin security headers True
+missing CSRF header True
+missing CSRF header security headers True
+wrong content type True
+wrong content type security headers True
+bad JSON True
+bad JSON security headers True
+empty prompt True
+empty prompt security headers True
+oversize UTF8 prompt True
+oversize UTF8 prompt security headers True
+body over 16KiB True
+body over 16KiB security headers True
+unknown file True
+unknown file security headers True
+unknown audit True
+unknown audit security headers True
+chunked oversize body True
+guards started no audits True
+20-client burst exactly one admitted True
+real Claude process started True
+active job status real True
+cancel accepted True
+cancelled result withheld True
+owned Claude processes gone before readmission True
+no active-slot release while model alive True
+admission resumes after cleanup True
+second cancelled audit no result or orphan True
+backend remains ready True
