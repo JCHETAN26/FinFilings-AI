@@ -1,0 +1,490 @@
+{
+  "prompt": "Audit AAPL filing year 2023: separately retrieve share repurchase authorization disclosures and cash dividend disclosures. Provide original supporting excerpts for both.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "share repurchase authorization program",
+        "goal": "separately retrieve share repurchase authorization disclosures",
+        "filters": {
+          "ticker": "AAPL",
+          "year": 2023,
+          "section": "",
+          "accession": "000032019323000106"
+        }
+      },
+      {
+        "query": "cash dividend declared per share",
+        "goal": "cash dividend disclosures",
+        "filters": {
+          "ticker": "AAPL",
+          "year": 2023,
+          "section": "",
+          "accession": "000032019323000106"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "share repurchase authorization program",
+      "requested_goal": "separately retrieve share repurchase authorization disclosures",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2023,
+        "section": "",
+        "accession": "000032019323000106"
+      },
+      "score": 5,
+      "rationale": "The passages directly state the requested share repurchase authorization disclosures for AAPL's FY2023 10-K. Passage 000055 (Item 5 issuer purchases table footnote) says the Board authorized up to $90 billion under the program announced May 4, 2023, with $15.9 billion utilized, plus the final $4.6 billion under the prior April 2022 program, and that the programs do not obligate a minimum share purchase. Passage 000064 (Capital Return Program) confirms an authorized share repurchase program with no minimum obligation. Passage 000058 adds that the new program is up to $90 billion and that $76.6 billion of stock was repurchased during 2023. Together these fully support the requested goal. No required element is missing.",
+      "evidence": [
+        {
+          "id": "000032019323000106#passage-000052",
+          "text": "Future dividends are subject to declaration by the Company’s Board of Directors, and the Company’s share repurchase program does not obligate it to acquire any specific number of shares. If the Company fails to meet expectations related to future growth, profitability, dividends, share repurchases or other market expectations, the price of the Company’s stock may decline significantly, which could have a material adverse impact on investor confidence and employee retention. Item 1B. Unresolved Staff Comments None. Item 1C. Cybersecurity Not applicable. Apple Inc. | 2023 Form 10-K | 16 Item 2. Properties The Company’s headquarters is located in Cupertino, California. As of September 30, 2023, the Company owned or leased facilities and land for corporate functions, R&D, data centers, retail and other purposes at locations throughout the U.S. and in various places outside the U.S. The Company believes its existing facilities and equipment, which are used by all reportable segments, are in good operating condition and are suitable for the conduct of its business. Item 3. Legal Proceedings Epic Games Epic Games, Inc. (“Epic”) filed a lawsuit in the U.S. District Court for the Northern District of California (the “District Court”) against the Company alleging violations of federal and state antitrust laws and California’s unfair competition law based upon the Company’s operation of its App Store. On September 10, 2021, the District Court ruled in favor of the Company with respect to nine out of the ten counts included in Epic’s claim. The District Court found that certain provisions of the Company’s App Store Review Guidelines",
+          "metadata": {
+            "ID": "000032019323000106#passage-000052",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000052"
+        },
+        {
+          "id": "000032019323000106#passage-000055",
+          "text": "Approximate Dollar Value of Shares That May Yet Be Purchased Under the Plans or Programs (1) July 2, 2023 to August 5, 2023: Open market and privately negotiated purchases 33,864 $ 191.62 33,864 August 6, 2023 to September 2, 2023: August 2023 ASRs 22,085 (2) (2) 22,085 (2) Open market and privately negotiated purchases 30,299 $ 178.99 30,299 September 3, 2023 to September 30, 2023: Open market and privately negotiated purchases 20,347 $ 176.31 20,347 Total 106,595 $ 74,069 (1) As of September 30, 2023, the Company was authorized by the Board of Directors to purchase up to $90 billion of the Company’s common stock under a share repurchase program announced on May 4, 2023, of which $15.9 billion had been utilized. During the fourth quarter of 2023, the Company also utilized the final $4.6 billion under its previous repurchase program, which was most recently authorized in April 2022. The programs do not obligate the Company to acquire a minimum amount of shares. Under the programs, shares may be repurchased in privately negotiated or open market transactions, including under plans complying with Rule 10b5-1 under the Exchange Act. (2) In August 2023, the Company entered into new accelerated share repurchase agreements (“ASRs”). Under the terms of the ASRs, two financial institutions committed to deliver shares of the Company’s common stock during the purchase periods in exchange for up-front payments totaling $5.0 billion. The total number of shares ultimately delivered under the ASRs, and therefore the average repurchase price paid per share, is determined based on the",
+          "metadata": {
+            "ID": "000032019323000106#passage-000055",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000055"
+        },
+        {
+          "id": "000032019323000106#passage-000064",
+          "text": "corporate, data center, manufacturing and retail space. As of September 30, 2023, the Company had fixed lease payment obligations of $15.8 billion, with $2.0 billion payable within 12 months. Manufacturing Purchase Obligations The Company utilizes several outsourcing partners to manufacture subassemblies for the Company’s products and to perform final assembly and testing of finished products. The Company also obtains individual components for its products from a wide variety of individual suppliers. As of September 30, 2023, the Company had manufacturing purchase obligations of $53.1 billion, with $52.9 billion payable within 12 months. The Company’s manufacturing purchase obligations are primarily noncancelable. Other Purchase Obligations The Company’s other purchase obligations primarily consist of noncancelable obligations to acquire capital assets, including assets related to product manufacturing, and noncancelable obligations related to supplier arrangements, licensed intellectual property and content, and distribution rights. As of September 30, 2023, the Company had other purchase obligations of $21.9 billion, with $5.6 billion payable within 12 months. Deemed Repatriation Tax Payable As of September 30, 2023, the balance of the deemed repatriation tax payable imposed by the U.S. Tax Cuts and Jobs Act of 2017 (the “Act”) was $22.0 billion, with $6.5 billion expected to be paid within 12 months. Apple Inc. | 2023 Form 10-K | 24 Capital Return Program In addition to its contractual cash requirements, the Company has an authorized share repurchase program. The program does not obligate the Company to acquire a minimum amount of shares. As of September 30, 2023, the Company’s quarterly cash dividend was $0.24 per share.",
+          "metadata": {
+            "ID": "000032019323000106#passage-000064",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000064"
+        },
+        {
+          "id": "000032019323000106#passage-000058",
+          "text": "Pro™, the Company’s first spatial computer featuring its new visionOS™, expected to be available in early calendar year 2024; and • iOS 17, macOS Sonoma, iPadOS 17, tvOS 17 and watchOS 10, updates to the Company’s operating systems. Fourth Quarter 2023: • iPhone 15, iPhone 15 Plus, iPhone 15 Pro and iPhone 15 Pro Max; and • Apple Watch Series 9 and Apple Watch Ultra 2. In May 2023, the Company announced a new share repurchase program of up to $90 billion and raised its quarterly dividend from $0.23 to $0.24 per share beginning in May 2023. During 2023, the Company repurchased $76.6 billion of its common stock and paid dividends and dividend equivalents of $15.0 billion. Macroeconomic Conditions Macroeconomic conditions, including inflation, changes in interest rates, and currency fluctuations, have directly and indirectly impacted, and could in the future materially impact, the Company’s results of operations and financial condition. Apple Inc. | 2023 Form 10-K | 20 Segment Operating Performance The following table shows net sales by reportable segment for 2023, 2022 and 2021 (dollars in millions): 2023 Change 2022 Change 2021 Net sales by reportable segment: Americas $ 162,560 (4) % $ 169,658 11 % $ 153,306 Europe 94,294 (1) % 95,118 7 % 89,307 Greater China 72,559 (2) % 74,200 9 % 68,366 Japan 24,257 (7) % 25,977 (9) % 28,482 Rest of Asia Pacific 29,615 1 % 29,375 11 % 26,356 Total net sales $ 383,285 (3) % $ 394,328 8 % $ 365,817 Americas Americas net sales decreased 4% or $7.1",
+          "metadata": {
+            "ID": "000032019323000106#passage-000058",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000058"
+        },
+        {
+          "id": "000032019323000106#passage-000051",
+          "text": "subject to the examination of its tax returns and other tax matters by the U.S. Internal Revenue Service and other tax authorities and governmental bodies. The Company regularly assesses the likelihood of an adverse outcome resulting from these examinations to determine the adequacy of its provision for taxes. There can be no assurance as to the outcome of these examinations. If the Company’s effective tax rates were to increase, or if the ultimate determination of the Company’s taxes owed is for an amount in excess of amounts previously accrued, the Company’s business, results of operations and financial condition could be materially adversely affected. General Risks The price of the Company’s stock is subject to volatility. The Company’s stock has experienced substantial price volatility in the past and may continue to do so in the future. Additionally, the Company, the technology industry and the stock market as a whole have, from time to time, experienced extreme stock price and volume fluctuations that have affected stock prices in ways that may have been unrelated to these companies’ operating performance. Price volatility may cause the average price at which the Company repurchases its stock in a given period to exceed the stock’s price at a given point in time. The Company believes the price of its stock should reflect expectations of future growth and profitability. The Company also believes the price of its stock should reflect expectations that its cash dividend will continue at current levels or grow, and that its current share repurchase program will be fully consummated.",
+          "metadata": {
+            "ID": "000032019323000106#passage-000051",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000051"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000032019323000106#passage-000052",
+        "000032019323000106#passage-000055",
+        "000032019323000106#passage-000064",
+        "000032019323000106#passage-000058",
+        "000032019323000106#passage-000051",
+        "000032019323000106#passage-000094",
+        "000032019323000106#passage-000092",
+        "000032019323000106#passage-000054",
+        "000032019323000106#passage-000095",
+        "000032019323000106#passage-000073"
+      ],
+      "fresh_verified_ids": [
+        "000032019323000106#passage-000052",
+        "000032019323000106#passage-000055",
+        "000032019323000106#passage-000064",
+        "000032019323000106#passage-000058",
+        "000032019323000106#passage-000051"
+      ],
+      "elapsed_seconds": 8.323296263002703
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "cash dividend declared per share",
+      "requested_goal": "cash dividend disclosures",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2023,
+        "section": "",
+        "accession": "000032019323000106"
+      },
+      "score": 5,
+      "rationale": "The passages together cover the cash dividend disclosures requested for AAPL's FY2023 filing. Passage 000032019323000106#passage-000064 states that the quarterly cash dividend was $0.24 per share as of September 30, 2023. Passage 000032019323000106#passage-000071 gives dividends and dividend equivalents declared of $14,996 million and $0.94 per share or RSU for fiscal 2023. Passage 000032019323000106#passage-000073 gives cash paid for dividends and dividend equivalents of $15,025 million. Passage 000032019323000106#passage-000052 notes that future dividends are subject to Board declaration. No requested element is missing. The share repurchase disclosures named in the audit prompt are a separate subquery and were not scored here.",
+      "evidence": [
+        {
+          "id": "000032019323000106#passage-000071",
+          "text": "deficit ( 214 ) ( 3,068 ) Accumulated other comprehensive loss ( 11,452 ) ( 11,109 ) Total shareholders’ equity 62,146 50,672 Total liabilities and shareholders’ equity $ 352,583 $ 352,755 See accompanying Notes to Consolidated Financial Statements. Apple Inc. | 2023 Form 10-K | 30 Apple Inc. CONSOLIDATED STATEMENTS OF SHAREHOLDERS’ EQUITY (In millions, except per-share amounts) Years ended September 30, 2023 September 24, 2022 September 25, 2021 Total shareholders’ equity, beginning balances $ 50,672 $ 63,090 $ 65,339 Common stock and additional paid-in capital: Beginning balances 64,849 57,365 50,779 Common stock issued 1,346 1,175 1,105 Common stock withheld related to net share settlement of equity awards ( 3,521 ) ( 2,971 ) ( 2,627 ) Share-based compensation 11,138 9,280 8,108 Ending balances 73,812 64,849 57,365 Retained earnings/(Accumulated deficit): Beginning balances ( 3,068 ) 5,562 14,966 Net income 96,995 99,803 94,680 Dividends and dividend equivalents declared ( 14,996 ) ( 14,793 ) ( 14,431 ) Common stock withheld related to net share settlement of equity awards ( 2,099 ) ( 3,454 ) ( 4,151 ) Common stock repurchased ( 77,046 ) ( 90,186 ) ( 85,502 ) Ending balances ( 214 ) ( 3,068 ) 5,562 Accumulated other comprehensive income/(loss): Beginning balances ( 11,109 ) 163 ( 406 ) Other comprehensive income/(loss) ( 343 ) ( 11,272 ) 569 Ending balances ( 11,452 ) ( 11,109 ) 163 Total shareholders’ equity, ending balances $ 62,146 $ 50,672 $ 63,090 Dividends and dividend equivalents declared per share or RSU $ 0.94 $ 0.90 $ 0.85 See",
+          "metadata": {
+            "ID": "000032019323000106#passage-000071",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000071"
+        },
+        {
+          "id": "000032019323000106#passage-000079",
+          "text": "Approximately 24 million restricted stock units (“RSUs”) were excluded from the computation of diluted earnings per share for 2023 because their effect would have been antidilutive. Apple Inc. | 2023 Form 10-K | 35 Note 4 – Financial Instruments Cash, Cash Equivalents and Marketable Securities The following tables show the Company’s cash, cash equivalents and marketable securities by significant investment category as of September 30, 2023 and September 24, 2022 (in millions): 2023 Adjusted Cost Unrealized Gains Unrealized Losses Fair Value Cash and Cash Equivalents Current Marketable Securities Non-Current Marketable Securities Cash $ 28,359 $ — $ — $ 28,359 $ 28,359 $ — $ — Level 1: Money market funds 481 — — 481 481 — — Mutual funds and equity securities 442 12 ( 26 ) 428 — 428 — Subtotal 923 12 ( 26 ) 909 481 428 — Level 2 (1) : U.S. Treasury securities 19,406 — ( 1,292 ) 18,114 35 5,468 12,611 U.S. agency securities 5,736 — ( 600 ) 5,136 36 271 4,829 Non-U.S. government securities 17,533 6 ( 1,048 ) 16,491 — 11,332 5,159 Certificates of deposit and time deposits 1,354 — — 1,354 1,034 320 — Commercial paper 608 — — 608 — 608 — Corporate debt securities 76,840 6 ( 5,956 ) 70,890 20 12,627 58,243 Municipal securities 628 — ( 26 ) 602 — 192 410 Mortgage- and asset-backed securities 22,365 6 ( 2,735 ) 19,636 — 344 19,292 Subtotal 144,470 18 ( 11,657 ) 132,831 1,125 31,162 100,544 Total (2) $ 173,752 $ 30",
+          "metadata": {
+            "ID": "000032019323000106#passage-000079",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000079"
+        },
+        {
+          "id": "000032019323000106#passage-000052",
+          "text": "Future dividends are subject to declaration by the Company’s Board of Directors, and the Company’s share repurchase program does not obligate it to acquire any specific number of shares. If the Company fails to meet expectations related to future growth, profitability, dividends, share repurchases or other market expectations, the price of the Company’s stock may decline significantly, which could have a material adverse impact on investor confidence and employee retention. Item 1B. Unresolved Staff Comments None. Item 1C. Cybersecurity Not applicable. Apple Inc. | 2023 Form 10-K | 16 Item 2. Properties The Company’s headquarters is located in Cupertino, California. As of September 30, 2023, the Company owned or leased facilities and land for corporate functions, R&D, data centers, retail and other purposes at locations throughout the U.S. and in various places outside the U.S. The Company believes its existing facilities and equipment, which are used by all reportable segments, are in good operating condition and are suitable for the conduct of its business. Item 3. Legal Proceedings Epic Games Epic Games, Inc. (“Epic”) filed a lawsuit in the U.S. District Court for the Northern District of California (the “District Court”) against the Company alleging violations of federal and state antitrust laws and California’s unfair competition law based upon the Company’s operation of its App Store. On September 10, 2021, the District Court ruled in favor of the Company with respect to nine out of the ten counts included in Epic’s claim. The District Court found that certain provisions of the Company’s App Store Review Guidelines",
+          "metadata": {
+            "ID": "000032019323000106#passage-000052",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000052"
+        },
+        {
+          "id": "000032019323000106#passage-000064",
+          "text": "corporate, data center, manufacturing and retail space. As of September 30, 2023, the Company had fixed lease payment obligations of $15.8 billion, with $2.0 billion payable within 12 months. Manufacturing Purchase Obligations The Company utilizes several outsourcing partners to manufacture subassemblies for the Company’s products and to perform final assembly and testing of finished products. The Company also obtains individual components for its products from a wide variety of individual suppliers. As of September 30, 2023, the Company had manufacturing purchase obligations of $53.1 billion, with $52.9 billion payable within 12 months. The Company’s manufacturing purchase obligations are primarily noncancelable. Other Purchase Obligations The Company’s other purchase obligations primarily consist of noncancelable obligations to acquire capital assets, including assets related to product manufacturing, and noncancelable obligations related to supplier arrangements, licensed intellectual property and content, and distribution rights. As of September 30, 2023, the Company had other purchase obligations of $21.9 billion, with $5.6 billion payable within 12 months. Deemed Repatriation Tax Payable As of September 30, 2023, the balance of the deemed repatriation tax payable imposed by the U.S. Tax Cuts and Jobs Act of 2017 (the “Act”) was $22.0 billion, with $6.5 billion expected to be paid within 12 months. Apple Inc. | 2023 Form 10-K | 24 Capital Return Program In addition to its contractual cash requirements, the Company has an authorized share repurchase program. The program does not obligate the Company to acquire a minimum amount of shares. As of September 30, 2023, the Company’s quarterly cash dividend was $0.24 per share.",
+          "metadata": {
+            "ID": "000032019323000106#passage-000064",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000064"
+        },
+        {
+          "id": "000032019323000106#passage-000073",
+          "text": "dividends and dividend equivalents ( 15,025 ) ( 14,841 ) ( 14,467 ) Repurchases of common stock ( 77,550 ) ( 89,402 ) ( 85,971 ) Proceeds from issuance of term debt, net 5,228 5,465 20,393 Repayments of term debt ( 11,151 ) ( 9,543 ) ( 8,750 ) Proceeds from/(Repayments of) commercial paper, net ( 3,978 ) 3,955 1,022 Other ( 581 ) ( 160 ) 976 Cash used in financing activities ( 108,488 ) ( 110,749 ) ( 93,353 ) Increase/(Decrease) in cash, cash equivalents and restricted cash 5,760 ( 10,952 ) ( 3,860 ) Cash, cash equivalents and restricted cash, ending balances $ 30,737 $ 24,977 $ 35,929 Supplemental cash flow disclosure: Cash paid for income taxes, net $ 18,679 $ 19,573 $ 25,385 Cash paid for interest $ 3,803 $ 2,865 $ 2,687 See accompanying Notes to Consolidated Financial Statements. Apple Inc. | 2023 Form 10-K | 32 Apple Inc. Notes to Consolidated Financial Statements Note 1 – Summary of Significant Accounting Policies Basis of Presentation and Preparation The consolidated financial statements include the accounts of Apple Inc. and its wholly owned subsidiaries. The preparation of these consolidated financial statements and accompanying notes in conformity with GAAP requires the use of management estimates. Certain prior period amounts in the consolidated financial statements and accompanying notes have been reclassified to conform to the current period’s presentation. The Company’s fiscal year is the 52- or 53-week period that ends on the last Saturday of September. An additional week is included in the first fiscal",
+          "metadata": {
+            "ID": "000032019323000106#passage-000073",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2023,
+            "SectionItem": "Full filing (item not classified)"
+          },
+          "accession": "0000320193-23-000106",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+          "tag": "AAPL-2023-10K-p000073"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000032019323000106#passage-000071",
+        "000032019323000106#passage-000079",
+        "000032019323000106#passage-000052",
+        "000032019323000106#passage-000064",
+        "000032019323000106#passage-000073",
+        "000032019323000106#passage-000095",
+        "000032019323000106#passage-000058",
+        "000032019323000106#passage-000072",
+        "000032019323000106#passage-000065",
+        "000032019323000106#passage-000070"
+      ],
+      "fresh_verified_ids": [
+        "000032019323000106#passage-000071",
+        "000032019323000106#passage-000079",
+        "000032019323000106#passage-000052",
+        "000032019323000106#passage-000064",
+        "000032019323000106#passage-000073"
+      ],
+      "elapsed_seconds": 8.429653089002386
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- As of September 30, 2023, the Company was authorized by the Board of Directors to purchase up to $90 billion of the Company’s common stock under a share repurchase program announced on May 4, 2023, of which $15.9 billion had been utilized. [AAPL-2023-10K-p000055](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000055`; accession: `0000320193-23-000106`).\n- The programs do not obligate the Company to acquire a minimum amount of shares. Under the programs, shares may be repurchased in privately negotiated or open market transactions, including under plans complying with Rule 10b5-1 under the Exchange Act. [AAPL-2023-10K-p000055](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000055`; accession: `0000320193-23-000106`).\n- In addition to its contractual cash requirements, the Company has an authorized share repurchase program. The program does not obligate the Company to acquire a minimum amount of shares. As of September 30, 2023, the Company’s quarterly cash dividend was $0.24 per share. [AAPL-2023-10K-p000064](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000064`; accession: `0000320193-23-000106`).\n- In May 2023, the Company announced a new share repurchase program of up to $90 billion and raised its quarterly dividend from $0.23 to $0.24 per share beginning in May 2023. [AAPL-2023-10K-p000058](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000058`; accession: `0000320193-23-000106`).\n- During 2023, the Company repurchased $76.6 billion of its common stock and paid dividends and dividend equivalents of $15.0 billion. [AAPL-2023-10K-p000058](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000058`; accession: `0000320193-23-000106`).\n- Dividends and dividend equivalents declared per share or RSU $ 0.94 $ 0.90 $ 0.85 [AAPL-2023-10K-p000071](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000071`; accession: `0000320193-23-000106`).\n- Future dividends are subject to declaration by the Company’s Board of Directors, and the Company’s share repurchase program does not obligate it to acquire any specific number of shares. [AAPL-2023-10K-p000052](https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm) (chunk: `000032019323000106#passage-000052`; accession: `0000320193-23-000106`).",
+  "citations": [
+    {
+      "tag": "AAPL-2023-10K-p000055",
+      "chunk_id": "000032019323000106#passage-000055",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "As of September 30, 2023, the Company was authorized by the Board of Directors to purchase up to $90 billion of the Company’s common stock under a share repurchase program announced on May 4, 2023, of which $15.9 billion had been utilized."
+    },
+    {
+      "tag": "AAPL-2023-10K-p000055",
+      "chunk_id": "000032019323000106#passage-000055",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "The programs do not obligate the Company to acquire a minimum amount of shares. Under the programs, shares may be repurchased in privately negotiated or open market transactions, including under plans complying with Rule 10b5-1 under the Exchange Act."
+    },
+    {
+      "tag": "AAPL-2023-10K-p000064",
+      "chunk_id": "000032019323000106#passage-000064",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "In addition to its contractual cash requirements, the Company has an authorized share repurchase program. The program does not obligate the Company to acquire a minimum amount of shares. As of September 30, 2023, the Company’s quarterly cash dividend was $0.24 per share."
+    },
+    {
+      "tag": "AAPL-2023-10K-p000058",
+      "chunk_id": "000032019323000106#passage-000058",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "In May 2023, the Company announced a new share repurchase program of up to $90 billion and raised its quarterly dividend from $0.23 to $0.24 per share beginning in May 2023."
+    },
+    {
+      "tag": "AAPL-2023-10K-p000058",
+      "chunk_id": "000032019323000106#passage-000058",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "During 2023, the Company repurchased $76.6 billion of its common stock and paid dividends and dividend equivalents of $15.0 billion."
+    },
+    {
+      "tag": "AAPL-2023-10K-p000071",
+      "chunk_id": "000032019323000106#passage-000071",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "Dividends and dividend equivalents declared per share or RSU $ 0.94 $ 0.90 $ 0.85"
+    },
+    {
+      "tag": "AAPL-2023-10K-p000052",
+      "chunk_id": "000032019323000106#passage-000052",
+      "accession": "0000320193-23-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "quote": "Future dividends are subject to declaration by the Company’s Board of Directors, and the Company’s share repurchase program does not obligate it to acquire any specific number of shares."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.67714973299735,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13064,
+        "cache_read_input_tokens": 1415,
+        "output_tokens": 739,
+        "output_tokens_details": {
+          "thinking_tokens": 539
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13064,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 739,
+            "cache_read_input_tokens": 1415,
+            "cache_creation_input_tokens": 13064,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13064
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00299665
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.171019650002563,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16136,
+        "cache_read_input_tokens": 1758,
+        "output_tokens": 716,
+        "output_tokens_details": {
+          "thinking_tokens": 332
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16136,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 716,
+            "cache_read_input_tokens": 1758,
+            "cache_creation_input_tokens": 16136,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16136
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036029800000000004
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.165452698998706,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16541,
+        "cache_read_input_tokens": 1758,
+        "output_tokens": 814,
+        "output_tokens_details": {
+          "thinking_tokens": 386
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16541,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 814,
+            "cache_read_input_tokens": 1758,
+            "cache_creation_input_tokens": 16541,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16541
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0037329800000000003
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 9.699907025998982,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 6963,
+        "output_tokens": 2370,
+        "output_tokens_details": {
+          "thinking_tokens": 1757
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2370,
+            "cache_read_input_tokens": 6963,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00125483
+    }
+  ],
+  "elapsed_seconds": 22.80996400299773
+}

@@ -1,0 +1,23 @@
+{
+  "attempt": "full-run-02",
+  "independent_integrity_passed": true,
+  "verified_cases": 30,
+  "verified_citations": 179,
+  "available_subqueries": 52,
+  "cited_available_subqueries": 51,
+  "outcomes": {
+    "supported": 26,
+    "partial_gap": 1,
+    "abstained": 0,
+    "expected_unavailable": 3
+  },
+  "retrieval_calls": 79,
+  "retries": 19,
+  "model_calls": 136,
+  "median_seconds": 22.07885823650031,
+  "remaining_gap_cases": [
+    "audit07"
+  ],
+  "publication_decision": "hold",
+  "follow_up": "Planner expanded operating lease obligations into an unasked maturity schedule; make user goals explicit and separate from retrieval hints, without lowering the critic threshold."
+}

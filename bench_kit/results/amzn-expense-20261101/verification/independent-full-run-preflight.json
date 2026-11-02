@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "all_model_index_corpus_and_suite_hashes_match_prior_full_run": true,
+  "unchanged_hpe_critic_and_retrieval_reranker_implementation": true,
+  "execution_code_files": 56,
+  "changed_execution_files": [
+    "bench_kit/verify_broad_agent.py",
+    "py/agent/models.py",
+    "py/agent/state_machine.py",
+    "scripts/evaluate-expanded-agent.py"
+  ],
+  "max_retries": 2,
+  "critic_threshold": 4,
+  "subquery_concurrency": 3,
+  "model_concurrency": 2,
+  "note": "Only agent context selection/schema, diagnostic supervisor and stricter offline trace verification changed. Full-run code hashes frozen before first request."
+}

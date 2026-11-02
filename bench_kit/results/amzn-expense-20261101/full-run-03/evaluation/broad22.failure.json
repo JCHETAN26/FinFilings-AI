@@ -1,0 +1,9 @@
+{
+  "id": "broad22",
+  "status": "fail",
+  "phase": "agent_run",
+  "category": "structural",
+  "error_type": "ValueError",
+  "error": "ValueError: critic failed to rewrite a below-threshold query",
+  "traceback": "Traceback (most recent call last):\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/bench_kit/eval_agent.py\", line 148, in run_case\n    result = await agent.run(agent_suite.agent_view(case)['prompt'])\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/state_machine.py\", line 124, in run\n    histories = await asyncio.gather(*tasks)\n  File \"/media/grv22/Extreme SSD2/project/FinFillings AI/py/agent/state_machine.py\", line 106, in _retrieve\n    raise ValueError('critic failed to rewrite a below-threshold query')\nValueError: critic failed to rewrite a below-threshold query\n"
+}

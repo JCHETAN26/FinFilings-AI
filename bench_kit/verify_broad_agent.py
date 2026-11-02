@@ -179,7 +179,14 @@ def audit_case(case, result, markdown_file, sources_by_scope, originals, checks)
         req(0 <= hop['subquery'] < len(subqueries), f'{cid}: hop for nonexistent subquery {hop["subquery"]}')
         hops_by_query[hop['subquery']].append(hop)
     accepted_evidence, unavailable_positions, retrieved_ids = {}, [], set()
+    squash = lambda text: ' '.join(text.split()).casefold()
+    goals = [q.get('goal') for q in subqueries]
+    req(all(g is None for g in goals) or all(isinstance(g, str) and g for g in goals), f'{cid}: goals must be present and non-empty for every subquery or absent (legacy)')
     for position, query in enumerate(subqueries):
+        if isinstance(query.get('goal'), str) and query['goal']:  # user goal: extractive, bounded, constant across every hop
+            req(len(query['goal']) <= 400 and squash(query['goal']) in squash(result.get('prompt', '')), f'{cid}/sq{position}: goal is not a contiguous span of the audit prompt')
+        elif 'goal' in query:
+            req(False, f'{cid}/sq{position}: invalid goal')
         filters = query['filters']
         scope = expected.get((filters['ticker'], filters['year']))
         if scope is None:
@@ -193,10 +200,12 @@ def audit_case(case, result, markdown_file, sources_by_scope, originals, checks)
         if not hops:
             continue
         req(hops[0]['query'] == query['query'], f'{where}: first search differs from the planned query')
-        req(hops[-1]['accepted'] or len(hops) == MAX_RETRIES + 1, f'{where}: stopped before accepting or exhausting retries')
+        req(hops[-1]['accepted'] or len(hops) == MAX_RETRIES + 1 or hops[-1].get('terminal_reason') == 'stalled_rewrite',
+            f'{where}: stopped before accepting, exhausting retries or a valid stalled-rewrite stop')
         previous = {}
         for index, hop in enumerate(hops):
             req(hop['filters'] == filters, f'{where}/h{index}: rewrite changed immutable filters')
+            req(hop.get('requested_goal', '') == query.get('goal', ''), f'{where}/h{index}: graded goal differs from the planned user goal')
             req(not (hop['accepted'] and index < len(hops) - 1), f'{where}/h{index}: retried after acceptance')
             req(1 <= hop['score'] <= 5, f'{where}/h{index}: score {hop["score"]}')
             evidence = hop['evidence']
@@ -208,6 +217,51 @@ def audit_case(case, result, markdown_file, sources_by_scope, originals, checks)
             current = {e['id']: e for e in evidence}
             req(all(c in previous and current.get(c) == previous[c] for c in carried), f'{where}/h{index}: carried evidence not identical to the previous hop')
             req(ids[:len(carried)] == carried, f'{where}/h{index}: carried passages are not first in the merged context')
+            trace_keys = [k for k in ('nominated_retained_ids', 'retrieved_ids', 'fresh_verified_ids') if k in hop]
+            req(len(trace_keys) in (0, 3), f'{where}/h{index}: partial selection trace')
+            if len(trace_keys) == 3:  # Newer runs: independently recompute the context budget (legacy traces lack these keys).
+                nominated, retrieved, fresh = hop['nominated_retained_ids'], hop['retrieved_ids'], hop['fresh_verified_ids']
+                listed = all(isinstance(v, list) and all(isinstance(x, str) for x in v) for v in (nominated, retrieved, fresh))
+                req(listed, f'{where}/h{index}: selection trace must be lists of IDs')
+                if listed:
+                    req(len(retrieved) <= 10 and len(set(retrieved)) == len(retrieved), f'{where}/h{index}: retrieved IDs exceed 10 or repeat')
+                    req(len(fresh) <= MAX_CONTEXT and len(set(fresh)) == len(fresh), f'{where}/h{index}: fresh verified IDs exceed 5 or repeat')
+                    req(len(nominated) <= MAX_CARRIED and len(set(nominated)) == len(nominated), f'{where}/h{index}: nominees exceed 2 or repeat')
+                    req(fresh == [r for r in retrieved if r in set(fresh)], f'{where}/h{index}: fresh verified IDs are not an ordered subset of retrieved IDs')
+                    req(nominated == [i for i in previous if i in set(nominated)] and set(nominated) <= set(previous),
+                        f'{where}/h{index}: nominees are not previous-context passages in context order')
+                    # Independent recomputation: top-4 fresh reserved; nominees (in order) take the remaining slots.
+                    reserved = fresh[:4]
+                    free = MAX_CONTEXT - len(reserved)
+                    expected_carried = []
+                    for nominee in nominated:
+                        if nominee in reserved:
+                            expected_carried.append(nominee)
+                        elif free > 0:
+                            expected_carried.append(nominee)
+                            free -= 1
+                    req(carried == expected_carried, f'{where}/h{index}: carried {carried} differs from the budget result {expected_carried}')
+                    expected_context = (expected_carried + [f for f in fresh if f not in expected_carried])[:MAX_CONTEXT]
+                    req(ids == expected_context, f'{where}/h{index}: context differs from carried-then-fresh budget')
+            rewrite_keys = [k for k in ('proposed_rewrite', 'terminal_reason') if k in hop]
+            req(len(rewrite_keys) in (0, 2), f'{where}/h{index}: partial rewrite trace')
+            if len(rewrite_keys) == 2:  # Newer runs; legacy hops lack both keys and keep the original exhaustion contract.
+                proposed, terminal = hop['proposed_rewrite'], hop['terminal_reason']
+                req(isinstance(proposed, str) and len(proposed) <= 1000 and terminal in (None, 'stalled_rewrite'), f'{where}/h{index}: malformed rewrite trace')
+                if isinstance(proposed, str) and terminal in (None, 'stalled_rewrite'):
+                    same = proposed.strip().casefold() == hop['query'].strip().casefold()
+                    last_hop = index == len(hops) - 1
+                    if hop['accepted']:
+                        req(proposed == '' and terminal is None, f'{where}/h{index}: accepted hop carries a rewrite or terminal reason')
+                    else:
+                        req(len(proposed.strip()) >= 4, f'{where}/h{index}: non-accepted hop did not record the critic rewrite')
+                        if index < MAX_RETRIES and same:  # an unchanged rewrite can only be a marked empty-evidence stall
+                            req(terminal == 'stalled_rewrite', f'{where}/h{index}: unchanged rewrite not marked as a stalled stop')
+                        if not last_hop:
+                            req(hops[index + 1]['query'] == proposed, f'{where}/h{index}: next query is not the recorded critic rewrite')
+                    if terminal == 'stalled_rewrite':
+                        req(last_hop and index < MAX_RETRIES and not hop['accepted'] and hop['score'] == 1 and not evidence and same,
+                            f'{where}/h{index}: invalid stalled-rewrite stop (needs final hop before the limit, score 1, no evidence, unchanged normalized rewrite)')
             if index + 1 < len(hops):
                 req(hops[index + 1]['query'].strip().casefold() != hop['query'].strip().casefold(), f'{where}/h{index}: critic did not rewrite')
             for item in evidence:
@@ -222,8 +276,9 @@ def audit_case(case, result, markdown_file, sources_by_scope, originals, checks)
         if not scope['available']:
             unavailable_positions.append(position)
             req(all(h['score'] == 1 and not h['accepted'] and not h['evidence'] for h in hops), f'{where}: unavailable scope produced evidence/acceptance')
-            req(len(hops) == MAX_RETRIES + 1, f'{where}: unavailable scope did not exhaust {MAX_RETRIES} retries')
-            req(len({h['query'] for h in hops}) >= 2, f'{where}: unavailable scope never rewrote its query')
+            stalled_stop = hops[-1].get('terminal_reason') == 'stalled_rewrite'  # validity of the marker is checked per hop above
+            req(len(hops) == MAX_RETRIES + 1 or stalled_stop, f'{where}: unavailable scope neither exhausted {MAX_RETRIES} retries nor stopped on a valid stalled rewrite')
+            req(stalled_stop or len({h['query'] for h in hops}) >= 2, f'{where}: unavailable scope never rewrote its query')
     available_accessions = {e['accession'] for e in expected.values() if e['available']}
     requested_accessions = {e['accession'] for e in expected.values() if e['accession']}
     # Citations
@@ -258,6 +313,8 @@ def audit_case(case, result, markdown_file, sources_by_scope, originals, checks)
             continue
         gap = f'Subquery {position} has no evidence meeting threshold after {len(hops) - 1} retries.'
         req((gap in result['flags']) == (not last['accepted']), f'{cid}/sq{position}: evidence-gap flag inconsistent with outcome')
+        stop = f'Subquery {position} stopped early: no verified evidence and the critic proposed no new query (stalled rewrite).'
+        req((stop in result['flags']) == (last.get('terminal_reason') == 'stalled_rewrite'), f'{cid}/sq{position}: stop-reason flag inconsistent with the trace')
         silent = f'Subquery {position} has retrieved evidence but no published supporting quote.'
         req((silent in result['flags']) == (last['accepted'] and not cited), f'{cid}/sq{position}: unquoted-evidence flag inconsistent')
     if not accepted_evidence:
@@ -268,9 +325,13 @@ def audit_case(case, result, markdown_file, sources_by_scope, originals, checks)
     if len(unavailable_positions) == len(subqueries):
         req(not citations, f'{cid}: all scopes unavailable but citations were published')
     counts = collections.Counter(call['schema'] for call in result['model_calls'])
-    plan_calls = counts.get('Plan', 0)
-    req(plan_calls == 1 and counts.get('Critique', 0) == len(result['hops']) and counts.get('Draft', 0) == (1 if accepted_evidence else 0)
-        and sum(counts.values()) == len(result['model_calls']), f'{cid}: model-call ledger {dict(counts)} inconsistent with trace')
+    synthesis = counts.get('Draft', 0) + counts.get('HandleDraft', 0)
+    allowed = {'Plan', 'Critique', 'Draft', 'HandleDraft'}
+    req(set(counts) <= allowed, f'{cid}: unknown model-call schemas {sorted(set(counts) - allowed)}')
+    req(counts.get('Plan', 0) == 1 and counts.get('Critique', 0) == len(result['hops'])
+        and synthesis == (1 if accepted_evidence else 0) and not (counts.get('Draft', 0) and counts.get('HandleDraft', 0))
+        and len(result['model_calls']) == 1 + len(result['hops']) + synthesis,
+        f'{cid}: model-call ledger {dict(counts)} inconsistent with trace')
     req(all(call['models'] for call in result['model_calls']), f'{cid}: model call without a recorded model id')
     req(markdown_file is not None and markdown_file.rstrip() == result['markdown'].rstrip(), f'{cid}: saved markdown differs from result JSON')
     available_positions = [p for p in range(len(subqueries)) if p not in unavailable_positions]

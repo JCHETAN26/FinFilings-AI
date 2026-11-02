@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-11-02T03:03:35.240111+00:00",
+  "attempt": "full-run-02",
+  "reason_for_new_attempt": "Full-run-01 exposed a distinct source-ID copying defect after the AMZN context fix passed. Exact short-reference binding now keeps canonical IDs outside model output.",
+  "prior_failed_attempt_preserved": "full-run-01",
+  "gates_unchanged": true,
+  "required_fully_cited_cases": [
+    "audit04",
+    "broad20",
+    "broad25"
+  ],
+  "remaining_acceptance": "All 30 same frozen cases verified, no available-topic gaps, unavailable scopes withheld, mixed sides correct, bounded execution and exact citations.",
+  "source_sha256": {
+    "py/agent/models.py": "812bece80e4420911458415b28cbf05e6cb638bedceb7f8c0e6c2b5fc224259e",
+    "py/agent/state_machine.py": "67cb3e57a9f8b97fd1eb7d6a6366b8e060310f7ff4fe7ca6cf354596ffc7f0c8",
+    "py/agent/synthesizer.py": "62f2945fabd9e125999c74b3037c4a22813dac54d49b83d64fc6e779cc232f08",
+    "bench_kit/verify_broad_agent.py": "f392e2231b3da86e4f08472cfcfff013f5aacf73377d3a86d9715657c1fc80a1",
+    "scripts/evaluate-expanded-agent.py": "88daf6b3b8fefb503600fd50cc708f6e88f0536df9c5b83980b4f17ad4dfa1ae"
+  }
+}

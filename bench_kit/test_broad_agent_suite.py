@@ -413,7 +413,7 @@ class VerifierContracts(unittest.TestCase):
         amzn = next(i for i, q in enumerate(result['plan']['subqueries']) if q['filters']['ticker'] == 'AMZN')
         result['hops'] = [h for h in result['hops'] if not (h['subquery'] == amzn and h['attempt'] == 2)]
         self.save('broad30', result)
-        self.assertDetected('broad30', 'stopped before accepting or exhausting retries')
+        self.assertDetected('broad30', 'stopped before accepting, exhausting retries or a valid stalled-rewrite stop')
         result = self.load('broad30')
         result['flags'] = []
         self.save('broad30', result)
@@ -450,6 +450,217 @@ class VerifierContracts(unittest.TestCase):
         next(h for h in result['hops'] if h['attempt'] == 0)['retained_evidence_ids'] = ['x#y']
         self.save('broad11', result)
         self.assertDetected('broad11', 'carried evidence not identical')
+
+    def traced(self, case_id='broad11'):
+        """Fixture result with a self-consistent selection trace added to every hop."""
+        result = self.fixture.result(self.suite['cases'][10])
+        for hop in result['hops']:
+            carried = hop['retained_evidence_ids']
+            hop['nominated_retained_ids'] = list(carried)
+            hop['fresh_verified_ids'] = [e['id'] for e in hop['evidence'] if e['id'] not in carried]
+            hop['retrieved_ids'] = list(hop['fresh_verified_ids'])
+        return result
+
+    def test_selection_trace_valid_and_legacy_traces_verify(self):
+        result = self.traced()
+        self.save('broad11', result)
+        self.assertEqual(self.problems(self.verify(), 'broad11'), [])
+        legacy = self.fixture.result(self.suite['cases'][10])  # no trace keys at all
+        self.save('broad11', legacy)
+        self.assertEqual(self.problems(self.verify(), 'broad11'), [])
+
+    def test_selection_trace_mutations_are_detected(self):
+        retry = lambda r: next(h for h in r['hops'] if h['attempt'] == 1 and h['retained_evidence_ids'])
+        def mutate(change, fragment):
+            result = self.traced()
+            change(result, retry(result))
+            self.save('broad11', result)
+            self.assertDetected('broad11', fragment)
+        mutate(lambda r, h: h.update(nominated_retained_ids=h['nominated_retained_ids'] + ['a#b', 'c#d']), 'nominees exceed 2')
+        mutate(lambda r, h: h.update(nominated_retained_ids=h['nominated_retained_ids'] * 2), 'nominees exceed 2 or repeat')
+        mutate(lambda r, h: h.update(fresh_verified_ids=h['fresh_verified_ids'] * 3, retrieved_ids=h['retrieved_ids'] * 3), 'fresh verified IDs exceed 5 or repeat')
+        mutate(lambda r, h: h.update(retrieved_ids=[f'0#passage-{i:06}' for i in range(11)] ), 'retrieved IDs exceed 10')
+        mutate(lambda r, h: h.update(retrieved_ids=h['retrieved_ids'] + ['0#passage-000099'], fresh_verified_ids=['0#passage-000099'] + h['fresh_verified_ids']), 'ordered subset')
+        mutate(lambda r, h: h.update(fresh_verified_ids='not-a-list'), 'lists of IDs')
+        mutate(lambda r, h: h.pop('retrieved_ids'), 'partial selection trace')
+        # Wrong carried choice: a nominee silently dropped although a slot was free.
+        mutate(lambda r, h: h.update(retained_evidence_ids=[]), 'differs from the budget result')
+        # Nominee that was not in the previous context.
+        mutate(lambda r, h: h.update(nominated_retained_ids=['000000000000000000#passage-000001']), 'nominees are not previous-context')
+
+    def test_displaced_rank_four_is_detected(self):
+        result = self.traced()
+        hop = next(h for h in result['hops'] if h['attempt'] == 1 and h['retained_evidence_ids'])
+        first = self.fixture.passages  # noqa: F841  (keep fixture alive)
+        # Claim four fresh hits but publish a context that dropped the fourth.
+        fresh = [e['id'] for e in hop['evidence'] if e['id'] not in hop['retained_evidence_ids']]
+        hop['fresh_verified_ids'] = fresh + ['0' * 18 + '#passage-000077', '0' * 18 + '#passage-000078'][:max(0, 4 - len(fresh))]
+        hop['retrieved_ids'] = list(hop['fresh_verified_ids'])
+        self.save('broad11', result)
+        self.assertDetected('broad11', 'differs from carried-then-fresh budget')
+
+    def test_model_call_ledger_allowlist_and_exact_counts(self):
+        call = lambda name: dict(schema=name, models=['fixture-model'])
+        def with_calls(edit):
+            result = self.fixture.result(self.suite['cases'][10])
+            edit(result['model_calls'])
+            self.save('broad11', result)
+        def synthesis_index(calls):
+            return next(i for i, c in enumerate(calls) if c['schema'] == 'Draft')
+        # Legacy Draft ledger (the unmodified fixture) and a HandleDraft ledger both verify.
+        with_calls(lambda c: None)
+        self.assertEqual(self.problems(self.verify(), 'broad11'), [])
+        with_calls(lambda c: c[synthesis_index(c)].update(schema='HandleDraft'))
+        self.assertEqual(self.problems(self.verify(), 'broad11'), [])
+        for fragment, edit in [
+                ('unknown model-call schemas', lambda c: c.append(call('Browse'))),
+                ('inconsistent with trace', lambda c: c.append(call('Draft'))),  # double synthesis
+                ('inconsistent with trace', lambda c: c.append(call('HandleDraft'))),  # both kinds
+                ('inconsistent with trace', lambda c: c.__setitem__(slice(None), [x for x in c if x['schema'] != 'Draft'])),  # missing
+                ('inconsistent with trace', lambda c: c.append(call('Plan'))),
+                ('inconsistent with trace', lambda c: c.append(call('Critique'))),
+                ('unknown model-call schemas', lambda c: c[synthesis_index(c)].update(schema='Handle_Draft'))]:
+            with self.subTest(fragment=fragment):
+                with_calls(edit)
+                self.assertDetected('broad11', fragment)
+
+    def goal_result(self):
+        """Fixture result carrying extractive goals (spans of the frozen prompt) in the plan and on every hop."""
+        result = self.fixture.result(self.suite['cases'][10])
+        prompt = result['prompt']
+        for position, query in enumerate(result['plan']['subqueries']):
+            query['goal'] = ' '.join(prompt.split())[10 * position:10 * position + 50]
+        for hop in result['hops']:
+            hop['requested_goal'] = result['plan']['subqueries'][hop['subquery']]['goal']
+        return result
+
+    def test_goal_trace_valid_legacy_and_mutations(self):
+        self.save('broad11', self.goal_result())
+        self.assertEqual(self.problems(self.verify(), 'broad11'), [])
+        self.save('broad11', self.fixture.result(self.suite['cases'][10]))  # legacy: no goal anywhere
+        self.assertEqual(self.problems(self.verify(), 'broad11'), [])
+
+        def mutate(change, fragment):
+            result = self.goal_result()
+            change(result)
+            self.save('broad11', result)
+            self.assertDetected('broad11', fragment)
+        mutate(lambda r: r['plan']['subqueries'][0].update(goal='an invented requirement not in the prompt'), 'contiguous span')
+        mutate(lambda r: r['plan']['subqueries'][0].update(goal='x' * 401), 'contiguous span')
+        mutate(lambda r: r['plan']['subqueries'][0].update(goal=''), 'goals must be present')
+        mutate(lambda r: r['plan']['subqueries'][1].pop('goal'), 'goals must be present')
+        mutate(lambda r: r['plan']['subqueries'][0].update(goal=7), 'goals must be present')
+        mutate(lambda r: r['hops'][0].update(requested_goal='different but still prompt text'), 'graded goal differs')
+        mutate(lambda r: r['hops'][-1].pop('requested_goal'), 'graded goal differs')
+        def legacy_plan_with_hop_goal(r):
+            for q in r['plan']['subqueries']:
+                q.pop('goal')
+        mutate(legacy_plan_with_hop_goal, 'graded goal differs')
+
+    STOP = 'Subquery {} stopped early: no verified evidence and the critic proposed no new query (stalled rewrite).'
+
+    def case_of(self, case_id):
+        return next(c for c in self.suite['cases'] if c['id'] == case_id)
+
+    def with_rewrite_keys(self, result):
+        """Exhausted/accepted fixture trace upgraded with a self-consistent rewrite trace (proposed_rewrite == next query)."""
+        by_query = {}
+        for hop in result['hops']:
+            by_query.setdefault(hop['subquery'], []).append(hop)
+        for hops in by_query.values():
+            for index, hop in enumerate(hops):
+                hop['proposed_rewrite'] = '' if hop['accepted'] else (hops[index + 1]['query'] if index + 1 < len(hops) else 'final unused rewrite')
+                hop['terminal_reason'] = None
+        return result
+
+    def stalled_result(self, case_id='broad27', attempts=1):
+        """Unavailable-scope trace in which every subquery stops after `attempts` hops on a marked unchanged rewrite."""
+        result = self.with_rewrite_keys(self.fixture.result(self.case_of(case_id)))
+        positions = sorted({h['subquery'] for h in result['hops']})
+        keep, flags = [], []
+        for position in positions:
+            hops = [h for h in result['hops'] if h['subquery'] == position][:attempts]
+            hops[-1].update(proposed_rewrite=hops[-1]['query'].upper(), terminal_reason='stalled_rewrite')
+            for index, hop in enumerate(hops[:-1]):
+                hop['proposed_rewrite'] = hops[index + 1]['query']
+            keep += hops
+            flags += [f'Subquery {position} has no evidence meeting threshold after {attempts - 1} retries.', self.STOP.format(position)]
+        flags.append('No verified answer; evidence unavailable or below threshold.')
+        result['hops'] = keep
+        result['flags'] = flags
+        result['model_calls'] = [dict(schema='Plan', models=['fixture-model'])] + [dict(schema='Critique', models=['fixture-model'])] * len(keep)
+        result['markdown'] = CANNED + '\n\nEvidence gaps:\n' + '\n'.join('- ' + verifier.escape_markdown(f) for f in flags)
+        return result
+
+    def test_valid_stalled_stop_and_legacy_traces_verify(self):
+        for attempts in (1, 2):
+            self.save('broad27', self.stalled_result(attempts=attempts))
+            self.refresh_ledgers()
+            self.assertEqual(self.problems(self.verify(), 'broad27'), [], attempts)
+        self.save('broad27', self.with_rewrite_keys(self.fixture.result(self.case_of('broad27'))))  # exhausted, new keys
+        self.refresh_ledgers()
+        self.assertEqual(self.problems(self.verify(), 'broad27'), [])
+        self.save('broad27', self.fixture.result(self.case_of('broad27')))  # legacy: 3 hops, no keys
+        self.refresh_ledgers()
+        self.assertEqual(self.problems(self.verify(), 'broad27'), [])
+
+    def test_invalid_stalled_stops_and_rewrite_trace_mutations_are_rejected(self):
+        def stalled(change, fragment, attempts=1):
+            result = self.stalled_result(attempts=attempts)
+            change(result)
+            self.save('broad27', result)
+            self.assertDetected('broad27', fragment)
+        def exhausted(change, fragment):
+            result = self.with_rewrite_keys(self.fixture.result(self.case_of('broad27')))
+            change(result)
+            self.save('broad27', result)
+            self.assertDetected('broad27', fragment)
+        first = lambda r: next(h for h in r['hops'] if h['terminal_reason'])
+        invalid = 'invalid stalled-rewrite stop'
+        stalled(lambda r: first(r).update(score=2), invalid)  # score must be 1
+        stalled(lambda r: first(r).update(proposed_rewrite='a genuinely different query'), invalid)  # changed rewrite is not a stall
+        stalled(lambda r: first(r).update(accepted=True), invalid)  # accepted cannot stall
+        stalled(lambda r: first(r).update(evidence=[dict(id='x', text='t')]), invalid)  # evidence cannot stall
+        stalled(lambda r: first(r).update(terminal_reason=None), 'not marked as a stalled stop')  # silent early stop
+        stalled(lambda r: r['flags'].remove(self.STOP.format(0)), 'stop-reason flag inconsistent')
+        stalled(lambda r: first(r).pop('terminal_reason'), 'partial rewrite trace')
+        stalled(lambda r: first(r).update(terminal_reason='gave_up'), 'malformed rewrite trace')
+        stalled(lambda r: first(r).update(proposed_rewrite='x'), 'did not record the critic rewrite')
+        # Terminal on a non-final hop / on the final attempt of an exhausted run.
+        exhausted(lambda r: r['hops'][0].update(terminal_reason='stalled_rewrite', proposed_rewrite=r['hops'][0]['query']), invalid)
+        exhausted(lambda r: r['hops'][2].update(terminal_reason='stalled_rewrite', proposed_rewrite=r['hops'][2]['query']), invalid)
+        exhausted(lambda r: r['hops'][1].update(proposed_rewrite='not what the next hop ran'), 'next query is not the recorded critic rewrite')
+        # Unchanged rewrite that was not marked, followed by a different query.
+        exhausted(lambda r: r['hops'][0].update(proposed_rewrite=r['hops'][0]['query']), 'unchanged rewrite not marked')
+        # Arbitrary early stop in a legacy (key-less) trace is still rejected.
+        result = self.fixture.result(self.case_of('broad27'))
+        result['hops'] = [h for h in result['hops'] if h['attempt'] == 0]
+        self.save('broad27', result)
+        self.assertDetected('broad27', 'stopped before accepting, exhausting retries or a valid stalled-rewrite stop')
+
+    def test_accepted_hop_cannot_carry_a_rewrite_or_terminal_reason(self):
+        result = self.with_rewrite_keys(self.fixture.result(self.case_of('broad11')))
+        accepted = next(h for h in result['hops'] if h['accepted'])
+        accepted['proposed_rewrite'] = 'leftover rewrite'
+        self.save('broad11', result)
+        self.assertDetected('broad11', 'accepted hop carries a rewrite')
+
+    def test_stalled_available_scope_is_a_quality_hold_not_a_pass(self):
+        result = self.with_rewrite_keys(self.fixture.result(self.case_of('broad11')))
+        for position in sorted({h['subquery'] for h in result['hops']}):
+            hops = [h for h in result['hops'] if h['subquery'] == position]
+            if position == 0:  # an AVAILABLE scope that stalls on empty evidence stays an honest, flagged gap
+                for hop in hops[1:]:
+                    result['hops'].remove(hop)
+                hops[0].update(score=1, accepted=False, evidence=[], retained_evidence_ids=[], proposed_rewrite=hops[0]['query'], terminal_reason='stalled_rewrite')
+        result['citations'] = [c for c in result['citations'] if False]
+        result['flags'] = [f for f in result['flags'] if not f.startswith('Subquery 0')] + [
+            'Subquery 0 has no evidence meeting threshold after 0 retries.', self.STOP.format(0)]
+        self.save('broad11', result)
+        summary = self.verify()
+        entry = next(r for r in summary['cases'] if r['id'] == 'broad11')
+        self.assertFalse(summary['passed'])  # never counted as supported/complete coverage
+        self.assertFalse(entry.get('complete_coverage', False))
 
     def test_bounds_and_state_order_are_enforced(self):
         result = self.load('audit05')
@@ -709,7 +920,8 @@ class EvaluatorContracts(unittest.TestCase):
                 self.seen = getattr(self, 'seen', []) + [json.dumps(payload)]
                 if schema is Plan:
                     filters = FilingFilter(ticker='TGT', year=2026)
-                    return Plan(subqueries=[SubQuery(query='inventory shrink estimate', filters=filters), SubQuery(query='capital expenditures', filters=filters)])
+                    span = ' '.join(payload['prompt'].split())[:40]  # planner must now supply a prompt-span goal
+                    return Plan(subqueries=[SubQuery(query='inventory shrink estimate', goal=span, filters=filters), SubQuery(query='capital expenditures', goal=span, filters=filters)])
                 raise AssertionError('unexpected call')
 
         async def scenario():

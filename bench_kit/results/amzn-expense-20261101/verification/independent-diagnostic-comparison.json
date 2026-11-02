@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "sequential_queries": 5,
+  "before_contexts_exactly_match_saved_failures_and_baseline": true,
+  "all_recorded_rankings_and_scores_unchanged": true,
+  "failed_rewrite_rerank_position": 4,
+  "table_in_context_before": false,
+  "table_in_context_after": true,
+  "after_context_ids": [
+    "000101872424000008#passage-000086",
+    "000101872424000008#passage-000067",
+    "000101872424000008#passage-000150",
+    "000101872424000008#passage-000097",
+    "000101872424000008#passage-000064"
+  ],
+  "actually_carried_ids": [
+    "000101872424000008#passage-000086"
+  ],
+  "dropped_nominees": [
+    "000101872424000008#passage-000069"
+  ],
+  "no_extra_model_calls_or_retrieval_requests_in_selection": true,
+  "diagnostic_services_stopped": true
+}

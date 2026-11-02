@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "all30_report_rows_match_raw_counts_times_and_scope_reasons": true,
+  "local_report_links_checked": 72,
+  "sealed_raw_run_files_unchanged": true,
+  "all56_execution_code_hashes_still_match": true,
+  "no_new_commit_or_staged_changes": true,
+  "publication_decision": "hold"
+}

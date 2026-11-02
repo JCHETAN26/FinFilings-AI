@@ -1,0 +1,10 @@
+Verified filing excerpts (extractive audit evidence; no derived calculations):
+
+- Under the Capital Framework, the firm is an “Advanced approaches” banking organization and has been designated as a global systemically important bank \(G-SIB\). The Capital Framework includes the minimum risk-based capital and the capital conservation buffer requirements. [GS-2026-10K-item8-p000177](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000177`; accession: `0000886982-26-000091`).
+- The firm calculates its CET1 capital, Tier 1 capital and Total capital ratios in accordance with both the Standardized and Advanced Capital Rules. Each of the ratios calculated under the Standardized and Advanced Capital Rules must meet its respective capital requirements. [GS-2026-10K-item8-p000178](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000178`; accession: `0000886982-26-000091`).
+- Total risk-based capital requirements CET1 capital ratio10.9%13.7%10.0%10.0% Tier 1 capital ratio12.4%15.2%11.5%11.5% Total capital ratio14.4%17.2%13.5%13.5% [GS-2026-10K-item8-p000178](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000178`; accession: `0000886982-26-000091`).
+- The lower of each risk-based capital ratio under the Standardized and Advanced Capital Rules is the ratio against which GS Bank USA’s compliance with its risk-based capital requirements is assessed. [GS-2026-10K-item8-p000182](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000182`; accession: `0000886982-26-000091`).
+- Leverage requirements Tier 1 leverage ratio4.0%4.0%5.0%5.0% SLR3.0%3.0%6.0%6.0% [GS-2026-10K-item8-p000182](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000182`; accession: `0000886982-26-000091`).
+
+Evidence gaps:
+- Subquery 1 has no evidence meeting threshold after 2 retries.

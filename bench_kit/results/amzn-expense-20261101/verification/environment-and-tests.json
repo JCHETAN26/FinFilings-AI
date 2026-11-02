@@ -1,0 +1,19 @@
+{
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "python": "3.10.12",
+  "cpu_model": "AMD Ryzen 7 5800H with Radeon Graphics",
+  "logical_cpus": 16,
+  "physical_cores": 8,
+  "inference_device": "CPU",
+  "application_tests": {
+    "count": 72,
+    "passed": true,
+    "log": "python-tests-goals.log"
+  },
+  "benchmark_contract_tests": {
+    "count": 160,
+    "passed": true,
+    "log": "benchmark-tests-goals.log"
+  },
+  "note": "Contract-test log includes deliberate negative fixture output; unittest exit 0 and Ran 160 tests / OK are the suite result."
+}

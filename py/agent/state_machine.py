@@ -19,21 +19,51 @@ class SearchBackend(Protocol):
     async def search(self, query: str, filters: FilingFilter) -> list[dict[str, Any]]: ...
 
 
-def merge_evidence(retained: list[Evidence], fresh: list[Evidence]) -> list[Evidence]:
-    """Carry at most two source-verified partial passages into a five-item context."""
-    if len(retained) > 2 or len(fresh) > 5:
+FRESH_RESERVED = 4  # Fresh top-ranked verified hits that stale carry may never displace.
+CONTEXT_LIMIT = 5
+STALL_FLAG = 'Subquery {} stopped early: no verified evidence and the critic proposed no new query (stalled rewrite).'
+MAX_BACKEND_HITS = 10  # Protocol-level bound, independent of HybridClient.
+
+
+def select_context(retained: list[Evidence], fresh: list[Evidence]) -> tuple[list[Evidence], list[Evidence]]:
+    """Bounded context budget: returns (context, actually carried retained passages).
+
+    The best FRESH_RESERVED verified fresh hits are always kept, so earlier carry can no longer push a
+    newly relevant top-ranked hit out of a five-slot context. Retained passages (<=2, critic order) then
+    use the remaining slots, in the order given (Agent passes nominees in CONTEXT order, not the critic's retain_ids order); one already inside the reserved fresh set costs no slot. Remaining slots are
+    filled with further fresh hits in rank order. Carried passages are presented first (existing verifier
+    prefix contract); a nominee that finds no slot is dropped and not reported as carried. Purely
+    in-memory over already verified items: no lookups, no model calls.
+    """
+    if len(retained) > 2 or len(fresh) > CONTEXT_LIMIT:
         raise ValueError('evidence context exceeds retention/retrieval bounds')
-    result = list(retained)
-    seen = {item.id for item in retained}
-    if len(seen) != len(retained):
+    if len({i.id for i in retained}) != len(retained):
         raise ValueError('duplicate retained evidence')
+    if len({i.id for i in fresh}) != len(fresh):
+        raise ValueError('duplicate fresh evidence')
+    reserved = {i.id for i in fresh[:FRESH_RESERVED]}
+    slots = CONTEXT_LIMIT - len(reserved)
+    carried = []
+    for item in retained:
+        if item.id in reserved:
+            carried.append(item)
+        elif slots > 0:
+            carried.append(item)
+            slots -= 1
+    context = list(carried)
+    present = {i.id for i in context}
     for item in fresh:
-        if item.id not in seen:
-            result.append(item)
-            seen.add(item.id)
-            if len(result) == 5:
-                break
-    return result
+        if len(context) == CONTEXT_LIMIT:
+            break
+        if item.id not in present:
+            context.append(item)
+            present.add(item.id)
+    return context, carried
+
+
+def merge_evidence(retained: list[Evidence], fresh: list[Evidence]) -> list[Evidence]:
+    """Context only; see select_context for the budget and for which retained passages were carried."""
+    return select_context(retained, fresh)[0]
 
 
 class Agent:
@@ -53,6 +83,8 @@ class Agent:
             start = time.perf_counter()
             async with self.slots:
                 raw = await self.backend.search(query, subquery.filters)
+                if not isinstance(raw, list) or len(raw) > MAX_BACKEND_HITS:
+                    raise ValueError(f'backend returned more than {MAX_BACKEND_HITS} hits; refusing before verification or model calls')
                 evidence = []
                 # Only the best five VERIFIED passages go into the model context.
                 for hit in raw:
@@ -61,17 +93,23 @@ class Agent:
                         evidence.append(item)
                         if len(evidence) == 5:
                             break
-                evidence = merge_evidence(retained, evidence)
+                fresh_ids = [item.id for item in evidence]
+                evidence, carried = select_context(retained, evidence)
                 verdict = await critique(self.model, subquery, query, evidence, audit_prompt, self.registry.catalog())
             accepted = bool(evidence) and verdict.score >= self.threshold
-            history.append(Hop(subquery=position, attempt=attempt, query=query, filters=subquery.filters,
+            unchanged = verdict.rewritten_query.strip().casefold() == query.strip().casefold()
+            # Fail-closed early stop, narrowly: no verified evidence at all, not the final attempt, critic proposed no new query.
+            stalled = (not accepted and not evidence and attempt < self.max_retries and unchanged)
+            history.append(Hop(subquery=position, attempt=attempt, query=query, requested_goal=subquery.goal, filters=subquery.filters,
                 score=verdict.score, rationale=verdict.rationale, evidence=evidence,
-                accepted=accepted, retained_evidence_ids=[item.id for item in retained], elapsed_seconds=time.perf_counter()-start))
-            if accepted:
+                accepted=accepted, retained_evidence_ids=[item.id for item in carried], nominated_retained_ids=[item.id for item in retained],
+                proposed_rewrite='' if accepted else verdict.rewritten_query, terminal_reason='stalled_rewrite' if stalled else None,
+                retrieved_ids=[hit['id'] for hit in raw], fresh_verified_ids=fresh_ids, elapsed_seconds=time.perf_counter()-start))
+            if accepted or stalled:
                 break
-            if attempt < self.max_retries and verdict.rewritten_query.strip().casefold() == query.strip().casefold():
-                raise ValueError('critic failed to rewrite a below-threshold query')
-            retained = [item for item in evidence if item.id in verdict.retain_ids]
+            if attempt < self.max_retries and unchanged:
+                raise ValueError('critic failed to rewrite a below-threshold query')  # evidence exists: genuine critic malfunction
+            retained = [item for item in evidence if item.id in verdict.retain_ids]  # nominees: <=2, context order
             query = verdict.rewritten_query
         return history
 
@@ -100,6 +138,8 @@ class Agent:
             for i, history in enumerate(histories):
                 if not history[-1].accepted:
                     flags.append(f'Subquery {i} has no evidence meeting threshold after {len(history)-1} retries.')
+                    if history[-1].terminal_reason == 'stalled_rewrite':
+                        flags.append(STALL_FLAG.format(i))
                 else:
                     for item in history[-1].evidence:
                         selected[item.id] = item

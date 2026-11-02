@@ -1,0 +1,979 @@
+{
+  "prompt": "Compare V filing year 2024 and V filing year 2025, with the exact SectionItem filter \"Item 1A\": retrieve the disclosed risks from regulation of interchange rates in each filing year. Retrieve evidence separately for each filing year.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "regulation of interchange rates risk factors",
+        "goal": "retrieve the disclosed risks from regulation of interchange rates",
+        "filters": {
+          "ticker": "V",
+          "year": 2024,
+          "section": "Item 1A",
+          "accession": "000140316124000058"
+        }
+      },
+      {
+        "query": "regulation of interchange rates risk factors",
+        "goal": "retrieve the disclosed risks from regulation of interchange rates",
+        "filters": {
+          "ticker": "V",
+          "year": 2025,
+          "section": "Item 1A",
+          "accession": "000140316125000089"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "regulation of interchange rates risk factors",
+      "requested_goal": "retrieve the disclosed risks from regulation of interchange rates",
+      "filters": {
+        "ticker": "V",
+        "year": 2024,
+        "section": "Item 1A",
+        "accession": "000140316124000058"
+      },
+      "score": 3,
+      "rationale": "The 2024 V filing (accession 000140316124000058) evidence directly covers the requested topic. Passages 000002 to 000005 describe interchange regulation risks: the Federal Reserve debit cap, Dodd-Frank routing limits, the EU IFR caps, Latin American and APAC interchange caps, cross-border interchange and the UK PSR review, and state-level laws such as Illinois. The audit prompt also requires evidence separately for filing year 2025, and no passage comes from the 2025 filing (accession 000140316125000089). That required element is absent, so the score is capped at 3. Passages 000002 and 000003 are the most useful and are retained.",
+      "evidence": [
+        {
+          "id": "000140316124000058#item1A#passage-000000",
+          "text": "ITEM 1A. Risk Factors Regulatory Risks We are subject to complex and evolving global regulations that could harm our business and financial results. As a global payments technology company, we are subject to complex and evolving regulations that govern our operations. See Item 1—Government Regulation for more information on the most significant areas of regulation that affect our business. The impact of these regulations on us, our clients, and other third parties could limit our ability to enforce our payments system rules; require us to adopt new rules or change existing rules; affect our existing contractual arrangements; increase our compliance costs; and require us to make our technology or intellectual property available to third parties, including competitors, in an undesirable manner. As discussed in more detail below, we may face differing rules and regulations in matters like interchange reimbursement rates, preferred routing, domestic processing and localization requirements, currency conversion, point-of-sale transaction rules and practices, privacy, data use and protection, licensing requirements, and associated product technology. As a result, the Visa operating rules and our other contractual commitments may differ from country to country, state to state, or by products. Complying with these and other regulations increases our costs and operational complexity, and reduces our revenue opportunities. If widely varying regulations come into existence worldwide, we may have difficulty rapidly adjusting our products, services, fees and other important aspects of our business to comply with the regulations. Our compliance programs and policies are designed to support our compliance with a wide array of regulations and laws, such",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000000",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000000"
+        },
+        {
+          "id": "000140316124000058#item1A#passage-000004",
+          "text": "within their territories. The European Commission has announced its intention to conduct another impact assessment of the IFR, which could result in even lower caps on interchange rates and the expansion of regulation to other types of products, services and fees. •Several countries in Latin America continue to explore regulatory measures against payments networks and have either adopted or are exploring interchange caps, including Argentina, Brazil, Chile and Costa Rica. In Asia Pacific, the Reserve Bank of Australia (RBA) which already regulates interchange, continues to monitor issues related to the cost of acceptance, the potential merits of mandating merchant choice routing on dual network debit cards and competition in digital wallet payments. In 2022, the New Zealand Parliament passed legislation capping domestic interchange rates for debit and credit products, and the government remains focused on lowering costs of digital payments to businesses and consumers. Interchange is also regulated in certain countries in the Central and Eastern Europe, Middle East and Africa region, including the United Arab Emirates. Finally, many governments, including but not limited to governments in India, Costa Rica, and Turkey, are using regulation to further drive down MDR, which could negatively affect the economics of our transactions. •While the focus of interchange and MDR regulation has primarily been on domestic rates historically, there are several examples of increasing focus on cross-border rates in recent years. For example, in 2019, we agreed to limit certain cross-border interchange rates in a settlement with the European Commission. That agreement has been extended through 2029. In 2020, Costa",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000004",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000004"
+        },
+        {
+          "id": "000140316124000058#item1A#passage-000003",
+          "text": "Reserve issued a proposal for comment which would further lower debit interchange rates, with a mechanism for automatic adjustment every two years. Separately, there continues to be interest in regulation of credit interchange fees and routing practices by members of Congress and state legislators in the U.S. In June 2023, legislation was reintroduced in the U.S. House of Representatives and Senate, which among other things, would require large issuing banks to offer a choice of at least two unaffiliated networks over which electronic credit transactions may be processed. Similar legislation was introduced in the previous Congress in 2022 but failed to advance. The current legislation has additional bipartisan support, and while the ultimate outcome of the legislation remains unclear, its sponsors continue to strongly advocate for its passage. Finally, some states in the U.S. have passed or are considering passing laws that regulate how interchange can be assessed. For example, in May 2024, Illinois passed a law that restricts the assessment of interchange on the state tax and gratuity portions of a transaction, and restricts financial institutions and payment networks, among others, from using payment transaction data for any purpose other than facilitating or processing a transaction. Such laws may also impose significant technical and compliance burdens on our business. In Europe, the EU’s IFR places an effective cap on consumer credit and consumer debit interchange fees for both domestic and cross-border transactions within the EEA (30 basis points and 20 basis points, respectively). EU member states have the ability to further reduce these interchange levels",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000003",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000003"
+        },
+        {
+          "id": "000140316124000058#item1A#passage-000002",
+          "text": "related to interchange reimbursement fees in a payment transaction (in the context of credit and debit transactions, those fees are paid by the acquirers to the issuers; the reverse is true for certain transactions like ATM), interchange reimbursement fees are a factor on which we compete with other payments providers and are therefore an important determinant of the volume of transactions we process. Consequently, changes to these fees, whether voluntarily or by mandate, can substantially affect our overall payments volumes and net revenue. Interchange reimbursement fees, certain operating rules and related practices continue to be subject to increased government regulation globally, and regulatory authorities and central banks in a number of jurisdictions have reviewed or are reviewing these fees, rules, and practices. For example: •Regulations adopted by the U.S. Federal Reserve cap the maximum U.S. debit interchange reimbursement rate received by large financial institutions at 21 cents plus 5 basis points per transaction, plus a possible fraud adjustment of 1 cent. Additionally, the Dodd-Frank Act limits issuers’ and payment networks’ ability to adopt network exclusivity and preferred routing in the debit and prepaid area, which also impacts our business. In response to merchant requests, the Federal Reserve has recently taken actions to revisit its regulations that implement these aspects of the Dodd-Frank Act. For example, in October 2022, the Federal Reserve published a final rule effectively requiring issuers to ensure that at least two unaffiliated networks 19 Table of Contents are available for routing CNP debit transactions by July 1, 2023. In October 2023, the Federal",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000002",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000002"
+        },
+        {
+          "id": "000140316124000058#item1A#passage-000005",
+          "text": "Rica became the first country to formally regulate cross-border interchange rates by regulation. Cross-border MDR is also regulated in Costa Rica and Turkey. In June 2022, the UK’s PSR initiated a market review focusing on post-Brexit increases in interchange rates for transactions between the UK and Europe. •As referenced above, with increased lobbying by merchants and other industry participants, we are also beginning to see regulatory interest in network fees. For example, the UK’s PSR is conducting a market review into scheme and processing fees. In its interim report, the PSR indicated that it is reviewing possible remedies, any of which, if adopted, could impose additional complexity and burdens on our business in the UK. Other regulators, for example, in Australia, the EU, and Chile, have expressed an interest in network fees, including issues related to transparency. Finally, in 2024, the Greek Parliament limited acquirer fees for certain small ticket transactions in some merchant categories for a period of three years. •In addition, industry participants in some countries, including Argentina, Colombia, the Dominican Republic, Paraguay, Peru and South Africa have sought intervention from competition regulators or filed claims relating to certain network rules, including Visa’s restrictions on cross-border acquiring. The Central Bank of Chile recently enacted regulation that will permit cross-border acquiring for CNP transactions under certain conditions. Other countries, like Brazil, have adopted regulations that require us to seek government pre-approval for certain of our network rules, which could also impact the way we operate in certain markets. •Government regulations or pressure may also impact",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000005",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000005"
+        }
+      ],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000140316124000058#item1A#passage-000000",
+        "000140316124000058#item1A#passage-000004",
+        "000140316124000058#item1A#passage-000003",
+        "000140316124000058#item1A#passage-000002",
+        "000140316124000058#item1A#passage-000005",
+        "000140316124000058#item1A#passage-000008",
+        "000140316124000058#item1A#passage-000026",
+        "000140316124000058#item1A#passage-000001",
+        "000140316124000058#item1A#passage-000007",
+        "000140316124000058#item1A#passage-000039"
+      ],
+      "fresh_verified_ids": [
+        "000140316124000058#item1A#passage-000000",
+        "000140316124000058#item1A#passage-000004",
+        "000140316124000058#item1A#passage-000003",
+        "000140316124000058#item1A#passage-000002",
+        "000140316124000058#item1A#passage-000005"
+      ],
+      "elapsed_seconds": 9.01967447700008
+    },
+    {
+      "subquery": 0,
+      "attempt": 1,
+      "query": "Visa interchange reimbursement fee regulation risks: debit and credit interchange rate caps, merchant discount rate regulation, and cross-border interchange limits",
+      "requested_goal": "retrieve the disclosed risks from regulation of interchange rates",
+      "filters": {
+        "ticker": "V",
+        "year": 2024,
+        "section": "Item 1A",
+        "accession": "000140316124000058"
+      },
+      "score": 5,
+      "rationale": "The V 2024 filing (accession 000140316124000058, Item 1A) directly and fully covers the requested topic, the disclosed risks from regulation of interchange rates. Passages 2-5 and 8, read together as consecutive text, state the core risks: U.S. Federal Reserve debit interchange caps and proposed further reductions; Dodd-Frank routing and exclusivity rules; state laws such as Illinois' 2024 restriction on interchange on tax and gratuity; the EU IFR caps and possible further cuts; Latin American, Asia Pacific, and CEMEA interchange and MDR regulation; cross-border interchange limits; and regulatory scrutiny of network fees. Passage 8 adds the effect on Visa's economics, including issuer and acquirer reactions. The 2025 filing named in the audit prompt is outside this hop's filter scope and is not penalized here.",
+      "evidence": [
+        {
+          "id": "000140316124000058#item1A#passage-000003",
+          "text": "Reserve issued a proposal for comment which would further lower debit interchange rates, with a mechanism for automatic adjustment every two years. Separately, there continues to be interest in regulation of credit interchange fees and routing practices by members of Congress and state legislators in the U.S. In June 2023, legislation was reintroduced in the U.S. House of Representatives and Senate, which among other things, would require large issuing banks to offer a choice of at least two unaffiliated networks over which electronic credit transactions may be processed. Similar legislation was introduced in the previous Congress in 2022 but failed to advance. The current legislation has additional bipartisan support, and while the ultimate outcome of the legislation remains unclear, its sponsors continue to strongly advocate for its passage. Finally, some states in the U.S. have passed or are considering passing laws that regulate how interchange can be assessed. For example, in May 2024, Illinois passed a law that restricts the assessment of interchange on the state tax and gratuity portions of a transaction, and restricts financial institutions and payment networks, among others, from using payment transaction data for any purpose other than facilitating or processing a transaction. Such laws may also impose significant technical and compliance burdens on our business. In Europe, the EU’s IFR places an effective cap on consumer credit and consumer debit interchange fees for both domestic and cross-border transactions within the EEA (30 basis points and 20 basis points, respectively). EU member states have the ability to further reduce these interchange levels",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000003",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000003"
+        },
+        {
+          "id": "000140316124000058#item1A#passage-000002",
+          "text": "related to interchange reimbursement fees in a payment transaction (in the context of credit and debit transactions, those fees are paid by the acquirers to the issuers; the reverse is true for certain transactions like ATM), interchange reimbursement fees are a factor on which we compete with other payments providers and are therefore an important determinant of the volume of transactions we process. Consequently, changes to these fees, whether voluntarily or by mandate, can substantially affect our overall payments volumes and net revenue. Interchange reimbursement fees, certain operating rules and related practices continue to be subject to increased government regulation globally, and regulatory authorities and central banks in a number of jurisdictions have reviewed or are reviewing these fees, rules, and practices. For example: •Regulations adopted by the U.S. Federal Reserve cap the maximum U.S. debit interchange reimbursement rate received by large financial institutions at 21 cents plus 5 basis points per transaction, plus a possible fraud adjustment of 1 cent. Additionally, the Dodd-Frank Act limits issuers’ and payment networks’ ability to adopt network exclusivity and preferred routing in the debit and prepaid area, which also impacts our business. In response to merchant requests, the Federal Reserve has recently taken actions to revisit its regulations that implement these aspects of the Dodd-Frank Act. For example, in October 2022, the Federal Reserve published a final rule effectively requiring issuers to ensure that at least two unaffiliated networks 19 Table of Contents are available for routing CNP debit transactions by July 1, 2023. In October 2023, the Federal",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000002",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000002"
+        },
+        {
+          "id": "000140316124000058#item1A#passage-000004",
+          "text": "within their territories. The European Commission has announced its intention to conduct another impact assessment of the IFR, which could result in even lower caps on interchange rates and the expansion of regulation to other types of products, services and fees. •Several countries in Latin America continue to explore regulatory measures against payments networks and have either adopted or are exploring interchange caps, including Argentina, Brazil, Chile and Costa Rica. In Asia Pacific, the Reserve Bank of Australia (RBA) which already regulates interchange, continues to monitor issues related to the cost of acceptance, the potential merits of mandating merchant choice routing on dual network debit cards and competition in digital wallet payments. In 2022, the New Zealand Parliament passed legislation capping domestic interchange rates for debit and credit products, and the government remains focused on lowering costs of digital payments to businesses and consumers. Interchange is also regulated in certain countries in the Central and Eastern Europe, Middle East and Africa region, including the United Arab Emirates. Finally, many governments, including but not limited to governments in India, Costa Rica, and Turkey, are using regulation to further drive down MDR, which could negatively affect the economics of our transactions. •While the focus of interchange and MDR regulation has primarily been on domestic rates historically, there are several examples of increasing focus on cross-border rates in recent years. For example, in 2019, we agreed to limit certain cross-border interchange rates in a settlement with the European Commission. That agreement has been extended through 2029. In 2020, Costa",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000004",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000004"
+        },
+        {
+          "id": "000140316124000058#item1A#passage-000008",
+          "text": "versa). The RBA initially capped credit interchange, but subsequently capped debit interchange as well. When we cannot set default interchange reimbursement rates at optimal levels, issuers and acquirers may find our payments system less attractive. This may increase the attractiveness of other payments systems, such as our competitors’ closed-loop payments systems with direct connections to both merchants and consumers. We believe some issuers may react to such regulations by charging new or higher fees, or reducing certain benefits to consumers, which make our products less appealing to consumers. Some acquirers may elect to charge higher MDR regardless of the Visa interchange reimbursement rate, causing merchants not to accept our products or to steer customers to alternative payments systems or forms of payment. In addition, in an effort to reduce the expense of their payment programs, some issuers and acquirers have obtained, and may continue to obtain, incentives from us, including reductions in the fees that we charge, which directly impacts our net revenue. Finally, policymakers and regulatory bodies in the U.S., Europe, and other parts of the world are exploring ways to reform existing competition laws to meet the needs of the digital economy, including restricting large technology companies from engaging in mergers and acquisitions, requiring them to interoperate with potential competitors, and prohibiting certain kinds of self-preferencing behaviors. While the focus of these efforts remains primarily on increasing regulation of large technology, ecommerce and social media companies, they could also have implications for other types of companies including payments networks, which could constrain our ability",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000008",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000008"
+        },
+        {
+          "id": "000140316124000058#item1A#passage-000005",
+          "text": "Rica became the first country to formally regulate cross-border interchange rates by regulation. Cross-border MDR is also regulated in Costa Rica and Turkey. In June 2022, the UK’s PSR initiated a market review focusing on post-Brexit increases in interchange rates for transactions between the UK and Europe. •As referenced above, with increased lobbying by merchants and other industry participants, we are also beginning to see regulatory interest in network fees. For example, the UK’s PSR is conducting a market review into scheme and processing fees. In its interim report, the PSR indicated that it is reviewing possible remedies, any of which, if adopted, could impose additional complexity and burdens on our business in the UK. Other regulators, for example, in Australia, the EU, and Chile, have expressed an interest in network fees, including issues related to transparency. Finally, in 2024, the Greek Parliament limited acquirer fees for certain small ticket transactions in some merchant categories for a period of three years. •In addition, industry participants in some countries, including Argentina, Colombia, the Dominican Republic, Paraguay, Peru and South Africa have sought intervention from competition regulators or filed claims relating to certain network rules, including Visa’s restrictions on cross-border acquiring. The Central Bank of Chile recently enacted regulation that will permit cross-border acquiring for CNP transactions under certain conditions. Other countries, like Brazil, have adopted regulations that require us to seek government pre-approval for certain of our network rules, which could also impact the way we operate in certain markets. •Government regulations or pressure may also impact",
+          "metadata": {
+            "ID": "000140316124000058#item1A#passage-000005",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-24-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+          "tag": "V-2024-10K-item1A-p000005"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [
+        "000140316124000058#item1A#passage-000003",
+        "000140316124000058#item1A#passage-000002"
+      ],
+      "nominated_retained_ids": [
+        "000140316124000058#item1A#passage-000003",
+        "000140316124000058#item1A#passage-000002"
+      ],
+      "retrieved_ids": [
+        "000140316124000058#item1A#passage-000004",
+        "000140316124000058#item1A#passage-000008",
+        "000140316124000058#item1A#passage-000002",
+        "000140316124000058#item1A#passage-000003",
+        "000140316124000058#item1A#passage-000005",
+        "000140316124000058#item1A#passage-000001",
+        "000140316124000058#item1A#passage-000000",
+        "000140316124000058#item1A#passage-000007",
+        "000140316124000058#item1A#passage-000026",
+        "000140316124000058#item1A#passage-000024"
+      ],
+      "fresh_verified_ids": [
+        "000140316124000058#item1A#passage-000004",
+        "000140316124000058#item1A#passage-000008",
+        "000140316124000058#item1A#passage-000002",
+        "000140316124000058#item1A#passage-000003",
+        "000140316124000058#item1A#passage-000005"
+      ],
+      "elapsed_seconds": 10.247283759999846
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "regulation of interchange rates risk factors",
+      "requested_goal": "retrieve the disclosed risks from regulation of interchange rates",
+      "filters": {
+        "ticker": "V",
+        "year": 2025,
+        "section": "Item 1A",
+        "accession": "000140316125000089"
+      },
+      "score": 3,
+      "rationale": "The supplied passages all come from V's filing year 2025 (accession 000140316125000089, Item 1A) and together give a detailed account of interchange rate regulation risks: U.S. Federal Reserve debit interchange caps and the August 2025 court ruling vacating Regulation II's fee standard, EU IFR caps and possible further reductions, Latin American, Asia Pacific and cross-border interchange caps, and network fee scrutiny. That covers the 2025 half of the request well. The requested filing year 2024 Item 1A disclosures on interchange regulation are absent from every passage, so the year-over-year comparison cannot be made. Score is capped at 3 for that missing element.",
+      "evidence": [
+        {
+          "id": "000140316125000089#item1A#passage-000000",
+          "text": "ITEM 1A. Risk Factors Regulatory Risks We are subject to complex and evolving global regulations that could harm our business and financial results. As a global payments technology company, we are subject to complex and evolving regulations that govern our operations. Such regulations may increase in quantity, complexity and scope in response to heightened geopolitical tensions. See Item 1—Government Regulation for more information on the most significant areas of regulation that affect our business. The impact of these regulations on us, our clients, and other third parties could limit our ability to enforce our payments system rules; require us to adopt new rules or change existing rules; affect our existing contractual arrangements; and increase our compliance costs. As discussed in more detail below, we may face differing rules and regulations in matters like interchange reimbursement rates, preferred routing, domestic processing and localization requirements, currency conversion, point-of-sale transaction rules and practices, privacy, data use and protection, licensing requirements and associated product technology. As a result, the Visa operating rules and our other contractual commitments may differ from country to country, state to state, or product to product. Complying with these and other regulations increases our costs and operational complexity, and reduces our revenue opportunities. If widely varying regulations come into existence worldwide, we may have difficulty rapidly adjusting our products, services, fees and other important aspects of our business to comply with the regulations. Our compliance programs and policies are designed to support our compliance with a wide array of regulations and laws, such as regulations regarding",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000000",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000000"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000005",
+          "text": "first country to formally regulate cross-border interchange rates by regulation. In June 2022, the UK’s PSR initiated a market review focusing on post-Brexit increases in interchange rates for e-commerce transactions between the UK and Europe and is proposing to cap cross-border interchange on certain transactions in that geographic corridor. Most recently, in July 2025, New Zealand adopted interchange caps on cross-border transactions including commercial credit transactions. Australia has also proposed adopting caps for cross-border transactions. Cross-border MDR is also regulated in Costa Rica and Turkey. •With increased lobbying by sellers and other industry participants, we are also beginning to see regulatory interest in network fees. For example, the UK’s PSR is conducting a market review into scheme and processing fees. In its interim report, the PSR indicated that it is reviewing possible remedies in the areas of governance, reporting and transparency, any of which, if adopted, could impose additional complexity and burdens on our business in the UK. Other regulators, for example, those in Australia, the EU, Chile and New Zealand have expressed an interest in network fees, including issues related to transparency. Finally, in 2024, the Greek Parliament limited acquirer fees for certain small ticket transactions in some seller categories for a period of three years. •In addition, industry participants in some countries, including Argentina, Chile, Colombia, the Dominican Republic, Paraguay, Peru, South Africa and Turkey have sought intervention from competition regulators or filed claims relating to certain network rules, including Visa’s restrictions on cross-border acquiring. The Central Banks of Chile and the Dominican Republic",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000005",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000005"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000004",
+          "text": "and cross-border transactions within the European Economic Area of 30 basis points and 20 basis points, respectively. EU member states have the ability to further reduce these interchange levels within their territories. The European Commission has announced its intention to conduct another impact assessment of the IFR, which could result in even lower caps on interchange rates and the expansion of regulation to other types of products, services and fees. •Several countries in Latin America continue to explore regulatory measures against payments networks and have either adopted or are exploring interchange caps, including Argentina, Brazil, Chile and Costa Rica. In Asia Pacific, the Reserve Bank of Australia (RBA) which already regulates interchange, recently proposed reducing existing interchange caps on domestic credit and debit transactions and not allowing differential interchange treatment for consumer and commercial transactions. Similarly, in New Zealand, the Commerce Commission recently lowered existing caps on domestic credit transactions. Interchange is also regulated in certain countries in the Central and Eastern Europe, Middle East and Africa region, including the United Arab Emirates. Finally, many governments, including but not limited to governments in India, Costa Rica, and Turkey, are using regulation to further drive down MDR, which could negatively affect the economics of our transactions. •While the focus of interchange and MDR regulation has primarily been on domestic rates, interest on cross-border rates has been growing. For example, we agreed to limit certain cross-border interchange rates in a settlement with the European Commission in 2019, which was extended through 2029. In 2020, Costa Rica became the",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000004",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000004"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000002",
+          "text": "and regulatory authorities and central banks in a number of jurisdictions have reviewed or are reviewing these fees, rules and practices. For example: •Regulations adopted by the U.S. Federal Reserve cap the maximum U.S. debit interchange reimbursement rate received by large financial institutions at 21 cents plus 5 basis points per transaction, plus a possible fraud adjustment of 1 cent. Additionally, the Dodd-Frank Act limits issuers’ and payment networks’ ability to adopt network exclusivity and preferred routing in the debit and prepaid area, which also impacts our business. In response to seller requests, the Federal Reserve has recently taken actions to revisit its regulations that implement these aspects of the Dodd-Frank Act. For example, in October 2022, the Federal Reserve published a final rule effectively requiring issuers to ensure that at least two unaffiliated networks are available for routing ecommerce debit transactions by July 1, 2023. In October 2023, the Federal Reserve issued a proposal for comment that further lowers debit interchange rates, with a mechanism for automatic adjustment every two years. Finally, in August 2025, the District Court for the District of North Dakota ruled that the Federal Reserve exceeded its authority in implementing Regulation II, which sets debit card interchange fees. The court found the Federal Reserve improperly included various costs beyond what the Durbin Amendment allows, such as fraud losses, network fees and other fixed costs, when setting the debit interchange fee standard. As a result, the court vacated Regulation II’s debit interchange fee 21 Table of Contents standard. Subsequently, however, the District",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000002",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000002"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000008",
+          "text": "For example, credit payments could become subject to similar regulation as debit payments (or vice versa). The RBA initially capped credit interchange, but subsequently capped debit interchange as well. When we cannot set default interchange reimbursement rates at optimal levels, issuers and acquirers may find our payments system less attractive. This may increase the attractiveness of other payments systems, such as our competitors’ closed-loop payments systems with direct connections to both sellers and consumers. We believe some issuers may react to such regulations by charging new or higher fees, or reducing certain benefits to consumers, which makes our products less appealing to consumers. Some acquirers may elect to charge higher MDR regardless of the Visa interchange reimbursement rate, causing sellers not to accept our products or to steer consumers to alternative payments systems or forms of payment. In addition, in an effort to reduce the expense of their payment programs, some issuers and acquirers have obtained, and may continue to obtain, incentives from us, including reductions in the fees that we charge, which directly impacts our net revenue. The evolving and increasing regulatory focus on the payments industry could negatively impact or reduce the number of Visa products our clients issue, the volume of payments we process, our net revenue, our brands, our competitive positioning, our ability to use our intellectual property to differentiate our products and services, the quality and types of products and services we offer, the countries in which our products and services are used, and the types of consumers and sellers who",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000008",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000008"
+        }
+      ],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000140316125000089#item1A#passage-000000",
+        "000140316125000089#item1A#passage-000005",
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000002",
+        "000140316125000089#item1A#passage-000008",
+        "000140316125000089#item1A#passage-000001",
+        "000140316125000089#item1A#passage-000003",
+        "000140316125000089#item1A#passage-000019",
+        "000140316125000089#item1A#passage-000007",
+        "000140316125000089#item1A#passage-000026"
+      ],
+      "fresh_verified_ids": [
+        "000140316125000089#item1A#passage-000000",
+        "000140316125000089#item1A#passage-000005",
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000002",
+        "000140316125000089#item1A#passage-000008"
+      ],
+      "elapsed_seconds": 7.748788593002246
+    },
+    {
+      "subquery": 1,
+      "attempt": 1,
+      "query": "Visa interchange reimbursement rate regulation risk factors, debit interchange caps, cross-border interchange caps, Item 1A",
+      "requested_goal": "retrieve the disclosed risks from regulation of interchange rates",
+      "filters": {
+        "ticker": "V",
+        "year": 2025,
+        "section": "Item 1A",
+        "accession": "000140316125000089"
+      },
+      "score": 3,
+      "rationale": "The passages are from the V filing year 2025 Item 1A (accession 000140316125000089) and directly address interchange rate regulation risks: US Federal Reserve debit caps (21 cents plus 5 bp plus 1 cent fraud adjustment), the Dodd-Frank routing rules, the August 2025 court ruling on Regulation II, EU IFR caps of 30 bp and 20 bp, Latin American and RBA caps, cross-border interchange caps, and network-fee scrutiny. The audit prompt requires separate evidence for each filing year, and no passage comes from the V filing year 2024 Item 1A (accession 000140316124000058). That year's interchange-regulation risks are therefore absent and the goal is only partially met. passage-000002 and passage-000004 carry the most relevant detail for the 2025 side.",
+      "evidence": [
+        {
+          "id": "000140316125000089#item1A#passage-000004",
+          "text": "and cross-border transactions within the European Economic Area of 30 basis points and 20 basis points, respectively. EU member states have the ability to further reduce these interchange levels within their territories. The European Commission has announced its intention to conduct another impact assessment of the IFR, which could result in even lower caps on interchange rates and the expansion of regulation to other types of products, services and fees. •Several countries in Latin America continue to explore regulatory measures against payments networks and have either adopted or are exploring interchange caps, including Argentina, Brazil, Chile and Costa Rica. In Asia Pacific, the Reserve Bank of Australia (RBA) which already regulates interchange, recently proposed reducing existing interchange caps on domestic credit and debit transactions and not allowing differential interchange treatment for consumer and commercial transactions. Similarly, in New Zealand, the Commerce Commission recently lowered existing caps on domestic credit transactions. Interchange is also regulated in certain countries in the Central and Eastern Europe, Middle East and Africa region, including the United Arab Emirates. Finally, many governments, including but not limited to governments in India, Costa Rica, and Turkey, are using regulation to further drive down MDR, which could negatively affect the economics of our transactions. •While the focus of interchange and MDR regulation has primarily been on domestic rates, interest on cross-border rates has been growing. For example, we agreed to limit certain cross-border interchange rates in a settlement with the European Commission in 2019, which was extended through 2029. In 2020, Costa Rica became the",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000004",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000004"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000002",
+          "text": "and regulatory authorities and central banks in a number of jurisdictions have reviewed or are reviewing these fees, rules and practices. For example: •Regulations adopted by the U.S. Federal Reserve cap the maximum U.S. debit interchange reimbursement rate received by large financial institutions at 21 cents plus 5 basis points per transaction, plus a possible fraud adjustment of 1 cent. Additionally, the Dodd-Frank Act limits issuers’ and payment networks’ ability to adopt network exclusivity and preferred routing in the debit and prepaid area, which also impacts our business. In response to seller requests, the Federal Reserve has recently taken actions to revisit its regulations that implement these aspects of the Dodd-Frank Act. For example, in October 2022, the Federal Reserve published a final rule effectively requiring issuers to ensure that at least two unaffiliated networks are available for routing ecommerce debit transactions by July 1, 2023. In October 2023, the Federal Reserve issued a proposal for comment that further lowers debit interchange rates, with a mechanism for automatic adjustment every two years. Finally, in August 2025, the District Court for the District of North Dakota ruled that the Federal Reserve exceeded its authority in implementing Regulation II, which sets debit card interchange fees. The court found the Federal Reserve improperly included various costs beyond what the Durbin Amendment allows, such as fraud losses, network fees and other fixed costs, when setting the debit interchange fee standard. As a result, the court vacated Regulation II’s debit interchange fee 21 Table of Contents standard. Subsequently, however, the District",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000002",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000002"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000005",
+          "text": "first country to formally regulate cross-border interchange rates by regulation. In June 2022, the UK’s PSR initiated a market review focusing on post-Brexit increases in interchange rates for e-commerce transactions between the UK and Europe and is proposing to cap cross-border interchange on certain transactions in that geographic corridor. Most recently, in July 2025, New Zealand adopted interchange caps on cross-border transactions including commercial credit transactions. Australia has also proposed adopting caps for cross-border transactions. Cross-border MDR is also regulated in Costa Rica and Turkey. •With increased lobbying by sellers and other industry participants, we are also beginning to see regulatory interest in network fees. For example, the UK’s PSR is conducting a market review into scheme and processing fees. In its interim report, the PSR indicated that it is reviewing possible remedies in the areas of governance, reporting and transparency, any of which, if adopted, could impose additional complexity and burdens on our business in the UK. Other regulators, for example, those in Australia, the EU, Chile and New Zealand have expressed an interest in network fees, including issues related to transparency. Finally, in 2024, the Greek Parliament limited acquirer fees for certain small ticket transactions in some seller categories for a period of three years. •In addition, industry participants in some countries, including Argentina, Chile, Colombia, the Dominican Republic, Paraguay, Peru, South Africa and Turkey have sought intervention from competition regulators or filed claims relating to certain network rules, including Visa’s restrictions on cross-border acquiring. The Central Banks of Chile and the Dominican Republic",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000005",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000005"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000008",
+          "text": "For example, credit payments could become subject to similar regulation as debit payments (or vice versa). The RBA initially capped credit interchange, but subsequently capped debit interchange as well. When we cannot set default interchange reimbursement rates at optimal levels, issuers and acquirers may find our payments system less attractive. This may increase the attractiveness of other payments systems, such as our competitors’ closed-loop payments systems with direct connections to both sellers and consumers. We believe some issuers may react to such regulations by charging new or higher fees, or reducing certain benefits to consumers, which makes our products less appealing to consumers. Some acquirers may elect to charge higher MDR regardless of the Visa interchange reimbursement rate, causing sellers not to accept our products or to steer consumers to alternative payments systems or forms of payment. In addition, in an effort to reduce the expense of their payment programs, some issuers and acquirers have obtained, and may continue to obtain, incentives from us, including reductions in the fees that we charge, which directly impacts our net revenue. The evolving and increasing regulatory focus on the payments industry could negatively impact or reduce the number of Visa products our clients issue, the volume of payments we process, our net revenue, our brands, our competitive positioning, our ability to use our intellectual property to differentiate our products and services, the quality and types of products and services we offer, the countries in which our products and services are used, and the types of consumers and sellers who",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000008",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000008"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000000",
+          "text": "ITEM 1A. Risk Factors Regulatory Risks We are subject to complex and evolving global regulations that could harm our business and financial results. As a global payments technology company, we are subject to complex and evolving regulations that govern our operations. Such regulations may increase in quantity, complexity and scope in response to heightened geopolitical tensions. See Item 1—Government Regulation for more information on the most significant areas of regulation that affect our business. The impact of these regulations on us, our clients, and other third parties could limit our ability to enforce our payments system rules; require us to adopt new rules or change existing rules; affect our existing contractual arrangements; and increase our compliance costs. As discussed in more detail below, we may face differing rules and regulations in matters like interchange reimbursement rates, preferred routing, domestic processing and localization requirements, currency conversion, point-of-sale transaction rules and practices, privacy, data use and protection, licensing requirements and associated product technology. As a result, the Visa operating rules and our other contractual commitments may differ from country to country, state to state, or product to product. Complying with these and other regulations increases our costs and operational complexity, and reduces our revenue opportunities. If widely varying regulations come into existence worldwide, we may have difficulty rapidly adjusting our products, services, fees and other important aspects of our business to comply with the regulations. Our compliance programs and policies are designed to support our compliance with a wide array of regulations and laws, such as regulations regarding",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000000",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000000"
+        }
+      ],
+      "accepted": false,
+      "retained_evidence_ids": [
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000002"
+      ],
+      "nominated_retained_ids": [
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000002"
+      ],
+      "retrieved_ids": [
+        "000140316125000089#item1A#passage-000005",
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000008",
+        "000140316125000089#item1A#passage-000000",
+        "000140316125000089#item1A#passage-000002",
+        "000140316125000089#item1A#passage-000003",
+        "000140316125000089#item1A#passage-000019",
+        "000140316125000089#item1A#passage-000001",
+        "000140316125000089#item1A#passage-000022",
+        "000140316125000089#item1A#passage-000006"
+      ],
+      "fresh_verified_ids": [
+        "000140316125000089#item1A#passage-000005",
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000008",
+        "000140316125000089#item1A#passage-000000",
+        "000140316125000089#item1A#passage-000002"
+      ],
+      "elapsed_seconds": 9.502044015000138
+    },
+    {
+      "subquery": 1,
+      "attempt": 2,
+      "query": "Visa regulation of interchange reimbursement rates risk factors, debit and cross-border interchange caps, regulatory pressure on interchange fees",
+      "requested_goal": "retrieve the disclosed risks from regulation of interchange rates",
+      "filters": {
+        "ticker": "V",
+        "year": 2025,
+        "section": "Item 1A",
+        "accession": "000140316125000089"
+      },
+      "score": 5,
+      "rationale": "The V FY2025 filing (accession 000140316125000089, Item 1A) passages together fully cover the requested topic: risks from regulation of interchange rates. They cover U.S. debit interchange caps under Regulation II and the August 2025 North Dakota ruling, the proposed Federal Reserve cut and automatic adjustment, the Credit Card Competition Act, and Illinois state interchange limits. They also cover the EU IFR caps and the EU's planned impact assessment, Latin American and Asia Pacific caps, cross-border interchange regulation including the 2019 European Commission settlement, UK PSR and New Zealand actions, and regulatory interest in network fees. Passages 2 through 5 are linked by adjacent pairs and read continuously. Passage 8 adds the business impact of these regulations. No required element is missing for the 2025 filing. The 2024 comparison belongs to a separate hop and was not scored.",
+      "evidence": [
+        {
+          "id": "000140316125000089#item1A#passage-000004",
+          "text": "and cross-border transactions within the European Economic Area of 30 basis points and 20 basis points, respectively. EU member states have the ability to further reduce these interchange levels within their territories. The European Commission has announced its intention to conduct another impact assessment of the IFR, which could result in even lower caps on interchange rates and the expansion of regulation to other types of products, services and fees. •Several countries in Latin America continue to explore regulatory measures against payments networks and have either adopted or are exploring interchange caps, including Argentina, Brazil, Chile and Costa Rica. In Asia Pacific, the Reserve Bank of Australia (RBA) which already regulates interchange, recently proposed reducing existing interchange caps on domestic credit and debit transactions and not allowing differential interchange treatment for consumer and commercial transactions. Similarly, in New Zealand, the Commerce Commission recently lowered existing caps on domestic credit transactions. Interchange is also regulated in certain countries in the Central and Eastern Europe, Middle East and Africa region, including the United Arab Emirates. Finally, many governments, including but not limited to governments in India, Costa Rica, and Turkey, are using regulation to further drive down MDR, which could negatively affect the economics of our transactions. •While the focus of interchange and MDR regulation has primarily been on domestic rates, interest on cross-border rates has been growing. For example, we agreed to limit certain cross-border interchange rates in a settlement with the European Commission in 2019, which was extended through 2029. In 2020, Costa Rica became the",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000004",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000004"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000002",
+          "text": "and regulatory authorities and central banks in a number of jurisdictions have reviewed or are reviewing these fees, rules and practices. For example: •Regulations adopted by the U.S. Federal Reserve cap the maximum U.S. debit interchange reimbursement rate received by large financial institutions at 21 cents plus 5 basis points per transaction, plus a possible fraud adjustment of 1 cent. Additionally, the Dodd-Frank Act limits issuers’ and payment networks’ ability to adopt network exclusivity and preferred routing in the debit and prepaid area, which also impacts our business. In response to seller requests, the Federal Reserve has recently taken actions to revisit its regulations that implement these aspects of the Dodd-Frank Act. For example, in October 2022, the Federal Reserve published a final rule effectively requiring issuers to ensure that at least two unaffiliated networks are available for routing ecommerce debit transactions by July 1, 2023. In October 2023, the Federal Reserve issued a proposal for comment that further lowers debit interchange rates, with a mechanism for automatic adjustment every two years. Finally, in August 2025, the District Court for the District of North Dakota ruled that the Federal Reserve exceeded its authority in implementing Regulation II, which sets debit card interchange fees. The court found the Federal Reserve improperly included various costs beyond what the Durbin Amendment allows, such as fraud losses, network fees and other fixed costs, when setting the debit interchange fee standard. As a result, the court vacated Regulation II’s debit interchange fee 21 Table of Contents standard. Subsequently, however, the District",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000002",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000002"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000005",
+          "text": "first country to formally regulate cross-border interchange rates by regulation. In June 2022, the UK’s PSR initiated a market review focusing on post-Brexit increases in interchange rates for e-commerce transactions between the UK and Europe and is proposing to cap cross-border interchange on certain transactions in that geographic corridor. Most recently, in July 2025, New Zealand adopted interchange caps on cross-border transactions including commercial credit transactions. Australia has also proposed adopting caps for cross-border transactions. Cross-border MDR is also regulated in Costa Rica and Turkey. •With increased lobbying by sellers and other industry participants, we are also beginning to see regulatory interest in network fees. For example, the UK’s PSR is conducting a market review into scheme and processing fees. In its interim report, the PSR indicated that it is reviewing possible remedies in the areas of governance, reporting and transparency, any of which, if adopted, could impose additional complexity and burdens on our business in the UK. Other regulators, for example, those in Australia, the EU, Chile and New Zealand have expressed an interest in network fees, including issues related to transparency. Finally, in 2024, the Greek Parliament limited acquirer fees for certain small ticket transactions in some seller categories for a period of three years. •In addition, industry participants in some countries, including Argentina, Chile, Colombia, the Dominican Republic, Paraguay, Peru, South Africa and Turkey have sought intervention from competition regulators or filed claims relating to certain network rules, including Visa’s restrictions on cross-border acquiring. The Central Banks of Chile and the Dominican Republic",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000005",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000005"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000008",
+          "text": "For example, credit payments could become subject to similar regulation as debit payments (or vice versa). The RBA initially capped credit interchange, but subsequently capped debit interchange as well. When we cannot set default interchange reimbursement rates at optimal levels, issuers and acquirers may find our payments system less attractive. This may increase the attractiveness of other payments systems, such as our competitors’ closed-loop payments systems with direct connections to both sellers and consumers. We believe some issuers may react to such regulations by charging new or higher fees, or reducing certain benefits to consumers, which makes our products less appealing to consumers. Some acquirers may elect to charge higher MDR regardless of the Visa interchange reimbursement rate, causing sellers not to accept our products or to steer consumers to alternative payments systems or forms of payment. In addition, in an effort to reduce the expense of their payment programs, some issuers and acquirers have obtained, and may continue to obtain, incentives from us, including reductions in the fees that we charge, which directly impacts our net revenue. The evolving and increasing regulatory focus on the payments industry could negatively impact or reduce the number of Visa products our clients issue, the volume of payments we process, our net revenue, our brands, our competitive positioning, our ability to use our intellectual property to differentiate our products and services, the quality and types of products and services we offer, the countries in which our products and services are used, and the types of consumers and sellers who",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000008",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000008"
+        },
+        {
+          "id": "000140316125000089#item1A#passage-000003",
+          "text": "Court in Kentucky ruled that the Federal Reserve acted within its discretion in setting the debit interchange cap. If the District Court of North Dakota’s decision is affirmed on appeal and ultimately prevails, it could potentially result in the Federal Reserve setting a significantly lower interchange cap for relevant debit transactions in the U.S. Separately, there continues to be interest in regulation of credit interchange fees and routing practices by members of Congress and state legislators. It is possible that the Credit Card Competition Act may be reintroduced in Congress or attempted to be offered as an amendment to unrelated legislation. Previous versions of the legislation were introduced in 2022 and 2023, and required among other things, that large issuing banks offer a choice of at least two unaffiliated networks over which electronic credit transactions may be processed. Finally, some states have passed or are considering passing laws that regulate how interchange can be set and assessed. For example, in May 2024, Illinois passed a law that restricts the assessment of interchange on the state tax and gratuity portions of a transaction, and restricts financial institutions and payment networks, among others, from using payment transaction data for any purpose other than facilitating or processing a transaction. While the Illinois law remains subject to legal challenge, if such laws are allowed to go into effect, they may also impose significant technical and compliance burdens on our business. •In Europe, the EU’s IFR places an effective cap on consumer credit and consumer debit interchange fees for both domestic",
+          "metadata": {
+            "ID": "000140316125000089#item1A#passage-000003",
+            "Ticker": "V",
+            "CIK": "1403161",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001403161-25-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+          "tag": "V-2025-10K-item1A-p000003"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000002"
+      ],
+      "nominated_retained_ids": [
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000002"
+      ],
+      "retrieved_ids": [
+        "000140316125000089#item1A#passage-000005",
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000008",
+        "000140316125000089#item1A#passage-000002",
+        "000140316125000089#item1A#passage-000003",
+        "000140316125000089#item1A#passage-000001",
+        "000140316125000089#item1A#passage-000019",
+        "000140316125000089#item1A#passage-000000",
+        "000140316125000089#item1A#passage-000006",
+        "000140316125000089#item1A#passage-000007"
+      ],
+      "fresh_verified_ids": [
+        "000140316125000089#item1A#passage-000005",
+        "000140316125000089#item1A#passage-000004",
+        "000140316125000089#item1A#passage-000008",
+        "000140316125000089#item1A#passage-000002",
+        "000140316125000089#item1A#passage-000003"
+      ],
+      "elapsed_seconds": 7.553811351997865
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Separately, there continues to be interest in regulation of credit interchange fees and routing practices by members of Congress and state legislators in the U.S. [V-2024-10K-item1A-p000003](https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm) (chunk: `000140316124000058#item1A#passage-000003`; accession: `0001403161-24-000058`).\n- Finally, some states in the U.S. have passed or are considering passing laws that regulate how interchange can be assessed. [V-2024-10K-item1A-p000003](https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm) (chunk: `000140316124000058#item1A#passage-000003`; accession: `0001403161-24-000058`).\n- The European Commission has announced its intention to conduct another impact assessment of the IFR, which could result in even lower caps on interchange rates and the expansion of regulation to other types of products, services and fees. [V-2024-10K-item1A-p000004](https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm) (chunk: `000140316124000058#item1A#passage-000004`; accession: `0001403161-24-000058`).\n- Finally, in August 2025, the District Court for the District of North Dakota ruled that the Federal Reserve exceeded its authority in implementing Regulation II, which sets debit card interchange fees. [V-2025-10K-item1A-p000002](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm) (chunk: `000140316125000089#item1A#passage-000002`; accession: `0001403161-25-000089`).\n- it could potentially result in the Federal Reserve setting a significantly lower interchange cap for relevant debit transactions in the U.S. [V-2025-10K-item1A-p000003](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm) (chunk: `000140316125000089#item1A#passage-000003`; accession: `0001403161-25-000089`).\n- It is possible that the Credit Card Competition Act may be reintroduced in Congress or attempted to be offered as an amendment to unrelated legislation. [V-2025-10K-item1A-p000003](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm) (chunk: `000140316125000089#item1A#passage-000003`; accession: `0001403161-25-000089`).\n- In Asia Pacific, the Reserve Bank of Australia \\(RBA\\) which already regulates interchange, recently proposed reducing existing interchange caps on domestic credit and debit transactions and not allowing differential interchange treatment for consumer and commercial transactions. [V-2025-10K-item1A-p000004](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm) (chunk: `000140316125000089#item1A#passage-000004`; accession: `0001403161-25-000089`).",
+  "citations": [
+    {
+      "tag": "V-2024-10K-item1A-p000003",
+      "chunk_id": "000140316124000058#item1A#passage-000003",
+      "accession": "0001403161-24-000058",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+      "quote": "Separately, there continues to be interest in regulation of credit interchange fees and routing practices by members of Congress and state legislators in the U.S."
+    },
+    {
+      "tag": "V-2024-10K-item1A-p000003",
+      "chunk_id": "000140316124000058#item1A#passage-000003",
+      "accession": "0001403161-24-000058",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+      "quote": "Finally, some states in the U.S. have passed or are considering passing laws that regulate how interchange can be assessed."
+    },
+    {
+      "tag": "V-2024-10K-item1A-p000004",
+      "chunk_id": "000140316124000058#item1A#passage-000004",
+      "accession": "0001403161-24-000058",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+      "quote": "The European Commission has announced its intention to conduct another impact assessment of the IFR, which could result in even lower caps on interchange rates and the expansion of regulation to other types of products, services and fees."
+    },
+    {
+      "tag": "V-2025-10K-item1A-p000002",
+      "chunk_id": "000140316125000089#item1A#passage-000002",
+      "accession": "0001403161-25-000089",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "quote": "Finally, in August 2025, the District Court for the District of North Dakota ruled that the Federal Reserve exceeded its authority in implementing Regulation II, which sets debit card interchange fees."
+    },
+    {
+      "tag": "V-2025-10K-item1A-p000003",
+      "chunk_id": "000140316125000089#item1A#passage-000003",
+      "accession": "0001403161-25-000089",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "quote": "it could potentially result in the Federal Reserve setting a significantly lower interchange cap for relevant debit transactions in the U.S."
+    },
+    {
+      "tag": "V-2025-10K-item1A-p000003",
+      "chunk_id": "000140316125000089#item1A#passage-000003",
+      "accession": "0001403161-25-000089",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "quote": "It is possible that the Credit Card Competition Act may be reintroduced in Congress or attempted to be offered as an amendment to unrelated legislation."
+    },
+    {
+      "tag": "V-2025-10K-item1A-p000004",
+      "chunk_id": "000140316125000089#item1A#passage-000004",
+      "accession": "0001403161-25-000089",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "quote": "In Asia Pacific, the Reserve Bank of Australia (RBA) which already regulates interchange, recently proposed reducing existing interchange caps on domestic credit and debit transactions and not allowing differential interchange treatment for consumer and commercial transactions."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.526998915000149,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13090,
+        "cache_read_input_tokens": 1415,
+        "output_tokens": 787,
+        "output_tokens_details": {
+          "thinking_tokens": 560
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13090,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 787,
+            "cache_read_input_tokens": 1415,
+            "cache_creation_input_tokens": 13090,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13090
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00302585
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.411900979001075,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16006,
+        "cache_read_input_tokens": 1758,
+        "output_tokens": 800,
+        "output_tokens_details": {
+          "thinking_tokens": 371
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16006,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 800,
+            "cache_read_input_tokens": 1758,
+            "cache_creation_input_tokens": 16006,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16006
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00361898
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.720659044000058,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16058,
+        "cache_read_input_tokens": 1758,
+        "output_tokens": 1125,
+        "output_tokens_details": {
+          "thinking_tokens": 693
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16058,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1125,
+            "cache_read_input_tokens": 1758,
+            "cache_creation_input_tokens": 16058,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16058
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00379188
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.1564717539986304,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16037,
+        "cache_read_input_tokens": 1758,
+        "output_tokens": 1193,
+        "output_tokens_details": {
+          "thinking_tokens": 709
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16037,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1193,
+            "cache_read_input_tokens": 1758,
+            "cache_creation_input_tokens": 16037,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16037
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00382168
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.821812198999396,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16124,
+        "cache_read_input_tokens": 1758,
+        "output_tokens": 1280,
+        "output_tokens_details": {
+          "thinking_tokens": 857
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16124,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1280,
+            "cache_read_input_tokens": 1758,
+            "cache_creation_input_tokens": 16124,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16124
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00388258
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.426337701999728,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16135,
+        "cache_read_input_tokens": 1758,
+        "output_tokens": 829,
+        "output_tokens_details": {
+          "thinking_tokens": 377
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16135,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 829,
+            "cache_read_input_tokens": 1758,
+            "cache_creation_input_tokens": 16135,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16135
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036592800000000004
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 11.141172603001905,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 6359,
+        "cache_read_input_tokens": 925,
+        "output_tokens": 2212,
+        "output_tokens_details": {
+          "thinking_tokens": 1660
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6359,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2212,
+            "cache_read_input_tokens": 925,
+            "cache_creation_input_tokens": 6359,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 6359
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0023872499999999996
+    }
+  ],
+  "elapsed_seconds": 40.47611744599999
+}

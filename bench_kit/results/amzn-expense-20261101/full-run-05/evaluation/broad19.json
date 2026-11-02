@@ -1,0 +1,487 @@
+{
+  "prompt": "Compare CRM and ADBE, both filing year 2026, with the exact SectionItem filter \"Item 8\": retrieve each company's remaining performance obligation (contracted revenue not yet recognized) disclosures. Use separate company-specific retrieval steps.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "remaining performance obligations contracted revenue not yet recognized",
+        "goal": "remaining performance obligation (contracted revenue not yet recognized) disclosures",
+        "filters": {
+          "ticker": "CRM",
+          "year": 2026,
+          "section": "Item 8",
+          "accession": "000110852426000060"
+        }
+      },
+      {
+        "query": "remaining performance obligations contracted revenue not yet recognized",
+        "goal": "remaining performance obligation (contracted revenue not yet recognized) disclosures",
+        "filters": {
+          "ticker": "ADBE",
+          "year": 2026,
+          "section": "Item 8",
+          "accession": "000079634326000003"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "remaining performance obligations contracted revenue not yet recognized",
+      "requested_goal": "remaining performance obligation (contracted revenue not yet recognized) disclosures",
+      "filters": {
+        "ticker": "CRM",
+        "year": 2026,
+        "section": "Item 8",
+        "accession": "000110852426000060"
+      },
+      "score": 5,
+      "rationale": "Scope is CRM, filing year 2026, Item 8. Passage 000110852426000060#item8#passage-000036 gives the RPO definition (contracted revenue not yet recognized, including unearned revenue and unbilled amounts) and a table of current, noncurrent, and total RPO: $35.1B / $37.3B / $72.4B as of January 31, 2026, and $30.2B / $33.2B / $63.4B as of January 31, 2025. It also states that most noncurrent RPO is expected to be recognized in 13 to 36 months and gives the drivers of RPO. Passage 000035 adds unearned revenue context. The core requested facts are fully supported. The footnote on the $2.2B item is cut off, but it is not needed for the core answer.",
+      "evidence": [
+        {
+          "id": "000110852426000060#item8#passage-000036",
+          "text": "primarily includes Cloud Services subscription and support revenue, which is generally recognized ratably over time, and professional services and other revenue, which is generally recognized ratably or as delivered. Revenue recognized at a point in time substantially consists of term software licenses. Approximately 50 percent of total revenue recognized in fiscal 2026 was from the unearned revenue balance as of January 31, 2025. Remaining Performance Obligation Remaining performance obligation represents contracted revenue that has not yet been recognized and includes unearned revenue and unbilled amounts that will be recognized as revenue in future periods. The transaction price allocated to the remaining performance obligation is based on SSP. Remaining performance obligation is influenced by several factors, including seasonality, the timing of renewals, the timing of term license deliveries, average contract terms and foreign currency exchange rates. Remaining performance obligation is also impacted by acquisitions. Unbilled portions of the remaining performance obligation denominated in foreign currencies are revalued each period based on the period end exchange rates. Remaining performance obligation is subject to future economic risks, including bankruptcies, regulatory changes and other market factors. The Company excludes amounts related to performance obligations from professional services contracts that are billed and recognized on a time and materials basis. The majority of the Company's noncurrent remaining performance obligation is expected to be recognized in the next 13 to 36 months. Remaining performance obligation consisted of the following (in billions): CurrentNoncurrentTotal As of January 31, 2026 (1)$35.1 $37.3 $72.4 As of January 31, 2025$30.2 $33.2 $63.4 (1) Includes approximately $2.2 billion",
+          "metadata": {
+            "ID": "000110852426000060#item8#passage-000036",
+            "Ticker": "CRM",
+            "CIK": "1108524",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001108524-26-000060",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+          "tag": "CRM-2026-10K-item8-p000036"
+        },
+        {
+          "id": "000110852426000060#item8#passage-000017",
+          "text": "updates during the term of the arrangement. Cloud Services allow customers to use the Company's multi-tenant software without taking possession of the software. Revenue is generally recognized ratably over the contract term. Substantially all of the Company’s subscription service arrangements are noncancellable and do not contain refund-type provisions. Subscription and support revenues also include revenues associated with term software licenses that provide the customer with a right to use the software as it exists when made available. Revenues from term software licenses are generally recognized 64 Table of Contents at the point in time when the software is made available to the customer. Revenue from software support and updates is recognized as the support and updates are provided, which is generally ratably over the contract term. The Company typically invoices its customers annually and its payment terms provide that customers pay within 30 days of invoice. Amounts that have been invoiced are recorded in accounts receivable and in unearned revenue or revenue, depending on whether transfer of control to customers has occurred. Professional Services and Other Revenues The Company’s professional services contracts are either on a time and materials, fixed price or subscription basis. These revenues are recognized as the services are rendered for time and materials contracts, on a proportional performance basis for fixed price contracts or ratably over the contract term for subscription professional services contracts. Other revenues consist primarily of training revenues recognized as such services are performed. Significant Judgments - Contracts with Multiple Performance Obligations The Company enters into contracts with its",
+          "metadata": {
+            "ID": "000110852426000060#item8#passage-000017",
+            "Ticker": "CRM",
+            "CIK": "1108524",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001108524-26-000060",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+          "tag": "CRM-2026-10K-item8-p000017"
+        },
+        {
+          "id": "000110852426000060#item8#passage-000016",
+          "text": "subscription and support revenues and (2) professional services and other revenues. Subscription and support revenues primarily include subscription fees from customers accessing the Company’s enterprise cloud computing services (collectively, “Cloud Services”), software license revenues from the sales of term software licenses and support revenues from the sales of support and updates beyond the basic subscription or software license sales. Professional services and other revenues include professional and advisory services for process mapping, project management and implementation services and training services. Revenue is recognized upon transfer of control of promised products and services to customers in an amount that reflects the consideration the Company expects to receive in exchange for those products or services. If the consideration promised in a contract includes a variable amount, for example, overage fees, contingent fees or service level penalties, the Company includes an estimate of the amount it expects to receive for the total transaction price if it is probable that a significant reversal of cumulative revenue recognized will not occur. The Company determines the amount of revenue to be recognized through the application of the following steps: •identification of the contract, or contracts, with a customer; •identification of the performance obligations in the contract; •determination of the transaction price; •allocation of the transaction price to the performance obligations in the contract; and •recognition of revenue when or as the Company satisfies the performance obligations. Subscription and Support Revenues Subscription and support revenues are comprised of fees that provide customers with access to Cloud Services, software licenses and related support and",
+          "metadata": {
+            "ID": "000110852426000060#item8#passage-000016",
+            "Ticker": "CRM",
+            "CIK": "1108524",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001108524-26-000060",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+          "tag": "CRM-2026-10K-item8-p000016"
+        },
+        {
+          "id": "000110852426000060#item8#passage-000035",
+          "text": "Americas revenue attributed to the United States was approximately 93 percent during fiscal 2026, 2025, and 2024, respectively. No other country represented more than ten percent of total revenue during fiscal 2026, 2025 and 2024. Contract Balances Contract Assets The Company records a contract asset when revenue recognized on a contract exceeds the billings. Contract assets were $818 million as of January 31, 2026 as compared to $724 million as of January 31, 2025, and are included in prepaid expenses and other current assets and deferred tax assets and other assets, net on the consolidated balance sheets. Unearned Revenue Unearned revenue represents amounts that have been invoiced in advance of revenue recognition and is recognized as revenue when transfer of control to customers has occurred or services have been provided. The unearned revenue balance does not represent the total contract value of annual or multi-year, noncancellable subscription agreements. The unearned revenue balance is influenced by several factors, including seasonality, the compounding effects of renewals, invoice duration, invoice timing, dollar size and new business linearity within the quarter. The change in unearned revenue was as follows (in millions): Fiscal Year Ended January 31, 20262025 Unearned revenue, beginning of period$20,743 $19,003 Billings and other (1)45,099 39,635 Revenue recognized over time(39,041)(35,628) Revenue recognized at a point in time(2,484)(2,267) Unearned revenue, end of period$24,317 $20,743 (1) Other includes, for example, the impact of foreign currency translation as well as contributions from contract assets and business combinations, including $651 million from Informatica as of the acquisition date. Revenue recognized over time",
+          "metadata": {
+            "ID": "000110852426000060#item8#passage-000035",
+            "Ticker": "CRM",
+            "CIK": "1108524",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001108524-26-000060",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+          "tag": "CRM-2026-10K-item8-p000035"
+        },
+        {
+          "id": "000110852426000060#item8#passage-000002",
+          "text": "and that: (1) relate to accounts or disclosures that are material to the financial statements and (2) involved our especially challenging, subjective or complex judgments. The communication of critical audit matters does not alter in any way our opinion on the consolidated financial statements, taken as a whole, and we are not, by communicating the critical audit matters below, providing separate opinions on the critical audit matters or on the accounts or disclosures to which they relate. 54 Table of Contents Revenue Recognition Description of the Matter As described in Notes 1 and 2 to the consolidated financial statements, the Company recognizes revenue primarily from subscription and support services and professional services contracts in an amount that reflects the consideration the Company expects to receive in exchange for those products or services. The Company enters into contracts with its customers that may include promises to transfer multiple cloud services, software licenses, premium support and professional services. Significant judgment may be required by the Company in determining revenue recognition for these customer agreements, including the determination of whether products and services are considered distinct performance obligations and the determination of standalone selling prices, particularly for products and services that are not sold separately. Auditing the Company’s accounting for revenue contracts with customers required significant judgment to assess management’s determination of performance obligations and standalone selling prices. How We Addressed the Matter in Our Audit We obtained an understanding, evaluated the design and tested the operating effectiveness of controls over the Company’s process to identify performance obligations and",
+          "metadata": {
+            "ID": "000110852426000060#item8#passage-000002",
+            "Ticker": "CRM",
+            "CIK": "1108524",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001108524-26-000060",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+          "tag": "CRM-2026-10K-item8-p000002"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000110852426000060#item8#passage-000036",
+        "000110852426000060#item8#passage-000017",
+        "000110852426000060#item8#passage-000016",
+        "000110852426000060#item8#passage-000035",
+        "000110852426000060#item8#passage-000002",
+        "000110852426000060#item8#passage-000018",
+        "000110852426000060#item8#passage-000037",
+        "000110852426000060#item8#passage-000056",
+        "000110852426000060#item8#passage-000003",
+        "000110852426000060#item8#passage-000029"
+      ],
+      "fresh_verified_ids": [
+        "000110852426000060#item8#passage-000036",
+        "000110852426000060#item8#passage-000017",
+        "000110852426000060#item8#passage-000016",
+        "000110852426000060#item8#passage-000035",
+        "000110852426000060#item8#passage-000002"
+      ],
+      "elapsed_seconds": 8.702200427000207
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "remaining performance obligations contracted revenue not yet recognized",
+      "requested_goal": "remaining performance obligation (contracted revenue not yet recognized) disclosures",
+      "filters": {
+        "ticker": "ADBE",
+        "year": 2026,
+        "section": "Item 8",
+        "accession": "000079634326000003"
+      },
+      "score": 5,
+      "rationale": "Scope is ADBE, 2026 filing, Item 8. Passage 000027 states the core RPO facts: transaction price allocated to remaining performance obligations is defined as contracted revenue not yet recognized, and remaining performance obligations were about $22.52 billion as of November 28, 2025. It adds that about 65% (excluding certain enterprise committed-fund agreements) is expected to be recognized over the next 12 months, with the remainder thereafter, and that committed funds comprise about 4% of the total. Passage 000026 gives the related deferred revenue balance ($7.03 billion) as context. The requested elements are all present within scope, so no required element is missing.",
+      "evidence": [
+        {
+          "id": "000079634326000003#item8#passage-000027",
+          "text": "2025, approximately $6.14 billion of revenue was recognized that was included in the balance of deferred revenue as of November 29, 2024. Transaction price allocated to remaining performance obligations represents contracted revenue that has not yet been recognized, which includes deferred revenue and unbilled amounts that will be recognized as revenue in future periods. Transaction price allocated to remaining performance obligations is influenced by several factors, including the timing of renewals and average contract term. We applied practical expedients to exclude amounts related to performance obligations that are billed and recognized as they are delivered, optional purchases that do not represent material rights, sales and usage-based royalties not yet consumed and any estimated amounts of variable consideration that are subject to constraint. Remaining performance obligations were approximately $22.52 billion as of November 28, 2025. Non-cancellable and non-refundable committed funds related to some of our enterprise customer agreements referred to in the paragraph above comprised approximately 4% of the total remaining performance obligations. Approximately 65% of the remaining performance obligations, excluding the aforementioned enterprise customer agreements, are expected to be recognized over the next 12 months with the remainder recognized thereafter. Contract Acquisition Costs We recognize an asset for the incremental costs of obtaining a contract with a customer if we expect the benefit of those costs to be longer than one year. We have determined that certain sales incentive programs meet the requirements to be capitalized. The costs capitalized are primarily sales commissions paid to our sales force personnel. Capitalized costs may also include portions of",
+          "metadata": {
+            "ID": "000079634326000003#item8#passage-000027",
+            "Ticker": "ADBE",
+            "CIK": "796343",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000796343-26-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+          "tag": "ADBE-2026-10K-item8-p000027"
+        },
+        {
+          "id": "000079634326000003#item8#passage-000025",
+          "text": "where the transaction price allocated to the satisfied performance obligations exceeds the value of billings to date. Contract assets are included in prepaid expenses and other current assets for the current portion and other assets for the long-term portion on the Consolidated Balance Sheets. We regularly review contract asset balances for impairment, considering factors such as historical experience, credit-worthiness, age of the balance, current economic conditions and a reasonable and supportable forecast of future economic conditions. Contract asset impairments were not material in fiscal 2025 and 2024. Contract assets were $241 million and $248 million as of November 28, 2025 and November 29, 2024, respectively. Deferred Revenue and Remaining Performance Obligations Deferred revenue primarily consists of billings or payments received in advance of revenue recognition from subscription services, including non-cancellable and non-refundable committed funds and refundable customer deposits. Deferred revenue is recognized as revenue when transfer of control to customers has occurred. Customers are typically invoiced for these agreements in regular installments and revenue is recognized ratably over the contractual subscription period. The deferred revenue balance is influenced by several factors, including the compounding effects of renewals, invoice duration, invoice timing, size and new business linearity within the quarter. Deferred revenue does not represent the total contract value of annual or multi-year non-cancellable subscription agreements. Payment terms and conditions vary by contract type, although terms generally include a requirement of payment within 30 to 60 days. In instances where the timing of revenue recognition differs from the timing of invoicing, we have determined our contracts generally",
+          "metadata": {
+            "ID": "000079634326000003#item8#passage-000025",
+            "Ticker": "ADBE",
+            "CIK": "796343",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000796343-26-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+          "tag": "ADBE-2026-10K-item8-p000025"
+        },
+        {
+          "id": "000079634326000003#item8#passage-000024",
+          "text": "unconditional right to invoice and receive payment exists, such that only the passage of time is required before payment of consideration is due. Timing of revenue recognition may differ from the timing of invoicing to customers. Certain performance obligations may require payment before delivery of the license or service to the customer. Included in trade receivables on the Consolidated Balance Sheets are unbilled receivable balances which have not yet been invoiced, and are typically related to license revenue or services which are delivered prior to invoicing. As of November 28, 2025, the balance of trade receivables, net of allowances for doubtful accounts, was $2.34 billion, inclusive of unbilled receivables of $74 million. As of November 29, 2024, the balance of trade receivables, net of allowances for doubtful accounts, was $2.07 billion, inclusive of unbilled receivables of $66 million. Allowance for Doubtful Accounts We maintain an allowance for doubtful accounts which reflects our best estimate of potentially uncollectible trade receivables and is based on both specific and general reserves. We maintain general reserves on a collective basis by considering factors such as historical experience, credit-worthiness, the age of the trade receivable balances, current economic conditions and a reasonable and supportable forecast of future economic conditions. The allowance for doubtful accounts was $13 million and $14 million as of November 28, 2025 and November 29, 2024, respectively. Contract Assets A contract asset is recognized when a conditional right to consideration exists and transfer of control has occurred. Contract assets are typically related to subscription and hosted service contracts",
+          "metadata": {
+            "ID": "000079634326000003#item8#passage-000024",
+            "Ticker": "ADBE",
+            "CIK": "796343",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000796343-26-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+          "tag": "ADBE-2026-10K-item8-p000024"
+        },
+        {
+          "id": "000079634326000003#item8#passage-000026",
+          "text": "do not include a significant financing component. The primary purpose of our invoicing terms is to provide customers with simplified and predictable ways of purchasing our products and services, such as invoicing at the 60 Table of Contents ADOBE INC. NOTES TO CONSOLIDATED FINANCIAL STATEMENTS (Continued) beginning of a subscription term with revenue recognized ratably over the contract period, and not to receive financing from our customers. Any potential financing fees are considered insignificant in the context of our contracts. As of November 28, 2025, the balance of deferred revenue was $7.03 billion, which includes $80 million of refundable customer deposits. Refundable customer deposits represent arrangements in which the customer has a unilateral cancellation right for which we are obligated to refund amounts paid related to products or services not yet delivered or provided at the time of cancellation on a prorated basis. Arrangements with some of our enterprise customers with non-cancellable and non-refundable committed funds provide options to either renew monthly on-premise term-based licenses or use some or all funds to purchase other Adobe products or services. Non-cancellable and non-refundable committed funds related to these agreements comprised approximately 4% of the total deferred revenue. As of November 29, 2024, the balance of deferred revenue was $6.26 billion. Significant movements in the deferred revenue balance during the period consisted of increases due to payments received prior to transfer of control of the underlying performance obligations to the customer, which were offset by decreases due to revenue recognized in the period. During the year ended November 28,",
+          "metadata": {
+            "ID": "000079634326000003#item8#passage-000026",
+            "Ticker": "ADBE",
+            "CIK": "796343",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000796343-26-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+          "tag": "ADBE-2026-10K-item8-p000026"
+        },
+        {
+          "id": "000079634326000003#item8#passage-000006",
+          "text": "plans, consulting services, training and technical support. Most of our enterprise customer arrangements involve multiple promises to our customers. Revenue is recognized when a contract exists between us and a customer and upon transfer of control of promised products or services to customers in an amount that reflects the consideration we expect to receive in exchange for those products or services. We enter into contracts that can include various combinations of products and services, which may be capable of being distinct and accounted for as separate performance obligations, or as in the case of certain cloud-enabled software subscription offerings, accounted for as a single performance obligation. Revenue is recognized net of allowances for returns and any taxes collected from customers, which are subsequently remitted to governmental authorities. Subscription, Product and Services Offerings We enter into revenue arrangements in which a customer may purchase a combination of our products, services and/or solutions as described above. Certain revenue arrangements provide customers with unilateral cancellation rights, or options to either renew monthly on-premise term-based licenses or use committed funds to purchase other Adobe products or services. 52 Table of Contents ADOBE INC. NOTES TO CONSOLIDATED FINANCIAL STATEMENTS (Continued) Fully hosted subscription services (“SaaS”) allow customers to access hosted software during the contractual term without taking possession of the software. Cloud-hosted subscription services may be sold on a fee-per-subscription period basis or based on consumption or usage. We recognize revenue ratably over the contractual service term, which typically ranges from 1 to 36 months, for hosted services that are priced",
+          "metadata": {
+            "ID": "000079634326000003#item8#passage-000006",
+            "Ticker": "ADBE",
+            "CIK": "796343",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000796343-26-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+          "tag": "ADBE-2026-10K-item8-p000006"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000079634326000003#item8#passage-000027",
+        "000079634326000003#item8#passage-000025",
+        "000079634326000003#item8#passage-000024",
+        "000079634326000003#item8#passage-000026",
+        "000079634326000003#item8#passage-000006",
+        "000079634326000003#item8#passage-000008",
+        "000079634326000003#item8#passage-000020",
+        "000079634326000003#item8#passage-000007",
+        "000079634326000003#item8#passage-000009",
+        "000079634326000003#item8#passage-000012"
+      ],
+      "fresh_verified_ids": [
+        "000079634326000003#item8#passage-000027",
+        "000079634326000003#item8#passage-000025",
+        "000079634326000003#item8#passage-000024",
+        "000079634326000003#item8#passage-000026",
+        "000079634326000003#item8#passage-000006"
+      ],
+      "elapsed_seconds": 8.008106214998406
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Remaining performance obligation represents contracted revenue that has not yet been recognized and includes unearned revenue and unbilled amounts that will be recognized as revenue in future periods. [CRM-2026-10K-item8-p000036](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm) (chunk: `000110852426000060#item8#passage-000036`; accession: `0001108524-26-000060`).\n- Remaining performance obligation consisted of the following \\(in billions\\): CurrentNoncurrentTotal As of January 31, 2026 \\(1\\)$35.1 $37.3 $72.4 As of January 31, 2025$30.2 $33.2 $63.4 [CRM-2026-10K-item8-p000036](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm) (chunk: `000110852426000060#item8#passage-000036`; accession: `0001108524-26-000060`).\n- The majority of the Company's noncurrent remaining performance obligation is expected to be recognized in the next 13 to 36 months. [CRM-2026-10K-item8-p000036](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm) (chunk: `000110852426000060#item8#passage-000036`; accession: `0001108524-26-000060`).\n- Transaction price allocated to remaining performance obligations represents contracted revenue that has not yet been recognized, which includes deferred revenue and unbilled amounts that will be recognized as revenue in future periods. [ADBE-2026-10K-item8-p000027](https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm) (chunk: `000079634326000003#item8#passage-000027`; accession: `0000796343-26-000003`).\n- Remaining performance obligations were approximately $22.52 billion as of November 28, 2025. [ADBE-2026-10K-item8-p000027](https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm) (chunk: `000079634326000003#item8#passage-000027`; accession: `0000796343-26-000003`).\n- Approximately 65% of the remaining performance obligations, excluding the aforementioned enterprise customer agreements, are expected to be recognized over the next 12 months with the remainder recognized thereafter. [ADBE-2026-10K-item8-p000027](https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm) (chunk: `000079634326000003#item8#passage-000027`; accession: `0000796343-26-000003`).",
+  "citations": [
+    {
+      "tag": "CRM-2026-10K-item8-p000036",
+      "chunk_id": "000110852426000060#item8#passage-000036",
+      "accession": "0001108524-26-000060",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+      "quote": "Remaining performance obligation represents contracted revenue that has not yet been recognized and includes unearned revenue and unbilled amounts that will be recognized as revenue in future periods."
+    },
+    {
+      "tag": "CRM-2026-10K-item8-p000036",
+      "chunk_id": "000110852426000060#item8#passage-000036",
+      "accession": "0001108524-26-000060",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+      "quote": "Remaining performance obligation consisted of the following (in billions): CurrentNoncurrentTotal As of January 31, 2026 (1)$35.1 $37.3 $72.4 As of January 31, 2025$30.2 $33.2 $63.4"
+    },
+    {
+      "tag": "CRM-2026-10K-item8-p000036",
+      "chunk_id": "000110852426000060#item8#passage-000036",
+      "accession": "0001108524-26-000060",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+      "quote": "The majority of the Company's noncurrent remaining performance obligation is expected to be recognized in the next 13 to 36 months."
+    },
+    {
+      "tag": "ADBE-2026-10K-item8-p000027",
+      "chunk_id": "000079634326000003#item8#passage-000027",
+      "accession": "0000796343-26-000003",
+      "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+      "quote": "Transaction price allocated to remaining performance obligations represents contracted revenue that has not yet been recognized, which includes deferred revenue and unbilled amounts that will be recognized as revenue in future periods."
+    },
+    {
+      "tag": "ADBE-2026-10K-item8-p000027",
+      "chunk_id": "000079634326000003#item8#passage-000027",
+      "accession": "0000796343-26-000003",
+      "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+      "quote": "Remaining performance obligations were approximately $22.52 billion as of November 28, 2025."
+    },
+    {
+      "tag": "ADBE-2026-10K-item8-p000027",
+      "chunk_id": "000079634326000003#item8#passage-000027",
+      "accession": "0000796343-26-000003",
+      "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm",
+      "quote": "Approximately 65% of the remaining performance obligations, excluding the aforementioned enterprise customer agreements, are expected to be recognized over the next 12 months with the remainder recognized thereafter."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.462546998001926,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 14567,
+        "output_tokens": 610,
+        "output_tokens_details": {
+          "thinking_tokens": 356
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 610,
+            "cache_read_input_tokens": 14567,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00045087
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.870613643997785,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16135,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 679,
+        "output_tokens_details": {
+          "thinking_tokens": 287
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16135,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 679,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16135,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16135
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0035837000000000004
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.487652499999967,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16036,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 797,
+        "output_tokens_details": {
+          "thinking_tokens": 378
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16036,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 797,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16036,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16036
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036229
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.144206629000109,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 6376,
+        "cache_read_input_tokens": 925,
+        "output_tokens": 1653,
+        "output_tokens_details": {
+          "thinking_tokens": 1158
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6376,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1653,
+            "cache_read_input_tokens": 925,
+            "cache_creation_input_tokens": 6376,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 6376
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00211115
+    }
+  ],
+  "elapsed_seconds": 20.31204820900166
+}

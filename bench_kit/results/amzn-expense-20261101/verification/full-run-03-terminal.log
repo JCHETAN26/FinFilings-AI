@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/scripts/evaluate-expanded-agent.py", line 176, in <module>
+    if __name__=='__main__':main()
+  File "/media/grv22/Extreme SSD2/project/FinFillings AI/scripts/evaluate-expanded-agent.py", line 162, in main
+    if code:raise RuntimeError('agent evaluation failed; inspect evaluation.log and evaluation/*.failure.json')
+RuntimeError: agent evaluation failed; inspect evaluation.log and evaluation/*.failure.json

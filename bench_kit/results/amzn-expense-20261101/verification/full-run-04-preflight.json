@@ -1,0 +1,31 @@
+{
+  "attempt": "full-run-04",
+  "same_frozen_data_models_and_indexes": true,
+  "checks": {
+    "suite_sha256": true,
+    "corpus_sha256": true,
+    "ingest_report_sha256": true,
+    "original_provenance_sha256": true,
+    "vector_index": true,
+    "sparse_index": true,
+    "reranker_model": true
+  },
+  "implementation_changed_since_run_03": [
+    "py/agent/critic.py",
+    "py/agent/planner.py"
+  ],
+  "tests": {
+    "application": {
+      "passed": true,
+      "count": 74,
+      "log": "python-tests-scope-final.log"
+    },
+    "benchmark_contract": {
+      "passed": true,
+      "count": 160,
+      "log": "benchmark-tests-scope.log"
+    }
+  },
+  "scope_probe_passed": true,
+  "lease_contrast_passed": true
+}

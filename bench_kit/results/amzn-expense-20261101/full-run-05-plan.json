@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-11-02T04:04:05.741730+00:00",
+  "attempt": "full-run-05",
+  "reason_for_new_attempt": "Full-run-04 exposed unchanged rewrite exceptions in broad27 and broad29. Empty-evidence unchanged rewrites now record the actual proposal and a typed stalled_rewrite terminal reason; score1/nonacceptance/no claims remain. Fail-closed scope/citation gates unchanged.",
+  "prior_failed_attempts_preserved": [
+    "full-run-01",
+    "full-run-02",
+    "full-run-03",
+    "full-run-04"
+  ],
+  "quality_gates_unchanged": true,
+  "execution_contract_change": "At most 2 retries; unavailable scopes may terminate before exhaustion only on independently verified empty-evidence score1 unchanged rewrite. Legacy traces retain their original exhaustion checks.",
+  "remaining_acceptance": "Same frozen 30 cases; no available-topic gaps; unavailable scopes withheld; exact source citations; bounded execution; zero structural/model/transport failures.",
+  "source_sha256": {
+    "py/agent/__init__.py": "2487bcb7e2e9113bc1d224810a42ef067e2acac6e2e52a4b30f860513e50ceea",
+    "py/agent/filters.py": "44eefa4ad498046cc7c12fd0d0abca53f7342e2c99d99f2c7e6d6aba11553368",
+    "py/agent/models.py": "27a011d2ce5b53c99a29057e0480dc50d6cebcc2c93022a9a638edc78f32b102",
+    "py/agent/provider.py": "9da39cc201a101dd8244cebf6b142396c2008579805082d69eea5cd8bf2ba617",
+    "py/agent/provenance.py": "656f0ed37f4ca86ee73432ca6ccd6930d887a52927256919f5eae5f325d48fbc",
+    "py/agent/planner.py": "d95a87fb4a74c99d362c508516543acc1d0aabec1f9731a6e4625fe1cb6b34f4",
+    "py/agent/critic.py": "f1ad9603bafb3cacb2f277ad7ebad1fb639161e292ed373cc9cbb1d7a29436d0",
+    "py/agent/retrieval.py": "8a83fa308f6377c4929320c1491ad0ab2db7d3ce87c4182bcfad69978d699246",
+    "py/agent/synthesizer.py": "62f2945fabd9e125999c74b3037c4a22813dac54d49b83d64fc6e779cc232f08",
+    "py/agent/state_machine.py": "92ca46c8cd67b03550d7b0cbe05b50daa1ab016f9664a502dbd16b7ba899a6b7",
+    "bench_kit/verify_broad_agent.py": "093033ef2e1bef1a25fd043edc59321e9feb7339a78cb1917a9a373dae9caf82",
+    "bench_kit/eval_agent.py": "eb7a606cefc12fa59169cced9eb92e67920d88478bebac5739bacffc919c0f32",
+    "scripts/evaluate-expanded-agent.py": "88daf6b3b8fefb503600fd50cc708f6e88f0536df9c5b83980b4f17ad4dfa1ae"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-02T00:41:08.020550+00:00",
+  "git_head": "ee6ec35797c9a47340a37231f0a8a227fec27f41",
+  "full_frozen_suite": true,
+  "expected_cases": 30,
+  "input_sha256": {
+    "bench_kit/suites/broad-validation-v2.json": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+    "data/sec-scale-v3-evaluation-20261101/chunks.jsonl": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+    "py/agent/critic.py": "24cb41f8d4e948840b1c045a7d592919896c27ede5e6cf03fb3491596cd2cae9",
+    "py/agent/state_machine.py": "bc44783994130f81d6d31268d30f119abbb78a4e65f4a371637598d33f02fe52",
+    "scripts/evaluate-expanded-agent.py": "61048e67082b7f6b290544c19d7abf31b80092edbcd3a3e81687577e5624c037"
+  },
+  "baseline": "bench_kit/results/parser-v3-adoption-20261101/agent-run-01",
+  "acceptance": [
+    "All 30 frozen cases retained; no transport/model/structural failures or source/citation/filter/bounds violations.",
+    "Strict code/index/model/source hashes pass and owned processes stop.",
+    "Unavailable scopes publish no claims; both mixed cases fully cite available sides and withhold absent sides.",
+    "Available-subquery citation coverage passes the existing 80% floor; compare exact counts with baseline rather than call coverage answer accuracy.",
+    "HPE case cites both filing years with no evidence-gap flags. No newly partial or abstained available cases relative to the pre-fix baseline.",
+    "Preserve every attempt; no suite, expectation, model, index, threshold or verifier changes to manufacture a passing result."
+  ],
+  "bounds": {
+    "inference_workers": 4,
+    "threads_per_worker": 2,
+    "http_admission": 64,
+    "go_search_admission": 8,
+    "agent_concurrent_subqueries": 3,
+    "model_concurrency": 2,
+    "max_retries_per_subquery": 2,
+    "evidence_per_context": 5,
+    "retained_passages": 2
+  }
+}

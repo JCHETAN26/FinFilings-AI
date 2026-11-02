@@ -1,0 +1,514 @@
+{
+  "prompt": "Compare GS filing year 2026 and BAC filing year 2025: retrieve each firm's regulatory capital ratio disclosures. Retrieve evidence separately for each company and do not substitute another filing year if one filing is unavailable.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "regulatory capital ratios CET1 standardized approach",
+        "filters": {
+          "ticker": "GS",
+          "year": 2026,
+          "section": "",
+          "accession": "000088698226000091"
+        }
+      },
+      {
+        "query": "regulatory capital ratios CET1 standardized approach",
+        "filters": {
+          "ticker": "BAC",
+          "year": 2025,
+          "section": "",
+          "accession": ""
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "regulatory capital ratios CET1 standardized approach",
+      "filters": {
+        "ticker": "GS",
+        "year": 2026,
+        "section": "",
+        "accession": "000088698226000091"
+      },
+      "score": 5,
+      "rationale": "The GS 2026 filing passages directly answer the original subquery on CET1 ratios under the standardized approach. They give the Standardized CET1 capital ratio of 14.3% as of December 2025 (15.0% as of December 2024), the Advanced CET1 ratio of 15.1% (15.3%), and the Tier 1 and Total capital ratios, with CET1, Tier 1, Total capital and RWA amounts. They also state the minimum and total risk-based requirements (CET1 10.9% standardized, 10.0% advanced) and leverage ratios. Passages 178-180 are consecutive and were read together. Nothing requested is missing, so no retain_ids are needed.",
+      "evidence": [
+        {
+          "id": "000088698226000091#item8#passage-000178",
+          "text": "that qualifies as Common Equity Tier 1 (CET1) capital. The firm calculates its CET1 capital, Tier 1 capital and Total capital ratios in accordance with both the Standardized and Advanced Capital Rules. Each of the ratios calculated under the Standardized and Advanced Capital Rules must meet its respective capital requirements. Under the Capital Framework, the firm is also subject to leverage requirements which consist of a minimum Tier 1 leverage ratio and a minimum supplementary leverage ratio (SLR), as well as the SLR buffer. Consolidated Regulatory Capital Requirements Risk-Based Capital Ratios. The table below presents the minimum, capital conservation buffer and total risk-based capital requirements. As of December 2025202420252024 StandardizedAdvanced Risk-based capital minimum requirements CET1 capital ratio 4.5%4.5%4.5%4.5% Tier 1 capital ratio 6.0%6.0%6.0%6.0% Total capital ratio 8.0%8.0%8.0%8.0% Capital conservation buffer requirements G-SIB surcharge (Method 2) 3.0%3.0%3.0%3.0% Stress capital buffer 3.4%6.2%N/AN/A Fixed buffer N/AN/A2.5%2.5% Countercyclical capital buffer 0.0%0.0%0.0%0.0% Total 6.4%9.2%5.5%5.5% Total risk-based capital requirements CET1 capital ratio10.9%13.7%10.0%10.0% Tier 1 capital ratio12.4%15.2%11.5%11.5% Total capital ratio14.4%17.2%13.5%13.5% In the table above: •The total risk-based capital requirements for each of the capital ratios consist of the required risk-based capital minimum and the capital conservation buffer requirements. •The G-SIB surcharge is calculated using two methodologies (Method 1 and Method 2), the higher of which is reflected in the firm’s capital conservation buffer requirements. Method 1 relies upon measures of the size, interconnectedness, substitutability, complexity and cross-jurisdictional activities of each G-SIB. Method 2 uses similar inputs but includes a measure of reliance on short-term wholesale funding instead of substitutability. As of both December",
+          "metadata": {
+            "ID": "000088698226000091#item8#passage-000178",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item8-p000178"
+        },
+        {
+          "id": "000088698226000091#item8#passage-000182",
+          "text": "USA is required to calculate the CET1 capital, Tier 1 capital and Total capital ratios in accordance with both the Standardized and Advanced Capital Rules. The lower of each risk-based capital ratio under the Standardized and Advanced Capital Rules is the ratio against which GS Bank USA’s compliance with its risk-based capital requirements is assessed. In addition, under the regulatory framework for prompt corrective action applicable to GS Bank USA, in order to meet the quantitative requirements for a “well-capitalized” depository institution, GS Bank USA must also meet the “well-capitalized” requirements in the table below. GS Bank USA’s capital levels and prompt corrective action classification are also subject to qualitative judgments by the regulators about components of capital, risk weightings and other factors. Failure to comply with the capital requirements, including a breach of the buffers described below, would result in restrictions being imposed by the regulators. The table below presents GS Bank USA’s risk-based capital, leverage and “well-capitalized” requirements. As of December 2025202420252024 \"Well-capitalized\" Requirements Requirements Risk-based capital requirements CET1 capital ratio7.0%7.0%6.5%6.5% Tier 1 capital ratio8.5%8.5%8.0%8.0% Total capital ratio10.5%10.5%10.0%10.0% Leverage requirements Tier 1 leverage ratio4.0%4.0%5.0%5.0% SLR3.0%3.0%6.0%6.0% In the table above: •The CET1 capital ratio requirement includes a minimum of 4.5%, the Tier 1 capital ratio requirement includes a minimum of 6.0% and the Total capital ratio requirement includes a minimum of 8.0%. These requirements also include the capital conservation buffer requirements consisting of a 2.5% buffer and the countercyclical capital buffer, which the FRB has set to zero percent. •The “well-capitalized” requirements were the binding",
+          "metadata": {
+            "ID": "000088698226000091#item8#passage-000182",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item8-p000182"
+        },
+        {
+          "id": "000088698226000091#item8#passage-000180",
+          "text": "1 capital$115,647 $115,647 Tier 2 capital$14,125 $10,164 Total capital$129,772 $125,811 RWAs$688,541 $674,812 CET1 capital ratio15.0%15.3% Tier 1 capital ratio16.8%17.1% Total capital ratio18.8%18.6% In the table above, the Standardized risk-based capital ratios as of December 2025 decreased compared with December 2024, reflecting an increase in Credit RWAs, partially offset by a decrease in Market RWAs and an increase in capital. The Advanced CET1 capital ratio as of December 2025 decreased compared with December 2024, reflecting an increase in Credit RWAs, partially offset by decreases in both Operational and Market RWAs, and an increase in capital. The Advanced Tier 1 and Total capital ratios as of December 2025 were essentially unchanged compared with December 2024. Leverage Ratios. The table below presents the leverage requirements. As of December 20252024 Tier 1 leverage ratio4.0%4.0% SLR5.0%5.0% In the table above, the SLR requirement of 5% includes a minimum of 3% and a 2% buffer applicable to G-SIBs. On January 1, 2026, the firm early adopted the modified Enhanced Supplementary Leverage Ratio (eSLR) standards, which replaced the 2% buffer applicable to G-SIBs, with a buffer equal to 50% of the firm's G-SIB surcharge (Method 1). As a result, effective January 1, 2026, the firm's SLR buffer decreased to 0.75% and the SLR requirement decreased to 3.75%. The table below presents information about leverage ratios. For the Three Months Ended or as of December $ in millions20252024 Tier 1 capital$118,943 $115,647 Average adjusted total assets$1,810,007 $1,692,500 Total leverage exposure $2,297,597 $2,120,756 Tier 1 leverage ratio6.6%6.8% SLR5.2%5.5% In the table above: •Average adjusted total",
+          "metadata": {
+            "ID": "000088698226000091#item8#passage-000180",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item8-p000180"
+        },
+        {
+          "id": "000088698226000091#item8#passage-000179",
+          "text": "2025 and December 2024, the G-SIB surcharge (Method 2) was higher and therefore was reflected in the capital conservation buffer requirements. •In June 2025, the FRB disclosed that the firm’s stress capital buffer (SCB), from the 2024 Comprehensive Capital Analysis and Review (CCAR) stress test, has been reduced from 6.2% to 6.1%. The impact of this change would have been a reduction of 10 basis points to the December 2024 Standardized CET1 capital, Tier 1 capital and Total capital ratio requirements presented in the table above. Additionally, based on the firm’s 2025 CCAR submission, the FRB has set the SCB for the firm at 3.4% starting October 1, 2025. In February 2026, the FRB announced that BHCs will continue to be subject to their current SCB requirements until they receive new SCB requirements in 2027. As a result, absent further action from the FRB, the 3.4% SCB will remain effective through September 30, 2027. 212 Goldman Sachs 2025 Form 10-K THE GOLDMAN SACHS GROUP, INC. AND SUBSIDIARIES Notes to Consolidated Financial Statements Effective January 1, 2026, the firm’s G-SIB surcharge (Method 2) increased from 3.0% to 3.5%, which increased the firm’s total risk-based capital requirements for each of the Standardized and Advanced capital ratios by 0.5%. The table below presents information about risk-based capital ratios. $ in millionsStandardizedAdvanced As of December 2025 CET1 capital$104,297 $104,297 Tier 1 capital$118,943 $118,943 Tier 2 capital$11,722 $9,527 Total capital$130,665 $128,470 RWAs$727,338 $691,470 CET1 capital ratio14.3%15.1% Tier 1 capital ratio16.4%17.2% Total capital ratio18.0%18.6% As of December 2024 CET1 capital$103,065 $103,065 Tier",
+          "metadata": {
+            "ID": "000088698226000091#item8#passage-000179",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item8-p000179"
+        },
+        {
+          "id": "000088698226000091#item7#passage-000079",
+          "text": "significantly from year to year based on the results of the annual supervisory stress tests. Our target is to maintain capital ratios equal to the regulatory requirements plus a buffer of 50 to 100 basis points. Risk-Based Capital. The table below presents information about our risk-based capital. As of December $ in millions20252024 Common shareholders’ equity$109,819 $108,743 Impact of CECL transition– 276 Deduction for goodwill(5,244)(5,159) Deduction for identifiable intangible assets(642)(638) Other adjustments364 (157) CET1 capital104,297 103,065 Preferred stock15,153 13,253 Deduction for investments in covered funds (504)(669) Other adjustments(3)(2) Tier 1 capital$118,943 $115,647 Standardized Tier 2 and Total capital Tier 1 capital$118,943 $115,647 Qualifying subordinated debt8,856 9,124 Allowance for credit losses2,879 5,011 Other adjustments(13)(10) Standardized Tier 2 capital11,722 14,125 Standardized Total capital$130,665 $129,772 Advanced Tier 2 and Total capital Tier 1 capital$118,943 $115,647 Standardized Tier 2 capital11,722 14,125 Allowance for credit losses(2,879)(5,011) Other adjustments684 1,050 Advanced Tier 2 capital9,527 10,164 Advanced Total capital$128,470 $125,811 94 Goldman Sachs 2025 Form 10-K THE GOLDMAN SACHS GROUP, INC. AND SUBSIDIARIES Management’s Discussion and Analysis In the table above: •Beginning in January 2022, we started to phase in the estimated reduction to regulatory capital of $1.11 billion as a result of adopting the Current Expected Credit Losses (CECL) model at 25% per year. As of December 2024, the impact of CECL transition reflected the remaining amount of reduction that was fully phased in on January 1, 2025. •Deduction for goodwill was net of deferred tax liabilities of $705 million as of December 2025 and $694 million as of December 2024. •Deduction",
+          "metadata": {
+            "ID": "000088698226000091#item7#passage-000079",
+            "Ticker": "GS",
+            "CIK": "886982",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000886982-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+          "tag": "GS-2026-10K-item7-p000079"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000088698226000091#item8#passage-000178",
+        "000088698226000091#item8#passage-000182",
+        "000088698226000091#item8#passage-000180",
+        "000088698226000091#item8#passage-000179",
+        "000088698226000091#item7#passage-000079",
+        "000088698226000091#item7#passage-000088",
+        "000088698226000091#item7#passage-000089",
+        "000088698226000091#item7#passage-000092",
+        "000088698226000091#item7#passage-000090",
+        "000088698226000091#item8#passage-000181"
+      ],
+      "fresh_verified_ids": [
+        "000088698226000091#item8#passage-000178",
+        "000088698226000091#item8#passage-000182",
+        "000088698226000091#item8#passage-000180",
+        "000088698226000091#item8#passage-000179",
+        "000088698226000091#item7#passage-000079"
+      ],
+      "elapsed_seconds": 7.957837777998066
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "regulatory capital ratios CET1 standardized approach",
+      "filters": {
+        "ticker": "BAC",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No verified evidence was supplied: the evidence and adjacent_pairs arrays are empty. The original goal asks for BAC's regulatory capital ratio disclosures in its 2025 filing, including CET1 under the standardized approach. None of that is present in any passage, so every requested element is missing: CET1 ratio, Tier 1 and total capital ratios, leverage ratio, and the standardized approach figures. No passages are retained. Other tickers in the catalog are out of scope for this subquery and were ignored.",
+      "evidence": [],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [],
+      "fresh_verified_ids": [],
+      "elapsed_seconds": 4.540177913000662
+    },
+    {
+      "subquery": 1,
+      "attempt": 1,
+      "query": "common equity tier 1 capital ratio standardized approach risk-weighted assets well capitalized minimum requirements",
+      "filters": {
+        "ticker": "BAC",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No evidence passages were supplied (evidence and adjacent_pairs are empty), so no requested element is supported. Every element of the original goal is missing: CET1 ratio, standardized-approach risk-weighted assets, and minimum or well-capitalized requirements for BAC. The catalog also lists no BAC filing for year 2025; its only BAC entry is filing year 2026 (accession 000007085826000157). The 2025 filter must not be replaced with the 2026 filing. The GS 2026 and cross-company comparison belong to other subqueries and were excluded from this rewrite.",
+      "evidence": [],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [],
+      "fresh_verified_ids": [],
+      "elapsed_seconds": 5.445212531001744
+    },
+    {
+      "subquery": 1,
+      "attempt": 2,
+      "query": "CET1 capital ratio standardized approach risk-weighted assets regulatory capital minimums well capitalized buffer",
+      "filters": {
+        "ticker": "BAC",
+        "year": 2025,
+        "section": "",
+        "accession": ""
+      },
+      "score": 1,
+      "rationale": "No evidence passages were supplied (evidence and adjacent_pairs are empty), so the requested regulatory capital ratio disclosures are absent from every passage. Nothing is retained. The original subquery's filter is BAC with year 2025, and the filing catalog lists only a BAC 2026 10-K (accession 000007085826000157), with no BAC 2025 filing. The audit prompt's GS 2026 and BAC 2025 comparison belongs to other subqueries or synthesis, and this subquery must not substitute the BAC 2026 filing for the 2025 one. The rewrite targets only the missing topic, the BAC capital ratio disclosures.",
+      "evidence": [],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [],
+      "fresh_verified_ids": [],
+      "elapsed_seconds": 4.867528255999787
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- The table below presents the minimum, capital conservation buffer and total risk-based capital requirements. [GS-2026-10K-item8-p000178](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000178`; accession: `0000886982-26-000091`).\n- In the table above, the Standardized risk-based capital ratios as of December 2025 decreased compared with December 2024, reflecting an increase in Credit RWAs, partially offset by a decrease in Market RWAs and an increase in capital. [GS-2026-10K-item8-p000180](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000180`; accession: `0000886982-26-000091`).\n- On January 1, 2026, the firm early adopted the modified Enhanced Supplementary Leverage Ratio \\(eSLR\\) standards, which replaced the 2% buffer applicable to G-SIBs, with a buffer equal to 50% of the firm's G-SIB surcharge \\(Method 1\\). [GS-2026-10K-item8-p000180](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000180`; accession: `0000886982-26-000091`).\n- Effective January 1, 2026, the firm’s G-SIB surcharge \\(Method 2\\) increased from 3.0% to 3.5%, which increased the firm’s total risk-based capital requirements for each of the Standardized and Advanced capital ratios by 0.5%. [GS-2026-10K-item8-p000179](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000179`; accession: `0000886982-26-000091`).\n- based on the firm’s 2025 CCAR submission, the FRB has set the SCB for the firm at 3.4% starting October 1, 2025. [GS-2026-10K-item8-p000179](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item8#passage-000179`; accession: `0000886982-26-000091`).\n- Our target is to maintain capital ratios equal to the regulatory requirements plus a buffer of 50 to 100 basis points. [GS-2026-10K-item7-p000079](https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm) (chunk: `000088698226000091#item7#passage-000079`; accession: `0000886982-26-000091`).\n\nEvidence gaps:\n- Subquery 1 has no evidence meeting threshold after 2 retries.",
+  "citations": [
+    {
+      "tag": "GS-2026-10K-item8-p000178",
+      "chunk_id": "000088698226000091#item8#passage-000178",
+      "accession": "0000886982-26-000091",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+      "quote": "The table below presents the minimum, capital conservation buffer and total risk-based capital requirements."
+    },
+    {
+      "tag": "GS-2026-10K-item8-p000180",
+      "chunk_id": "000088698226000091#item8#passage-000180",
+      "accession": "0000886982-26-000091",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+      "quote": "In the table above, the Standardized risk-based capital ratios as of December 2025 decreased compared with December 2024, reflecting an increase in Credit RWAs, partially offset by a decrease in Market RWAs and an increase in capital."
+    },
+    {
+      "tag": "GS-2026-10K-item8-p000180",
+      "chunk_id": "000088698226000091#item8#passage-000180",
+      "accession": "0000886982-26-000091",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+      "quote": "On January 1, 2026, the firm early adopted the modified Enhanced Supplementary Leverage Ratio (eSLR) standards, which replaced the 2% buffer applicable to G-SIBs, with a buffer equal to 50% of the firm's G-SIB surcharge (Method 1)."
+    },
+    {
+      "tag": "GS-2026-10K-item8-p000179",
+      "chunk_id": "000088698226000091#item8#passage-000179",
+      "accession": "0000886982-26-000091",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+      "quote": "Effective January 1, 2026, the firm’s G-SIB surcharge (Method 2) increased from 3.0% to 3.5%, which increased the firm’s total risk-based capital requirements for each of the Standardized and Advanced capital ratios by 0.5%."
+    },
+    {
+      "tag": "GS-2026-10K-item8-p000179",
+      "chunk_id": "000088698226000091#item8#passage-000179",
+      "accession": "0000886982-26-000091",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+      "quote": "based on the firm’s 2025 CCAR submission, the FRB has set the SCB for the firm at 3.4% starting October 1, 2025."
+    },
+    {
+      "tag": "GS-2026-10K-item7-p000079",
+      "chunk_id": "000088698226000091#item7#passage-000079",
+      "accession": "0000886982-26-000091",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000091/gs-20251231.htm",
+      "quote": "Our target is to maintain capital ratios equal to the regulatory requirements plus a buffer of 50 to 100 basis points."
+    }
+  ],
+  "flags": [
+    "Subquery 1 has no evidence meeting threshold after 2 retries."
+  ],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.873557302998961,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13085,
+        "cache_read_input_tokens": 1249,
+        "output_tokens": 485,
+        "output_tokens_details": {
+          "thinking_tokens": 313
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13085,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 485,
+            "cache_read_input_tokens": 1249,
+            "cache_creation_input_tokens": 13085,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13085
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00287219
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.4650212100023055,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13189,
+        "cache_read_input_tokens": 1397,
+        "output_tokens": 614,
+        "output_tokens_details": {
+          "thinking_tokens": 284
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13189,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 614,
+            "cache_read_input_tokens": 1397,
+            "cache_creation_input_tokens": 13189,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13189
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00295897
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.262258252001629,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 17023,
+        "cache_read_input_tokens": 1467,
+        "output_tokens": 804,
+        "output_tokens_details": {
+          "thinking_tokens": 428
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 17023,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 804,
+            "cache_read_input_tokens": 1467,
+            "cache_creation_input_tokens": 17023,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 17023
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0038214700000000004
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.381101323000621,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13208,
+        "cache_read_input_tokens": 1397,
+        "output_tokens": 842,
+        "output_tokens_details": {
+          "thinking_tokens": 486
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13208,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 842,
+            "cache_read_input_tokens": 1397,
+            "cache_creation_input_tokens": 13208,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13208
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00307677
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.800164764001238,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13210,
+        "cache_read_input_tokens": 1397,
+        "output_tokens": 749,
+        "output_tokens_details": {
+          "thinking_tokens": 364
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13210,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 749,
+            "cache_read_input_tokens": 1397,
+            "cache_creation_input_tokens": 13210,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13210
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00303067
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 10.743292429000576,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 4532,
+        "cache_read_input_tokens": 925,
+        "output_tokens": 2197,
+        "output_tokens_details": {
+          "thinking_tokens": 1662
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4532,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2197,
+            "cache_read_input_tokens": 925,
+            "cache_creation_input_tokens": 4532,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4532
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00201435
+    }
+  ],
+  "elapsed_seconds": 29.47291880099874
+}

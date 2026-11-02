@@ -1,0 +1,536 @@
+{
+  "note": "Six sequential real critic calls on source-verified saved evidence; scope contract regression probes, not accuracy.",
+  "passed": true,
+  "calls": 6,
+  "results": [
+    {
+      "case": "broad21",
+      "subquery": 0,
+      "source_case": "bench_kit/results/amzn-expense-20261101/full-run-03/evaluation/broad21.json",
+      "source_case_sha256": "8dfd1b4761d45f144a54c35c23fecb535ee9522c3406002b74581ef56e7b6691",
+      "requested_goal": "retrieve how each company defines or discusses its medical care ratio or medical benefit ratio. Retrieve evidence separately for each company.",
+      "filters": {
+        "ticker": "UNH",
+        "year": 2025,
+        "section": "Item 7",
+        "accession": "000073176625000063"
+      },
+      "evidence": [
+        {
+          "id": "000073176625000063#item7#passage-000008",
+          "text_sha256": "ae92cac6a3dda3260c8f042fdd56ac49d655fcc5638288581acf9b9d78a8d76f"
+        },
+        {
+          "id": "000073176625000063#item7#passage-000003",
+          "text_sha256": "e26fcfc809aa40e01d69ab3004bd0fc97d82aeb22f692d74f31398d71af72f5a"
+        },
+        {
+          "id": "000073176625000063#item7#passage-000021",
+          "text_sha256": "3814618d896aa9a27914223252b41b9b92963e228ad70ae6ae86ad3ad98006d1"
+        },
+        {
+          "id": "000073176625000063#item7#passage-000011",
+          "text_sha256": "c3003ffc1baebc599ad03906fa43967dafbc59917bcff1f57df8d3f16b1bdd6e"
+        },
+        {
+          "id": "000073176625000063#item7#passage-000006",
+          "text_sha256": "d8e2fae7ba1ec9d144cf804a71e103eab30a8f3e17260f24aaa39ab5a31b830e"
+        }
+      ],
+      "verdict": {
+        "score": 5,
+        "rationale": "Passage 000063#item7#passage-000008 states UNH's definition directly: \"Medical care ratio (MCR) is calculated as medical costs divided by premium revenue.\" The same passage's \"Medical Costs and MCR\" discussion explains what drove the MCR change (Medicare funding reductions, Medicaid timing mismatch, hospital coding intensity, specialty pharmaceutical patterns, member mix, Change Healthcare accommodations). Passage 000021 adds medical cost trend context. Together these cover the requested definition and discussion for UNH's 2025 filing, Item 7. No required element is missing.",
+        "rewritten_query": "UnitedHealth Group medical care ratio MCR definition medical costs divided by premium revenue",
+        "retain_ids": [
+          "000073176625000063#item7#passage-000008"
+        ]
+      },
+      "model_calls": [
+        {
+          "schema": "Critique",
+          "models": [
+            "claude-haiku-5-5"
+          ],
+          "seconds": 5.8610470310013625,
+          "num_turns": 2,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 16324,
+            "cache_read_input_tokens": 1700,
+            "output_tokens": 970,
+            "output_tokens_details": {
+              "thinking_tokens": 593
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 16324,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 970,
+                "cache_read_input_tokens": 1700,
+                "cache_creation_input_tokens": 16324,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 16324
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "cli_reported_cost_usd": 0.0037670000000000004
+        }
+      ]
+    },
+    {
+      "case": "broad21",
+      "subquery": 1,
+      "source_case": "bench_kit/results/amzn-expense-20261101/full-run-03/evaluation/broad21.json",
+      "source_case_sha256": "8dfd1b4761d45f144a54c35c23fecb535ee9522c3406002b74581ef56e7b6691",
+      "requested_goal": "retrieve how each company defines or discusses its medical care ratio or medical benefit ratio. Retrieve evidence separately for each company.",
+      "filters": {
+        "ticker": "CVS",
+        "year": 2026,
+        "section": "Item 7",
+        "accession": "000006480326000010"
+      },
+      "evidence": [
+        {
+          "id": "000006480326000010#item7#passage-000017",
+          "text_sha256": "78bb6a0ff8fedae5ec13c2a9a6e84b8bbb3b1f22a464efcb8aae17ca4baed429"
+        },
+        {
+          "id": "000006480326000010#item7#passage-000016",
+          "text_sha256": "1c5b04a1838d37d989bf6ec1fede3a9e9d8f5a3ef391faebfc436559bbbfd0ee"
+        },
+        {
+          "id": "000006480326000010#item7#passage-000004",
+          "text_sha256": "d1066c5fd210bd5cec8172a6e73ca9aa5dc6ae1dc4d22d9f3afcfb4adc8f05b4"
+        },
+        {
+          "id": "000006480326000010#item7#passage-000019",
+          "text_sha256": "f4a6cd7b7380ddea14d11a003b717ca3c8865e59b623f09751be5b0ca7e61fe4"
+        },
+        {
+          "id": "000006480326000010#item7#passage-000021",
+          "text_sha256": "40fd5a0f6389f3574ca6d37b6550e938f725289e737aeeb546ad8c873e69ce65"
+        }
+      ],
+      "verdict": {
+        "score": 5,
+        "rationale": "Within CVS's 2026 filing, Item 7, the evidence fully covers the requested goal. Passage 000006480326000010#item7#passage-000017 defines the medical benefit ratio as health care costs divided by premium revenues, states it is the share of premium revenues spent on medical benefits for Insured members, and explains management's use of it. The same passage gives the MBR figures: 91.2% in 2025 versus 92.5% in 2024, attributed to Government business performance and prior-year development. Passage 000016 supplies the Health Care Benefits table with the MBR line and premium breakdowns. Passage 000021 adds that a higher medical benefit ratio in the health care delivery business affected Health Services adjusted operating income. No required element for CVS within this scope is missing.",
+        "rewritten_query": "CVS Health Care Benefits medical benefit ratio definition health care costs as percentage of premium revenues",
+        "retain_ids": [
+          "000006480326000010#item7#passage-000017"
+        ]
+      },
+      "model_calls": [
+        {
+          "schema": "Critique",
+          "models": [
+            "claude-haiku-5-5"
+          ],
+          "seconds": 5.47181477200138,
+          "num_turns": 2,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 17077,
+            "cache_read_input_tokens": 1700,
+            "output_tokens": 824,
+            "output_tokens_details": {
+              "thinking_tokens": 393
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 17077,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 824,
+                "cache_read_input_tokens": 1700,
+                "cache_creation_input_tokens": 17077,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 17077
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "cli_reported_cost_usd": 0.0038445999999999997
+        }
+      ]
+    },
+    {
+      "case": "broad22",
+      "subquery": 0,
+      "source_case": "bench_kit/results/amzn-expense-20261101/full-run-02/evaluation/broad22.json",
+      "source_case_sha256": "e6dc59300031bd36b150aea65633292b1be2051b171a3f5e9c9b4083e192f626",
+      "requested_goal": "retrieve comparable store sales and new store opening disclosures for each filing year",
+      "filters": {
+        "ticker": "SBUX",
+        "year": 2024,
+        "section": "Item 7",
+        "accession": "000082922424000057"
+      },
+      "evidence": [
+        {
+          "id": "000082922424000057#item7#passage-000001",
+          "text_sha256": "247cf124df30e4c74f977b11814e573bc5fac1b14734578e8ab8e75178e6a7a8"
+        },
+        {
+          "id": "000082922424000057#item7#passage-000002",
+          "text_sha256": "9d90ff9ace9137f5c4296e209eddca034b1e5630ebca4671faed97311e1d2808"
+        },
+        {
+          "id": "000082922424000057#item7#passage-000009",
+          "text_sha256": "13fc2b2a5b7e354e9a1d14ecf0f1797d982e96479514d69f33fc379a058f28e0"
+        },
+        {
+          "id": "000082922424000057#item7#passage-000008",
+          "text_sha256": "2f9f0b94b1cd608cb9b5ce6f546109183c567b0307515994cfa5287b25d8e66e"
+        },
+        {
+          "id": "000082922424000057#item7#passage-000007",
+          "text_sha256": "887bdd36bc6755d6a95590d25d9a2c310c9e5da2b16fdfeccf5c2136b0b49230"
+        }
+      ],
+      "verdict": {
+        "score": 4,
+        "rationale": "Within SBUX Item 7 (accession 000082922424000057), the passages give fiscal 2024 comparable store sales by segment: North America down 2% ($420M), driven by a 5% decrease in comparable transactions partly offset by a 4% ticket increase, and International down 4% ($210M), driven by a 4% ticket decline. They also give new store openings: North America net new company-operated stores up 5% (533 stores), International net new company-operated stores up 10% (893 stores), and 654 net new licensed store openings in International. Passages 000001 and 000002 add the consolidated context that comparable store sales decreased. Remaining gap: no consolidated total comparable store sales percentage and no consolidated total store count appear in the passages, so the answer is supported at segment level but not at the company-wide level.</rationale>\n<parameter name=\"retain_ids\">[\"000082922424000057#item7#passage-000007\", \"000082922424000057#item7#passage-000009\"]",
+        "rewritten_query": "consolidated comparable store sales percentage change and total company-operated and licensed store count net new openings",
+        "retain_ids": []
+      },
+      "model_calls": [
+        {
+          "schema": "Critique",
+          "models": [
+            "claude-haiku-5-5"
+          ],
+          "seconds": 6.53926728100123,
+          "num_turns": 2,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 16698,
+            "cache_read_input_tokens": 1700,
+            "output_tokens": 1143,
+            "output_tokens_details": {
+              "thinking_tokens": 696
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 16698,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 1143,
+                "cache_read_input_tokens": 1700,
+                "cache_creation_input_tokens": 16698,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 16698
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "cli_reported_cost_usd": 0.0039283
+        }
+      ]
+    },
+    {
+      "case": "broad22",
+      "subquery": 1,
+      "source_case": "bench_kit/results/amzn-expense-20261101/full-run-02/evaluation/broad22.json",
+      "source_case_sha256": "e6dc59300031bd36b150aea65633292b1be2051b171a3f5e9c9b4083e192f626",
+      "requested_goal": "retrieve comparable store sales and new store opening disclosures for each filing year",
+      "filters": {
+        "ticker": "SBUX",
+        "year": 2025,
+        "section": "Item 7",
+        "accession": "000082922425000114"
+      },
+      "evidence": [
+        {
+          "id": "000082922425000114#item7#passage-000001",
+          "text_sha256": "8909a3d9fade0853a0f41658fad4b5817e2cf72ce7c1f2396f4b59d6bb437783"
+        },
+        {
+          "id": "000082922425000114#item7#passage-000002",
+          "text_sha256": "e38261e11b3c1d0307820bfdbf6d357ca1703c3d664a080cdabd66308a301579"
+        },
+        {
+          "id": "000082922425000114#item7#passage-000009",
+          "text_sha256": "5db75f4563f0eba554a39df7f12cf608427ba493faec3ee36a7731bd59bd8f39"
+        },
+        {
+          "id": "000082922425000114#item7#passage-000005",
+          "text_sha256": "cb41b3565d4300aa2774005fbe61c905e74e5cd1f95acc3e657d56fc86dd0f13"
+        },
+        {
+          "id": "000082922425000114#item7#passage-000003",
+          "text_sha256": "2cb7bef45b4d2b698ca5c24cf109f04e7bd3a6b23a9b6780d688718aa7ce60bb"
+        }
+      ],
+      "verdict": {
+        "score": 4,
+        "rationale": "Within SBUX 2025 Item 7 (accession 000082922425000114), the passages together state the core fiscal 2025 facts requested. Consolidated comparable store sales: a 1% decline ($408M), driven by a 2% drop in comparable transactions partly offset by a 1% rise in average ticket (passage 5). North America comparable store sales: a 2% decline ($419M) (passage 9). New store openings: net new company-operated store growth of 5%, or 1,010 stores, over the past 12 months, before 627 restructuring closures (passage 5). North America net new growth of 4%, or 441 stores, before 584 closures (passage 2 and passage 9). Passage 1 defines comparable store sales and names new store openings as key metrics. International openings are described qualitatively (net new company-operated and licensed openings) without a store count, and no International comparable store sales figure appears. The goal does not explicitly ask for a segment breakdown, so this does not lower the score.",
+        "rewritten_query": "fiscal 2025 International segment comparable store sales and net new store count",
+        "retain_ids": [
+          "000082922425000114#item7#passage-000005",
+          "000082922425000114#item7#passage-000009"
+        ]
+      },
+      "model_calls": [
+        {
+          "schema": "Critique",
+          "models": [
+            "claude-haiku-5-5"
+          ],
+          "seconds": 7.442489295000996,
+          "num_turns": 2,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 16436,
+            "cache_read_input_tokens": 1700,
+            "output_tokens": 1318,
+            "output_tokens_details": {
+              "thinking_tokens": 819
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 16436,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 1318,
+                "cache_read_input_tokens": 1700,
+                "cache_creation_input_tokens": 16436,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 16436
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "cli_reported_cost_usd": 0.0039634
+        }
+      ]
+    },
+    {
+      "case": "broad25",
+      "subquery": 0,
+      "source_case": "bench_kit/results/amzn-expense-20261101/full-run-03/evaluation/broad25.json",
+      "source_case_sha256": "bffc6b9518dc554ff979d96b18a7d49ff33b1ba699ec404c796d3a3d2c179831",
+      "requested_goal": "retrieve share repurchase authorization and repurchase activity disclosures for each filing year",
+      "filters": {
+        "ticker": "HPE",
+        "year": 2024,
+        "section": "Item 7",
+        "accession": "000164559024000139"
+      },
+      "evidence": [
+        {
+          "id": "000164559024000139#item7#passage-000036",
+          "text_sha256": "7ac081fbd9c32d9d9fe60dbde4338524c6ed8105f27ecb4a81fbbe826faf2b68"
+        },
+        {
+          "id": "000164559024000139#item7#passage-000035",
+          "text_sha256": "0dad6bfcd76e3a5591cbfb9bd983725265633e4633aa44a3c7b8991ed0e4db38"
+        },
+        {
+          "id": "000164559024000139#item7#passage-000025",
+          "text_sha256": "389a566ff39345532ad042f47a1944f3268bf8eee16387ac590dfdeacbd9c964"
+        },
+        {
+          "id": "000164559024000139#item7#passage-000010",
+          "text_sha256": "18decb4745c5356f2a835621b92122e44cf62cf8eda75faa4b625a72f33693c0"
+        },
+        {
+          "id": "000164559024000139#item7#passage-000038",
+          "text_sha256": "8060ebab684092f7f186899c3776430a7ac703a2eff76d351e7280aa9aad570d"
+        }
+      ],
+      "verdict": {
+        "score": 5,
+        "rationale": "Scope is HPE, filing year 2024 (accession 000164559024000139), Item 7. The requested goal asks for share repurchase authorization and repurchase activity. Passages 000164559024000139#item7#passage-000035 and -000036 together state that during fiscal 2024 HPE repurchased and settled shares under the previously authorized program for an aggregate $150 million, and that as of October 31, 2024 it had about $0.8 billion of remaining authorization for future repurchases. Both required elements (activity amount and remaining authorization) are present within scope. Share counts and the original authorization size were not requested, so their absence does not lower the score.",
+        "rewritten_query": "HPE share repurchase program remaining authorization and amount of shares repurchased and settled",
+        "retain_ids": [
+          "000164559024000139#item7#passage-000035",
+          "000164559024000139#item7#passage-000036"
+        ]
+      },
+      "model_calls": [
+        {
+          "schema": "Critique",
+          "models": [
+            "claude-haiku-5-5"
+          ],
+          "seconds": 7.336917338001513,
+          "num_turns": 2,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 16519,
+            "cache_read_input_tokens": 1700,
+            "output_tokens": 1241,
+            "output_tokens_details": {
+              "thinking_tokens": 845
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 16519,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 1241,
+                "cache_read_input_tokens": 1700,
+                "cache_creation_input_tokens": 16519,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 16519
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "cli_reported_cost_usd": 0.0039415
+        }
+      ]
+    },
+    {
+      "case": "broad25",
+      "subquery": 1,
+      "source_case": "bench_kit/results/amzn-expense-20261101/full-run-03/evaluation/broad25.json",
+      "source_case_sha256": "bffc6b9518dc554ff979d96b18a7d49ff33b1ba699ec404c796d3a3d2c179831",
+      "requested_goal": "retrieve share repurchase authorization and repurchase activity disclosures for each filing year",
+      "filters": {
+        "ticker": "HPE",
+        "year": 2025,
+        "section": "Item 7",
+        "accession": "000164559025000130"
+      },
+      "evidence": [
+        {
+          "id": "000164559025000130#item7#passage-000036",
+          "text_sha256": "36e18b9efb510f43da94de89a297deed8f721a2fd71df80dc4bc7d73ad54c3f9"
+        },
+        {
+          "id": "000164559025000130#item7#passage-000035",
+          "text_sha256": "3e52d84242f6171e83fad69af6eec9cc476a4567deb2cb4a6b92292d8215e39c"
+        },
+        {
+          "id": "000164559025000130#item7#passage-000041",
+          "text_sha256": "aa264930a0c77c6e3eca732d4871af14b67efb9bdbdf63be8bdfa7f138a63f29"
+        },
+        {
+          "id": "000164559025000130#item7#passage-000057",
+          "text_sha256": "e6328e4c65c7d135ac57b612a1ff128044d507de6955c42bb648e57b7d1332d5"
+        },
+        {
+          "id": "000164559025000130#item7#passage-000054",
+          "text_sha256": "e63ab68188727970453cb3f3f0d9582c28993245d13a3780d107b8ad04e57a40"
+        }
+      ],
+      "verdict": {
+        "score": 5,
+        "rationale": "Scope is HPE FY2025 filing (accession 000164559025000130), Item 7 only; the 2024 comparison in the audit prompt is out of scope and was not graded. Passage 000164559025000130#item7#passage-000036 states both core facts: during fiscal 2025 HPE repurchased and settled $202 million of shares under the previously authorized program, and as of October 31, 2025 it had about $3.6 billion of remaining authorization. Passage -000035 supports the liquidity context that repurchases are a use of cash. Nothing required within this scope is missing; the detailed program terms sit in Note 15, which is outside Item 7 and not requested here.",
+        "rewritten_query": "HPE share repurchase program fiscal 2025 repurchased amount and remaining authorization",
+        "retain_ids": [
+          "000164559025000130#item7#passage-000036"
+        ]
+      },
+      "model_calls": [
+        {
+          "schema": "Critique",
+          "models": [
+            "claude-haiku-5-5"
+          ],
+          "seconds": 5.572681218000071,
+          "num_turns": 2,
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 16193,
+            "cache_read_input_tokens": 1700,
+            "output_tokens": 844,
+            "output_tokens_details": {
+              "thinking_tokens": 455
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 16193,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 844,
+                "cache_read_input_tokens": 1700,
+                "cache_creation_input_tokens": 16193,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 16193
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "cli_reported_cost_usd": 0.0036777999999999997
+        }
+      ]
+    }
+  ],
+  "critic_sha256": "f1ad9603bafb3cacb2f277ad7ebad1fb639161e292ed373cc9cbb1d7a29436d0"
+}

@@ -1,0 +1,500 @@
+{
+  "prompt": "Compare KO filing year 2025 and AMZN filing year 2024, both with the exact SectionItem filter \"Item 7\": retrieve each company's foreign currency impact disclosures. Retrieve evidence separately for each company and do not relax the section filter.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "foreign currency exchange rate impact on revenue and operating results",
+        "filters": {
+          "ticker": "KO",
+          "year": 2025,
+          "section": "Item 7",
+          "accession": "000002134425000011"
+        }
+      },
+      {
+        "query": "foreign currency exchange rate impact on net sales and operating income",
+        "filters": {
+          "ticker": "AMZN",
+          "year": 2024,
+          "section": "Item 7",
+          "accession": "000101872424000008"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "foreign currency exchange rate impact on revenue and operating results",
+      "filters": {
+        "ticker": "KO",
+        "year": 2025,
+        "section": "Item 7",
+        "accession": "000002134425000011"
+      },
+      "score": 5,
+      "rationale": "The KO FY2025 filing's Item 7 passages together answer the original goal of foreign currency impact on revenue and operating results. Passage 66 gives the total FX impact on net operating revenues (a 5% decrease in 2024 and 4% in 2023) and on operating income (11% in 2024 and 8% in 2023), plus net FX losses of $180M and $312M. Passage 39 says FX unfavorably impacted consolidated operating income by 11% in 2024, naming the currencies involved. Passage 40 gives segment-level FX effects, and passage 34 includes management's expectation of an unfavorable FX impact on 2025 net operating revenues. Passage 35 notes FX's effect on segment mix. Filing scope is respected (KO, 2025 filing, Item 7); AMZN and other filings were ignored. No requested element is missing.",
+      "evidence": [
+        {
+          "id": "000002134425000011#item7#passage-000066",
+          "text": "currency exchange rates on our operating results. Our hedging activities are designed to mitigate, over time, a portion of the potentially unfavorable impact of exchange rate fluctuations on our net income. 58 The total impact of foreign currency exchange rate fluctuations on net operating revenues, including the effect of our hedging activities, was a decrease of 5% and 4% in 2024 and 2023, respectively. The total impact of foreign currency exchange rate fluctuations on operating income, including the effect of our hedging activities, was a decrease of 11% and 8% in 2024 and 2023, respectively. Foreign currency exchange gains and losses are primarily the result of the remeasurement of monetary assets and liabilities from certain currencies into functional currencies. The effects of the remeasurement of these assets and liabilities are partially offset by the impact of our economic hedging program for certain exposures on our consolidated balance sheet. Refer to Note 5 of Notes to Consolidated Financial Statements. Foreign currency exchange gains and losses are recorded in the line item other income (loss) — net in our consolidated statement of income. Refer to the heading “Operations Review — Other Income (Loss) — Net” above. The Company recorded net foreign currency exchange losses of $180 million and $312 million during the years ended December 31, 2024 and 2023, respectively. Impact of Inflation and Changing Prices Inflation affects the way we operate in many markets around the world. In general, we believe that, over time, we will be able to increase prices to counteract the majority of the",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000066",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000066"
+        },
+        {
+          "id": "000002134425000011#item7#passage-000034",
+          "text": "Foreign Exchange” below for additional information about the impact of foreign currency exchange rate fluctuations. “Acquisitions and divestitures” generally refers to acquisitions and divestitures of brands or businesses, some of which the Company considers to be structural changes. The impact of acquisitions and divestitures is the difference between the change in net operating revenues and the change in what our net operating revenues would have been if we removed the net operating revenues associated with an acquisition or a divestiture from either the current year or the prior year, as applicable. Management believes that quantifying the impact that acquisitions and divestitures had on the Company’s net operating revenues provides investors with useful information to enhance their understanding of the Company’s net operating revenue performance by improving their ability to compare our year-to-year results. Management considers the impact of acquisitions and divestitures when evaluating the Company’s performance. Refer to the heading “Structural Changes, Acquired Brands and Newly Licensed Brands” above for additional information related to acquisitions and divestitures. Net operating revenue growth rates are impacted by sales volume; price, product and geographic mix; foreign currency exchange rate fluctuations; and acquisitions and divestitures. The size and timing of acquisitions and divestitures are not consistent from period to period. Based on current spot rates and our hedging coverage in place, we expect foreign currency exchange rate fluctuations will have an unfavorable impact on our full year 2025 net operating revenues. Information about our net operating revenues by operating segment and Corporate as a percentage of Company net operating revenues",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000034",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000034"
+        },
+        {
+          "id": "000002134425000011#item7#passage-000035",
+          "text": "is as follows: Year Ended December 31,20242023 Europe, Middle East & Africa15.8 %16.2 % Latin America13.7 12.7 North America39.6 36.6 Asia Pacific10.8 10.3 Global Ventures6.7 6.7 Bottling Investments13.2 17.2 Corporate0.2 0.3 Total100.0 %100.0 % The percentage contribution of each operating segment fluctuates over time due to net operating revenues in some operating segments growing at a faster rate compared to other operating segments. In addition, foreign currency exchange rate fluctuations impact the percentage contribution of each operating segment. For additional information about the impact of foreign currency exchange rate fluctuations, refer to the heading “Liquidity, Capital Resources and Financial Position — Foreign Exchange” below. Gross Profit Margin Gross profit margin is a ratio calculated by dividing gross profit by net operating revenues. Management believes gross profit margin provides investors with useful information related to the profitability of our business prior to considering all of the selling, general and administrative expenses and other operating charges incurred. Management uses this measure in making financial, operating and planning decisions and in evaluating the Company’s performance. Our gross profit margin increased to 61.1% in 2024 from 59.5% in 2023. This increase was primarily due to the impact of favorable pricing initiatives and the refranchising of our bottling operations in the Philippines, Bangladesh and certain territories in India, partially offset by the unfavorable impact of foreign currency exchange rate fluctuations and higher commodity costs. 47 Selling, General and Administrative Expenses The following table sets forth the components of selling, general and administrative expenses (in millions): Year Ended December 31,20242023 Selling and",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000035",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000035"
+        },
+        {
+          "id": "000002134425000011#item7#passage-000040",
+          "text": "operating segments. The unfavorable impact of a stronger U.S. dollar compared to the currencies listed above was partially offset by the impact of a weaker U.S. dollar compared to certain other foreign currencies, including the euro and British pound, which had a favorable impact on our Europe, Middle East and Africa and Global Ventures operating segments. Refer to the heading “Liquidity, Capital Resources and Financial Position — Foreign Exchange” below. 49 The Company’s Europe, Middle East and Africa operating segment reported operating income of $4,125 million and $4,202 million for the years ended December 31, 2024 and 2023, respectively. The decrease in operating income was primarily driven by a decline in concentrate sales volume of 1%, higher commodity costs, increased marketing spending, higher operating expenses and an unfavorable foreign currency exchange rate impact of 15%, partially offset by favorable pricing initiatives. Latin America reported operating income of $3,780 million and $3,432 million for the years ended December 31, 2024 and 2023, respectively. The increase in operating income was primarily driven by concentrate sales volume growth of 3% and favorable pricing initiatives, partially offset by higher commodity costs, increased marketing spending, higher operating expenses, higher other operating charges and an unfavorable foreign currency exchange rate impact of 17%. Operating income for North America for the years ended December 31, 2024 and 2023 was $4,336 million and $4,435 million, respectively. The decrease in operating income was primarily driven by higher commodity costs, increased marketing spending, higher operating expenses and higher other operating charges, partially offset by concentrate sales",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000040",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000040"
+        },
+        {
+          "id": "000002134425000011#item7#passage-000039",
+          "text": "margin on a consolidated basis and by operating segment and Corporate is as follows: Year Ended December 31,20242023 Consolidated21.2 %24.7 % Europe, Middle East & Africa55.4 56.8 Latin America58.5 58.9 North America23.3 26.4 Asia Pacific42.3 43.2 Global Ventures11.5 10.7 Bottling Investments8.0 7.4 Corporate** * Calculation is not meaningful. Operating income was $9,992 million in 2024, compared to $11,311 million in 2023, a decrease of $1,319 million, or 12%. The decrease in operating income was primarily driven by higher commodity costs; higher selling, general and administrative expenses; higher other operating charges; the impact of refranchising our bottling operations in the Philippines, Bangladesh and certain territories in India; and an unfavorable foreign currency exchange rate impact of 11%. These items were partially offset by concentrate sales volume growth of 2% and favorable pricing initiatives. The decrease in our operating margin on a consolidated basis was primarily due to higher commodity costs; higher selling, general and administrative expenses; higher other operating charges; and an unfavorable foreign currency exchange rate impact. The impact of these items was partially offset by favorable pricing initiatives and the impact of refranchising our bottling operations in the Philippines, Bangladesh and certain territories in India. In 2024, fluctuations in foreign currency exchange rates unfavorably impacted consolidated operating income by 11% due to a stronger U.S. dollar compared to certain foreign currencies, including the Argentine peso, Mexican peso, Brazilian real, Zimbabwean dollar, Turkish lira, Nigerian naira and Japanese yen, which had an unfavorable impact on our Latin America; Europe, Middle East and Africa; and Asia Pacific",
+          "metadata": {
+            "ID": "000002134425000011#item7#passage-000039",
+            "Ticker": "KO",
+            "CIK": "21344",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000021344-25-000011",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+          "tag": "KO-2025-10K-item7-p000039"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000002134425000011#item7#passage-000066",
+        "000002134425000011#item7#passage-000034",
+        "000002134425000011#item7#passage-000035",
+        "000002134425000011#item7#passage-000040",
+        "000002134425000011#item7#passage-000039",
+        "000002134425000011#item7#passage-000041",
+        "000002134425000011#item7#passage-000053",
+        "000002134425000011#item7#passage-000031",
+        "000002134425000011#item7#passage-000032",
+        "000002134425000011#item7#passage-000042"
+      ],
+      "fresh_verified_ids": [
+        "000002134425000011#item7#passage-000066",
+        "000002134425000011#item7#passage-000034",
+        "000002134425000011#item7#passage-000035",
+        "000002134425000011#item7#passage-000040",
+        "000002134425000011#item7#passage-000039"
+      ],
+      "elapsed_seconds": 7.679275638998661
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "foreign currency exchange rate impact on net sales and operating income",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "Item 7",
+        "accession": "000101872424000008"
+      },
+      "score": 1,
+      "rationale": "No passages were supplied (evidence and adjacent_pairs are both empty), so none of the requested foreign currency impact facts are established. Missing for the original AMZN subquery: the effect of foreign exchange rates on net sales and the effect on operating income. Other tickers and filings named in the audit prompt (KO 2025) are outside this subquery's scope and were not considered. No passages are retained because none were supplied.",
+      "evidence": [],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [],
+      "fresh_verified_ids": [],
+      "elapsed_seconds": 4.95980528400105
+    },
+    {
+      "subquery": 1,
+      "attempt": 1,
+      "query": "foreign exchange rate effect on net sales and operating income",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "Item 7",
+        "accession": "000101872424000008"
+      },
+      "score": 1,
+      "rationale": "No evidence was supplied (evidence and adjacent_pairs are empty), so the requested foreign currency impact on net sales and operating income is absent from every passage. Retain no passages. The rewrite targets that missing topic within the original AMZN filing scope, with no filing identifiers, years, form names, or section locators.",
+      "evidence": [],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [],
+      "fresh_verified_ids": [],
+      "elapsed_seconds": 4.284343729999819
+    },
+    {
+      "subquery": 1,
+      "attempt": 2,
+      "query": "foreign currency exchange rate effect on net sales and operating income",
+      "filters": {
+        "ticker": "AMZN",
+        "year": 2024,
+        "section": "Item 7",
+        "accession": "000101872424000008"
+      },
+      "score": 1,
+      "rationale": "No verified evidence was supplied: the evidence and adjacent_pairs arrays are empty, so no passage states foreign currency impact on net sales or operating income for the AMZN filing. Both requested elements are missing: the foreign exchange effect on net sales and the foreign exchange effect on operating income. Retain no passages, since none exist. The KO comparison in the audit prompt belongs to another subquery and was not considered.",
+      "evidence": [],
+      "accepted": false,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [],
+      "fresh_verified_ids": [],
+      "elapsed_seconds": 3.8890272980024747
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- The total impact of foreign currency exchange rate fluctuations on net operating revenues, including the effect of our hedging activities, was a decrease of 5% and 4% in 2024 and 2023, respectively. [KO-2025-10K-item7-p000066](https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm) (chunk: `000002134425000011#item7#passage-000066`; accession: `0000021344-25-000011`).\n- The Company recorded net foreign currency exchange losses of $180 million and $312 million during the years ended December 31, 2024 and 2023, respectively. [KO-2025-10K-item7-p000066](https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm) (chunk: `000002134425000011#item7#passage-000066`; accession: `0000021344-25-000011`).\n- In 2024, fluctuations in foreign currency exchange rates unfavorably impacted consolidated operating income by 11% due to a stronger U.S. dollar compared to certain foreign currencies, including the Argentine peso, Mexican peso, Brazilian real [KO-2025-10K-item7-p000039](https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm) (chunk: `000002134425000011#item7#passage-000039`; accession: `0000021344-25-000011`).\n- Based on current spot rates and our hedging coverage in place, we expect foreign currency exchange rate fluctuations will have an unfavorable impact on our full year 2025 net operating revenues. [KO-2025-10K-item7-p000034](https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm) (chunk: `000002134425000011#item7#passage-000034`; accession: `0000021344-25-000011`).\n\nEvidence gaps:\n- Subquery 1 has no evidence meeting threshold after 2 retries.",
+  "citations": [
+    {
+      "tag": "KO-2025-10K-item7-p000066",
+      "chunk_id": "000002134425000011#item7#passage-000066",
+      "accession": "0000021344-25-000011",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "quote": "The total impact of foreign currency exchange rate fluctuations on net operating revenues, including the effect of our hedging activities, was a decrease of 5% and 4% in 2024 and 2023, respectively."
+    },
+    {
+      "tag": "KO-2025-10K-item7-p000066",
+      "chunk_id": "000002134425000011#item7#passage-000066",
+      "accession": "0000021344-25-000011",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "quote": "The Company recorded net foreign currency exchange losses of $180 million and $312 million during the years ended December 31, 2024 and 2023, respectively."
+    },
+    {
+      "tag": "KO-2025-10K-item7-p000039",
+      "chunk_id": "000002134425000011#item7#passage-000039",
+      "accession": "0000021344-25-000011",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "quote": "In 2024, fluctuations in foreign currency exchange rates unfavorably impacted consolidated operating income by 11% due to a stronger U.S. dollar compared to certain foreign currencies, including the Argentine peso, Mexican peso, Brazilian real"
+    },
+    {
+      "tag": "KO-2025-10K-item7-p000034",
+      "chunk_id": "000002134425000011#item7#passage-000034",
+      "accession": "0000021344-25-000011",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "quote": "Based on current spot rates and our hedging coverage in place, we expect foreign currency exchange rate fluctuations will have an unfavorable impact on our full year 2025 net operating revenues."
+    }
+  ],
+  "flags": [
+    "Subquery 1 has no evidence meeting threshold after 2 retries."
+  ],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.554795275998913,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13093,
+        "cache_read_input_tokens": 1249,
+        "output_tokens": 622,
+        "output_tokens_details": {
+          "thinking_tokens": 435
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13093,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 622,
+            "cache_read_input_tokens": 1249,
+            "cache_creation_input_tokens": 13093,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13093
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0029422900000000006
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.9281675620004535,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13212,
+        "cache_read_input_tokens": 1397,
+        "output_tokens": 529,
+        "output_tokens_details": {
+          "thinking_tokens": 252
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13212,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 529,
+            "cache_read_input_tokens": 1397,
+            "cache_creation_input_tokens": 13212,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13212
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00292107
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.340961942001741,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16247,
+        "cache_read_input_tokens": 1467,
+        "output_tokens": 780,
+        "output_tokens_details": {
+          "thinking_tokens": 376
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16247,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 780,
+            "cache_read_input_tokens": 1467,
+            "cache_creation_input_tokens": 16247,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16247
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036542700000000003
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.263656712999364,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13210,
+        "cache_read_input_tokens": 1397,
+        "output_tokens": 512,
+        "output_tokens_details": {
+          "thinking_tokens": 265
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13210,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 512,
+            "cache_read_input_tokens": 1397,
+            "cache_creation_input_tokens": 13210,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13210
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0029121700000000004
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.867316389001644,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13212,
+        "cache_read_input_tokens": 1397,
+        "output_tokens": 506,
+        "output_tokens_details": {
+          "thinking_tokens": 223
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13212,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 506,
+            "cache_read_input_tokens": 1397,
+            "cache_creation_input_tokens": 13212,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13212
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00290957
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.728571023999393,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3748,
+        "cache_read_input_tokens": 925,
+        "output_tokens": 1257,
+        "output_tokens_details": {
+          "thinking_tokens": 874
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3748,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1257,
+            "cache_read_input_tokens": 925,
+            "cache_creation_input_tokens": 3748,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3748
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00138755
+    }
+  ],
+  "elapsed_seconds": 25.419619303000218
+}

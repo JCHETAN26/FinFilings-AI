@@ -6,7 +6,7 @@ FinFilings AI searches SEC 10-K/10-Q passages using a custom Go BM25 engine and 
 
 The project brings together storage engineering, information retrieval, and bounded agent execution. Its benchmarks use actual SEC filings and published FinQA supporting-fact labels, with raw measurements and limitations preserved.
 
-**Latest: [HPE critic fix — targeted two-replay check](bench_kit/results/hpe-critic-20261101/RESULTS.md)** · [parser-v3 adoption — 30-case verified report](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md) · [Verified benchmarks](bench_kit/RESULTS.md) · [Ten audit results](bench_kit/results/phase3/RESULTS.md) · [Ingestion guide](docs/ingestion/README.md) · [Build reports](docs/build/phase1.md)
+**Latest: [AMZN operating-expense fix — full 30-case validation](bench_kit/results/amzn-expense-20261101/RESULTS.md)** · [post-HPE held run (historical)](bench_kit/results/post-hpe-full-20261101/RESULTS.md) · [HPE critic fix — targeted two-replay check](bench_kit/results/hpe-critic-20261101/RESULTS.md) · [parser-v3 adoption — 30-case verified report](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md) · [Verified benchmarks](bench_kit/RESULTS.md) · [Ten audit results](bench_kit/results/phase3/RESULTS.md) · [Ingestion guide](docs/ingestion/README.md) · [Build reports](docs/build/phase1.md)
 
 ## Architecture
 
@@ -113,6 +113,12 @@ A new, separately versioned corpus (`data/sec-scale-v3-evaluation-20261101`, 49,
 Matched run (same 100 FinQA **development** queries, 4 inference workers × 2 threads, 50 clients, 200 requests/endpoint, zero failures in 400/400 requests per run, every nDCG and latency recomputed independently by Codex): reranked nDCG@10 **0.5537183500706869 → 0.5539997505715865**, hybrid 0.50780475359511 → 0.5100210113496677, PQ recall@10 0.838 → 0.841, native vector payload savings 91.1485 % (payload only, not whole-process RSS), hybrid p99 **47.812667999 s → 44.999937571 s**, dense p99 0.575851645 → 0.556806811 s. **Disclosed regression: dense-only nDCG@10 fell 0.48229729941572386 → 0.46732239998883435 (−0.01497).** The small upward movements are not attributed to the MS fix (the PQ codebook was retrained and the candidate pool changed). These are development-set regression checks — not held-out, not SEC retrieval accuracy; load figures are single finite closed-loop runs on a non-isolated Ryzen 7 5800H (8 physical / 16 logical CPUs, CPU inference), not an SLA.
 
 **Agent audit: 30/30 verified, 0 failures, 187 citations, 51/52 = 98.08 % coverage, all pre-registered gates pass; dense-only nDCG@10 fell 0.01497 (disclosed). Published as `6f18c04` (recorded in Git history); no deployment performed. The HPE 2024 gap shown there is the historical baseline; see the follow-up report above.** [Full 30-case report](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md) · [runbook](docs/build/parser-v3-adoption.md)
+
+### Latest: AMZN operating-expense fix and full 30-case revalidation (November 2, 2026)
+
+The full frozen `broad-validation-v2` suite (same 49,406-passage corpus, indexes and models) was rerun as `full-run-05` and independently verified with the strict-code verifier: **30/30 cases, 0 failures, 178 exact-verified citations, 52/52 available subqueries cited, 27 supported + 3 expected-unavailable**; mixed cases withhold the absent side. 79 retrievals, 19 retries, 136 model calls, median 21.03 s; 4 inference workers × 2 threads, ≤2 retries, 5-passage context. Generic fixes, none company- or ID-specific: a fresh-top-4 context budget, opaque handles for quote selection, user-goal/search-hint separation with a scope-first critic, and a narrow typed empty-evidence stop (an intentional contract change to at most 2 retries; not exercised live). Four earlier fresh attempts failed their gates and are preserved.
+
+Limits: source-informed fixtures, not human gold or accuracy; one nondeterministic run per attempt; extractive quotes; no fresh load, retrieval or Go race/vet run; no deployment. [Full report](bench_kit/results/amzn-expense-20261101/RESULTS.md) · [runbook](docs/build/amzn-expense.md) · [historical held run](bench_kit/results/post-hpe-full-20261101/RESULTS.md)
 
 ## Run locally
 

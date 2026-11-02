@@ -1,0 +1,446 @@
+{
+  "prompt": "Audit BAC filing year 2026, with the exact SectionItem filter \"Item 7\": separately retrieve regulatory capital ratio disclosures (common equity tier 1) and liquidity coverage ratio disclosures. Present supporting excerpts without deriving new numbers.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "regulatory capital ratio common equity tier 1 disclosures",
+        "filters": {
+          "ticker": "BAC",
+          "year": 2026,
+          "section": "Item 7",
+          "accession": "000007085826000157"
+        }
+      },
+      {
+        "query": "liquidity coverage ratio disclosures",
+        "filters": {
+          "ticker": "BAC",
+          "year": 2026,
+          "section": "Item 7",
+          "accession": "000007085826000157"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "regulatory capital ratio common equity tier 1 disclosures",
+      "filters": {
+        "ticker": "BAC",
+        "year": 2026,
+        "section": "Item 7",
+        "accession": "000007085826000157"
+      },
+      "score": 5,
+      "rationale": "The evidence directly answers the original CET1 subquery for BAC's 2026 filing, Item 7. Table 10 (passage-000060) gives the CET1 capital ratio at December 31, 2025 (11.4% Standardized, 12.8% Advanced) and at December 31, 2024 (11.9% and 13.5%), with the 10.0% and 10.7% regulatory minimums. Passage-000061 explains the minimum build-up (4.5% CET1 minimum, 3.0% G-SIB surcharge, 2.5% SCB) and the CET1 capital amounts ($201.4 billion). Passage-000056 gives the SCB and CET1 minimum context, and passage-000062 and Table 11 show the CET1 composition. Passage-000064 covers BANA's CET1 ratios, which is a subsidiary, so it is supplementary. The liquidity coverage ratio content named in the audit prompt is a separate subquery and was not used for this score.",
+      "evidence": [
+        {
+          "id": "000007085826000157#item7#passage-000064",
+          "text": "of America Bank of America, N.A. Regulatory Capital Table 13 presents regulatory capital information for BANA in accordance with Basel 3 Standardized and Advanced approaches as measured at December 31, 2025 and 2024. BANA met the definition of well capitalized under the PCA framework for both periods. Table 13Bank of America, N.A. Regulatory Capital under Basel 3 Standardized Approach (1, 2) Advanced Approaches (1, 2) Regulatory Minimum (3) (Dollars in millions, except as noted)December 31, 2025 Risk-based capital metrics: Common equity tier 1 capital$190,831 $190,831 Tier 1 capital190,831 190,831 Total capital (4) 206,640 196,006 Risk-weighted assets (in billions) 1,530 1,227 Common equity tier 1 capital ratio12.5 %15.6 %7.0 % Tier 1 capital ratio12.5 15.6 8.5 Total capital ratio13.5 16.0 10.5 Leverage-based metrics: Adjusted quarterly average assets (in billions) (5) $2,592 $2,592 Tier 1 leverage ratio7.4 %7.4 %5.0 Supplementary leverage exposure (in billions)$3,101 Supplementary leverage ratio6.2 %6.0 December 31, 2024 Risk-based capital metrics: Common equity tier 1 capital$194,341 $194,341 Tier 1 capital194,341 194,341 Total capital (4) 209,256 198,923 Risk-weighted assets (in billions) 1,444 1,151 Common equity tier 1 capital ratio13.5 %16.9 %7.0 % Tier 1 capital ratio13.5 16.9 8.5 Total capital ratio14.5 17.3 10.5 Leverage-based metrics: Adjusted quarterly average assets (in billions) (5) $2,546 $2,546 Tier 1 leverage ratio7.6 %7.6 %5.0 Supplementary leverage exposure (in billions)$3,015 Supplementary leverage ratio6.4 %6.0 (1)As of January 1, 2025, CECL transition provision’s impact was fully phased-in. Capital ratios as of December 31, 2024 were calculated using the regulatory capital rule that allowed a five-year transition period related to the adoption of",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000064",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000064"
+        },
+        {
+          "id": "000007085826000157#item7#passage-000060",
+          "text": "December 31, 2024. 49 Bank of America Table 10 presents Bank of America Corporation’s capital ratios and related information in accordance with Basel 3 Standardized and Advanced approaches as measured at December 31, 2025 and 2024. For the periods presented herein, the Corporation met the definition of well capitalized under current regulatory requirements. Table 10Bank of America Corporation Regulatory Capital under Basel 3 Standardized Approach (1, 2) Advanced Approaches (1, 2) Regulatory Minimum (3) (Dollars in millions, except as noted)December 31, 2025 Risk-based capital metrics: Common equity tier 1 capital$201,410 $201,410 Tier 1 capital227,382 227,382 Total capital (4) 261,232 250,347 Risk-weighted assets (in billions) 1,773 1,570 Common equity tier 1 capital ratio11.4 %12.8 %10.0 % Tier 1 capital ratio12.8 14.5 11.5 Total capital ratio14.7 15.9 13.5 Leverage-based metrics: Adjusted quarterly average assets (in billions) (5) $3,348 $3,348 Tier 1 leverage ratio6.8 %6.8 %4.0 Supplementary leverage exposure (in billions)$3,986 Supplementary leverage ratio5.7 %5.0 December 31, 2024 Risk-based capital metrics: Common equity tier 1 capital$201,083 $201,083 Tier 1 capital223,458 223,458 Total capital (4) 255,363 244,809 Risk-weighted assets (in billions)1,696 1,490 Common equity tier 1 capital ratio11.9 %13.5 %10.7 % Tier 1 capital ratio13.2 15.0 12.2 Total capital ratio15.1 16.4 14.2 Leverage-based metrics: Adjusted quarterly average assets (in billions) (5) $3,240 $3,240 Tier 1 leverage ratio6.9 %6.9 %4.0 Supplementary leverage exposure (in billions) $3,818 Supplementary leverage ratio5.9 %5.0 (1)As of January 1, 2025, current expected credit losses (CECL) transition provision’s impact was fully phased-in. Capital ratios as of December 31, 2024 were calculated using the regulatory capital rule that",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000060",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000060"
+        },
+        {
+          "id": "000007085826000157#item7#passage-000056",
+          "text": "Federal Reserve System (Federal Reserve) requires large BHCs to submit a capital plan and planned capital actions on an annual basis, consistent with the rules governing capital planning and the stress capital buffer (SCB) requirement, which include supervisory stress testing by the Federal Reserve. Based on the results of our 2025 Comprehensive Capital Analysis and Review (CCAR) stress test under the current regulatory framework, our SCB is 2.5 percent, resulting in a Common equity tier 1 (CET1) minimum requirement of 10.0 percent, effective October 1, 2025. At December 31, 2025, the Corporation’s CET1 capital ratio was 11.4 percent under the Standardized approach. As part of the Federal Reserve’s release of 2026 hypothetical stress test scenarios, the Federal Reserve announced the Corporation’s SCB will remain 2.5 percent through September 30, 2027. For more information, see Regulatory Developments in this section. On July 24, 2024, the Corporation announced the Board’s authorization of a $25 billion common stock repurchase program, effective August 1, 2024 (2024 Repurchase Program), which replaced the Corporation’s previous repurchase program that expired on August 1, 2024. In addition, on July 23, 2025, the Corporation announced the Board’s authorization of a $40 billion common stock repurchase program, effective August 1, 2025, which replaced the 2024 Repurchase Program that expired on the same date. Pursuant to these Board-authorized repurchase programs, during 2025, the Corporation repurchased $21.4 billion of common stock. For more information, see Part II, Item 5. Market for Registrant’s Common Equity, Related Stockholder Matters and Issuer Purchases of Equity Securities on page 24. The timing",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000056",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000056"
+        },
+        {
+          "id": "000007085826000157#item7#passage-000062",
+          "text": "factors as Tier 1 capital, as well as subordinated debt issuances and an increase in the adjusted allowance for credit losses included in Tier 2 capital. RWA under the Standardized approach, which drove the lower CET1 capital ratio at December 31, 2025, increased $77.2 billion during 2025 to $1,773 billion primarily driven by lending activity in GWIM, Global Banking and Global Markets. Supplementary leverage exposure at December 31, 2025 increased $167.7 billion primarily driven by increased activity in Global Markets. Bank of America 50 Table 11 shows the capital composition at December 31, 2025 and 2024. Table 11Capital Composition under Basel 3 December 31 (Dollars in millions)20252024 Total common shareholders’ equity$277,251 $270,804 Impact of change in accounting method (1) — 1,596 CECL transitional amount (2) — 627 Goodwill, net of related deferred tax liabilities(68,651)(68,649) Deferred tax assets arising from net operating loss and tax credit carryforwards(8,761)(8,097) Intangibles, other than mortgage servicing rights, net of related deferred tax liabilities(1,386)(1,440) Defined benefit pension plan net assets(868)(786) Cumulative unrealized net (gain) loss related to changes in fair value of financial liabilities attributable to own creditworthiness, net-of-tax1,825 1,491 Accumulated net (gain) loss on certain cash flow hedges (3) 2,020 5,629 Other(20)(92) Common equity tier 1 capital201,410 201,083 Qualifying preferred stock, net of issuance cost25,991 22,391 Other(19)(16) Tier 1 capital227,382 223,458 Tier 2 capital instruments19,627 18,592 Qualifying allowance for credit losses (2) 14,431 13,558 Other(208)(245) Total capital under the Standardized approach261,232 255,363 Adjustment in qualifying allowance for credit losses under the Advanced approaches (2) (10,885)(10,554) Total capital under the Advanced approaches$250,347",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000062",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000062"
+        },
+        {
+          "id": "000007085826000157#item7#passage-000061",
+          "text": "allowed a five-year transition period related to the adoption of the CECL accounting standard on January 1, 2020. (2)Effective in the fourth quarter of 2025, the Corporation elected to change its accounting methods for certain tax-related equity investments and applied those changes retrospectively through cumulative adjustment to retained earnings. Under applicable bank regulatory rules, the Corporation is not required to revise previously-filed regulatory capital ratios and, accordingly, did not revise regulatory capital information as of December 31, 2024. (3)The CET1 capital regulatory minimum is the sum of the CET1 capital ratio minimum of 4.5 percent, our G-SIB surcharge of 3.0 percent, and SCB (under the Standardized approach) of 2.5 percent at December 31, 2025 and 3.2 percent at December 31, 2024. The countercyclical capital buffer was zero for both periods. The SLR regulatory minimum includes a leverage buffer of 2.0 percent. (4)Total capital under the Advanced approaches differs from the Standardized approach due to differences in the amount permitted in Tier 2 capital related to the qualifying allowance for credit losses. (5)Reflects total average assets adjusted for certain Tier 1 capital deductions. At December 31, 2025, CET1 capital was $201.4 billion, an increase of $327 million from December 31, 2024, primarily due to earnings, largely offset by capital distributions and, to a lesser extent, the impact of the tax-related equity investments accounting changes. Tier 1 capital increased $3.9 billion driven by the same factors as CET1 capital as well as preferred stock issuances. Total capital under the Standardized approach increased $5.9 billion driven by the same",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000061",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000061"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "elapsed_seconds": 8.984249703000387
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "liquidity coverage ratio disclosures",
+      "filters": {
+        "ticker": "BAC",
+        "year": 2026,
+        "section": "Item 7",
+        "accession": "000007085826000157"
+      },
+      "score": 5,
+      "rationale": "The original goal is LCR disclosures within the BAC 2026 Item 7 filing. Passage 000075 states the average consolidated LCR was 112 percent and 113 percent for the three months ended December 31, 2025 and 2024, gives average consolidated HQLA of $667 billion and $623 billion, and explains how LCR is calculated. Passage 000075 also says GLS are substantially the same in composition as HQLA under the U.S. LCR rules, which adds context. Passage 000077 adds the NSFR, which is a related but separate liquidity ratio. The core LCR facts are fully supported, and the CET1 topic belongs to another subquery.",
+      "evidence": [
+        {
+          "id": "000007085826000157#item7#passage-000075",
+          "text": "due to regulatory restrictions and minimum requirements. Our other regulated entities also hold unencumbered investment-grade securities and equities that we believe could be used to generate additional liquidity. Table 16 presents the composition of average GLS for the three months ended December 31, 2025 and 2024. Table 16Average Global Liquidity Sources Composition Three Months Ended December 31 (Dollars in billions)December 31 2025December 31 2024 Cash on deposit$227 $315 U.S. Treasury securities371 313 U.S. agency securities, mortgage-backed securities, and other investment-grade securities 336 296 Non-U.S. government securities41 29 Total Average Global Liquidity Sources$975 $953 Our GLS are substantially the same in composition to what qualifies as High Quality Liquid Assets (HQLA) under the final U.S. Liquidity Coverage Ratio (LCR) rules. However, HQLA for purposes of calculating LCR is not reported at market value, but at a lower value that incorporates regulatory deductions and the exclusion of excess liquidity held at certain subsidiaries. The LCR is calculated as the amount of a financial institution’s unencumbered HQLA relative to the estimated net cash outflows the institution could encounter over a 30-day period of significant liquidity stress, expressed as a percentage. Our average consolidated HQLA, on a net basis, was $667 billion and $623 billion for the three months ended December 31, 2025 and 2024. For the same periods, the average consolidated LCR was 112 percent and 113 percent. Our LCR fluctuates due to normal business flows from customer activity. Liquidity Stress Analysis We utilize liquidity stress analysis to assist us in determining the appropriate amounts of liquidity to maintain",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000075",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000075"
+        },
+        {
+          "id": "000007085826000157#item7#passage-000077",
+          "text": "Funding Ratio (NSFR) is a liquidity requirement for large banks to maintain a minimum level of stable funding over a one-year period. The requirement is intended to support the ability of banks to lend to households and businesses in both normal and adverse economic conditions and is complementary to the LCR, which focuses on short-term liquidity risks. The U.S. NSFR applies to the Corporation on a consolidated basis and to our insured depository institutions. For both the three months ended September 30, 2025 and December 31, 2025, the average consolidated NSFR was 120 percent. Diversified Funding Sources We fund our assets primarily with a mix of deposits, and secured and unsecured liabilities through a centralized, globally coordinated funding approach diversified across products, programs, markets, currencies and investor groups. 55 Bank of America The primary benefits of our centralized funding approach include greater control, reduced funding costs, wider name recognition by investors and greater flexibility to meet the variable funding requirements of subsidiaries. Where regulations, time zone differences or other business considerations make Parent funding impractical, certain other subsidiaries may issue their own debt. We fund a substantial portion of our lending activities through our deposits, which were $2.02 trillion and $1.97 trillion at December 31, 2025 and 2024. Deposits are primarily generated by our Consumer Banking, GWIM and Global Banking segments. These deposits are diversified by clients, product type and geography, and the majority of our U.S. deposits are insured by the FDIC. At December 31, 2025, 47 percent of our deposits were in Consumer Banking,",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000077",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000077"
+        },
+        {
+          "id": "000007085826000157#item7#passage-000073",
+          "text": "the subordinated note and require the Parent to transfer its remaining financial assets to NB Holdings if our projected liquidity resources deteriorate so severely that resolution of the Parent becomes imminent. Global Liquidity Sources and Other Unencumbered Assets We maintain liquidity available to the Corporation, including the Parent and selected subsidiaries, in the form of cash and high- quality, liquid, unencumbered securities. Our liquidity buffer, referred to as Global Liquidity Sources (GLS), is comprised of assets that are readily available to the Parent and selected subsidiaries, including holding company, bank and broker-dealer subsidiaries, even during stressed market conditions. Our cash is primarily on deposit with the Federal Reserve Bank and, to a lesser extent, central banks outside of the U.S. We limit the composition of high-quality, liquid, unencumbered securities to U.S. government securities, U.S. agency securities, U.S. agency mortgage-backed securities and other investment-grade securities, and a select group of non-U.S. government securities. We can obtain cash for these securities, even in stressed conditions, through repurchase agreements or outright sales. We hold our GLS in legal entities that allow us to meet the liquidity requirements of our global businesses, and we consider the impact of potential regulatory, tax, legal and other restrictions that could limit the transferability of funds among entities. Bank of America 54 Table 15 presents average GLS for the three months ended December 31, 2025 and 2024. Table 15Average Global Liquidity Sources Three Months Ended December 31 (Dollars in billions)December 31 2025December 31 2024 Bank entities$789 $777 Nonbank and other entities (1) 186 176",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000073",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000073"
+        },
+        {
+          "id": "000007085826000157#item7#passage-000074",
+          "text": "Total Average Global Liquidity Sources $975 $953 (1) Nonbank includes Parent, NB Holdings and other regulated entities. Our bank subsidiaries’ liquidity is primarily driven by deposit and lending activity, as well as securities valuation and net debt activity. Bank subsidiaries can also generate incremental liquidity by pledging a range of unencumbered loans and securities to certain FHLBs and the Federal Reserve Discount Window. The cash we could have obtained by borrowing against this pool of specifically-identified eligible assets was $343 billion and $328 billion at December 31, 2025 and 2024. We have established operational procedures to enable us to borrow against these assets, including regularly monitoring our total pool of eligible loans and securities collateral. Eligibility is defined in guidelines from the FHLBs and the Federal Reserve and is subject to change at their discretion. Due to regulatory restrictions, liquidity generated by the bank subsidiaries can generally be used only to fund obligations within the bank subsidiaries, and transfers to the Parent or nonbank subsidiaries may be subject to prior regulatory approval. Liquidity is also held in nonbank entities, including the Parent, NB Holdings and other regulated entities. The Parent and NB Holdings liquidity is typically in the form of cash deposited at BANA, which is excluded from the liquidity at bank subsidiaries, and high-quality, liquid, unencumbered securities. Liquidity held in other regulated entities, comprised primarily of broker-dealer subsidiaries, is primarily available to meet the obligations of that entity, and transfers to the Parent or to any other subsidiary may be subject to prior regulatory approval",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000074",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000074"
+        },
+        {
+          "id": "000007085826000157#item7#passage-000132",
+          "text": "are reviewed in the context of market liquidity, volatility and strategic business priorities. Trading limits are set at both a granular level to allow for extensive coverage of risks as well as at aggregated portfolios to account for correlations among risk factors. All trading limits are approved at least annually. Approved trading limits are stored and tracked in a centralized limits management system. Trading limit excesses are communicated to management for review. Certain quantitative market risk measures and corresponding limits have been identified as critical in the Corporation’s Risk Appetite Statement. These risk appetite limits are reported on a daily basis and are approved at least annually by the ERC and the Board. In periods of market stress, Global Markets senior leadership communicates daily to discuss losses, key risk positions and any limit excesses. As a result of this process, the businesses may selectively reduce risk. Table 42 presents the total market-based portfolio VaR, which is the combination of the total trading positions portfolio and the fair value option portfolio. Prior to the first quarter of 2025, the Corporation presented its VaR using a total market-based portfolio VaR, which was primarily a combination of our total covered positions and certain less liquid trading positions. An insignificant amount of banking book positions was included in these portfolios. Beginning in the first quarter of 2025, the VaR amounts for all periods presented in Table 42 and Table 43 exclude those banking book positions and include only the financial instruments used in the Corporation’s market risk management of its",
+          "metadata": {
+            "ID": "000007085826000157#item7#passage-000132",
+            "Ticker": "BAC",
+            "CIK": "70858",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000070858-26-000157",
+          "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+          "tag": "BAC-2026-10K-item7-p000132"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "elapsed_seconds": 8.346353114000522
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- At December 31, 2025, the Corporation’s CET1 capital ratio was 11.4 percent under the Standardized approach. [BAC-2026-10K-item7-p000056](https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm) (chunk: `000007085826000157#item7#passage-000056`; accession: `0000070858-26-000157`).\n- Based on the results of our 2025 Comprehensive Capital Analysis and Review \\(CCAR\\) stress test under the current regulatory framework, our SCB is 2.5 percent, resulting in a Common equity tier 1 \\(CET1\\) minimum requirement of 10.0 percent, effective October 1, 2025. [BAC-2026-10K-item7-p000056](https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm) (chunk: `000007085826000157#item7#passage-000056`; accession: `0000070858-26-000157`).\n- Common equity tier 1 capital ratio11.4 %12.8 %10.0 % [BAC-2026-10K-item7-p000060](https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm) (chunk: `000007085826000157#item7#passage-000060`; accession: `0000070858-26-000157`).\n- At December 31, 2025, CET1 capital was $201.4 billion, an increase of $327 million from December 31, 2024, primarily due to earnings, largely offset by capital distributions and, to a lesser extent, the impact of the tax-related equity investments accounting changes. [BAC-2026-10K-item7-p000061](https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm) (chunk: `000007085826000157#item7#passage-000061`; accession: `0000070858-26-000157`).\n- The LCR is calculated as the amount of a financial institution’s unencumbered HQLA relative to the estimated net cash outflows the institution could encounter over a 30-day period of significant liquidity stress, expressed as a percentage. [BAC-2026-10K-item7-p000075](https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm) (chunk: `000007085826000157#item7#passage-000075`; accession: `0000070858-26-000157`).\n- Our average consolidated HQLA, on a net basis, was $667 billion and $623 billion for the three months ended December 31, 2025 and 2024. For the same periods, the average consolidated LCR was 112 percent and 113 percent. [BAC-2026-10K-item7-p000075](https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm) (chunk: `000007085826000157#item7#passage-000075`; accession: `0000070858-26-000157`).\n- Our LCR fluctuates due to normal business flows from customer activity. [BAC-2026-10K-item7-p000075](https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm) (chunk: `000007085826000157#item7#passage-000075`; accession: `0000070858-26-000157`).",
+  "citations": [
+    {
+      "tag": "BAC-2026-10K-item7-p000056",
+      "chunk_id": "000007085826000157#item7#passage-000056",
+      "accession": "0000070858-26-000157",
+      "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+      "quote": "At December 31, 2025, the Corporation’s CET1 capital ratio was 11.4 percent under the Standardized approach."
+    },
+    {
+      "tag": "BAC-2026-10K-item7-p000056",
+      "chunk_id": "000007085826000157#item7#passage-000056",
+      "accession": "0000070858-26-000157",
+      "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+      "quote": "Based on the results of our 2025 Comprehensive Capital Analysis and Review (CCAR) stress test under the current regulatory framework, our SCB is 2.5 percent, resulting in a Common equity tier 1 (CET1) minimum requirement of 10.0 percent, effective October 1, 2025."
+    },
+    {
+      "tag": "BAC-2026-10K-item7-p000060",
+      "chunk_id": "000007085826000157#item7#passage-000060",
+      "accession": "0000070858-26-000157",
+      "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+      "quote": "Common equity tier 1 capital ratio11.4 %12.8 %10.0 %"
+    },
+    {
+      "tag": "BAC-2026-10K-item7-p000061",
+      "chunk_id": "000007085826000157#item7#passage-000061",
+      "accession": "0000070858-26-000157",
+      "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+      "quote": "At December 31, 2025, CET1 capital was $201.4 billion, an increase of $327 million from December 31, 2024, primarily due to earnings, largely offset by capital distributions and, to a lesser extent, the impact of the tax-related equity investments accounting changes."
+    },
+    {
+      "tag": "BAC-2026-10K-item7-p000075",
+      "chunk_id": "000007085826000157#item7#passage-000075",
+      "accession": "0000070858-26-000157",
+      "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+      "quote": "The LCR is calculated as the amount of a financial institution’s unencumbered HQLA relative to the estimated net cash outflows the institution could encounter over a 30-day period of significant liquidity stress, expressed as a percentage."
+    },
+    {
+      "tag": "BAC-2026-10K-item7-p000075",
+      "chunk_id": "000007085826000157#item7#passage-000075",
+      "accession": "0000070858-26-000157",
+      "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+      "quote": "Our average consolidated HQLA, on a net basis, was $667 billion and $623 billion for the three months ended December 31, 2025 and 2024. For the same periods, the average consolidated LCR was 112 percent and 113 percent."
+    },
+    {
+      "tag": "BAC-2026-10K-item7-p000075",
+      "chunk_id": "000007085826000157#item7#passage-000075",
+      "accession": "0000070858-26-000157",
+      "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231.htm",
+      "quote": "Our LCR fluctuates due to normal business flows from customer activity."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.5477032130002044,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13101,
+        "cache_read_input_tokens": 1249,
+        "output_tokens": 446,
+        "output_tokens_details": {
+          "thinking_tokens": 266
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13101,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 446,
+            "cache_read_input_tokens": 1249,
+            "cache_creation_input_tokens": 13101,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13101
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0028558900000000003
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.2040754049994575,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16200,
+        "cache_read_input_tokens": 1467,
+        "output_tokens": 737,
+        "output_tokens_details": {
+          "thinking_tokens": 374
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16200,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 737,
+            "cache_read_input_tokens": 1467,
+            "cache_creation_input_tokens": 16200,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16200
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00362337
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.543022264002502,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16991,
+        "cache_read_input_tokens": 1467,
+        "output_tokens": 806,
+        "output_tokens_details": {
+          "thinking_tokens": 361
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16991,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 806,
+            "cache_read_input_tokens": 1467,
+            "cache_creation_input_tokens": 16991,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16991
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00381607
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 11.058526310000161,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8927,
+        "cache_read_input_tokens": 882,
+        "output_tokens": 2441,
+        "output_tokens_details": {
+          "thinking_tokens": 1725
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8927,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2441,
+            "cache_read_input_tokens": 882,
+            "cache_creation_input_tokens": 8927,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 8927
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00301492
+    }
+  ],
+  "elapsed_seconds": 23.59328798899878
+}

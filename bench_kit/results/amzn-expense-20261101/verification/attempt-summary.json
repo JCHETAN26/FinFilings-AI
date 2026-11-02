@@ -1,0 +1,147 @@
+[
+  {
+    "path": "bench_kit/results/post-hpe-full-20261101/run-01",
+    "completed_cases": 30,
+    "total": 30,
+    "verified": 30,
+    "citations": 187,
+    "available_subqueries": 52,
+    "cited_available_subqueries": 51,
+    "outcomes": {
+      "supported": 26,
+      "partial_gap": 1,
+      "abstained": 0,
+      "expected_unavailable": 3
+    },
+    "failed_cases": [],
+    "gap_cases": [
+      "audit04"
+    ],
+    "retrieval_calls": 79,
+    "retries": 19,
+    "model_calls": 136,
+    "median_seconds": 23.88654944549853,
+    "metric_scope": "All 30 completed-case traces."
+  },
+  {
+    "path": "bench_kit/results/amzn-expense-20261101/full-run-01",
+    "completed_cases": 30,
+    "total": 30,
+    "verified": 30,
+    "citations": 180,
+    "available_subqueries": 52,
+    "cited_available_subqueries": 51,
+    "outcomes": {
+      "supported": 26,
+      "partial_gap": 1,
+      "abstained": 0,
+      "expected_unavailable": 3
+    },
+    "failed_cases": [],
+    "gap_cases": [
+      "broad20"
+    ],
+    "retrieval_calls": 78,
+    "retries": 18,
+    "model_calls": 135,
+    "median_seconds": 22.73569241400037,
+    "metric_scope": "All 30 completed-case traces."
+  },
+  {
+    "path": "bench_kit/results/amzn-expense-20261101/full-run-02",
+    "completed_cases": 30,
+    "total": 30,
+    "verified": 30,
+    "citations": 179,
+    "available_subqueries": 52,
+    "cited_available_subqueries": 51,
+    "outcomes": {
+      "supported": 26,
+      "partial_gap": 1,
+      "abstained": 0,
+      "expected_unavailable": 3
+    },
+    "failed_cases": [],
+    "gap_cases": [
+      "audit07"
+    ],
+    "retrieval_calls": 79,
+    "retries": 19,
+    "model_calls": 136,
+    "median_seconds": 22.07885823650031,
+    "metric_scope": "All 30 completed-case traces."
+  },
+  {
+    "path": "bench_kit/results/amzn-expense-20261101/full-run-03",
+    "completed_cases": 29,
+    "total": 30,
+    "verified": 29,
+    "citations": 161,
+    "available_subqueries": 50,
+    "cited_available_subqueries": 48,
+    "outcomes": {
+      "supported": 25,
+      "partial_gap": 0,
+      "abstained": 1,
+      "expected_unavailable": 3
+    },
+    "failed_cases": [
+      "broad22"
+    ],
+    "gap_cases": [
+      "broad21"
+    ],
+    "retrieval_calls": 85,
+    "retries": 27,
+    "model_calls": 139,
+    "median_seconds": 23.930858462001197,
+    "metric_scope": "Completed-case traces only; failed-case call/latency totals unavailable."
+  },
+  {
+    "path": "bench_kit/results/amzn-expense-20261101/full-run-04",
+    "completed_cases": 28,
+    "total": 30,
+    "verified": 28,
+    "citations": 177,
+    "available_subqueries": 51,
+    "cited_available_subqueries": 51,
+    "outcomes": {
+      "supported": 26,
+      "partial_gap": 0,
+      "abstained": 0,
+      "expected_unavailable": 2
+    },
+    "failed_cases": [
+      "broad27",
+      "broad29"
+    ],
+    "gap_cases": [],
+    "retrieval_calls": 69,
+    "retries": 13,
+    "model_calls": 123,
+    "median_seconds": 22.77526277099969,
+    "metric_scope": "Completed-case traces only; failed-case call/latency totals unavailable."
+  },
+  {
+    "path": "bench_kit/results/amzn-expense-20261101/full-run-05",
+    "completed_cases": 30,
+    "total": 30,
+    "verified": 30,
+    "citations": 178,
+    "available_subqueries": 52,
+    "cited_available_subqueries": 52,
+    "outcomes": {
+      "supported": 27,
+      "partial_gap": 0,
+      "abstained": 0,
+      "expected_unavailable": 3
+    },
+    "failed_cases": [],
+    "gap_cases": [],
+    "retrieval_calls": 79,
+    "retries": 19,
+    "model_calls": 136,
+    "median_seconds": 21.032962917000987,
+    "metric_scope": "All 30 completed-case traces."
+  }
+]

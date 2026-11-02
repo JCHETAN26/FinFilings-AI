@@ -1,0 +1,493 @@
+{
+  "prompt": "Audit AAPL filing year 2025 only: separately retrieve revenue disclosures and share repurchase disclosures. Do not substitute filing year 2023 or any other year if 2025 evidence is unavailable.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "net sales revenue disclosures by product and geographic segment",
+        "filters": {
+          "ticker": "AAPL",
+          "year": 2025,
+          "section": "",
+          "accession": "000032019325000079"
+        }
+      },
+      {
+        "query": "share repurchase program disclosures",
+        "filters": {
+          "ticker": "AAPL",
+          "year": 2025,
+          "section": "",
+          "accession": "000032019325000079"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "net sales revenue disclosures by product and geographic segment",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2025,
+        "section": "",
+        "accession": "000032019325000079"
+      },
+      "score": 5,
+      "rationale": "The original goal asks for AAPL 2025 filing net sales revenue disclosures by product and geographic segment. passage-000008 gives disaggregated net sales by product for 2025, 2024 and 2023 (iPhone $209,586M, Mac $33,708M, iPad $28,023M, Wearables/Home/Accessories $35,686M, Services $109,158M, total $416,161M). passage-000002 gives net sales by reportable geographic segment (Americas, Europe, Greater China, Japan, Rest of Asia Pacific) for 2025, 2024 and 2023, with totals matching. passage-000026 repeats 2025 segment net sales ($178,353M Americas through $416,161M total) alongside segment operating income. Together these fully state the requested product and geographic revenue breakdown within the filing's own scope.</rationale>\n<parameter name=\"retain_ids\">[]",
+      "evidence": [
+        {
+          "id": "000032019325000079#item8#passage-000026",
+          "text": "includes Australia, New Zealand and those Asian countries not included in the Company’s other reportable segments. Although the reportable segments provide similar hardware and software products and similar services, each one is managed separately to better align with the location of the Company’s customers and distribution partners and the unique market dynamics of each geographic region. The CODM uses segment net sales and operating income information to make certain decisions, such as product and service pricing, and to decide how to allocate resources related to sales activities and marketing investments. Net sales for geographic segments are generally based on the location of customers and sales through the Company’s retail stores located in those geographic locations. Operating income for each segment consists of net sales to third parties, related cost of sales, and operating expenses directly attributable to the segment. The information provided to the CODM for purposes of making decisions and assessing segment performance excludes asset information. The following tables show information by reportable segment for 2025, 2024 and 2023 (in millions): 2025 AmericasEurope Greater China JapanRest of Asia PacificCorporateTotal Net sales$178,353 $111,032 $64,377 $28,703 $33,696 $— $416,161 Cost of sales(95,699)(58,617)(35,141)(13,779)(17,724)— (220,960) Research and development— — — — — (34,550)(34,550) Selling and marketing(10,174)(4,676)(2,319)(969)(1,386)— (19,524) General and administrative— — — — — (8,077)(8,077) Operating income/(loss)$72,480 $47,739 $26,917 $13,955 $14,586 $(42,627)$133,050 2024 AmericasEurope Greater China JapanRest of Asia PacificCorporateTotal Net sales$167,045 $101,328 $66,952 $25,052 $30,658 $— $391,035 Cost of sales(89,587)(55,197)(37,519)(11,744)(16,305)— (210,352) Research and development— — — — — (31,370)(31,370) Selling and marketing(9,802)(4,341)(2,351)(854)(1,291)— (18,639) General and administrative— — —",
+          "metadata": {
+            "ID": "000032019325000079#item8#passage-000026",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item8-p000026"
+        },
+        {
+          "id": "000032019325000079#item8#passage-000008",
+          "text": "Company does not obtain control of the product before transferring it to the customer. Therefore, the Company accounts for all third-party application–related sales on a net basis by recognizing in Services net sales only the commission it retains. Apple Inc. | 2025 Form 10-K | 35 The following table shows disaggregated net sales, as well as the portion of total net sales that was previously deferred, for 2025, 2024 and 2023 (in millions): 202520242023 iPhone $209,586 $201,183 $200,583 Mac 33,708 29,984 29,357 iPad 28,023 26,694 28,300 Wearables, Home and Accessories 35,686 37,005 39,845 Services (1) 109,158 96,169 85,200 Total net sales$416,161 $391,035 $383,285 Portion of total net sales that was included in deferred revenue as of the beginning of the period$8,229 $7,728 $8,169 (1)Services net sales include amortization of the deferred value of services bundled in the sales price of certain products. The Company’s proportion of net sales by disaggregated revenue source was generally consistent for each reportable segment in Note 13, “Segment Information and Geographic Data” for 2025, 2024 and 2023, except in Greater China, where iPhone revenue represented a moderately higher proportion of net sales. As of September 27, 2025 and September 28, 2024, the Company had total deferred revenue of $13.7 billion and $12.8 billion, respectively. As of September 27, 2025, the Company expects 66% of total deferred revenue to be realized in less than a year, 23% within one-to-two years, 9% within two-to-three years and 2% in greater than three years. Note 3 – Earnings Per Share The following table shows the",
+          "metadata": {
+            "ID": "000032019325000079#item8#passage-000008",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item8-p000008"
+        },
+        {
+          "id": "000032019325000079#item8#passage-000006",
+          "text": "transfers when products are shipped. For the Company’s Services net sales, control transfers over time as services are delivered. Payment for Products and Services net sales is collected within a short period following transfer of control or commencement of delivery of services, as applicable. The Company records reductions to Products net sales related to future product returns, price protection and other customer incentive programs based on the Company’s expectations and historical experience. For arrangements with multiple performance obligations, which represent promises within an arrangement that are distinct, the Company allocates revenue to all distinct performance obligations based on their relative stand-alone selling prices (“SSPs”). When available, the Company uses observable prices to determine SSPs. When observable prices are not available, SSPs are established that reflect the Company’s best estimates of what the selling prices of the performance obligations would be if they were sold regularly on a stand-alone basis. The Company’s process for estimating SSPs without observable prices considers multiple factors that may vary depending upon the unique facts and circumstances related to each performance obligation including, where applicable, prices charged by the Company for similar offerings, market trends in the pricing for similar offerings, product-specific business objectives and the estimated cost to provide the performance obligation. The Company has identified the performance obligations regularly included in arrangements involving the sale of iPhone, Mac and iPad. The first material performance obligation, which represents the substantial portion of the allocated sales price, is the hardware and bundled software delivered at the time of sale. The second material",
+          "metadata": {
+            "ID": "000032019325000079#item8#passage-000006",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item8-p000006"
+        },
+        {
+          "id": "000032019325000079#item7#passage-000002",
+          "text": "or imposed, to what extent other countries implement tariffs or other retaliatory measures in response, and the overall magnitude and duration of these measures. Trade and other international disputes can have an adverse impact on the overall macroeconomic environment and result in shifts and reductions in consumer spending and negative consumer sentiment for the Company’s products and services, all of which can further adversely affect the Company’s business and results of operations. Segment Operating Performance The following table shows net sales by reportable segment for 2025, 2024 and 2023 (dollars in millions): 2025Change2024Change2023 Americas$178,353 7 %$167,045 3 %$162,560 Europe111,032 10 %101,328 7 %94,294 Greater China64,377 (4)%66,952 (8)%72,559 Japan28,703 15 %25,052 3 %24,257 Rest of Asia Pacific33,696 10 %30,658 4 %29,615 Total net sales$416,161 6 %$391,035 2 %$383,285 Americas Americas net sales increased during 2025 compared to 2024 primarily due to higher net sales of iPhone and Services. The weakness in foreign currencies relative to the U.S. dollar had an unfavorable year-over-year impact on Americas net sales during 2025. Europe Europe net sales increased during 2025 compared to 2024 primarily due to higher net sales of Services, iPhone and Mac. Greater China Greater China net sales decreased during 2025 compared to 2024 primarily due to lower net sales of iPhone, partially offset by higher net sales of Mac. Japan Japan net sales increased during 2025 compared to 2024 primarily due to higher net sales of iPhone, Services and iPad. Rest of Asia Pacific Rest of Asia Pacific net sales increased during 2025 compared to 2024 primarily due",
+          "metadata": {
+            "ID": "000032019325000079#item7#passage-000002",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item7-p000002"
+        },
+        {
+          "id": "000032019325000079#item1A#passage-000032",
+          "text": "sensitive under applicable laws, such as health, biometric, financial and payment card data. Health, biometric, financial and payment card data are subject to additional privacy, security and breach notification requirements, and the Company is subject to audit by governmental authorities regarding the Company’s compliance with these obligations. If the Company fails to adequately comply with these rules and requirements, the Company can be subject to litigation or government investigations, can be liable for associated investigatory expenses, and can incur significant fees or fines. The Company is also subject to new and changing laws and regulations regarding online safety, including enhanced protections for minors and mandatory age verification requirements. These laws and regulations can increase regulatory risks by requiring complex compliance measures and significant modifications to the Company’s products, services and operations, and may lead to operational disruptions, heightened privacy and data security risks, increased costs and potential liability and fines, all of which can have a material adverse impact on the Company’s business, financial condition, results of operations and stock price. Financial Risks The Company’s net sales and gross margins are subject to volatility and downward pressure due to a variety of factors. The Company’s gross margins vary significantly across its products, services, geographic segments and distribution channels and can change over time. The Company’s net sales and gross margins are subject to volatility and downward pressure due to a variety of factors, including: continued industry-wide global product pricing pressures and product pricing actions that the Company may take in response to such pressures; increased competition;",
+          "metadata": {
+            "ID": "000032019325000079#item1A#passage-000032",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item1A-p000032"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000032019325000079#item8#passage-000026",
+        "000032019325000079#item8#passage-000008",
+        "000032019325000079#item8#passage-000006",
+        "000032019325000079#item7#passage-000002",
+        "000032019325000079#item1A#passage-000032",
+        "000032019325000079#item7#passage-000003",
+        "000032019325000079#item1A#passage-000033",
+        "000032019325000079#item7#passage-000004",
+        "000032019325000079#item8#passage-000007",
+        "000032019325000079#item8#passage-000004"
+      ],
+      "fresh_verified_ids": [
+        "000032019325000079#item8#passage-000026",
+        "000032019325000079#item8#passage-000008",
+        "000032019325000079#item8#passage-000006",
+        "000032019325000079#item7#passage-000002",
+        "000032019325000079#item1A#passage-000032"
+      ],
+      "elapsed_seconds": 8.869563731997914
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "share repurchase program disclosures",
+      "filters": {
+        "ticker": "AAPL",
+        "year": 2025,
+        "section": "",
+        "accession": "000032019325000079"
+      },
+      "score": 5,
+      "rationale": "The AAPL 2025 filing evidence fully covers the share repurchase program disclosures requested. Item 7 Capital Return Program: the program does not obligate a minimum share count; in May 2025 a new program of up to $100 billion was announced; during 2025 the company repurchased $89.3 billion of common stock. Item 8 Note 10: during 2025 it repurchased 402 million shares for $89.3 billion, with no minimum obligation; repurchases may occur in privately negotiated or open market transactions, including Rule 10b5-1 plans. Item 1A passages add that the program does not obligate a specific number of shares and that price volatility affects repurchase prices. Adjacent pairs join cleanly. No gap relative to the original goal.",
+      "evidence": [
+        {
+          "id": "000032019325000079#item1A#passage-000038",
+          "text": "repurchase program does not obligate it to acquire any specific number of shares. If the Company fails to meet expectations related to future growth, profitability, dividends, share repurchases or other market expectations, the price of the Company’s stock may decline significantly, which could have a material adverse impact on investor confidence and employee retention.",
+          "metadata": {
+            "ID": "000032019325000079#item1A#passage-000038",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item1A-p000038"
+        },
+        {
+          "id": "000032019325000079#item7#passage-000007",
+          "text": "12 months. Deemed Repatriation Tax Payable As of September 27, 2025, the balance of the deemed repatriation tax payable imposed by the U.S. Tax Cuts and Jobs Act of 2017 (“TCJA”) was $8.8 billion, which was payable within 12 months. Apple Inc. | 2025 Form 10-K | 25 Capital Return Program In addition to its contractual cash requirements, the Company has an authorized share repurchase program. The program does not obligate the Company to acquire a minimum amount of shares. As of September 27, 2025, the Company’s quarterly cash dividend was $0.26 per share. The Company intends to increase its dividend on an annual basis, subject to declaration by the Board. In May 2025, the Company announced a new share repurchase program of up to $100 billion and raised its quarterly dividend from $0.25 to $0.26 per share beginning in May 2025. During 2025, the Company repurchased $89.3 billion of its common stock and paid dividends and dividend equivalents of $15.4 billion. Recent Accounting Pronouncements Internal-Use Software In September 2025, the Financial Accounting Standards Board (“FASB”) issued Accounting Standards Update (“ASU”) No. 2025-06, Intangibles—Goodwill and Other—Internal-Use Software (Subtopic 350-40): Targeted Improvements to the Accounting for Internal-Use Software (“ASU 2025-06”), which modernizes the accounting for internal-use software. ASU 2025-06 removes all references to software development stages and requires capitalization of software costs when management has committed to the software project and it is probable the software will be completed and perform its intended use. ASU 2025-06 will be effective for the Company in its first quarter of",
+          "metadata": {
+            "ID": "000032019325000079#item7#passage-000007",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item7-p000007"
+        },
+        {
+          "id": "000032019325000079#item8#passage-000022",
+          "text": "programs, shares may be repurchased in privately negotiated or open market transactions, including under plans complying with Rule 10b5-1 under the Exchange Act. Apple Inc. | 2025 Form 10-K | 44 Shares of Common Stock The following table shows the changes in shares of common stock for 2025, 2024 and 2023 (in thousands): 202520242023 Common stock outstanding, beginning balances15,116,786 15,550,061 15,943,425 Common stock repurchased(401,672)(499,372)(471,419) Common stock issued, net of shares withheld for employee taxes58,146 66,097 78,055 Common stock outstanding, ending balances14,773,260 15,116,786 15,550,061 Note 11 – Share-Based Compensation 2022 Employee Stock Plan The Apple Inc. 2022 Employee Stock Plan (“2022 Plan”) is a shareholder-approved plan that provides for broad-based equity grants to employees, including executive officers, and permits the granting of RSUs, stock grants, performance-based awards, stock options and stock appreciation rights. RSUs granted under the 2022 Plan generally vest over four years, based on continued employment, and are settled upon vesting in shares of the Company’s common stock on a one-for-one basis. All RSUs granted under the 2022 Plan have dividend equivalent rights, which entitle holders of RSUs to the same dividend value per share as holders of common stock. A maximum of approximately 1.3 billion shares were authorized for issuance pursuant to 2022 Plan awards at the time the plan was approved on March 4, 2022. Restricted Stock Units A summary of the Company’s RSU activity and related information for 2025 is as follows: Number of RSUs (in thousands) Weighted-Average Grant-Date Fair Value Per RSU Balance as of September 28, 2024163,326 $158.73 RSUs granted73,466",
+          "metadata": {
+            "ID": "000032019325000079#item8#passage-000022",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item8-p000022"
+        },
+        {
+          "id": "000032019325000079#item1A#passage-000037",
+          "text": "governmental bodies. The Company regularly assesses the likelihood of an adverse outcome resulting from these examinations to determine the adequacy of its provision for taxes. The outcome of such examinations is inherently uncertain. If the Company’s effective tax rates were to increase, or if the ultimate determination of the Company’s taxes owed is for an amount in excess of amounts previously accrued, the Company’s business, results of operations, financial condition and stock price could be materially adversely affected. Apple Inc. | 2025 Form 10-K | 16 General Risks The price of the Company’s stock is subject to volatility. The Company’s stock has experienced substantial price volatility in the past and may continue to do so in the future. Additionally, the Company, the technology industry and the stock market as a whole have, from time to time, experienced extreme stock price and volume fluctuations that have affected stock prices in ways that may have been unrelated to these companies’ operating performance. Price volatility may cause the average price at which the Company repurchases its stock in a given period to exceed the stock’s price at a given point in time. The Company believes the price of its stock should reflect expectations of future growth and profitability. The Company also believes the price of its stock should reflect expectations that its cash dividend will continue at current levels or grow, and that its current share repurchase program will be fully consummated. Future dividends are subject to declaration by the Company’s Board of Directors (“Board”), and the Company’s share",
+          "metadata": {
+            "ID": "000032019325000079#item1A#passage-000037",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item1A-p000037"
+        },
+        {
+          "id": "000032019325000079#item8#passage-000021",
+          "text": "issuances: Fixed-rate 0.000% – 4.850% notes 2025 – 2062 $86,781 0.03% – 5.75% $97,341 0.03% – 6.65% 2025 debt issuance: Fixed-rate 4.000% – 4.750% notes 2028 – 2035 4,500 4.07% – 4.83% — Total term debt principal 91,281 97,341 Unamortized premium/(discount) and issuance costs, net(309)(321) Hedge accounting fair value adjustments(294)(358) Total term debt 90,678 96,662 Less: Current portion of term debt(12,350)(10,912) Total non-current portion of term debt$78,328 $85,750 To manage interest rate risk on certain of its U.S. dollar–denominated fixed-rate notes, the Company uses interest rate swaps to effectively convert the fixed interest rates to floating interest rates on a portion of these notes. Additionally, to manage foreign exchange rate risk on certain of its foreign currency–denominated notes, the Company uses cross-currency swaps to effectively convert these notes to U.S. dollar–denominated notes. The effective interest rates for the Notes include the interest on the Notes, amortization of the discount or premium and, if applicable, adjustments related to hedging. The future principal payments for the Company’s Notes as of September 27, 2025, are as follows (in millions): 2026$12,393 202710,078 20289,300 20295,235 20304,972 Thereafter49,303 Total term debt principal$91,281 As of September 27, 2025 and September 28, 2024, the fair value of the Company’s Notes, based on Level 2 inputs, was $80.4 billion and $88.4 billion, respectively. Note 10 – Shareholders’ Equity Share Repurchase Program During 2025, the Company repurchased 402 million shares of its common stock for $89.3 billion. The Company’s share repurchase programs do not obligate the Company to acquire a minimum amount of shares. Under the",
+          "metadata": {
+            "ID": "000032019325000079#item8#passage-000021",
+            "Ticker": "AAPL",
+            "CIK": "320193",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000320193-25-000079",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "tag": "AAPL-2025-10K-item8-p000021"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000032019325000079#item1A#passage-000038",
+        "000032019325000079#item7#passage-000007",
+        "000032019325000079#item8#passage-000022",
+        "000032019325000079#item1A#passage-000037",
+        "000032019325000079#item8#passage-000021",
+        "000032019325000079#item8#passage-000020",
+        "000032019325000079#item8#passage-000003",
+        "000032019325000079#item8#passage-000005",
+        "000032019325000079#item7#passage-000008",
+        "000032019325000079#item8#passage-000023"
+      ],
+      "fresh_verified_ids": [
+        "000032019325000079#item1A#passage-000038",
+        "000032019325000079#item7#passage-000007",
+        "000032019325000079#item8#passage-000022",
+        "000032019325000079#item1A#passage-000037",
+        "000032019325000079#item8#passage-000021"
+      ],
+      "elapsed_seconds": 11.138936646999355
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Total net sales$416,161 6 %$391,035 2 %$383,285 [AAPL-2025-10K-item7-p000002](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm) (chunk: `000032019325000079#item7#passage-000002`; accession: `0000320193-25-000079`).\n- Americas net sales increased during 2025 compared to 2024 primarily due to higher net sales of iPhone and Services. [AAPL-2025-10K-item7-p000002](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm) (chunk: `000032019325000079#item7#passage-000002`; accession: `0000320193-25-000079`).\n- Greater China net sales decreased during 2025 compared to 2024 primarily due to lower net sales of iPhone, partially offset by higher net sales of Mac. [AAPL-2025-10K-item7-p000002](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm) (chunk: `000032019325000079#item7#passage-000002`; accession: `0000320193-25-000079`).\n- 2025 AmericasEurope Greater China JapanRest of Asia PacificCorporateTotal Net sales$178,353 $111,032 $64,377 $28,703 $33,696 $— $416,161 [AAPL-2025-10K-item8-p000026](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm) (chunk: `000032019325000079#item8#passage-000026`; accession: `0000320193-25-000079`).\n- In May 2025, the Company announced a new share repurchase program of up to $100 billion and raised its quarterly dividend from $0.25 to $0.26 per share beginning in May 2025. [AAPL-2025-10K-item7-p000007](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm) (chunk: `000032019325000079#item7#passage-000007`; accession: `0000320193-25-000079`).\n- During 2025, the Company repurchased $89.3 billion of its common stock and paid dividends and dividend equivalents of $15.4 billion. [AAPL-2025-10K-item7-p000007](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm) (chunk: `000032019325000079#item7#passage-000007`; accession: `0000320193-25-000079`).\n- During 2025, the Company repurchased 402 million shares of its common stock for $89.3 billion. [AAPL-2025-10K-item8-p000021](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm) (chunk: `000032019325000079#item8#passage-000021`; accession: `0000320193-25-000079`).\n- Common stock repurchased\\(401,672\\)\\(499,372\\)\\(471,419\\) [AAPL-2025-10K-item8-p000022](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm) (chunk: `000032019325000079#item8#passage-000022`; accession: `0000320193-25-000079`).",
+  "citations": [
+    {
+      "tag": "AAPL-2025-10K-item7-p000002",
+      "chunk_id": "000032019325000079#item7#passage-000002",
+      "accession": "0000320193-25-000079",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "quote": "Total net sales$416,161 6 %$391,035 2 %$383,285"
+    },
+    {
+      "tag": "AAPL-2025-10K-item7-p000002",
+      "chunk_id": "000032019325000079#item7#passage-000002",
+      "accession": "0000320193-25-000079",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "quote": "Americas net sales increased during 2025 compared to 2024 primarily due to higher net sales of iPhone and Services."
+    },
+    {
+      "tag": "AAPL-2025-10K-item7-p000002",
+      "chunk_id": "000032019325000079#item7#passage-000002",
+      "accession": "0000320193-25-000079",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "quote": "Greater China net sales decreased during 2025 compared to 2024 primarily due to lower net sales of iPhone, partially offset by higher net sales of Mac."
+    },
+    {
+      "tag": "AAPL-2025-10K-item8-p000026",
+      "chunk_id": "000032019325000079#item8#passage-000026",
+      "accession": "0000320193-25-000079",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "quote": "2025 AmericasEurope Greater China JapanRest of Asia PacificCorporateTotal Net sales$178,353 $111,032 $64,377 $28,703 $33,696 $— $416,161"
+    },
+    {
+      "tag": "AAPL-2025-10K-item7-p000007",
+      "chunk_id": "000032019325000079#item7#passage-000007",
+      "accession": "0000320193-25-000079",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "quote": "In May 2025, the Company announced a new share repurchase program of up to $100 billion and raised its quarterly dividend from $0.25 to $0.26 per share beginning in May 2025."
+    },
+    {
+      "tag": "AAPL-2025-10K-item7-p000007",
+      "chunk_id": "000032019325000079#item7#passage-000007",
+      "accession": "0000320193-25-000079",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "quote": "During 2025, the Company repurchased $89.3 billion of its common stock and paid dividends and dividend equivalents of $15.4 billion."
+    },
+    {
+      "tag": "AAPL-2025-10K-item8-p000021",
+      "chunk_id": "000032019325000079#item8#passage-000021",
+      "accession": "0000320193-25-000079",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "quote": "During 2025, the Company repurchased 402 million shares of its common stock for $89.3 billion."
+    },
+    {
+      "tag": "AAPL-2025-10K-item8-p000022",
+      "chunk_id": "000032019325000079#item8#passage-000022",
+      "accession": "0000320193-25-000079",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "quote": "Common stock repurchased(401,672)(499,372)(471,419)"
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.425943460999406,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 14327,
+        "output_tokens": 432,
+        "output_tokens_details": {
+          "thinking_tokens": 265
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 432,
+            "cache_read_input_tokens": 14327,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00035946999999999997
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.581380728002841,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16183,
+        "cache_read_input_tokens": 1467,
+        "output_tokens": 822,
+        "output_tokens_details": {
+          "thinking_tokens": 406
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16183,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 822,
+            "cache_read_input_tokens": 1467,
+            "cache_creation_input_tokens": 16183,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16183
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00366247
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.739354807999916,
+      "num_turns": 3,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 900,
+        "cache_read_input_tokens": 34704,
+        "output_tokens": 1211,
+        "output_tokens_details": {
+          "thinking_tokens": 348
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 900,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 379,
+            "cache_read_input_tokens": 17352,
+            "cache_creation_input_tokens": 900,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 900
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00113294
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 12.521826946998772,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 7971,
+        "cache_read_input_tokens": 882,
+        "output_tokens": 3054,
+        "output_tokens_details": {
+          "thinking_tokens": 2394
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 7971,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3054,
+            "cache_read_input_tokens": 882,
+            "cache_creation_input_tokens": 7971,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 7971
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0031302200000000004
+    }
+  ],
+  "elapsed_seconds": 27.090156075999403
+}

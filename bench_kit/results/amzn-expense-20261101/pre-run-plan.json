@@ -1,0 +1,23 @@
+{
+  "recorded_utc": "2026-11-02T01:05:14.165893+00:00",
+  "baseline_git_head": "ee6ec35797c9a47340a37231f0a8a227fec27f41",
+  "input_sha256": {
+    "bench_kit/suites/broad-validation-v2.json": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+    "bench_kit/results/post-hpe-full-20261101/run-01/evaluation/audit04.json": "599a517cdb01ee1f0b6ce46054444eafe1c1264ce417b1acef88f72dd6c59a4d",
+    "bench_kit/results/post-hpe-full-20261101/run-01/independent-broad-verification.json": "6f138f7e08dc57794c41c0957b9b9f516777722076f401786c2ae952efb3efeb",
+    "bench_kit/results/parser-v3-adoption-20261101/agent-run-01/evaluation/audit04.json": "b7d157c69848d1065f4d88d3e834839b721899fc5a264293fded3d5e616bc836"
+  },
+  "plan": [
+    "Capture actual ranks and context selection for saved AMZN queries before choosing a fix.",
+    "Claude implements a generic fix, with all coding and meaningful contracts; Codex reviews and runs verification.",
+    "Run the same complete 30-case pinned suite; preserve every attempt and both historical baselines."
+  ],
+  "acceptance": [
+    "AMZN audit04 cites both planned topics; HPE broad25 cites both filing years; no other available-topic gaps.",
+    "All 30 cases source/citation/filter/bounds verified; no transport/model/structural failures.",
+    "Unavailable scopes withheld and mixed cases fully cite available sides.",
+    "No model/corpus/index/suite/threshold or verifier weakening to manufacture a pass.",
+    "Bounded 4 inference workers x2 threads, Go8/HTTP64 admission, agent3 concurrent retrievals/model2/context5/retained2/retries2.",
+    "Tests appropriate to changes pass; all execution and artifact hashes verified; services cleaned up."
+  ]
+}

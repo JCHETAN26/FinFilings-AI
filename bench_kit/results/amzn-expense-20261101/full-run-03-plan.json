@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-11-02T03:29:19.237286+00:00",
+  "attempt": "full-run-03",
+  "reason_for_new_attempt": "Full-run-02 exposed user-goal versus search-expansion confusion. Planner now binds a prompt-span goal; critic grades that goal. Real same-evidence contrast scored broad obligations 5 and explicit maturity schedule 2.",
+  "prior_failed_attempts_preserved": [
+    "full-run-01",
+    "full-run-02"
+  ],
+  "gates_unchanged": true,
+  "remaining_acceptance": "Same frozen 30 cases; no available-topic gaps; unavailable scopes withheld; exact source citations; bounded execution.",
+  "source_sha256": {
+    "py/agent/__init__.py": "2487bcb7e2e9113bc1d224810a42ef067e2acac6e2e52a4b30f860513e50ceea",
+    "py/agent/filters.py": "44eefa4ad498046cc7c12fd0d0abca53f7342e2c99d99f2c7e6d6aba11553368",
+    "py/agent/models.py": "2588f4d525a4b967fc21d46fc01e8635abb48ee68682e3edc7e7628b123ebb00",
+    "py/agent/provider.py": "9da39cc201a101dd8244cebf6b142396c2008579805082d69eea5cd8bf2ba617",
+    "py/agent/provenance.py": "656f0ed37f4ca86ee73432ca6ccd6930d887a52927256919f5eae5f325d48fbc",
+    "py/agent/planner.py": "24534030f85ffa8ffbb5fd20954e8b0198ac7ccd138cfa9325db61ee04989e0d",
+    "py/agent/critic.py": "e2a042bc3a9926e24d74447073d67c8a2d86580944afa947eb6a66dde68f8cc1",
+    "py/agent/retrieval.py": "8a83fa308f6377c4929320c1491ad0ab2db7d3ce87c4182bcfad69978d699246",
+    "py/agent/synthesizer.py": "62f2945fabd9e125999c74b3037c4a22813dac54d49b83d64fc6e779cc232f08",
+    "py/agent/state_machine.py": "3a007c23ee264b068134c6e59293730a42263d7ae542f9d208495d7f2a4d7ead",
+    "bench_kit/verify_broad_agent.py": "be3d00bb5b8092466f118a04e3ab9d715cdaeb1de96d86bca31cc6b9674946d7",
+    "scripts/evaluate-expanded-agent.py": "88daf6b3b8fefb503600fd50cc708f6e88f0536df9c5b83980b4f17ad4dfa1ae"
+  }
+}

@@ -50,27 +50,34 @@ async def critique(model: StructuredModel, original: SubQuery, query: str, evide
         instruction = ('Grade how well the evidence answers THIS subquery, 1 irrelevant, 2 weak, 3 partial, '
                        '4 directly useful, 5 fully supported. Judge actual text, not rank or keyword overlap alone. '
                        'Suggest a more targeted rewritten_query, preserving ticker/year/section. Do not answer the audit.')
-    instruction += (' Grade the full ORIGINAL subquery goal against the supplied accumulated evidence, not just the latest search phrase. '
-                    'When evidence is partial, set retain_ids to at most two supplied passage IDs containing useful support for the original goal; '
-                    'the next search will retain those passages and target the missing topic. Never retain irrelevant passages. '
-                    'Write a short topical rewritten_query for the missing information. Filing identity already lives in immutable filters: '
-                    'do not add accession numbers, filing years, form names, or section locators to the search phrase. '
-                    'Do not invent requirements for named competitors, market shares or numeric breakdowns that the original goal did not request. '
-                    ' The ORIGINAL AUDIT PROMPT controls the requested dates. Filter year is FILING year, '
-                    'not fiscal year. Use the cover-page fiscal_period_end in the catalog; do not demand fiscal '
-                    '2024 figures from a 2024 filing reporting fiscal 2023. Rewrites must preserve that distinction. '
-                    'Assess direct usefulness, not whether a single excerpt exhaustively answers all topics. '
-                    'RUBRIC: (a) Judge only what THIS subquery asks, within its own filing scope; other subqueries, other filings or years, '
-                    'and cross-filing comparison belong to other subqueries or the final synthesis and must never lower the score or appear in the rewrite. '
-                    '(b) Read the supplied passages COLLECTIVELY: facts may be split across passages. Entries in adjacent_pairs are consecutive passages '
-                    'of the same filing section listed in document order, so a sentence cut off at the end of "before" may continue at the start of "after"; '
-                    'combine them for judging only, never assume text beyond what is shown, and retain_ids must name each passage separately. '
-                    '(c) Score 4 or higher when the passages together state the core facts requested; details the goal did not explicitly ask for '
-                    '(for example an original authorization size, share counts, approval dates) neither lower the score nor belong in a rewrite. '
-                    'Score 3 or lower only for a requested element that is genuinely absent from every passage, and name that element in the rationale.')
+    instruction = (
+        'SCOPE CONTRACT (highest priority, overrides every other wording): current_scope holds the immutable ticker, FILING year, '
+        'section and accession of this subquery, and the evidence can only come from that scope. Grade ONLY what current_scope can contain. '
+        'Wording in requested_goal or audit_prompt that spans several companies, filings, years or sections ("each", "both", "compare", '
+        '"separately") applies to this subquery only for current_scope; the other scopes belong to other subqueries or the final synthesis, '
+        'are never demanded here, never lower the score and never appear in a rewrite. ' + instruction +
+        ' REQUIREMENTS: requested_goal is the user\'s own wording for this topic; together with the audit_prompt it is the only source of requirements. '
+        'Every explicit qualifier the user attached to this topic (metric, breakdown, granularity, period, section) that applies within current_scope '
+        'remains REQUIRED. search_query and initial_search_query are retrieval hints from a planner or earlier critic: their vocabulary '
+        '(extra metrics, schedules, breakdowns, tables) is never a requirement. Do not invent requirements for named competitors, market shares or '
+        'numeric breakdowns the user did not request. Details the goal did not ask for (an original authorization size, share counts, approval dates) '
+        'neither lower the score nor belong in a rewrite. '
+        'SCORING: score 4 or higher when the passages together state the core facts requested within current_scope; score 3 or lower only when an element '
+        'required within current_scope is genuinely absent from every passage, and name that element in the rationale. Assess direct usefulness, '
+        'not whether one excerpt exhausts the topic. Grade the full requested_goal against the accumulated evidence, not only the latest search phrase. '
+        'DATES: the audit_prompt is context for requested periods. Filter year is FILING year, not fiscal year; use the cover-page fiscal_period_end in the '
+        'catalog and do not demand fiscal 2024 figures from a 2024 filing reporting fiscal 2023. Rewrites must preserve that distinction. '
+        'EVIDENCE: read the passages COLLECTIVELY, facts may be split across passages. Entries in adjacent_pairs are consecutive passages of the same filing '
+        'section in document order, so a sentence cut off at the end of "before" may continue at the start of "after"; combine them for judging only, '
+        'never assume text beyond what is shown. '
+        'RETENTION AND REWRITE: when evidence is partial, set retain_ids to at most two supplied passage IDs with useful support for requested_goal '
+        '(each named separately, never irrelevant passages); the next search retains them and targets the missing topic. Write a short topical '
+        'rewritten_query for the missing information. Filing identity lives in the immutable filters: do not add accession numbers, filing years, '
+        'form names or section locators to the search phrase.')
     viewed, pairs = review_view(evidence)
     response = await model.generate(Critique, instruction, dict(audit_prompt=audit_prompt,
-        filing_catalog=filing_catalog, original=original.model_dump(), query=query,
+        filing_catalog=filing_catalog, requested_goal=original.goal or original.query,  # legacy plans have no goal
+        search_query=query, initial_search_query=original.query, current_scope=original.filters.model_dump(),  # derived only from the immutable filters
         evidence=[dict(id=item.id, text=item.text) for item in viewed], adjacent_pairs=pairs))
     if len(set(response.retain_ids)) != len(response.retain_ids) or not set(response.retain_ids).issubset(item.id for item in evidence):
         raise ValueError('critic retained unknown or duplicate evidence')

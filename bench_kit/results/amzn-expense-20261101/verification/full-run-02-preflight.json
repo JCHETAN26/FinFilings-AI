@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "execution_code_files": 56,
+  "changed_since_full_run_01": [
+    "bench_kit/verify_broad_agent.py",
+    "py/agent/models.py",
+    "py/agent/synthesizer.py"
+  ],
+  "model_index_corpus_suite_hashes_unchanged": true,
+  "prior_context_budget_and_hpe_critic_unchanged": true,
+  "note": "Code hashes captured before the first request; no source edits permitted during this run."
+}

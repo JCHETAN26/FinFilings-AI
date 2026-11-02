@@ -1,0 +1,494 @@
+{
+  "prompt": "Compare PFE and MRK, both filing year 2025, with the exact SectionItem filter \"Item 1A\": retrieve each company's risk disclosures about patent protection and generic or biosimilar competition. Use separate company-specific retrieval steps.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "patent protection generic biosimilar competition risk",
+        "goal": "risk disclosures about patent protection and generic or biosimilar competition",
+        "filters": {
+          "ticker": "PFE",
+          "year": 2025,
+          "section": "Item 1A",
+          "accession": "000007800325000054"
+        }
+      },
+      {
+        "query": "patent protection generic biosimilar competition risk",
+        "goal": "risk disclosures about patent protection and generic or biosimilar competition",
+        "filters": {
+          "ticker": "MRK",
+          "year": 2025,
+          "section": "Item 1A",
+          "accession": "000162828025007732"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "patent protection generic biosimilar competition risk",
+      "requested_goal": "risk disclosures about patent protection and generic or biosimilar competition",
+      "filters": {
+        "ticker": "PFE",
+        "year": 2025,
+        "section": "Item 1A",
+        "accession": "000007800325000054"
+      },
+      "score": 5,
+      "rationale": "The passages, read together, directly cover the requested PFE Item 1A risks. Passage 000003 describes generic competition for branded products, including loss of market exclusivity, and generic or biosimilar competition before patent or regulatory exclusivity expires, including at-risk launches. Passage 000029 covers patent litigation with generic and biosimilar manufacturers, invalidity challenges that could bring generic or biosimilar products to market, and erosion of sales. Passage 000031 covers biosimilar opportunities arising where patent protection has expired or been invalidated, along with patent disputes. Passage 000004 covers biosimilar competition for PFE's biologics, pricing pressure on its own biosimilars, and loss of patent protection on concentrated major products. No required element within the PFE 2025 Item 1A scope is missing.",
+      "evidence": [
+        {
+          "id": "000007800325000054#item1A#passage-000029",
+          "text": "such regulatory exclusivity, and generic companies are employing aggressive strategies, such as “at-risk” launches that challenge our patent rights. Most of the suits involve claims by generic drug manufacturers that patents covering our products, uses, processes or dosage forms are invalid and/or do not cover the product of the generic or biosimilar drug manufacturer. Independent actions have been filed alleging that our assertions of, or attempts to enforce, patent rights with respect to certain products constitute unfair competition and/or violations of antitrust laws. Such claims may also be brought as counterclaims to actions we bring to enforce our patents. We are also party to other patent damages suits in various jurisdictions pursuant to which generic drug manufacturers, payors, governments or other parties are seeking damages from us for alleged delay of generic entry. We also are often involved in other proceedings, such as inter partes review, post-grant review, re-examination or opposition proceedings, before the U.S. Patent and Trademark Office, the European Patent Office, or other foreign counterparts relating to our intellectual property or the intellectual property rights of others. Also, if one of our patents or a competitors’ patents is found to be invalid in such proceedings, generic or biosimilar products could be introduced into the market resulting in the erosion of sales of our existing products. For additional information, including information regarding certain legal proceedings in which we are involved, see Note 16A1. Further, if we are unable to maintain our existing license agreements or other agreements pursuant to which third parties grant us rights",
+          "metadata": {
+            "ID": "000007800325000054#item1A#passage-000029",
+            "Ticker": "PFE",
+            "CIK": "78003",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000078003-25-000054",
+          "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+          "tag": "PFE-2025-10K-item1A-p000029"
+        },
+        {
+          "id": "000007800325000054#item1A#passage-000003",
+          "text": "to prescribe existing competitor treatments over our novel therapies. For example, with the growing competition in the vaccine space, we are subject to increasing discounts to meet competitive dynamics and to help ensure our vaccines are available in retail pharmacies. If we are unable to compete effectively, this could reduce actual or anticipated future sales, which could negatively impact our results of operations. Pfizer Inc. 2024 Form 10-K 15 In addition, competition from manufacturers of generic drugs, including from generic versions of competitors’ branded products that lose their market exclusivity, is a major challenge for our branded products. Certain of our products have experienced significant generic competition over the last few years. We anticipate a more significant impact of reduced revenues from patent-based or regulatory exclusivity expiries in 2026 through 2030 as several of our in-line products experience these expirations. See the Item 1. Business—Patents and Other Intellectual Property Rights section. In China, we expect to continue to face intense competition by certain generic manufacturers, which has resulted, and may result in the future, in price cuts and volume loss of some of our products. In addition, our patented products may face generic or biosimilar competition before patent-based and/or regulatory exclusivity expires, including from “at-risk” launch (despite pending patent infringement litigation against the generic or biosimilar product) by a manufacturer of a generic or biosimilar version of one of our patented products. Generic and biosimilar manufacturers have filed or could file applications with the FDA seeking approval of product candidates that they claim do not infringe",
+          "metadata": {
+            "ID": "000007800325000054#item1A#passage-000003",
+            "Ticker": "PFE",
+            "CIK": "78003",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000078003-25-000054",
+          "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+          "tag": "PFE-2025-10K-item1A-p000003"
+        },
+        {
+          "id": "000007800325000054#item1A#passage-000004",
+          "text": "our or our collaboration and licensing partners’ patents or claim that our or our collaboration and licensing partners’ patents are not valid. We and our licensing and collaboration partners also face challenges in various jurisdictions by generic drug manufacturers to patents covering products for which we have patent rights, licenses or co-promotion rights. See Note 16A1. We may become subject to competition from biosimilars referencing our biologic products if competitors are able to obtain marketing approval for such biosimilars. We also commercialize biosimilar products that compete with products of others, including other biosimilar products. The number of current and forthcoming competing biosimilars, coupled with Medicare’s average sales price-based provider reimbursement methodology, is expected to increase pricing pressures on our biosimilar products. Uptake of our biosimilars may be lower due to various factors, such as access challenges where our product may not receive appropriate coverage/reimbursement access or remains in a disadvantaged position relative to an innovator product. For additional information on competition our products face, see the Item 1. Business—Competition section. CONCENTRATION We recorded revenues of more than $1 billion for each of 11 products that collectively accounted for 66% of Total revenues in 2024. For example, Eliquis accounted for 12% of Total revenues in 2024. See Notes 1 and 17. If these products or any of our other major products were to, or continue to (if applicable), experience loss of patent protection (if applicable), changes in prescription or vaccination purchasing or growth rates, reduced product demand, material product liability litigation, unexpected side effects or safety concerns,",
+          "metadata": {
+            "ID": "000007800325000054#item1A#passage-000004",
+            "Ticker": "PFE",
+            "CIK": "78003",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000078003-25-000054",
+          "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+          "tag": "PFE-2025-10K-item1A-p000004"
+        },
+        {
+          "id": "000007800325000054#item1A#passage-000031",
+          "text": "business opportunities may require us to challenge intellectual property rights held by others that we believe were improperly granted, including challenges through negotiation and litigation, and such challenges may not always be successful. Part of our business depends upon identifying biosimilar opportunities and launching products to take advantage of those opportunities, which may involve litigation, associated costs and time delays, and may ultimately not be successful. These opportunities may arise in situations where patent protection of equivalent branded products has expired or been declared invalid, or where products do not infringe the patents of others. In some circumstances we may take action, such as litigation, asserting that our products do not infringe patents of existing products or that those patents are invalid or unenforceable in order to achieve a “first-to-market” or early market position for our products. Third parties may claim that our products infringe one or more patents owned or controlled by them. Claims of intellectual property infringement can be costly and time-consuming to resolve, may delay or prevent product launches, and may result in significant royalty payments or damages or potential licensing agreements. For example, our R&D in a therapeutic area may not be first and another company or entity may have obtained relevant patents before us. We are involved in patent-related disputes with third parties over our attempts to market pharmaceutical products, including related to Abrysvo, Comirnaty and Paxlovid. As we expand our mRNA portfolio, patent-related disputes may increase. Once we have final regulatory approval of the related products, we may decide to",
+          "metadata": {
+            "ID": "000007800325000054#item1A#passage-000031",
+            "Ticker": "PFE",
+            "CIK": "78003",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000078003-25-000054",
+          "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+          "tag": "PFE-2025-10K-item1A-p000031"
+        },
+        {
+          "id": "000007800325000054#item1A#passage-000017",
+          "text": "For additional information, see the Item 1. Business—Government Regulation and Price Constraints section. Payors may give preference to generic drugs and biosimilars more aggressively to generate savings and attempt to stimulate additional price competition. In addition, we expect that consolidation and integration among pharmacy chains, wholesalers and PBMs will increase pricing pressures in the industry. Some states have implemented, and others are considering, patient access constraints or cost cutting under state regulated programs including the Medicaid program. States have continued to focus on addressing drug costs, generally by increasing price transparency or attempting to limit drug price increases for state-regulated insurance. Measures to regulate prices or payment for pharmaceutical products, including legislation on drug importation and prescription drug affordability boards (PDABs) that seek to impose reimbursement limits for certain drugs, could adversely affect our business. For additional information on U.S. pricing and reimbursement, see the Item 1. Business—Government Regulation and Price Constraints section. We encounter similar regulatory and legislative issues in most other countries in which we operate. In certain markets, such as in EU member states, the U.K., Japan, China, Canada, Australia and New Zealand, governments have significant power as large single payors to regulate prices, access criteria, or impose other means of cost control, particularly as a result of recent global financing pressures. For example, the QCE and VBP tender process in China has resulted in significant price cuts for off-patent medicines. Additionally, in the EU, the EC proposed the largest reform of EU pharmaceutical legislation in 20 years. In April 2024, the European",
+          "metadata": {
+            "ID": "000007800325000054#item1A#passage-000017",
+            "Ticker": "PFE",
+            "CIK": "78003",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000078003-25-000054",
+          "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+          "tag": "PFE-2025-10K-item1A-p000017"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000007800325000054#item1A#passage-000029",
+        "000007800325000054#item1A#passage-000003",
+        "000007800325000054#item1A#passage-000004",
+        "000007800325000054#item1A#passage-000031",
+        "000007800325000054#item1A#passage-000017",
+        "000007800325000054#item1A#passage-000028",
+        "000007800325000054#item1A#passage-000027",
+        "000007800325000054#item1A#passage-000005",
+        "000007800325000054#item1A#passage-000019",
+        "000007800325000054#item1A#passage-000032"
+      ],
+      "fresh_verified_ids": [
+        "000007800325000054#item1A#passage-000029",
+        "000007800325000054#item1A#passage-000003",
+        "000007800325000054#item1A#passage-000004",
+        "000007800325000054#item1A#passage-000031",
+        "000007800325000054#item1A#passage-000017"
+      ],
+      "elapsed_seconds": 8.471831491002376
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "patent protection generic biosimilar competition risk",
+      "requested_goal": "risk disclosures about patent protection and generic or biosimilar competition",
+      "filters": {
+        "ticker": "MRK",
+        "year": 2025,
+        "section": "Item 1A",
+        "accession": "000162828025007732"
+      },
+      "score": 5,
+      "rationale": "Passages from MRK's 2025 Item 1A together cover the requested risk disclosures. They state dependence on patent rights and the risk that patents are invalidated or circumvented. They describe patent litigation over generic/biosimilar filings (ANDAs/BLAs filed before patent expiry) and loss of market exclusivity. They also cover generic and biosimilar competition, including rapid sales loss after patent expiry, weaker patent protection in some countries, and pricing pressure. Required elements are present, so no gap is evident.",
+      "evidence": [
+        {
+          "id": "000162828025007732#item1A#passage-000013",
+          "text": "on behalf of Medicare, Medicaid, and private sector beneficiaries, have contributed to pricing pressure. In several international markets, government-mandated pricing actions have reduced prices of generic and patented drugs. In addition, the Company’s sales performance in 2024 was negatively affected by other cost-reduction measures taken by governments and other third parties to lower health care costs, including in the U.S., the expansion of the Federal 340B Drug Discount Program. The Company anticipates all of these actions, and additional actions in the future, will continue to negatively affect sales and profits. If credit and economic conditions worsen, the resulting economic and currency impacts in the affected markets and globally could have a material adverse effect on the Company’s results. The Company faces intense competition from both lower cost generic and biosimilar products and competitors’ products. In general, the Company faces increasing competition from lower-cost generic and biosimilar products. The patent rights that protect its products are of varying strengths and durations. In addition, in some countries, patent protection is significantly weaker than in the U.S. or in the EU. In the U.S. and the EU, political pressure to reduce spending on prescription drugs has led to legislation and other measures that encourage the use of generic and biosimilar products. Although it is the Company’s policy to actively protect its patent rights, generic challenges to the Company’s products can arise at any time, and the Company’s patents may not prevent the emergence of generic competition for its products. Loss of patent protection for a product typically is followed",
+          "metadata": {
+            "ID": "000162828025007732#item1A#passage-000013",
+            "Ticker": "MRK",
+            "CIK": "310158",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001628280-25-007732",
+          "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+          "tag": "MRK-2025-10K-item1A-p000013"
+        },
+        {
+          "id": "000162828025007732#item1A#passage-000000",
+          "text": "Item 1A.Risk Factors. Summary Risk Factors The Company is subject to a number of risks that if realized could materially adversely affect its business, results of operations, cash flows, financial condition or prospects. The following is a summary of the principal risk factors facing the Company: •The Company is dependent on its patent rights, and if its patent rights are invalidated or circumvented, its business could be materially adversely affected. •As the Company’s products lose market exclusivity, the Company generally experiences a significant and rapid loss of sales from those products. •Key products generate a significant amount of the Company’s profits and cash flows, and any events that adversely affect the markets for its leading products could have a material adverse effect on the Company’s results of operations and financial condition. •The Company’s research and development efforts may not succeed in developing commercially successful products and the Company may not be able to acquire commercially successful products in other ways; consequently, the Company may not be able to replace sales of successful products that lose patent protection. •The Company’s success is dependent on the successful development and marketing of new products, which are subject to substantial risks. •The Company faces continued pricing pressure with respect to its products. •Unfavorable or uncertain economic conditions, together with cost-reduction measures being taken by certain governments, could negatively affect the Company’s operating results. •The Company faces intense competition from both lower cost generic and biosimilar products and competitors’ products. •The Company has significant global operations, which expose it to additional",
+          "metadata": {
+            "ID": "000162828025007732#item1A#passage-000000",
+            "Ticker": "MRK",
+            "CIK": "310158",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001628280-25-007732",
+          "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+          "tag": "MRK-2025-10K-item1A-p000000"
+        },
+        {
+          "id": "000162828025007732#item1A#passage-000004",
+          "text": "The Company is often involved in patent disputes relating to challenges to its patents or claims by third parties of infringement against the Company. The Company asserts and defends its patents both within and outside the U.S., including by filing claims of infringement against other parties. See Item 8. “Financial Statements and Supplementary Data,” Note 10. “Contingencies and Environmental Liabilities” below. In particular, manufacturers of generic or biosimilar pharmaceutical products from time to time file abbreviated NDAs or BLAs with the FDA seeking to market generic/biosimilar forms of the Company’s products prior to the expiration of relevant patents owned or licensed by the Company. The Company normally responds by asserting one or more of its patents with a lawsuit alleging patent infringement. Patent litigation and other challenges to the Company’s patents are costly and unpredictable and may deprive the Company of market exclusivity for a patented product or, in some cases, third-party patents may prevent the Company from marketing and selling a product in a particular geographic area. Additionally, certain foreign governments have indicated that compulsory licenses to patents may be granted in the case of national emergencies or in other circumstances, which could diminish or eliminate sales and profits from those regions and negatively affect the Company’s results of operations. Further, court decisions relating to other companies’ patents, potential legislation in both the U.S. and certain foreign markets relating to patents, as well as regulatory initiatives may result in a more general weakening of intellectual property protection. If one or more important products lose patent",
+          "metadata": {
+            "ID": "000162828025007732#item1A#passage-000004",
+            "Ticker": "MRK",
+            "CIK": "310158",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001628280-25-007732",
+          "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+          "tag": "MRK-2025-10K-item1A-p000004"
+        },
+        {
+          "id": "000162828025007732#item1A#passage-000014",
+          "text": "promptly by generic or biosimilar substitutes, reducing the Company’s sales of that product. Availability of generic substitutes for the Company’s drugs may adversely affect its results of operations and cash flows. In addition, proposals emerge from time to time in the U.S. and other countries for legislation to further encourage the early and rapid approval of generic drugs. Any such proposal that is enacted into law could worsen this substantial negative effect on the Company’s sales, business, cash flows, results of operations, financial condition and prospects. Also, the Company’s products face intense competition from competitors’ products. This competition may increase as new products enter the market. In such an event, the competitors’ products may be safer or more effective, more convenient to use, have better insurance coverage or reimbursement levels or be more effectively marketed and sold than the Company’s products. Alternatively, in the case of generic competition, including the generic availability of competitors’ branded products, they may be equally safe and effective products that are sold at a substantially lower price than the Company’s products. As a result, if the Company fails to maintain its competitive position, this could have a material adverse effect on its business, cash flows, results of operations, financial condition and prospects. In addition, if products that were measured at fair value and capitalized in connection with acquisitions experience difficulties in the market that negatively impact product cash flows, the Company may recognize material non-cash impairment charges with respect to the value of those products. The Company has significant global operations,",
+          "metadata": {
+            "ID": "000162828025007732#item1A#passage-000014",
+            "Ticker": "MRK",
+            "CIK": "310158",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001628280-25-007732",
+          "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+          "tag": "MRK-2025-10K-item1A-p000014"
+        },
+        {
+          "id": "000162828025007732#item1A#passage-000040",
+          "text": "based on management’s current expectations and are subject to risks and uncertainties which may cause results to differ materially from those set forth in the statements. One can identify these forward-looking statements by their use of words such as “anticipates,” “expects,” “plans,” “will,” “estimates,” “forecasts,” “projects” and other words of similar meaning, or negative variations of any of the foregoing. One can also identify them by the fact that they do not relate strictly to historical or current facts. These statements are likely to address the Company’s growth strategy, financial results, product approvals, product potential, development programs, environmental or other sustainability initiatives. One must carefully consider any such statement and should understand that many factors could cause actual results to differ materially from the Company’s forward-looking statements. These factors include inaccurate assumptions and a broad variety of other risks and uncertainties, including some that are known and some that are not. No forward-looking statement can be guaranteed and actual future results may vary materially. The Company does not assume the obligation to update any forward-looking statement. The Company cautions you not to place undue reliance on these forward-looking statements. Although it is not possible to predict or identify all such factors, they may include the following: •Competition from generic and/or biosimilar products as the Company’s products lose patent protection. •Increased “brand” competition in therapeutic areas important to the Company’s long-term business performance. •The difficulties and uncertainties inherent in new product development. The outcome of the lengthy and complex process of new product development is inherently uncertain.",
+          "metadata": {
+            "ID": "000162828025007732#item1A#passage-000040",
+            "Ticker": "MRK",
+            "CIK": "310158",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0001628280-25-007732",
+          "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+          "tag": "MRK-2025-10K-item1A-p000040"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000162828025007732#item1A#passage-000013",
+        "000162828025007732#item1A#passage-000000",
+        "000162828025007732#item1A#passage-000004",
+        "000162828025007732#item1A#passage-000014",
+        "000162828025007732#item1A#passage-000040",
+        "000162828025007732#item1A#passage-000005",
+        "000162828025007732#item1A#passage-000007",
+        "000162828025007732#item1A#passage-000003",
+        "000162828025007732#item1A#passage-000006",
+        "000162828025007732#item1A#passage-000041"
+      ],
+      "fresh_verified_ids": [
+        "000162828025007732#item1A#passage-000013",
+        "000162828025007732#item1A#passage-000000",
+        "000162828025007732#item1A#passage-000004",
+        "000162828025007732#item1A#passage-000014",
+        "000162828025007732#item1A#passage-000040"
+      ],
+      "elapsed_seconds": 7.245478133001598
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Most of the suits involve claims by generic drug manufacturers that patents covering our products, uses, processes or dosage forms are invalid and/or do not cover the product of the generic or biosimilar drug manufacturer. [PFE-2025-10K-item1A-p000029](https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm) (chunk: `000007800325000054#item1A#passage-000029`; accession: `0000078003-25-000054`).\n- Also, if one of our patents or a competitors’ patents is found to be invalid in such proceedings, generic or biosimilar products could be introduced into the market resulting in the erosion of sales of our existing products. [PFE-2025-10K-item1A-p000029](https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm) (chunk: `000007800325000054#item1A#passage-000029`; accession: `0000078003-25-000054`).\n- In addition, our patented products may face generic or biosimilar competition before patent-based and/or regulatory exclusivity expires, including from “at-risk” launch \\(despite pending patent infringement litigation against the generic or biosimilar product\\) [PFE-2025-10K-item1A-p000003](https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm) (chunk: `000007800325000054#item1A#passage-000003`; accession: `0000078003-25-000054`).\n- We may become subject to competition from biosimilars referencing our biologic products if competitors are able to obtain marketing approval for such biosimilars. [PFE-2025-10K-item1A-p000004](https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm) (chunk: `000007800325000054#item1A#passage-000004`; accession: `0000078003-25-000054`).\n- The Company is dependent on its patent rights, and if its patent rights are invalidated or circumvented, its business could be materially adversely affected. [MRK-2025-10K-item1A-p000000](https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm) (chunk: `000162828025007732#item1A#passage-000000`; accession: `0001628280-25-007732`).\n- Patent litigation and other challenges to the Company’s patents are costly and unpredictable and may deprive the Company of market exclusivity for a patented product or, in some cases, third-party patents may prevent the Company from marketing and selling a product in a particular geographic area. [MRK-2025-10K-item1A-p000004](https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm) (chunk: `000162828025007732#item1A#passage-000004`; accession: `0001628280-25-007732`).\n- Availability of generic substitutes for the Company’s drugs may adversely affect its results of operations and cash flows. [MRK-2025-10K-item1A-p000014](https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm) (chunk: `000162828025007732#item1A#passage-000014`; accession: `0001628280-25-007732`).",
+  "citations": [
+    {
+      "tag": "PFE-2025-10K-item1A-p000029",
+      "chunk_id": "000007800325000054#item1A#passage-000029",
+      "accession": "0000078003-25-000054",
+      "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+      "quote": "Most of the suits involve claims by generic drug manufacturers that patents covering our products, uses, processes or dosage forms are invalid and/or do not cover the product of the generic or biosimilar drug manufacturer."
+    },
+    {
+      "tag": "PFE-2025-10K-item1A-p000029",
+      "chunk_id": "000007800325000054#item1A#passage-000029",
+      "accession": "0000078003-25-000054",
+      "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+      "quote": "Also, if one of our patents or a competitors’ patents is found to be invalid in such proceedings, generic or biosimilar products could be introduced into the market resulting in the erosion of sales of our existing products."
+    },
+    {
+      "tag": "PFE-2025-10K-item1A-p000003",
+      "chunk_id": "000007800325000054#item1A#passage-000003",
+      "accession": "0000078003-25-000054",
+      "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+      "quote": "In addition, our patented products may face generic or biosimilar competition before patent-based and/or regulatory exclusivity expires, including from “at-risk” launch (despite pending patent infringement litigation against the generic or biosimilar product)"
+    },
+    {
+      "tag": "PFE-2025-10K-item1A-p000004",
+      "chunk_id": "000007800325000054#item1A#passage-000004",
+      "accession": "0000078003-25-000054",
+      "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+      "quote": "We may become subject to competition from biosimilars referencing our biologic products if competitors are able to obtain marketing approval for such biosimilars."
+    },
+    {
+      "tag": "MRK-2025-10K-item1A-p000000",
+      "chunk_id": "000162828025007732#item1A#passage-000000",
+      "accession": "0001628280-25-007732",
+      "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+      "quote": "The Company is dependent on its patent rights, and if its patent rights are invalidated or circumvented, its business could be materially adversely affected."
+    },
+    {
+      "tag": "MRK-2025-10K-item1A-p000004",
+      "chunk_id": "000162828025007732#item1A#passage-000004",
+      "accession": "0001628280-25-007732",
+      "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+      "quote": "Patent litigation and other challenges to the Company’s patents are costly and unpredictable and may deprive the Company of market exclusivity for a patented product or, in some cases, third-party patents may prevent the Company from marketing and selling a product in a particular geographic area."
+    },
+    {
+      "tag": "MRK-2025-10K-item1A-p000014",
+      "chunk_id": "000162828025007732#item1A#passage-000014",
+      "accession": "0001628280-25-007732",
+      "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+      "quote": "Availability of generic substitutes for the Company’s drugs may adversely affect its results of operations and cash flows."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.070765910000773,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 14563,
+        "output_tokens": 611,
+        "output_tokens_details": {
+          "thinking_tokens": 376
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 611,
+            "cache_read_input_tokens": 14563,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00045133
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.015436066998518,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 15858,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 660,
+        "output_tokens_details": {
+          "thinking_tokens": 297
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 15858,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 660,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 15858,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 15858
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0035188
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.155939940999815,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 15972,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 1012,
+        "output_tokens_details": {
+          "thinking_tokens": 558
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 15972,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1012,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 15972,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 15972
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0037176
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 7.879288677999284,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 6186,
+        "cache_read_input_tokens": 925,
+        "output_tokens": 1778,
+        "output_tokens_details": {
+          "thinking_tokens": 1191
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6186,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1778,
+            "cache_read_input_tokens": 925,
+            "cache_creation_input_tokens": 6186,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 6186
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0021356500000000002
+    }
+  ],
+  "elapsed_seconds": 20.424656971998047
+}

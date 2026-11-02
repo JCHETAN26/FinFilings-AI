@@ -1,0 +1,34 @@
+{
+  "status": "completed",
+  "started_utc": "2026-11-02T01:07:07.413719+00:00",
+  "mode": "historical",
+  "argv": [
+    "scripts/evaluate-expanded-agent.py",
+    "--out",
+    "bench_kit/results/amzn-expense-20261101/diagnostic-before",
+    "--corpus-dir",
+    "data/sec-scale-v3-evaluation-20261101",
+    "--ingest-report",
+    "indexes/sec-scale-v3-20261101/report.json",
+    "--vector-index",
+    "indexes/vector-sec-scale-v3-pq128-20261101",
+    "--sparse-index",
+    "indexes/sparse-sec-scale-v3-20261101",
+    "--rank-diagnostic",
+    "--replay-subquery",
+    "1",
+    "--replay",
+    "bench_kit/results/post-hpe-full-20261101/run-01/evaluation/audit04.json",
+    "--replay",
+    "bench_kit/results/parser-v3-adoption-20261101/agent-run-01/evaluation/audit04.json",
+    "--review-target",
+    "000101872424000008#passage-000064"
+  ],
+  "finished_utc": "2026-11-02T01:07:25.901989+00:00",
+  "evaluator_exit_code": null,
+  "service_exit_codes": [
+    -15,
+    0
+  ],
+  "owned_processes_stopped": true
+}

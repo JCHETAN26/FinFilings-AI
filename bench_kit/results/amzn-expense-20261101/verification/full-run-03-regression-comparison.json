@@ -1,0 +1,23 @@
+{
+  "verified": 29,
+  "run_failed": 1,
+  "verification_failed": 0,
+  "verified_citations": 161,
+  "available_subqueries": 50,
+  "cited_available_subqueries": 48,
+  "evidence_outcomes": {
+    "supported": 25,
+    "partial_gap": 0,
+    "abstained": 1,
+    "expected_unavailable": 3
+  },
+  "attempt": "full-run-03",
+  "publication_decision": "hold",
+  "remaining_gap_cases": [
+    "broad21"
+  ],
+  "structural_failure_cases": [
+    "broad22"
+  ],
+  "follow_up": "Scope-first critic instruction resolves shared each-company goals inside immutable filters; broad22 cause is an inference because failure has no saved hop trace."
+}

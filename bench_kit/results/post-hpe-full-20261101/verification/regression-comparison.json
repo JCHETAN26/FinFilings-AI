@@ -1,0 +1,44 @@
+{
+  "independent_integrity_passed": true,
+  "full_frozen_suite": true,
+  "verified_cases": 30,
+  "verified_citations": 187,
+  "unique_source_passages_checked": 246,
+  "available_subqueries": 52,
+  "cited_available_subqueries": 51,
+  "outcomes": {
+    "supported": 26,
+    "partial_gap": 1,
+    "abstained": 0,
+    "expected_unavailable": 3
+  },
+  "retrieval_calls": 79,
+  "retries": 19,
+  "model_calls": 136,
+  "median_seconds": 23.88654944549853,
+  "hpe": {
+    "complete_coverage": true,
+    "citations": 3,
+    "retries": 0,
+    "seconds": 19.4102128409977,
+    "flags": []
+  },
+  "new_gap_cases": [
+    "audit04"
+  ],
+  "resolved_gap_cases": [
+    "broad25"
+  ],
+  "structural_release_gates_passed": true,
+  "no_new_gap_regression_check_passed": false,
+  "owned_processes_stopped": true,
+  "final_admission": {
+    "limit": 64,
+    "active": 0,
+    "peak": 2,
+    "rejected": 0
+  },
+  "publication_decision": "hold",
+  "scope": "Source/structure verification is not semantic answer accuracy. New gaps are compared case by case with the pre-HPE v3 baseline; aggregate coverage can conceal a shifted failure.",
+  "all_preregistered_checks_passed": false
+}

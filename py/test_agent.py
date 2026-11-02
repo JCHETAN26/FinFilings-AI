@@ -12,7 +12,7 @@ from agent.filters import FilingFilter
 from agent.models import Draft, QuoteClaim, Plan, Critique
 from agent.provenance import ProvenanceRegistry
 from agent.synthesizer import ground, escape_markdown
-from agent.state_machine import Agent, merge_evidence
+from agent.state_machine import Agent, merge_evidence, select_context
 from agent.provider import ClaudeJSON
 from common import open_store
 
@@ -73,12 +73,27 @@ class Grounding(unittest.TestCase):
                 chunk=json.loads(next(source))
                 hit=dict(id=chunk['ID'],text=chunk['Text'],metadata={k:v for k,v in chunk.items() if k not in ('Text','Tokens')})
                 evidence.append(self.registry.verify(hit,self.filters))
-        merged=merge_evidence(evidence[:2],evidence[2:])
-        self.assertEqual([item.id for item in merged],[item.id for item in evidence[:5]])
-        self.assertEqual(merge_evidence(evidence[:2],evidence[:5]),evidence[:5])
+        # Budget contract: fresh top-4 are reserved; nominees fill only the remaining slot(s); carried come first.
+        context,carried=select_context(evidence[:2],evidence[2:7])
+        self.assertEqual([i.id for i in context],[evidence[i].id for i in (0,2,3,4,5)])
+        self.assertEqual([i.id for i in carried],[evidence[0].id])
+        # A rank-4 fresh hit survives two stale nominees.
+        context,carried=select_context(evidence[:2],evidence[2:6])
+        self.assertIn(evidence[5].id,[i.id for i in context])
+        # Both nominees already inside fresh top-4: both carried, nothing crowded out, fifth fresh fills.
+        context,carried=select_context([evidence[1],evidence[0]],evidence[:5])
+        self.assertEqual([i.id for i in context],[evidence[i].id for i in (1,0,2,3,4)])
+        self.assertEqual(len(carried),2)
+        # Few fresh hits: both nominees preserved.
+        context,carried=select_context(evidence[:2],evidence[2:4])
+        self.assertEqual([i.id for i in context],[evidence[i].id for i in (0,1,2,3)])
+        self.assertEqual(len(select_context(evidence[:2],evidence[2:5])[0]),5)
+        # One overlapping, one not: overlap is free, the other takes the remaining slot.
+        context,carried=select_context([evidence[0],evidence[6]],evidence[:5])
+        self.assertEqual([i.id for i in context],[evidence[i].id for i in (0,6,1,2,3)])
         self.assertEqual(merge_evidence([],evidence[:5]),evidence[:5])
-        for retained,fresh in [(evidence[:3],[]),([],evidence[:6]),([evidence[0],evidence[0]],[])]:
-            with self.assertRaises(ValueError):merge_evidence(retained,fresh)
+        for retained,fresh in [(evidence[:3],[]),([],evidence[:6]),([evidence[0],evidence[0]],[]),([],[evidence[0],evidence[0]])]:
+            with self.assertRaises(ValueError):select_context(retained,fresh)
         with self.assertRaises(ValidationError):
             Critique(score=3,rationale='partial',rewritten_query='missing topic',retain_ids=[item.id for item in evidence[:3]])
 

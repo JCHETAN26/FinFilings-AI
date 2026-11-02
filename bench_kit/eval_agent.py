@@ -57,7 +57,11 @@ def verify(result, case: dict, registry: ProvenanceRegistry) -> dict:
         assert 1 <= len(hops) <= 3 and [h.attempt for h in hops] == list(range(len(hops))), 'unbounded retries'
         assert all(h.filters == query.filters for h in hops), 'rewrite changed immutable filters'
         assert all(not h.accepted for h in hops[:-1]), 'retried an accepted query'
-        assert hops[-1].accepted or len(hops) == 3, 'stopped retrying before the retry bound'
+        stalled = hops[-1].terminal_reason == 'stalled_rewrite'  # intentional contract: at most 2 retries, plus the explicit empty-evidence stall
+        assert not stalled or (len(hops) <= 2 and not hops[-1].accepted and hops[-1].score == 1 and not hops[-1].evidence
+            and hops[-1].proposed_rewrite.strip().casefold() == hops[-1].query.strip().casefold()), 'invalid stalled-rewrite stop'
+        assert all(h.terminal_reason is None for h in hops[:-1]), 'terminal reason on a non-final hop'
+        assert hops[-1].accepted or len(hops) == 3 or stalled, 'stopped retrying before the retry bound'
         for hop in hops:
             assert 1 <= hop.score <= 5 and (not hop.accepted or hop.score >= 4), 'invalid critic acceptance'
             assert len(hop.evidence) <= 5 and len(hop.retained_evidence_ids) <= 2, 'context bound exceeded'
@@ -67,9 +71,10 @@ def verify(result, case: dict, registry: ProvenanceRegistry) -> dict:
         if not by_scope[(query.filters.ticker, query.filters.year)]['available']:
             unavailable.append(position)
             assert all(h.score == 1 and not h.accepted and not h.evidence for h in hops), 'missing evidence accepted'
-            assert len(hops) == 3, 'two-retry bound not exercised'
-            assert len({h.query for h in hops}) >= 2, 'critic did not rewrite query'
-            assert f'Subquery {position} has no evidence meeting threshold after 2 retries.' in result.flags, 'unavailable scope not flagged'
+            assert len(hops) == 3 or stalled, 'two-retry bound not exercised'
+            assert stalled or len({h.query for h in hops}) >= 2, 'critic did not rewrite query'
+            assert f'Subquery {position} has no evidence meeting threshold after {len(hops) - 1} retries.' in result.flags, 'unavailable scope not flagged'
+            assert (f'Subquery {position} stopped early: no verified evidence and the critic proposed no new query (stalled rewrite).' in result.flags) == stalled, 'stop reason flag inconsistent'
     accepted = {e.id: e for h in result.hops if h.accepted for e in h.evidence}
     available_accessions = {row['accession'] for row in case['expected_scopes'] if row['available']}
     for citation in result.citations:

@@ -1,0 +1,501 @@
+{
+  "prompt": "Compare HD and WMT, both filing year 2026, with the exact SectionItem filter \"Item 8\": retrieve each company's segment reporting disclosures. Use separate company-specific retrieval steps.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "segment reporting disclosures",
+        "goal": "retrieve each company's segment reporting disclosures",
+        "filters": {
+          "ticker": "HD",
+          "year": 2026,
+          "section": "Item 8",
+          "accession": "000162828026019436"
+        }
+      },
+      {
+        "query": "segment reporting disclosures",
+        "goal": "retrieve each company's segment reporting disclosures",
+        "filters": {
+          "ticker": "WMT",
+          "year": 2026,
+          "section": "Item 8",
+          "accession": "000010416926000055"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "segment reporting disclosures",
+      "requested_goal": "retrieve each company's segment reporting disclosures",
+      "filters": {
+        "ticker": "HD",
+        "year": 2026,
+        "section": "Item 8",
+        "accession": "000162828026019436"
+      },
+      "score": 4,
+      "rationale": "Scope is HD, filing year 2026, Item 8 only. The passages state the core segment reporting disclosures: Note 2 says the company has one reportable segment (the Primary segment, U.S./Canada/Mexico aggregated), that SRS's four lines of business are operating segments presented in \"Other\" because none meets reportable thresholds, that the CODM uses operating income to allocate resources and assess segment performance, and that segment assets are reviewed on a consolidated basis. The segment table of net sales, significant expenses, and operating income is introduced but cut off, so its figures are not shown. The goal did not ask for specific numbers, so the disclosures are substantially covered, though the quantitative table is missing.",
+      "evidence": [
+        {
+          "id": "000162828026019436#item8#passage-000026",
+          "text": "disclosure, in the notes to the financial statements, of prescribed categories of expenses within relevant income statement captions. ASU No. 2024-03 is effective for fiscal years beginning after December 15, 2026 and interim periods within fiscal years beginning after December 15, 2027. Early adoption is permitted. The new standard may be applied either on a prospective or retrospective basis. We are currently evaluating the impact of the standard on our consolidated financial statement disclosures. Recent accounting pronouncements adopted or pending adoption not discussed above are either not applicable or are not expected to have a material impact on our consolidated financial condition, results of operations, or cash flows. Fiscal 2025 Form 10-K 50 Table of Contents 2.SEGMENT REPORTING AND NET SALES Segment Reporting The Company defines its segments based on how internally reported financial information is regularly reviewed by the chief operating decision maker (“CODM”), our President and Chief Executive Officer, to analyze financial performance, make decisions, and allocate resources. Primary Segment. We are engaged in retail operations and sell a wide assortment of home improvement products, building materials, lawn and garden products, décor products, and facilities MRO products both in stores and online. We also provide a number of services, including home improvement installation services, and tool and equipment rental. We currently conduct these operations in the U.S. (including the Commonwealth of Puerto Rico and the territories of the U.S. Virgin Islands and Guam), Canada, and Mexico, each of which represents an operating segment. For disclosure purposes, we aggregate these three geographic operating segments into",
+          "metadata": {
+            "ID": "000162828026019436#item8#passage-000026",
+            "Ticker": "HD",
+            "CIK": "354950",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001628280-26-019436",
+          "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+          "tag": "HD-2026-10K-item8-p000026"
+        },
+        {
+          "id": "000162828026019436#item8#passage-000027",
+          "text": "one reportable segment (the “Primary segment”) due to the similar nature of their operations and economic characteristics. Other. As discussed in Note 13, in June 2024, we acquired SRS, a leading residential specialty trade distribution company across several verticals serving the professional roofer, landscaper and pool contractor through branches located throughout the U.S. On September 4, 2025, SRS completed the acquisition of GMS, a leading distributor of specialty building products, including drywall, ceilings, steel framing and other complementary construction products, through branches located across the U.S. and Canada. GMS became an additional vertical within SRS referred to as interior and construction products, and SRS is now organized as four different lines of business: roofing and building products, interior and construction products, landscape, and pool. We have determined that each of these four lines of business represents an operating segment, none of which meets the thresholds prescribed under Accounting Standards Codification Topic 280: “Segment Reporting” to be deemed a reportable segment. Therefore, results from these operating segments are presented in “Other.” Segment Information. For our Primary segment, our CODM uses operating income to allocate resources in the planning and forecasting process and to assess segment performance by monitoring actual results versus prior-period, forecasted results, and the annual plan. Assets are reviewed by our CODM on a total company consolidated basis and not by segment. The accounting policies of our Primary segment are the same as those described in our summary of significant accounting policies. The following table presents net sales, significant expenses, and operating income for our",
+          "metadata": {
+            "ID": "000162828026019436#item8#passage-000027",
+            "Ticker": "HD",
+            "CIK": "354950",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001628280-26-019436",
+          "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+          "tag": "HD-2026-10K-item8-p000027"
+        },
+        {
+          "id": "000162828026019436#item8#passage-000000",
+          "text": "Item 8. Financial Statements and Supplementary Data. TABLE OF CONTENTS Report of Independent Registered Public Accounting Firm 37 Consolidated Balance Sheets 39 Consolidated Statements of Earnings 40 Consolidated Statements of Comprehensive Income 41 Consolidated Statements of Stockholders' Equity 42 Consolidated Statements of Cash Flows 43 Notes to Consolidated Financial Statements 44 Note 1. Summary of Significant Accounting Policies 44 Note 2. Segment Reporting and Net Sales 51 Note 3. Property and Leases 54 Note 4. Goodwill and Intangible Assets 56 Note 5. Debt and Derivative Instruments 57 Note 6. Income Taxes 60 Note 7. Stockholders' Equity 64 Note 8. Fair Value Measurements 64 Note 9. Stock-Based Compensation 65 Note 10. Employee Benefit Plans 69 Note 11. Weighted Average Common Shares 69 Note 12. Commitments and Contingencies 69 Note 13. Acquisitions 69 Fiscal 2025 Form 10-K 36 Table of Contents REPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM To the Stockholders and the Board of Directors The Home Depot, Inc.: Opinion on the Consolidated Financial Statements We have audited the accompanying consolidated balance sheets of The Home Depot, Inc. and its subsidiaries (the Company) as of February 1, 2026 and February 2, 2025, the related consolidated statements of earnings, comprehensive income, stockholders’ equity, and cash flows for each of the fiscal years in the three-year period ended February 1, 2026, and the related notes (collectively, the consolidated financial statements). In our opinion, the consolidated financial statements present fairly, in all material respects, the financial position of the Company as of February 1, 2026 and February 2, 2025, and",
+          "metadata": {
+            "ID": "000162828026019436#item8#passage-000000",
+            "Ticker": "HD",
+            "CIK": "354950",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001628280-26-019436",
+          "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+          "tag": "HD-2026-10K-item8-p000000"
+        },
+        {
+          "id": "000162828026019436#item8#passage-000034",
+          "text": "third quarter of fiscal 2025, we completed our annual assessment of the recoverability of goodwill for our U.S., Canada, and Mexico reporting units that reside within our Primary segment. As the results of our most recent quantitative analysis in fiscal 2023 indicated that the fair value of each reporting unit substantially exceeded its respective carrying amount, we performed a qualitative assessment to determine if there were any indicators of impairment. Based on this assessment, we concluded that while there have been events and circumstances that have both positively and negatively impacted the fair values of our reporting units, no single factor or combination of factors is an indicator that it is more likely than not that the fair value of any of these reporting units was less than its carrying amount. During the third quarter of fiscal 2025, we also completed our annual assessment of our SRS roofing and building products, landscape, and pool reporting units using a quantitative approach. The quantitative test for goodwill impairment was performed by determining the fair value of each reporting unit using a combination of discounted cash flow and market-based approaches. The results of our quantitative analysis indicated that the fair value of each reporting unit exceeded its respective carrying amount, including goodwill. Additionally, due to the proximity of the GMS acquisition date to our annual impairment assessment date, we concluded that there were no events or circumstances that would indicate that it is more likely than not that the fair value of the goodwill recognized in the acquisition was",
+          "metadata": {
+            "ID": "000162828026019436#item8#passage-000034",
+            "Ticker": "HD",
+            "CIK": "354950",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001628280-26-019436",
+          "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+          "tag": "HD-2026-10K-item8-p000034"
+        },
+        {
+          "id": "000162828026019436#item8#passage-000008",
+          "text": "with its subsidiaries (the “Company,” “The Home Depot,” “Home Depot,” “we,” “our” or “us”), is a home improvement retailer that sells a wide assortment of home improvement products, building materials, lawn and garden products, décor products, and facilities MRO products in stores and online. We also provide a number of services, including home improvement installation services, and tool and equipment rental. Additionally, through our subsidiary, SRS, we are a leading specialty trade distributor of roofing and building products, interior and construction products, landscape supplies, and pool supplies. The Company's operations comprise one reportable segment, along with certain other non-reportable operating segments. See Note 2 for further information. Consolidation and Presentation Our consolidated financial statements include our accounts and those of our subsidiaries. Intercompany balances and transactions are eliminated in consolidation. Our fiscal year is a 52- or 53-week period ending on the Sunday nearest to January 31. Fiscal 2025 and fiscal 2023 include 52 weeks, while fiscal 2024 includes 53 weeks. Use of Estimates We have made a number of estimates and assumptions relating to the reporting of assets and liabilities, the disclosure of contingent assets and liabilities, and reported amounts of revenues and expenses in preparing these financial statements in conformity with GAAP. While we believe these estimates and assumptions are reasonable, actual results could differ from these estimates. Cash and Cash Equivalents Cash and cash equivalents consist of cash on hand and highly liquid investments purchased with original maturities of three months or less. Receivables, net The following table presents components of receivables, net:",
+          "metadata": {
+            "ID": "000162828026019436#item8#passage-000008",
+            "Ticker": "HD",
+            "CIK": "354950",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001628280-26-019436",
+          "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+          "tag": "HD-2026-10K-item8-p000008"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000162828026019436#item8#passage-000026",
+        "000162828026019436#item8#passage-000027",
+        "000162828026019436#item8#passage-000000",
+        "000162828026019436#item8#passage-000034",
+        "000162828026019436#item8#passage-000008",
+        "000162828026019436#item8#passage-000028",
+        "000162828026019436#item8#passage-000025",
+        "000162828026019436#item8#passage-000029",
+        "000162828026019436#item8#passage-000002",
+        "000162828026019436#item8#passage-000024"
+      ],
+      "fresh_verified_ids": [
+        "000162828026019436#item8#passage-000026",
+        "000162828026019436#item8#passage-000027",
+        "000162828026019436#item8#passage-000000",
+        "000162828026019436#item8#passage-000034",
+        "000162828026019436#item8#passage-000008"
+      ],
+      "elapsed_seconds": 9.869111870997585
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "segment reporting disclosures",
+      "requested_goal": "retrieve each company's segment reporting disclosures",
+      "filters": {
+        "ticker": "WMT",
+        "year": 2026,
+        "section": "Item 8",
+        "accession": "000010416926000055"
+      },
+      "score": 4,
+      "rationale": "Scope is WMT, filing year 2026, Item 8 only. Passage 000056 names the reportable segments (Walmart U.S., Walmart International, Sam's Club U.S.), describes Corporate and support, states that segment profit is measured by operating income, and says the CODM uses that measure for allocating resources. Passage 000016 gives goodwill by reportable segment for fiscal 2026 and 2025. Together these cover the core segment reporting disclosures the goal asks for. The passages do not show the segment-level net sales or operating income figures or the reconciliation to income before taxes, which the text refers to. Those figures would make the disclosure fuller, but the goal does not explicitly demand them, so the score stays at 4.",
+      "evidence": [
+        {
+          "id": "000010416926000055#item8#passage-000016",
+          "text": "segment are aggregated and deemed a single reporting unit if the components have similar economic characteristics. Goodwill and other indefinite-lived acquired intangible assets are evaluated for impairment using either a qualitative or quantitative approach for each of the Company's reporting units. Generally, a qualitative assessment is first performed to determine whether a quantitative goodwill impairment test is necessary. If management determines, after performing an assessment based on the qualitative factors, that the fair value of the reporting unit is more likely than not less than the carrying amount, or that a fair value of the reporting unit substantially in excess of the carrying amount cannot be assured, then a quantitative goodwill impairment test would be required. The quantitative test for goodwill impairment is performed by determining the fair value of the related reporting units. Fair value is measured based on the discounted cash flow method and relative market-based approaches. Management has performed its evaluation and determined the fair value of each reporting unit is significantly greater than the carrying amount and, accordingly, the Company has not recorded any impairment charges related to goodwill during fiscal 2026, fiscal 2025 or fiscal 2024. The following table reflects goodwill activity, by reportable segment, for fiscal 2026 and 2025: (Amounts in millions)Walmart U.S.Walmart International Sam's Club U.S. Total Balances as of February 1, 2024$3,364 $24,428 $321 $28,113 Changes in currency translation and other— (696)— (696) Acquisitions(1) 1,375 — — 1,375 Balances as of January 31, 20254,739 23,732 321 28,792 Changes in currency translation and other53 (119)— (66) Acquisitions— 9 —",
+          "metadata": {
+            "ID": "000010416926000055#item8#passage-000016",
+            "Ticker": "WMT",
+            "CIK": "104169",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000104169-26-000055",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "tag": "WMT-2026-10K-item8-p000016"
+        },
+        {
+          "id": "000010416926000055#item8#passage-000056",
+          "text": "revenues for each of these individual products and services. The Walmart U.S. segment includes the Company's mass merchandising concept in the U.S., as well as eCommerce, which includes omnichannel initiatives and certain other business offerings such as advertising services. The Walmart International segment consists of the Company's operations outside of the U.S., as well as eCommerce and omnichannel initiatives. The Sam's Club U.S. segment includes the warehouse membership clubs in the U.S., as well as samsclub.com and omnichannel initiatives. Corporate and support consists of corporate overhead and other items not allocated to any of the Company's segments. The operating results of each reportable segment, including the mix of cost of sales and operating, selling, general and administrative expenses, are not directly comparable due to differences in business model, format and channel mix. Additionally, the operating results of each reportable segment may not be comparable to those of other retailers, as discussed in Note 1. 76 The Company measures the profit or loss of its segments using operating income. The CODM uses operating income to allocate resources across the reportable segments as part of the Company's long-range and annual planning processes, and to evaluate planned versus actual results when assessing segment operating performance. From time to time, the Company may revise the measurement of each segment's operating income, including any corporate overhead allocations, and presentation of significant segment expenses, as determined by the information regularly reviewed by its CODM. Information for the Company's segments, as well as for Corporate and support, including the reconciliation to income before",
+          "metadata": {
+            "ID": "000010416926000055#item8#passage-000056",
+            "Ticker": "WMT",
+            "CIK": "104169",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000104169-26-000055",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "tag": "WMT-2026-10K-item8-p000056"
+        },
+        {
+          "id": "000010416926000055#item8#passage-000013",
+          "text": "value, as appropriate. •Walmart U.S. Segment - Inventories are primarily accounted for under the retail inventory method of accounting (\"RIM\") to determine inventory cost, using the last-in, first-out (\"LIFO\") valuation method. RIM generally results in inventory being valued at the lower of cost or market as permanent markdowns are immediately recorded as a reduction of the retail value of inventory. •Walmart International Segment – Depending on the store format in each market, inventories are generally accounted for using either the RIM or weighted-average cost method, using the first-in, first-out valuation method. •Sam's Club U.S. Segment - The majority of this segment's inventory is accounted for and valued using the weighted-average cost LIFO method. For those segments that utilize the LIFO method, the Company records an adjustment each quarter, if necessary, for the projected annual effect of inflation or deflation. These estimates are adjusted to actual results determined at year end for inflation or deflation and inventory levels. Property and Equipment Property and equipment are initially recorded at cost. Gains or losses on disposition are recognized as earned or incurred. Costs of major improvements are capitalized, while costs of normal repairs and maintenance are expensed as incurred. The following table summarizes the Company's property and equipment balances and includes the estimated useful lives that are generally used to depreciate the assets on a straight-line basis: Estimated Useful LivesAs of January 31, (Dollars in millions)(in Years)20262025 LandN/A$20,754 $19,342 Buildings and improvements 3 - 40 128,472 117,973 Fixtures and equipment 2 - 30 85,539 76,226 Transportation equipment 3 -",
+          "metadata": {
+            "ID": "000010416926000055#item8#passage-000013",
+            "Ticker": "WMT",
+            "CIK": "104169",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000104169-26-000055",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "tag": "WMT-2026-10K-item8-p000013"
+        },
+        {
+          "id": "000010416926000055#item8#passage-000002",
+          "text": "disclosures that are material to the financial statements and (2) involved our especially challenging, subjective or complex judgments. The communication of the critical audit matter does not alter in any way our opinion on the Consolidated Financial Statements, taken as a whole, and we are not, by communicating the critical audit matter below, providing a separate opinion on the critical audit matter or on the account or disclosure to which it relates. Contingencies Description of the Matter As described in Note 9 to the Consolidated Financial Statements, at January 31, 2026, the Company is involved in a number of legal proceedings and certain regulatory matters. The Company records a liability for those legal proceedings and regulatory matters when management determines it is probable that a loss has been incurred and the amount of the loss can be reasonably estimated. The Company also discloses when it is reasonably possible that a material loss may be incurred. In assessing the probability of occurrence and whether an estimate of loss can be reasonably estimated for a particular legal proceeding, management exercises judgment on matters relevant to each proceeding. Auditing management's accounting for, and disclosure of, loss contingencies was complex and highly judgmental as it involved our assessment of the significant judgments made by management when assessing the probability of loss for contingencies or when determining whether an estimate of the loss or range of loss could be made. 49 How We Addressed the Matter in Our Audit We obtained an understanding, evaluated the design and tested the operating effectiveness",
+          "metadata": {
+            "ID": "000010416926000055#item8#passage-000002",
+            "Ticker": "WMT",
+            "CIK": "104169",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000104169-26-000055",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "tag": "WMT-2026-10K-item8-p000002"
+        },
+        {
+          "id": "000010416926000055#item8#passage-000017",
+          "text": "9 Balances as of January 31, 2026$4,792 $23,622 $321 $28,735 (1)Goodwill recorded in fiscal 2025 relates to the acquisition of VIZIO Holding Corp. in December 2024 within the Walmart U.S. segment. Intangible assets are recorded in other long-term assets in the Company's Consolidated Balance Sheets. As of January 31, 2026 and 2025, the Company had $4.3 billion and $4.5 billion, respectively, in indefinite-lived intangible assets which primarily consists of acquired trade names. There were no significant impairment charges related to intangible assets for fiscal 2026, 2025 or 2024. Fair Value Measurement The Company records and discloses certain financial and non-financial assets and liabilities at fair value. The fair value of an asset is the price at which the asset could be sold in an orderly transaction between unrelated, knowledgeable and willing parties able to engage in the transaction. The fair value of a liability is the amount that would be paid to transfer the liability to a new obligor in a transaction between such parties, not the amount that would be paid to settle the liability with the creditor. Refer to Note 7 for more information. Investments Investments in equity securities are recorded in other long-term assets in the Consolidated Balance Sheets. Changes in the fair value of certain equity securities, as well as certain immaterial equity method investments where the Company has elected the fair value option, are measured on a recurring basis (generally using Level 1 and Level 2 inputs in the fair value hierarchy) and recognized within other gains and losses in the",
+          "metadata": {
+            "ID": "000010416926000055#item8#passage-000017",
+            "Ticker": "WMT",
+            "CIK": "104169",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000104169-26-000055",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "tag": "WMT-2026-10K-item8-p000017"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "proposed_rewrite": "",
+      "terminal_reason": null,
+      "retrieved_ids": [
+        "000010416926000055#item8#passage-000016",
+        "000010416926000055#item8#passage-000056",
+        "000010416926000055#item8#passage-000013",
+        "000010416926000055#item8#passage-000002",
+        "000010416926000055#item8#passage-000017",
+        "000010416926000055#item8#passage-000011",
+        "000010416926000055#item8#passage-000024",
+        "000010416926000055#item8#passage-000005",
+        "000010416926000055#item8#passage-000023",
+        "000010416926000055#item8#passage-000010"
+      ],
+      "fresh_verified_ids": [
+        "000010416926000055#item8#passage-000016",
+        "000010416926000055#item8#passage-000056",
+        "000010416926000055#item8#passage-000013",
+        "000010416926000055#item8#passage-000002",
+        "000010416926000055#item8#passage-000017"
+      ],
+      "elapsed_seconds": 9.447125803002564
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- The Company defines its segments based on how internally reported financial information is regularly reviewed by the chief operating decision maker \\(“CODM”\\), our President and Chief Executive Officer, to analyze financial performance, make decisions, and allocate resources. [HD-2026-10K-item8-p000026](https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm) (chunk: `000162828026019436#item8#passage-000026`; accession: `0001628280-26-019436`).\n- We currently conduct these operations in the U.S. \\(including the Commonwealth of Puerto Rico and the territories of the U.S. Virgin Islands and Guam\\), Canada, and Mexico, each of which represents an operating segment. For disclosure purposes, we aggregate these three geographic operating segments into [HD-2026-10K-item8-p000026](https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm) (chunk: `000162828026019436#item8#passage-000026`; accession: `0001628280-26-019436`).\n- For our Primary segment, our CODM uses operating income to allocate resources in the planning and forecasting process and to assess segment performance by monitoring actual results versus prior-period, forecasted results, and the annual plan. [HD-2026-10K-item8-p000027](https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm) (chunk: `000162828026019436#item8#passage-000027`; accession: `0001628280-26-019436`).\n- We have determined that each of these four lines of business represents an operating segment, none of which meets the thresholds prescribed under Accounting Standards Codification Topic 280: “Segment Reporting” to be deemed a reportable segment. Therefore, results from these operating segments are presented in “Other.” [HD-2026-10K-item8-p000027](https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm) (chunk: `000162828026019436#item8#passage-000027`; accession: `0001628280-26-019436`).\n- The Company's operations comprise one reportable segment, along with certain other non-reportable operating segments. See Note 2 for further information. [HD-2026-10K-item8-p000008](https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm) (chunk: `000162828026019436#item8#passage-000008`; accession: `0001628280-26-019436`).\n- The Walmart U.S. segment includes the Company's mass merchandising concept in the U.S., as well as eCommerce, which includes omnichannel initiatives and certain other business offerings such as advertising services. [WMT-2026-10K-item8-p000056](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm) (chunk: `000010416926000055#item8#passage-000056`; accession: `0000104169-26-000055`).\n- The Sam's Club U.S. segment includes the warehouse membership clubs in the U.S., as well as samsclub.com and omnichannel initiatives. [WMT-2026-10K-item8-p000056](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm) (chunk: `000010416926000055#item8#passage-000056`; accession: `0000104169-26-000055`).\n- The Company measures the profit or loss of its segments using operating income. The CODM uses operating income to allocate resources across the reportable segments as part of the Company's long-range and annual planning processes, and to evaluate planned versus actual results when assessing segment operating performance. [WMT-2026-10K-item8-p000056](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm) (chunk: `000010416926000055#item8#passage-000056`; accession: `0000104169-26-000055`).",
+  "citations": [
+    {
+      "tag": "HD-2026-10K-item8-p000026",
+      "chunk_id": "000162828026019436#item8#passage-000026",
+      "accession": "0001628280-26-019436",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+      "quote": "The Company defines its segments based on how internally reported financial information is regularly reviewed by the chief operating decision maker (“CODM”), our President and Chief Executive Officer, to analyze financial performance, make decisions, and allocate resources."
+    },
+    {
+      "tag": "HD-2026-10K-item8-p000026",
+      "chunk_id": "000162828026019436#item8#passage-000026",
+      "accession": "0001628280-26-019436",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+      "quote": "We currently conduct these operations in the U.S. (including the Commonwealth of Puerto Rico and the territories of the U.S. Virgin Islands and Guam), Canada, and Mexico, each of which represents an operating segment. For disclosure purposes, we aggregate these three geographic operating segments into"
+    },
+    {
+      "tag": "HD-2026-10K-item8-p000027",
+      "chunk_id": "000162828026019436#item8#passage-000027",
+      "accession": "0001628280-26-019436",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+      "quote": "For our Primary segment, our CODM uses operating income to allocate resources in the planning and forecasting process and to assess segment performance by monitoring actual results versus prior-period, forecasted results, and the annual plan."
+    },
+    {
+      "tag": "HD-2026-10K-item8-p000027",
+      "chunk_id": "000162828026019436#item8#passage-000027",
+      "accession": "0001628280-26-019436",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+      "quote": "We have determined that each of these four lines of business represents an operating segment, none of which meets the thresholds prescribed under Accounting Standards Codification Topic 280: “Segment Reporting” to be deemed a reportable segment. Therefore, results from these operating segments are presented in “Other.”"
+    },
+    {
+      "tag": "HD-2026-10K-item8-p000008",
+      "chunk_id": "000162828026019436#item8#passage-000008",
+      "accession": "0001628280-26-019436",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+      "quote": "The Company's operations comprise one reportable segment, along with certain other non-reportable operating segments. See Note 2 for further information."
+    },
+    {
+      "tag": "WMT-2026-10K-item8-p000056",
+      "chunk_id": "000010416926000055#item8#passage-000056",
+      "accession": "0000104169-26-000055",
+      "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+      "quote": "The Walmart U.S. segment includes the Company's mass merchandising concept in the U.S., as well as eCommerce, which includes omnichannel initiatives and certain other business offerings such as advertising services."
+    },
+    {
+      "tag": "WMT-2026-10K-item8-p000056",
+      "chunk_id": "000010416926000055#item8#passage-000056",
+      "accession": "0000104169-26-000055",
+      "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+      "quote": "The Sam's Club U.S. segment includes the warehouse membership clubs in the U.S., as well as samsclub.com and omnichannel initiatives."
+    },
+    {
+      "tag": "WMT-2026-10K-item8-p000056",
+      "chunk_id": "000010416926000055#item8#passage-000056",
+      "accession": "0000104169-26-000055",
+      "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+      "quote": "The Company measures the profit or loss of its segments using operating income. The CODM uses operating income to allocate resources across the reportable segments as part of the Company's long-range and annual planning processes, and to evaluate planned versus actual results when assessing segment operating performance."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.615004049999698,
+      "num_turns": 3,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 669,
+        "cache_read_input_tokens": 29096,
+        "output_tokens": 799,
+        "output_tokens_details": {
+          "thinking_tokens": 370
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 669,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 209,
+            "cache_read_input_tokens": 14548,
+            "cache_creation_input_tokens": 669,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 669
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0008246600000000001
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.080688305999502,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 17722,
+        "output_tokens": 952,
+        "output_tokens_details": {
+          "thinking_tokens": 525
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 952,
+            "cache_read_input_tokens": 17722,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00065342
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.480282174001331,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 17838,
+        "output_tokens": 978,
+        "output_tokens_details": {
+          "thinking_tokens": 561
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 978,
+            "cache_read_input_tokens": 17838,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00066758
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 10.1436443470011,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 7494,
+        "output_tokens": 2549,
+        "output_tokens_details": {
+          "thinking_tokens": 1784
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2549,
+            "cache_read_input_tokens": 7494,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0013496399999999998
+    }
+  ],
+  "elapsed_seconds": 25.630971378999675
+}

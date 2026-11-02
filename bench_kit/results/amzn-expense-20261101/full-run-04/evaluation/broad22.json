@@ -1,0 +1,497 @@
+{
+  "prompt": "Compare SBUX filing year 2024 and SBUX filing year 2025, with the exact SectionItem filter \"Item 7\": retrieve comparable store sales and new store opening disclosures for each filing year. Retrieve evidence separately for each filing year.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "SBUX comparable store sales new store openings",
+        "goal": "comparable store sales and new store opening disclosures",
+        "filters": {
+          "ticker": "SBUX",
+          "year": 2024,
+          "section": "Item 7",
+          "accession": "000082922424000057"
+        }
+      },
+      {
+        "query": "SBUX comparable store sales new store openings",
+        "goal": "comparable store sales and new store opening disclosures",
+        "filters": {
+          "ticker": "SBUX",
+          "year": 2025,
+          "section": "Item 7",
+          "accession": "000082922425000114"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "SBUX comparable store sales new store openings",
+      "requested_goal": "comparable store sales and new store opening disclosures",
+      "filters": {
+        "ticker": "SBUX",
+        "year": 2024,
+        "section": "Item 7",
+        "accession": "000082922424000057"
+      },
+      "score": 4,
+      "rationale": "Scope is SBUX, filing year 2024, Item 7, accession 000082922424000057. The passages directly support both required elements. Comparable store sales: North America comparable store sales declined 2% (comparable transactions down 5%, average ticket up 4%), and International comparable store sales declined 4% (average ticket down 4%). New store openings: North America net new company-operated stores grew 5%, or 533 stores; International added 893 net new company-operated stores and 654 net new licensed stores; the key operating metrics list names new store openings and store count. The passages do not state a single consolidated comparable store sales percentage or a consolidated store-count total, so that is the only gap. Facts split across adjacent passages were combined for this judgment.",
+      "evidence": [
+        {
+          "id": "000082922424000057#item7#passage-000001",
+          "text": "Japan, Asia Pacific, Europe, Middle East, Africa, Latin America, and the Caribbean; and 3) Channel Development. Unallocated corporate expenses are reported within Corporate and Other. We believe our financial results and long-term growth model will continue to be driven by new store openings, comparable store sales, and operating margin management, underpinned by disciplined capital allocation. We believe these key operating metrics are useful to investors because management uses these metrics to assess the growth of our business and the effectiveness of our marketing and operational strategies. Throughout this MD&A, we commonly discuss the following key operating metrics: •New store openings and store count •Comparable store sales •Operating margin Starbucks results for fiscal 2024 reflect a challenging operating environment, notably driven by reduced customer traffic compared to fiscal 2023, that pressured our financial results. Consolidated net revenues increased 1% to $36.2 billion in fiscal 2024 compared to $36.0 billion in fiscal 2023, primarily driven by incremental revenues from net new company-operated stores over the past 12 months, partially offset by a decrease in comparable store sales and the impact of unfavorable foreign currency translation. For both the North America segment and U.S. market, revenue increased 2% in fiscal 2024 compared to fiscal 2023, primarily driven by net new company-operated store growth over the past 12 months and higher product and equipment sales to, and royalty revenues from, our licensees. This growth was partially offset by a 2% decline in comparable store sales. Comparable transactions for both the North America segment and the U.S. market declined 5%, partially",
+          "metadata": {
+            "ID": "000082922424000057#item7#passage-000001",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-24-000057",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+          "tag": "SBUX-2024-10K-item7-p000001"
+        },
+        {
+          "id": "000082922424000057#item7#passage-000009",
+          "text": "product and equipment sales to, and royalty revenues from, our licensees ($69 million), largely driven by continued disruptions due to multiple international conflicts, partially offset by the performance of 654 net new licensed store openings over the past 12 months. These decreases were partially offset by net new company-operated store growth of 10%, or 893 stores, over the past 12 months ($378 million). Operating Margin International operating income for fiscal 2024 decreased 15% to $1.0 billion, compared to $1.2 billion in fiscal 2023. Operating margin contracted 220 basis points to 14.2%, primarily due to increased promotional activity (approximately 170 basis points) and investments in store partner wages and benefits (approximately 120 basis points), partially offset by in-store operational efficiencies (approximately 100 basis points). 40 Table of Contents Channel Development Fiscal Year EndedSep 29, 2024Oct 1, 2023Sep 29, 2024Oct 1, 2023 As a % of Channel Development Total Net Revenues Net revenues$1,769.8 $1,893.8 Product and distribution costs1,075.4 1,250.1 60.8 %66.0 % Other operating expenses58.4 54.6 3.3 2.9 Depreciation and amortization expenses— 0.1 0.0 0.0 General and administrative expenses7.7 8.4 0.4 0.4 Total operating expenses1,141.5 1,313.2 64.5 69.3 Income from equity investees297.6 295.7 16.8 15.6 Gain from sale of assets— 91.3 — 4.8 Operating income$925.9 $967.6 52.3 %51.1 % Revenues Channel Development total net revenues for fiscal 2024 decreased $124 million, or 7%, compared to fiscal 2023, primarily due to a decline in revenue in the Global Coffee Alliance ($125 million) following the sale of our Seattle’s Best Coffee brand to Nestlé in the second quarter of fiscal",
+          "metadata": {
+            "ID": "000082922424000057#item7#passage-000009",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-24-000057",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+          "tag": "SBUX-2024-10K-item7-p000009"
+        },
+        {
+          "id": "000082922424000057#item7#passage-000002",
+          "text": "offset by average ticket growth for both the North America segment and the U.S. market of 4%, primarily driven by annualization of pricing. For the International segment, revenue declined 2% in fiscal 2024 compared to fiscal 2023, primarily driven by the impact of unfavorable foreign currency translation, a 4% decline in comparable store sales driven by a decline in average ticket of 4%, and lower product and equipment sales to, and royalty revenues from, our licensees. These decreases were partially offset by net new company-operated and licensed store openings over the past 12 months. Revenue for our Channel Development segment decreased 7% in fiscal 2024 compared with fiscal 2023, primarily driven by a decline in revenue in the Global Coffee Alliance following the sale of our Seattle’s Best Coffee brand to Nestlé in the second quarter of fiscal 2023 as well as product SKU optimization. Our performance was lower-than-expected as a result of a pronounced customer traffic decline, reflecting our targeted and accelerated investments not improving customer behaviors as intended, as well as the macroeconomic and competitive environment in China that further pressured our results. Given these challenges, under the direction of our new chief executive officer, Brian Niccol, we are changing our business strategy to bring customers back to our stores and return to growth. Our “Back to Starbucks” strategy includes supporting our green apron partners, enhancing the customer experience, reestablishing ourselves as the community coffee house, and innovating the coffee tasting experience through product development, marketing, and in-store experience. This strategic reset will provide",
+          "metadata": {
+            "ID": "000082922424000057#item7#passage-000002",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-24-000057",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+          "tag": "SBUX-2024-10K-item7-p000002"
+        },
+        {
+          "id": "000082922424000057#item7#passage-000008",
+          "text": "decrease in comparable transactions, partially offset by a 4% increase in average ticket, primarily due to annualization of pricing. Operating Margin North America operating income for fiscal 2024 decreased 3% to $5.4 billion, compared to $5.5 billion in fiscal 2023. Operating margin contracted 90 basis points to 19.8%, primarily due to investments in store partner wages and benefits (approximately 150 basis points), deleverage (approximately 150 basis points), and increased promotional activity (approximately 100 basis points), partially offset by pricing (approximately 220 basis points) and in-store operational efficiencies (approximately 150 basis points). 39 Table of Contents International Fiscal Year EndedSep 29, 2024Oct 1, 2023Sep 29, 2024Oct 1, 2023 As a % of International Total Net Revenues Net revenues: Company-operated stores$5,507.2 $5,556.9 75.0 %74.2 % Licensed stores1,757.7 1,853.6 24.0 24.8 Other74.0 77.1 1.0 1.0 Total net revenues7,338.9 7,487.6 100.0 100.0 Product and distribution costs2,575.2 2,608.4 35.1 34.8 Store operating expenses2,819.4 2,761.1 38.4 36.9 Other operating expenses225.1 219.0 3.1 2.9 Depreciation and amortization expenses338.3 335.1 4.6 4.5 General and administrative expenses338.8 335.8 4.6 4.5 Total operating expenses6,296.8 6,259.4 85.8 83.6 Income from equity investees3.6 2.7 0.0 0.0 Operating income$1,045.7 $1,230.9 14.2 %16.4 % Store operating expenses as a % of related revenues51.2 %49.7 % Revenues International total net revenues for fiscal 2024 decreased $149 million, or 2%, primarily due to unfavorable foreign currency translation impacts ($252 million), as well as a 4% decline in comparable store sales ($210 million), driven by a 4% decline in average ticket. Also contributing to the decline in international total net revenues were lower",
+          "metadata": {
+            "ID": "000082922424000057#item7#passage-000008",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-24-000057",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+          "tag": "SBUX-2024-10K-item7-p000008"
+        },
+        {
+          "id": "000082922424000057#item7#passage-000007",
+          "text": "related to the current year earnings of certain foreign subsidiaries (approximately 60 basis points), partially offset by electing an alternative tax approach in a certain foreign jurisdiction that resulted in a tax benefit in the second quarter of fiscal 2024 (approximately 60 basis points). See Note 14, Income Taxes, to the consolidated financial statements included in Item 8 of Part II of this 10-K, for further discussion. 38 Table of Contents Segment Information Results of operations by segment (in millions): North America Fiscal Year EndedSep 29, 2024Oct 1, 2023Sep 29, 2024Oct 1, 2023 As a % of North America Total Net Revenues Net revenues: Company-operated stores$24,258.7 $23,905.4 89.8 %90.0 % Licensed stores2,747.4 2,659.1 10.2 10.0 Other 3.4 5.1 0.0 0.0 Total net revenues27,009.5 26,569.6 100.0 100.0 Product and distribution costs7,478.0 7,530.4 27.7 28.3 Store operating expenses12,467.1 11,959.2 46.2 45.0 Other operating expenses280.9 263.8 1.0 1.0 Depreciation and amortization expenses1,052.4 910.1 3.9 3.4 General and administrative expenses375.8 389.7 1.4 1.5 Restructuring and impairments— 20.7 — 0.1 Total operating expenses21,654.2 21,073.9 80.2 79.3 Operating income$5,355.3 $5,495.7 19.8 %20.7 % Store operating expenses as a % of related revenues51.4 %50.0 % Revenues North America total net revenues for fiscal 2024 increased $440 million, or 2%, primarily driven by net new company-operated store growth of 5%, or 533 stores, over the past 12 months ($788 million) and higher product and equipment sales to, and royalty revenues from, our licensees ($80 million). This growth was partially offset by a 2% decline in comparable store sales ($420 million) driven by a 5%",
+          "metadata": {
+            "ID": "000082922424000057#item7#passage-000007",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2024,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-24-000057",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+          "tag": "SBUX-2024-10K-item7-p000007"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000082922424000057#item7#passage-000001",
+        "000082922424000057#item7#passage-000009",
+        "000082922424000057#item7#passage-000002",
+        "000082922424000057#item7#passage-000008",
+        "000082922424000057#item7#passage-000007",
+        "000082922424000057#item7#passage-000004",
+        "000082922424000057#item7#passage-000005",
+        "000082922424000057#item7#passage-000027",
+        "000082922424000057#item7#passage-000018",
+        "000082922424000057#item7#passage-000003"
+      ],
+      "fresh_verified_ids": [
+        "000082922424000057#item7#passage-000001",
+        "000082922424000057#item7#passage-000009",
+        "000082922424000057#item7#passage-000002",
+        "000082922424000057#item7#passage-000008",
+        "000082922424000057#item7#passage-000007"
+      ],
+      "elapsed_seconds": 7.691527923998365
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "SBUX comparable store sales new store openings",
+      "requested_goal": "comparable store sales and new store opening disclosures",
+      "filters": {
+        "ticker": "SBUX",
+        "year": 2025,
+        "section": "Item 7",
+        "accession": "000082922425000114"
+      },
+      "score": 4,
+      "rationale": "Within SBUX FY2025 Item 7 (accession 000082922425000114), the passages address both requested elements. Comparable store sales: consolidated comparable store sales declined 1% ($408M), from a 2% decline in comparable transactions partly offset by a 1% rise in average ticket (passage 5). North America comparable store sales declined 2% ($419M), with comparable transactions down 4% and average ticket up 2% (passages 2 and 9). Passage 1 defines comparable store sales. New store openings: consolidated net new company-operated store growth of 5% (1,010 stores) over 12 months (passage 5). North America grew 4% (441 stores) before 584 restructuring closures (passages 2 and 9). International grew 5% (526 company-operated stores) and added 378 net new licensed stores (passage 10). Gross opening counts and a store-count table are not shown, but segment net store growth covers the requested disclosures.",
+      "evidence": [
+        {
+          "id": "000082922425000114#item7#passage-000001",
+          "text": "Japan, Asia Pacific, Europe, Middle East, Africa, Latin America, and the Caribbean; and 3) Channel Development. Unallocated corporate expenses are reported within Corporate and Other. We believe our financial results and long-term growth model will continue to be driven by new store openings, comparable store sales, and operating margin management, underpinned by disciplined capital allocation. Comparable store sales includes company-operated stores open 13 months or longer, and exclude the effects of foreign currency exchange rates. Stores that are temporarily closed remain in comparable store sales while permanent store closures are removed in the month following closure. We believe these key operating metrics are useful to investors because management uses these metrics to assess the growth of our business and the effectiveness of our marketing and operational strategies. Throughout this MD&A, we commonly discuss the following key operating metrics: •New store openings and store count •Comparable store sales •Operating margin Starbucks results for fiscal 2025 showed continued progress on key “Back to Starbucks” initiatives, specifically investments in coffeehouse partners, as we work to rebuild a stronger Starbucks. These investments include the Green Apron Service model, additional investments in staffing and hours at the right times to deliver enhanced customer service, and the Leadership Experience 2025, a conference designed to empower and motivate our retail leaders to accelerate our “Back to Starbucks” strategy. Consolidated net revenues increased 3% to $37.2 billion in fiscal 2025 compared to $36.2 billion in fiscal 2024, primarily driven by incremental revenues from net new company-operated stores over the past 12 months, an increase",
+          "metadata": {
+            "ID": "000082922425000114#item7#passage-000001",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-25-000114",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+          "tag": "SBUX-2025-10K-item7-p000001"
+        },
+        {
+          "id": "000082922425000114#item7#passage-000002",
+          "text": "in revenue in the Global Coffee Alliance, and incremental revenue from the acquisition of 23.5 Degrees Topco Limited, a U.K. licensed business partner, partially offset by a decrease in comparable store sales and a decline in our licensed store business. For both the North America segment and U.S. market, revenue increased 1% in fiscal 2025 compared to fiscal 2024, primarily driven by net new company-operated store growth of 4%, or 441 stores, over the past 12 months, prior to the 584 North America restructuring closures late in the fourth quarter of fiscal 2025. This growth was partially offset by a 2% decline in comparable store sales. Comparable transactions declined 4%, partially offset by average ticket growth of 2%, primarily driven by annualization of pricing in the current year. Also contributing were lower product and equipment sales to, and royalty revenues from, our licensees. For the International segment, revenue increased 7% in fiscal 2025 compared to fiscal 2024, primarily driven by net new company-operated and licensed store openings over the past 12 months, incremental net revenue from the conversion of 113 licensed stores to company-operated stores following the acquisition of 23.5 Degrees Topco Limited during the first quarter of fiscal 2025, and higher product and equipment sales to, and royalty revenues from, our licensees. Revenue for our Channel Development segment increased 6% in fiscal 2025 compared with fiscal 2024, primarily driven by an increase in revenue in the Global Coffee Alliance. In support of our “Back to Starbucks” strategy, we completed our assessment of our coffeehouse portfolio",
+          "metadata": {
+            "ID": "000082922425000114#item7#passage-000002",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-25-000114",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+          "tag": "SBUX-2025-10K-item7-p000002"
+        },
+        {
+          "id": "000082922425000114#item7#passage-000009",
+          "text": "store growth of 4%, or 441 stores over the past 12 months ($980 million), prior to the 584 restructuring closures late in the fourth quarter of fiscal 2025. This growth was partially offset by a 2% decline in comparable store sales ($419 million) driven by a 4% decline in comparable transactions, partially offset by a 2% increase in average ticket, primarily due to annualization of prior year pricing. Also contributing were lower product and equipment sales to, and royalty revenues from, our licensees ($143 million) and the impact of unfavorable foreign currency translation ($42 million). Operating Margin North America operating income for fiscal 2025 decreased 41% to $3.2 billion, compared to $5.4 billion in fiscal 2024. Operating margin contracted 830 basis points to 11.5%, primarily driven by deleverage (approximately 310 basis points) restructuring costs associated with the closure of coffeehouses and simplification of our support organization (approximately 240 basis points) and investments in support of “Back to Starbucks,” which were largely in labor hours (approximately 180 basis points). 32 Table of Contents International Fiscal Year EndedSep 28, 2025Sep 29, 2024Sep 28, 2025Sep 29, 2024 As a % of International Total Net Revenues Net revenues: Company-operated stores$5,951.8 $5,507.2 76.1 %75.0 % Licensed stores1,774.8 1,757.7 22.7 24.0 Other93.3 74.0 1.2 1.0 Total net revenues7,819.9 7,338.9 100.0 100.0 Product and distribution costs2,749.8 2,575.2 35.2 35.1 Store operating expenses3,085.6 2,819.4 39.5 38.4 Other operating expenses242.0 225.1 3.1 3.1 Depreciation and amortization expenses363.9 338.3 4.7 4.6 General and administrative expenses344.3 338.8 4.4 4.6 Restructuring and impairments 82.5 — 1.1 — Total",
+          "metadata": {
+            "ID": "000082922425000114#item7#passage-000009",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-25-000114",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+          "tag": "SBUX-2025-10K-item7-p000009"
+        },
+        {
+          "id": "000082922425000114#item7#passage-000005",
+          "text": "2025 and $2.8 billion in fiscal 2024. •We returned $2.8 billion and $3.8 billion to our shareholders in fiscal 2025 and fiscal 2024, respectively, through dividends and share repurchases. Acquisitions and Divestitures See Note 2, Acquisitions and Divestitures, to the consolidated financial statements included in Item 8 of Part II of this 10-K for information regarding acquisitions and divestitures. RESULTS OF OPERATIONS — FISCAL 2025 COMPARED TO FISCAL 2024 Consolidated results of operations (in millions): Revenues Fiscal Year EndedSep 28, 2025Sep 29, 2024 % Change Net revenues: Company-operated stores$30,744.8 $29,765.9 3.3 % Licensed stores4,350.4 4,505.1 (3.4) Other 2,089.2 1,905.2 9.7 Total net revenues$37,184.4 $36,176.2 2.8 % Total net revenues increased $1 billion, or 3%, over fiscal 2024, primarily due to higher revenues from company-operated stores ($979 million) and other revenues ($184 million), partially offset by a decline in revenues from licensed stores ($155 million). Company-operated store revenue increased $979 million, primarily driven by net new company-operated store growth of 5%, or 1,010 stores, over the past 12 months ($1.2 billion), prior to the 627 restructuring closures late in the fourth quarter of fiscal 2025, and incremental revenue from the conversion of 113 licensed stores to company-operated stores ($131 million) following the acquisition of 23.5 Degrees Topco Limited. Partially offsetting this increase was a 1% decline in comparable store sales ($408 million), attributable to a 2% decline in comparable transactions, partially offset by a 1% increase in average ticket, primarily due to annualization of prior year pricing. Licensed stores revenue decreased $155 million, primarily driven by lower",
+          "metadata": {
+            "ID": "000082922425000114#item7#passage-000005",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-25-000114",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+          "tag": "SBUX-2025-10K-item7-p000005"
+        },
+        {
+          "id": "000082922425000114#item7#passage-000010",
+          "text": "operating expenses6,868.1 6,296.8 87.8 85.8 Income/ (loss) from equity investees (1.8)3.6 0.0 0.0 Operating income$950.0 $1,045.7 12.1 %14.2 % Store operating expenses as a % of related revenues51.8 %51.2 % Revenues International total net revenues for fiscal 2025 increased $481 million, or 7%, primarily due to net new company-operated store growth of 5%, or 526 stores, over the past 12 months ($264 million) and the incremental net revenue from the conversion of 113 licensed stores to company-operated stores ($95 million) following the acquisition of 23.5 Degrees Topco Limited during the first quarter of fiscal 2025. Also contributing to the increase in revenues were higher product sales to, and royalty revenues from, our licensees ($79 million), primarily due to the opening of 378 net new licensed store over the past 12 months. Operating Margin International operating income for fiscal 2025 decreased 9% to $950 million, compared to $1.0 billion in fiscal 2024. Operating margin contracted 210 basis points, to 12.1% , primarily due to increased promotional activity (approximately 170 basis points) and restructuring and impairment costs associated with the closure of coffeehouses and simplification of our support organization (approximately 110 basis points). 33 Table of Contents Channel Development Fiscal Year EndedSep 28, 2025Sep 29, 2024Sep 28, 2025Sep 29, 2024 As a % of Channel Development Total Net Revenues Net revenues$1,871.7 $1,769.8 Product and distribution costs1,168.3 1,075.4 62.4 %60.8 % Other operating expenses60.2 58.4 3.2 3.3 General and administrative expenses5.8 7.7 0.3 0.4 Restructuring and impairments 1.9 — 0.1 — Total operating expenses1,236.2 1,141.5 66.0 64.5 Income from",
+          "metadata": {
+            "ID": "000082922425000114#item7#passage-000010",
+            "Ticker": "SBUX",
+            "CIK": "829224",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000829224-25-000114",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+          "tag": "SBUX-2025-10K-item7-p000010"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000082922425000114#item7#passage-000001",
+        "000082922425000114#item7#passage-000002",
+        "000082922425000114#item7#passage-000009",
+        "000082922425000114#item7#passage-000005",
+        "000082922425000114#item7#passage-000010",
+        "000082922425000114#item7#passage-000003",
+        "000082922425000114#item7#passage-000006",
+        "000082922425000114#item7#passage-000031",
+        "000082922425000114#item7#passage-000018",
+        "000082922425000114#item7#passage-000008"
+      ],
+      "fresh_verified_ids": [
+        "000082922425000114#item7#passage-000001",
+        "000082922425000114#item7#passage-000002",
+        "000082922425000114#item7#passage-000009",
+        "000082922425000114#item7#passage-000005",
+        "000082922425000114#item7#passage-000010"
+      ],
+      "elapsed_seconds": 10.899093588999676
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- This growth was partially offset by a 2% decline in comparable store sales. [SBUX-2024-10K-item7-p000001](https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm) (chunk: `000082922424000057#item7#passage-000001`; accession: `0000829224-24-000057`).\n- These decreases were partially offset by net new company-operated store growth of 10%, or 893 stores, over the past 12 months \\($378 million\\). [SBUX-2024-10K-item7-p000009](https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm) (chunk: `000082922424000057#item7#passage-000009`; accession: `0000829224-24-000057`).\n- as well as a 4% decline in comparable store sales \\($210 million\\), driven by a 4% decline in average ticket. [SBUX-2024-10K-item7-p000008](https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm) (chunk: `000082922424000057#item7#passage-000008`; accession: `0000829224-24-000057`).\n- primarily driven by net new company-operated store growth of 5%, or 533 stores, over the past 12 months \\($788 million\\) [SBUX-2024-10K-item7-p000007](https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm) (chunk: `000082922424000057#item7#passage-000007`; accession: `0000829224-24-000057`).\n- This growth was partially offset by a 2% decline in comparable store sales. Comparable transactions declined 4%, partially offset by average ticket growth of 2% [SBUX-2025-10K-item7-p000002](https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm) (chunk: `000082922425000114#item7#passage-000002`; accession: `0000829224-25-000114`).\n- store growth of 4%, or 441 stores over the past 12 months \\($980 million\\), prior to the 584 restructuring closures late in the fourth quarter of fiscal 2025. [SBUX-2025-10K-item7-p000009](https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm) (chunk: `000082922425000114#item7#passage-000009`; accession: `0000829224-25-000114`).\n- Partially offsetting this increase was a 1% decline in comparable store sales \\($408 million\\), attributable to a 2% decline in comparable transactions, partially offset by a 1% increase in average ticket [SBUX-2025-10K-item7-p000005](https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm) (chunk: `000082922425000114#item7#passage-000005`; accession: `0000829224-25-000114`).\n- primarily due to net new company-operated store growth of 5%, or 526 stores, over the past 12 months \\($264 million\\) [SBUX-2025-10K-item7-p000010](https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm) (chunk: `000082922425000114#item7#passage-000010`; accession: `0000829224-25-000114`).",
+  "citations": [
+    {
+      "tag": "SBUX-2024-10K-item7-p000001",
+      "chunk_id": "000082922424000057#item7#passage-000001",
+      "accession": "0000829224-24-000057",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+      "quote": "This growth was partially offset by a 2% decline in comparable store sales."
+    },
+    {
+      "tag": "SBUX-2024-10K-item7-p000009",
+      "chunk_id": "000082922424000057#item7#passage-000009",
+      "accession": "0000829224-24-000057",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+      "quote": "These decreases were partially offset by net new company-operated store growth of 10%, or 893 stores, over the past 12 months ($378 million)."
+    },
+    {
+      "tag": "SBUX-2024-10K-item7-p000008",
+      "chunk_id": "000082922424000057#item7#passage-000008",
+      "accession": "0000829224-24-000057",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+      "quote": "as well as a 4% decline in comparable store sales ($210 million), driven by a 4% decline in average ticket."
+    },
+    {
+      "tag": "SBUX-2024-10K-item7-p000007",
+      "chunk_id": "000082922424000057#item7#passage-000007",
+      "accession": "0000829224-24-000057",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922424000057/sbux-20240929.htm",
+      "quote": "primarily driven by net new company-operated store growth of 5%, or 533 stores, over the past 12 months ($788 million)"
+    },
+    {
+      "tag": "SBUX-2025-10K-item7-p000002",
+      "chunk_id": "000082922425000114#item7#passage-000002",
+      "accession": "0000829224-25-000114",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "quote": "This growth was partially offset by a 2% decline in comparable store sales. Comparable transactions declined 4%, partially offset by average ticket growth of 2%"
+    },
+    {
+      "tag": "SBUX-2025-10K-item7-p000009",
+      "chunk_id": "000082922425000114#item7#passage-000009",
+      "accession": "0000829224-25-000114",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "quote": "store growth of 4%, or 441 stores over the past 12 months ($980 million), prior to the 584 restructuring closures late in the fourth quarter of fiscal 2025."
+    },
+    {
+      "tag": "SBUX-2025-10K-item7-p000005",
+      "chunk_id": "000082922425000114#item7#passage-000005",
+      "accession": "0000829224-25-000114",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "quote": "Partially offsetting this increase was a 1% decline in comparable store sales ($408 million), attributable to a 2% decline in comparable transactions, partially offset by a 1% increase in average ticket"
+    },
+    {
+      "tag": "SBUX-2025-10K-item7-p000010",
+      "chunk_id": "000082922425000114#item7#passage-000010",
+      "accession": "0000829224-25-000114",
+      "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "quote": "primarily due to net new company-operated store growth of 5%, or 526 stores, over the past 12 months ($264 million)"
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.707866394997836,
+      "num_turns": 3,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 14129,
+        "cache_read_input_tokens": 16037,
+        "output_tokens": 952,
+        "output_tokens_details": {
+          "thinking_tokens": 514
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 14129,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 218,
+            "cache_read_input_tokens": 14565,
+            "cache_creation_input_tokens": 1036,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1036
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0034625700000000003
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.642190956998093,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16697,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 938,
+        "output_tokens_details": {
+          "thinking_tokens": 514
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16697,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 938,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16697,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16697
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0038256
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 8.785611059000075,
+      "num_turns": 3,
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 17665,
+        "cache_read_input_tokens": 20011,
+        "output_tokens": 1474,
+        "output_tokens_details": {
+          "thinking_tokens": 467
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 17665,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 485,
+            "cache_read_input_tokens": 18311,
+            "cache_creation_input_tokens": 1054,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1054
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0044705100000000005
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 11.60321657500026,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 7565,
+        "cache_read_input_tokens": 925,
+        "output_tokens": 2740,
+        "output_tokens_details": {
+          "thinking_tokens": 2198
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 7565,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2740,
+            "cache_read_input_tokens": 925,
+            "cache_creation_input_tokens": 7565,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 7565
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0028924499999999995
+    }
+  ],
+  "elapsed_seconds": 29.21341872600169
+}

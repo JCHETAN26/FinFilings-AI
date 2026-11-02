@@ -1,0 +1,22 @@
+{
+  "verified": 28,
+  "run_failed": 2,
+  "verification_failed": 0,
+  "verified_citations": 177,
+  "available_subqueries": 51,
+  "cited_available_subqueries": 51,
+  "evidence_outcomes": {
+    "supported": 26,
+    "partial_gap": 0,
+    "abstained": 0,
+    "expected_unavailable": 2
+  },
+  "attempt": "full-run-04",
+  "publication_decision": "hold",
+  "remaining_gap_cases": [],
+  "structural_failure_cases": [
+    "broad27",
+    "broad29"
+  ],
+  "follow_up": "Explicit fail-closed early stop for a no-evidence unchanged rewrite; retain real proposed rewrite and independently verify termination. Intentional at-most-two retry contract, no lowering citation or available-topic gates."
+}

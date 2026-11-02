@@ -1,0 +1,24 @@
+{
+  "case": "audit04",
+  "known_supporting_passage": "000101872424000008#passage-000064",
+  "source_text_sha256": "d0cd876d3c7bafa6bf09b364fe797968b3b4ebc1dbbfffa61d79ba60605a6198",
+  "source_metadata": {
+    "ID": "000101872424000008#passage-000064",
+    "Ticker": "AMZN",
+    "CIK": "1018724",
+    "FormType": "10-K",
+    "FilingYear": 2024,
+    "SectionItem": "Full filing (item not classified)"
+  },
+  "baseline_contexts_containing_passage": [
+    {
+      "subquery": 1,
+      "attempt": 1
+    }
+  ],
+  "current_contexts_containing_passage": [],
+  "current_flags": [
+    "Subquery 1 has no evidence meeting threshold after 2 retries."
+  ],
+  "scope": "The operating-expense table exists in the corpus and was present in a successful baseline context. It is absent from the current five-passage critic contexts. Raw pre-truncation search rankings were not captured, so retrieval vs context-selection attribution remains unresolved."
+}

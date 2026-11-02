@@ -1,0 +1,9 @@
+{
+  "case_rows": 30,
+  "metric_mismatches": [],
+  "local_links_checked": 257,
+  "missing_links": [],
+  "recorded_code_files": 56,
+  "changed_implementation_files": [],
+  "passed": true
+}

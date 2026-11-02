@@ -1,0 +1,486 @@
+{
+  "prompt": "Compare AMD and TXN, both filing year 2026: retrieve AMD's dependence on third-party foundries such as TSMC and TXN's capital expenditures for semiconductor manufacturing. Use separate company-specific retrieval steps.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "dependence on third-party foundries such as TSMC for wafer manufacturing",
+        "filters": {
+          "ticker": "AMD",
+          "year": 2026,
+          "section": "",
+          "accession": "000000248826000018"
+        }
+      },
+      {
+        "query": "capital expenditures for semiconductor manufacturing facilities",
+        "filters": {
+          "ticker": "TXN",
+          "year": 2026,
+          "section": "",
+          "accession": "000009747626000059"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "dependence on third-party foundries such as TSMC for wafer manufacturing",
+      "filters": {
+        "ticker": "AMD",
+        "year": 2026,
+        "section": "",
+        "accession": "000000248826000018"
+      },
+      "score": 5,
+      "rationale": "The passages fully support the AMD Item 1A foundry-dependence goal within the AMD 2026 filing. Passage 16 says AMD uses third-party wafer foundries for all its products and relies on TSMC for 7nm-or-smaller microprocessor and GPU wafers. Passage 17 (adjacent to 16) names GlobalFoundries for larger-node wafers, TSMC/UMC/Samsung for programmable-logic ICs, and third-party ATMP assembly partners, and covers supply-constraint risk. Passage 18 covers no long-term commitments, purchase-order basis, and the GF wafer supply agreement. Passages 22 and 23 cover yield dependence and TSMC concentration for 7nm and smaller nodes. Together they state the core facts requested. The audit prompt's Texas Instruments capex request belongs to a separate subquery and was not used for scoring. No further search is needed for this subquery, so no passages are retained.",
+      "evidence": [
+        {
+          "id": "000000248826000018#item1A#passage-000017",
+          "text": "all wafers for microprocessor and GPU products at 7 nanometer (nm) or smaller nodes, and we rely primarily on GLOBALFOUNDRIES Inc. (GF) for wafers for microprocessor and GPU products manufactured at process nodes larger than 7 nm. We also utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for our integrated circuits (IC) in the form of programmable logic devices. We also rely on third-party manufacturers to assemble, test, mark and pack (ATMP) our products. Our third-party package assembly partners are responsible for packaging technology used to fabricate our products. It is important to have reliable relationships with all of these third-party manufacturing suppliers to ensure adequate product supply to respond to customer demand. We cannot guarantee that these manufacturers or our other third-party manufacturing suppliers will be able to meet our near-term or long-term manufacturing requirements. If we experience supply constraints from our third-party manufacturing suppliers, we may be required to allocate the reduced quantities of affected products amongst our customers, which could have a material adverse effect on our relationships with these customers and on our financial condition. In addition, if we are unable to meet customer demand due to fluctuating or late supply from our manufacturing suppliers, it could result in lost sales and have a material adverse effect on our business. For example, if TSMC is not able to manufacture wafers for our microprocessor and GPU products at 7 nm or smaller nodes and our newest IC products in sufficient quantities to meet customer demand, it could have a material",
+          "metadata": {
+            "ID": "000000248826000018#item1A#passage-000017",
+            "Ticker": "AMD",
+            "CIK": "2488",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000002488-26-000018",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+          "tag": "AMD-2026-10K-item1A-p000017"
+        },
+        {
+          "id": "000000248826000018#item1A#passage-000023",
+          "text": "packaging technologies needed to manufacture future generations of our products profitably or on a timely basis or that our competitors will not develop new technologies, products or processes earlier. Moreover, during periods when our third-party manufacturers are implementing new process or packaging technologies, their manufacturing facilities may not be fully productive. A substantial delay in the technology transitions to smaller process technologies could have a material adverse effect on us, particularly if our competitors transition to more cost effective technologies before us. For example, we are presently focusing our 7 nm and lower product microprocessor and GPU portfolio on TSMC’s processes. If TSMC is not able to manufacture wafers for our products at 7 nm or smaller nodes in sufficient quantities to meet customer demand, it could have a material adverse effect on our business. Moreover, we rely on TSMC, UMC and our other foundries to produce wafers with competitive performance attributes for our IC products. Therefore, the foundries, particularly TSMC which manufactures our newest IC products, must be able to transition to advanced manufacturing process technologies and increased wafer sizes, produce wafers at acceptable yields and deliver them in a timely manner. Any decrease in manufacturing yields could result in an increase in per unit costs, which would adversely impact our gross margin and/or force us to allocate our reduced product supply amongst our customers, which could harm our relationships and reputation with our customers and materially adversely affect our business. Our revenue from our semi-custom SoC products is dependent upon our semi-custom SoC products",
+          "metadata": {
+            "ID": "000000248826000018#item1A#passage-000023",
+            "Ticker": "AMD",
+            "CIK": "2488",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000002488-26-000018",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+          "tag": "AMD-2026-10K-item1A-p000023"
+        },
+        {
+          "id": "000000248826000018#item1A#passage-000016",
+          "text": "be compromised, and our business would be materially adversely affected. Unfavorable currency exchange rate fluctuations could adversely affect us. We have costs, assets and liabilities that are denominated in foreign currencies. As a consequence, movements in exchange rates could cause our foreign currency denominated expenses to increase as a percentage of revenue, affecting our profitability and cash flows. Whenever we believe appropriate, we hedge a portion of our foreign currency exposure to protect against fluctuations in currency exchange rates. We determine our total foreign currency exposure using projections of long-term expenditures for items such as payroll. We cannot assure you that these activities will be effective in reducing foreign exchange rate exposure. Failure to do so could have an adverse effect on our business, financial condition, results of operations and cash flow. In addition, the majority of our product sales are denominated in U.S. dollars. Fluctuations in the exchange rate between the U.S. dollar and the local currency may impact the cost of our products in the local currency for international customers. An appreciation of the U.S. dollar relative to the local currency could reduce sales of our products. Operational and Technology Risks We rely on third parties to manufacture our products, and if they are unable to do so on a timely basis in sufficient quantities and using competitive technologies, our business could be materially adversely affected. We utilize third-party wafer foundries to fabricate the silicon wafers for all of our products. We rely on Taiwan Semiconductor Manufacturing Company Limited (TSMC) for the production of",
+          "metadata": {
+            "ID": "000000248826000018#item1A#passage-000016",
+            "Ticker": "AMD",
+            "CIK": "2488",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000002488-26-000018",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+          "tag": "AMD-2026-10K-item1A-p000016"
+        },
+        {
+          "id": "000000248826000018#item1A#passage-000022",
+          "text": "and our third-party manufacturers purchase are complex, it is sometimes difficult to substitute one equipment or materials supplier for another. From time to time, suppliers may extend lead times, limit supply or increase prices due to capacity constraints or other factors. Also, some of these materials and components may be subject to rapid changes in price, quality and availability. Interruption of supply or increased demand in the industry could cause shortages and price increases in various essential materials. Dependence on a sole supplier or a limited number of suppliers exacerbates these risks. If we are unable to procure certain of these materials for our back-end manufacturing operations, or our third-party manufacturers are unable to procure materials for manufacturing our products, our business would be materially adversely affected. 23 Table of Contents Failure to achieve expected manufacturing yields for our products could negatively impact our results of operations. Semiconductor manufacturing yields are a result of product design, process technology and packaging technology, which is typically proprietary to the manufacturer, and low yields can result from design failures, packaging technology failures, process technology failures or a combination of some or all of these. Our third-party manufacturers are responsible for the process technologies used to fabricate silicon wafers. If our third-party manufacturers experience manufacturing inefficiencies or encounter disruptions, errors or difficulties during production, we may fail to achieve acceptable yields or we may experience product delivery delays. We cannot be certain that our third-party manufacturers will be able to develop, expand, obtain or successfully implement leading-edge manufacturing process or",
+          "metadata": {
+            "ID": "000000248826000018#item1A#passage-000022",
+            "Ticker": "AMD",
+            "CIK": "2488",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000002488-26-000018",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+          "tag": "AMD-2026-10K-item1A-p000022"
+        },
+        {
+          "id": "000000248826000018#item1A#passage-000018",
+          "text": "adverse effect on our business. 21 Table of Contents We do not have long-term commitment contracts with some of our third-party manufacturing suppliers. We obtain many of these manufacturing services on a purchase order basis and these manufacturers are not required to provide us with any specified minimum quantity of product beyond the quantities in an existing purchase order. Accordingly, we depend on these suppliers to allocate to us a portion of their manufacturing capacity sufficient to meet our needs, to produce products of acceptable quality and at acceptable manufacturing yields and to deliver those products to us on a timely basis and at acceptable prices. The manufacturers we use also fabricate wafers and ATMP products for other companies, including certain of our competitors. They could choose to prioritize capacity for other customers, increase the prices that they charge us on short notice, require onerous prepayments, or reduce or eliminate deliveries to us, which could have a material adverse effect on our business. If we overestimate our customer demand or experience a decrease in customer demand, either could result in excess inventory and an increase in our production costs. We are party to a wafer supply agreement with GF where GF will provide a minimum annual capacity allocation to us and set pricing through 2026. If our actual wafer requirements are less than the number of wafers required to meet the applicable annual wafer purchase target, we could have excess inventory or higher inventory unit costs, both of which may adversely impact our gross margin and",
+          "metadata": {
+            "ID": "000000248826000018#item1A#passage-000018",
+            "Ticker": "AMD",
+            "CIK": "2488",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000002488-26-000018",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+          "tag": "AMD-2026-10K-item1A-p000018"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000000248826000018#item1A#passage-000017",
+        "000000248826000018#item1A#passage-000023",
+        "000000248826000018#item1A#passage-000016",
+        "000000248826000018#item1A#passage-000022",
+        "000000248826000018#item1A#passage-000018",
+        "000000248826000018#item1A#passage-000019",
+        "000000248826000018#item1A#passage-000071",
+        "000000248826000018#item1A#passage-000073",
+        "000000248826000018#item1A#passage-000031",
+        "000000248826000018#item1A#passage-000038"
+      ],
+      "fresh_verified_ids": [
+        "000000248826000018#item1A#passage-000017",
+        "000000248826000018#item1A#passage-000023",
+        "000000248826000018#item1A#passage-000016",
+        "000000248826000018#item1A#passage-000022",
+        "000000248826000018#item1A#passage-000018"
+      ],
+      "elapsed_seconds": 8.390812822999578
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "capital expenditures for semiconductor manufacturing facilities",
+      "filters": {
+        "ticker": "TXN",
+        "year": 2026,
+        "section": "",
+        "accession": "000009747626000059"
+      },
+      "score": 5,
+      "rationale": "The TXN 2026 filing passages directly answer the original goal. Passage 7 states capital expenditures were $4.55 billion in 2025 versus $4.82 billion in 2024, \"primarily for semiconductor manufacturing equipment and facilities in both periods,\" and that TXN expects about $2 to $3 billion of spending in 2026. Passage 3 repeats the $4.55 billion 2025 capex figure, and passage 12 covers CHIPS Act investment tax credits for U.S. semiconductor manufacturing investments. Together these fully support the requested capex for semiconductor manufacturing facilities within this filing's scope. Nothing is missing.",
+      "evidence": [
+        {
+          "id": "000009747626000059#item7#passage-000007",
+          "text": "a variable-rate, revolving credit facility. As of December 31, 2025, our credit facility was undrawn, and we had no commercial paper outstanding. Cash flows from operating activities for 2025 were $7.15 billion, an increase of $835 million primarily due to higher net income and non-cash items, partially offset by higher cash used for working capital. Cash flows from operating activities for 2025 and 2024 include cash benefits of $335 million and $588 million, respectively, from the CHIPS Act ITC used to reduce income taxes payable. Investing activities for 2025 used $1.44 billion compared with $3.20 billion in 2024. Capital expenditures were $4.55 billion compared with $4.82 billion in 2024 and were primarily for semiconductor manufacturing equipment and facilities in both periods. In 2025, we received proceeds of $335 million from CHIPS Act incentives, including $75 million in direct funding. Short-term investments provided cash proceeds of $2.78 billion in 2025 compared with $1.47 billion in 2024. We are nearing the end of our six-year elevated capital expenditures cycle, and consistent with our capital management strategy, we are expecting to spend about $2 billion to $3 billion in 2026. Beyond 2026, capital expenditures will be dependent on revenue and growth expectations. We expect to continue benefiting from the CHIPS Act, including the 35% ITC on qualifying manufacturing investments for assets placed in service after December 31, 2025, and direct funding of up to $1.6 billion for our three large-scale 300mm wafer fabs located in Sherman, Texas, and Lehi, Utah. Financing activities for 2025 used $5.69 billion compared with",
+          "metadata": {
+            "ID": "000009747626000059#item7#passage-000007",
+            "Ticker": "TXN",
+            "CIK": "97476",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000097476-26-000059",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm",
+          "tag": "TXN-2026-10K-item7-p000007"
+        },
+        {
+          "id": "000009747626000059#item8#passage-000012",
+          "text": "related assets and reduce depreciation expense over the useful lives of the assets. Incentives for specific operating activities are offset against the related expense in the period the expense is incurred. 36 The U.S. CHIPS and Science Act (CHIPS Act) provides funding for manufacturing grants and research investments, and it established an investment tax credit (ITC) for certain investments in U.S. semiconductor manufacturing. The enactment of the One Big Beautiful Bill Act (OBBBA) in 2025 increased the ITC from 25% to 35% for qualifying manufacturing investments placed in service after December 31, 2025. Additionally, we have entered into an agreement with the U.S. Department of Commerce to receive direct funding of up to $1.6 billion for our three large-scale 300mm wafer fabs located in Sherman, Texas, and Lehi, Utah. Direct funding of the award is based on the achievement of certain milestones. The agreement contains representations, warranties and covenants that relate to compliance with requirements for awards provided for in the CHIPS Act. The agreement also includes certain events of default and related rights and remedies, including clawbacks. As of December 31, 2025, we have recognized $3.35 billion of CHIPS Act receivables, which are comprised of $1.71 billion in prepaid expenses and other current assets and $1.64 billion in other long-term assets. We have also recognized deferred income of $95 million in other long-term liabilities for eligible expenditures that have not yet been incurred. See Note 11 for additional information. In 2025, the total cash benefit related to CHIPS Act incentives was $670 million, which included",
+          "metadata": {
+            "ID": "000009747626000059#item8#passage-000012",
+            "Ticker": "TXN",
+            "CIK": "97476",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000097476-26-000059",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm",
+          "tag": "TXN-2026-10K-item8-p000012"
+        },
+        {
+          "id": "000009747626000059#item7#passage-000003",
+          "text": "Company’s Annual Report on Form 10-K for the year ended December 31, 2024. Performance summary Our strategic focus is on analog and embedded processing products. We sell our products into the following markets: industrial, automotive, data center, personal electronics and communications equipment. While all of these markets represent good opportunities, we place additional strategic emphasis on designing and selling our products into the industrial, automotive and data center markets, which we believe represent the best long-term growth opportunities. Our focus on analog and embedded processing allows us to generate strong cash flow from operations. Our cash flow from operations of $7.15 billion underscored the strength of our business model, the quality of our product portfolio and the benefit of 300mm production. Free cash flow was $2.94 billion and represented 16.6% of revenue. During 2025, we invested $3.94 billion in R&D and SG&A, invested $4.55 billion in capital expenditures and returned $6.48 billion to shareholders. Macroeconomic factors In 2025, the overall analog and embedded semiconductor market recovery continued, though at a slower pace than prior upturns, likely related to broader macroeconomic dynamics and overall uncertainty. At the same time, global semiconductor shipments remain at levels below the prior peak. In addition, growth of semiconductor content in electronics has continued to drive demand for our products, particularly in the automotive, industrial and data center end markets, and we believe we are well-positioned with inventory and capacity to meet immediate customer demand. U.S. legislative update On July 4, 2025, the U.S. government enacted the One Big Beautiful Bill Act",
+          "metadata": {
+            "ID": "000009747626000059#item7#passage-000003",
+            "Ticker": "TXN",
+            "CIK": "97476",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000097476-26-000059",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm",
+          "tag": "TXN-2026-10K-item7-p000003"
+        },
+        {
+          "id": "000009747626000059#item7#passage-000004",
+          "text": "(OBBBA). The OBBBA provides changes to U.S. federal tax law, including expensing of U.S. research expenditures and eligible capital expenditures, increasing the U.S. CHIPS and Science Act (CHIPS Act) investment tax credit (ITC) and changing other tax provisions. The effect of the new law resulted in a higher effective tax rate in 2025. For 2026 and beyond, we expect the effective tax rate and tax-related cash payments to be lower than they would have been under prior tax law. 20 Details of financial results – 2025 compared with 2024 Revenue of $17.68 billion increased $2.04 billion, or 13.0%, due to higher revenue from increased demand in our Analog segment and, to a lesser extent, in our Embedded Processing segment, which were both impacted by the macroeconomic factors discussed above. Gross profit of $10.08 billion was up $989 million, or 10.9%, due to higher revenue. Our gross profit was also impacted by higher manufacturing costs associated with our planned capacity expansions, partially offset by reduced costs related to increased factory loadings. As a percentage of revenue, gross profit decreased to 57.0% from 58.1%. Operating expenses (R&D and SG&A) were $3.94 billion compared with $3.75 billion. Restructuring charges/other was $117 million due to efforts to drive operational efficiencies to support our long-term strategy, including the planned closures of our two remaining factories with 150mm production, as well as a non-cash goodwill impairment related to our custom ASIC products. During 2024, we recognized a credit of $124 million primarily due to a gain on the sale of a property.",
+          "metadata": {
+            "ID": "000009747626000059#item7#passage-000004",
+            "Ticker": "TXN",
+            "CIK": "97476",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000097476-26-000059",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm",
+          "tag": "TXN-2026-10K-item7-p000004"
+        },
+        {
+          "id": "000009747626000059#item8#passage-000043",
+          "text": "Other. In 2024 and 2023, we determined no impairment was indicated. Other long-term assets December 31, 20252024 CHIPS Act incentives$1,639 $2,246 Other1,017 1,102 Total$2,656 $3,348 Accrued expenses and other liabilities December 31, 20252024 Accrued capital-related expenditures$300 $352 Other707 723 Total$1,007 $1,075 Accumulated other comprehensive income (loss), net of taxes (AOCI) December 31, 20252024 Postretirement benefit plans: Net actuarial loss$(71)$(144) Prior service cost (credit)(16)1 Unrealized gains on available-for-sale investments1 2 Cash flow hedge derivative instruments1 1 Total$(85)$(140) 57 Details on amounts reclassified out of accumulated other comprehensive income (loss), net of taxes, to net income Our Consolidated Statements of Comprehensive Income include items that have been recognized within net income in 2025, 2024 and 2023. The table below details where these transactions are recorded in our Consolidated Statements of Income. For Years Ended December 31,Impact to Related Statement of Income Lines 202520242023 Net actuarial losses of defined benefit plans: Recognized net actuarial loss and settlement losses (a)$18 $13 $20 Decrease to OI&E Tax effect(4)(3)(5)Decrease to provision for income taxes Recognized within net income, net of taxes$14 $10 $15 Decrease to net income Prior service cost (credit) of defined benefit plans: Amortization of prior service cost (credit) (a)$1 $1 $1 Decrease (increase) to OI&E Tax effect— — — (Decrease) increase to provision for income taxes Recognized within net income, net of taxes$1 $1 $1 Decrease (increase) to net income (a)Detailed in Note 7 12. Subsequent event Acquisition of Silicon Labs As announced on February 4, 2026, we have entered into a definitive agreement to acquire Silicon Labs for",
+          "metadata": {
+            "ID": "000009747626000059#item8#passage-000043",
+            "Ticker": "TXN",
+            "CIK": "97476",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000097476-26-000059",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm",
+          "tag": "TXN-2026-10K-item8-p000043"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000009747626000059#item7#passage-000007",
+        "000009747626000059#item8#passage-000012",
+        "000009747626000059#item7#passage-000003",
+        "000009747626000059#item7#passage-000004",
+        "000009747626000059#item8#passage-000043",
+        "000009747626000059#item8#passage-000013",
+        "000009747626000059#item1A#passage-000010",
+        "000009747626000059#item8#passage-000004",
+        "000009747626000059#item7#passage-000000",
+        "000009747626000059#item7#passage-000006"
+      ],
+      "fresh_verified_ids": [
+        "000009747626000059#item7#passage-000007",
+        "000009747626000059#item8#passage-000012",
+        "000009747626000059#item7#passage-000003",
+        "000009747626000059#item7#passage-000004",
+        "000009747626000059#item8#passage-000043"
+      ],
+      "elapsed_seconds": 8.23859237600118
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- we rely primarily on GLOBALFOUNDRIES Inc. \\(GF\\) for wafers for microprocessor and GPU products manufactured at process nodes larger than 7 nm. [AMD-2026-10K-item1A-p000017](https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm) (chunk: `000000248826000018#item1A#passage-000017`; accession: `0000002488-26-000018`).\n- We also utilize TSMC, United Microelectronics Corporation \\(UMC\\) and Samsung Electronics Co., Ltd. for our integrated circuits \\(IC\\) in the form of programmable logic devices. [AMD-2026-10K-item1A-p000017](https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm) (chunk: `000000248826000018#item1A#passage-000017`; accession: `0000002488-26-000018`).\n- For example, we are presently focusing our 7 nm and lower product microprocessor and GPU portfolio on TSMC’s processes. [AMD-2026-10K-item1A-p000023](https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm) (chunk: `000000248826000018#item1A#passage-000023`; accession: `0000002488-26-000018`).\n- We utilize third-party wafer foundries to fabricate the silicon wafers for all of our products. We rely on Taiwan Semiconductor Manufacturing Company Limited \\(TSMC\\) for the production of [AMD-2026-10K-item1A-p000016](https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm) (chunk: `000000248826000018#item1A#passage-000016`; accession: `0000002488-26-000018`).\n- We are party to a wafer supply agreement with GF where GF will provide a minimum annual capacity allocation to us and set pricing through 2026. [AMD-2026-10K-item1A-p000018](https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm) (chunk: `000000248826000018#item1A#passage-000018`; accession: `0000002488-26-000018`).\n- Capital expenditures were $4.55 billion compared with $4.82 billion in 2024 and were primarily for semiconductor manufacturing equipment and facilities in both periods. [TXN-2026-10K-item7-p000007](https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm) (chunk: `000009747626000059#item7#passage-000007`; accession: `0000097476-26-000059`).\n- We are nearing the end of our six-year elevated capital expenditures cycle, and consistent with our capital management strategy, we are expecting to spend about $2 billion to $3 billion in 2026. [TXN-2026-10K-item7-p000007](https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm) (chunk: `000009747626000059#item7#passage-000007`; accession: `0000097476-26-000059`).",
+  "citations": [
+    {
+      "tag": "AMD-2026-10K-item1A-p000017",
+      "chunk_id": "000000248826000018#item1A#passage-000017",
+      "accession": "0000002488-26-000018",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "quote": "we rely primarily on GLOBALFOUNDRIES Inc. (GF) for wafers for microprocessor and GPU products manufactured at process nodes larger than 7 nm."
+    },
+    {
+      "tag": "AMD-2026-10K-item1A-p000017",
+      "chunk_id": "000000248826000018#item1A#passage-000017",
+      "accession": "0000002488-26-000018",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "quote": "We also utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for our integrated circuits (IC) in the form of programmable logic devices."
+    },
+    {
+      "tag": "AMD-2026-10K-item1A-p000023",
+      "chunk_id": "000000248826000018#item1A#passage-000023",
+      "accession": "0000002488-26-000018",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "quote": "For example, we are presently focusing our 7 nm and lower product microprocessor and GPU portfolio on TSMC’s processes."
+    },
+    {
+      "tag": "AMD-2026-10K-item1A-p000016",
+      "chunk_id": "000000248826000018#item1A#passage-000016",
+      "accession": "0000002488-26-000018",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "quote": "We utilize third-party wafer foundries to fabricate the silicon wafers for all of our products. We rely on Taiwan Semiconductor Manufacturing Company Limited (TSMC) for the production of"
+    },
+    {
+      "tag": "AMD-2026-10K-item1A-p000018",
+      "chunk_id": "000000248826000018#item1A#passage-000018",
+      "accession": "0000002488-26-000018",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "quote": "We are party to a wafer supply agreement with GF where GF will provide a minimum annual capacity allocation to us and set pricing through 2026."
+    },
+    {
+      "tag": "TXN-2026-10K-item7-p000007",
+      "chunk_id": "000009747626000059#item7#passage-000007",
+      "accession": "0000097476-26-000059",
+      "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm",
+      "quote": "Capital expenditures were $4.55 billion compared with $4.82 billion in 2024 and were primarily for semiconductor manufacturing equipment and facilities in both periods."
+    },
+    {
+      "tag": "TXN-2026-10K-item7-p000007",
+      "chunk_id": "000009747626000059#item7#passage-000007",
+      "accession": "0000097476-26-000059",
+      "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm",
+      "quote": "We are nearing the end of our six-year elevated capital expenditures cycle, and consistent with our capital management strategy, we are expecting to spend about $2 billion to $3 billion in 2026."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.921029641001951,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13088,
+        "cache_read_input_tokens": 1249,
+        "output_tokens": 468,
+        "output_tokens_details": {
+          "thinking_tokens": 284
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13088,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 468,
+            "cache_read_input_tokens": 1249,
+            "cache_creation_input_tokens": 13088,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13088
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0028642900000000002
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.2432871559976775,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16289,
+        "cache_read_input_tokens": 1467,
+        "output_tokens": 791,
+        "output_tokens_details": {
+          "thinking_tokens": 454
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16289,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 791,
+            "cache_read_input_tokens": 1467,
+            "cache_creation_input_tokens": 16289,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16289
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036681700000000005
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.813778470997931,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16019,
+        "cache_read_input_tokens": 1467,
+        "output_tokens": 826,
+        "output_tokens_details": {
+          "thinking_tokens": 351
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16019,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 826,
+            "cache_read_input_tokens": 1467,
+            "cache_creation_input_tokens": 16019,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16019
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036316699999999996
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 8.584217322000768,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 6629,
+        "cache_read_input_tokens": 925,
+        "output_tokens": 1568,
+        "output_tokens_details": {
+          "thinking_tokens": 997
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6629,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1568,
+            "cache_read_input_tokens": 925,
+            "cache_creation_input_tokens": 6629,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 6629
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0021192500000000005
+    }
+  ],
+  "elapsed_seconds": 20.898667658002523
+}

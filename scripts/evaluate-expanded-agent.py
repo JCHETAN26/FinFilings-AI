@@ -46,12 +46,18 @@ def build_parser():
     parser.add_argument('--expected-suite-sha256',help='Pin the exact suite bytes; mismatch aborts before any service starts')
     parser.add_argument('--suite-case',action='append',help='Partial suite run (repeatable); the offline verifier then needs --allow-subset')
     parser.add_argument('--diagnose-only',action='store_true')
+    parser.add_argument('--rank-diagnostic',action='store_true',help='Start the bounded services, replay saved queries via bench_kit/diagnose_ranks.py (no agent/LLM calls), stop')
+    parser.add_argument('--replay',type=Path,action='append',default=[],help='saved raw case JSON for --rank-diagnostic (repeatable)')
+    parser.add_argument('--replay-subquery',type=int)
+    parser.add_argument('--review-target',action='append',default=[],help='REVIEW-ONLY passage ID reported by --rank-diagnostic; never sent to retrieval')
     return parser
 
 
 def main(argv=None):
     parser=build_parser()
     args=parser.parse_args(argv)
+    if args.rank_diagnostic and (args.suite or args.audit_id or args.diagnose_only or not args.replay):
+        parser.error('--rank-diagnostic needs --replay and excludes --suite/--audit-id/--diagnose-only')
     if args.suite and (args.audit_id or args.diagnose_only):
         parser.error('--suite cannot be combined with --audit-id/--diagnose-only')
     if args.suite_case and not args.suite:
@@ -78,7 +84,7 @@ def main(argv=None):
     if lineage_problems:raise ValueError('ingestion report lineage invalid: '+'; '.join(lineage_problems))
     sources=agent_suite.build_trusted_sources(original,report)
     args.out.mkdir(parents=True,exist_ok=False)
-    status=dict(status='started',started_utc=datetime.now(timezone.utc).isoformat(),mode='suite' if args.suite else 'historical',argv=sys.argv)
+    status=dict(status='started',started_utc=datetime.now(timezone.utc).isoformat(),mode='suite' if args.suite else 'rank-diagnostic' if args.rank_diagnostic else 'historical',argv=sys.argv)
     status_path=args.out/'run-status.json'
     status_path.write_text(json.dumps(status,indent=2)+'\n')
     if args.suite:  # Saved input suite + hash precede the first request (and the first service start).
@@ -127,6 +133,17 @@ def main(argv=None):
         (args.out/'health-before.json').write_text(json.dumps(health,indent=2)+'\n')
         if args.diagnose_only:
             subprocess.run([sys.executable,'bench_kit/diagnose_cloud.py','--backend',backend,'--output',str(args.out/'diagnostic.json')],env=env,check=True)
+            return
+        if args.rank_diagnostic:
+            command=[sys.executable,'-u','bench_kit/diagnose_ranks.py','--backend',backend,'--corpus',str(data/'chunks.jsonl'),'--provenance',str(provenance),'--output',str(args.out/'rank-diagnostic.json')]
+            for path in args.replay:command+=['--replay',str(path)]
+            for target in args.review_target:command+=['--review-target',target]
+            if args.replay_subquery is not None:command+=['--subquery',str(args.replay_subquery)]
+            try:subprocess.run(command,env=env,check=True)
+            finally:
+                try:(args.out/'health-after.json').write_text(json.dumps(dict(sidecar=support.health(sidecar),bridge=support.health(backend)),indent=2)+'\n')
+                except Exception as exc:(args.out/'health-after.error.txt').write_text(f'{type(exc).__name__}: {exc}\n')
+            status['status']='completed'
             return
         command=[sys.executable,'-u','bench_kit/eval_agent.py','--backend',backend,'--corpus',str(data/'chunks.jsonl'),'--provenance',str(provenance),'--output',str(args.out/'evaluation')]
         if args.suite:

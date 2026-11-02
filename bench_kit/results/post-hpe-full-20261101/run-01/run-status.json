@@ -1,0 +1,30 @@
+{
+  "status": "completed",
+  "started_utc": "2026-11-02T00:41:08.159166+00:00",
+  "mode": "suite",
+  "argv": [
+    "scripts/evaluate-expanded-agent.py",
+    "--out",
+    "bench_kit/results/post-hpe-full-20261101/run-01",
+    "--corpus-dir",
+    "data/sec-scale-v3-evaluation-20261101",
+    "--ingest-report",
+    "indexes/sec-scale-v3-20261101/report.json",
+    "--vector-index",
+    "indexes/vector-sec-scale-v3-pq128-20261101",
+    "--sparse-index",
+    "indexes/sparse-sec-scale-v3-20261101",
+    "--suite",
+    "bench_kit/suites/broad-validation-v2.json",
+    "--expected-suite-sha256",
+    "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d"
+  ],
+  "finished_utc": "2026-11-02T00:53:27.838093+00:00",
+  "evaluator_exit_code": 0,
+  "service_exit_codes": [
+    -15,
+    0,
+    0
+  ],
+  "owned_processes_stopped": true
+}

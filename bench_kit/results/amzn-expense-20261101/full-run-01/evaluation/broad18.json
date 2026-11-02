@@ -1,0 +1,493 @@
+{
+  "prompt": "Compare MET and AFL, both filing year 2025: retrieve MET's interest rate risk disclosures and AFL's yen and foreign currency translation disclosures. Use separate company-specific retrieval steps and do not derive new numbers.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "interest rate risk disclosures",
+        "filters": {
+          "ticker": "MET",
+          "year": 2025,
+          "section": "",
+          "accession": "000109921925000044"
+        }
+      },
+      {
+        "query": "yen and foreign currency translation disclosures",
+        "filters": {
+          "ticker": "AFL",
+          "year": 2025,
+          "section": "",
+          "accession": "000000497725000047"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "interest rate risk disclosures",
+      "filters": {
+        "ticker": "MET",
+        "year": 2025,
+        "section": "",
+        "accession": "000109921925000044"
+      },
+      "score": 4,
+      "rationale": "The original goal is MET's FY2025 interest rate risk disclosures. The passages directly cover this: passage-000007 describes ALM strategies, including derivatives, and the limits on management actions. Passage-000008 gives the Declining and Rising Interest Rate Scenarios (50 bp shifts from January 1, 2025) with SOFR and Treasury assumptions for 2025 to 2027, plus the estimated impacts on derivative gains and losses. Passage-000021 covers interest rate and FX sensitivity analysis for long-duration contracts, and passage-000193 gives the derivatives table by primary underlying interest rate risk exposure. Together these substantially answer the request. Some detail, such as the full sensitivity results, sits in the cross-referenced Market Risk section and is not shown, but the core disclosures are present. Passages 000187 and 000193 are on derivative instruments and hedging, which are relevant but secondary.",
+      "evidence": [
+        {
+          "id": "000109921925000044#item7#passage-000007",
+          "text": "and change derivative cash flows and market values; and •Change our product offerings, design features, crediting rates and sales mix. For additional discussion on the potential impact of rising interest rates, see “Risk Factors — Investment Risks — We May Change Our Securities and Investments Valuation, or Take Allowances and Impairments on Our Investments, or Change Our Methodologies, Estimations, and Assumptions.” Management Actions To manage the impact of a changing U.S. interest rate environment, we maintain diversification across products, distribution channels, and geographies while proactively evaluating interest rate and product strategies. In addition, we apply disciplined asset/liability management (“ALM”) strategies, including the use of derivatives. Our ability to take such actions may be limited by competition, regulatory approval requirements, or minimum crediting rate guarantees and may not match the timing or magnitude of interest rate changes. In addition to proactive management strategies, businesses within our Latin America, EMEA, and Asia (exclusive of our Japan business) segments help alleviate impacts to our consolidated results given their limited U.S. interest rate sensitivity. For additional discussion on interest rate risk management and our ability to change interest crediting rates or dividend scales, see “Risk Factors — Economic Environment and Capital Markets Risks — We May Face Difficult Economic Conditions — Interest Rate Risks;” “— Risk Management;” and “Quantitative and Qualitative Disclosures About Market Risk — Management of Market Risk Exposures,” as well as Notes 5 and 6 of the Notes to the Consolidated Financial Statements. 48 Table of Contents Interest Rate Scenarios To illustrate our sensitivity to U.S. interest",
+          "metadata": {
+            "ID": "000109921925000044#item7#passage-000007",
+            "Ticker": "MET",
+            "CIK": "1099219",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001099219-25-000044",
+          "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+          "tag": "MET-2025-10K-item7-p000007"
+        },
+        {
+          "id": "000109921925000044#item7#passage-000021",
+          "text": "the deposit method of accounting. We measure market risk related to our market sensitive traditional long-duration non-participating and limited-payment contracts, additional insurance liabilities and reinsurance recoverables based on changes in interest rates and foreign currency exchange rates utilizing a sensitivity analysis. The results of this sensitivity analysis are included in “Quantitative and Qualitative Disclosures About Market Risk — Risk Measurement: Sensitivity Analysis.” We have also assessed the sensitivities of hypothetical changes in significant assumptions to reported amounts related to our traditional long-duration non-participating and limited-payment contracts, additional insurance liabilities and reinsurance recoverables for products including, but not limited to, those within the disaggregated rollforwards included in Note 4 of the Notes to the Consolidated Financial Statements, as reflected in the following table: 54 Table of Contents Traditional long-duration non-participating and limited-payment contracts, additional insurance liabilities and reinsurance recoverables December 31, 2024 FPBs (1)Reinsurance RecoverablesNet Effect to Pre-tax Net IncomeNet Effect to OCI Increase / (Decrease) (In millions) Assumptions (2): Mortality Effect of an increase by 1%$(72)$2 $115 $(41) Effect of a decrease by 1%$74 $(2)$(117)$41 Morbidity (3) Effect of an increase by 5%$600 $4 $(850)$254 Effect of a decrease by 5%$(459)$(4)$705 $(250) Lapse (4) Effect of an increase by 10%$(154)$(15)$481 $(342) Effect of a decrease by 10%$242 $15 $(604)$377 __________________ (1)FPBs are inclusive of deferred profit liabilities where applicable. (2)All sensitivities exclude potential changes in our future premium rate assumptions. (3)For products which are subject to morbidity risk, MetLife applied sensitivities to the incidence rate assumptions only. (4)For MetLife Holdings long-term care products, the lapse impacts",
+          "metadata": {
+            "ID": "000109921925000044#item7#passage-000021",
+            "Ticker": "MET",
+            "CIK": "1099219",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001099219-25-000044",
+          "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+          "tag": "MET-2025-10K-item7-p000021"
+        },
+        {
+          "id": "000109921925000044#item8#passage-000187",
+          "text": "interest rate risk associated with the Company’s long-term liabilities and invested assets. A swaption is an option to enter into a swap with a forward starting effective date. In certain instances, the Company locks in the economic impact of existing purchased swaptions by entering into offsetting written swaptions. The Company pays a premium for purchased swaptions and receives a premium for written swaptions. In certain instances, the Company may enter into a combination of transactions to hedge changes in interest rates within a pre-determined range through the purchase and sale of options. The Company utilizes swaptions in nonqualifying hedging relationships. Swaptions are included in interest rate options. The Company enters into interest rate forwards to buy and sell securities. The price is agreed upon at the time of the contract and payment for such a contract is made at a specified future date. The Company utilizes interest rate forwards in cash flow and nonqualifying hedging relationships. Synthetic GICs are contracts that simulate the performance of traditional GICs through the use of financial instruments. The contractholder owns the underlying assets, and the Company provides a guarantee (or “wrap”) on the participant funds for an annual risk charge. The Company’s maximum exposure to loss on synthetic GICs is the notional amount, in the event the values of all of the underlying assets were reduced to zero. The Company’s risk is substantially lower due to contractual provisions that limit the portfolio to high quality assets, which are pre-approved and monitored for compliance, as well as the collection of risk",
+          "metadata": {
+            "ID": "000109921925000044#item8#passage-000187",
+            "Ticker": "MET",
+            "CIK": "1099219",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001099219-25-000044",
+          "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+          "tag": "MET-2025-10K-item8-p000187"
+        },
+        {
+          "id": "000109921925000044#item8#passage-000193",
+          "text": "Statements — (continued) 12. Derivatives (continued) Primary Risks Managed by Derivatives The following table presents the primary underlying risk exposure, gross notional amount and estimated fair value of the Company’s derivatives, excluding embedded derivatives, held at: Primary Underlying Risk ExposureDecember 31, 20242023 Estimated Fair ValueEstimated Fair Value Gross Notional AmountAssetsLiabilitiesGross Notional AmountAssetsLiabilities (In millions) Derivatives Designated as Hedging Instruments: Fair value hedges: Interest rate swaps Interest rate $5,188 $1,018 $666 $4,550 $1,257 $535 Foreign currency swaps Foreign currency exchange rate 1,454 33 67 1,475 55 — Foreign currency forwards Foreign currency exchange rate 150 — 41 450 — 65 Subtotal 6,792 1,051 774 6,475 1,312 600 Cash flow hedges: Interest rate swaps Interest rate 4,154 — 359 4,156 1 265 Interest rate forwards Interest rate 4,901 56 880 6,115 51 938 Foreign currency swaps Foreign currency exchange rate 45,879 2,858 1,877 43,906 2,457 1,509 Subtotal 54,934 2,914 3,116 54,177 2,509 2,712 NIFO hedges: Foreign currency forwards Foreign currency exchange rate 1,553 42 — 503 — 8 Currency options Foreign currency exchange rate 3,000 536 — 3,000 394 — Subtotal 4,553 578 — 3,503 394 8 Total qualifying hedges 66,279 4,543 3,890 64,155 4,215 3,320 Derivatives Not Designated or Not Qualifying as Hedging Instruments: Interest rate swaps Interest rate 29,238 1,414 1,263 29,801 1,497 1,102 Interest rate floors Interest rate 6,169 38 — 15,321 41 — Interest rate caps Interest rate 17,998 133 1 30,016 373 — Interest rate futures Interest rate 1,667 1 1 1,243 1 5 Interest rate options Interest rate 34,939 210 217 43,926",
+          "metadata": {
+            "ID": "000109921925000044#item8#passage-000193",
+            "Ticker": "MET",
+            "CIK": "1099219",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0001099219-25-000044",
+          "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+          "tag": "MET-2025-10K-item8-p000193"
+        },
+        {
+          "id": "000109921925000044#item7#passage-000008",
+          "text": "rates, we compared the outcome of two hypothetical interest rate environments (the “Declining Interest Rate Scenario” and “Rising Interest Rate Scenario”) relative to our baseline economic assumptions (the “Base Scenario”) through 2027. The Declining Interest Rate Scenario assumes U.S. interest rates for all maturities decline immediately on January 1, 2025 by 50 basis points compared to the Base Scenario through 2027. The Rising Interest Rate Scenario assumes U.S. interest rates rise immediately on January 1, 2025 by 50 basis points through 2027. Other than changing U.S. interest rates through 2027, all other economic assumptions are equivalent in the Base Scenario, Declining Interest Rate Scenario and Rising Interest Rate Scenario. The following table compares the most relevant interest rate assumptions for the dates indicated: Years Ended December 31, 2025 2026 2027 Base ScenarioDeclining Interest Rate ScenarioRising Interest Rate ScenarioBase ScenarioDeclining Interest Rate ScenarioRising Interest Rate ScenarioBase ScenarioDeclining Interest Rate ScenarioRising Interest Rate Scenario SOFR 3.90%3.40%4.40%3.87%3.37%4.37%3.93%3.43%4.43% 10-year U.S. Treasury4.69%4.19%5.19%4.78%4.28%5.28%4.88%4.38%5.38% 30-year U.S. Treasury4.82%4.32%5.32%4.84%4.34%5.34%4.87%4.37%5.37% Hypothetical Impact to Net Derivative Gains (Losses), Market Risk Benefit Remeasurement (Gains) Losses and Adjusted Earnings We estimate a net favorable impact to net derivative gains (losses) for 2025 through 2027 for the hypothetical Declining Interest Rate Scenario. We hold significant positions in long-duration receive-fixed U.S. interest rate swaps, which are most sensitive to the 10-year and 30-year swap rates, to hedge reinvestment risk. We estimate a net unfavorable impact to net derivative gains (losses) for 2025 through 2027 for the hypothetical Rising Interest Rate Scenario. We estimate a net unfavorable impact to market risk benefit",
+          "metadata": {
+            "ID": "000109921925000044#item7#passage-000008",
+            "Ticker": "MET",
+            "CIK": "1099219",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0001099219-25-000044",
+          "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+          "tag": "MET-2025-10K-item7-p000008"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000109921925000044#item7#passage-000007",
+        "000109921925000044#item7#passage-000021",
+        "000109921925000044#item8#passage-000187",
+        "000109921925000044#item8#passage-000193",
+        "000109921925000044#item7#passage-000008",
+        "000109921925000044#item7#passage-000013",
+        "000109921925000044#item8#passage-000194",
+        "000109921925000044#item8#passage-000185",
+        "000109921925000044#item7#passage-000020",
+        "000109921925000044#item7#passage-000011"
+      ],
+      "fresh_verified_ids": [
+        "000109921925000044#item7#passage-000007",
+        "000109921925000044#item7#passage-000021",
+        "000109921925000044#item8#passage-000187",
+        "000109921925000044#item8#passage-000193",
+        "000109921925000044#item7#passage-000008"
+      ],
+      "elapsed_seconds": 9.81968849900295
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "yen and foreign currency translation disclosures",
+      "filters": {
+        "ticker": "AFL",
+        "year": 2025,
+        "section": "",
+        "accession": "000000497725000047"
+      },
+      "score": 5,
+      "rationale": "The four passages, all from AFL's 2025 filing (accession 000000497725000047), together cover the requested yen and foreign currency translation disclosures. Item 8 (passage-000018) gives the translation method: end-of-period rates for assets and liabilities, average rates for income and cash flows, and currency translation adjustments in AOCI. It also describes the yen-denominated liability and forward hedges of the net investment in Aflac Japan. Item 8 (passage-000146) gives unrealized foreign currency translation gains of $160M, $140M and $547M for 2024, 2023 and 2022. Item 1A (passage-000014) explains the yen/dollar exposure, and Item 7 (passage-000018) describes yen translation for MD&A purposes. No requested element is missing.",
+      "evidence": [
+        {
+          "id": "000000497725000047#item8#passage-000018",
+          "text": "as follows. Assets and liabilities are translated at end-of-period exchange rates. Realized gains and losses on security transactions are translated at the exchange rate on the trade date of each transaction. Other revenues, expenses, and cash flows are translated using average exchange rates for the period. The resulting currency translation adjustments are reported in accumulated other comprehensive income. The Company includes the foreign currency gains and losses resulting from the remeasurement of foreign currency and realized foreign currency exchange gains and losses in the net investment gains (losses) line item in the consolidated statements of earnings. The Parent Company has designated a majority of its yen-denominated liabilities (yen-denominated notes payable and yen-denominated loans) as non-derivative hedges and foreign currency forwards and options as derivative hedges of the foreign currency exposure of the Parent Company's net investment in Aflac Japan. The gains or losses on hedging derivative instruments and the foreign currency transaction gains or losses on the non-derivative hedging instruments that are designated as, and are effective as, an economic hedge of the net investment in Aflac Japan are recorded as 90 Item 8. Financial Statements and Supplementary Data unrealized foreign currency translation gains (losses) in other comprehensive income and are included in accumulated other comprehensive income. Insurance Revenue and Expense Recognition: Substantially all of the supplemental health and life insurance policies the Company issues are classified as long-duration contracts. The contract provisions generally cannot be changed or canceled during the contract period; however, the Company may adjust premiums for supplemental health policies issued in the",
+          "metadata": {
+            "ID": "000000497725000047#item8#passage-000018",
+            "Ticker": "AFL",
+            "CIK": "4977",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000004977-25-000047",
+          "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+          "tag": "AFL-2025-10K-item8-p000018"
+        },
+        {
+          "id": "000000497725000047#item1A#passage-000014",
+          "text": "Company’s actual insurance risk experience in Japan is as expected or more favorable than expected, the need for yen to pay expenses and claims would correspondingly remain at or below expected levels, thereby diminishing operational requirements to convert U.S. dollar-denominated investments to yen. The settlement of the foreign exchange derivatives is reported in the investing activities section of the Company’s consolidated statements of cash flows in the line item settlement of derivatives, net. See the risk factor entitled “The Company is exposed to foreign currency fluctuations in the yen/dollar exchange rate”, the Hedging Activities subsection of Item 7. MD&A, and the Currency Risk subsection of Item 7A. Quantitative and Qualitative Disclosures about Market Risk for additional information. The Company is exposed to foreign currency fluctuations in the yen/dollar exchange rate. Due to the size of Aflac Japan, where functional currency is the Japanese yen, fluctuations in the exchange rate between the yen and the U.S. dollar can have a significant effect on the Company's reported financial position and results of operations. Aflac Japan's premiums and a significant portion of its investment income are received in yen, and its claims and almost all expenses are paid in yen. Aflac Japan purchases yen-denominated assets and U.S. dollar-denominated assets, which may be hedged to yen, to support yen-denominated policy liabilities. Certain unhedged U.S. dollar denominated assets and liabilities held by Aflac Japan are re-measured to yen with the volatility reported in earnings. Furthermore, the yen-denominated balance sheet of Aflac Japan is translated into U.S. dollars for financial reporting purposes",
+          "metadata": {
+            "ID": "000000497725000047#item1A#passage-000014",
+            "Ticker": "AFL",
+            "CIK": "4977",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000004977-25-000047",
+          "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+          "tag": "AFL-2025-10K-item1A-p000014"
+        },
+        {
+          "id": "000000497725000047#item7#passage-000018",
+          "text": "million as a result of the Company exiting the third-party administration business acquired in connection with the purchase of Aflac Benefits Solutions, Inc. in 2019. The impairment of these intangible assets was not related to the ongoing operations of the business and occurs infrequently; therefore, the Company excluded the impairment from adjusted earnings. Foreign Currency Translation Aflac Japan’s premiums and a significant portion of its investment income are received in yen, and its claims and most expenses are paid in yen. Aflac Japan purchases yen-denominated assets and U.S. dollar-denominated assets, which may be hedged to yen, to support yen-denominated policy liabilities. Yen-denominated income statement accounts are translated to U.S. dollars using the weighted average Japanese yen/U.S. dollar foreign exchange rate for the reporting period, except realized gains and losses on securities transactions which are translated at the exchange rate on the trade date of each transaction. Yen-denominated balance sheet accounts are translated to U.S. dollars using the spot Japanese yen/U.S. dollar foreign exchange rate at the end of the reporting period. In recent periods, the Japanese yen has weakened against the U.S. dollar. Although the Company is unable to predict the timing or extent of future movements of the Japanese yen/U.S. dollar foreign exchange rate, the Company maintains hedging strategies (see the Hedging Activities section of this MD&A) that are intended to mitigate the impacts of yen fluctuation on the Company’s financial position and results of operations. See the risk factor entitled “The Company is exposed to foreign currency fluctuations in the yen/dollar exchange rate” in",
+          "metadata": {
+            "ID": "000000497725000047#item7#passage-000018",
+            "Ticker": "AFL",
+            "CIK": "4977",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000004977-25-000047",
+          "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+          "tag": "AFL-2025-10K-item7-p000018"
+        },
+        {
+          "id": "000000497725000047#item7#passage-000008",
+          "text": "period, while yen strengthening has the effect of magnifying current period results in relation to the comparable prior period. A significant portion of the Company’s business is conducted in yen and never converted into dollars but translated into dollars for U.S. GAAP reporting purposes, which results in foreign currency impact to earnings, cash flows and book value on a U.S. GAAP basis. Management evaluates the Company's financial performance both including and excluding the impact of foreign currency translation to monitor, respectively, cumulative currency impacts and the currency-neutral operating performance over time. The average yen/dollar exchange rate is based on the published MUFG Bank, Ltd. telegraphic transfer middle rate (TTM). 35 Item 7. Management's Discussion and Analysis of Financial Condition and Results of Operations The Company defines the non-U.S. GAAP financial measures included in this document as follows: •Adjusted earnings are adjusted revenues less benefits and adjusted expenses. Adjusted earnings per share (basic or diluted) are the adjusted earnings for the period divided by the weighted average outstanding shares (basic or diluted) for the period presented. The adjustments to both revenues and expenses account for certain items that are outside of management’s control because they tend to be driven by general economic conditions and events or are related to infrequent activities not directly associated with insurance operations. Adjusted revenues are U.S. GAAP total revenues excluding adjusted net investment gains and losses. Adjusted expenses are U.S. GAAP total acquisition and operating expenses including the impact of interest from derivatives associated with notes payable but excluding any non-recurring or",
+          "metadata": {
+            "ID": "000000497725000047#item7#passage-000008",
+            "Ticker": "AFL",
+            "CIK": "4977",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000004977-25-000047",
+          "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+          "tag": "AFL-2025-10K-item7-p000008"
+        },
+        {
+          "id": "000000497725000047#item8#passage-000146",
+          "text": "the DST for U.S. tax purposes was historically the Japanese yen. In 2022, the Company requested a change in tax accounting method through the Internal Revenue Service's automatic consent procedures to change the functional currency of the DST for U.S. tax purposes to the U.S. dollar. As a result, foreign currency translation gains or losses on assets held in the DST are no longer recognized for U.S. tax purposes. The Company historically recorded a deferred tax liability for foreign currency translation gains on the DST assets, which was released in the third quarter of 2022 as a result of the functional currency change. The release of the deferred tax liability resulted in the Company recognizing an income tax benefit of $208 million in 2024, $174 million in 2023 and $452 million in 2022. Income tax expense in the accompanying statements of earnings varies from the amount computed by applying the expected U.S. tax rate of 21% to pretax earnings. The principal reasons for the differences and the related tax effects for the years ended December 31 were as follows: (In millions)202420232022 Income taxes based on U.S. statutory rates$1,348 $1,105 $1,023 DST functional currency change(208)(174)(452) Solar and historic tax credits, net of amortization(164)(348)(83) Other, net(2)20 (37) Income tax expense$974 $603 $451 164 Item 8. Financial Statements and Supplementary Data (In millions)202420232022 Statements of earnings$974 $603 $451 Other comprehensive income (loss): Unrealized foreign currency translation gains (losses) during period160 140 547 Unrealized gains (losses) on fixed maturity securities: Unrealized holding gains (losses) on fixed maturity securities during period(265)520",
+          "metadata": {
+            "ID": "000000497725000047#item8#passage-000146",
+            "Ticker": "AFL",
+            "CIK": "4977",
+            "FormType": "10-K",
+            "FilingYear": 2025,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000004977-25-000047",
+          "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+          "tag": "AFL-2025-10K-item8-p000146"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000000497725000047#item8#passage-000018",
+        "000000497725000047#item1A#passage-000014",
+        "000000497725000047#item7#passage-000018",
+        "000000497725000047#item7#passage-000008",
+        "000000497725000047#item8#passage-000146",
+        "000000497725000047#item7#passage-000060",
+        "000000497725000047#item7#passage-000025",
+        "000000497725000047#item8#passage-000017",
+        "000000497725000047#item1A#passage-000017",
+        "000000497725000047#item7#passage-000053"
+      ],
+      "fresh_verified_ids": [
+        "000000497725000047#item8#passage-000018",
+        "000000497725000047#item1A#passage-000014",
+        "000000497725000047#item7#passage-000018",
+        "000000497725000047#item7#passage-000008",
+        "000000497725000047#item8#passage-000146"
+      ],
+      "elapsed_seconds": 9.3611793400014
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- In addition, we apply disciplined asset/liability management \\(“ALM”\\) strategies, including the use of derivatives. [MET-2025-10K-item7-p000007](https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm) (chunk: `000109921925000044#item7#passage-000007`; accession: `0001099219-25-000044`).\n- The Declining Interest Rate Scenario assumes U.S. interest rates for all maturities decline immediately on January 1, 2025 by 50 basis points compared to the Base Scenario through 2027. [MET-2025-10K-item7-p000008](https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm) (chunk: `000109921925000044#item7#passage-000008`; accession: `0001099219-25-000044`).\n- We estimate a net unfavorable impact to net derivative gains \\(losses\\) for 2025 through 2027 for the hypothetical Rising Interest Rate Scenario. [MET-2025-10K-item7-p000008](https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm) (chunk: `000109921925000044#item7#passage-000008`; accession: `0001099219-25-000044`).\n- We hold significant positions in long-duration receive-fixed U.S. interest rate swaps, which are most sensitive to the 10-year and 30-year swap rates, to hedge reinvestment risk. [MET-2025-10K-item7-p000008](https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm) (chunk: `000109921925000044#item7#passage-000008`; accession: `0001099219-25-000044`).\n- Yen-denominated income statement accounts are translated to U.S. dollars using the weighted average Japanese yen/U.S. dollar foreign exchange rate for the reporting period, except realized gains and losses on securities transactions which are translated at the exchange rate on the trade date of each transaction. [AFL-2025-10K-item7-p000018](https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm) (chunk: `000000497725000047#item7#passage-000018`; accession: `0000004977-25-000047`).\n- Yen-denominated balance sheet accounts are translated to U.S. dollars using the spot Japanese yen/U.S. dollar foreign exchange rate at the end of the reporting period. [AFL-2025-10K-item7-p000018](https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm) (chunk: `000000497725000047#item7#passage-000018`; accession: `0000004977-25-000047`).\n- The Parent Company has designated a majority of its yen-denominated liabilities \\(yen-denominated notes payable and yen-denominated loans\\) as non-derivative hedges and foreign currency forwards and options as derivative hedges of the foreign currency exposure of the Parent Company's net investment in Aflac Japan. [AFL-2025-10K-item8-p000018](https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm) (chunk: `000000497725000047#item8#passage-000018`; accession: `0000004977-25-000047`).\n- A significant portion of the Company’s business is conducted in yen and never converted into dollars but translated into dollars for U.S. GAAP reporting purposes, which results in foreign currency impact to earnings, cash flows and book value on a U.S. GAAP basis. [AFL-2025-10K-item7-p000008](https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm) (chunk: `000000497725000047#item7#passage-000008`; accession: `0000004977-25-000047`).",
+  "citations": [
+    {
+      "tag": "MET-2025-10K-item7-p000007",
+      "chunk_id": "000109921925000044#item7#passage-000007",
+      "accession": "0001099219-25-000044",
+      "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+      "quote": "In addition, we apply disciplined asset/liability management (“ALM”) strategies, including the use of derivatives."
+    },
+    {
+      "tag": "MET-2025-10K-item7-p000008",
+      "chunk_id": "000109921925000044#item7#passage-000008",
+      "accession": "0001099219-25-000044",
+      "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+      "quote": "The Declining Interest Rate Scenario assumes U.S. interest rates for all maturities decline immediately on January 1, 2025 by 50 basis points compared to the Base Scenario through 2027."
+    },
+    {
+      "tag": "MET-2025-10K-item7-p000008",
+      "chunk_id": "000109921925000044#item7#passage-000008",
+      "accession": "0001099219-25-000044",
+      "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+      "quote": "We estimate a net unfavorable impact to net derivative gains (losses) for 2025 through 2027 for the hypothetical Rising Interest Rate Scenario."
+    },
+    {
+      "tag": "MET-2025-10K-item7-p000008",
+      "chunk_id": "000109921925000044#item7#passage-000008",
+      "accession": "0001099219-25-000044",
+      "url": "https://www.sec.gov/Archives/edgar/data/1099219/000109921925000044/met-20241231.htm",
+      "quote": "We hold significant positions in long-duration receive-fixed U.S. interest rate swaps, which are most sensitive to the 10-year and 30-year swap rates, to hedge reinvestment risk."
+    },
+    {
+      "tag": "AFL-2025-10K-item7-p000018",
+      "chunk_id": "000000497725000047#item7#passage-000018",
+      "accession": "0000004977-25-000047",
+      "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+      "quote": "Yen-denominated income statement accounts are translated to U.S. dollars using the weighted average Japanese yen/U.S. dollar foreign exchange rate for the reporting period, except realized gains and losses on securities transactions which are translated at the exchange rate on the trade date of each transaction."
+    },
+    {
+      "tag": "AFL-2025-10K-item7-p000018",
+      "chunk_id": "000000497725000047#item7#passage-000018",
+      "accession": "0000004977-25-000047",
+      "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+      "quote": "Yen-denominated balance sheet accounts are translated to U.S. dollars using the spot Japanese yen/U.S. dollar foreign exchange rate at the end of the reporting period."
+    },
+    {
+      "tag": "AFL-2025-10K-item8-p000018",
+      "chunk_id": "000000497725000047#item8#passage-000018",
+      "accession": "0000004977-25-000047",
+      "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+      "quote": "The Parent Company has designated a majority of its yen-denominated liabilities (yen-denominated notes payable and yen-denominated loans) as non-derivative hedges and foreign currency forwards and options as derivative hedges of the foreign currency exposure of the Parent Company's net investment in Aflac Japan."
+    },
+    {
+      "tag": "AFL-2025-10K-item7-p000008",
+      "chunk_id": "000000497725000047#item7#passage-000008",
+      "accession": "0000004977-25-000047",
+      "url": "https://www.sec.gov/Archives/edgar/data/4977/000000497725000047/afl-20241231.htm",
+      "quote": "A significant portion of the Company’s business is conducted in yen and never converted into dollars but translated into dollars for U.S. GAAP reporting purposes, which results in foreign currency impact to earnings, cash flows and book value on a U.S. GAAP basis."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.2088829370004532,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 14335,
+        "output_tokens": 378,
+        "output_tokens_details": {
+          "thinking_tokens": 218
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 378,
+            "cache_read_input_tokens": 14335,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00033255000000000003
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.774335245998373,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 17585,
+        "output_tokens": 835,
+        "output_tokens_details": {
+          "thinking_tokens": 422
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 835,
+            "cache_read_input_tokens": 17585,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00059355
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 6.5546824779994495,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 18205,
+        "output_tokens": 918,
+        "output_tokens_details": {
+          "thinking_tokens": 465
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 918,
+            "cache_read_input_tokens": 18205,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00064125
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 9.64134346100036,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 9647,
+        "output_tokens": 2228,
+        "output_tokens_details": {
+          "thinking_tokens": 1352
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2228,
+            "cache_read_input_tokens": 9647,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0012106699999999998
+    }
+  ],
+  "elapsed_seconds": 22.672544191998895
+}

@@ -1,0 +1,446 @@
+{
+  "prompt": "Compare LLY and JNJ, both filing year 2026, with the exact SectionItem filter \"Item 7\": retrieve LLY's product revenue drivers such as Mounjaro and Zepbound and JNJ's segment sales disclosures. Use separate company-specific retrieval steps.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "Mounjaro Zepbound product revenue drivers",
+        "filters": {
+          "ticker": "LLY",
+          "year": 2026,
+          "section": "Item 7",
+          "accession": "000005947826000013"
+        }
+      },
+      {
+        "query": "segment sales disclosures",
+        "filters": {
+          "ticker": "JNJ",
+          "year": 2026,
+          "section": "Item 7",
+          "accession": "000020040626000016"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "Mounjaro Zepbound product revenue drivers",
+      "filters": {
+        "ticker": "LLY",
+        "year": 2026,
+        "section": "Item 7",
+        "accession": "000005947826000013"
+      },
+      "score": 5,
+      "rationale": "The LLY 2026 filing's Item 7 passages directly answer the subquery. Passage 000011 has the product revenue table: Mounjaro $22,965M total (vs $11,540M), Zepbound $13,542M (vs $4,926M), with U.S./outside-U.S. splits. Passage 000012 gives the drivers: Mounjaro U.S. revenue up 53% on strong demand, partly offset by lower realized prices; Mounjaro outside the U.S. $9.3B, primarily volume growth; Zepbound U.S. up 174% on increased demand, partly offset by lower realized prices. Passages 000000 and 000007 add that Mounjaro and Zepbound drove the 2025 volume increase and lower realized prices, and that they made up 56% of total revenue. Together these cover the requested product revenue drivers for LLY. The JNJ comparison belongs to a separate subquery and was not scored.",
+      "evidence": [
+        {
+          "id": "000005947826000013#item7#passage-000012",
+          "text": "Revenue of Mounjaro increased 53 percent in the U.S., driven by strong demand, partially offset by lower realized prices. Revenue outside of the U.S. was $9.3 billion in 2025 compared to $2.6 billion in 2024, primarily driven by volume growth. Revenue of Zepbound increased 174 percent in the U.S., driven by increased demand, partially offset by lower realized prices. Revenue of Verzenio increased 1 percent in the U.S. Revenue outside the U.S. increased 20 percent, driven by volume growth. 49 Gross Margin, Costs, and Expenses The following table summarizes our gross margin, costs, and expenses: Year Ended December 31, Percent Change 20252024 Gross margin$54,127 $36,625 48 Gross margin as a percent of revenue83.0 %81.3 % Research and development$13,337 $10,991 21 Marketing, selling, and administrative11,094 8,594 29 Acquired in-process research and development 2,910 3,280 (11) Income taxes5,091 2,090 144 Effective tax rate19.8 %16.5 % Gross margin as a percent of revenue in 2025 increased 1.7 percentage points compared with 2024, primarily driven by favorable product mix and improved cost of production, partially offset by lower realized prices. Research and development expenses increased 21 percent in 2025, primarily driven by continued investments in our early and late-stage portfolio. Marketing, selling, and administrative expenses increased 29 percent in 2025, primarily driven by promotional efforts supporting ongoing and planned launches. Acquired in-process research and development (IPR&D) charges recognized in 2025 were primarily related to the acquisitions of Scorpion Therapeutics, Inc.'s (Scorpion) PI3Kα inhibitor program STX-478 and of SiteOne Therapeutics, Inc. (SiteOne). Acquired IPR&D charges recognized in 2024 were primarily related",
+          "metadata": {
+            "ID": "000005947826000013#item7#passage-000012",
+            "Ticker": "LLY",
+            "CIK": "59478",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000059478-26-000013",
+          "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+          "tag": "LLY-2026-10K-item7-p000012"
+        },
+        {
+          "id": "000005947826000013#item7#passage-000011",
+          "text": "complexities, international tension and conflicts, uneven economic growth, downturns or uncertainty, risks related to engaging in business globally, including legislation and regulatory action in or regarding foreign jurisdictions, and fluctuations due to channel dynamics or demand for certain products. See Item 1, \"Business\" and Item 1A, \"Risk Factors,\" and Notes 4, 14, and 16 to the consolidated financial statements for additional information and risks and uncertainties that could impact our business and operations, including the matters described within this Executive Overview. 48 RESULTS OF OPERATIONS Operating Results—2025 Revenue The following table summarizes our revenue activity by region: Year Ended December 31, 20252024Percent Change U.S.$43,481 $30,375 43 Outside U.S.21,698 14,668 48 Revenue$65,179 $45,043 45 The following are components of the change in revenue compared with the prior year: 2025 vs. 2024 U.S.Outside U.S.Consolidated Volume53 %46 %50 % Price(10)%— %(6)% Foreign exchange rates— %2 %1 % Percent change43 %48 %45 % In the U.S., the volume increase and the lower realized prices in 2025 were primarily driven by Mounjaro and Zepbound. Outside the U.S., the volume increase in 2025 was primarily driven by Mounjaro. The following table summarizes our revenue, including net product revenue and collaboration and other revenue, by product in 2025 compared with 2024: Year Ended December 31, 20252024Percent Change U.S.Outside U.S.TotalTotal Mounjaro$13,651 $9,315 $22,965 $11,540 99 Zepbound(1) 13,484 58 13,542 4,926 175 Verzenio3,464 2,259 5,723 5,307 8 Other products12,882 10,066 22,949 23,270 (1) Revenue$43,481 $21,698 $65,179 $45,043 45 (1) Tirzepatide is marketed for obesity under the brand name Zepbound in Canada, Japan, and the U.S.",
+          "metadata": {
+            "ID": "000005947826000013#item7#passage-000011",
+            "Ticker": "LLY",
+            "CIK": "59478",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000059478-26-000013",
+          "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+          "tag": "LLY-2026-10K-item7-p000011"
+        },
+        {
+          "id": "000005947826000013#item7#passage-000008",
+          "text": "As part of these agreements, Medicare beneficiaries will have access to discounted Lilly obesity medicines by July 1, 2026 and individual state Medicaid programs will have the option to expand access to these medicines. Also in 2025, we received a U.S. Commissioner’s National Priority Voucher for our product candidate orforglipron for the treatment of obesity, and we submitted to the FDA under that expedited review pathway. Internationally, we launched Mounjaro in all major markets. To support anticipated demand for our current and prospective products, we have undertaken significant manufacturing expansion initiatives. Additional capacity is expected to become operational over the next several years. We expect our near-term financial performance will be impacted by, among other factors, the timing of potential regulatory approvals for orforglipron and U.S. Medicare access for Zepbound (and, if approved, orforglipron), as well as the demand and pace of uptake in new incretin channels and markets. More generally, incretin volume fluctuations due to channel dynamics or demand can have a disproportionate impact on our results of operations in any given period. Longer term, the durability of our cardiometabolic health product offerings and sustainability of our growth and prospects will depend on our ability to maintain or strengthen our competitive position as the therapeutic landscape evolves and to deliver further innovations that provide sufficient value to sustain our growth momentum. We continue to see the production, marketing, and sale of counterfeit, misbranded, adulterated, and mass-compounded incretins. These practices may impact patient safety and undermine regulatory drug approval processes. While the FDA confirmed in late",
+          "metadata": {
+            "ID": "000005947826000013#item7#passage-000008",
+            "Ticker": "LLY",
+            "CIK": "59478",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000059478-26-000013",
+          "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+          "tag": "LLY-2026-10K-item7-p000008"
+        },
+        {
+          "id": "000005947826000013#item7#passage-000007",
+          "text": "our medicines or product candidates by governments, regulatory agencies, courts, or private actors have and may continue to adversely impact our business and consolidated results of operations. In addition, we are engaged in litigation and investigations related to the 340B program, access to insulin, pricing, product safety, and other matters that, if resolved adversely to us, could negatively impact our business and consolidated results of operations. It is not currently possible to predict the overall potential adverse impact to us or the general pharmaceutical industry of continued cost containment efforts worldwide. In addition, regulatory issues concerning compliance with current Good Manufacturing Practices, quality assurance, safety signals, evolving standards, and increased scrutiny around excipients and potential impurities such as nitrosamines, and similar regulations and standards (and comparable foreign regulations and standards) for our products in some cases lead to regulatory and legal actions, product recalls and seizures, fines and penalties, interruption of production leading to product shortages, import bans or denials of import certifications, inability to realize the benefit of capital expenditures, or delays or denials in new product approvals, line extensions or supplemental approvals of current products pending resolution of the issues, or other negative impacts, any of which result in reputational harm or adversely affect our business. Incretin Medicines Mounjaro and Zepbound accounted for 56 percent of our total revenues in 2025 and we expect cardiometabolic health products will continue to represent a significant and growing portion of our business, revenues, and prospects. In 2025, we reached preliminary drug pricing agreements with the U.S. government.",
+          "metadata": {
+            "ID": "000005947826000013#item7#passage-000007",
+            "Ticker": "LLY",
+            "CIK": "59478",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000059478-26-000013",
+          "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+          "tag": "LLY-2026-10K-item7-p000007"
+        },
+        {
+          "id": "000005947826000013#item7#passage-000000",
+          "text": "Item 7.Management's Discussion and Analysis of Results of Operations and Financial Condition (Tables present dollars in millions, except per-share data, and numbers may not add due to rounding) General Management's discussion and analysis of results of operations and financial condition is intended to assist the reader in understanding and assessing significant changes and trends related to our results of operations and financial position. This discussion and analysis should be read in conjunction with Item 8, \"Financial Statements and Supplementary Data.\" Certain statements in this Item 7 constitute forward-looking statements. Various risks and uncertainties, including those discussed in \"Forward-Looking Statements\" and Item 1A, \"Risk Factors,\" may cause our actual results, financial position, and cash generated from operations to differ from these forward-looking statements. EXECUTIVE OVERVIEW This section provides an overview of our financial results, our clinical development pipeline, and other matters affecting our company and industry. Financial Results The following table summarizes certain financial information: Year Ended December 31, Percent Change 20252024 Revenue$65,179 $45,043 45 Net income20,640 10,590 95 Earnings per share - diluted22.95 11.71 96 Revenue increased in 2025 driven primarily by increased volume, partially offset by lower realized prices. The increased volume and lower realized prices in 2025 were primarily driven by Mounjaro and Zepbound. Net income and earnings per share increased in 2025, primarily due to higher gross margin, partially offset by increased marketing, selling, and administrative expenses and research and development expenses. See \"Results of Operations\" for additional information. 43 Clinical Development Pipeline Our long-term success depends on our ability to continually discover",
+          "metadata": {
+            "ID": "000005947826000013#item7#passage-000000",
+            "Ticker": "LLY",
+            "CIK": "59478",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000059478-26-000013",
+          "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+          "tag": "LLY-2026-10K-item7-p000000"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "elapsed_seconds": 6.5399641530020745
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "segment sales disclosures",
+      "filters": {
+        "ticker": "JNJ",
+        "year": 2026,
+        "section": "Item 7",
+        "accession": "000020040626000016"
+      },
+      "score": 5,
+      "rationale": "The JNJ Item 7 passages directly state the requested segment sales disclosures. Passage 000020040626000016#item7#passage-000004 gives Innovative Medicine 2025 sales of $60.4B (up 6.0%, with U.S. and international splits) and the therapeutic-area sales table. Passage 000020040626000016#item7#passage-000009 gives MedTech 2025 sales of $33.8B (up 6.1%, with U.S. and international splits) and the franchise table. Passage 000020040626000016#item7#passage-000015 gives segment sales and income before tax by segment for 2025 and 2024. Together these fully support the original subquery within the 2026 filing scope.</rationale>\n<parameter name=\"retain_ids\">[]",
+      "evidence": [
+        {
+          "id": "000020040626000016#item7#passage-000027",
+          "text": "for certain franchises in the MedTech segment are typically resalable but are not material. The Company infrequently exchanges products from inventory for returned products. The sales returns reserve for the total Company has been approximately 1.0% of annual net trade sales during the fiscal years 2025, 2024 and 2023. 36 Promotional programs are recorded in the same period as related sales and include volume-based sales incentive programs. Volume-based incentive programs are based on the estimated sales volumes for the incentive period and are recorded as products are sold. These arrangements are evaluated to determine the appropriate amounts to be deferred or recorded as a reduction of revenue. The Company also earns profit-share payments through collaborative arrangements of certain products, which are included in sales to customers. Profit-share payments were less than 2.0% of the total revenues in the fiscal year 2025, 2024 and 2023. In addition, the Company enters into collaboration arrangements that contain multiple performance obligations. Amounts due from collaborative partners for these arrangements are recognized as each performance obligation is satisfied, based on the relative selling price. Upfront fees received as part of these arrangements are generally deferred and recognized over the performance period. See Note 1 to the Consolidated Financial Statements for additional disclosures on collaborations. Reasonably likely changes to assumptions used to calculate the accruals for rebates, returns and promotions are not anticipated to have a material effect on the financial statements. The Company currently discloses the impact of changes to assumptions in the quarterly or annual filing in which there is",
+          "metadata": {
+            "ID": "000020040626000016#item7#passage-000027",
+            "Ticker": "JNJ",
+            "CIK": "200406",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000200406-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "tag": "JNJ-2026-10K-item7-p000027"
+        },
+        {
+          "id": "000020040626000016#item7#passage-000004",
+          "text": "impact of 0.1%. In 2025, the Company utilized three wholesalers distributing products for both segments that represented approximately 21.8%, 15.5% and 11.1% of the total gross revenues. In 2024, the Company had three wholesalers distributing products for both segments that represented approximately 20.5%, 15.6% and 12.3% of the total gross revenues. 2025 Sales by geographic region (in billions) 2025 Sales by segment (in billions) Note: values may have been rounded *operational excludes the effect of translational currency Analysis of sales by business segments Innovative Medicine segment Innovative Medicine segment sales in 2025 were $60.4 billion, an increase of 6.0% from 2024, which included operational growth of 5.3% and a positive currency impact of 0.7%. U.S. sales were $36.3 billion, an increase of 7.0%. International sales were $24.1 billion, an increase of 4.6%, which included operational growth of 2.9% and a positive currency impact of 1.7%. In 2025, the net impact of acquisitions and divestitures on the worldwide Innovative Medicine segment operational sales growth was a positive 1.2%, related to CAPLYTA. In 2025, the negative impact of the STELARA sales decline, primarily due to biosimilar competition, was an approximate 10.4%, 12.3% and 7.9% on worldwide, U.S. and international Innovative Medicine segment operational sales, respectively. 24 Major Innovative Medicine therapeutic area sales: (Dollars in Millions)20252024Total ChangeOperations ChangeCurrency Change Total Oncology$25,380$20,78122.1 %20.9 %1.2 % CARVYKTI1,88796395.994.31.6 DARZALEX14,35111,67023.0 22.0 1.0 ERLEADA3,5742,99919.2 17.2 2.0 IMBRUVICA2,8233,038(7.1)(8.6)1.5 RYBREVANT/ LAZCLUZE(1) 734327*** TALVEY(2) 46328761.3 60.3 1.0 TECVAYLI67054922.1 21.5 0.6 ZYTIGA /abiraterone acetate502631(20.4)(21.2)0.8 Other Oncology37631718.517.51.0 Total Immunology15,72817,828(11.8)(12.0)0.2 REMICADE1,7681,60510.2 10.5 (0.3) SIMPONI/SIMPONI ARIA2,6682,19021.8 21.7 0.1 STELARA6,07810,361(41.3)(41.5)0.2 TREMFYA5,1553,67040.5 39.8",
+          "metadata": {
+            "ID": "000020040626000016#item7#passage-000004",
+            "Ticker": "JNJ",
+            "CIK": "200406",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000200406-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "tag": "JNJ-2026-10K-item7-p000004"
+        },
+        {
+          "id": "000020040626000016#item7#passage-000026",
+          "text": "between 30 to 90 days. Provisions for certain rebates, sales incentives, trade promotions, coupons, product returns, discounts to customers and governmental clawback provisions are accounted for as variable consideration and recorded as a reduction in sales. Product discounts granted are based on the terms of arrangements with direct, indirect and other market participants, as well as market conditions, including consideration of competitor pricing. Rebates and discounts are estimated based on contractual terms, historical experience, patient outcomes, trend analysis and projected market conditions in the various markets served. The Company evaluates market conditions for products or groups of products primarily through the analysis of wholesaler and other third-party sell-through and market research data, as well as internally generated information. Sales returns are estimated and recorded based on historical sales and returns information. Products that have lost patent exclusivity, or that otherwise exhibit unusual sales or return patterns due to dating, competition or other marketing matters are specifically investigated and analyzed as part of the accounting for sales return accruals. Sales returns allowances represent a reserve for products that may be returned due to expiration, destruction in the field, or in specific areas, product recall. In accordance with the Company’s accounting policies, the Company generally issues credit to customers for returned goods. The Company’s sales returns reserves are accounted for in accordance with the U.S. GAAP guidance for revenue recognition when right of return exists. Sales returns reserves are recorded at full sales value. Sales returns in the Innovative Medicine segment are almost exclusively not resalable. Sales returns",
+          "metadata": {
+            "ID": "000020040626000016#item7#passage-000026",
+            "Ticker": "JNJ",
+            "CIK": "200406",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000200406-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "tag": "JNJ-2026-10K-item7-p000026"
+        },
+        {
+          "id": "000020040626000016#item7#passage-000009",
+          "text": "Psoriasis (PROTOSTAR)•• TREMFYA (guselkumab)Treatment of patients with Psoriatic Arthritis Structural Damage (APEX)• TREMFYA (guselkumab)Treatment of Patients with Pediatric Juvenile Psoriatic Arthritis• 2025 Annual Report 27 MedTech segment The MedTech segment sales in 2025 were $33.8 billion, an increase of 6.1% from 2024, which included operational growth of 5.4% and a positive currency impact of 0.7%. U.S. sales were $17.4 billion, an increase of 6.6% as compared to the prior year. International sales were $16.4 billion, an increase of 5.5% as compared to the prior year, which included operational growth of 4.1% and a positive currency impact of 1.4%. In 2025, the net impact of acquisitions and divestitures on the MedTech segment worldwide operational sales growth was a positive 1.1% primarily related to the Shockwave acquisition. Major MedTech franchise sales: (Dollars in Millions)20252024Total ChangeOperations ChangeCurrency Change Surgery$10,137 9,845 3.0 %2.5 %0.5 % Advanced4,577 4,488 2.0 1.5 0.5 General5,560 5,358 3.8 3.3 0.5 Orthopaedics9,258 9,158 1.1 0.3 0.8 Hips1,674 1,638 2.1 1.4 0.7 Knees1,587 1,545 2.7 2.0 0.7 Trauma3,146 3,049 3.2 2.4 0.8 Spine, Sports & Other2,852 2,926 (2.5)(3.5)1.0 Cardiovascular8,928 7,707 15.8 15.2 0.6 Electrophysiology5,634 5,267 7.0 6.4 0.6 Abiomed1,751 1,496 17.116.20.9 Shockwave(1) 1,146 564 *** Other Cardiovascular397 380 4.3 3.8 0.5 Vision5,468 5,146 6.3 5.3 1.0 Contact Lenses/Other3,910 3,733 4.8 3.6 1.2 Surgical1,558 1,413 10.2 9.9 0.3 Total MedTech Sales$33,792 31,857 6.1 %5.4 %0.7 % (1)Acquired on May 31, 2024 * Percentage greater than 100% or not meaningful The Surgery franchise achieved sales of $10.1 billion in 2025, representing an increase of 3.0% from 2024. Growth in",
+          "metadata": {
+            "ID": "000020040626000016#item7#passage-000009",
+            "Ticker": "JNJ",
+            "CIK": "200406",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000200406-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "tag": "JNJ-2026-10K-item7-p000009"
+        },
+        {
+          "id": "000020040626000016#item7#passage-000015",
+          "text": "end of 2025 was $47.9 billion with an average debt balance of $42.3 billion as compared to $36.6 billion at the end of 2024 and an average debt balance of $33.0 billion. The higher debt balance was due to the senior unsecured notes issued by the Company in the fiscal first quarter of 2025. The net proceeds from this offering were used to fund the Intra-Cellular Therapies, Inc. acquisition which closed on April 2, 2025 and for general corporate purposes. Income before tax by segment Income before tax by segment of business was as follows: Income Before TaxSegment SalesPercent of Segment Sales (Dollars in Millions)202520242025202420252024 Innovative Medicine$22,266 18,919 60,401 56,964 36.9 %33.2 MedTech4,113 3,740 33,792 31,857 12.2 11.7 Segment earnings before tax(1) 26,379 22,659 94,193 88,821 28.0 25.5 (Income) Expenses not allocated to segments(2) (6,202)5,972 Worldwide income before tax$32,581 16,687 94,193 88,821 34.6 %18.8 (1)See Note 17 to the Consolidated Financial Statements for more details. (2)Amounts not allocated to segments include interest (income) expense and general corporate (income) expense. The fiscal year 2025 includes the reversal of approximately $7.0 billion, a significant portion of the previously accrued talc reserve. The fiscal year 2024 includes charges for talc matters of approximately $5.1 billion and a loss of approximately $0.4 billion related to the debt to equity exchange of the Company's remaining shares of Kenvue Common Stock. 2025 Annual Report 31 Innovative Medicine segment: In 2025, the Innovative Medicine segment income before tax as a percent to sales was 36.9% versus 33.2% in 2024. The increase in the",
+          "metadata": {
+            "ID": "000020040626000016#item7#passage-000015",
+            "Ticker": "JNJ",
+            "CIK": "200406",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000200406-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "tag": "JNJ-2026-10K-item7-p000015"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "elapsed_seconds": 7.592240422000032
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Revenue of Mounjaro increased 53 percent in the U.S., driven by strong demand, partially offset by lower realized prices. [LLY-2026-10K-item7-p000012](https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm) (chunk: `000005947826000013#item7#passage-000012`; accession: `0000059478-26-000013`).\n- Revenue of Zepbound increased 174 percent in the U.S., driven by increased demand, partially offset by lower realized prices. [LLY-2026-10K-item7-p000012](https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm) (chunk: `000005947826000013#item7#passage-000012`; accession: `0000059478-26-000013`).\n- In the U.S., the volume increase and the lower realized prices in 2025 were primarily driven by Mounjaro and Zepbound. [LLY-2026-10K-item7-p000011](https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm) (chunk: `000005947826000013#item7#passage-000011`; accession: `0000059478-26-000013`).\n- Mounjaro and Zepbound accounted for 56 percent of our total revenues in 2025 and we expect cardiometabolic health products will continue to represent a significant and growing portion of our business, revenues, and prospects. [LLY-2026-10K-item7-p000007](https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm) (chunk: `000005947826000013#item7#passage-000007`; accession: `0000059478-26-000013`).\n- Innovative Medicine segment sales in 2025 were $60.4 billion, an increase of 6.0% from 2024, which included operational growth of 5.3% and a positive currency impact of 0.7%. [JNJ-2026-10K-item7-p000004](https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm) (chunk: `000020040626000016#item7#passage-000004`; accession: `0000200406-26-000016`).\n- The MedTech segment sales in 2025 were $33.8 billion, an increase of 6.1% from 2024, which included operational growth of 5.4% and a positive currency impact of 0.7%. [JNJ-2026-10K-item7-p000009](https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm) (chunk: `000020040626000016#item7#passage-000009`; accession: `0000200406-26-000016`).\n- U.S. sales were $36.3 billion, an increase of 7.0%. International sales were $24.1 billion, an increase of 4.6%, which included operational growth of 2.9% and a positive currency impact of 1.7%. [JNJ-2026-10K-item7-p000004](https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm) (chunk: `000020040626000016#item7#passage-000004`; accession: `0000200406-26-000016`).",
+  "citations": [
+    {
+      "tag": "LLY-2026-10K-item7-p000012",
+      "chunk_id": "000005947826000013#item7#passage-000012",
+      "accession": "0000059478-26-000013",
+      "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+      "quote": "Revenue of Mounjaro increased 53 percent in the U.S., driven by strong demand, partially offset by lower realized prices."
+    },
+    {
+      "tag": "LLY-2026-10K-item7-p000012",
+      "chunk_id": "000005947826000013#item7#passage-000012",
+      "accession": "0000059478-26-000013",
+      "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+      "quote": "Revenue of Zepbound increased 174 percent in the U.S., driven by increased demand, partially offset by lower realized prices."
+    },
+    {
+      "tag": "LLY-2026-10K-item7-p000011",
+      "chunk_id": "000005947826000013#item7#passage-000011",
+      "accession": "0000059478-26-000013",
+      "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+      "quote": "In the U.S., the volume increase and the lower realized prices in 2025 were primarily driven by Mounjaro and Zepbound."
+    },
+    {
+      "tag": "LLY-2026-10K-item7-p000007",
+      "chunk_id": "000005947826000013#item7#passage-000007",
+      "accession": "0000059478-26-000013",
+      "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/lly-20251231.htm",
+      "quote": "Mounjaro and Zepbound accounted for 56 percent of our total revenues in 2025 and we expect cardiometabolic health products will continue to represent a significant and growing portion of our business, revenues, and prospects."
+    },
+    {
+      "tag": "JNJ-2026-10K-item7-p000004",
+      "chunk_id": "000020040626000016#item7#passage-000004",
+      "accession": "0000200406-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+      "quote": "Innovative Medicine segment sales in 2025 were $60.4 billion, an increase of 6.0% from 2024, which included operational growth of 5.3% and a positive currency impact of 0.7%."
+    },
+    {
+      "tag": "JNJ-2026-10K-item7-p000009",
+      "chunk_id": "000020040626000016#item7#passage-000009",
+      "accession": "0000200406-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+      "quote": "The MedTech segment sales in 2025 were $33.8 billion, an increase of 6.1% from 2024, which included operational growth of 5.4% and a positive currency impact of 0.7%."
+    },
+    {
+      "tag": "JNJ-2026-10K-item7-p000004",
+      "chunk_id": "000020040626000016#item7#passage-000004",
+      "accession": "0000200406-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+      "quote": "U.S. sales were $36.3 billion, an increase of 7.0%. International sales were $24.1 billion, an increase of 4.6%, which included operational growth of 2.9% and a positive currency impact of 1.7%."
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 3.762175207000837,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13105,
+        "cache_read_input_tokens": 1249,
+        "output_tokens": 438,
+        "output_tokens_details": {
+          "thinking_tokens": 266
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13105,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 438,
+            "cache_read_input_tokens": 1249,
+            "cache_creation_input_tokens": 13105,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13105
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00285269
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 4.9709329520010215,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16461,
+        "cache_read_input_tokens": 1467,
+        "output_tokens": 732,
+        "output_tokens_details": {
+          "thinking_tokens": 280
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16461,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 732,
+            "cache_read_input_tokens": 1467,
+            "cache_creation_input_tokens": 16461,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16461
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036730700000000005
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.402653962999466,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16859,
+        "cache_read_input_tokens": 1467,
+        "output_tokens": 718,
+        "output_tokens_details": {
+          "thinking_tokens": 341
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16859,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 718,
+            "cache_read_input_tokens": 1467,
+            "cache_creation_input_tokens": 16859,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16859
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00374567
+    },
+    {
+      "schema": "Draft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 8.626886086000013,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 9129,
+        "cache_read_input_tokens": 882,
+        "output_tokens": 1859,
+        "output_tokens_details": {
+          "thinking_tokens": 1174
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 9129,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1859,
+            "cache_read_input_tokens": 882,
+            "cache_creation_input_tokens": 9129,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 9129
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00276432
+    }
+  ],
+  "elapsed_seconds": 19.984591938999074
+}

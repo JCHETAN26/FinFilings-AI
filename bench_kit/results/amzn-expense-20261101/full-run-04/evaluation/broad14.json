@@ -1,0 +1,483 @@
+{
+  "prompt": "Audit TGT filing year 2026: separately retrieve the inventory shrink estimate and its sensitivity, and the capital expenditure disclosures. Support both topics with direct excerpts.",
+  "states": [
+    "Plan",
+    "Retrieve_Evaluate",
+    "Synthesize"
+  ],
+  "plan": {
+    "subqueries": [
+      {
+        "query": "inventory shrink estimate sensitivity",
+        "goal": "inventory shrink estimate and its sensitivity",
+        "filters": {
+          "ticker": "TGT",
+          "year": 2026,
+          "section": "",
+          "accession": "000002741926000016"
+        }
+      },
+      {
+        "query": "capital expenditures disclosures",
+        "goal": "the capital expenditure disclosures",
+        "filters": {
+          "ticker": "TGT",
+          "year": 2026,
+          "section": "",
+          "accession": "000002741926000016"
+        }
+      }
+    ]
+  },
+  "hops": [
+    {
+      "subquery": 0,
+      "attempt": 0,
+      "query": "inventory shrink estimate sensitivity",
+      "requested_goal": "inventory shrink estimate and its sensitivity",
+      "filters": {
+        "ticker": "TGT",
+        "year": 2026,
+        "section": "",
+        "accession": "000002741926000016"
+      },
+      "score": 5,
+      "rationale": "Passage 000016 (Item 7, TGT 2026 filing) states the core requested facts: the shrink estimate is based on historical losses and adjusted to actual physical inventory count results, and the sensitivity is explicit: a 10 percent increase or decrease in the 2025 year-end inventory shrink reserve would impact cost of sales by approximately $110 million. Supporting context appears in 000000 (shrink rates reached pre-pandemic levels) and 000009 (Item 1A shrink risk). The goal's qualifiers are met within scope. Capital expenditure content in the audit prompt belongs to a separate subquery and was not graded.",
+      "evidence": [
+        {
+          "id": "000002741926000016#item7#passage-000016",
+          "text": "related to shrink and markdowns. Our shrink estimate is based on historical losses and is adjusted to reflect results of actual physical inventory counts. We generally perform counts at each location annually, with counts taking place throughout the year. A 10 percent increase or decrease in our 2025 year-end inventory shrink reserve would impact our cost of sales by approximately $110 million. Historically, our actual physical inventory count results have shown our estimates to be reasonably accurate. Market adjustments for markdowns are recorded when the salability of the merchandise has diminished. Salability can be impacted by consumer preferences and seasonality, among other factors. We believe the risk of inventory obsolescence is largely mitigated because our inventory typically turns in less than three months. Inventory was $12.3 billion and $12.7 billion as of January 31, 2026, and February 1, 2025, respectively, and is further described in Note 10 to the Financial Statements. Vendor income: We receive various forms of consideration from our vendors (vendor income), principally earned as a result of volume rebates, promotions, certain advertising activities, and markdown allowances. Vendor income is recorded as a reduction of cost of sales except in arrangements where the payment is a reimbursement of specific, incremental, and identifiable costs and recorded as an offset to those costs. Vendor income earned can vary based on a number of factors, including purchase volumes, sales volumes, and our pricing and promotion strategies. We establish a receivable for vendor income that is earned but not yet received. Based on historical trending and data, this",
+          "metadata": {
+            "ID": "000002741926000016#item7#passage-000016",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item7-p000016"
+        },
+        {
+          "id": "000002741926000016#item1A#passage-000009",
+          "text": "for our owned brand products. This has resulted, and may in the future result, in insufficient or excess inventory, increased inventory markdowns, and higher costs. Any of these outcomes could adversely affect our results of operations and financial condition. If we are unable to protect against inventory shrink, our results of operations and financial condition could be adversely affected. Our business depends on our ability to effectively manage our inventory. We have historically experienced loss of inventory (also called shrink) due to damage, theft (including from organized retail crime), and other causes. To protect against rising inventory shrink, we have taken, and may continue to take, certain operational and strategic actions that could adversely affect our reputation, guest experience, and results of operations. In addition, sustained high rates of inventory shrink at certain stores have contributed, and may continue to contribute, to the closure of certain stores and the impairment of long-term assets. We depend on seasonal moments and higher-margin merchandise to drive sales and net earnings growth. Our business experiences some seasonality, with a larger portion of our sales traditionally occurring in the fourth quarter because it includes the November and December holiday sales period. In addition to the November and December holiday sales period, we also see increased sales activity during the back-to-school and back-to-college period and other seasonal moments throughout the year. As a result, any factors negatively impacting us during any of these periods, including weather conditions, natural disasters, macroeconomic conditions, consumer preferences, technological disruptions, and political or economic uncertainty or instability,",
+          "metadata": {
+            "ID": "000002741926000016#item1A#passage-000009",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 1A"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item1A-p000009"
+        },
+        {
+          "id": "000002741926000016#item8#passage-000020",
+          "text": "to acquire inventory, freight costs incurred to deliver product to our distribution centers and stores, and import costs, reduced by vendor income and cash discounts. Supply chain operating costs, including compensation and benefits, are expensed in the period incurred. Inventory is also reduced for estimated losses related to shrink and markdowns. The LIFO provision is calculated based on inventory levels, markup rates, and internally measured retail price indices, and was $201 million and $183 million as of January 31, 2026, and February 1, 2025, respectively. Under RIM, inventory cost and the resulting gross margins are calculated by applying a cost-to-retail ratio to the inventory retail value. RIM is an averaging method that has been widely used in the retail industry due to its practicality. The use of RIM will result in inventory being valued at the lower of cost or market because permanent markdowns are taken as a reduction of the retail value of inventory. 11. Other Current Assets Other Current Assets (millions) January 31, 2026February 1, 2025 Accounts and other receivables$1,265 $998 Vendor income receivable542 543 Prepaid expenses223 226 Other183 185 Other Current Assets$2,213 $1,952 12. Property and Equipment Property and equipment, including assets acquired under finance leases, is depreciated using the straight-line method over estimated useful lives or lease terms if shorter. We amortize leasehold improvements purchased after the beginning of the initial lease term over the shorter of the assets' useful lives or a term that includes the remaining initial lease term, plus any renewals that are reasonably certain at the date the",
+          "metadata": {
+            "ID": "000002741926000016#item8#passage-000020",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item8-p000020"
+        },
+        {
+          "id": "000002741926000016#item7#passage-000007",
+          "text": "27.9 percent in 2025 and 28.2 percent in 2024. The decrease reflected the net impact of: •merchandising activities, including higher markdown rates and purchase order cancellation costs, partially offset by growth in advertising and other revenues; •changes in category sales mix; and •lower inventory shrink. Selling, General and Administrative (SG&A) Expense Rate Our SG&A expense rate was 20.6 percent in 2025, consistent with 2024. The 2025 rate included a 0.6 percentage point benefit from interchange fee settlements, partially offset by 0.2 percentage points of business transformation costs. Excluding these items, our Adjusted SG&A expense rate was 20.9 percent in 2025, compared with 20.6 percent in 2024, reflecting the deleveraging impact of lower Net Sales and the net impact of other costs. TARGET CORPORATION 2025 Form 10-K 31 MANAGEMENT'S DISCUSSION AND ANALYSIS Table of Contents ANALYSIS OF OPERATIONS & OTHER PERFORMANCE FACTORS Index to Financial Statements Other Performance Factors Net Interest Expense Net interest expense was $445 million for 2025, compared with $411 million for 2024. The increase in net interest expense was primarily due to higher average debt levels. Provision for Income Taxes Our 2025 effective income tax rate was 22.3 percent compared with 22.2 percent in 2024. The increase reflects global minimum taxes and discrete tax expense in the current year related to share-based compensation, primarily offset by benefits from tax credits. Reconciliation of Non-GAAP Financial Measures to GAAP Measures To provide additional transparency, we have disclosed non-GAAP adjusted diluted earnings per share (Adjusted EPS), adjusted SG&A expenses, adjusted SG&A expense rate, adjusted operating income,",
+          "metadata": {
+            "ID": "000002741926000016#item7#passage-000007",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item7-p000007"
+        },
+        {
+          "id": "000002741926000016#item7#passage-000000",
+          "text": "Item 7. Management's Discussion and Analysis of Financial Condition and Results of Operations Executive Overview In 2025, we operated in a dynamic and uncertain environment characterized by cautious consumers who remained value-focused and selective in discretionary spending along with unprecedented tariff volatility. Against this backdrop, we took decisive actions to strengthen our business and position Target for long-term growth with a clear strategic focus around four priorities: leading with merchandising authority; elevating the guest experience; accelerating technology; and strengthening team and communities. During 2025, we: •Took action on our initiative to transform various aspects of our business, including organizational simplification to streamline decision-making, reduce complexity, and drive efficiency; •Advanced the multi-year transformation of our Hardlines business into \"Fun 101\", an evolution in bringing greater cultural relevance and style authority to the assortment; •Continued innovation within our owned brands portfolio, including design partnerships and collaborations across multiple categories, such as our new fresh floral owned brand, Good Little Garden, the kate spade new york x Target collection, and partnerships with celebrities including Taylor Swift and Tom Holland; •Launched Precision Plus by Roundel™, a retail media capability that improves advertising outcomes by leveraging data and AI-learning, and expanded our Target Plus third-party digital marketplace; •Leveraged our nearly 2,000-store network (including 18 new stores opened in 2025) to fulfill the vast majority of sales through stores, supporting speed and cost efficiency, with two-thirds of digital sales fulfilled through our same-day fulfillment options; •Realized significant improvements in inventory shrink throughout the year, with shrink rates reaching pre-pandemic levels; •Enhanced artificial",
+          "metadata": {
+            "ID": "000002741926000016#item7#passage-000000",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item7-p000000"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000002741926000016#item7#passage-000016",
+        "000002741926000016#item1A#passage-000009",
+        "000002741926000016#item8#passage-000020",
+        "000002741926000016#item7#passage-000007",
+        "000002741926000016#item7#passage-000000",
+        "000002741926000016#item8#passage-000019",
+        "000002741926000016#item7#passage-000012",
+        "000002741926000016#item8#passage-000015",
+        "000002741926000016#item1A#passage-000011",
+        "000002741926000016#item8#passage-000005"
+      ],
+      "fresh_verified_ids": [
+        "000002741926000016#item7#passage-000016",
+        "000002741926000016#item1A#passage-000009",
+        "000002741926000016#item8#passage-000020",
+        "000002741926000016#item7#passage-000007",
+        "000002741926000016#item7#passage-000000"
+      ],
+      "elapsed_seconds": 9.002898324000853
+    },
+    {
+      "subquery": 1,
+      "attempt": 0,
+      "query": "capital expenditures disclosures",
+      "requested_goal": "the capital expenditure disclosures",
+      "filters": {
+        "ticker": "TGT",
+        "year": 2026,
+        "section": "",
+        "accession": "000002741926000016"
+      },
+      "score": 5,
+      "rationale": "Scope is TGT, filing year 2026 (accession 000002741926000016). The requested goal is the capital expenditure disclosures. Passage 000012 (MD&A) gives the 2025 capex narrative: investment in stores, supply chain and technology, the increase versus 2024 driven by new stores and remodels, and the expected 2026 capex of about $5 billion. Passage 000010 (cash flow statement) gives the reported \"Expenditures for property and equipment\" figures: $(3,727)M in 2025, $(2,891)M in 2024 and $(4,806)M in 2023. Together these state the core capex facts for this filing. No required element is missing.</rationale>\n<parameter name=\"retain_ids\">[\"000002741926000016#item7#passage-000012\", \"000002741926000016#item8#passage-000010\"]",
+      "evidence": [
+        {
+          "id": "000002741926000016#item7#passage-000012",
+          "text": "flow decrease reflects lower net earnings, as well as the net impact of lower accounts payable leverage and inventory purchases in the current year. Inventory Year-end inventory was $12.3 billion in 2025, compared with $12.7 billion in 2024. The decrease reflects the combined impact of timing of receipts and alignment of inventory with sales trends, partially offset by higher merchandise costs in 2025. TARGET CORPORATION 2025 Form 10-K 35 MANAGEMENT'S DISCUSSION AND ANALYSIS Table of Contents ANALYSIS OF FINANCIAL CONDITION Index to Financial Statements Capital Expenditures Note: Amounts may not foot due to rounding. Capital expenditures in 2025 reflect continued investment in our strategic initiatives, including investments in both stores and in our supply chain, enhancing our capabilities and guest experience across stores and digital channels. The increase in capital expenditures in 2025 compared with 2024 primarily reflects an increased investment in both new stores and remodels. We expect capital expenditures in 2026 of approximately $5 billion to support our store experience and remodel program, continued investment in supply chain and technology projects, and investment in new stores. We expect to open about 30 new stores during 2026. Dividends We paid dividends totaling $2.1 billion ($4.52 per share) in 2025 and $2.0 billion ($4.44 per share) in 2024, a per share increase of 1.8 percent. We declared dividends totaling $2.1 billion ($4.54 per share) in 2025 and $2.1 billion ($4.46 per share) in 2024, a per share increase of 1.8 percent. We have paid dividends every quarter since our 1967 initial public offering, and it is",
+          "metadata": {
+            "ID": "000002741926000016#item7#passage-000012",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item7-p000012"
+        },
+        {
+          "id": "000002741926000016#item7#passage-000015",
+          "text": "information. Future Cash Requirements We enter into contractual obligations in the ordinary course of business that may require future cash payments. Such obligations include, but are not limited to, purchase commitments, debt service, leasing arrangements, and liabilities related to deferred compensation and pensions. The Notes to the Consolidated Financial Statements provide additional information. We believe our sources of liquidity, namely operating cash flows, credit facility capacity, and access to capital markets, will continue to be adequate to meet our contractual obligations, working capital and capital expenditure requirements, finance anticipated expansion and strategic initiatives, fund debt maturities, pay dividends, and execute purchases under our share repurchase program for the foreseeable future. TARGET CORPORATION 2025 Form 10-K 37 MANAGEMENT'S DISCUSSION AND ANALYSIS Table of Contents ANALYSIS OF FINANCIAL CONDITION Index to Financial Statements Critical Accounting Estimates Our consolidated financial statements are prepared in accordance with GAAP, which requires us to make estimates and apply judgments that affect the reported amounts. In the Notes to the Consolidated Financial Statements, we describe the significant accounting policies used in preparing the consolidated financial statements. Our management has discussed the development, selection, and disclosure of our critical accounting estimates with the Audit & Risk Committee of our Board of Directors. The following items require significant estimation or judgment: Inventory and cost of sales: The vast majority of our inventory is accounted for under the retail inventory accounting method using the last-in, first-out method (LIFO). Our inventory is valued at the lower of LIFO cost or market. We reduce inventory for estimated losses",
+          "metadata": {
+            "ID": "000002741926000016#item7#passage-000015",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item7-p000015"
+        },
+        {
+          "id": "000002741926000016#item8#passage-000010",
+          "text": "STATEMENTS Table of Contents Index to Financial Statements Consolidated Statements of Cash Flows (millions)202520242023 Operating activities Net earnings $3,705 $4,091 $4,138 Adjustments to reconcile net earnings to cash provided by operations: Depreciation and amortization3,134 2,981 2,801 Share-based compensation expense281 304 251 Deferred income taxes(55)(180)298 Noncash (gains) / losses and other, net (100)26 94 Changes in operating accounts: Inventory436 (854)1,613 Other assets(494)(308)(85) Accounts payable(501)1,008 (1,216) Accrued and other liabilities156 299 727 Cash provided by operating activities6,562 7,367 8,621 Investing activities Expenditures for property and equipment(3,727)(2,891)(4,806) Other 78 31 46 Cash used in investing activities (3,649)(2,860)(4,760) Financing activities Additions to long-term debt1,984 741 — Reductions of long-term debt(1,643)(1,139)(147) Dividends paid(2,053)(2,046)(2,011) Repurchase of stock(408)(1,007)— Shares withheld for taxes on share-based compensation (67)(99)(127) Cash used in financing activities (2,187)(3,550)(2,285) Net increase in cash and cash equivalents 726 957 1,576 Cash and cash equivalents at beginning of period 4,762 3,805 2,229 Cash and cash equivalents at end of period$5,488 $4,762 $3,805 Supplemental information Interest paid, net of capitalized interest$629 $615 $605 Leased assets obtained in exchange for new finance lease liabilities104 319 104 Leased assets obtained in exchange for new operating lease liabilities381 758 1,027 Note: 2023 consisted of 53 weeks compared with 52 weeks in 2025 and 2024. See accompanying Notes to Consolidated Financial Statements. TARGET CORPORATION 2025 Form 10-K 48 FINANCIAL STATEMENTS Table of Contents Index to Financial Statements Consolidated Statements of Shareholders' Investment (millions)Common Stock SharesStock Par ValueAdditional Paid-in Capital Retained Earnings Accumulated Other Comprehensive Loss Total January 28, 2023460.3 $38 $6,608 $5,005 $(419)$11,232 Net earnings— — —",
+          "metadata": {
+            "ID": "000002741926000016#item8#passage-000010",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item8-p000010"
+        },
+        {
+          "id": "000002741926000016#item7#passage-000021",
+          "text": "16 to the Financial Statements for further information on contingencies. New Accounting Pronouncements We do not expect that any recently issued accounting pronouncements will have a material effect on our financial statements. TARGET CORPORATION 2025 Form 10-K 39 MANAGEMENT'S DISCUSSION AND ANALYSIS Table of Contents FORWARD LOOKING STATEMENTS & QUANTITATIVE AND QUALITATIVE DISCLOSURES Index to Financial Statements Forward-Looking Statements This report contains forward-looking statements, which are based on our current assumptions and expectations. These statements are typically accompanied by the words \"aim,\" \"anticipate,\" \"believe,\" \"could,\" \"expect,\" \"may,\" \"might,\" \"seek,\" \"will,\" \"would,\" or similar words. The principal forward-looking statements in this report include statements regarding: our future financial and operational performance, our strategy for growth, changes in the consumer landscape, evolution in tariffs and global trade policy, the impacts of business transformation efforts, the adequacy of and costs associated with our sources of liquidity, the funding of debt maturities, the execution of our share repurchase program, our expected capital expenditures and new lease commitments, the expected compliance with debt covenants, the expected impact of new accounting pronouncements, our intentions regarding future dividends, the expected contributions and payments related to our pension plan, the expected return on plan assets, the expected timing and recognition of compensation expenses, the adequacy of our reserves for general liability, workers' compensation, and property loss, the expected outcome of, and adequacy of our reserves for, claims, litigation, and the resolution of tax matters, our expectations regarding our contractual obligations, liabilities, and vendor income, the expected ability to recognize deferred tax assets and liabilities",
+          "metadata": {
+            "ID": "000002741926000016#item7#passage-000021",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 7"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item7-p000021"
+        },
+        {
+          "id": "000002741926000016#item8#passage-000023",
+          "text": "to Financial Statements 15. Accrued and Other Current Liabilities Accrued and Other Current Liabilities (millions) January 31, 2026February 1, 2025 Wages and benefits$1,565 $1,597 Gift card liability, net of estimated breakage 1,197 1,209 Real estate, sales, and other taxes payable 704 708 Dividends payable516 510 Income tax payable440 334 Current portion of operating lease liabilities372 353 Workers' compensation and general liability (a) 310 211 Interest payable138 126 Other1,236 1,062 Accrued and Other Current Liabilities$6,478 $6,110 (a)We retain a substantial portion of the risk related to general liability and workers' compensation claims. We estimate our ultimate cost based on analysis of historical data and actuarial estimates. General liability and workers' compensation liabilities are recorded at our estimate of their net present value. Note 21 provides the noncurrent balance of these liabilities. 16. Commitments and Contingencies Contingencies We are exposed to claims and litigation arising in the ordinary course of business and use various methods to resolve these matters in a manner that we believe serves the best interest of our shareholders and other constituents. When a loss is probable, we record an accrual based on the reasonably estimable loss or range of loss. When no point of loss is more likely than another, we record the lowest amount in the estimated range of loss and, if material, disclose the estimated range of loss. We do not record liabilities for reasonably possible loss contingencies, but do disclose a range of reasonably possible losses if they are material and we are able to estimate such a range. If we",
+          "metadata": {
+            "ID": "000002741926000016#item8#passage-000023",
+            "Ticker": "TGT",
+            "CIK": "27419",
+            "FormType": "10-K",
+            "FilingYear": 2026,
+            "SectionItem": "Item 8"
+          },
+          "accession": "0000027419-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+          "tag": "TGT-2026-10K-item8-p000023"
+        }
+      ],
+      "accepted": true,
+      "retained_evidence_ids": [],
+      "nominated_retained_ids": [],
+      "retrieved_ids": [
+        "000002741926000016#item7#passage-000012",
+        "000002741926000016#item7#passage-000015",
+        "000002741926000016#item8#passage-000010",
+        "000002741926000016#item7#passage-000021",
+        "000002741926000016#item8#passage-000023",
+        "000002741926000016#item8#passage-000042",
+        "000002741926000016#item7#passage-000018",
+        "000002741926000016#item7#passage-000009",
+        "000002741926000016#item7#passage-000010",
+        "000002741926000016#item8#passage-000003"
+      ],
+      "fresh_verified_ids": [
+        "000002741926000016#item7#passage-000012",
+        "000002741926000016#item7#passage-000015",
+        "000002741926000016#item8#passage-000010",
+        "000002741926000016#item7#passage-000021",
+        "000002741926000016#item8#passage-000023"
+      ],
+      "elapsed_seconds": 9.02751155200167
+    }
+  ],
+  "markdown": "Verified filing excerpts (extractive audit evidence; no derived calculations):\n\n- Our shrink estimate is based on historical losses and is adjusted to reflect results of actual physical inventory counts. [TGT-2026-10K-item7-p000016](https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm) (chunk: `000002741926000016#item7#passage-000016`; accession: `0000027419-26-000016`).\n- A 10 percent increase or decrease in our 2025 year-end inventory shrink reserve would impact our cost of sales by approximately $110 million. [TGT-2026-10K-item7-p000016](https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm) (chunk: `000002741926000016#item7#passage-000016`; accession: `0000027419-26-000016`).\n- Historically, our actual physical inventory count results have shown our estimates to be reasonably accurate. [TGT-2026-10K-item7-p000016](https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm) (chunk: `000002741926000016#item7#passage-000016`; accession: `0000027419-26-000016`).\n- We expect capital expenditures in 2026 of approximately $5 billion to support our store experience and remodel program, continued investment in supply chain and technology projects, and investment in new stores. [TGT-2026-10K-item7-p000012](https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm) (chunk: `000002741926000016#item7#passage-000012`; accession: `0000027419-26-000016`).\n- The increase in capital expenditures in 2025 compared with 2024 primarily reflects an increased investment in both new stores and remodels. [TGT-2026-10K-item7-p000012](https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm) (chunk: `000002741926000016#item7#passage-000012`; accession: `0000027419-26-000016`).\n- Expenditures for property and equipment\\(3,727\\)\\(2,891\\)\\(4,806\\) [TGT-2026-10K-item8-p000010](https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm) (chunk: `000002741926000016#item8#passage-000010`; accession: `0000027419-26-000016`).",
+  "citations": [
+    {
+      "tag": "TGT-2026-10K-item7-p000016",
+      "chunk_id": "000002741926000016#item7#passage-000016",
+      "accession": "0000027419-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+      "quote": "Our shrink estimate is based on historical losses and is adjusted to reflect results of actual physical inventory counts."
+    },
+    {
+      "tag": "TGT-2026-10K-item7-p000016",
+      "chunk_id": "000002741926000016#item7#passage-000016",
+      "accession": "0000027419-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+      "quote": "A 10 percent increase or decrease in our 2025 year-end inventory shrink reserve would impact our cost of sales by approximately $110 million."
+    },
+    {
+      "tag": "TGT-2026-10K-item7-p000016",
+      "chunk_id": "000002741926000016#item7#passage-000016",
+      "accession": "0000027419-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+      "quote": "Historically, our actual physical inventory count results have shown our estimates to be reasonably accurate."
+    },
+    {
+      "tag": "TGT-2026-10K-item7-p000012",
+      "chunk_id": "000002741926000016#item7#passage-000012",
+      "accession": "0000027419-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+      "quote": "We expect capital expenditures in 2026 of approximately $5 billion to support our store experience and remodel program, continued investment in supply chain and technology projects, and investment in new stores."
+    },
+    {
+      "tag": "TGT-2026-10K-item7-p000012",
+      "chunk_id": "000002741926000016#item7#passage-000012",
+      "accession": "0000027419-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+      "quote": "The increase in capital expenditures in 2025 compared with 2024 primarily reflects an increased investment in both new stores and remodels."
+    },
+    {
+      "tag": "TGT-2026-10K-item8-p000010",
+      "chunk_id": "000002741926000016#item8#passage-000010",
+      "accession": "0000027419-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000016/tgt-20260131.htm",
+      "quote": "Expenditures for property and equipment(3,727)(2,891)(4,806)"
+    }
+  ],
+  "flags": [],
+  "model_calls": [
+    {
+      "schema": "Plan",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.310515265999129,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 13070,
+        "cache_read_input_tokens": 1472,
+        "output_tokens": 610,
+        "output_tokens_details": {
+          "thinking_tokens": 406
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 13070,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 610,
+            "cache_read_input_tokens": 1472,
+            "cache_creation_input_tokens": 13070,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 13070
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00293392
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.986145643000782,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16131,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 842,
+        "output_tokens_details": {
+          "thinking_tokens": 480
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16131,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 842,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16131,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16131
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0036644000000000004
+    },
+    {
+      "schema": "Critique",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.75396048499897,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16515,
+        "cache_read_input_tokens": 1700,
+        "output_tokens": 856,
+        "output_tokens_details": {
+          "thinking_tokens": 457
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16515,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 856,
+            "cache_read_input_tokens": 1700,
+            "cache_creation_input_tokens": 16515,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 16515
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.0037482
+    },
+    {
+      "schema": "HandleDraft",
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "seconds": 5.854812839999795,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 8077,
+        "output_tokens": 1242,
+        "output_tokens_details": {
+          "thinking_tokens": 849
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1242,
+            "cache_read_input_tokens": 8077,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cli_reported_cost_usd": 0.00070197
+    }
+  ],
+  "elapsed_seconds": 20.196196730001247
+}

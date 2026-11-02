@@ -1,0 +1,1287 @@
+{
+  "suite_id": "broad-validation-v2",
+  "suite_sha256": "2d87557ba1e776f6489b0174211bde7ec21fa60f9a0544f32352b2608808831d",
+  "corpus_sha256": "c62207623da1fd592d79248916ece408b5568eeceaafc1c0777a83a518f7a56f",
+  "frozen_case_count": 30,
+  "expected_case_ids": [
+    "audit01",
+    "audit02",
+    "audit03",
+    "audit04",
+    "audit05",
+    "audit06",
+    "audit07",
+    "audit08",
+    "audit09",
+    "audit10",
+    "broad11",
+    "broad12",
+    "broad13",
+    "broad14",
+    "broad15",
+    "broad16",
+    "broad17",
+    "broad18",
+    "broad19",
+    "broad20",
+    "broad21",
+    "broad22",
+    "broad23",
+    "broad24",
+    "broad25",
+    "broad26",
+    "broad27",
+    "broad28",
+    "broad29",
+    "broad30"
+  ],
+  "full_suite": true,
+  "enrolled_filings": 152,
+  "verified": 29,
+  "run_failed": 1,
+  "verification_failed": 0,
+  "omitted": [],
+  "failures_by_category": {
+    "transport": 0,
+    "model": 0,
+    "structural": 1
+  },
+  "evidence_outcomes": {
+    "supported": 25,
+    "partial_gap": 0,
+    "abstained": 1,
+    "expected_unavailable": 3
+  },
+  "mixed_availability_cases_verified": [
+    "broad29",
+    "broad30"
+  ],
+  "verified_citations": 161,
+  "unique_source_passages_checked": 248,
+  "anchors": {
+    "total": 32,
+    "retrieved": 28,
+    "cited": 24,
+    "note": "Informational reviewer-evidence overlap for source-informed fixtures. Not recall, not accuracy."
+  },
+  "coverage": {
+    "positive_companies": [
+      "ADBE",
+      "AFL",
+      "AMD",
+      "BAC",
+      "COP",
+      "CRM",
+      "CVS",
+      "HD",
+      "HPE",
+      "ISRG",
+      "JNJ",
+      "KO",
+      "LLY",
+      "MET",
+      "MRK",
+      "OXY",
+      "PFE",
+      "PG",
+      "SBUX",
+      "TGT",
+      "TSLA",
+      "TXN",
+      "UNH",
+      "V",
+      "WMT"
+    ],
+    "new_companies_beyond_baseline": [
+      "ADBE",
+      "AFL",
+      "AMD",
+      "BAC",
+      "COP",
+      "CRM",
+      "CVS",
+      "HD",
+      "HPE",
+      "ISRG",
+      "JNJ",
+      "KO",
+      "LLY",
+      "MET",
+      "MRK",
+      "OXY",
+      "PFE",
+      "PG",
+      "SBUX",
+      "TGT",
+      "TSLA",
+      "TXN",
+      "UNH",
+      "V",
+      "WMT"
+    ],
+    "multi_company_comparisons": [
+      "audit01",
+      "audit02",
+      "broad11",
+      "broad12",
+      "broad17",
+      "broad18",
+      "broad19",
+      "broad20",
+      "broad21",
+      "broad24",
+      "broad26",
+      "broad29",
+      "broad30"
+    ],
+    "multi_year_comparisons": [
+      "audit01",
+      "broad16",
+      "broad21",
+      "broad22",
+      "broad25",
+      "broad29",
+      "broad30"
+    ],
+    "filing_years": [
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "exact_sections": [
+      "Item 1A",
+      "Item 7",
+      "Item 8"
+    ],
+    "absent_filing_year": [
+      "broad27",
+      "broad29"
+    ],
+    "absent_exact_section": [
+      "audit10",
+      "broad28",
+      "broad30"
+    ],
+    "mixed_availability": [
+      "broad29",
+      "broad30"
+    ]
+  },
+  "global_problems": [],
+  "evaluator_summary_discrepancies": [],
+  "artifact_verification": {
+    "suite_sha256": "recomputed_verified",
+    "corpus_sha256": "recomputed_verified",
+    "ingest_report_sha256": "recomputed_verified",
+    "original_provenance_sha256": "recomputed_verified",
+    "vector_index": {
+      "recorded_files": 5,
+      "recomputed_verified": 5,
+      "mismatched": [],
+      "missing": [],
+      "unrecorded": []
+    },
+    "reranker_model": {
+      "recorded_files": 2,
+      "recomputed_verified": 2,
+      "mismatched": [],
+      "missing": [],
+      "unrecorded": []
+    },
+    "sparse_index": {
+      "recorded_files": 28,
+      "recomputed_verified": 28,
+      "mismatched": [],
+      "missing": [],
+      "unrecorded": []
+    },
+    "code": {
+      "changed": [],
+      "missing": [],
+      "recomputed_unchanged": 56,
+      "required_but_unrecorded": [],
+      "strict": true
+    }
+  },
+  "ingest_lineage": {
+    "mode": "targeted_replacement",
+    "parsers": {
+      "deterministic-canonical-heading-v2-go": 147,
+      "deterministic-canonical-heading-v3-go": 1
+    },
+    "reparsed_filings": 1,
+    "untouched_filings": 147,
+    "current_raw_fixture": "recomputed_verified",
+    "previous_report_sha256": "36cfd3ab7436196525bb19d57b53683df3a062530ee0bf6f23c878b1afa4fb0b",
+    "statement": "Mixed lineage: a targeted parser-v3 replacement of one filing. The other filings were NOT reparsed and keep their parser-v2 output byte for byte."
+  },
+  "available_subqueries": 50,
+  "cited_available_subqueries": 48,
+  "mixed_cases": {
+    "broad29": {
+      "result": "mixed_fully_supported",
+      "available_side": "1/1",
+      "unavailable_withheld": true
+    },
+    "broad30": {
+      "result": "mixed_fully_supported",
+      "available_side": "1/1",
+      "unavailable_withheld": true
+    }
+  },
+  "run_status": "failed",
+  "cases": [
+    {
+      "id": "audit01",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 5,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 24.28077629100153,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "audit02",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 3,
+      "retries": 1,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 5,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 8,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 33.79747841099743,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "audit03",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 8,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 25.48452303399972,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "audit04",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 6,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 23.56617010899936,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "audit05",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 7,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 22.80996400299773,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "audit06",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 6,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [
+        "Dropped claim for handle E05: quote not found verbatim in that passage"
+      ],
+      "seconds": 18.18764233100228,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "audit07",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 7,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 27.180375242998707,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "audit08",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 5,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 20.475015503001487,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "audit09",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 6,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 22.643566897997516,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "audit10",
+      "kind": "regression",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "accepted_subqueries": 0,
+      "negative": true,
+      "model_calls": 7,
+      "complete_coverage": false,
+      "available_subqueries": 0,
+      "cited_available_subqueries": 0,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 0,
+      "cited_subqueries": 0,
+      "evidence_outcome": "expected_unavailable",
+      "unavailable_subqueries": [
+        0,
+        1
+      ],
+      "mixed_availability": false,
+      "flags": [
+        "Subquery 0 has no evidence meeting threshold after 2 retries.",
+        "Subquery 1 has no evidence meeting threshold after 2 retries.",
+        "No verified answer; evidence unavailable or below threshold."
+      ],
+      "seconds": 21.629650103997847,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad11",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 7,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 18.34812299799887,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000002134425000011#item7#passage-000066",
+        "000008042425000076#item7#passage-000029"
+      ],
+      "anchors_cited": [
+        "000002134425000011#item7#passage-000066",
+        "000008042425000076#item7#passage-000029"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad12",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 8,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 20.80785717300023,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000007800325000054#item1A#passage-000029"
+      ],
+      "anchors_cited": [
+        "000007800325000054#item1A#passage-000029"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad13",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 8,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 23.930858462001197,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000007085826000157#item7#passage-000060",
+        "000007085826000157#item7#passage-000075"
+      ],
+      "anchors_cited": [
+        "000007085826000157#item7#passage-000060",
+        "000007085826000157#item7#passage-000075"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad14",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 5,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 15.977808886000275,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000002741926000016#item7#passage-000016",
+        "000002741926000016#item7#passage-000012"
+      ],
+      "anchors_cited": [
+        "000002741926000016#item7#passage-000016",
+        "000002741926000016#item7#passage-000012"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad15",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 7,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [
+        "Dropped claim for handle E08: quote not found verbatim in that passage"
+      ],
+      "seconds": 25.236051094001596,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000162828026003952#item1A#passage-000002",
+        "000162828026003952#item7#passage-000020"
+      ],
+      "anchors_cited": [
+        "000162828026003952#item1A#passage-000002"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad16",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 5,
+      "retries": 3,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 7,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 7,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 40.47611744599999,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000140316124000058#item1A#passage-000003",
+        "000140316125000089#item1A#passage-000004"
+      ],
+      "anchors_cited": [
+        "000140316124000058#item1A#passage-000003",
+        "000140316125000089#item1A#passage-000004"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad17",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 7,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 25.770944559997588,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000116316525000012#item7#passage-000008"
+      ],
+      "anchors_cited": [
+        "000116316525000012#item7#passage-000008"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad18",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 7,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 25.491329622000194,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000000497725000047#item7#passage-000018"
+      ],
+      "anchors_cited": [
+        "000000497725000047#item7#passage-000018"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad19",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 3,
+      "retries": 1,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 5,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 6,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 31.041133137001452,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000110852426000060#item8#passage-000036",
+        "000079634326000003#item8#passage-000027"
+      ],
+      "anchors_cited": [
+        "000110852426000060#item8#passage-000036",
+        "000079634326000003#item8#passage-000027"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad20",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 6,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 18.526219556999422,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000000248826000018#item1A#passage-000023",
+        "000009747626000059#item7#passage-000007"
+      ],
+      "anchors_cited": [
+        "000000248826000018#item1A#passage-000023",
+        "000009747626000059#item7#passage-000007"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad21",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "accepted_subqueries": 0,
+      "negative": false,
+      "model_calls": 7,
+      "complete_coverage": false,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 0,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 0,
+      "cited_subqueries": 0,
+      "evidence_outcome": "abstained",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [
+        "Subquery 0 has no evidence meeting threshold after 2 retries.",
+        "Subquery 1 has no evidence meeting threshold after 2 retries.",
+        "No verified answer; evidence unavailable or below threshold."
+      ],
+      "seconds": 32.4521534159976,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000073176625000063#item7#passage-000008",
+        "000006480326000010#item7#passage-000017"
+      ],
+      "anchors_cited": [],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad22",
+      "kind": "positive",
+      "state": "run_failed",
+      "problems": [],
+      "failure_category": "structural",
+      "failure_phase": "agent_run",
+      "failure_error": "ValueError: critic failed to rewrite a below-threshold query",
+      "verdict": "run_failed"
+    },
+    {
+      "id": "broad23",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 6,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 24.029889297999034,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000103526726000010#item7#passage-000007",
+        "000103526726000010#item7#passage-000024"
+      ],
+      "anchors_cited": [
+        "000103526726000010#item7#passage-000007",
+        "000103526726000010#item7#passage-000024"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad24",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 7,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 19.50402579100046,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000005947826000013#item7#passage-000011",
+        "000020040626000016#item7#passage-000004"
+      ],
+      "anchors_cited": [
+        "000005947826000013#item7#passage-000011",
+        "000020040626000016#item7#passage-000004"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad25",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 3,
+      "retries": 1,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 5,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 3,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 33.021633513999404,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000164559024000139#item7#passage-000036",
+        "000164559025000130#item7#passage-000036"
+      ],
+      "anchors_cited": [
+        "000164559024000139#item7#passage-000036",
+        "000164559025000130#item7#passage-000036"
+      ],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad26",
+      "kind": "positive",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 2,
+      "retries": 0,
+      "accepted_subqueries": 2,
+      "negative": false,
+      "model_calls": 4,
+      "complete_coverage": true,
+      "available_subqueries": 2,
+      "cited_available_subqueries": 2,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 7,
+      "cited_subqueries": 2,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [],
+      "mixed_availability": false,
+      "flags": [],
+      "seconds": 22.22769426400191,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000162828026019436#item8#passage-000026"
+      ],
+      "anchors_cited": [],
+      "anchors_total": 2,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad27",
+      "kind": "negative",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "accepted_subqueries": 0,
+      "negative": true,
+      "model_calls": 7,
+      "complete_coverage": false,
+      "available_subqueries": 0,
+      "cited_available_subqueries": 0,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 0,
+      "cited_subqueries": 0,
+      "evidence_outcome": "expected_unavailable",
+      "unavailable_subqueries": [
+        0,
+        1
+      ],
+      "mixed_availability": false,
+      "flags": [
+        "Subquery 0 has no evidence meeting threshold after 2 retries.",
+        "Subquery 1 has no evidence meeting threshold after 2 retries.",
+        "No verified answer; evidence unavailable or below threshold."
+      ],
+      "seconds": 19.43138697500035,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad28",
+      "kind": "negative",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 6,
+      "retries": 4,
+      "accepted_subqueries": 0,
+      "negative": true,
+      "model_calls": 7,
+      "complete_coverage": false,
+      "available_subqueries": 0,
+      "cited_available_subqueries": 0,
+      "unavailable_withheld": true,
+      "mixed_result": null,
+      "citations": 0,
+      "cited_subqueries": 0,
+      "evidence_outcome": "expected_unavailable",
+      "unavailable_subqueries": [
+        0,
+        1
+      ],
+      "mixed_availability": false,
+      "flags": [
+        "Subquery 0 has no evidence meeting threshold after 2 retries.",
+        "Subquery 1 has no evidence meeting threshold after 2 retries.",
+        "No verified answer; evidence unavailable or below threshold."
+      ],
+      "seconds": 20.07743137199941,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [],
+      "anchors_cited": [],
+      "anchors_total": 0,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad29",
+      "kind": "mixed",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 4,
+      "retries": 2,
+      "accepted_subqueries": 1,
+      "negative": false,
+      "model_calls": 6,
+      "complete_coverage": false,
+      "available_subqueries": 1,
+      "cited_available_subqueries": 1,
+      "unavailable_withheld": true,
+      "mixed_result": "mixed_fully_supported",
+      "citations": 7,
+      "cited_subqueries": 1,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [
+        1
+      ],
+      "mixed_availability": true,
+      "flags": [
+        "Subquery 1 has no evidence meeting threshold after 2 retries."
+      ],
+      "seconds": 31.44515352400049,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000088698226000091#item8#passage-000178"
+      ],
+      "anchors_cited": [
+        "000088698226000091#item8#passage-000178"
+      ],
+      "anchors_total": 1,
+      "verdict": "verified"
+    },
+    {
+      "id": "broad30",
+      "kind": "mixed",
+      "state": "completed",
+      "problems": [],
+      "subqueries": 2,
+      "retrieval_calls": 5,
+      "retries": 3,
+      "accepted_subqueries": 1,
+      "negative": false,
+      "model_calls": 7,
+      "complete_coverage": false,
+      "available_subqueries": 1,
+      "cited_available_subqueries": 1,
+      "unavailable_withheld": true,
+      "mixed_result": "mixed_fully_supported",
+      "citations": 5,
+      "cited_subqueries": 1,
+      "evidence_outcome": "supported",
+      "unavailable_subqueries": [
+        1
+      ],
+      "mixed_availability": true,
+      "flags": [
+        "Subquery 1 has no evidence meeting threshold after 2 retries."
+      ],
+      "seconds": 31.080564123996737,
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "anchors_retrieved": [
+        "000002134425000011#item7#passage-000066"
+      ],
+      "anchors_cited": [
+        "000002134425000011#item7#passage-000066"
+      ],
+      "anchors_total": 1,
+      "verdict": "verified"
+    }
+  ],
+  "scope": "Frozen-suite membership, scope availability, source identity/bytes, citations, bounds, continuity and mixed-availability behaviour. Source-informed regression fixtures; not independent human gold and not an answer-accuracy score.",
+  "passed": false,
+  "release_gates": {
+    "all_frozen_cases_retained": true,
+    "no_failures_or_violations": false,
+    "unavailable_scopes_publish_zero_claims": true,
+    "mixed_cases_preserve_unavailable_and_fully_support_available": true,
+    "citation_coverage_of_available_subqueries": {
+      "cited": 48,
+      "available": 50,
+      "ratio": 0.96,
+      "threshold": 0.8,
+      "met": true
+    },
+    "not_checked_by_this_tool": [
+      "full Python suite",
+      "Go race/vet",
+      "public snapshot has no weights/datasets/credentials/private contact info"
+    ],
+    "all_checked_gates_met": false
+  }
+}

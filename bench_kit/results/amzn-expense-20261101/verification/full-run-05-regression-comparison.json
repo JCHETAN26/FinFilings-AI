@@ -1,0 +1,41 @@
+{
+  "attempt": "full-run-05",
+  "checks": {
+    "all_30_independently_verified": true,
+    "zero_execution_failures": true,
+    "all_available_planned_subqueries_cited": true,
+    "no_available_topic_gaps": true,
+    "expected_unavailable_outcomes": true,
+    "mixed_available_fully_cited_and_absent_withheld": true,
+    "data_models_indexes_equal_baseline": true,
+    "bounded_service_profile": true,
+    "all_owned_processes_stopped": true,
+    "application_tests_pass": true,
+    "benchmark_tests_pass": true,
+    "full-run-01-sealed-artifacts_preserved": true,
+    "full-run-02-sealed-artifacts_preserved": true,
+    "full-run-03-sealed-artifacts_preserved": true,
+    "full-run-04-sealed-artifacts_preserved": true
+  },
+  "all_preregistered_quality_checks_passed": true,
+  "publication_decision": "approve",
+  "verified_cases": 30,
+  "verified_citations": 178,
+  "unique_source_passages": 250,
+  "available_subqueries": 52,
+  "cited_available_subqueries": 52,
+  "outcomes": {
+    "supported": 27,
+    "partial_gap": 0,
+    "abstained": 0,
+    "expected_unavailable": 3
+  },
+  "retrieval_calls": 79,
+  "retries": 19,
+  "model_calls": 136,
+  "median_seconds": 21.032962917000987,
+  "actual_stalled_stops": [],
+  "dropped_quote_flags": [],
+  "execution_contract_change": "At most 2 retries; a typed score1 empty-evidence unchanged-rewrite stop is allowed; no source/citation/coverage threshold lowered.",
+  "note": "Source-informed regression fixtures, not human gold accuracy; comparative timings are nondeterministic single runs, not causal speed claims."
+}

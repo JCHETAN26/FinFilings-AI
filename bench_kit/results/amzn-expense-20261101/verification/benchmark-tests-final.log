@@ -1,0 +1,24 @@
+..INVALID INPUT, no result written: GateInputError: non-finite JSON constant NaN
+......................................................................................................................................................
+----------------------------------------------------------------------
+Ran 152 tests in 51.359s
+
+OK
+PASS  quality: baseline_matches_stated_v2_values
+PASS  quality: same_100_development_queries
+PASS  quality: hybrid_rerank_ndcg_drop_within_0.005
+PASS  quality: pq_recall_at_10_drop_within_0.02
+PASS  quality: payload_reduction_at_least_90_percent
+PASS  load: baseline_hybrid_shape
+PASS  load: candidate_hybrid_shape
+PASS  load: baseline_dense_shape
+PASS  load: candidate_dense_shape
+PASS  load: matched_configuration
+PASS  load: baseline_hybrid_zero_failures
+PASS  load: candidate_hybrid_zero_failures
+PASS  load: baseline_dense_zero_failures
+PASS  load: candidate_dense_zero_failures
+PASS  load: hybrid_p99_regression_within_10_percent
+PASS  load: dense_p99_reported_not_gated
+not evaluated: ['agent']
+OVERALL NOT PASSED
