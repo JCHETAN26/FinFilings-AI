@@ -1,195 +1,225 @@
+<div align="center">
+
 # FinFilings AI
 
-**Disk-backed financial filing search with compressed indexes, hybrid retrieval, and a citation-grounded audit agent.**
+### Financial filing search. Evidence-grounded audits.
 
-FinFilings AI searches SEC 10-K/10-Q passages using a custom Go BM25 engine and FAISS product-quantized vectors, fuses their rankings, and reranks candidates with a cross-encoder. An asynchronous Python agent decomposes audit questions, retries weak retrieval, and publishes source-verified filing excerpts.
+A Go and Python retrieval system for searching SEC filings, asking multi-step financial questions, and inspecting the original evidence behind every published excerpt.
 
-The project brings together storage engineering, information retrieval, and bounded agent execution. Its benchmarks use actual SEC filings and published FinQA supporting-fact labels, with raw measurements and limitations preserved.
+[![Go CI](https://github.com/JCHETAN26/FinFilings-AI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/JCHETAN26/FinFilings-AI/actions/workflows/ci.yml)
+[![Go](https://img.shields.io/badge/Go-1.24%2B-00ADD8?style=flat&logo=go&logoColor=white)](https://go.dev/)
+[![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![FAISS](https://img.shields.io/badge/FAISS-PQ8-0467DF?style=flat)](https://github.com/facebookresearch/faiss)
+[![ONNX Runtime](https://img.shields.io/badge/ONNX_Runtime-005CED?style=flat&logo=onnx&logoColor=white)](https://onnxruntime.ai/)
+<br>
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=flat&logo=pydantic&logoColor=white)](https://docs.pydantic.dev/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](ui/)
+[![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)](https://www.kernel.org/)
 
-**Latest UI: [local audit workbench — live verification](bench_kit/results/audit-ui-20261102/RESULTS.md)** · **Latest agent: [fast-mode latency — paired and recovered 30-case results](bench_kit/results/audit-latency-20261102/RESULTS.md)** · [AMZN operating-expense fix — full 30-case validation](bench_kit/results/amzn-expense-20261101/RESULTS.md) · [post-HPE held run (historical)](bench_kit/results/post-hpe-full-20261101/RESULTS.md) · [HPE critic fix — targeted two-replay check](bench_kit/results/hpe-critic-20261101/RESULTS.md) · [parser-v3 adoption — 30-case verified report](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md) · [Verified benchmarks](bench_kit/RESULTS.md) · [Ten audit results](bench_kit/results/phase3/RESULTS.md) · [Ingestion guide](docs/ingestion/README.md) · [Build reports](docs/build/phase1.md)
+[Overview](#overview) · [Architecture](#architecture) · [Results](#verified-results) · [Setup](#getting-started) · [Documentation](#documentation)
+
+</div>
+
+## Overview
+
+FinFilings AI helps analysts and developers investigate financial disclosures with an inspectable evidence trail. It combines a custom compressed search engine, semantic retrieval, and a bounded audit agent over SEC EDGAR filings.
+
+Ask a question such as:
+
+> Audit NVDA filing year 2024: separately retrieve export control risks and dependence on external manufacturing capacity. Explain with filing excerpts only.
+
+The agent splits the question into targeted searches, retrieves passages within explicit filing filters, evaluates their relevance, and returns exact excerpts with citation tags, accession numbers, and SEC links. The workbench exposes the search plan, supporting passages, retries, and evidence gaps so the result can be checked against its source.
+
+The project demonstrates systems engineering, information retrieval, and agent orchestration in one runnable stack. The evaluated corpus contains **49,406 SEC and FinQA passages**, with **152 SEC filings enrolled for source verification**. It is a local research and portfolio implementation; authentication, tenant isolation, and distributed deployment are future work.
+
+### Core capabilities
+
+| Capability | Implementation |
+|---|---|
+| Streaming ingestion | Identified, rate-limited EDGAR acquisition; deterministic Item 1A, Item 7, and Item 8 extraction; immutable shards |
+| Compressed sparse search | Go BM25 engine, delta/PFOR postings, read-only `mmap`, pooled scratch buffers, bounded workers |
+| Semantic retrieval | BGE embeddings in FAISS PQ8; disk-backed passage text and metadata |
+| Hybrid ranking | Parallel sparse/dense retrieval, reciprocal rank fusion, cross-encoder reranking |
+| Multi-step audits | Typed planning, parallel subqueries, relevance grading, at most two rewrites per subquery |
+| Citation grounding | Exact quote checks, accession binding, source links, explicit evidence gaps |
+| Local workbench | Questions, evidence inspection, citation highlights, execution diagnostics |
+| Reproducible evaluation | Retrieval quality, vector memory, concurrent HTTP load, and source-verification reports |
+
+## Workbench
+
+![FinFilings audit workbench showing source-grounded results](bench_kit/results/audit-ui-20261102/live/workbench-results-desktop.png)
+
+*Real results from the Claude-backed UI verification.*
+
+The UI accepts one active audit at a time and exposes passage text, filing metadata, rejected proposals, and missing-evidence flags. It binds to loopback and is intended for a single local user.
 
 ## Architecture
 
 ```mermaid
 flowchart TB
-    Client["Search client"] --> API
-    Agent["Python audit agent<br/>Plan → Retrieve_Evaluate → Synthesize"] --> API
-
-    subgraph Go["Go storage and hybrid search"]
-        API["POST /search<br/>8 concurrent engine requests"]
-        Sparse["BM25<br/>Delta/PFOR postings · mmap segments · sync.Pool"]
-        Fusion["Reciprocal Rank Fusion<br/>k = 60 · Top 50"]
-        API -->|parallel sparse branch| Sparse
-        Sparse --> Fusion
-    end
-
-    subgraph Python["Python inference sidecar"]
-        Dense["BGE query encoder<br/>FAISS PQ8 · 384 dimensions · 128-byte codes (validated expanded profile; 48 historical)"]
-        Rerank["MiniLM cross-encoder<br/>FP32 ONNX, single-pair batches (preferred); PyTorch length-bucketed batches of 8 historical"]
-        Store["Disk-backed SQLite<br/>Passage text and metadata"]
-        Store --> Rerank
-    end
-
-    API -->|parallel dense branch| Dense
-    Dense --> Fusion
-    Fusion -->|Top 50 candidates| Rerank
-    Rerank -->|Top 10 passages| API
-    API -->|ranked evidence| Agent
-    API -->|search response| Client
+    SEC["SEC EDGAR / local manifest"] --> Ingest["Streaming ingestion<br/>section parsing + provenance"]
+    Ingest --> SparseStore["Immutable sparse shards<br/>PFOR postings + mmap"]
+    Ingest --> Embed["Passage embedding + PQ training"]
+    Embed --> VectorStore["FAISS PQ8 index<br/>SQLite passage store"]
+    UI["Audit workbench"] --> Agent["Python audit agent<br/>Plan → Retrieve_Evaluate → Synthesize"]
+    Agent <--> Model["Structured generation<br/>Claude CLI"]
+    Agent --> Bridge["Go hybrid search bridge"]
+    Client["Search API client"] --> Bridge
+    Bridge --> BM25["BM25 sparse retrieval"]
+    SparseStore --> BM25
+    Bridge --> Dense["BGE dense retrieval"]
+    VectorStore --> Dense
+    BM25 --> RRF["Reciprocal rank fusion<br/>k = 60 · Top 50"]
+    Dense --> RRF
+    RRF --> Rerank["MiniLM cross-encoder<br/>Top 10 passages"]
+    Rerank --> Agent
+    Agent --> Ground["Source binding + exact quote checks"]
+    Ground --> Output["Cited excerpts + evidence gaps"]
+    Output --> UI
 ```
 
-### Storage and retrieval
+### Engineering decisions
 
-- **Compressed sparse index:** delta encoding and PFOR integer bit-packing, immutable binary segments, read-only `syscall.Mmap`, CRC/structure validation, and BM25 scoring. SSE2 packing/unpacking covers 8- and 16-bit widths on amd64; other widths and platforms use scalar kernels.
-- **Dense retrieval:** pinned `BAAI/bge-small-en-v1.5` embeddings and FAISS `IndexPQ` with inner-product search: **128 sub-vectors (128-byte codes) in the validated expanded-corpus profile**; `IndexPQ(384, 48, 8)` is the historical Phase 2 configuration, whose results are kept dated below. Raw float32 reference vectors stay in a disk-backed mmap for evaluation; serving uses compressed codes and centroids.
-- **Hybrid ranking:** sparse and dense searches run concurrently, then RRF (`k=60`) merges their rank orders. The pinned `cross-encoder/ms-marco-MiniLM-L6-v2` model scores all Top-50 candidates and returns Top-10 passages. The preferred cross-encoder backend is FP32 ONNX with single-pair batches; the PyTorch path (length-bucketed batches of 8) is the historical default.
-- **Bounded execution:** Go uses bounded worker pools, search admission, reusable scoring buffers, and a 16-connection listener. Python admits up to 64 inference requests with an HTTP concurrency guard of 128. The service default is one native inference worker; the validated profile is an explicit opt-in of **4 inference workers × 2 threads** (plus optional pressure-triggered dense batching of 8), still bounded by the same admission limits. Excess application work receives HTTP 429 with `Retry-After`; cancellation preserves the native-work limit.
-- **Filing filters:** ticker, filing year, section, and accession predicates constrain both retrieval branches before fusion. Sparse predicates compare mmap metadata directly; filtered PQ8 search streams matching compressed codes in blocks of 2,048.
+- **Disk-backed storage:** immutable segment files and read-only mappings keep passage collections out of ordinary in-memory lists. SQLite stores text and metadata; FAISS serves quantized vector codes.
+- **Compression with explicit coverage:** delta/PFOR includes SSE2 packing/unpacking for 8- and 16-bit widths on amd64. Other widths and platforms use scalar kernels.
+- **Fusion before reranking:** RRF combines rank positions without assuming comparable sparse/dense score scales. The cross-encoder scores the fused Top-50 candidates and returns Top-10.
+- **Bounded execution:** Go admission limits and worker pools, a validated Python profile of four workers × two threads, at most two agent model calls, and one active UI audit.
+- **Fail-closed grounding:** filing filters stay fixed across rewrites. Unsupported quotes are dropped and evidence gaps remain visible. Filing year and fiscal-period end are tracked separately.
 
-### Audit controller and grounding
+### Technology stack
 
-Pydantic schemas constrain the planner, critic, and synthesis outputs. The planner creates two or three targeted subqueries; the critic grades relevance from 1–5 and may rewrite each query **at most twice**, preserving its filing filters. The default acceptance threshold is 4.
+| Layer | Technology |
+|---|---|
+| Storage and sparse retrieval | Go, BM25, PFOR, SSE2, `syscall.Mmap`, `sync.Pool` |
+| Ingestion | Python streaming HTML/text parsing, Go shard writer, SHA-256 provenance |
+| Embeddings | `BAAI/bge-small-en-v1.5` — 384 dimensions |
+| Dense index | FAISS `IndexPQ`, 8-bit sub-vector quantization; current profile uses 128-byte codes |
+| Fusion and reranking | RRF (`k=60`), `cross-encoder/ms-marco-MiniLM-L6-v2`, FP32 ONNX Runtime; PyTorch path retained |
+| Agent and API | Python, Pydantic, asyncio, HTTPX, FastAPI, Uvicorn |
+| Generation | Authenticated Claude Code CLI with structured JSON outputs and tools disabled |
+| Passage store | SQLite |
+| Front end | HTML, CSS, native JavaScript |
+| Evaluation | ranx, NumPy, Go HTTP load harness, source/quote verification scripts |
 
-Synthesis selects exact excerpts from accepted SEC evidence. Each published excerpt carries a generated citation tag, chunk ID, accession number, and SEC filing link. Content and metadata are checked against the acquired source corpus. Unsupported quotes are dropped and missing evidence is flagged. Filing year and fiscal-period end are tracked separately.
-
-Structured generation uses an authenticated Claude Code CLI with file/command tools, MCP integrations, and customizations disabled. The retrieval service itself runs locally without an LLM account.
+Embedding and reranking models are pretrained, not project-specific fine-tunes. Datasets, weights, generated indexes, binaries, and runtime caches are excluded from Git.
 
 ## Verified results
 
-Measured on an **AMD Ryzen 7 5800H (8 physical cores, 16 logical CPUs), Linux**, with CPU model inference. These are finite local experiments on a non-isolated desktop with warm caches/models. The tables below keep their original dated measurements (the Phase 1–4 rows are from October 30–31, 2026 on earlier corpora/profiles and are not rewritten); the latest verified adoption summary is under "Latest: parser-v3" below. [The consolidated report](bench_kit/RESULTS.md) contains raw evidence, workload definitions, and reproduction details.
+Metrics come from saved runs. **Corpus version, provider, and workload matter:** the rows below are not one combined benchmark.
 
-| Component | Measurement | Result | Workload |
-|---|---|---:|---|
-| Sparse index | Median indexing throughput | **20,352 passages/s** | 702 real SEC passages; ten independent builds |
-| Sparse index | Validated mmap Open, round medians | **0.251–0.292 ms** | Includes CRC and structural validation |
-| Sparse index | Worst round query p99 | **0.048 ms** | 10 million in-process searches; 50 configured workers |
-| Sparse benchmark | Post-load process RSS | **42–45 MiB** | Includes runtime, benchmark buffers, and mapped pages |
-| Hybrid + reranker | nDCG@10 | **0.5757** | 100 fixed FinQA support-fact queries; 19,511 passages |
-| PQ8 vectors | Native payload reduction | **95.56%** | Float32 vectors → PQ8 codes plus centroids |
-| PQ8 vectors | Isolated RSS-growth decrease | **92.39%** | Three independent load/search probes per representation |
-| Audit agent | Verified published citations | **54/54** | Ten prompts; median **23.34 s** per audit |
+### Retrieval and concurrent serving
 
-Sparse timing covers BM25 calls on 702 cached passages. The HTTP measurements below cover connection setup, queueing, full responses, and validation over the larger hybrid corpus. Vector savings apply to the vector component; the full model sidecar used approximately **1.50 GiB RSS** after the Phase 2 evaluation.
+The current 49,406-passage snapshot has mixed parser lineage: only Morgan Stanley was reparsed with parser v3. Retrieval and load tests used an AMD Ryzen 7 5800H, Linux, CPU inference, and four inference workers × two threads.
 
-The audit run had **six fully covered positive cases, two partial cases, and two correct abstentions**. Citation checks establish exact source grounding; they are not a human-labeled answer-accuracy score. [Inspect every prompt, citation, retry, and gap](bench_kit/results/phase3/RESULTS.md).
+| Measurement | Verified result | Conditions |
+|---|---:|---|
+| BM25 nDCG@10 | **0.4961** | 100 FinQA development queries |
+| Dense PQ128 nDCG@10 | **0.4673** | Same queries and corpus |
+| Hybrid RRF nDCG@10 | **0.5100** | Same queries and corpus |
+| Reranked nDCG@10 | **0.5540** | Top-50 cross-encoder reranking |
+| PQ recall@10 vs. exact float32 | **84.1%** | Same 100 queries |
+| Native vector payload reduction | **91.15%** | Codes and FAISS buffers vs. float32; not process RSS |
+| Hybrid HTTP p50 / p95 / p99 | **39.277 / 43.207 / 45.000 s** | 50 clients, 200 requests |
+| Dense HTTP p50 / p95 / p99 | **0.341 / 0.518 / 0.557 s** | Separate 50-client, 200-request scenario |
+| HTTP failures | **0/400** | 200 hybrid + 200 dense requests |
 
-Expanded-corpus agent revalidation on 49,452 passages verifies **61/61 citations** across the same ten prompts: eight audits with every subquery cited, one partial, one correct abstention; median **22.70 s**. These are source-grounding checks, not human answer-accuracy labels. [Every expanded audit, retry and evidence gap](bench_kit/results/phase3-expanded-20261031/RESULTS.md).
+These are finite, warm, closed-loop runs on a non-isolated laptop, not sustained capacity or an SLA. FinQA labels evaluate published supporting facts; SEC passages are not exhaustively labeled. Dense-only nDCG@10 declined from **0.4823 to 0.4673** during corpus adoption; that regression is preserved in the report.
 
-The AMZN cloud gap was subsequently fixed in an affected-audit rerun: **8/8 verified citations, four per company**, one retry, and no unresolved flags. This follow-up retains useful partial evidence within the five-passage context limit; it does not replace the original ten-audit measurements. [Diagnosis and rerun](bench_kit/results/agent-cloud-gap-20261031/RESULTS.md).
+[Retrieval, load, memory, and regression evidence →](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md)
 
-Broad agent validation (frozen `broad-validation-v1`, 30 cases): **30/30 cases verified** (zero transport/model/structural failures): **26 supported, 1 partial gap, 3 expected-unavailable**; **172** independently verified published citations, 86 retrieval calls, 24 retries, median **23.64 s**, 143 Claude calls (`claude-haiku-5-5`). "Supported" means every planned subquery on an *available* scope has a verified published quote; it does **not** mean 26 complete answers. Both mixed cases have their available side fully cited (2/2, 1/1) with the unavailable scope withheld; available-scope coverage is **53/54 = 98.1481 %**. The one gap is HPE filing year 2024 (stayed at critic score 3 through two retries; the amount and remaining authorization sit in adjacent passages 35/36 split mid-sentence, so this is not evidence the disclosure is absent). One TSLA model-proposed quote was rejected by exact-quote grounding. The suite is ten historical prompts plus twenty source-informed regression fixtures over 30 companies with citations; it is not independent human gold, not a semantic accuracy score, and not load latency. [Every case, gap and release gate](bench_kit/results/broad-validation-20261101/RESULTS.md); suite definition and gate documentation in [`bench_kit/suites/`](bench_kit/suites/README.md).
+### Agent and provider validation
 
-Parser follow-up: Morgan Stanley titled-heading boundary fix (parser `deterministic-canonical-heading-v3-go`, default for new ingestions), independently verified by Codex on a fresh replay. Real-source diagnosis: the old "3,000 lost MD&A words" note was wrong — Item 7 (v2: 32,278 words / 127 chunks) over-ran into Item 7A; v3 closes it at the Item 7A heading (20,497 words / 81 chunks, **11,781 Item 7A words removed**). There is no MD&A coverage gain. Item 1A and Item 8 are identical; of 361 v2 passages, 315 remain in v3, 46 IDs exist only in v2, and one ID (`…item7#passage-000080`) changed. Equivalence claim is limited to the 361 stored indexed passages matching the frozen corpus in full text and metadata; the current SEC document (9,714,819 bytes, SHA-256 `3002143b…78b2`) is **not** the archived 9,714,832-byte copy, whose raw HTML is gone, so no full-visible-text claim is made. Codex-verified: 40 application + 50 bench tests, `go vet`, `go test -race ./...` with the real 9.7 MB file, original four filings identical, shard-router reopen with stable descriptor/goroutine counters. Offline recheck of the saved broad run still passes 30/30 and 172 citations with all source/index/model hashes matching (code drift only in `pkg/ingest/parser.go`); the broad agent was **not** rerun. The active 49,452-passage corpus/indexes still hold the v2 Morgan Stanley Item 7; adopting v3 needs a separately versioned rebuild and re-benchmark (not done). The HPE 2024 critic gap is unchanged. [Evidence and limitations](bench_kit/results/parser-boundaries-20261101/RESULTS.md) · [diagnosis](docs/build/edgar-ingest.md).
+| Run | Verified outcome | Scope |
+|---|---|---|
+| Claude fast-mode suite | **30/30 cases**, 140 exact-verified citations, 52/52 available subqueries cited | Recovered 18 + 12-case execution; 27 supported and 3 expected-unavailable outcomes |
+| Paired agent latency | Median **29.71 → 23.50 s**; **20.9% reduction** | Eight primary supported runs per mode within a 24-run paired experiment |
 
-### 50-worker HTTP load: optimized serving
+Citation checks establish source binding, not a human-labeled accuracy score. The 30-case suite contains source-informed regression fixtures. The paired latency experiment is small and does not establish an SLA or latency distribution.
 
-Each endpoint received **200 requests from 50 persistent clients**, using the same 100 real queries twice. Five warmup requests were excluded; the two scenarios ran sequentially with a new TCP connection per request.
+[Agent latency and 30-case evidence](bench_kit/results/audit-latency-20261102/RESULTS.md)
 
-| Endpoint | p50 | p95 | p99 | Successful QPS | Failures |
-|---|---:|---:|---:|---:|---:|
-| Full hybrid `/search` | 28.025 s | 30.092 s | 30.676 s | **1.756** | **0/200** |
-| BGE + PQ8 `/dense` | 0.831 s | 0.841 s | 0.844 s | **59.522** | **0/200** |
+Historical foundation measurements include **20,352 passages/s indexing**, **0.048 ms sparse p99**, and **42–45 MiB post-load RSS**, measured on 702 real SEC passages. The original **0.5757 nDCG@10** used a different, 19,511-passage corpus. Original conditions and raw evidence remain in the [consolidated report](bench_kit/RESULTS.md).
 
-Length-bucketed reranking improved hybrid throughput **1.80×** and reduced p99 **46.45%** against the original load. Bounded admission raised dense successes from **11/200 to 200/200**. A real-model replay of all 100 original candidate sets preserved nDCG@10 at **0.575744**; tiny floating-point differences changed two Top-10 orders.
+## Getting started
 
-Hybrid search remains CPU/queue-bound at 50 clients. The dense run lasted 3.36 seconds; these results do not establish sustained capacity or a production SLO. Percentiles are exact empirical nearest-rank values; nanosecond observations are retained.
+### Prerequisites and dependencies
 
-[Before/after comparison](bench_kit/RESULTS.md#optimization--verified-beforeafter) · [Raw load report](bench_kit/results/phase4/run-20261031T063553Z/load/report.json) · [Terminal log](bench_kit/results/phase4/run-20261031T063553Z/terminal.log) · [Quality replay](bench_kit/results/optimization/rerank-quality.json)
-
-### Expanded SEC corpus: improved dense quality
-
-The newer 49,452-passage run uses 128-byte PQ8 codes, selected without relevance labels. On the same 100 financial queries, recall against exact float32 retrieval rose from **53.1% to 83.8%**, dense nDCG@10 from **0.3515 to 0.4823**, and reranked nDCG@10 from **0.5372 to 0.5537**. Native vector payload savings remain **91.15%**. These results use a different corpus from the original Phase 2 table above; additional SEC passages are not exhaustively labeled.
-
-The profiled float32 ONNX cross-encoder now defaults to single-pair batches. At four workers × two threads, 50-client hybrid p99 improves **42.50 → 39.92 s** against a fresh batch-two control, with identical Top-10 ordering on all 100 queries. [Inspect CPU, queueing, dense-latency trade-offs and raw measurements](bench_kit/results/optimization/pair-reuse-20261031/RESULTS.md).
-
-Pressure-triggered BGE query batching reduces dense p99 **1.256 → 0.553 s** in matched 2,000-request, 50-client probes, with identical concurrent Top-100 rankings. Hybrid throughput stays about **1.38 QPS** and p99 about **40 s** (39.59 → 40.08 s in the paired run). [Measurements, bounds and launch flags](bench_kit/results/optimization/dense-batching-20261031/RESULTS.md).
-
-New builds default to 128 sub-vectors. Use `--subvectors 48` for the historical compact configuration. [Full quality and bounded-concurrency benchmark](bench_kit/results/ingest/scale-v2-20261031/benchmark-pq128-workers4-threads2/RESULTS.md).
-
-### Latest: parser-v3 mixed-lineage corpus (November 1, 2026)
-
-A new, separately versioned corpus (`data/sec-scale-v3-evaluation-20261101`, 49,406 passages vs 49,452): only Morgan Stanley was reparsed with parser v3 (361 → 315 passages: 314 identical, 46 removed Item 7A text, 1 changed ID); **147 filings were not reparsed**, no new raw files were fetched for them, and everything else is byte-identical. The current MS source (SHA-256 `3002143b…78b2`, 9,714,819 bytes) is not the archived file (`57698077…12df`, 9,714,832 bytes, gone); the cause of the 13-byte difference is unknown and the report records both identities. New sparse and PQ128 indexes were built (49,405 vectors reused bit-identically, 1 encoded, PQ codebook retrained). v2 artifacts, `broad-validation-v1` and all earlier evidence are unchanged.
-
-Matched run (same 100 FinQA **development** queries, 4 inference workers × 2 threads, 50 clients, 200 requests/endpoint, zero failures in 400/400 requests per run, every nDCG and latency recomputed independently by Codex): reranked nDCG@10 **0.5537183500706869 → 0.5539997505715865**, hybrid 0.50780475359511 → 0.5100210113496677, PQ recall@10 0.838 → 0.841, native vector payload savings 91.1485 % (payload only, not whole-process RSS), hybrid p99 **47.812667999 s → 44.999937571 s**, dense p99 0.575851645 → 0.556806811 s. **Disclosed regression: dense-only nDCG@10 fell 0.48229729941572386 → 0.46732239998883435 (−0.01497).** The small upward movements are not attributed to the MS fix (the PQ codebook was retrained and the candidate pool changed). These are development-set regression checks — not held-out, not SEC retrieval accuracy; load figures are single finite closed-loop runs on a non-isolated Ryzen 7 5800H (8 physical / 16 logical CPUs, CPU inference), not an SLA.
-
-**Agent audit: 30/30 verified, 0 failures, 187 citations, 51/52 = 98.08 % coverage, all pre-registered gates pass; dense-only nDCG@10 fell 0.01497 (disclosed). Published as `6f18c04` (recorded in Git history); no deployment performed. The HPE 2024 gap shown there is the historical baseline; see the follow-up report above.** [Full 30-case report](bench_kit/results/parser-v3-adoption-20261101/RESULTS.md) · [runbook](docs/build/parser-v3-adoption.md)
-
-### Latest: agent fast-mode latency (November 2, 2026)
-
-The default agent mode is now `fast` (`--agent-mode legacy` keeps the previous path). In a preregistered, strictly re-verified paired run (24 live runs) the median over eight primary supported runs per mode fell from 29.71 s to 23.50 s (20.9 % reduction, gate ≥ 15 %) with the same topic coverage; one fast run was slower than its pair, N is small, and there is no SLA, p99 or cost claim. A first paired attempt failed and is preserved. The full 30-case fast check is a recovered composite of 18 + 12 cases around an external interruption (30/30 verified, 140 citations, 52/52 available subqueries cited), not one uninterrupted run; latest tests 192 application / 216 benchmark. Verification and release gates passed; Git publication is recorded in history and the UI launch command is available. These benchmark figures are not new live UI measurements or a deployment. [Results](bench_kit/results/audit-latency-20261102/RESULTS.md) · [design](docs/build/agent-latency.md)
-
-### Previous: AMZN operating-expense fix and full 30-case revalidation (November 2, 2026)
-
-The full frozen `broad-validation-v2` suite (same 49,406-passage corpus, indexes and models) was rerun as `full-run-05` and independently verified with the strict-code verifier: **30/30 cases, 0 failures, 178 exact-verified citations, 52/52 available subqueries cited, 27 supported + 3 expected-unavailable**; mixed cases withhold the absent side. 79 retrievals, 19 retries, 136 model calls, median 21.03 s; 4 inference workers × 2 threads, ≤2 retries, 5-passage context. Generic fixes, none company- or ID-specific: a fresh-top-4 context budget, opaque handles for quote selection, user-goal/search-hint separation with a scope-first critic, and a narrow typed empty-evidence stop (an intentional contract change to at most 2 retries; not exercised live). Four earlier fresh attempts failed their gates and are preserved.
-
-Limits: source-informed fixtures, not human gold or accuracy; one nondeterministic run per attempt; extractive quotes; no fresh load, retrieval or Go race/vet run; no deployment. [Full report](bench_kit/results/amzn-expense-20261101/RESULTS.md) · [runbook](docs/build/amzn-expense.md) · [historical held run](bench_kit/results/post-hpe-full-20261101/RESULTS.md)
-
-## Run locally
-
-### 1. Install dependencies
-
-The verified environment uses **Linux, Go 1.24 or later, and Python 3.10**. Python packages are pinned in [py/requirements.txt](py/requirements.txt). Initial data/model acquisition requires network access. The audit agent additionally requires an installed, authenticated Claude Code CLI.
+- Linux, Go **1.24+**, and Python **3.10**.
+- Dependencies from [`py/requirements.txt`](py/requirements.txt), including PyTorch and FAISS.
+- Locally prepared data, model weights, and indexes; these are not bundled in Git.
+- For audits: an installed, authenticated Claude Code CLI. Search alone does not require a generation provider.
 
 ```bash
 git clone https://github.com/JCHETAN26/FinFilings-AI.git
 cd FinFilings-AI
-
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -r py/requirements.txt
+python -m pip install -r py/requirements-onnx.txt
 
 export PYTHONPATH="$PWD/py"
 export HF_HOME="$PWD/models/hf-cache"
-export HF_HUB_DISABLE_XET=1
-export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=4 NUMBA_NUM_THREADS=4
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=2 NUMBA_NUM_THREADS=4
 ```
 
-If your workspace filesystem does not support symlinks, create the virtual environment on a filesystem that does. Keep the model cache on persistent storage. The existing Go module path remains `github.com/JCHETAN26/FinFillings-AI`, as declared in `go.mod`; use the clone URL above.
+On filesystems without symlink support, create the virtual environment on a filesystem that supports them. Keep large artifacts on persistent storage.
 
-### 2. Acquire passages and build indexes
+### Launch the audit workbench
 
-Set `SEC_USER_AGENT` to your project identifier and a valid contact email before downloading SEC data. The commands below are for a first build; use fresh index output directories, or skip builds when reusing existing verified artifacts.
+The supervisor starts one retrieval stack and the UI, verifies fingerprints, and cleans up its owned services on exit. Defaults target the evaluated expanded corpus and require these existing artifacts:
+
+| Artifact | Default location |
+|---|---|
+| Corpus and provenance | `data/sec-scale-v3-evaluation-20261101/` |
+| Ingestion report | `indexes/sec-scale-v3-20261101/report.json` |
+| Sparse shards | `indexes/sparse-sec-scale-v3-20261101/` |
+| Vector index | `indexes/vector-sec-scale-v3-pq128-20261101/` |
+| ONNX reranker | `models/reranker-onnx-fp32-optimized-20261031/` |
+| Original provenance and model artifacts | See [workbench requirements](docs/build/audit-ui.md#requirements-and-offline-artifacts) |
+
+With the artifacts prepared and Claude Code installed, sign in and start the workbench:
+
+```bash
+claude auth login
+python3 scripts/serve-audit-ui.py
+```
+
+Open **http://127.0.0.1:8766/**. See the [workbench guide](docs/build/audit-ui.md) for detailed setup and limits.
+
+Run one launcher and stop manual retrieval services first. The launcher downloads nothing. Fresh clones must prepare expanded artifacts using the [ingestion guide](docs/ingestion/README.md) and [corpus build runbook](docs/build/parser-v3-adoption.md).
+
+For access from a Mac over SSH:
+
+```bash
+ssh -N -L 8766:127.0.0.1:8766 USER@HOST
+```
+
+If the local forwarded port differs, pass `--tunnel-local-port PORT` to the launcher for its Host allowlist.
+
+<details>
+<summary><strong>Fresh-clone baseline: prepare data and run the search API</strong></summary>
+
+This builds the original four-filing/FinQA baseline, not the expanded UI corpus. Downloads require network access and a real project/contact SEC User-Agent.
 
 ```bash
 export SEC_USER_AGENT='YourProject your.email@example.com'
-
+export HF_HUB_DISABLE_XET=1
 python bench_kit/prepare_sec.py
 python bench_kit/fetch_finqa.py --user-agent "$SEC_USER_AGENT"
 python bench_kit/prepare_finqa.py --train-contexts 500 --query-limit 100
 python py/fetch_models.py --cache-dir "$HF_HOME/hub"
 python py/embed.py
-
 mkdir -p models/bin
 go build -o models/bin/finfilings ./cmd/finfilings
-go build -o models/bin/loadtest ./bench_kit/load
 ./models/bin/finfilings -mode build
 ```
 
-This downloads four real SEC 10-K filings, prepares FinQA report passages and supporting-fact labels, generates embeddings, trains PQ8, and builds the sparse index. Model revisions and weight hashes are pinned. FinQA train/dev files are pinned; the SEC ticker snapshot is cached and hashed. A different ticker snapshot can change corpus eligibility, so compare generated provenance when reproducing the recorded corpus.
-
-Datasets, indexes, model weights, environments, and binaries are excluded from Git. On a fresh clone, build them before running retrieval or artifact-dependent Python tests.
-
-### 3. Start the two services
-
-In one terminal, activate the environment and start the model sidecar:
-
-```bash
-source .venv/bin/activate
-export PYTHONPATH="$PWD/py"
-export HF_HOME="$PWD/models/hf-cache"
-export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=4
-python py/service.py
-```
-
-In another terminal, start the Go hybrid bridge:
-
-```bash
-./models/bin/finfilings -mode serve
-```
-
-The services bind to loopback: Go on **8765**, Python on **8766**. Check `/health` on either port. Query the full pipeline:
+Start `python py/service.py` in one terminal and `./models/bin/finfilings -mode serve` in another, with the environment above active. Defaults bind the sidecar to **8766** and Go bridge to **8765**. The manual sidecar occupies the UI's default port; stop it before launching the workbench.
 
 ```bash
 curl --fail --silent --show-error http://127.0.0.1:8765/search \
@@ -197,109 +227,61 @@ curl --fail --silent --show-error http://127.0.0.1:8765/search \
   --data '{"query":"supply-chain manufacturing risks","rerank":true,"filters":{"ticker":"AAPL","year":2023}}'
 ```
 
-The response contains sparse, dense, fused, and reranked results. Reranked passages include text and filing metadata; corpus fingerprints must match across services.
+Responses include sparse, dense, fused, and reranked results. Builds require fresh output directories. Model revisions and acquisition provenance are recorded; do not attribute historical metrics to a newly built corpus without verification.
 
-### 4. Run a grounded audit
+</details>
 
-With both services running and Claude Code installed:
+## Testing and evaluation
 
-```bash
-claude auth login
-PYTHONPATH=py python -m agent.state_machine \
-  'Compare AAPL filing year 2023 and NVDA filing year 2024 supply-chain risks.' \
-  --json
-```
-
-The JSON result includes the plan, per-hop queries and grades, retries, accepted evidence, final markdown, citations, and evidence-gap flags. Remove `--json` for markdown output.
-
-### 5. Local audit workbench (browser UI)
-
-One command starts the sidecar, the Go bridge and a loopback-only web UI over the current parser-v3 corpus, verifying provenance first. It needs the local artifacts named in the build doc and a signed-in Claude Code CLI; it downloads nothing.
-
-```bash
-python3 scripts/serve-audit-ui.py        # prints http://127.0.0.1:8766/ once the UI is actually ready; add --browser to open it
-```
-
-From a Mac, tunnel to the Linux host with the same port: `ssh -N -L 8766:127.0.0.1:8766 USER@HOST`, then browse `http://127.0.0.1:8766/`. Single-user, unauthenticated, loopback only, one audit at a time; needs the offline artifacts and a signed-in Claude CLI. Verified with real Chrome on three frozen scenarios (source/structural checks, not answer accuracy or load latency): [UI verification report](bench_kit/results/audit-ui-20261102/RESULTS.md) · [design and limits](docs/build/audit-ui.md).
-
-![Audit workbench with a real result](bench_kit/results/audit-ui-20261102/live/workbench-results-desktop.png)
-
-## Manifest-driven ingestion
-
-The new [streaming ingestion path](docs/ingestion/README.md) accepts a JSONL manifest of local raw filings or SEC archive URLs. It shares an identified, paced EDGAR client (default five requests/second, maximum ten), extracts deterministic Item 1A / Item 7 / Item 8 passages using disk-backed parsing, and streams them into immutable Go shards. Final publication is atomic; duplicate accessions and ambiguous sections are errors.
-
-```bash
-mkdir -p models/bin
-go build -o models/bin/ingest ./cmd/ingest
-PYTHONPATH=py python -m ingest.pipeline \
-  --manifest filings.jsonl \
-  --output indexes/sectioned-production
-```
-
-See the ingestion guide for manifest rows and SEC User-Agent configuration. A replay of four real filings produced **443 section-tagged passages across seven shards and 28 binary segments**. A separate 6.86 MB filing test passed six parser/resource cycles and six Go build/mmap/search/close cycles, with no observed descriptor, mapping or goroutine leaks. [Verification evidence](bench_kit/results/ingest/real/report.json).
-
-Each shard uses the existing `index.Open` loader. The hybrid service routes sparse searches across shards; vector search uses the consolidated corpus index. The expanded agent evaluation enrolls 152 trusted SEC filing sources. The original benchmark indexes retain their recorded contents and fingerprints.
-
-## Reproduce tests and benchmarks
-
-After preparing the artifacts, run the repository checks:
+The [Go CI workflow](.github/workflows/ci.yml) runs unit tests, the race detector, scalar-fallback tests, and `go vet` on pushes and pull requests. It uses no SEC downloads, model weights, or generation calls. The badge reports the workflow's actual GitHub status; artifact-dependent Python evaluations run separately with prepared local data and models.
 
 ```bash
 go test ./...
 go test -race ./...
 go test -tags=purego ./...
 go vet ./...
+
+# After installing dependencies and preparing required local artifacts:
 python -m unittest discover -s py -p 'test_*.py'
+python -m unittest discover -s bench_kit -p 'test_*.py'
 ```
 
-Tests that open HTTP listeners require loopback sockets. Synthetic documents appear only in labeled unit/allocation fixtures; headline retrieval and load measurements use actual source data.
+The published fast-mode verification records **192 application tests** and **216 benchmark-harness tests**, plus Go checks. These are saved local results, not GitHub CI counts. HTTP tests need loopback sockets; real-file resource tests are opt-in. Synthetic inputs are labeled test fixtures, never benchmark evidence.
 
-With the manual services running, evaluate retrieval against the prepared qrels:
+Use [`bench_kit/`](bench_kit/README.md) for retrieval quality, PQ recall/memory, load, and audit evaluation. Audit evaluators perform real Claude generation. Stop the UI before running supervisors that start their own services. Reports retain failed attempts, observations, hashes, and limitations.
 
-```bash
-python bench_kit/verify_phase2.py
-python bench_kit/eval_hybrid.py --out bench_kit/results/local-hybrid
-python bench_kit/profile_rerank.py
-```
+## Repository structure
 
-Stop the manual services before using the supervisors below. Each supervisor starts both services, checks their health and corpus fingerprints, captures logs, and shuts them down after completion:
-
-```bash
-# Ten real-model audit prompts, including unavailable-evidence cases.
-python scripts/verify-phase3.py
-
-# Same 50-worker HTTP workload used in the before/after comparison.
-python scripts/verify-phase4.py
-
-# Independently recompute CSV percentiles and regenerate the master report.
-python bench_kit/consolidate.py
-```
-
-The standalone `models/bin/loadtest` also accepts `-workers`, `-requests`, `-timeout`, endpoint URLs, and a fresh `-output` directory. See [bench_kit/README.md](bench_kit/README.md) for the sparse benchmark and the evaluation harnesses.
-
-## Repository map
-
-| Path | Responsibility |
+| Directory | Responsibility |
 |---|---|
-| [`pkg/model/`](pkg/model) | SEC records and filing predicates |
-| [`pkg/index/`](pkg/index) | PFOR/SIMD codecs, mmap segments, BM25, pooled buffers, bounded indexing/search |
-| [`pkg/ingest/`](pkg/ingest) | Streaming JSONL-to-shard builder and atomic catalog publication |
-| [`pkg/hybrid/`](pkg/hybrid) | Concurrent sparse/dense retrieval, RRF, sidecar contracts |
-| [`cmd/finfilings/`](cmd/finfilings) | Streaming sparse-index builder and HTTP bridge |
-| [`py/`](py) | Embeddings, PQ8 ingestion, model sidecar, cross-encoder |
-| [`py/ingest/`](py/ingest) | EDGAR client, deterministic section parser and manifest coordinator |
-| [`py/agent/`](py/agent) | Structured planner, critic loop, state machine, citation grounding |
-| [`py/audit_web/`](py/audit_web), [`ui/`](ui) | Local single-user audit workbench: bounded job manager, loopback API, native HTML/CSS/JS |
-| [`bench_kit/`](bench_kit) | Quality, memory, audit and HTTP load evaluation; consolidated results |
-| [`scripts/`](scripts) | Verification and service-lifetime supervisors |
-| [`docs/build/`](docs/build) | Storage, retrieval and agent design reports |
+| [`pkg/index/`](pkg/index/) | Compression, SIMD, mmap loading, BM25, shard routing |
+| [`pkg/ingest/`](pkg/ingest/) | EDGAR ingestion, deterministic parsing, immutable shards |
+| [`pkg/hybrid/`](pkg/hybrid/), [`cmd/finfilings/`](cmd/finfilings/) | Parallel retrieval, RRF, HTTP bridge |
+| [`pkg/model/`](pkg/model/) | SEC passage model and filing predicates |
+| [`py/`](py/) | Embeddings, FAISS construction, inference sidecar, reranking |
+| [`py/ingest/`](py/ingest/) | Streaming acquisition/parser pipeline, manifest orchestration |
+| [`py/agent/`](py/agent/) | Providers, planner, critic, state machine, grounding |
+| [`py/audit_web/`](py/audit_web/), [`ui/`](ui/) | Audit API, job admission, evidence browser |
+| [`bench_kit/`](bench_kit/) | Evaluation harnesses, frozen suites, measured results |
+| [`scripts/`](scripts/) | Launchers, verification, service supervision |
+| [`docs/`](docs/) | Setup, design decisions, build history, reproduction guides |
 
-## Current scope and limitations
+## Scope and next steps
 
-- The acquired SEC corpus contains four 10-K filings. The data model supports 10-K/10-Q forms; the current benchmark does not establish 10-Q coverage or large-corpus performance.
-- Original benchmark SEC passages retain unclassified sections. The new ingestion path tags verified Item 1A, Item 7 and Item 8 headings; ambiguous or unsupported layouts fail for review. The original agent benchmark's exact Item 1A test remains an abstention.
-- The broad agent suite measures structural source grounding on one corpus snapshot and one model sample; see its limitations before quoting any number.
-- FinQA supports retrieval evaluation, but its passages lack verified SEC accessions. Published audit claims use the verified SEC registry.
-- Synthesis publishes exact source excerpts. Derived calculations and independently validated abstractive financial conclusions are outside the current implementation.
-- Tenant authentication/isolation, distributed serving, and production availability guarantees are not implemented. The local audit workbench (`ui/`) is single-user and unauthenticated; services are local and loopback-bound.
-- Results cover finite, warm local workloads. The source hashes, raw logs, negative cases, and failed preliminary attempts remain available for review.
+- **Local, single-user operation.** Authentication, tenant isolation, distributed serving, and availability guarantees are not implemented.
+- **Extractive answers.** Results are verified source excerpts. Independently validated calculations and abstractive financial conclusions are outside the current implementation.
+- **Corpus coverage.** The model supports 10-K/10-Q forms; verification centers on 10-K filings. Parser coverage varies by layout, ambiguous sections fail for review, and some original passages remain unclassified.
+- **Evaluation limits.** FinQA development queries and source-informed audit fixtures do not establish held-out SEC accuracy. FinQA passages lack verified SEC accessions and cannot become published audit evidence.
+- **Local-model support.** An experimental Ollama integration is being developed locally and is not included in this publication. Provider validation and lower local audit latency remain open.
+
+## Documentation
+
+| Guide | Contents |
+|---|---|
+| [Workbench](docs/build/audit-ui.md) | UI setup, artifacts, endpoints, limits |
+| [Streaming ingestion](docs/ingestion/README.md) | Manifests, SEC access, deterministic sections, atomic shards |
+| [Ingestion implementation](docs/build/edgar-ingest.md) | Parser evolution and resource checks |
+| [Benchmark suite](bench_kit/README.md) | Workloads, harnesses, reproduction commands |
+| [Consolidated results](bench_kit/RESULTS.md) | Historical Phase 1–4 metrics and conditions |
+| [Frozen audit suites](bench_kit/suites/README.md) | Fixture provenance, coverage definitions, gates |
+| [Agent fast mode](docs/build/agent-latency.md) | Quote selection, host checks, paired latency design |
