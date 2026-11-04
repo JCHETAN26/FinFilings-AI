@@ -1,0 +1,25 @@
+{
+  "release_id": "parser-v3-20261104",
+  "status": "locally_verified_unpublished",
+  "manifest_sha256": "a6514162bf8293800cf0e45ac12a22dd37819f7e3afc86163573e6e49f13000d",
+  "bundle": {
+    "bytes": 1260400640,
+    "name": "finfilings-parser-v3-20261104.tar",
+    "sha256": "9eaa202d9ece8d606914e26201f79bf9d7e8c13cf528c286075e89e7830b0139",
+    "url": "https://github.com/JCHETAN26/FinFilings-AI/releases/download/parser-v3-20261104/finfilings-parser-v3-20261104.tar"
+  },
+  "corpus": {
+    "filings": 152,
+    "parser": "deterministic-canonical-heading-v3-go",
+    "passages": 49147,
+    "sha256": "7c9257673214d12b4d99355af53a9d8f7ebefe425f4d14de66528a6f7cf042ed"
+  },
+  "real_payload_verified": true,
+  "managed_preflight_passed": true,
+  "managed_native_retrieval_passed": true,
+  "live_audits_run": false,
+  "generation_calls": 0,
+  "committed": false,
+  "pushed": false,
+  "published": false
+}

@@ -1,0 +1,25 @@
+test_checksum_mismatch_deletes_corrupt_partial (test_artifact_downloads.DownloadContracts) ... ok
+test_cli_install_and_activate_from_http_without_model_calls (test_artifact_downloads.DownloadContracts) ... ok
+test_https_downgrade_redirect_is_rejected (test_artifact_downloads.DownloadContracts) ... ok
+test_interrupted_transport_retries_from_written_offset (test_artifact_downloads.DownloadContracts) ... Download interrupted (OSError); retaining partial bytes for retry
+ok
+test_oversized_response_is_rejected_without_installation (test_artifact_downloads.DownloadContracts) ... ok
+test_remote_non_https_redirect_is_rejected_before_connection (test_artifact_downloads.DownloadContracts) ... ok
+test_resume_partial_download_uses_exact_range (test_artifact_downloads.DownloadContracts) ... ok
+test_server_ignoring_range_restarts_without_append (test_artifact_downloads.DownloadContracts) ... ok
+test_wrong_content_range_is_rejected (test_artifact_downloads.DownloadContracts) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.297s
+
+OK
+{
+  "release_id": "test-one",
+  "status": "installed",
+  "activated": false,
+  "state": {
+    "active": "test-one",
+    "previous": null,
+    "version": 1
+  }
+}

@@ -1,0 +1,86 @@
+/tmp/finfilings-artifact-venv/lib/python3.10/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_corrupt_bundle_never_installs_or_activates (test_artifact_manager.ArtifactManager) ... ok
+test_cross_artifact_corruption_is_rejected_even_with_valid_outer_hashes (test_artifact_manager.ArtifactManager) ... ok
+test_failed_extraction_cleans_staging_and_keeps_old_state (test_artifact_manager.ArtifactManager) ... ok
+test_failed_state_replace_keeps_old_state (test_artifact_manager.ArtifactManager) ... ok
+test_idempotent_install_and_release_id_immutability (test_artifact_manager.ArtifactManager) ... ok
+test_install_activate_and_rollback_preserve_old_version (test_artifact_manager.ArtifactManager) ... ok
+test_installed_corruption_blocks_activation_and_keeps_active (test_artifact_manager.ArtifactManager) ... ok
+test_insufficient_disk_space_never_activates (test_artifact_manager.ArtifactManager) ... ok
+test_links_are_refused_in_store_and_payload (test_artifact_manager.ArtifactManager) ... ok
+test_manifest_hash_is_independently_required (test_artifact_manager.ArtifactManager) ... ok
+test_missing_tokenizer_files_cannot_be_released (test_artifact_manager.ArtifactManager) ... ok
+test_new_archive_inspector_rejects_traversal_duplicates_and_links (test_artifact_manager.ArtifactManager) ... ok
+test_no_rollback_without_previous (test_artifact_manager.ArtifactManager) ... ok
+test_official_recipe_refuses_synthetic_bundle_and_writes_no_release (test_artifact_manager.ArtifactManager) ... ok
+test_raw_manifest_must_match_release_object (test_artifact_manager.ArtifactManager) ... ok
+test_release_preparation_never_overwrites (test_artifact_manager.ArtifactManager) ... ok
+test_rollback_refuses_damaged_previous_release (test_artifact_manager.ArtifactManager) ... ok
+test_state_and_download_cache_symlinks_are_rejected (test_artifact_manager.ArtifactManager) ... ok
+test_store_serializes_writers_without_unbounded_wait (test_artifact_manager.ArtifactManager) ... ok
+test_unsafe_paths_and_duplicate_json_keys_are_rejected (test_artifact_manager.ArtifactManager) ... ok
+test_urls_require_https_and_disallow_credentials (test_artifact_manager.ArtifactManager) ... ok
+test_activation_changes_do_not_delete_a_running_versions_payload (test_managed_startup.ManagedStartup) ... ok
+test_managed_start_requires_no_legacy_data_or_profile_in_code_checkout (test_managed_startup.ManagedStartup) ... ok
+test_mutable_runs_are_outside_the_release_payload (test_managed_startup.ManagedStartup) ... ok
+test_real_managed_preflight_enrolls_without_loading_models (test_managed_startup.ManagedStartup) ... Verifying checksums and provenance enrollment (hashes the corpus; this can take a moment)...
+Enrolled 1 filings; corpus sha256 c556cd67daf80917...
+ok
+test_start_refuses_tampering_before_spawning_anything (test_managed_startup.ManagedStartup) ... ok
+test_corruption_writes_nothing (test_setup.BundleTests) ... ok
+test_destination_symlink (test_setup.BundleTests) ... ok
+test_portable_export_can_be_exported_again (test_setup.BundleTests) ... ok
+test_restore_and_refuse_overwrite (test_setup.BundleTests) ... ok
+test_traversal_and_links (test_setup.BundleTests) ... ok
+test_check_only_exits_before_provider_or_process_creation (test_startup.Startup) ... {"bundle": "/tmp/tmpd4p80n6j/first.tar", "bytes": 20480, "sha256": "a96eda0e472650ff2ce0208f662945bc5f828c2a30d104abca653e209c5c4e2f"}
+{"restored_files": 11, "root": "/tmp/tmpd4p80n6j/fresh"}
+{"bundle": "/tmp/tmpd4p80n6j/second.tar", "bytes": 20480, "sha256": "13a3c974819c4585d31ac4019c38720178423c8b54adfd01f01e5560ad0f436a"}
+{"restored_files": 11, "root": "/tmp/tmpd4p80n6j/second"}
+{"restored_files": 2, "root": "/tmp/tmplya25wx8/fresh checkout"}
+Verifying checksums and provenance enrollment (hashes the corpus; this can take a moment)...
+Enrolled 1 filings; corpus sha256 aaaaaaaaaaaaaaaa...
+ok
+test_invalid_profile_never_starts_process (test_startup.Startup) ... ok
+test_native_cpu_artifacts_roundtrip (test_startup.Startup) ... ok
+test_packaged_start_preserves_interpreter_and_clears_overlay (test_startup.Startup) ... ok
+test_relative_model_lock_uses_its_parent_not_cwd (test_startup.Startup) ... ok
+test_start_refuses_global_python (test_startup.Startup) ... ok
+test_allowed_hosts_are_exact (test_audit_web_ui_static.BindPolicy) ... ok
+test_non_loopback_binds_are_refused (test_audit_web_ui_static.BindPolicy) ... ok
+test_ports_are_validated (test_audit_web_ui_static.BindPolicy) ... ok
+test_uvicorn_ingress_bounds (test_audit_web_ui_static.BindPolicy) ... ok
+test_checksum_mismatch_between_report_and_corpus_provenance_is_refused (test_audit_web_ui_static.Enrollment) ... ok
+test_documented_defaults_match_the_requested_current_v3_artifacts (test_audit_web_ui_static.LauncherSafety) ... ok
+test_exit_classification_separates_operator_stops_from_failures (test_audit_web_ui_static.LauncherSafety) ... ok
+test_launcher_has_no_network_fetch_or_kill_by_name (test_audit_web_ui_static.LauncherSafety) ... ok
+test_missing_artifacts_are_reported_not_downloaded (test_audit_web_ui_static.LauncherSafety) ... ok
+test_startup_timeout_must_be_finite_and_between_1_and_600 (test_audit_web_ui_static.LauncherSafety) ... ok
+test_stop_ends_only_the_process_group_it_owns (test_audit_web_ui_static.LauncherSafety) ... ok
+test_stop_signals_only_the_child_when_it_is_not_a_group_leader (test_audit_web_ui_static.LauncherSafety) ... ok
+test_symlinked_or_foreign_or_stray_files_are_refused (test_audit_web_ui_static.LauncherSafety) ... ok
+test_work_dir_is_created_fresh_and_private (test_audit_web_ui_static.LauncherSafety) ... ok
+test_every_element_id_used_by_the_script_exists_once_in_the_page (test_audit_web_ui_static.StaticAssets) ... ok
+test_javascript_never_parses_markup_or_persists_results (test_audit_web_ui_static.StaticAssets) ... ok
+test_javascript_parses (test_audit_web_ui_static.StaticAssets) ... ok
+test_no_inline_script_style_handlers_or_external_resources (test_audit_web_ui_static.StaticAssets) ... ok
+test_only_real_statuses_are_displayed (test_audit_web_ui_static.StaticAssets) ... ok
+test_required_controls_and_accessibility_labels_exist (test_audit_web_ui_static.StaticAssets) ... ok
+test_missing_asset_fails_startup_explicitly (test_audit_web_app.StaticAssets) ... ok
+test_missing_paths_traversal_and_docs_routes_are_404 (test_audit_web_app.StaticAssets) ... ok
+test_only_the_four_fixed_assets_are_served_with_correct_types (test_audit_web_app.StaticAssets) ... ok
+test_server_shutdown_cancels_and_awaits_the_audit_before_closing_resources (test_audit_web_app.Lifespan) ... ok
+test_failed_connection_initialization_closes_connection (test_retrieval_storage.StorageContracts) ... ok
+test_http_storage_failure_is_degraded_and_recovers_without_retry (test_retrieval_storage.StorageContracts) ... retrieval_storage_failure operation=dense error_type=OperationalError
+retrieval_storage_failure operation=dense error_type=OSError
+ok
+test_artifact_corruption_detected (test_phase2.Contracts) ... ok
+test_chunked_body_limit_without_invoking_inference (test_phase2.Contracts) ... ok
+test_model_weights_checksum_is_required (test_phase2.Contracts) ... ok
+test_request_budgets (test_phase2.Contracts) ... ok
+test_uniform_table_rendering (test_phase2.Contracts) ... ok
+
+----------------------------------------------------------------------
+Ran 68 tests in 1.005s
+
+OK

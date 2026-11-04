@@ -1,0 +1,11 @@
+{
+  "release_id": "parser-v3-20261104",
+  "verified": true,
+  "corpus": {
+    "filings": 152,
+    "parser": "deterministic-canonical-heading-v3-go",
+    "passages": 49147,
+    "sha256": "7c9257673214d12b4d99355af53a9d8f7ebefe425f4d14de66528a6f7cf042ed"
+  },
+  "payload": "/media/grv22/Extreme SSD2/project/FinFillings AI/artifacts/releases/parser-v3-20261104/payload"
+}

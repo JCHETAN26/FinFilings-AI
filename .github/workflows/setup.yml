@@ -54,6 +54,11 @@ jobs:
         run: |
           set -euo pipefail
           "$RUNNER_TEMP/finfilings-venv/bin/python" scripts/check-setup-ci.py --report "$RUNNER_TEMP/setup-logs/verification.json" 2>&1 | tee "$RUNNER_TEMP/setup-logs/checks.log"
+      - name: Verify interrupted downloads against isolated loopback fixtures
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/finfilings-venv/bin/python" scripts/check-artifact-downloads.py --report "$RUNNER_TEMP/setup-logs/download-verification.json" 2>&1 | tee "$RUNNER_TEMP/setup-logs/downloads.log"
       - name: Build the startup bridge without downloading Go dependencies
         shell: bash
         env:

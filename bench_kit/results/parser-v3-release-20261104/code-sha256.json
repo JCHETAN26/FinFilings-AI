@@ -1,0 +1,15 @@
+{
+  "py/artifact_manager.py": "45fac59b9380d1f6521b698ad479a2564c16c1c89852a355dbd0aaf755df2fcc",
+  "py/audit_web/enrollment.py": "07393687bf1f05c11bae232c762b63c261f0ad69b66aaf04e19ac6534a7894d4",
+  "scripts/artifacts.py": "841a82dab5659afa39b59eb973ba29bb50b769bdeb9556e6b0b61732875933e4",
+  "scripts/start.py": "c005f7108dad0666a51d4a977720ef491655a2597945be38168106b53fb0088a",
+  "scripts/serve-audit-ui.py": "2ae8ab7010d252f78b463bebaca643144b59020d0368f3fad2ba86b703a8a618",
+  "scripts/check-setup-ci.py": "d549a9f35408057fccd31c65985a50d96ed0ba0737091862c4755ca4fd4c2337",
+  "scripts/check-artifact-downloads.py": "2e8baea9de1e551be32ca8a37a9c1a992b19b8e1fe1bbe954500785b4c79c1c9",
+  "setup/test_artifact_manager.py": "c6d29e96c0971d0c1ccfbdadc5711677817286cfaa591fffec301a5d534206f2",
+  "setup/test_artifact_downloads.py": "1fae24d4aedb4dcdb65c1dc7d7b75e1943ca6657819048d47aeb5bfbadf3cbe2",
+  "setup/test_managed_startup.py": "626f6806b749011abb7eeda57fbba7ca73e4b94d51a31b90a58de8480493d4d7",
+  ".github/workflows/setup.yml": "d5dc047a8473587522e42bd3235d6333b9f788d07ef9d057a04cd5173a0083e6",
+  "releases/parser-v3-20261104/recipe.json": "5e1d371db29bd0cf7c176952db43084afc8a6ed1f9c61c140687b94d8ee4b4e5",
+  "releases/parser-v3-20261104/release.json": "a6514162bf8293800cf0e45ac12a22dd37819f7e3afc86163573e6e49f13000d"
+}

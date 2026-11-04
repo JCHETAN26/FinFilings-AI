@@ -19,18 +19,19 @@ def _agent_suite(root: Path):
     return module
 
 
-def enroll(*, root: Path, corpus_dir: Path, ingest_report: Path, original_provenance: Path, source_enrollment: str = 'legacy') -> dict:
+def enroll(*, root: Path, corpus_dir: Path, ingest_report: Path, original_provenance: Path, source_enrollment: str = 'legacy', artifact_root: Path | None = None) -> dict:
     """Return {manifest, corpus, corpus_sha256, filings, lineage}. Raises ValueError on any mismatch."""
     root = Path(root).resolve()
+    artifact_root = Path(artifact_root or root).resolve()
     suite = _agent_suite(root)
     meta = json.loads((corpus_dir / 'provenance.json').read_text())
     corpus = corpus_dir / 'chunks.jsonl'
     if digest(ingest_report) != meta['new_sec_report_sha256'] or digest(corpus) != meta['corpus_sha256']:
         raise ValueError('expanded corpus/report checksum mismatch')
     baseline = json.loads(original_provenance.read_text())
-    if digest(root / 'data/sec/chunks.jsonl') != baseline['corpus_sha256'] or baseline['corpus_sha256'] != meta['sec_sha256']:
+    if digest(artifact_root / 'data/sec/chunks.jsonl') != baseline['corpus_sha256'] or baseline['corpus_sha256'] != meta['sec_sha256']:
         raise ValueError('original SEC provenance checksum mismatch')
-    lineage, problems = suite.check_report_lineage(ingest_report, root)
+    lineage, problems = suite.check_report_lineage(ingest_report, artifact_root)
     if problems:
         raise ValueError('ingestion report lineage invalid: ' + '; '.join(problems))
     sources = suite.build_trusted_sources(original_provenance, ingest_report, mode=source_enrollment)

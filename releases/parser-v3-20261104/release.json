@@ -1,0 +1,43 @@
+{
+  "bundle": {
+    "bytes": 1260400640,
+    "name": "finfilings-parser-v3-20261104.tar",
+    "sha256": "9eaa202d9ece8d606914e26201f79bf9d7e8c13cf528c286075e89e7830b0139",
+    "url": "https://github.com/JCHETAN26/FinFilings-AI/releases/download/parser-v3-20261104/finfilings-parser-v3-20261104.tar"
+  },
+  "bundle_manifest_sha256": "b4e9b4de8f9e577aa4a921bedbbc4ff28634afac3801073a6b9ba8799ddcb7e2",
+  "corpus": {
+    "filings": 152,
+    "parser": "deterministic-canonical-heading-v3-go",
+    "passages": 49147,
+    "sha256": "7c9257673214d12b4d99355af53a9d8f7ebefe425f4d14de66528a6f7cf042ed"
+  },
+  "models": {
+    "BAAI/bge-small-en-v1.5": {
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "weights_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad"
+    },
+    "cross-encoder/ms-marco-MiniLM-L6-v2": {
+      "revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+      "weights_sha256": "821d1aa69520101d6e0737f78a042ae25b19e5cb9160701909d10434f4aeb0ae"
+    }
+  },
+  "profile": {
+    "corpus_dir": "data/sec-all-v3-evaluation-20261104",
+    "ingest_report": "indexes/sec-all-v3-20261104/report.json",
+    "model_lock": "data/setup-models.json",
+    "original_provenance": "data/sec/provenance.json",
+    "reranker_model": "models/reranker-onnx-fp32-optimized-20261031",
+    "source_enrollment": "complete_report",
+    "sparse_index": "indexes/sparse-sec-all-v3-20261104",
+    "vector_index": "indexes/vector-sec-all-v3-pq128-20261104"
+  },
+  "release_id": "parser-v3-20261104",
+  "schema": "finfilings-release/v1",
+  "source_commit": "31d0e776e519a13a4acb5aeee0276004acc9837b",
+  "validation": {
+    "generation_calls": 0,
+    "live_audits": "not_run",
+    "payload_integrity": "verified"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "release_id": "parser-v3-20261104",
+  "source_commit": "31d0e776e519a13a4acb5aeee0276004acc9837b",
+  "status": "locally verified payload; unpublished; live audits not run",
+  "corpus": {
+    "sha256": "7c9257673214d12b4d99355af53a9d8f7ebefe425f4d14de66528a6f7cf042ed",
+    "passages": 49147,
+    "filings": 152,
+    "parser": "deterministic-canonical-heading-v3-go"
+  },
+  "models": {
+    "BAAI/bge-small-en-v1.5": {
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "weights_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad"
+    },
+    "cross-encoder/ms-marco-MiniLM-L6-v2": {
+      "revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+      "weights_sha256": "821d1aa69520101d6e0737f78a042ae25b19e5cb9160701909d10434f4aeb0ae"
+    }
+  },
+  "prior_evidence": "bench_kit/results/setup-ci-publish-20261104/RESULTS.md",
+  "live_claude_audits": "not_run_on_this_release",
+  "required_runtime": {
+    "os": "Linux",
+    "architecture": "x86_64",
+    "python": "3.10",
+    "go_minimum": "1.24"
+  }
+}

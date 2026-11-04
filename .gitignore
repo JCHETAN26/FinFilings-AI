@@ -16,3 +16,7 @@ __pycache__/
 # Restored local setup profile and artifact manifest.
 /setup-profile.json
 /bundle-manifest.json
+
+# Versioned immutable artifacts, partial downloads and mutable activation state.
+/artifacts/
+/dist/

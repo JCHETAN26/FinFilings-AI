@@ -57,6 +57,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     for name, default in DEFAULTS.items():
         parser.add_argument('--' + name.replace('_', '-'), type=Path, default=Path(default), help=f'default: {default}')
+    parser.add_argument('--artifact-root', type=Path, default=ROOT, help='root containing the enrolled original SEC provenance corpus')
+    parser.add_argument('--work-dir', type=Path, help='mutable run logs/binaries outside immutable release payloads')
     parser.add_argument('--model-lock', type=Path, default=Path('data/phase2-models.json'))
     parser.add_argument('--isolated-runtime', action='store_true', help='use only the active Python environment, without models/runtime')
     parser.add_argument('--host', default='127.0.0.1', help='loopback only (127.0.0.1, localhost or ::1)')
@@ -75,12 +77,16 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def prepare_work_dir() -> Path:
+def prepare_work_dir(base: Path | None = None) -> Path:
     """data/audit-ui/ (git-ignored) and a fresh per-run directory. Refuses symlinks, foreign owners and unsafe pre-existing files."""
-    data = ROOT / 'data'
+    if base is not None:
+        from artifact_manager import no_links
+        base = no_links(base)
+        base.parent.mkdir(parents=True, exist_ok=True)
+    data = base.parent if base is not None else ROOT / 'data'
     if data.is_symlink() or not data.is_dir():
         raise SystemExit('refusing: data/ must be a real directory')
-    base = data / 'audit-ui'
+    base = base if base is not None else data / 'audit-ui'
     if base.is_symlink():
         raise SystemExit('refusing: data/audit-ui is a symlink')
     if base.exists():
@@ -142,7 +148,7 @@ def stop(process: subprocess.Popen) -> None:
 def require_artifacts(args) -> None:
     missing = []
     for path in (args.corpus_dir / 'chunks.jsonl', args.corpus_dir / 'provenance.json', args.ingest_report, args.original_provenance,
-                 args.sparse_index, args.vector_index, args.reranker_model / 'model.onnx', Path('data/sec/chunks.jsonl')):
+                 args.sparse_index, args.vector_index, args.reranker_model / 'model.onnx', args.artifact_root / 'data/sec/chunks.jsonl'):
         if not path.exists():
             missing.append(str(path))
     if missing:
@@ -177,14 +183,14 @@ def main(argv=None) -> int:
         raise SystemExit(str(exc))
     require_artifacts(args)
     print('Verifying checksums and provenance enrollment (hashes the corpus; this can take a moment)...', flush=True)
-    enrolled = enroll(root=ROOT, corpus_dir=args.corpus_dir, ingest_report=args.ingest_report, original_provenance=args.original_provenance, source_enrollment=args.source_enrollment)
+    enrolled = enroll(root=ROOT, corpus_dir=args.corpus_dir, ingest_report=args.ingest_report, original_provenance=args.original_provenance, source_enrollment=args.source_enrollment, artifact_root=args.artifact_root)
     print(f"Enrolled {enrolled['filings']} filings; corpus sha256 {enrolled['corpus_sha256'][:16]}...", flush=True)
     if args.check_only:
         return 0
     # Validate configuration before starting retrieval workers. No generation or network calls here.
     if not args.verify_retrieval:
         ClaudeJSON(model=args.model, timeout=args.model_timeout, concurrency=limits.MODEL_CONCURRENCY)
-    run = prepare_work_dir()
+    run = prepare_work_dir(args.work_dir)
     configure_logging(run)
     manifest = run / 'agent-provenance.json'
     fd = os.open(manifest, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)

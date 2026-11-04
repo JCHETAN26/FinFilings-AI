@@ -1,0 +1,24 @@
+{
+  "offline_tests": 68,
+  "download_tests": 9,
+  "generation_calls": 0,
+  "real_retrieval_passed": true,
+  "documents": 49147,
+  "filings": 152,
+  "reranked_ids": [
+    "000101872424000008#item7#passage-000015",
+    "000101872425000004#item7#passage-000020",
+    "000101872426000004#item7#passage-000021",
+    "000101872426000004#item8#passage-000065",
+    "000101872424000008#item8#passage-000005",
+    "000101872424000008#item8#passage-000065",
+    "000101872425000004#item8#passage-000063",
+    "000101872425000004#item8#passage-000005",
+    "000101872425000004#item8#passage-000007",
+    "000101872425000004#item8#passage-000030"
+  ],
+  "ordered_top10_unchanged": true,
+  "inference_workers": 4,
+  "threads": 2,
+  "bundle_uploaded": false
+}

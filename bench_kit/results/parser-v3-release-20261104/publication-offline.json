@@ -1,0 +1,12 @@
+{
+  "tests": 68,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [],
+  "denied_operations": [],
+  "generation_calls": 0,
+  "ipv6_availability_probes": 1,
+  "artifact_mode": "unit fixtures; no SEC/model bundle",
+  "clean_checkout": true,
+  "success": true
+}

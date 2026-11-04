@@ -11,7 +11,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-TESTS = ('test_setup', 'test_startup', 'test_audit_web_ui_static',
+TESTS = ('test_artifact_manager', 'test_managed_startup', 'test_setup', 'test_startup', 'test_audit_web_ui_static',
          'test_audit_web_app.StaticAssets', 'test_audit_web_app.Lifespan',
          'test_retrieval_storage', 'test_phase2.Contracts')
 
@@ -63,7 +63,7 @@ def main():
         raise SystemExit('Run with the bootstrapped virtual environment Python')
     with tempfile.TemporaryDirectory(prefix='finfilings CI checkout ') as tmp:
         root = Path(tmp)
-        for name in ('scripts', 'setup', 'py', 'bench_kit', 'ui'):
+        for name in ('scripts', 'setup', 'py', 'bench_kit', 'ui', 'releases'):
             shutil.copytree(ROOT / name, root / name,
                             ignore=shutil.ignore_patterns('results', '__pycache__', 'node_modules'))
         env = dict(os.environ, PYTHONPATH='', PYTHONNOUSERSITE='1', HF_HUB_OFFLINE='1',

@@ -1,0 +1,12 @@
+INFO Installing immutable release parser-v3-20261104
+INFO Payload verification passed for parser-v3-20261104
+{
+  "release_id": "parser-v3-20261104",
+  "status": "installed",
+  "activated": false,
+  "state": {
+    "active": "parser-v3-20261104",
+    "previous": null,
+    "version": 1
+  }
+}

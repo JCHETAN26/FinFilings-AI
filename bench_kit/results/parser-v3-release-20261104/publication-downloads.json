@@ -1,0 +1,10 @@
+{
+  "tests": 9,
+  "success": true,
+  "failures": 0,
+  "errors": 0,
+  "denied_operations": [],
+  "generation_calls": 0,
+  "max_http_workers_per_fixture": 1,
+  "fixture_ports_closed": true
+}

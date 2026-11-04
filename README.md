@@ -23,7 +23,7 @@ A Go and Python retrieval system for searching SEC filings, asking multi-step fi
 
 </div>
 
-For an isolated CPU install, portable parser-v3 artifacts, and a single startup command, see the [reproducible setup guide](docs/build/reproducible-setup.md). Setup verification requires no model-provider calls.
+For an isolated CPU install, portable parser-v3 artifacts, and a single startup command, see the [reproducible setup guide](docs/build/reproducible-setup.md). Setup verification requires no model-provider calls. Versioned delivery, activation and rollback are described in the [artifact manager guide](docs/build/versioned-artifacts.md).
 
 ## Overview
 

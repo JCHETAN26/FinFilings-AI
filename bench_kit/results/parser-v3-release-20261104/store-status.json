@@ -1,0 +1,9 @@
+{
+  "active": "parser-v3-20261104",
+  "previous": null,
+  "version": 1,
+  "installed": [
+    "parser-v3-20261104"
+  ],
+  "payload_verification": "not_run; use verify"
+}
