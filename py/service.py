@@ -6,11 +6,14 @@ from concurrent.futures import ThreadPoolExecutor
 import asyncio
 import json
 import heapq
+import logging
+import sqlite3
 import time
 from pathlib import Path
 import faiss
 import numpy as np
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 import uvicorn
 from common import Encoder, check_artifacts, open_store
@@ -204,6 +207,7 @@ def app_for(retrieval, executor, max_pending=64, workers=1, dense_batch_size=1, 
     budget = dict(limit=max_pending, active=0, peak=0, rejected=0)
     app.add_middleware(Admission, budget=budget)
     metrics = {}
+    storage = dict(healthy=True, failures=0, last_error_type=None)
     # At most `workers` active CPU model/FAISS requests, each pinned to its own
     # model replica; the admission budget and connection cap bound the queue.
     free = asyncio.Queue()
@@ -234,14 +238,22 @@ def app_for(retrieval, executor, max_pending=64, workers=1, dense_batch_size=1, 
             record['work_seconds'] += elapsed
             record['wait_seconds'] += began - queued
             record['max_work_seconds'] = max(record['max_work_seconds'], elapsed)
-            # Retrieve failures even when the client was cancelled.
+            # Inspect errors even if the caller disconnected; never hide disk failures.
             if not completed.cancelled():
-                completed.exception()
+                error = completed.exception()
+                if isinstance(error, (sqlite3.DatabaseError, OSError)):
+                    storage.update(healthy=False, failures=storage['failures']+1, last_error_type=type(error).__name__)
+                    record['storage_failures'] = record.get('storage_failures', 0) + 1
+                    logging.getLogger(__name__).error('retrieval_storage_failure operation=%s error_type=%s', function.__name__, type(error).__name__)
+                elif error is None:
+                    storage['healthy'] = True
             # Done callbacks run on the event loop thread, so the queue is safe here.
             free.put_nowait(worker)
         future.add_done_callback(finished)
         try:
             return await asyncio.shield(future)
+        except (sqlite3.DatabaseError, OSError) as exc:
+            raise HTTPException(status_code=503, detail='retrieval storage unavailable', headers={'Retry-After': '1'}) from exc
         except KeyError as exc:
             raise HTTPException(status_code=404, detail=str(exc)) from exc
         except ValueError as exc:
@@ -255,7 +267,7 @@ def app_for(retrieval, executor, max_pending=64, workers=1, dense_batch_size=1, 
 
     @app.get('/health')
     async def health():
-        return dict(status='ready', documents=retrieval.index.ntotal, corpus_sha256=retrieval.manifest['corpus_sha256'],
+        payload = dict(status='ready' if storage['healthy'] else 'degraded', storage=storage.copy(), documents=retrieval.index.ntotal, corpus_sha256=retrieval.manifest['corpus_sha256'],
                     encoder_revision=retrieval.encoder.lock['revision'], reranker_revision=retrieval.reranker.lock['revision'],
                     encoder_device=str(next(retrieval.encoder.model.parameters()).device),
                     reranker_device=retrieval.reranker.device,
@@ -266,6 +278,7 @@ def app_for(retrieval, executor, max_pending=64, workers=1, dense_batch_size=1, 
                         coordinators=workers if batcher else 0, trigger=dense_batch_trigger, active_requests=dense_active, fast_path_requests=dense_fast_requests,
                         pending=batcher.queue.qsize() if batcher else 0,
                         metrics=batcher.metrics.copy() if batcher else {}))
+        return payload if storage['healthy'] else JSONResponse(status_code=503, content=payload)
 
     @app.post('/dense')
     async def dense(request: DenseRequest):

@@ -1,0 +1,76 @@
+{
+  "verification": "passed",
+  "generation_calls": 0,
+  "health": [
+    {
+      "status": "ready",
+      "storage": {
+        "healthy": true,
+        "failures": 0,
+        "last_error_type": null
+      },
+      "documents": 49147,
+      "corpus_sha256": "7c9257673214d12b4d99355af53a9d8f7ebefe425f4d14de66528a6f7cf042ed",
+      "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+      "encoder_device": "cpu",
+      "reranker_device": "cpu",
+      "reranker_backend": "onnx-fp32",
+      "reranker_artifact_sha256": "72662ff447c2a26c1a89fd582111b215c7236ba7633f722f95ae87a944343c13",
+      "admission": {
+        "limit": 64,
+        "active": 0,
+        "peak": 0,
+        "rejected": 0
+      },
+      "inference_workers": 4,
+      "inference": {},
+      "threads": 2,
+      "rerank_batch_size": 1,
+      "rerank_length_bucketing": true,
+      "dense_batching": {
+        "batch_size": 8,
+        "wait_ms": 2.0,
+        "coordinators": 4,
+        "trigger": 8,
+        "active_requests": 0,
+        "fast_path_requests": 0,
+        "pending": 0,
+        "metrics": {
+          "submitted": 0,
+          "batches": 0,
+          "dispatched_requests": 0,
+          "cancelled_before_dispatch": 0,
+          "queue_peak": 0,
+          "max_batch_seen": 0,
+          "assembly_wait_seconds": 0.0,
+          "rejected": 0
+        }
+      }
+    },
+    {
+      "corpus_sha256": "7c9257673214d12b4d99355af53a9d8f7ebefe425f4d14de66528a6f7cf042ed",
+      "status": "ready"
+    }
+  ],
+  "reranked_ids": [
+    "000101872424000008#item7#passage-000015",
+    "000101872425000004#item7#passage-000020",
+    "000101872426000004#item7#passage-000021",
+    "000101872426000004#item8#passage-000065",
+    "000101872424000008#item8#passage-000005",
+    "000101872424000008#item8#passage-000065",
+    "000101872425000004#item8#passage-000063",
+    "000101872425000004#item8#passage-000005",
+    "000101872425000004#item8#passage-000007",
+    "000101872425000004#item8#passage-000030"
+  ],
+  "timings": {
+    "admission_seconds": 1.0299e-05,
+    "sparse_seconds": 0.000954506,
+    "dense_seconds": 0.901878868,
+    "fusion_seconds": 9.8607e-05,
+    "rerank_seconds": 5.587734762,
+    "total_seconds": 6.489744868
+  }
+}

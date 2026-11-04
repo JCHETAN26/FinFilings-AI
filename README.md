@@ -23,6 +23,8 @@ A Go and Python retrieval system for searching SEC filings, asking multi-step fi
 
 </div>
 
+For an isolated CPU install, portable parser-v3 artifacts, and a single startup command, see the [reproducible setup guide](docs/build/reproducible-setup.md). Setup verification requires no model-provider calls.
+
 ## Overview
 
 FinFilings AI helps analysts and developers investigate financial disclosures with an inspectable evidence trail. It combines a custom compressed search engine, semantic retrieval, and a bounded audit agent over SEC EDGAR filings.

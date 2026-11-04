@@ -12,3 +12,7 @@ __pycache__/
 .venv/
 # Per-request benchmark traces stay local; summaries and provenance are reviewable.
 /bench_kit/results/**/requests-*.csv
+
+# Restored local setup profile and artifact manifest.
+/setup-profile.json
+/bundle-manifest.json

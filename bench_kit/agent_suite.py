@@ -17,6 +17,8 @@ import traceback
 from typing import Any
 
 SCHEMA = 'finfilings-agent-suite/v1'
+COMPLETE_PARSER = 'deterministic-canonical-heading-v3-go'
+ENROLLMENT_MODES = ('legacy', 'complete_report')
 UNCLASSIFIED = 'Full filing (item not classified)'
 EXACT_SECTIONS = ('Item 1A', 'Item 7', 'Item 8')
 SECTION_COMPONENT = {'item1A': 'Item 1A', 'item7': 'Item 7', 'item8': 'Item 8', None: UNCLASSIFIED}
@@ -54,19 +56,82 @@ def normalize(text: str) -> str:
     return ' '.join(text.split())
 
 
-def build_trusted_sources(original_provenance: Path, ingest_report: Path) -> list[dict[str, Any]]:
-    """Trusted enrollment: original four filings plus every acquisition recorded in the ingestion report.
+def build_trusted_sources(original_provenance: Path, ingest_report: Path, *, mode: str = 'legacy') -> list[dict[str, Any]]:
+    """Explicit enrollment: historical original+expanded union, or complete pinned report.
 
-    Identical field mapping to the historical evaluate-expanded-agent.py enrollment. For a mixed-lineage report the
-    `download` block is the *current* raw identity; earlier identities live in the filing's `raw_identity_history`.
+    complete_report replaces original source identities only after matching their
+    immutable filing metadata. Current raw hashes come from the retained replay;
+    historical provenance is kept as an input, never silently deduplicated.
     """
-    sources = list(json.loads(Path(original_provenance).read_text())['sources'])
-    for filing in json.loads(Path(ingest_report).read_text())['filings']:
+    if mode not in ENROLLMENT_MODES:
+        raise ValueError('unknown source enrollment mode')
+    originals = json.loads(Path(original_provenance).read_text())['sources']
+    report = json.loads(Path(ingest_report).read_text())
+    sources = []
+    seen = set()
+    for filing in report['filings']:
         ref, download = filing['ref'], filing['download']
+        accession = ref['Accession'].replace('-', '')
+        if accession in seen:
+            raise ValueError('duplicate ingestion accession: ' + accession)
+        seen.add(accession)
         sources.append(dict(ticker=ref['Ticker'], cik=ref['CIK'], filing_year=int(ref['FilingDate'][:4]),
-            form=ref['Form'], url=download['url'], accession=ref['Accession'].replace('-', ''),
-            raw_sha256=download['sha256'], fiscal_period_end=ref['ReportDate']))
-    return sources
+            form=ref['Form'], url=download['url'], accession=accession,
+            raw_sha256=download['sha256'], fiscal_period_end=ref.get('ReportDate', '')))
+    if not 1 <= len(sources) <= 10000 or len({s['accession'] for s in originals}) != len(originals):
+        raise ValueError('invalid source enrollment size or duplicate originals')
+    by_accession = {s['accession']: s for s in sources}
+    overlap = set(by_accession) & {s['accession'] for s in originals}
+    if mode == 'legacy':
+        if overlap:
+            raise ValueError('overlapping original/report sources require explicit complete_report enrollment')
+        return list(originals) + sources
+    validate_complete_report(ingest_report)
+    if overlap != {s['accession'] for s in originals}:
+        raise ValueError('complete report omits original filings')
+    for old in originals:
+        current = by_accession[old['accession']]
+        for field in ('ticker', 'cik', 'filing_year', 'form', 'url'):
+            if current[field] != old[field]:
+                raise ValueError('replacement filing identity changed: ' + old['accession'] + '/' + field)
+    # Preserve the historical catalog order while taking EVERY identity from the new report.
+    original_ids = {s['accession'] for s in originals}
+    return [by_accession[s['accession']] for s in originals] + [s for s in sources if s['accession'] not in original_ids]
+
+
+def validate_complete_report(path: Path) -> dict[str, Any]:
+    """Check complete replay integrity from retained raw bytes; no network/model calls."""
+    path = Path(path)
+    report = json.loads(path.read_text())
+    if (report.get('version') != 1 or report.get('parser') != COMPLETE_PARSER
+            or report.get('raw_retained') is not True or report.get('skipped')
+            or not 1 <= len(report.get('filings', [])) <= 10000):
+        raise ValueError('complete enrollment requires a retained, unskipped parser-v3 replay')
+    seen = set()
+    sections = collections.Counter()
+    for filing in report['filings']:
+        ref, download, parsed = filing['ref'], filing['download'], filing['parse']
+        accession = ref['Accession']
+        if not re.fullmatch(r'\d{18}', accession) or accession in seen:
+            raise ValueError('invalid/duplicate complete-report accession')
+        seen.add(accession)
+        if not re.fullmatch(r'\d{1,10}', ref['CIK']) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,127}', ref['PrimaryDocument']):
+            raise ValueError('invalid complete-report CIK/document')
+        expected_url = f"https://www.sec.gov/Archives/edgar/data/{ref['CIK']}/{accession}/{ref['PrimaryDocument']}"
+        raw = path.parent / 'raw' / (accession + '.raw')
+        if (download['url'] != expected_url or not re.fullmatch(r'[0-9a-f]{64}', download['sha256'])
+                or parsed['parser'] != COMPLETE_PARSER or parsed['raw_sha256'] != download['sha256']
+                or parsed['raw_bytes'] != download['bytes'] or raw.is_symlink() or raw.parent.is_symlink() or raw.stat().st_size != download['bytes']
+                or sha256_file(raw) != download['sha256']):
+            raise ValueError('complete-report raw/source identity mismatch: ' + accession)
+        if set(parsed['sections']) != set(EXACT_SECTIONS) or any(v['chunks'] <= 0 for v in parsed['sections'].values()):
+            raise ValueError('complete report lacks a supported major section')
+        if parsed['chunks'] != sum(v['chunks'] for v in parsed['sections'].values()):
+            raise ValueError('complete-report filing count mismatch')
+        sections.update({k:v['chunks'] for k,v in parsed['sections'].items()})
+    if report['chunks'] != sum(sections.values()) or report['sections'] != dict(sections):
+        raise ValueError('complete-report totals mismatch')
+    return dict(mode='complete_retained_raw', parsers={COMPLETE_PARSER:len(seen)}, retained_raw_files_verified=len(seen))
 
 
 LINEAGE_SCHEMA = 'finfilings-ingest-lineage/v1'
@@ -84,6 +149,8 @@ def check_report_lineage(report_path: Path, root: Path) -> tuple[dict[str, Any],
     report = json.loads(report_path.read_text())
     parsers = collections.Counter(f['parse']['parser'] for f in report['filings'])
     lineage = report.get('lineage')
+    if lineage is None and report.get('raw_retained') is True:
+        return validate_complete_report(report_path), []
     if lineage is None:
         problems = [f'ingestion report mixes parsers {dict(parsers)} without a lineage declaration'] if len(parsers) > 1 else []
         return dict(mode='single_parser', parsers=dict(parsers)), problems

@@ -20,7 +20,10 @@ def sha256(path):
 
 
 def lock_model(lock_path, name):
-    lock = json.loads(Path(lock_path).read_text())[name]
+    lock_path = Path(lock_path).resolve()
+    lock = json.loads(lock_path.read_text())[name]
+    if not Path(lock['path']).is_absolute():
+        lock['path'] = str((lock_path.parent / lock['path']).resolve())
     if not lock.get('revision') or not Path(lock['path']).is_dir():
         raise ValueError(f'missing pinned local snapshot: {name}')
     if not lock.get('weights_sha256') or sha256(Path(lock['path']) / 'model.safetensors') != lock['weights_sha256']:
@@ -56,8 +59,12 @@ class Encoder:
 
 def open_store(path):
     connection = sqlite3.connect(Path(path).resolve().as_uri() + '?mode=ro', uri=True)
-    connection.execute('PRAGMA query_only=ON')
-    connection.execute('PRAGMA cache_size=-4096')
+    try:
+        connection.execute('PRAGMA query_only=ON')
+        connection.execute('PRAGMA cache_size=-4096')
+    except BaseException:
+        connection.close()
+        raise
     return connection
 
 

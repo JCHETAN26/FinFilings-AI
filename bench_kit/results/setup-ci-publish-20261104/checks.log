@@ -1,0 +1,58 @@
+/tmp/finfilings-bootstrap-verified/lib/python3.10/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_corruption_writes_nothing (test_setup.BundleTests) ... ok
+test_destination_symlink (test_setup.BundleTests) ... ok
+test_portable_export_can_be_exported_again (test_setup.BundleTests) ... ok
+test_restore_and_refuse_overwrite (test_setup.BundleTests) ... ok
+test_traversal_and_links (test_setup.BundleTests) ... ok
+test_check_only_exits_before_provider_or_process_creation (test_startup.Startup) ... {"bundle": "/tmp/tmpe3wros01/first.tar", "bytes": 20480, "sha256": "ba5d8fdd5d2845ce0e2f1eadb8e5ed4a9b22165022f8214574c286b3dd5787c0"}
+{"restored_files": 11, "root": "/tmp/tmpe3wros01/fresh"}
+{"bundle": "/tmp/tmpe3wros01/second.tar", "bytes": 20480, "sha256": "0e685ccc78ee598516d50b12951621cb293cb8cb3062fe515727ac6f2c26c772"}
+{"restored_files": 11, "root": "/tmp/tmpe3wros01/second"}
+{"restored_files": 2, "root": "/tmp/tmpbsvflox8/fresh checkout"}
+Verifying checksums and provenance enrollment (hashes the corpus; this can take a moment)...
+Enrolled 1 filings; corpus sha256 aaaaaaaaaaaaaaaa...
+ok
+test_invalid_profile_never_starts_process (test_startup.Startup) ... ok
+test_native_cpu_artifacts_roundtrip (test_startup.Startup) ... ok
+test_packaged_start_preserves_interpreter_and_clears_overlay (test_startup.Startup) ... ok
+test_relative_model_lock_uses_its_parent_not_cwd (test_startup.Startup) ... ok
+test_start_refuses_global_python (test_startup.Startup) ... ok
+test_allowed_hosts_are_exact (test_audit_web_ui_static.BindPolicy) ... ok
+test_non_loopback_binds_are_refused (test_audit_web_ui_static.BindPolicy) ... ok
+test_ports_are_validated (test_audit_web_ui_static.BindPolicy) ... ok
+test_uvicorn_ingress_bounds (test_audit_web_ui_static.BindPolicy) ... ok
+test_checksum_mismatch_between_report_and_corpus_provenance_is_refused (test_audit_web_ui_static.Enrollment) ... ok
+test_documented_defaults_match_the_requested_current_v3_artifacts (test_audit_web_ui_static.LauncherSafety) ... ok
+test_exit_classification_separates_operator_stops_from_failures (test_audit_web_ui_static.LauncherSafety) ... ok
+test_launcher_has_no_network_fetch_or_kill_by_name (test_audit_web_ui_static.LauncherSafety) ... ok
+test_missing_artifacts_are_reported_not_downloaded (test_audit_web_ui_static.LauncherSafety) ... ok
+test_startup_timeout_must_be_finite_and_between_1_and_600 (test_audit_web_ui_static.LauncherSafety) ... ok
+test_stop_ends_only_the_process_group_it_owns (test_audit_web_ui_static.LauncherSafety) ... ok
+test_stop_signals_only_the_child_when_it_is_not_a_group_leader (test_audit_web_ui_static.LauncherSafety) ... ok
+test_symlinked_or_foreign_or_stray_files_are_refused (test_audit_web_ui_static.LauncherSafety) ... ok
+test_work_dir_is_created_fresh_and_private (test_audit_web_ui_static.LauncherSafety) ... ok
+test_every_element_id_used_by_the_script_exists_once_in_the_page (test_audit_web_ui_static.StaticAssets) ... ok
+test_javascript_never_parses_markup_or_persists_results (test_audit_web_ui_static.StaticAssets) ... ok
+test_javascript_parses (test_audit_web_ui_static.StaticAssets) ... ok
+test_no_inline_script_style_handlers_or_external_resources (test_audit_web_ui_static.StaticAssets) ... ok
+test_only_real_statuses_are_displayed (test_audit_web_ui_static.StaticAssets) ... ok
+test_required_controls_and_accessibility_labels_exist (test_audit_web_ui_static.StaticAssets) ... ok
+test_missing_asset_fails_startup_explicitly (test_audit_web_app.StaticAssets) ... ok
+test_missing_paths_traversal_and_docs_routes_are_404 (test_audit_web_app.StaticAssets) ... ok
+test_only_the_four_fixed_assets_are_served_with_correct_types (test_audit_web_app.StaticAssets) ... ok
+test_server_shutdown_cancels_and_awaits_the_audit_before_closing_resources (test_audit_web_app.Lifespan) ... ok
+test_failed_connection_initialization_closes_connection (test_retrieval_storage.StorageContracts) ... ok
+test_http_storage_failure_is_degraded_and_recovers_without_retry (test_retrieval_storage.StorageContracts) ... retrieval_storage_failure operation=dense error_type=OperationalError
+retrieval_storage_failure operation=dense error_type=OSError
+ok
+test_artifact_corruption_detected (test_phase2.Contracts) ... ok
+test_chunked_body_limit_without_invoking_inference (test_phase2.Contracts) ... ok
+test_model_weights_checksum_is_required (test_phase2.Contracts) ... ok
+test_request_budgets (test_phase2.Contracts) ... ok
+test_uniform_table_rendering (test_phase2.Contracts) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.611s
+
+OK

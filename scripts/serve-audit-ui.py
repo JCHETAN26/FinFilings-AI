@@ -57,6 +57,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     for name, default in DEFAULTS.items():
         parser.add_argument('--' + name.replace('_', '-'), type=Path, default=Path(default), help=f'default: {default}')
+    parser.add_argument('--model-lock', type=Path, default=Path('data/phase2-models.json'))
+    parser.add_argument('--isolated-runtime', action='store_true', help='use only the active Python environment, without models/runtime')
     parser.add_argument('--host', default='127.0.0.1', help='loopback only (127.0.0.1, localhost or ::1)')
     parser.add_argument('--port', type=int, default=8766, help='UI port (default 8766)')
     parser.add_argument('--tunnel-local-port', type=int, action='append', default=[],
@@ -67,6 +69,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--model-timeout', type=float, default=180, help='seconds per model call, max 180')
     parser.add_argument('--startup-timeout', type=startup_seconds, default=180, help='seconds to wait for the retrieval services, 1..600 (default 180)')
     parser.add_argument('--browser', action=argparse.BooleanOptionalAction, default=False, help='open a browser tab once ready (default: --no-browser)')
+    parser.add_argument('--source-enrollment', choices=('legacy','complete_report'), default='legacy', help='explicit source identity policy; complete_report uses only the retained all-v3 report')
+    parser.add_argument('--verify-retrieval', action='store_true', help='start bounded services, execute one real hybrid query, then stop without constructing a model provider')
     parser.add_argument('--check-only', action='store_true', help='validate artifacts and provenance enrollment, then exit without starting anything')
     return parser
 
@@ -158,10 +162,12 @@ def main(argv=None) -> int:
     os.chdir(ROOT)
     os.umask(0o077)
     runtime_dir = ROOT / 'models/runtime'
-    sys.path[:0] = [str(runtime_dir), str(ROOT / 'py')]
+    python_paths = [str(ROOT / 'py')] if args.isolated_runtime else [str(runtime_dir), str(ROOT / 'py')]
+    sys.path[:0] = python_paths
     from audit_web import limits
     from audit_web.enrollment import enroll
     from audit_web.runtime import build_runtime
+    from agent.provider import ClaudeJSON
     from audit_web.server import serve, validate_bind
     if not 1 <= args.job_timeout <= limits.JOB_TIMEOUT_MAX_SECONDS or not 1 <= args.model_timeout <= limits.MODEL_TIMEOUT_MAX_SECONDS:
         raise SystemExit('--job-timeout must be 1..600 and --model-timeout 1..180 seconds')
@@ -171,10 +177,13 @@ def main(argv=None) -> int:
         raise SystemExit(str(exc))
     require_artifacts(args)
     print('Verifying checksums and provenance enrollment (hashes the corpus; this can take a moment)...', flush=True)
-    enrolled = enroll(root=ROOT, corpus_dir=args.corpus_dir, ingest_report=args.ingest_report, original_provenance=args.original_provenance)
+    enrolled = enroll(root=ROOT, corpus_dir=args.corpus_dir, ingest_report=args.ingest_report, original_provenance=args.original_provenance, source_enrollment=args.source_enrollment)
     print(f"Enrolled {enrolled['filings']} filings; corpus sha256 {enrolled['corpus_sha256'][:16]}...", flush=True)
     if args.check_only:
         return 0
+    # Validate configuration before starting retrieval workers. No generation or network calls here.
+    if not args.verify_retrieval:
+        ClaudeJSON(model=args.model, timeout=args.model_timeout, concurrency=limits.MODEL_CONCURRENCY)
     run = prepare_work_dir()
     configure_logging(run)
     manifest = run / 'agent-provenance.json'
@@ -183,7 +192,7 @@ def main(argv=None) -> int:
         json.dump(enrolled['manifest'], stream, indent=2)
     cache = private_cache('finfilings-go-cache')
     env = dict(os.environ, HF_HOME=str(ROOT / 'models/hf-cache'), HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', HF_DATASETS_OFFLINE='1',
-               PYTHONPATH=os.pathsep.join([str(runtime_dir), str(ROOT / 'py')]), OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='2', NUMBA_NUM_THREADS='4',
+               PYTHONPATH=os.pathsep.join(python_paths), PYTHONNOUSERSITE='1', OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='2', NUMBA_NUM_THREADS='4',
                GOCACHE=str(cache), GOPROXY='off', GOFLAGS='-mod=readonly', GOTOOLCHAIN='local')
     bridge_binary = run / 'bridge'
     processes, logs = [], []
@@ -199,7 +208,7 @@ def main(argv=None) -> int:
         bridge_port = free_port({args.port, sidecar_port})
         sidecar, backend = f'http://127.0.0.1:{sidecar_port}', f'http://127.0.0.1:{bridge_port}'
         commands = [
-            ('sidecar', [sys.executable, '-u', 'py/service.py', '--index', str(args.vector_index), '--port', str(sidecar_port),
+            ('sidecar', [sys.executable, '-u', 'py/service.py', '--index', str(args.vector_index), '--model-lock', str(args.model_lock), '--port', str(sidecar_port),
                          '--inference-workers', '4', '--threads', '2', '--reranker-onnx', str(args.reranker_model), '--rerank-batch-size', '1',
                          '--dense-batch-size', '8', '--dense-batch-trigger', '8', '--dense-batch-wait-ms', '2']),
             ('bridge', [str(bridge_binary), '-mode', 'serve', '-index', str(args.sparse_index), '-sidecar', sidecar, '-listen', f'127.0.0.1:{bridge_port}'])]
@@ -221,6 +230,17 @@ def main(argv=None) -> int:
                 if time.monotonic() > deadline:
                     raise TimeoutError('retrieval services did not become ready in time')
                 time.sleep(0.25)
+        if args.verify_retrieval:
+            request = urllib.request.Request(backend + '/search',
+                data=json.dumps(dict(query='Amazon cloud AWS operating income', rerank=True)).encode(),
+                headers={'Content-Type': 'application/json'}, method='POST')
+            with urllib.request.urlopen(request, timeout=120) as response:
+                result = json.load(response)
+            if not result.get('reranked'):
+                raise RuntimeError('retrieval smoke check returned no reranked evidence')
+            print(json.dumps(dict(verification='passed', health=health, result=result, generation_calls=0)), flush=True)
+            status['status'] = 'verified'
+            return 0
         runtime = build_runtime(corpus=enrolled['corpus'], provenance=manifest, backend_url=backend, expected_corpus_sha256=enrolled['corpus_sha256'],
                                 model=args.model, agent_mode=args.agent_mode, job_timeout=args.job_timeout, model_timeout=args.model_timeout)
         status['status'] = 'serving'

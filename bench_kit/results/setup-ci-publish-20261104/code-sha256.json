@@ -1,0 +1,15 @@
+{
+  ".github/workflows/setup.yml": "da3dd8d5a5ff6709d1c6198d88f9e501d255ab86808c6b62b15fbd1096911a84",
+  "scripts/bootstrap.py": "54fb7fe60876ab4ce4f54e83f76e6d94a8bf6bccda2439520ac65ced5fddd4ec",
+  "scripts/check-setup-ci.py": "cefb8f732a559feced399a2cec67b85c352dcb25f98ac15a9fd8bc11071b7c7b",
+  "scripts/setup-artifacts.py": "d95f4d567081e8608e477925f037ea3300cbcad443e425c2e83c3e5ac54ec076",
+  "scripts/start.py": "41d2aa523bcd7c221739287086a58b095a0959e2a53d0464692235651b43bc62",
+  "scripts/serve-audit-ui.py": "5cd96bcf7462815258d41e2a933dba3d6ed5e691cfb9b6ad78799eed8cabe2ef",
+  "setup/test_setup.py": "7d5aa7ce8a602a89a486a0be453ae92fa411d298670888511d501ef6b588b4bf",
+  "setup/test_startup.py": "025429db4dee508e6d00904678b93a592c6015e14c026c9ce55cf7a5c3aa4c82",
+  "setup/runtime-linux-x86_64-py310.lock": "109ea036cedadd4a84875de5ff9bcfe2b5124b46260fcbf03dc083bc3f7beab1",
+  "py/common.py": "24e2fb22ac446d7943fb9fdba84fed344c3446db8d80b29d78c9705b1fb746aa",
+  "py/service.py": "337e351e56e31bf62f95b22f9e02083cc4a3583ac3c9d75fe3a97376faa63c20",
+  "py/audit_web/enrollment.py": "b3d97135f4ece77e2150cbe0d5b7b41da678d3bda4ed0acdbbf851f582a165bb",
+  "bench_kit/agent_suite.py": "c6a7fe4b3b1e068e34fabe9cb81742e2e8e6ee54823ef01a17608bab8db6c557"
+}

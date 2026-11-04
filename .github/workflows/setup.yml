@@ -1,0 +1,71 @@
+name: Setup and startup CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: setup-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  setup-checks:
+    name: Fresh CPU install and offline startup checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONNOUSERSITE: '1'
+      PYTHONPATH: ''
+      HF_HUB_OFFLINE: '1'
+      TRANSFORMERS_OFFLINE: '1'
+      HF_DATASETS_OFFLINE: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      NUMBA_NUM_THREADS: '2'
+      TOKENIZERS_PARALLELISM: 'false'
+      GOMAXPROCS: '2'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python 3.10
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.10'
+      - name: Set up Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+          cache: false
+      - name: Install the exact CPU runtime into a fresh environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/setup-logs"
+          python scripts/bootstrap.py --venv "$RUNNER_TEMP/finfilings-venv" 2>&1 | tee "$RUNNER_TEMP/setup-logs/bootstrap.log"
+      - name: Check artifacts, startup, native libraries and UI offline
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/finfilings-venv/bin/python" scripts/check-setup-ci.py --report "$RUNNER_TEMP/setup-logs/verification.json" 2>&1 | tee "$RUNNER_TEMP/setup-logs/checks.log"
+      - name: Build the startup bridge without downloading Go dependencies
+        shell: bash
+        env:
+          GOPROXY: 'off'
+          GOTOOLCHAIN: local
+          GOFLAGS: '-mod=readonly'
+        run: go build -o "$RUNNER_TEMP/finfilings-bridge" ./cmd/finfilings
+      - name: Save verification logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: setup-verification
+          path: ${{ runner.temp }}/setup-logs/
+          if-no-files-found: warn
+          retention-days: 7
